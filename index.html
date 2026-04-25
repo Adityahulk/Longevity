@@ -1,0 +1,1814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tessera — Measure how fast you're aging. Then change it.</title>
+<meta name="description" content="A 90-day metabolic performance program for urban professionals. Measure your biological age. Run a personalized, evidence-based protocol. Re-measure. See the change.">
+
+<!-- Fonts: serif display + clean sans + mono for data -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream:        #F5F1E8;
+  --cream-dark:   #EDE7D9;
+  --paper:        #FBF8F1;
+  --ink:          #0E1B2C;
+  --ink-soft:     #1F2D40;
+  --ink-mute:     #4A5668;
+  --ink-fade:     #7A8497;
+  --rule:         #C8BFA8;
+  --rule-soft:    #DCD3BC;
+  --accent:       #B85426; /* burnt orange */
+  --accent-warm:  #D17244;
+  --leaf:         #2F5D3C;
+  --gold:         #8B6914;
+  --serif:        'Fraunces', Georgia, serif;
+  --sans:         'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono:         'JetBrains Mono', ui-monospace, monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--ink);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* Subtle paper texture */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(184, 84, 38, 0.025) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(47, 93, 60, 0.02) 0%, transparent 50%);
+  z-index: 0;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+.narrow { max-width: 880px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+
+/* ─────────── NAV ─────────── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(245, 241, 232, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 0.5px solid var(--rule-soft);
+  padding: 18px 0;
+}
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-mark {
+  width: 22px;
+  height: 22px;
+  position: relative;
+}
+.logo-mark::before, .logo-mark::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+}
+.logo-mark::after {
+  inset: 5px;
+  background: var(--accent);
+  border: none;
+}
+.nav-links {
+  display: flex;
+  gap: 36px;
+  align-items: center;
+}
+.nav-links a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  transition: color 0.2s;
+  position: relative;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-links a:not(.cta-link)::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+.nav-links a:not(.cta-link):hover::after { width: 100%; }
+.cta-link {
+  background: var(--ink);
+  color: var(--cream) !important;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.cta-link:hover {
+  background: var(--accent);
+  transform: translateY(-1px);
+}
+.mobile-toggle { display: none; }
+
+/* ─────────── HERO ─────────── */
+.hero {
+  padding: 100px 0 80px;
+  position: relative;
+}
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(48px, 7vw, 88px);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  margin-bottom: 32px;
+  color: var(--ink);
+}
+.hero h1 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent);
+}
+.hero h1 .underline-word {
+  position: relative;
+  white-space: nowrap;
+}
+.hero h1 .underline-word::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: var(--accent);
+  opacity: 0.18;
+  z-index: -1;
+}
+.hero-lede {
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 640px;
+  margin-bottom: 44px;
+  font-weight: 400;
+}
+.hero-cta-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 70px;
+}
+.btn-primary {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 16px 32px;
+  border: none;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-primary:hover {
+  background: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(184, 84, 38, 0.2);
+}
+.btn-primary svg { transition: transform 0.25s; }
+.btn-primary:hover svg { transform: translateX(4px); }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  padding: 16px 24px;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--ink);
+  border-radius: 0;
+  padding-bottom: 8px;
+}
+.btn-secondary:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* Hero stats strip */
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  padding-top: 36px;
+  margin-top: 20px;
+}
+.stat {
+  padding-right: 24px;
+  border-right: 0.5px solid var(--rule-soft);
+}
+.stat:last-child { border-right: none; }
+.stat-num {
+  font-family: var(--serif);
+  font-size: 38px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-num sup {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 400;
+  vertical-align: super;
+  margin-left: 2px;
+}
+.stat-label {
+  font-size: 12px;
+  color: var(--ink-mute);
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+/* ─────────── PROBLEM SECTION ─────────── */
+.section { padding: 100px 0; position: relative; }
+.section-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--ink-fade);
+  margin-bottom: 16px;
+  display: block;
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(34px, 4.5vw, 52px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin-bottom: 24px;
+  color: var(--ink);
+}
+.section-title em { font-style: italic; color: var(--accent); font-weight: 300; }
+.section-lede {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 680px;
+  margin-bottom: 56px;
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule-soft);
+  border: 1px solid var(--rule-soft);
+}
+.problem-card {
+  background: var(--paper);
+  padding: 40px;
+  position: relative;
+}
+.problem-card-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  margin-bottom: 20px;
+}
+.problem-card h3 {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 14px;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.problem-card p {
+  font-size: 15px;
+  color: var(--ink-mute);
+  line-height: 1.6;
+}
+
+/* ─────────── HOW IT WORKS ─────────── */
+.how {
+  padding: 100px 0;
+  background: var(--paper);
+  border-top: 1px solid var(--rule-soft);
+  border-bottom: 1px solid var(--rule-soft);
+  position: relative;
+}
+.how::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    linear-gradient(to right, var(--rule-soft) 0.5px, transparent 0.5px);
+  background-size: 80px 100%;
+  opacity: 0.3;
+  pointer-events: none;
+}
+.how-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: end;
+  margin-bottom: 80px;
+  gap: 60px;
+  position: relative;
+}
+.how-aside {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--ink-mute);
+  line-height: 1.5;
+  padding-left: 24px;
+  border-left: 2px solid var(--accent);
+}
+
+.timeline {
+  position: relative;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 28px;
+  top: 60px;
+  bottom: 60px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent), var(--rule));
+}
+.step {
+  display: grid;
+  grid-template-columns: 80px 1fr 320px;
+  gap: 60px;
+  align-items: start;
+  margin-bottom: 80px;
+  position: relative;
+}
+.step:last-child { margin-bottom: 0; }
+.step-num {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+  position: relative;
+  z-index: 2;
+  margin-left: 0;
+}
+.step:nth-child(1) .step-num { background: var(--accent); color: var(--cream); border-color: var(--accent); }
+.step:nth-child(2) .step-num { background: var(--leaf); color: var(--cream); border-color: var(--leaf); }
+.step:nth-child(3) .step-num { background: var(--gold); color: var(--cream); border-color: var(--gold); }
+.step:nth-child(4) .step-num { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+
+.step-content {
+  padding-top: 4px;
+}
+.step-week {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--ink-fade);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.step-title {
+  font-family: var(--serif);
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+  color: var(--ink);
+}
+.step-desc {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink-mute);
+}
+.step-desc strong { color: var(--ink); font-weight: 500; }
+.step-detail-card {
+  background: var(--cream);
+  border: 0.5px solid var(--rule);
+  padding: 24px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  line-height: 1.85;
+  color: var(--ink-mute);
+}
+.step-detail-card .detail-label {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  border-bottom: 0.5px dashed var(--rule-soft);
+}
+.step-detail-card .detail-label:last-child { border-bottom: none; }
+.step-detail-card .detail-label span:first-child { color: var(--ink-mute); }
+.step-detail-card .detail-label span:last-child { color: var(--ink); font-weight: 500; }
+
+/* ─────────── PROOF / DATA SHOWCASE ─────────── */
+.proof-section { padding: 120px 0; }
+.proof-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* Data visualization card */
+.data-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 32px;
+  position: relative;
+}
+.data-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 16px;
+  border-bottom: 0.5px solid var(--rule-soft);
+  margin-bottom: 24px;
+}
+.data-card-title {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.data-card-meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ink-fade);
+  letter-spacing: 0.05em;
+}
+.bio-age-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.bio-age-cell {
+  text-align: left;
+}
+.bio-age-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-fade);
+  margin-bottom: 8px;
+}
+.bio-age-num {
+  font-family: var(--serif);
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 0.9;
+  color: var(--ink);
+  margin-bottom: 6px;
+  letter-spacing: -0.03em;
+}
+.bio-age-after .bio-age-num { color: var(--leaf); }
+.bio-age-unit {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-mute);
+}
+
+/* Biomarker rows */
+.biomarker-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.biomarker-table th {
+  text-align: left;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--rule);
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-fade);
+}
+.biomarker-table th:nth-child(2),
+.biomarker-table th:nth-child(3) { text-align: right; }
+.biomarker-table th:last-child { text-align: right; }
+.biomarker-table td {
+  padding: 11px 0;
+  border-bottom: 0.5px solid var(--rule-soft);
+  color: var(--ink);
+}
+.biomarker-table td:nth-child(2),
+.biomarker-table td:nth-child(3) { text-align: right; color: var(--ink-mute); }
+.biomarker-table td:last-child {
+  text-align: right;
+  font-weight: 500;
+}
+.delta-good { color: var(--leaf); }
+.delta-strong { color: var(--leaf); font-weight: 600; }
+.delta-mild { color: var(--gold); }
+
+/* ─────────── DIFFERENTIATOR / WHO IT'S FOR ─────────── */
+.who-section {
+  padding: 100px 0;
+  background: var(--ink);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.who-section::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(184, 84, 38, 0.15), transparent 60%);
+  pointer-events: none;
+}
+.who-section .section-num { color: var(--accent-warm); }
+.who-section .section-title { color: var(--cream); }
+.who-section .section-title em { color: var(--accent-warm); }
+.who-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  margin-top: 64px;
+}
+.who-col h4 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 0.5px solid rgba(245, 241, 232, 0.2);
+}
+.who-col-yes h4 { color: var(--accent-warm); }
+.who-col-no h4 { color: var(--ink-fade); }
+.who-list { list-style: none; }
+.who-list li {
+  padding: 14px 0;
+  font-size: 16px;
+  line-height: 1.5;
+  border-bottom: 0.5px solid rgba(245, 241, 232, 0.08);
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.who-list li:last-child { border-bottom: none; }
+.who-list li::before {
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+.who-col-yes li::before {
+  content: '';
+  width: 12px;
+  height: 1.5px;
+  background: var(--accent-warm);
+}
+.who-col-no li::before {
+  content: '';
+  width: 12px;
+  height: 1.5px;
+  background: var(--ink-fade);
+  opacity: 0.5;
+}
+.who-col-no li { color: var(--ink-fade); }
+
+/* ─────────── PROTOCOL DEPTH ─────────── */
+.protocol-section {
+  padding: 120px 0;
+}
+.protocol-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule-soft);
+  border: 1px solid var(--rule-soft);
+  margin-top: 60px;
+}
+.protocol-card {
+  background: var(--cream);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: background 0.3s;
+}
+.protocol-card:hover { background: var(--paper); }
+.protocol-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.protocol-card h3 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--ink);
+  letter-spacing: -0.015em;
+}
+.protocol-card p {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-mute);
+}
+.protocol-list {
+  list-style: none;
+  margin-top: 4px;
+  padding-top: 16px;
+  border-top: 0.5px solid var(--rule-soft);
+}
+.protocol-list li {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--ink-mute);
+  padding: 5px 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.5px dashed var(--rule-soft);
+}
+.protocol-list li:last-child { border-bottom: none; }
+.protocol-list li span:last-child { color: var(--ink); font-weight: 500; }
+
+/* ─────────── PRICING ─────────── */
+.pricing-section { padding: 120px 0; background: var(--paper); border-top: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); }
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 64px;
+}
+.price-card {
+  background: var(--cream);
+  border: 1px solid var(--rule-soft);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.price-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--rule);
+  box-shadow: 0 12px 32px rgba(14, 27, 44, 0.06);
+}
+.price-card.featured {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--cream);
+}
+.price-card.featured::before {
+  content: 'MOST CHOSEN';
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.15em;
+  color: var(--accent-warm);
+  padding: 4px 8px;
+  border: 0.5px solid var(--accent-warm);
+  border-radius: 99px;
+}
+.price-tier {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 16px;
+}
+.price-card.featured .price-tier { color: var(--accent-warm); }
+.price-name {
+  font-family: var(--serif);
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 8px;
+  letter-spacing: -0.015em;
+}
+.price-duration {
+  font-size: 13px;
+  color: var(--ink-fade);
+  margin-bottom: 28px;
+}
+.price-card.featured .price-duration { color: var(--ink-fade); }
+.price-amount {
+  font-family: var(--serif);
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 6px;
+  letter-spacing: -0.025em;
+}
+.price-amount .currency {
+  font-size: 20px;
+  vertical-align: top;
+  margin-right: 4px;
+  font-weight: 400;
+  color: var(--ink-mute);
+}
+.price-card.featured .price-amount .currency { color: var(--ink-fade); }
+.price-billing {
+  font-size: 12px;
+  color: var(--ink-fade);
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 0.5px solid var(--rule-soft);
+}
+.price-card.featured .price-billing { border-color: rgba(245, 241, 232, 0.15); }
+.price-features {
+  list-style: none;
+  margin-bottom: 32px;
+  flex-grow: 1;
+}
+.price-features li {
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 8px 0;
+  color: var(--ink-soft);
+  display: flex;
+  gap: 12px;
+}
+.price-card.featured .price-features li { color: var(--cream); }
+.price-features li::before {
+  content: '';
+  width: 14px;
+  height: 14px;
+  margin-top: 5px;
+  flex-shrink: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath fill='none' stroke='%23B85426' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' d='M2 7l3.5 3.5L12 4'/%3E%3C/svg%3E");
+}
+.price-cta {
+  background: var(--ink);
+  color: var(--cream);
+  border: none;
+  padding: 14px 24px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+}
+.price-card.featured .price-cta {
+  background: var(--accent);
+  color: var(--cream);
+}
+.price-cta:hover { background: var(--accent); }
+.price-card.featured .price-cta:hover { background: var(--accent-warm); }
+
+/* ─────────── FAQ ─────────── */
+.faq-section { padding: 120px 0; }
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 80px;
+  align-items: start;
+}
+.faq-list {
+  border-top: 0.5px solid var(--rule);
+}
+.faq-item {
+  border-bottom: 0.5px solid var(--rule);
+  padding: 24px 0;
+  cursor: pointer;
+  transition: padding 0.2s;
+}
+.faq-item:hover { padding-left: 8px; }
+.faq-q {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+.faq-toggle {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 0.5px solid var(--rule);
+  background: transparent;
+  position: relative;
+  transition: all 0.3s;
+}
+.faq-toggle::before, .faq-toggle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 1px;
+  background: var(--ink);
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
+}
+.faq-toggle::after { transform: translate(-50%, -50%) rotate(90deg); }
+.faq-item.open .faq-toggle {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+.faq-item.open .faq-toggle::before,
+.faq-item.open .faq-toggle::after { background: var(--cream); }
+.faq-item.open .faq-toggle::after { transform: translate(-50%, -50%) rotate(0deg); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, margin-top 0.3s ease;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink-mute);
+  padding-right: 48px;
+}
+.faq-item.open .faq-a {
+  max-height: 400px;
+  margin-top: 14px;
+}
+
+/* ─────────── CTA SECTION ─────────── */
+.cta-section {
+  padding: 140px 0;
+  text-align: center;
+  background: var(--ink);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 30% 50%, rgba(184, 84, 38, 0.12), transparent 50%),
+    radial-gradient(circle at 70% 50%, rgba(47, 93, 60, 0.08), transparent 50%);
+  pointer-events: none;
+}
+.cta-content { position: relative; z-index: 2; }
+.cta-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--accent-warm);
+  margin-bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.cta-eyebrow::before, .cta-eyebrow::after {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--accent-warm);
+}
+.cta-section h2 {
+  font-family: var(--serif);
+  font-size: clamp(40px, 5.5vw, 64px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin-bottom: 32px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cta-section h2 em { font-style: italic; color: var(--accent-warm); font-weight: 300; }
+.cta-section p {
+  font-size: 18px;
+  color: var(--ink-fade);
+  max-width: 560px;
+  margin: 0 auto 48px;
+  line-height: 1.55;
+}
+.cta-form {
+  display: flex;
+  gap: 12px;
+  max-width: 480px;
+  margin: 0 auto 24px;
+  background: rgba(245, 241, 232, 0.05);
+  border: 0.5px solid rgba(245, 241, 232, 0.2);
+  border-radius: 999px;
+  padding: 6px;
+  transition: border-color 0.3s;
+}
+.cta-form:focus-within { border-color: var(--accent-warm); }
+.cta-form input {
+  flex-grow: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 12px 20px;
+  color: var(--cream);
+  font-family: var(--sans);
+  font-size: 14px;
+}
+.cta-form input::placeholder { color: var(--ink-fade); }
+.cta-form button {
+  background: var(--accent);
+  color: var(--cream);
+  border: none;
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.cta-form button:hover { background: var(--accent-warm); }
+.cta-fineprint {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-fade);
+  letter-spacing: 0.05em;
+}
+
+/* ─────────── FOOTER ─────────── */
+footer {
+  background: var(--cream);
+  padding: 64px 0 36px;
+  border-top: 1px solid var(--rule);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 48px;
+}
+.footer-brand {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer-tagline {
+  font-size: 14px;
+  color: var(--ink-mute);
+  line-height: 1.55;
+  max-width: 320px;
+}
+.footer-col h5 {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-fade);
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 12px; }
+.footer-col a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--accent); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 28px;
+  border-top: 0.5px solid var(--rule-soft);
+  font-size: 12px;
+  color: var(--ink-fade);
+  font-family: var(--mono);
+}
+.footer-disclaimer {
+  font-family: var(--sans);
+  font-size: 11px;
+  color: var(--ink-fade);
+  max-width: 800px;
+  line-height: 1.5;
+  margin-top: 16px;
+}
+
+/* ─────────── RESPONSIVE ─────────── */
+@media (max-width: 900px) {
+  .container, .narrow { padding: 0 24px; }
+  .nav-links { gap: 24px; }
+  .nav-links a:not(.cta-link) { display: none; }
+  .hero { padding: 60px 0 50px; }
+  .hero-stats { grid-template-columns: 1fr 1fr; gap: 24px; padding-top: 28px; }
+  .stat { padding: 0; border-right: none; padding-bottom: 24px; border-bottom: 0.5px solid var(--rule-soft); }
+  .stat:nth-last-child(-n+2) { border-bottom: none; padding-bottom: 0; }
+  .stat-num { font-size: 32px; }
+  .section { padding: 70px 0; }
+  .problem-grid { grid-template-columns: 1fr; }
+  .how-header { grid-template-columns: 1fr; gap: 32px; }
+  .step { grid-template-columns: 56px 1fr; gap: 20px; margin-bottom: 50px; }
+  .step-detail-card { grid-column: 1 / -1; margin-left: 0; margin-top: 16px; }
+  .step-num { width: 44px; height: 44px; font-size: 18px; }
+  .timeline::before { left: 22px; }
+  .step-title { font-size: 24px; }
+  .proof-grid { grid-template-columns: 1fr; gap: 48px; }
+  .who-grid { grid-template-columns: 1fr; gap: 40px; }
+  .protocol-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; gap: 16px; }
+  .faq-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .cta-form { flex-direction: column; background: transparent; border: none; padding: 0; gap: 10px; }
+  .cta-form input { background: rgba(245, 241, 232, 0.05); border: 0.5px solid rgba(245, 241, 232, 0.2); border-radius: 999px; }
+  .cta-form button { width: 100%; padding: 16px; }
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out forwards;
+}
+.reveal:nth-child(1) { animation-delay: 0.1s; }
+.reveal:nth-child(2) { animation-delay: 0.2s; }
+.reveal:nth-child(3) { animation-delay: 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0s !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════ NAV ═══════ -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark"></span>
+      Tessera
+    </a>
+    <div class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#protocol">The protocol</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">Questions</a>
+      <a href="#book" class="cta-link">Book consultation</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-eyebrow reveal">A 90-day metabolic performance program</div>
+    <h1 class="reveal">
+      Measure how fast<br>
+      you're <em>actually aging.</em><br>
+      Then <span class="underline-word">change it.</span>
+    </h1>
+    <p class="hero-lede reveal">
+      Most people optimize their portfolio more rigorously than their biology. We run 50+ biomarkers,
+      calculate your biological age using validated science, and design a personalized intervention
+      protocol — then re-measure in 90 days. No guessing. No supplement marketing. Just data, delivered.
+    </p>
+    <div class="hero-cta-row reveal">
+      <a href="#book" class="btn-primary">
+        Book a free 30-min consultation
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href="#how" class="btn-secondary">See how it works</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">50+<sup>01</sup></div>
+        <div class="stat-label">Biomarkers analyzed across metabolic, cardiovascular, hormonal, and inflammatory systems</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">90<sup>02</sup></div>
+        <div class="stat-label">Days of structured intervention with bi-weekly check-ins and protocol adjustments</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">2<sup>03</sup></div>
+        <div class="stat-label">Biological age scores — one before, one after, calculated from validated peer-reviewed models</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%<sup>04</sup></div>
+        <div class="stat-label">Delivered remotely. Bloodwork at home. Consultations on video. Built for busy professionals.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PROBLEM ═══════ -->
+<section class="section">
+  <div class="narrow">
+    <span class="section-num">01 — The premise</span>
+    <h2 class="section-title">Your <em>standard health checkup</em> is built to find disease, not to optimize health.</h2>
+    <p class="section-lede">
+      The 12-marker corporate panel will catch you when you're already in trouble.
+      It won't tell you that your insulin is creeping, your inflammation is sub-clinical,
+      or that your apolipoprotein-B is laying down arterial plaque while your LDL "looks normal."
+    </p>
+  </div>
+
+  <div class="container" style="margin-top: 32px;">
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-card-num">PROBLEM I.</div>
+        <h3>You can't optimize what you don't measure.</h3>
+        <p>Most adults under 45 have no idea what their fasting insulin, HbA1c, ApoB, or hsCRP actually are — let alone whether they've moved over the last twelve months. You're navigating in the dark.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-num">PROBLEM II.</div>
+        <h3>Generic advice doesn't work because you're not generic.</h3>
+        <p>Your liver, your gut microbiome, your genetics, your training history, and your stress profile are not the same as the influencer telling you to do cold plunges. A protocol calibrated to <em>you</em> works. One borrowed from someone else mostly doesn't.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-num">PROBLEM III.</div>
+        <h3>"Wellness" has no accountability.</h3>
+        <p>You buy supplements, hire a trainer, try intermittent fasting, sleep eight hours — and at the end of the year, you have no idea what worked. The feedback loop is missing. Without it, you're guessing forever.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-num">PROBLEM IV.</div>
+        <h3>The good doctors don't have time to be coaches.</h3>
+        <p>Your physician has eleven minutes. They're not going to redesign your eating window, calibrate your zone-2 cardio, or tell you which three of your sixteen supplements are actually pulling weight. That's not what they're there for.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ HOW IT WORKS ═══════ -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="how-header">
+      <div>
+        <span class="section-num">02 — The protocol</span>
+        <h2 class="section-title">A <em>closed-loop system</em> for measuring and changing how you age.</h2>
+      </div>
+      <aside class="how-aside">
+        Measure → Intervene → Re-measure → Adapt. Most platforms stop at step one. We complete the loop, every 90 days.
+      </aside>
+    </div>
+
+    <div class="timeline">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <div class="step-week">Week 1 — Baseline</div>
+          <h3 class="step-title">Comprehensive assessment, at home.</h3>
+          <p class="step-desc">
+            A licensed phlebotomist visits you for a fasted blood draw. We run a panel of <strong>50+ biomarkers</strong> across metabolic, cardiovascular, hormonal, inflammatory, and nutrient systems — plus a 45-minute video intake covering your lifestyle, training, sleep, and stress. We pull your last two weeks of wearable data (Apple Watch, Oura, Whoop, Fitbit). We calculate your <strong>biological age</strong> using PhenoAge — a peer-reviewed, validated model.
+          </p>
+        </div>
+        <div class="step-detail-card">
+          <div class="detail-label"><span>Bloodwork panel</span><span>50+ markers</span></div>
+          <div class="detail-label"><span>Lipid sub-fractionation</span><span>ApoB, Lp(a), particle</span></div>
+          <div class="detail-label"><span>Glucose regulation</span><span>HbA1c, insulin, HOMA-IR</span></div>
+          <div class="detail-label"><span>Inflammation</span><span>hsCRP, IL-6, homocysteine</span></div>
+          <div class="detail-label"><span>Hormonal panel</span><span>Full thyroid, sex hormones</span></div>
+          <div class="detail-label"><span>Biological age model</span><span>PhenoAge (Levine, 2018)</span></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <div class="step-week">Weeks 2 — 10 — Intervention</div>
+          <h3 class="step-title">A protocol calibrated to your biology.</h3>
+          <p class="step-desc">
+            Your protocol covers four domains — <strong>nutrition, training, recovery, and supplementation</strong> — each calibrated to your specific numbers, not generic guidelines. Your nutritionist and program lead review your data with our medical advisor. You get bi-weekly 30-minute video check-ins, daily WhatsApp accountability, and protocol adjustments based on how your body actually responds.
+          </p>
+        </div>
+        <div class="step-detail-card">
+          <div class="detail-label"><span>Nutrition prescription</span><span>Macro + timing</span></div>
+          <div class="detail-label"><span>Cardiovascular training</span><span>Zone 2 + VO₂ max</span></div>
+          <div class="detail-label"><span>Resistance training</span><span>Frequency + load</span></div>
+          <div class="detail-label"><span>Sleep optimization</span><span>HRV-driven</span></div>
+          <div class="detail-label"><span>Supplement audit</span><span>Evidence-based only</span></div>
+          <div class="detail-label"><span>Check-in cadence</span><span>Bi-weekly + WhatsApp</span></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <div class="step-week">Day 90 — Re-measure</div>
+          <h3 class="step-title">The same panel. The new numbers.</h3>
+          <p class="step-desc">
+            We run the <strong>same 50+ biomarker panel</strong> at Day 90. Same lab, same fasted protocol, same time of day. We recalculate your biological age. We compare every marker, individually. You see exactly what moved, by how much, and which protocol elements drove the change. This is the moment most people have never had — proof that what they did, worked.
+          </p>
+        </div>
+        <div class="step-detail-card">
+          <div class="detail-label"><span>Repeat bloodwork</span><span>Same panel</span></div>
+          <div class="detail-label"><span>Biological age delta</span><span>Before / after</span></div>
+          <div class="detail-label"><span>Per-marker analysis</span><span>50+ comparisons</span></div>
+          <div class="detail-label"><span>Outcome report</span><span>20+ pages</span></div>
+          <div class="detail-label"><span>Doctor review call</span><span>60 minutes</span></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <div class="step-week">Day 91 — Adapt</div>
+          <h3 class="step-title">Continuation, calibration, or graduation.</h3>
+          <p class="step-desc">
+            Based on what worked, we either continue the protocol with refinements, escalate to a deeper program if some markers need more aggressive work, or graduate you to <strong>quarterly maintenance</strong> — light-touch monitoring, one bloodwork panel every 90 days, and protocol updates. Most clients renew. The ones who don't, leave with the system to maintain themselves.
+          </p>
+        </div>
+        <div class="step-detail-card">
+          <div class="detail-label"><span>Continuation rate</span><span>Tracked transparently</span></div>
+          <div class="detail-label"><span>Quarterly maintenance</span><span>Optional</span></div>
+          <div class="detail-label"><span>Data ownership</span><span>Always yours</span></div>
+          <div class="detail-label"><span>Lab provider</span><span>Hospital-grade</span></div>
+          <div class="detail-label"><span>Protocol library</span><span>Yours to keep</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PROOF / DATA SHOWCASE ═══════ -->
+<section class="proof-section">
+  <div class="container">
+    <div class="proof-grid">
+      <div>
+        <span class="section-num">03 — The proof</span>
+        <h2 class="section-title">Real results, real numbers, real people.</h2>
+        <p class="section-lede">
+          A representative outcome from our pilot cohort. Names changed. Numbers verified.
+          We don't show before-and-afters of physiques. We show the metabolic, cardiovascular,
+          and inflammatory markers that actually predict how long you'll live and how well.
+        </p>
+        <p style="font-size: 14px; color: var(--ink-mute); font-style: italic; line-height: 1.6;">
+          As we add cohorts, we'll publish anonymized aggregate outcomes. Individual case studies
+          are shared only with explicit written consent. Always.
+        </p>
+      </div>
+
+      <div class="data-card">
+        <div class="data-card-header">
+          <div>
+            <div class="data-card-title">Client #04</div>
+            <div style="font-family: var(--mono); font-size: 11px; color: var(--ink-mute); margin-top: 4px;">M, 38, software architect</div>
+          </div>
+          <div class="data-card-meta">90-DAY PROGRAM</div>
+        </div>
+
+        <div class="bio-age-comparison">
+          <div class="bio-age-cell">
+            <div class="bio-age-label">Biological Age</div>
+            <div class="bio-age-num">42.1</div>
+            <div class="bio-age-unit">Day 1 — PhenoAge</div>
+          </div>
+          <div class="bio-age-cell bio-age-after">
+            <div class="bio-age-label">After 90 Days</div>
+            <div class="bio-age-num">37.4</div>
+            <div class="bio-age-unit">Day 90 — PhenoAge</div>
+          </div>
+        </div>
+
+        <table class="biomarker-table">
+          <thead>
+            <tr>
+              <th>Biomarker</th>
+              <th>Before</th>
+              <th>After</th>
+              <th>Δ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>ApoB (mg/dL)</td><td>112</td><td>84</td><td class="delta-strong">−25%</td></tr>
+            <tr><td>Fasting insulin (μIU/mL)</td><td>14.2</td><td>7.1</td><td class="delta-strong">−50%</td></tr>
+            <tr><td>HbA1c (%)</td><td>5.6</td><td>5.1</td><td class="delta-good">−0.5</td></tr>
+            <tr><td>hsCRP (mg/L)</td><td>2.8</td><td>0.9</td><td class="delta-strong">−68%</td></tr>
+            <tr><td>HDL (mg/dL)</td><td>42</td><td>54</td><td class="delta-good">+29%</td></tr>
+            <tr><td>HRV avg (ms)</td><td>38</td><td>61</td><td class="delta-strong">+61%</td></tr>
+            <tr><td>Resting HR (bpm)</td><td>67</td><td>54</td><td class="delta-good">−13</td></tr>
+            <tr><td>Vitamin D (ng/mL)</td><td>21</td><td>48</td><td class="delta-good">+128%</td></tr>
+          </tbody>
+        </table>
+
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 0.5px solid var(--rule-soft); font-family: var(--serif); font-size: 14px; font-style: italic; color: var(--ink-mute); line-height: 1.55;">
+          "I've spent more on supplements than this program cost — and learned more about my body in 90 days than in the previous 38 years. The numbers were the unlock. Once I could see them move, the protocol stopped feeling like a chore."
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ WHO IT'S FOR ═══════ -->
+<section class="who-section">
+  <div class="container">
+    <span class="section-num">04 — Who it's for</span>
+    <h2 class="section-title">Built for the <em>data-literate skeptic</em>.<br>Not for the wellness curious.</h2>
+    <p style="font-size: 17px; line-height: 1.6; color: var(--ink-fade); max-width: 680px;">
+      We're upfront about who this works for and who it doesn't. The program is rigorous,
+      requires real behavioural change, and rewards people who like reading their own data.
+      It's not a magic pill, and we're not here to sell you one.
+    </p>
+
+    <div class="who-grid">
+      <div class="who-col who-col-yes">
+        <h4>This is for you if</h4>
+        <ul class="who-list">
+          <li>You're 28–48, generally healthy, and want to optimize — not just maintain.</li>
+          <li>You already track something — sleep, training, food — and want to do it better.</li>
+          <li>You read Peter Attia, Andrew Huberman, Rhonda Patrick, or Andy Galpin.</li>
+          <li>"Your bloodwork looks normal" has stopped feeling reassuring.</li>
+          <li>You're willing to commit 4–6 hours a week to training, recovery, and protocol adherence.</li>
+          <li>You want a system, not motivation.</li>
+        </ul>
+      </div>
+      <div class="who-col who-col-no">
+        <h4>This is not for you if</h4>
+        <ul class="who-list">
+          <li>You're looking for fast weight loss or aesthetic results in 30 days.</li>
+          <li>You want supplement recommendations without behavioural change.</li>
+          <li>You have an active medical condition that needs primary clinical management.</li>
+          <li>You're not willing to do bloodwork or share wearable data.</li>
+          <li>You want certainty without the discipline of measurement.</li>
+          <li>You expect "anti-aging" claims. We don't make them. We move biomarkers and re-test.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PROTOCOL DEPTH ═══════ -->
+<section class="protocol-section" id="protocol">
+  <div class="narrow">
+    <span class="section-num">05 — The four levers</span>
+    <h2 class="section-title">Every protocol balances <em>four interventions</em>, all calibrated to your numbers.</h2>
+    <p class="section-lede">
+      We don't believe in one master variable. Sleep matters, but so does ApoB.
+      Training matters, but so does cortisol. The protocol moves all four, in proportion to what your body needs most.
+    </p>
+  </div>
+
+  <div class="container">
+    <div class="protocol-grid">
+      <div class="protocol-card">
+        <div class="protocol-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <path d="M16 6c-3 4-6 6-6 11a6 6 0 0012 0c0-5-3-7-6-11z" stroke="#B85426" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
+            <circle cx="16" cy="17" r="1.5" fill="#B85426"/>
+          </svg>
+        </div>
+        <h3>Nutrition, prescribed.</h3>
+        <p>Macronutrient targets, meal timing, protein distribution, and fiber thresholds — built from your insulin sensitivity, lipid panel, and body composition. Not a diet. A specification.</p>
+        <ul class="protocol-list">
+          <li><span>Protein target</span><span>g/kg LBM</span></li>
+          <li><span>Carb timing</span><span>Around training</span></li>
+          <li><span>Eating window</span><span>Calibrated</span></li>
+          <li><span>Fiber threshold</span><span>≥35g/day</span></li>
+        </ul>
+      </div>
+
+      <div class="protocol-card">
+        <div class="protocol-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <path d="M6 18l4-8 4 4 4-6 4 8 4-4" stroke="#2F5D3C" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+            <line x1="6" y1="22" x2="26" y2="22" stroke="#2F5D3C" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Training, structured.</h3>
+        <p>Zone 2 cardio for mitochondrial density. VO₂ max work for maximum oxygen capacity. Resistance training for strength and bone density. Three orthogonal stimuli. All measurable.</p>
+        <ul class="protocol-list">
+          <li><span>Zone 2 minutes/week</span><span>Calibrated</span></li>
+          <li><span>VO₂ max sessions</span><span>1–2 / week</span></li>
+          <li><span>Resistance training</span><span>3–4 / week</span></li>
+          <li><span>Recovery markers</span><span>HRV-driven</span></li>
+        </ul>
+      </div>
+
+      <div class="protocol-card">
+        <div class="protocol-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <path d="M22 8a10 10 0 11-14 14 10 10 0 0014-14z" stroke="#8B6914" stroke-width="1.5" fill="none"/>
+            <circle cx="22" cy="10" r="1.5" fill="#8B6914"/>
+            <circle cx="18" cy="6" r="1" fill="#8B6914"/>
+            <circle cx="26" cy="14" r="1" fill="#8B6914"/>
+          </svg>
+        </div>
+        <h3>Recovery, monitored.</h3>
+        <p>Sleep architecture, HRV, resting heart rate, and stress markers. We use your wearable data to ensure the protocol is making you stronger — not breaking you down. Recovery is the silent half of every protocol.</p>
+        <ul class="protocol-list">
+          <li><span>Sleep duration target</span><span>7.5–9 hrs</span></li>
+          <li><span>HRV trend</span><span>Bi-weekly</span></li>
+          <li><span>Stress audit</span><span>Cortisol curve</span></li>
+          <li><span>Light exposure</span><span>Morning + night</span></li>
+        </ul>
+      </div>
+
+      <div class="protocol-card">
+        <div class="protocol-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <rect x="11" y="6" width="10" height="20" rx="2" stroke="#0E1B2C" stroke-width="1.5" fill="none"/>
+            <line x1="11" y1="11" x2="21" y2="11" stroke="#0E1B2C" stroke-width="1.5"/>
+            <line x1="14" y1="15" x2="18" y2="15" stroke="#0E1B2C" stroke-width="1.5"/>
+            <line x1="14" y1="19" x2="18" y2="19" stroke="#0E1B2C" stroke-width="1.5"/>
+            <line x1="14" y1="23" x2="18" y2="23" stroke="#0E1B2C" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h3>Supplements, audited.</h3>
+        <p>We start by removing what you don't need. Then we add what your bloodwork says is missing — and only that. Most clients leave with a smaller, cheaper, more effective stack than they started with.</p>
+        <ul class="protocol-list">
+          <li><span>Initial audit</span><span>What to stop</span></li>
+          <li><span>Deficiency-driven</span><span>Evidence-based</span></li>
+          <li><span>Re-tested at Day 90</span><span>Always</span></li>
+          <li><span>No affiliate fees</span><span>Ever</span></li>
+        </ul>
+      </div>
+
+      <div class="protocol-card" style="grid-column: span 2;">
+        <div class="protocol-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="9" stroke="#B85426" stroke-width="1.5" fill="none"/>
+            <circle cx="16" cy="16" r="3" fill="#B85426"/>
+            <line x1="16" y1="3" x2="16" y2="7" stroke="#B85426" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="16" y1="25" x2="16" y2="29" stroke="#B85426" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="3" y1="16" x2="7" y2="16" stroke="#B85426" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="25" y1="16" x2="29" y2="16" stroke="#B85426" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Medical oversight, always.</h3>
+        <p>Every protocol is reviewed by our medical advisor — a longevity-focused physician — before it reaches you. We're not your primary care provider, and we don't replace your doctor. We work alongside them, with the depth and time they don't have.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PRICING ═══════ -->
+<section class="pricing-section" id="pricing">
+  <div class="narrow">
+    <span class="section-num">06 — Programs & pricing</span>
+    <h2 class="section-title">Three programs. <em>One philosophy.</em></h2>
+    <p class="section-lede">
+      Every program ends with a re-tested biological age score. That's non-negotiable.
+      The depth of the panel, the cadence of check-ins, and the level of physician access scale with the tier.
+    </p>
+  </div>
+
+  <div class="container">
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-tier">Starter</div>
+        <div class="price-name">Foundations</div>
+        <div class="price-duration">90 days · Best for first-timers</div>
+        <div class="price-amount"><span class="currency">₹</span>18,000</div>
+        <div class="price-billing">One-time, all inclusive</div>
+        <ul class="price-features">
+          <li>40-marker bloodwork at Day 1 and Day 90</li>
+          <li>Biological age score (PhenoAge), before and after</li>
+          <li>Personalized nutrition + training + recovery protocol</li>
+          <li>2 video check-ins (Week 4, Week 8)</li>
+          <li>Daily WhatsApp accountability</li>
+          <li>Final 60-minute outcome review</li>
+        </ul>
+        <a href="#book" class="price-cta">Begin Foundations</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-tier">Pro</div>
+        <div class="price-name">Performance</div>
+        <div class="price-duration">90 days · Most chosen by professionals</div>
+        <div class="price-amount"><span class="currency">₹</span>35,000</div>
+        <div class="price-billing">One-time, all inclusive</div>
+        <ul class="price-features">
+          <li>60-marker bloodwork at Day 1 and Day 90</li>
+          <li>Biological age + cardiovascular age scores</li>
+          <li>Deep personalized protocol — all four levers</li>
+          <li>Bi-weekly video check-ins (5 sessions)</li>
+          <li>One-on-one consultation with longevity MD</li>
+          <li>Continuous WhatsApp + protocol adjustments</li>
+          <li>Detailed 25-page outcome report</li>
+        </ul>
+        <a href="#book" class="price-cta">Begin Performance</a>
+      </div>
+
+      <div class="price-card">
+        <div class="price-tier">Elite</div>
+        <div class="price-name">Continuum</div>
+        <div class="price-duration">6 months · For executives & athletes</div>
+        <div class="price-amount"><span class="currency">₹</span>75,000</div>
+        <div class="price-billing">Six-month managed engagement</div>
+        <ul class="price-features">
+          <li>60-marker bloodwork every 60 days (3 panels)</li>
+          <li>Bi-monthly biological age tracking</li>
+          <li>Continuous protocol calibration as data evolves</li>
+          <li>Weekly video check-ins with dedicated lead</li>
+          <li>Three physician consultations</li>
+          <li>Quarterly comprehensive outcome reports</li>
+          <li>Direct access on WhatsApp, always</li>
+        </ul>
+        <a href="#book" class="price-cta">Begin Continuum</a>
+      </div>
+    </div>
+
+    <p style="text-align: center; margin-top: 48px; font-family: var(--mono); font-size: 12px; color: var(--ink-mute); letter-spacing: 0.05em;">
+      Corporate &amp; team programs available — <a href="#book" style="color: var(--accent); text-decoration: none; border-bottom: 0.5px solid var(--accent);">enquire about pricing for groups of 10+</a>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════ FAQ ═══════ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="faq-grid">
+      <div>
+        <span class="section-num">07 — Questions</span>
+        <h2 class="section-title">The things we get asked, honestly answered.</h2>
+        <p style="margin-top: 24px; color: var(--ink-mute); font-size: 15px; line-height: 1.65;">
+          If your question isn't here, we're an email away. We'd rather have a longer conversation
+          before you commit than have you sign up unsure.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item open">
+          <div class="faq-q">
+            How is this different from a corporate health checkup or a Cult.fit program?
+            <span class="faq-toggle"></span>
+          </div>
+          <div class="faq-a">
+            A corporate health checkup runs 12–15 markers, generates a PDF, and is forgotten in two weeks. A fitness program prescribes generic workouts. We do neither. We run 50+ deep markers (most of which corporate panels skip — ApoB, Lp(a), fasting insulin, hsCRP), build a personalized intervention from your specific data, support you through 90 days of behavioural change, and then re-measure. The before-and-after is the entire point.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            Are you a clinic? Do you have doctors?
+            <span class="faq-toggle"></span>
+          </div>
+          <div class="faq-a">
+            We are a coaching and analytics platform with a medical advisor. We work with hospital-grade laboratories for bloodwork (NABL accredited) and our protocols are reviewed by a longevity-focused physician. We are not your primary care provider. We work alongside your doctor, not in place of them.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            Does this work for women in their 30s and 40s?
+            <span class="faq-toggle"></span>
+          </div>
+          <div class="faq-a">
+            Yes — and the panel includes a complete sex-hormone profile and considers cycle timing for bloodwork. The intervention adjusts for menstrual phase, perimenopause considerations, and hormone-related metabolic shifts. We don't apply male-default protocols to women. Different physiology, different prescription.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            What if my biomarkers don't improve in 90 days?
+            <span class="faq-toggle"></span>
+          </div>
+          <div class="faq-a">
+            We re-test, regardless of the outcome. If a marker hasn't moved, the protocol adapts — and we extend the engagement at no extra cost until that marker has been addressed properly. Our reputation depends on outcomes, so we treat non-movement as our problem, not yours. We'll tell you transparently which markers are slow movers (some take 6+ months, biologically) and which aren't budging because of compliance vs. biology.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            Where do I get the bloodwork done?
+            <span class="faq-toggle"></span>
+          </div>
+          <div class="faq-a">
+            A licensed phlebotomist visits your home or office for the fasted blood draw — no clinic visit required. Samples go directly to our partner NABL-accredited lab. Typical turnaround for full results is 5–7 working days. Available across Hyderabad, with expansion to Bangalore and Pune in the next quarter.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            What happens to my data?
+            <span class="faq-toggle"></span>
+          </div>
+          <div class="faq-a">
+            Your data is yours. You own it, you can export it, you can delete it. We use anonymized, aggregated data to improve our protocols across cohorts — never identifiable individual data. We never sell data, period. We're not an ad-supported platform and never will be. Our data ethics policy is published in full at /privacy.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            Can I do this if I'm already on medication?
+            <span class="faq-toggle"></span>
+          </div>
+          <div class="faq-a">
+            In most cases, yes — and our medical advisor will review your current medications before designing your protocol. We never recommend stopping or changing prescription medication. For some active conditions, we may suggest waiting until you've stabilized with your physician first. The free initial consultation is partly to figure this out.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CTA ═══════ -->
+<section class="cta-section" id="book">
+  <div class="container cta-content">
+    <div class="cta-eyebrow">No obligation, no sales pitch</div>
+    <h2>Start with a <em>30-minute consultation.</em><br>Find out if this is right for you.</h2>
+    <p>
+      We'll talk through your health history, what you're optimizing for, and whether the program
+      is the right fit. If it's not — we'll tell you. We'd rather lose a sale than take on a client
+      we can't help.
+    </p>
+
+    <form class="cta-form" onsubmit="handleSubmit(event)">
+      <input type="email" placeholder="your@email.com" required>
+      <button type="submit">Request a call</button>
+    </form>
+    <div class="cta-fineprint">Typical response time: under 4 hours, weekdays.</div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <span class="logo-mark"></span>
+          Tessera
+        </div>
+        <p class="footer-tagline">
+          A closed-loop longevity intelligence platform. Built in Hyderabad. Designed for the data-literate.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h5>Program</h5>
+        <ul>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#protocol">The protocol</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">Questions</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="/strategy">About</a></li>
+          <li><a href="#">Medical advisory</a></li>
+          <li><a href="#">Research</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Trust &amp; data</h5>
+        <ul>
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Data ethics</a></li>
+          <li><a href="#">Lab partners</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 TESSERA HEALTH PVT. LTD.</div>
+      <div>Hyderabad, India</div>
+    </div>
+
+    <div class="footer-disclaimer">
+      Tessera provides health optimization coaching and biomarker interpretation services.
+      We are not a medical clinic. Our services are not intended to diagnose, treat, cure,
+      or prevent any disease. Always consult your physician before making changes to medications
+      or treatment for an existing condition.
+    </div>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    q.addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
+  });
+
+  // Form
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    const input = e.target.querySelector('input');
+    btn.textContent = 'Sent ✓';
+    btn.style.background = 'var(--leaf)';
+    input.value = '';
+    setTimeout(() => {
+      btn.textContent = 'Request a call';
+      btn.style.background = '';
+    }, 3000);
+  }
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Reveal on scroll using IntersectionObserver
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.problem-card, .step, .protocol-card, .price-card, .data-card').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>

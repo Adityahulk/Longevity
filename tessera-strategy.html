@@ -1,0 +1,2326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tessera — Founder Strategy Document</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:           #FAFAF7;
+  --paper:        #FFFFFF;
+  --paper-tint:   #F5F3ED;
+  --ink:          #0F1419;
+  --ink-soft:     #2A3340;
+  --ink-mute:     #4F5868;
+  --ink-fade:     #7A8497;
+  --rule:         #E0DDD3;
+  --rule-soft:    #EDEAE0;
+  --accent:       #B85426;
+  --accent-soft:  #FBF0E8;
+  --teal:         #0D7377;
+  --teal-soft:    #E6F2F2;
+  --leaf:         #2F5D3C;
+  --leaf-soft:    #E8F0EA;
+  --gold:         #8B6914;
+  --gold-soft:    #FAF1D6;
+  --rose:         #B23A48;
+  --rose-soft:    #F8E8EA;
+  --slate:        #3D5A80;
+  --slate-soft:   #E9EEF5;
+  --serif:        'Fraunces', Georgia, serif;
+  --sans:         'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono:         'JetBrains Mono', ui-monospace, monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  font-weight: 400;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  font-size: 15px;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ─────────── LAYOUT ─────────── */
+.app {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background: var(--ink);
+  color: #C9D1DC;
+  padding: 32px 24px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+
+.brand-block {
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 0.5px solid rgba(255,255,255,0.1);
+}
+
+.brand-name {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.brand-mark {
+  width: 22px; height: 22px;
+  position: relative;
+  display: inline-block;
+}
+.brand-mark::before, .brand-mark::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid #fff;
+  border-radius: 50%;
+}
+.brand-mark::after {
+  inset: 5px;
+  background: var(--accent);
+  border: none;
+}
+
+.brand-meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.doc-meta {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.nav-section {
+  margin-bottom: 28px;
+}
+.nav-section-label {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  padding-left: 12px;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  margin-bottom: 2px;
+  border-radius: 6px;
+  color: #C9D1DC;
+  font-size: 13.5px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-decoration: none;
+}
+.nav-item:hover {
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  text-decoration: none;
+}
+.nav-item.active {
+  background: rgba(184,84,38,0.12);
+  color: #fff;
+  border-left: 2px solid var(--accent);
+  padding-left: 10px;
+}
+.nav-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: rgba(255,255,255,0.4);
+  width: 18px;
+  flex-shrink: 0;
+}
+.nav-item.active .nav-num { color: var(--accent); }
+
+.sidebar-footer {
+  position: sticky;
+  bottom: -32px;
+  padding-top: 20px;
+  margin-top: 32px;
+  border-top: 0.5px solid rgba(255,255,255,0.08);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.6;
+}
+
+/* ─────────── MAIN ─────────── */
+.main {
+  padding: 0;
+  max-width: 100%;
+}
+.content {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 48px 64px 80px;
+}
+
+/* ─────────── COVER ─────────── */
+.cover {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 64px;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+  overflow: hidden;
+  background: var(--paper-tint);
+}
+.cover::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 60%; height: 100%;
+  background: radial-gradient(ellipse at right, rgba(184,84,38,0.06), transparent 60%);
+  pointer-events: none;
+}
+.cover-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.cover-eyebrow::before {
+  content: '';
+  width: 32px; height: 1px;
+  background: var(--accent);
+}
+.cover-title {
+  font-family: var(--serif);
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  margin-bottom: 28px;
+  max-width: 900px;
+}
+.cover-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent);
+}
+.cover-lede {
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 680px;
+  margin-bottom: 40px;
+}
+.cover-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  padding-top: 32px;
+  margin-top: 16px;
+  max-width: 900px;
+}
+.cover-stat {
+  padding-right: 24px;
+  border-right: 0.5px solid var(--rule);
+}
+.cover-stat:last-child { border-right: none; }
+.cover-stat-num {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.cover-stat-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--ink-mute);
+  text-transform: uppercase;
+}
+
+/* ─────────── SECTION HEADERS ─────────── */
+.chapter {
+  padding: 80px 0 0;
+  scroll-margin-top: 0;
+}
+.chapter:first-child { padding-top: 24px; }
+
+.chapter-meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.chapter-meta::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--accent);
+}
+
+.chapter-title {
+  font-family: var(--serif);
+  font-size: clamp(34px, 4.5vw, 52px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin-bottom: 18px;
+  color: var(--ink);
+}
+.chapter-title em { font-style: italic; color: var(--accent); font-weight: 300; }
+
+.chapter-lede {
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin-bottom: 40px;
+  max-width: 720px;
+}
+
+h3.section-h {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  margin: 56px 0 16px;
+  line-height: 1.2;
+  color: var(--ink);
+}
+h3.section-h::before {
+  content: '';
+  display: block;
+  width: 36px;
+  height: 2px;
+  background: var(--accent);
+  margin-bottom: 16px;
+}
+
+h4.subsection-h {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 32px 0 12px;
+  color: var(--ink);
+  text-transform: uppercase;
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  color: var(--ink-mute);
+}
+
+p.body {
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin-bottom: 16px;
+}
+p.body strong { color: var(--ink); font-weight: 600; }
+
+ul.body, ol.body {
+  margin-bottom: 16px;
+  padding-left: 0;
+  list-style: none;
+}
+ul.body li, ol.body li {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+  padding-left: 24px;
+  position: relative;
+}
+ul.body li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 11px;
+  width: 12px; height: 1.5px;
+  background: var(--accent);
+}
+ol.body { counter-reset: listcount; }
+ol.body li { counter-increment: listcount; padding-left: 32px; }
+ol.body li::before {
+  content: counter(listcount, decimal-leading-zero);
+  position: absolute;
+  left: 0; top: 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+/* ─────────── COMPONENTS ─────────── */
+
+/* Callouts */
+.callout {
+  padding: 20px 24px;
+  border-radius: 4px;
+  margin: 24px 0;
+  border-left: 3px solid;
+  position: relative;
+}
+.callout-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+}
+.callout p {
+  font-size: 14.5px;
+  line-height: 1.65;
+  margin: 0;
+  color: var(--ink-soft);
+}
+.callout.insight { background: var(--teal-soft); border-color: var(--teal); }
+.callout.insight .callout-label { color: var(--teal); }
+.callout.warning { background: var(--gold-soft); border-color: var(--gold); }
+.callout.warning .callout-label { color: var(--gold); }
+.callout.danger { background: var(--rose-soft); border-color: var(--rose); }
+.callout.danger .callout-label { color: var(--rose); }
+.callout.success { background: var(--leaf-soft); border-color: var(--leaf); }
+.callout.success .callout-label { color: var(--leaf); }
+.callout.principle { background: var(--accent-soft); border-color: var(--accent); }
+.callout.principle .callout-label { color: var(--accent); }
+.callout p strong { color: var(--ink); }
+
+/* Metric grid */
+.metric-grid {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0;
+}
+.metric-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.metric-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+.metric-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+.metric {
+  background: var(--paper);
+  border: 1px solid var(--rule-soft);
+  padding: 20px 22px;
+  border-radius: 4px;
+}
+.metric-num {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.metric-num .small { font-size: 18px; vertical-align: top; }
+.metric-num .accent { color: var(--accent); }
+.metric-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.metric-note {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink-mute);
+  padding-top: 10px;
+  border-top: 0.5px solid var(--rule-soft);
+}
+
+/* Tables */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14px;
+  background: var(--paper);
+  border: 1px solid var(--rule-soft);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.data-table thead {
+  background: var(--paper-tint);
+}
+.data-table th {
+  text-align: left;
+  padding: 14px 18px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 500;
+  border-bottom: 0.5px solid var(--rule);
+}
+.data-table td {
+  padding: 16px 18px;
+  border-bottom: 0.5px solid var(--rule-soft);
+  vertical-align: top;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+.data-table tr:last-child td { border-bottom: none; }
+.data-table td:first-child { color: var(--ink); font-weight: 500; }
+.data-table .highlight-row td {
+  background: var(--accent-soft);
+  color: var(--ink);
+  font-weight: 500;
+}
+.data-table .num {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  padding: 2px 8px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+.tag.high { background: var(--rose-soft); color: var(--rose); }
+.tag.med  { background: var(--gold-soft); color: var(--gold); }
+.tag.low  { background: var(--leaf-soft); color: var(--leaf); }
+.tag.featured { background: var(--accent); color: #fff; }
+
+/* Two-column compare */
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin: 32px 0;
+  border: 1px solid var(--rule-soft);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.compare-col {
+  padding: 28px 28px;
+}
+.compare-col.left { background: var(--rose-soft); }
+.compare-col.right { background: var(--leaf-soft); border-left: 1px solid var(--rule-soft); }
+.compare-h {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  font-weight: 600;
+  padding-bottom: 12px;
+  border-bottom: 0.5px solid rgba(0,0,0,0.1);
+}
+.compare-col.left .compare-h { color: var(--rose); }
+.compare-col.right .compare-h { color: var(--leaf); }
+.compare-list { list-style: none; }
+.compare-list li {
+  font-size: 14px;
+  line-height: 1.55;
+  padding: 8px 0;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  color: var(--ink-soft);
+}
+.compare-list li::before {
+  flex-shrink: 0;
+  margin-top: 9px;
+  width: 10px; height: 1.5px;
+  content: '';
+}
+.compare-col.left .compare-list li::before { background: var(--rose); }
+.compare-col.right .compare-list li::before { background: var(--leaf); }
+
+/* Phase cards */
+.phase {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+  padding: 28px;
+  background: var(--paper);
+  border: 1px solid var(--rule-soft);
+  border-radius: 4px;
+  border-left: 4px solid;
+}
+.phase.p1 { border-left-color: var(--teal); }
+.phase.p2 { border-left-color: var(--slate); }
+.phase.p3 { border-left-color: var(--accent); }
+.phase.p4 { border-left-color: var(--gold); }
+
+.phase-num {
+  font-family: var(--serif);
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 0.9;
+  color: var(--ink);
+  letter-spacing: -0.04em;
+  opacity: 0.15;
+}
+.phase.p1 .phase-num { color: var(--teal); opacity: 0.3; }
+.phase.p2 .phase-num { color: var(--slate); opacity: 0.3; }
+.phase.p3 .phase-num { color: var(--accent); opacity: 0.3; }
+.phase.p4 .phase-num { color: var(--gold); opacity: 0.3; }
+
+.phase-meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 6px;
+}
+.phase-name {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  margin-bottom: 4px;
+  color: var(--ink);
+}
+.phase-target {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--accent);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+.phase-list { list-style: none; }
+.phase-list li {
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 6px 0;
+  padding-left: 18px;
+  position: relative;
+  color: var(--ink-soft);
+}
+.phase-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0; top: 6px;
+  color: var(--ink-fade);
+  font-size: 13px;
+}
+
+/* Pricing cards */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 28px 0;
+}
+.price-card {
+  background: var(--paper);
+  border: 1px solid var(--rule-soft);
+  padding: 24px 22px;
+  border-radius: 4px;
+  position: relative;
+}
+.price-card.featured {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+.price-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 8px;
+}
+.price-card.featured .price-tag { color: var(--accent); }
+.price-name {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  margin-bottom: 4px;
+}
+.price-card.featured .price-name { color: #fff; }
+.price-amount {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  margin: 12px 0 4px;
+  color: var(--ink);
+}
+.price-card.featured .price-amount { color: #fff; }
+.price-amount .cur { font-size: 16px; vertical-align: top; color: var(--ink-mute); margin-right: 2px; }
+.price-card.featured .price-amount .cur { color: rgba(255,255,255,0.5); }
+.price-margin {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--leaf);
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 0.5px solid var(--rule-soft);
+  font-weight: 500;
+}
+.price-card.featured .price-margin {
+  color: #4ade80;
+  border-color: rgba(255,255,255,0.1);
+}
+.price-desc {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--ink-mute);
+}
+.price-card.featured .price-desc { color: rgba(255,255,255,0.7); }
+
+/* Big number callout */
+.big-number {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 32px;
+  align-items: center;
+  padding: 32px;
+  background: var(--paper-tint);
+  border-radius: 4px;
+  margin: 28px 0;
+  border-left: 3px solid var(--accent);
+}
+.big-num-val {
+  font-family: var(--serif);
+  font-size: 72px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  color: var(--ink);
+}
+.big-num-val .accent { color: var(--accent); }
+.big-num-val .small { font-size: 32px; vertical-align: top; }
+.big-num-content h4 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+.big-num-content p {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+/* Workflow / process */
+.workflow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0;
+  margin: 32px 0;
+  border: 1px solid var(--rule-soft);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--paper);
+}
+.workflow-step {
+  padding: 22px 24px;
+  border-right: 0.5px solid var(--rule-soft);
+  position: relative;
+}
+.workflow-step:last-child { border-right: none; }
+.workflow-step::after {
+  content: '→';
+  position: absolute;
+  right: -7px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--paper);
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 500;
+  border-radius: 50%;
+  z-index: 2;
+}
+.workflow-step:last-child::after { display: none; }
+.workflow-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.workflow-name {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: var(--ink);
+}
+.workflow-desc {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ink-mute);
+}
+
+/* Quote */
+.pull-quote {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  padding: 32px 0 32px 28px;
+  border-left: 3px solid var(--accent);
+  margin: 32px 0;
+}
+.pull-quote-attr {
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--ink-mute);
+  text-transform: uppercase;
+  display: block;
+  margin-top: 12px;
+  font-weight: 500;
+}
+
+/* Footer divider between sections */
+.section-divider {
+  margin: 80px 0;
+  height: 1px;
+  background: var(--rule);
+  position: relative;
+}
+.section-divider::before {
+  content: '§';
+  position: absolute;
+  left: 50%;
+  top: -15px;
+  transform: translateX(-50%);
+  background: var(--bg);
+  padding: 0 16px;
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--ink-fade);
+  font-style: italic;
+}
+
+/* Numbered key facts list */
+.kf-list { margin: 24px 0; }
+.kf-item {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 24px;
+  padding: 22px 0;
+  border-bottom: 0.5px solid var(--rule-soft);
+  align-items: start;
+}
+.kf-item:last-child { border-bottom: none; }
+.kf-num {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.kf-content h4 {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--ink);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.kf-content p {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--ink-mute);
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .app { grid-template-columns: 1fr; }
+  .sidebar {
+    position: fixed;
+    left: -280px;
+    z-index: 100;
+    transition: left 0.3s;
+    width: 280px;
+  }
+  .sidebar.open { left: 0; }
+  .content { padding: 32px 28px 60px; }
+  .cover { padding: 60px 28px; min-height: auto; }
+  .cover-stats { grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 24px; }
+  .cover-stat { padding-bottom: 16px; border-right: none; border-bottom: 0.5px solid var(--rule); }
+  .cover-stat:nth-last-child(-n+2) { border-bottom: none; padding-bottom: 0; }
+  .metric-grid.cols-3, .metric-grid.cols-4 { grid-template-columns: 1fr 1fr; }
+  .compare { grid-template-columns: 1fr; }
+  .compare-col.right { border-left: none; border-top: 1px solid var(--rule-soft); }
+  .pricing-grid { grid-template-columns: 1fr 1fr; }
+  .workflow { grid-template-columns: 1fr 1fr; }
+  .workflow-step { border-right: 0.5px solid var(--rule-soft); border-bottom: 0.5px solid var(--rule-soft); }
+  .workflow-step:nth-child(2n) { border-right: none; }
+  .workflow-step:nth-last-child(-n+2) { border-bottom: none; }
+  .workflow-step::after {
+    right: 50%;
+    top: auto;
+    bottom: -10px;
+    transform: translateX(50%) rotate(90deg);
+  }
+  .menu-toggle {
+    display: flex !important;
+    position: fixed;
+    top: 20px; right: 20px;
+    z-index: 200;
+    background: var(--ink);
+    color: #fff;
+    border: none;
+    width: 44px; height: 44px;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-family: var(--mono);
+    font-size: 14px;
+  }
+  .big-number { grid-template-columns: 1fr; gap: 16px; padding: 24px; }
+  .big-num-val { font-size: 56px; }
+  .phase { grid-template-columns: 1fr; gap: 12px; padding: 20px; }
+  .phase-num { font-size: 40px; }
+}
+.menu-toggle { display: none; }
+
+@media print {
+  .sidebar, .menu-toggle { display: none; }
+  .app { grid-template-columns: 1fr; }
+  .chapter { page-break-before: always; }
+}
+</style>
+</head>
+<body>
+
+<button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
+
+<div class="app">
+
+  <!-- ═══════════════════ SIDEBAR ═══════════════════ -->
+  <aside class="sidebar">
+    <div class="brand-block">
+      <div class="brand-name">
+        <span class="brand-mark"></span>
+        Tessera
+      </div>
+      <div class="brand-meta">Strategy Document · v1.0</div>
+    </div>
+
+    <div class="doc-meta">
+      A complete, research-backed plan to build India's leading longevity intelligence platform.
+      Confidential. April 2026.
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-label">Foundations</div>
+      <a href="#cover" class="nav-item active">
+        <span class="nav-num">00</span>Executive overview
+      </a>
+      <a href="#market" class="nav-item">
+        <span class="nav-num">01</span>Market reality
+      </a>
+      <a href="#positioning" class="nav-item">
+        <span class="nav-num">02</span>Positioning &amp; edge
+      </a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-label">Build</div>
+      <a href="#mvp" class="nav-item">
+        <span class="nav-num">03</span>MVP &amp; product
+      </a>
+      <a href="#revenue" class="nav-item">
+        <span class="nav-num">04</span>Revenue model
+      </a>
+      <a href="#gtm" class="nav-item">
+        <span class="nav-num">05</span>Go-to-market
+      </a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-label">Scale</div>
+      <a href="#roadmap" class="nav-item">
+        <span class="nav-num">06</span>7-year roadmap
+      </a>
+      <a href="#risks" class="nav-item">
+        <span class="nav-num">07</span>Risks &amp; funding
+      </a>
+    </div>
+
+    <div class="sidebar-footer">
+      Founder strategy<br>Confidential<br>Hyderabad · 2026
+    </div>
+  </aside>
+
+  <!-- ═══════════════════ MAIN ═══════════════════ -->
+  <main class="main">
+
+    <!-- COVER -->
+    <section class="cover" id="cover">
+      <div class="cover-eyebrow">Founder Strategy Document</div>
+      <h1 class="cover-title">Building a <em>longevity intelligence</em><br>platform for India.</h1>
+      <p class="cover-lede">
+        A research-backed strategic plan covering market dynamics, product definition,
+        revenue model, go-to-market, and the seven-year roadmap from first paying client
+        to deep-tech aging research company.
+      </p>
+      <div class="cover-stats">
+        <div class="cover-stat">
+          <div class="cover-stat-num">$29B</div>
+          <div class="cover-stat-label">Global longevity market 2026</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">9.4%</div>
+          <div class="cover-stat-label">CAGR through 2035</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">₹1Cr</div>
+          <div class="cover-stat-label">ARR target by month 18</div>
+        </div>
+        <div class="cover-stat">
+          <div class="cover-stat-num">7</div>
+          <div class="cover-stat-label">Year horizon</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="content">
+
+      <!-- ════════════ CHAPTER 1: MARKET ════════════ -->
+      <section class="chapter" id="market">
+        <div class="chapter-meta">Chapter One</div>
+        <h2 class="chapter-title">Market reality &amp; <em>opportunity</em></h2>
+        <p class="chapter-lede">
+          The global longevity market is no longer a niche. It is a $29B convergence of diagnostic
+          technology, consumer health awareness, and data-driven medicine. India is one of the fastest-growing
+          regions in this category — and Hyderabad has zero serious players. The window is open right now.
+        </p>
+
+        <h3 class="section-h">The macro landscape</h3>
+        <p class="body">
+          The longevity market reached approximately $29 billion in 2026 and is projected to grow to $67 billion
+          by 2035 at a 9.4% compound annual growth rate. What used to be a fringe category is now a serious,
+          data-driven sector spanning diagnostics, supplements, wearables, clinics, and emerging therapeutics.
+          Consumer-facing longevity platforms — Function Health, Neko Health, Viome, Tally Health, Acorn Biolabs —
+          collectively raised over $700M in 2024-2025, demonstrating that capital is flowing to consumer
+          intervention models, not just drug pipelines.
+        </p>
+
+        <div class="metric-grid cols-4">
+          <div class="metric">
+            <div class="metric-label">Global market 2026</div>
+            <div class="metric-num"><span class="small">$</span>29<span class="small">B</span></div>
+            <div class="metric-note">→ $67B by 2035 at 9.4% CAGR</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">India healthcare 2030</div>
+            <div class="metric-num"><span class="small">$</span>37<span class="small">B</span></div>
+            <div class="metric-note">Longevity is the largest white space within this</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Consumer platforms raised</div>
+            <div class="metric-num"><span class="small">$</span>700<span class="small">M+</span></div>
+            <div class="metric-note">Combined raise across Function, Neko, Viome, Tally</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Apple Watch India growth</div>
+            <div class="metric-num"><span class="accent">141<span class="small">%</span></span></div>
+            <div class="metric-note">YoY 2025. Premium health is going mainstream.</div>
+          </div>
+        </div>
+
+        <h3 class="section-h">Why now: three converging tailwinds</h3>
+
+        <div class="kf-list">
+          <div class="kf-item">
+            <div class="kf-num">01</div>
+            <div class="kf-content">
+              <h4>The lifestyle-disease bill is coming due in India.</h4>
+              <p>India is on track to be the diabetes capital of the world. Cardiovascular disease strikes Indians
+              7-10 years earlier than Western populations. Urban professionals in their 30s are seeing parents
+              decline at 60. The fear is no longer abstract — it's specific, generational, and immediate.</p>
+            </div>
+          </div>
+          <div class="kf-item">
+            <div class="kf-num">02</div>
+            <div class="kf-content">
+              <h4>Premium health hardware has crossed the chasm.</h4>
+              <p>Apple Watch shipments to India surged 141% YoY in 2025. Whoop launched in India. Oura is widely
+              available. These devices have trained urban professionals to think about HRV, sleep stages, and
+              recovery. The behavioural foundation is now in place — the missing layer is what to do with the data.</p>
+            </div>
+          </div>
+          <div class="kf-item">
+            <div class="kf-num">03</div>
+            <div class="kf-content">
+              <h4>Rising disposable income meets aspirational health.</h4>
+              <p>India has roughly 30 million households with annual income over ₹20 lakh. Most already spend
+              ₹5,000-10,000 per month on gyms, supplements, and fitness apps with no measurable outcomes.
+              They are willing to pay — they just haven't been offered a structured, data-backed product yet.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="section-h">Competitive landscape — global benchmarks</h3>
+        <p class="body">
+          Five companies define what a credible consumer longevity platform looks like today. Each one validates
+          the category's commercial viability — and each one leaves a distinct gap that is relevant to our positioning.
+        </p>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>Model</th>
+              <th>Price</th>
+              <th>Geography</th>
+              <th>Funding</th>
+              <th>Key moat</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Function Health</td>
+              <td>160+ lab tests, membership model</td>
+              <td class="num">$499/yr</td>
+              <td>USA</td>
+              <td class="num">$298M Series B</td>
+              <td>Scale + brand + data</td>
+            </tr>
+            <tr>
+              <td>Neko Health</td>
+              <td>Full-body scan + AI, clinic-based</td>
+              <td class="num">£299/scan</td>
+              <td>UK / Sweden</td>
+              <td class="num">$325M total</td>
+              <td>Hardware + $1.8B valuation</td>
+            </tr>
+            <tr>
+              <td>Fountain Life</td>
+              <td>Whole-body MRI + advanced labs</td>
+              <td class="num">$5,000+/yr</td>
+              <td>USA</td>
+              <td>Private</td>
+              <td>Ultra-premium positioning</td>
+            </tr>
+            <tr>
+              <td>Tally Health</td>
+              <td>Epigenetic age testing + supplements</td>
+              <td class="num">$229/yr</td>
+              <td>USA</td>
+              <td class="num">$10M Seed</td>
+              <td>Sinclair-backed, scientific brand</td>
+            </tr>
+            <tr>
+              <td>Biopeak (India)</td>
+              <td>130+ biomarkers, 6hr in-person assessment</td>
+              <td class="num">₹40K-1.1L</td>
+              <td>Bangalore</td>
+              <td class="num">$6.2M (NKSquared, Accel)</td>
+              <td>India-first dataset</td>
+            </tr>
+            <tr class="highlight-row">
+              <td>Tessera</td>
+              <td>Closed-loop digital + remote, outcome-tracked</td>
+              <td class="num">₹18K-75K</td>
+              <td>India (Hyderabad)</td>
+              <td>Pre-seed</td>
+              <td>Outcome data + accessibility</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="section-h">The Indian opportunity in detail</h3>
+
+        <div class="callout insight">
+          <span class="callout-label">Critical Market Insight</span>
+          <p>
+            <strong>Biopeak launched India's first longevity clinic in March 2025</strong> — one location in
+            Bangalore, ₹40,000 entry-level program, ₹1.1 lakh flagship. They are well-funded, scientifically
+            credible, and rapidly building a brand. They are also expensive, in-person only, and serving a tiny
+            subset of the addressable market. Hyderabad has zero comparable offering at any price point.
+            This is your exact window.
+          </p>
+        </div>
+
+        <p class="body">
+          Biopeak's positioning reveals exactly what they cannot serve: the urban professional aged 28-45
+          earning ₹25-75 lakh annually who wants serious, biomarker-driven health optimization but cannot
+          justify ₹1.1 lakh on a single assessment, doesn't want a 6-hour clinic visit, and lives outside Bangalore.
+          That is a market measured in hundreds of thousands of customers — not the few thousand who can afford Biopeak.
+        </p>
+
+        <div class="big-number">
+          <div class="big-num-val"><span class="accent">~300K</span></div>
+          <div class="big-num-content">
+            <h4>Addressable urban professionals in target segment</h4>
+            <p>
+              Households earning ₹25L+ in tier-1 Indian cities, aged 28-48, already engaged with fitness and
+              wellness, capable of spending ₹15-50K on a structured 90-day program. Hyderabad alone holds
+              roughly 30,000 of these households. Capturing 0.5% (150 clients) gets us to ₹1Cr ARR.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="section-h">The gap nobody is filling</h3>
+
+        <div class="compare">
+          <div class="compare-col left">
+            <div class="compare-h">What exists today</div>
+            <ul class="compare-list">
+              <li>Corporate health checkups (12-15 markers, no follow-up, forgotten in two weeks)</li>
+              <li>Generic wellness apps (HealthifyMe, Cult.fit) — coaching without measurable biomarkers</li>
+              <li>Premium clinics (Biopeak, Apollo Sugar) — high price, in-person only, one-time assessments</li>
+              <li>Standalone diagnostic labs (Thyrocare, Apollo Diagnostics) — data without interpretation or intervention</li>
+              <li>Supplement brands and influencer protocols — no personalization, no data, no accountability</li>
+            </ul>
+          </div>
+          <div class="compare-col right">
+            <div class="compare-h">What is missing — your product</div>
+            <ul class="compare-list">
+              <li>Mid-priced (₹15-50K), structured, time-bounded programs with clear outcomes</li>
+              <li>Closed-loop: measure → intervene → re-measure → adapt, every 90 days</li>
+              <li>Remote-first delivery — accessible across cities, not tied to a clinic</li>
+              <li>Indian biomarker context — protocols built for Indian bodies and diets, not Western imports</li>
+              <li>Documented outcomes — every client has a before-and-after biological age score</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ════════════ CHAPTER 2: POSITIONING ════════════ -->
+      <section class="chapter" id="positioning">
+        <div class="chapter-meta">Chapter Two</div>
+        <h2 class="chapter-title">Positioning &amp; <em>competitive edge</em></h2>
+        <p class="chapter-lede">
+          What we are, what we are not, and why people pay us. Positioning is not what we say — it is the position
+          we occupy in the customer's mind relative to every alternative they could choose. Get this right and
+          everything else gets easier.
+        </p>
+
+        <h3 class="section-h">The core positioning statement</h3>
+
+        <div class="pull-quote">
+          A 90-day metabolic performance program that shows you exactly how fast you are aging — with a
+          measurable biological age score before and after.
+          <span class="pull-quote-attr">Tessera positioning statement, v1.0</span>
+        </div>
+
+        <p class="body">
+          Notice what this is <strong>not</strong>: it is not a wellness app, not a gym, not a generic health
+          coaching service, not anti-aging supplements, not a clinic. It is a structured, clinically-grounded
+          intervention with before/after proof. The biological age score is not a feature of the product —
+          it is the entire product. Every other component (the bloodwork, the protocol, the coaching, the doctor)
+          exists to make that score move.
+        </p>
+
+        <h3 class="section-h">Language that builds trust vs. language that kills it</h3>
+
+        <p class="body">
+          Your customer has been marketed to by every wellness brand on the internet. They are pattern-matching
+          for credibility signals. The wrong language triggers immediate skepticism — even if the product behind
+          it is excellent. The right language earns the benefit of the doubt long enough for them to read the
+          next sentence.
+        </p>
+
+        <div class="compare">
+          <div class="compare-col left">
+            <div class="compare-h">Avoid — these phrases kill credibility</div>
+            <ul class="compare-list">
+              <li>"Anti-aging" — vague, marketing-driven, triggers skepticism</li>
+              <li>"Reverse aging" — unproven at MVP stage, sounds like a supplement ad</li>
+              <li>"Live longer" — too distant, nobody actually buys based on lifespan claims</li>
+              <li>"Holistic wellness" — commoditized, no informational content</li>
+              <li>"Detox," "cleanse," "boost immunity" — pseudoscience red flags</li>
+              <li>"Transform your life" — wellness-influencer language, low trust</li>
+            </ul>
+          </div>
+          <div class="compare-col right">
+            <div class="compare-h">Use instead — these earn trust</div>
+            <ul class="compare-list">
+              <li>"Metabolic performance" — aspirational, specific, measurable</li>
+              <li>"Biological age score" — concrete, scientific, verifiable</li>
+              <li>"Healthspan optimization" — serious, clinical-adjacent</li>
+              <li>"Evidence-based protocol" — commands authority</li>
+              <li>"Biomarker-driven intervention" — precise, technical</li>
+              <li>"Closed-loop measurement" — signals systems thinking</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="section-h">Your target customer — be precise</h3>
+
+        <p class="body">
+          The clearer your customer definition, the cheaper your acquisition cost and the higher your conversion
+          rate. Your customer is not "health-conscious adults." That description includes everyone from a 22-year-old
+          gym bro to a 65-year-old grandmother. Both should be filtered out. This is who you're actually serving:
+        </p>
+
+        <table class="data-table">
+          <tbody>
+            <tr>
+              <td style="width: 25%;">Demographic</td>
+              <td>Age 28-48. Urban, tier-1 city resident (Hyderabad first, then Bangalore, Pune, Mumbai, Delhi).</td>
+            </tr>
+            <tr>
+              <td>Income</td>
+              <td>Household income ₹25L+ annually. Pays without anguish for Cult.fit (₹3K/mo), supplements (₹2-5K/mo), and an Oura Ring or Apple Watch.</td>
+            </tr>
+            <tr>
+              <td>Profession</td>
+              <td>Tech professional, founder, finance professional, doctor, lawyer, consultant. Knowledge worker with cognitive demands.</td>
+            </tr>
+            <tr>
+              <td>Behavioural signals</td>
+              <td>Already tracks something (steps, HRV, sleep). Reads Peter Attia, Andrew Huberman, Rhonda Patrick, or Andy Galpin. Has tried at least one structured protocol (intermittent fasting, Whole30, etc.).</td>
+            </tr>
+            <tr>
+              <td>Health status</td>
+              <td>Generally healthy on paper. But feels something is "off" — fatigue, recovery, weight creep, brain fog. Standard bloodwork comes back "normal" but they don't feel normal.</td>
+            </tr>
+            <tr>
+              <td>Core fear</td>
+              <td>Watching their parent decline at 60. Not making it to their kid's wedding. Dying of preventable disease at 65 like their father did. Cognitive decline at 50.</td>
+            </tr>
+            <tr>
+              <td>Core desire</td>
+              <td>Data-backed proof they're doing the right things. To be in their best physical shape at 50. Outperforming their peers cognitively and physically.</td>
+            </tr>
+            <tr>
+              <td>Willingness to pay</td>
+              <td>₹15,000-50,000 per program. Already spends ₹60-120K annually on fragmented health products with no measurable outcomes.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="section-h">Your four defensible moats</h3>
+
+        <p class="body">
+          Most early-stage health startups have no real moat. They are a service business with marketing.
+          Your moat is built deliberately, in stages, and compounds over time. Here are the four to focus on,
+          in order of when each becomes defensible:
+        </p>
+
+        <div class="kf-list">
+          <div class="kf-item">
+            <div class="kf-num">01</div>
+            <div class="kf-content">
+              <h4>Longitudinal Indian biomarker dataset (Year 1-3)</h4>
+              <p>
+                <strong>This is your primary moat — and it cannot be purchased.</strong> Every client who completes
+                a 90-day program adds 100+ data points to a longitudinal record of how Indian bodies respond to
+                specific interventions. By year 3, you have something genuinely unique: a dataset of Indian
+                metabolic aging that no competitor can replicate without two years of head start. This becomes the
+                foundation of your research credibility, your AI model training data, and your eventual licensing
+                opportunities.
+              </p>
+            </div>
+          </div>
+          <div class="kf-item">
+            <div class="kf-num">02</div>
+            <div class="kf-content">
+              <h4>Closed feedback loop infrastructure (Year 1, operational moat)</h4>
+              <p>
+                Most competitors stop at measurement (a labs company) or stop at coaching (a wellness app).
+                You complete the loop: measure → intervene → re-measure → adapt. This requires a specific
+                operational stack — lab partnerships with reliable home collection, a protocol library, a
+                coaching cadence, an outcome-reporting system. Replicating this requires both capital and
+                operational discipline. By the time competitors realize what you've built, you have 12-18 months of
+                refinement that they don't.
+              </p>
+            </div>
+          </div>
+          <div class="kf-item">
+            <div class="kf-num">03</div>
+            <div class="kf-content">
+              <h4>Hyderabad lab + doctor partner network (Month 1-3)</h4>
+              <p>
+                Exclusive or preferred-pricing relationships with 2-3 NABL-accredited diagnostic labs and 1-2
+                longevity-aligned doctors create real friction for any new entrant in Hyderabad. Once those
+                doctors refer clients to you, switching costs become significant. This is a cheap moat to build
+                early — and an expensive one to displace later.
+              </p>
+            </div>
+          </div>
+          <div class="kf-item">
+            <div class="kf-num">04</div>
+            <div class="kf-content">
+              <h4>Outcome-linked reputation and case studies (Month 3-9)</h4>
+              <p>
+                Documented before/after biological age scores, with permission from real clients, become your
+                most powerful marketing asset. This compounds. The 50th client testimonial is exponentially more
+                valuable than the 5th, because credibility is non-linear. Once you have 20+ case studies with
+                verifiable bloodwork-driven outcomes, no competitor can match your trust profile without spending
+                12+ months building their own. This is also your single best lever for organic referral and PR.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="section-h">How to differentiate from Biopeak specifically</h3>
+
+        <p class="body">
+          Biopeak is the closest comparable — same country, same broad category, well-funded, scientifically
+          credible. The instinct is to ask: how are we different? But the better question is: <strong>who are
+          we serving that they aren't?</strong> Differentiation by customer is far stronger than differentiation
+          by feature.
+        </p>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th>Biopeak</th>
+              <th>Tessera</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Target customer</td>
+              <td>CXOs, founders, ultra-HNI professionals</td>
+              <td>Mid-senior urban professionals, ₹25L+ household income</td>
+            </tr>
+            <tr>
+              <td>Price point</td>
+              <td class="num">₹40K - ₹1.1L</td>
+              <td class="num">₹18K - ₹75K</td>
+            </tr>
+            <tr>
+              <td>Delivery model</td>
+              <td>In-person clinic, 6-hour assessment</td>
+              <td>Remote-first, home bloodwork, video consultations</td>
+            </tr>
+            <tr>
+              <td>Engagement structure</td>
+              <td>One-time assessment with optional follow-up</td>
+              <td>Structured 90-day programs with re-test built in</td>
+            </tr>
+            <tr>
+              <td>Geography</td>
+              <td>Bangalore (single clinic)</td>
+              <td>Hyderabad → Pan-India (remote scalability)</td>
+            </tr>
+            <tr>
+              <td>Core value prop</td>
+              <td>Comprehensive luxury diagnostic experience</td>
+              <td>Measurable biological age change in 90 days</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout principle">
+          <span class="callout-label">Strategic Principle</span>
+          <p>
+            We are not competing with Biopeak. We are serving the customer who <strong>wants what Biopeak
+            offers</strong> but cannot justify ₹1.1 lakh, doesn't live in Bangalore, and prefers an ongoing
+            system over a one-time snapshot. That market is 10x larger than Biopeak's addressable market.
+          </p>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ════════════ CHAPTER 3: MVP ════════════ -->
+      <section class="chapter" id="mvp">
+        <div class="chapter-meta">Chapter Three</div>
+        <h2 class="chapter-title">MVP &amp; <em>product definition</em></h2>
+        <p class="chapter-lede">
+          The minimum product that can earn real money and real trust. Not an app. Not a platform. Not a clinic.
+          A human-delivered, data-backed 90-day program that we sell first and build the technology around afterwards.
+          This is exactly how Biopeak, Function Health, and every credible health startup began.
+        </p>
+
+        <div class="callout principle">
+          <span class="callout-label">Critical Principle</span>
+          <p>
+            <strong>Sell before building.</strong> Get five paying clients before writing a single line of code
+            or designing a platform. Revenue validates the model. Everything else is speculation. The first
+            fifty clients should be served with Notion, Google Sheets, and WhatsApp — and that's enough to
+            reach ₹50L ARR.
+          </p>
+        </div>
+
+        <h3 class="section-h">The 90-day metabolic performance program</h3>
+
+        <div class="workflow">
+          <div class="workflow-step">
+            <div class="workflow-num">PHASE 1</div>
+            <div class="workflow-name">Assessment</div>
+            <div class="workflow-desc">Week 1. Bloodwork, intake, biological age baseline.</div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-num">PHASE 2</div>
+            <div class="workflow-name">Protocol</div>
+            <div class="workflow-desc">Weeks 2-10. Personalized intervention with bi-weekly check-ins.</div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-num">PHASE 3</div>
+            <div class="workflow-name">Re-test</div>
+            <div class="workflow-desc">Day 90. Same panel, new score, side-by-side comparison.</div>
+          </div>
+          <div class="workflow-step">
+            <div class="workflow-num">PHASE 4</div>
+            <div class="workflow-name">Adapt</div>
+            <div class="workflow-desc">Continuation, escalation, or graduation to maintenance.</div>
+          </div>
+        </div>
+
+        <h4 class="subsection-h">Phase 1 — Deep assessment (Week 1)</h4>
+
+        <p class="body">
+          Within seven days of the client's signup, we complete a comprehensive baseline. The bloodwork is the
+          foundation — but the lifestyle intake and wearable data baseline are equally important, because they
+          tell us where the protocol's leverage points are likely to be.
+        </p>
+
+        <ul class="body">
+          <li><strong>Comprehensive bloodwork (40-60 markers).</strong> Full lipid panel including ApoB and Lp(a) — not just basic LDL/HDL/TG. Fasting glucose, insulin, HbA1c. Inflammation: hsCRP, IL-6, homocysteine. Complete hormonal panel: testosterone (men), estradiol (women), full cycle profile, cortisol curve. Thyroid: TSH, T3, T4, antibodies. Vitamin D, B12, ferritin, magnesium. Kidney and liver function.</li>
+          <li><strong>Biological age calculation.</strong> Composite biological age using PhenoAge (Levine 2018, peer-reviewed and validated). Requires nine standard bloodwork markers we already have. This becomes the headline number — the "before" score the client photographs and shares.</li>
+          <li><strong>Wearable data baseline.</strong> Two weeks of existing data: HRV trends, sleep stage distribution, resting heart rate, respiratory rate. Pulled from their Oura, Whoop, Apple Watch, or Fitbit. Surfaces patterns they don't see themselves.</li>
+          <li><strong>Lifestyle intake (45-minute video).</strong> Detailed questionnaire on eating patterns, meal timing, training history, sleep hygiene, stress triggers, supplement history, family medical history, alcohol, tobacco. Conducted as a structured conversation, not a form fill.</li>
+        </ul>
+
+        <h4 class="subsection-h">Phase 2 — Personalized intervention (Weeks 2-10)</h4>
+
+        <p class="body">
+          The protocol covers four levers — nutrition, training, recovery, supplementation — each calibrated to
+          the client's specific data, not generic guidelines. The protocol is reviewed by our medical advisor
+          before delivery. The client gets a written protocol document, bi-weekly video check-ins, and daily
+          WhatsApp accountability.
+        </p>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Lever</th><th>What it covers</th><th>Calibrated to</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Nutrition prescription</td>
+              <td>Macronutrient targets, meal timing, protein distribution, fiber threshold, eating window</td>
+              <td>Insulin sensitivity, lipid panel, body composition, training load</td>
+            </tr>
+            <tr>
+              <td>Training prescription</td>
+              <td>Zone 2 cardio minutes, VO₂ max sessions, resistance training frequency and focus</td>
+              <td>Wearable HRV baseline, training history, cardiovascular age</td>
+            </tr>
+            <tr>
+              <td>Recovery optimization</td>
+              <td>Sleep architecture, stress audit, light exposure, breath work cadence</td>
+              <td>Sleep stage data, HRV trend, cortisol pattern, lifestyle stressors</td>
+            </tr>
+            <tr>
+              <td>Supplement audit</td>
+              <td>What to stop. What to start. What to test for. Evidence-based only.</td>
+              <td>Specific deficiencies (Vit D, B12, magnesium, omega-3 ratio) and inflammatory markers</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4 class="subsection-h">Phase 3 — Re-measurement (Day 90)</h4>
+
+        <p class="body">
+          The same 40-60 biomarker panel, the same lab, the same fasted protocol, the same time of day. We
+          recalculate biological age. We compare every marker individually. Then we deliver a 20-30 page
+          outcome report that shows what moved, by how much, and which protocol elements likely drove the change.
+          This is the moment most people have never had — proof that what they did actually worked.
+        </p>
+
+        <h4 class="subsection-h">Phase 4 — Adapt (Day 91 onwards)</h4>
+
+        <p class="body">
+          Three paths: continuation with refinements (most common — clients renew into the next 90 days),
+          escalation to a deeper Pro or Continuum program if some markers need more aggressive intervention,
+          or graduation to quarterly maintenance — light-touch monitoring with one bloodwork panel every
+          90 days and protocol updates.
+        </p>
+
+        <h3 class="section-h">The technology stack — keep it boring in Year 1</h3>
+
+        <div class="compare">
+          <div class="compare-col left" style="background: var(--paper-tint); border-color: var(--rule);">
+            <div class="compare-h" style="color: var(--ink-mute); border-color: var(--rule);">Year 1 — manual first (zero code)</div>
+            <ul class="compare-list">
+              <li style="color: var(--ink-soft);">Notion or Airtable for client tracking</li>
+              <li style="color: var(--ink-soft);">Google Sheets for biomarker dashboards and biological age calculation</li>
+              <li style="color: var(--ink-soft);">WhatsApp Business for daily accountability and async support</li>
+              <li style="color: var(--ink-soft);">Thyrocare / Apollo Diagnostics for at-home bloodwork collection</li>
+              <li style="color: var(--ink-soft);">Stripe or Razorpay for payments</li>
+              <li style="color: var(--ink-soft);">Calendly for scheduling consultation calls</li>
+              <li style="color: var(--ink-soft);">Google Meet for video consultations</li>
+              <li style="color: var(--ink-soft);">Webflow or Framer for the marketing site</li>
+            </ul>
+            <p style="font-size: 12px; color: var(--ink-mute); margin-top: 12px; line-height: 1.5;">Total monthly tech cost: under ₹15,000. Ships in week one.</p>
+          </div>
+          <div class="compare-col right" style="background: var(--teal-soft); border-color: var(--teal);">
+            <div class="compare-h" style="color: var(--teal); border-color: rgba(13,115,119,0.2);">Year 2 — build the platform</div>
+            <ul class="compare-list">
+              <li>Custom biomarker dashboard with longitudinal trend visualization</li>
+              <li>Protocol generation engine (AI-assisted, based on validated patterns)</li>
+              <li>Wearable API integrations: Apple Health, Oura, Whoop, Garmin</li>
+              <li>Doctor consultation booking inside the platform</li>
+              <li>Longitudinal biological age tracking</li>
+              <li>Referral and community features</li>
+              <li>Internal tooling for coach efficiency at scale</li>
+              <li>Mobile app (only when 200+ active clients justify it)</li>
+            </ul>
+            <p style="font-size: 12px; color: var(--ink-mute); margin-top: 12px; line-height: 1.5;">Build only after PMF is validated. Estimated cost: ₹40-80L over 12 months.</p>
+          </div>
+        </div>
+
+        <h3 class="section-h">Delivery model — remote-first, not clinic-dependent</h3>
+
+        <div class="callout warning">
+          <span class="callout-label">Strategic Decision</span>
+          <p>
+            <strong>Do not anchor to a clinic in Year 1.</strong> A clinic partnership sounds credible but
+            adds friction, cost-sharing, logistics dependency, and geographic lock-in. Home blood collection
+            is now seamless across major Indian cities. The longevity doctor consultation happens on video.
+            Your clients prefer it. Add physical infrastructure only in Year 2-3 when you need DEXA scans,
+            VO₂ max testing, or advanced diagnostics.
+          </p>
+        </div>
+
+        <p class="body">
+          The remote-first model is operationally simpler, geographically scalable, and produces a better
+          customer experience. The one physical touchpoint worth adding — and this is optional — is an
+          in-person kickoff session in Hyderabad: 90 minutes at a coworking space or quiet café, sitting
+          with the client to walk through their bloodwork in person. That moment of human contact drives
+          retention and referrals more than a clinic visit would.
+        </p>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ════════════ CHAPTER 4: REVENUE ════════════ -->
+      <section class="chapter" id="revenue">
+        <div class="chapter-meta">Chapter Four</div>
+        <h2 class="chapter-title">Revenue model &amp; <em>unit economics</em></h2>
+        <p class="chapter-lede">
+          Pricing, margins, customer lifetime value, and the operational path to ₹1 crore ARR within 18 months.
+          Most early-stage health businesses underprice their offering because they're afraid of customer
+          objections — but underpricing kills credibility faster than high pricing does in this category.
+        </p>
+
+        <h3 class="section-h">Pricing tiers — research-validated</h3>
+
+        <div class="pricing-grid">
+          <div class="price-card">
+            <div class="price-tag">Starter · 90 days</div>
+            <div class="price-name">Foundations</div>
+            <div class="price-amount"><span class="cur">₹</span>18,000</div>
+            <div class="price-margin">~62% gross margin</div>
+            <div class="price-desc">40-marker bloodwork, biological age, personalized protocol, 2 video check-ins, daily WhatsApp, outcome report.</div>
+          </div>
+          <div class="price-card featured">
+            <div class="price-tag">Pro · 90 days · Most chosen</div>
+            <div class="price-name">Performance</div>
+            <div class="price-amount"><span class="cur">₹</span>35,000</div>
+            <div class="price-margin">~56% gross margin</div>
+            <div class="price-desc">60-marker bloodwork, full 4-lever protocol, weekly check-ins, MD consultation, deeper outcome report.</div>
+          </div>
+          <div class="price-card">
+            <div class="price-tag">Elite · 6 months</div>
+            <div class="price-name">Continuum</div>
+            <div class="price-amount"><span class="cur">₹</span>75,000</div>
+            <div class="price-margin">~52% gross margin</div>
+            <div class="price-desc">3 panels over 6 months, continuous calibration, weekly check-ins, 3 MD consultations, dedicated lead.</div>
+          </div>
+          <div class="price-card">
+            <div class="price-tag">B2B · per employee</div>
+            <div class="price-name">Corporate</div>
+            <div class="price-amount"><span class="cur">₹</span>8,000<span style="font-size: 14px; color: var(--ink-mute); font-weight: 400;">/mo</span></div>
+            <div class="price-margin">~68% gross margin</div>
+            <div class="price-desc">Group programs for 10+ employees. Quarterly bloodwork, monthly protocol reviews, group sessions.</div>
+          </div>
+        </div>
+
+        <h3 class="section-h">Unit economics</h3>
+
+        <div class="metric-grid cols-4">
+          <div class="metric">
+            <div class="metric-label">Cost to serve · Starter</div>
+            <div class="metric-num"><span class="small">₹</span>7,200</div>
+            <div class="metric-note">Lab ₹4K + coach ₹2K + ops ₹1.2K</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Gross margin · Year 1</div>
+            <div class="metric-num"><span class="accent">62<span class="small">%</span></span></div>
+            <div class="metric-note">Healthy for services. Software margin builds later.</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">LTV · 2x renewal</div>
+            <div class="metric-num"><span class="small">₹</span>70K+</div>
+            <div class="metric-note">Foundations + Performance + referrals</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Target CAC by month 6</div>
+            <div class="metric-num">&lt;<span class="small">₹</span>8K</div>
+            <div class="metric-note">Referral + content-led keeps this low</div>
+          </div>
+        </div>
+
+        <h3 class="section-h">Path to ₹1 crore ARR — 18 month plan</h3>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Period</th>
+              <th>Active clients</th>
+              <th>Quarterly revenue</th>
+              <th>Key milestone</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Month 1-3 · Bootstrap</td>
+              <td class="num">5 clients</td>
+              <td class="num">₹90K - ₹1.75L</td>
+              <td>Prove the model. You + 4 case studies. First documented bio-age change.</td>
+            </tr>
+            <tr>
+              <td>Month 4-6</td>
+              <td class="num">15 clients</td>
+              <td class="num">₹3-5L</td>
+              <td>First gym partnership. 3 case studies. First corporate inquiry.</td>
+            </tr>
+            <tr>
+              <td>Month 7-9</td>
+              <td class="num">30 clients</td>
+              <td class="num">₹6-9L</td>
+              <td>First corporate deal (10 employees). Doctor partner signed. Referral rate >30%.</td>
+            </tr>
+            <tr>
+              <td>Month 10-12</td>
+              <td class="num">50 clients</td>
+              <td class="num">₹12-18L</td>
+              <td>₹50L ARR run rate. Hire first health coach. Begin platform build.</td>
+            </tr>
+            <tr class="highlight-row">
+              <td>Month 13-18</td>
+              <td class="num">80-100 clients + 2 corporate</td>
+              <td class="num">₹25-35L</td>
+              <td>₹1Cr+ ARR. Angel round. Expand to second city.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="section-h">B2B corporate — your fastest revenue lever</h3>
+
+        <div class="callout success">
+          <span class="callout-label">Fastest Path to Scale</span>
+          <p>
+            One deal with a 50-person Hyderabad tech company at ₹8,000 per employee per month equals
+            <strong>₹4,00,000 MRR — ₹48L ARR from one client</strong>. HITEC City alone has hundreds of
+            mid-size tech companies with CHROs actively looking for differentiated employee health benefits.
+            Target this aggressively starting month 4, after you have your first three case studies and
+            documented outcomes.
+          </p>
+        </div>
+
+        <p class="body">
+          Corporate B2B should not be your first revenue source. You need real case studies before any CHRO
+          will take a meeting seriously. But once you have them, B2B is the fastest path from ₹50L ARR to
+          ₹2Cr+ ARR — far faster than scaling individual B2C client acquisition. Three corporate deals
+          equals 200+ B2C clients in revenue terms, with significantly less operational complexity per
+          rupee earned.
+        </p>
+
+        <h3 class="section-h">Revenue mix evolution</h3>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Phase</th>
+              <th>B2C share</th>
+              <th>B2B share</th>
+              <th>Other</th>
+              <th>Total ARR</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Year 1 (Months 1-12)</td>
+              <td class="num">95%</td>
+              <td class="num">5%</td>
+              <td class="num">0%</td>
+              <td class="num">₹50L</td>
+            </tr>
+            <tr>
+              <td>Year 2 (Months 13-24)</td>
+              <td class="num">65%</td>
+              <td class="num">30%</td>
+              <td class="num">5% (data licensing pilot)</td>
+              <td class="num">₹2Cr</td>
+            </tr>
+            <tr>
+              <td>Year 3</td>
+              <td class="num">50%</td>
+              <td class="num">40%</td>
+              <td class="num">10% (research, data)</td>
+              <td class="num">₹8Cr</td>
+            </tr>
+            <tr>
+              <td>Year 5</td>
+              <td class="num">35%</td>
+              <td class="num">45%</td>
+              <td class="num">20% (research grants, IP licensing)</td>
+              <td class="num">₹30Cr+</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ════════════ CHAPTER 5: GTM ════════════ -->
+      <section class="chapter" id="gtm">
+        <div class="chapter-meta">Chapter Five</div>
+        <h2 class="chapter-title">Go-to-market <em>strategy</em></h2>
+        <p class="chapter-lede">
+          Concrete channels and actions for your first 100 clients. Not generic marketing advice — specific
+          plays for the Hyderabad market, sequenced by phase, with realistic conversion expectations.
+        </p>
+
+        <div class="callout principle">
+          <span class="callout-label">First Principle</span>
+          <p>
+            <strong>Do not launch publicly. Do not buy ads. Do not build a website first.</strong> Find your
+            first ten clients personally. Force yourself to have real conversations that will shape pricing,
+            positioning, objections, and what people actually want. The first ten clients are research, not revenue.
+          </p>
+        </div>
+
+        <h3 class="section-h">Phase 1 — Manual acquisition (Month 1-3, target: 10-20 clients)</h3>
+
+        <div class="kf-list">
+          <div class="kf-item">
+            <div class="kf-num">01</div>
+            <div class="kf-content">
+              <h4>Direct network outreach (Week 1)</h4>
+              <p>List every person you know who fits the customer profile: works in tech, earns well, talks
+              about fitness, has had a recent health concern, or had a parent with a preventable illness.
+              Aim for 40-60 names. Message them <strong>personally</strong> — not a broadcast, not a copy-paste.
+              Offer a free 30-minute "biological age consultation" call. Convert 20-30% to paid programs.
+              This alone yields your first five clients.</p>
+            </div>
+          </div>
+          <div class="kf-item">
+            <div class="kf-num">02</div>
+            <div class="kf-content">
+              <h4>You as the first case study (Week 1, ongoing)</h4>
+              <p>Run yourself through the full program. Document everything publicly on LinkedIn. Your own
+              before/after biological age score is your most powerful marketing asset in month one — and nobody
+              else in Hyderabad has this data publicly available. The willingness to share your own numbers
+              signals authenticity and conviction more than any marketing copy.</p>
+            </div>
+          </div>
+          <div class="kf-item">
+            <div class="kf-num">03</div>
+            <div class="kf-content">
+              <h4>Premium gym partnerships (Week 2-4)</h4>
+              <p>Approach Cult.fit, F45, Anytime Fitness, BodyHolics in Hyderabad. Offer to run a free
+              <strong>"Metabolic Health &amp; Biological Age" workshop</strong> for their members — 60 minutes,
+              genuinely educational, not a sales pitch. Bring a doctor co-presenter. Convert 5-10% of attendees
+              to paid programs. Gyms get added member value; you get warm, qualified leads in the right demographic.</p>
+            </div>
+          </div>
+          <div class="kf-item">
+            <div class="kf-num">04</div>
+            <div class="kf-content">
+              <h4>LinkedIn founder-led content (Week 1, 3x per week)</h4>
+              <p>Post authentically. Topics: "What my bloodwork actually revealed about why I was always tired."
+              "Your HbA1c at 5.4 is not normal." "I tracked my biological age for 90 days — here's what changed."
+              Short, specific, data-backed. Authenticity beats polish at this stage. Aim for one post that hits
+              5K+ impressions in the first six weeks — that's your first organic acquisition channel taking shape.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="section-h">Phase 2 — Proof-driven growth (Month 4-9, target: 20-50 clients)</h3>
+
+        <p class="body">
+          By month four you have real case studies. Now you have proof. Everything becomes easier — outreach,
+          conversion, doctor partnerships, corporate sales. This is the phase where the business starts looking
+          like a real business.
+        </p>
+
+        <div class="kf-list">
+          <div class="kf-item">
+            <div class="kf-num">05</div>
+            <div class="kf-content">
+              <h4>Case studies with verified numbers</h4>
+              <p>Get written permission from 3-5 early clients. Document: starting biological age, ending
+              biological age, key biomarker shifts (e.g. "ApoB dropped 22%, fasting insulin halved, HRV
+              improved 18%"), what they changed, how they feel. Add their photo and first name if they consent.
+              Publish on the website and LinkedIn. <strong>This becomes your primary sales asset for the next
+              two years.</strong></p>
+            </div>
+          </div>
+          <div class="kf-item">
+            <div class="kf-num">06</div>
+            <div class="kf-content">
+              <h4>HITEC City corporate outreach</h4>
+              <p>Target CHROs and founders of 50-300 person tech companies via warm LinkedIn intros. Frame as
+              "Executive Health Optimization" — not wellness. Lead with ROI: productivity, reduced sick leave,
+              senior leader retention. Offer a pilot for 10 employees at 20% discount. Closing one deal equals
+              ₹4L MRR and material category validation.</p>
+            </div>
+          </div>
+          <div class="kf-item">
+            <div class="kf-num">07</div>
+            <div class="kf-content">
+              <h4>Doctor referral network</h4>
+              <p>Partner with internal medicine physicians, cardiologists, and endocrinologists in Hyderabad.
+              Position your program as the "lifestyle intervention arm" for their borderline patients —
+              pre-diabetic, dyslipidemia, subclinical thyroid issues, early metabolic syndrome. Pay a referral
+              fee of ₹1,500-2,500 per enrolled client. Doctors gain a trusted partner for outcomes they cannot
+              achieve with medication alone.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="section-h">Phase 3 — Scalable channels (Month 10-18)</h3>
+
+        <ul class="body">
+          <li><strong>Paid LinkedIn ads</strong> targeting Hyderabad tech founders, VPs, CHROs aged 30-50. Retarget LinkedIn content viewers first — this is the lowest CAC channel.</li>
+          <li><strong>YouTube series:</strong> "Longevity Lab" — translating bloodwork into plain-English insight. 5-10 minute episodes. Builds organic authority and search traffic.</li>
+          <li><strong>Instagram educational content:</strong> biological age explainers, biomarker breakdowns, client transformation stories. Repurposes LinkedIn content for a different audience surface.</li>
+          <li><strong>Private community</strong> (WhatsApp or Circle): existing clients + interested waitlist. Becomes your strongest referral and retention engine.</li>
+          <li><strong>Strategic PR:</strong> pitch Hyderabad-based tech and health journalists on the "India's first biological age tracking program" angle. One good feature in YourStory or Inc42 = 20-30 warm inbound leads.</li>
+        </ul>
+
+        <h3 class="section-h">Referral economics — your most powerful growth engine</h3>
+
+        <div class="big-number">
+          <div class="big-num-val"><span class="accent">40%</span></div>
+          <div class="big-num-content">
+            <h4>Target referral rate by month 9</h4>
+            <p>
+              At a CAC of ₹0 for referrals versus ₹6,000-8,000 for paid acquisition, every 10 clients referred
+              saves ₹60-80,000. Obsess over client outcomes. One client sharing their before-and-after biological
+              age score on LinkedIn is worth ₹50,000 in advertising. <strong>Results are your marketing
+              department.</strong>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ════════════ CHAPTER 6: ROADMAP ════════════ -->
+      <section class="chapter" id="roadmap">
+        <div class="chapter-meta">Chapter Six</div>
+        <h2 class="chapter-title">7-year <em>roadmap</em></h2>
+        <p class="chapter-lede">
+          Honest phases with revenue targets, hiring plans, and product milestones. The headline: prove the
+          model in year one, build the platform in year two, scale across India in years three to four,
+          and transition into a deep-tech research company in years four to seven.
+        </p>
+
+        <div class="phase p1">
+          <div class="phase-num">01</div>
+          <div>
+            <div class="phase-meta">Months 0-12 · Phase One</div>
+            <div class="phase-name">Prove the model</div>
+            <div class="phase-target">Target: ₹30L-60L ARR · Bootstrap or angel runway</div>
+            <ul class="phase-list">
+              <li>Launch 90-day program. Run yourself through it first. Get 5 paying beta clients from your network.</li>
+              <li>Partner with 2 NABL-accredited diagnostic labs, 1 longevity-focused doctor (part-time, paid retainer), 2-3 premium gyms.</li>
+              <li>Reach 30-50 paying clients by month 12. Collect outcome data with clinical precision.</li>
+              <li>Build 3-5 documented case studies with verified biological age improvement.</li>
+              <li>Close first corporate deal (minimum 10 employees at ₹8,000/month).</li>
+              <li>Hire: 1 full-time health coach (nutritionist + PT background). 1 part-time operations person.</li>
+              <li>Revenue milestone: ₹5L+ monthly run rate by month 12.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="phase p2">
+          <div class="phase-num">02</div>
+          <div>
+            <div class="phase-meta">Months 12-30 · Phase Two</div>
+            <div class="phase-name">Systematize and raise</div>
+            <div class="phase-target">Target: ₹1.5-3Cr ARR · Angel round ₹50L-1.5Cr → Seed round ₹2-5Cr</div>
+            <ul class="phase-list">
+              <li>Build the actual platform: biomarker dashboard, protocol library, wearable integrations, internal coach tooling.</li>
+              <li>Expand to Bangalore as second city. 200+ active clients across both markets.</li>
+              <li>Launch corporate health packages formally. Target 5+ enterprise accounts.</li>
+              <li>Hire: Medical Director (part-time longevity MD), 2 health coaches, 1 data/product person.</li>
+              <li>Begin building the Indian biomarker dataset formally. Initiate research partnership with IISc Bangalore or IIT Hyderabad.</li>
+              <li>Angel round target: ₹50L-1.5Cr by month 18. Show 80+ clients, 55%+ margin, biological age change data, first corporate deals.</li>
+              <li>Seed round target: ₹2-5Cr by month 30. Investors: Accel India, Blume Ventures, 3one4 Capital.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="phase p3">
+          <div class="phase-num">03</div>
+          <div>
+            <div class="phase-meta">Years 2.5-4 · Phase Three</div>
+            <div class="phase-name">Scale the platform</div>
+            <div class="phase-target">Target: ₹10-20Cr ARR · Series A ₹15-30Cr</div>
+            <ul class="phase-list">
+              <li>5 Indian cities (Hyderabad, Bangalore, Pune, Mumbai, Delhi). 1,000+ active clients.</li>
+              <li>10+ enterprise accounts. Corporate revenue 35-40% of total.</li>
+              <li>Launch epigenetic testing integration via third-party lab partners (methylation clock testing).</li>
+              <li>Publish first peer-reviewed paper: biological aging patterns in Indian urban professionals.</li>
+              <li>Begin IRB-approved internal human intervention studies — this transforms the company from a service business into a research company.</li>
+              <li>Series A target: ₹15-30Cr. The story: India's first outcomes-driven longevity platform with proprietary South Asian biomarker dataset.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="phase p4">
+          <div class="phase-num">04</div>
+          <div>
+            <div class="phase-meta">Years 4-7 · Phase Four</div>
+            <div class="phase-name">Deep tech transition</div>
+            <div class="phase-target">Target: ₹50Cr+ ARR · Series B + global expansion</div>
+            <ul class="phase-list">
+              <li>Develop proprietary AI aging models trained on Indian and South Asian data — a global first.</li>
+              <li>Research arm focuses on cellular inflammation, mitochondrial function, and metabolic aging in Indian populations.</li>
+              <li>License the dataset and AI models to pharmaceutical companies, insurance providers, and global longevity companies.</li>
+              <li>Global expansion: Southeast Asia, UAE, UK Indian diaspora — leveraging South Asian biology expertise.</li>
+              <li>Potential exit pathways: strategic acquisition by pharma, global longevity platform (Function Health acquiring international footprint), or health insurance vertical integration.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="section-h">Hiring plan — the right people, in the right order</h3>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Role</th>
+              <th>When</th>
+              <th>Why critical</th>
+              <th>Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Health coach (nutritionist + fitness)</td>
+              <td>Month 2-3</td>
+              <td>Delivery capacity. You cannot personally coach 30+ clients alone past month 6.</td>
+              <td class="num">₹40-60K/mo</td>
+            </tr>
+            <tr>
+              <td>Part-time longevity doctor</td>
+              <td>Month 1-2</td>
+              <td>Protocol validation, edge case handling, regulatory cover, marketing credibility.</td>
+              <td class="num">₹30-50K/mo retainer</td>
+            </tr>
+            <tr>
+              <td>Operations / client success</td>
+              <td>Month 4-6</td>
+              <td>Bloodwork logistics, scheduling, client communication at scale.</td>
+              <td class="num">₹25-35K/mo</td>
+            </tr>
+            <tr>
+              <td>Product / data person</td>
+              <td>Month 14-18</td>
+              <td>Build the actual platform once the model is validated. Strong full-stack + light data science.</td>
+              <td class="num">₹60-90K/mo</td>
+            </tr>
+            <tr>
+              <td>Medical Director (part-time)</td>
+              <td>Month 18-24</td>
+              <td>Required for research credibility, IRB applications, and Series A fundraising.</td>
+              <td class="num">₹80K-1.2L/mo</td>
+            </tr>
+            <tr>
+              <td>Marketing / growth lead</td>
+              <td>Month 18-24</td>
+              <td>Scaling acquisition beyond founder-led channels.</td>
+              <td class="num">₹60-90K/mo</td>
+            </tr>
+            <tr>
+              <td>Second-city ops lead</td>
+              <td>Month 18-24</td>
+              <td>When expanding to Bangalore, you need a local owner — not remote management from Hyderabad.</td>
+              <td class="num">₹50-70K/mo</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- ════════════ CHAPTER 7: RISKS ════════════ -->
+      <section class="chapter" id="risks">
+        <div class="chapter-meta">Chapter Seven</div>
+        <h2 class="chapter-title">Risks, funding &amp; <em>execution principles</em></h2>
+        <p class="chapter-lede">
+          What will kill this business if we let it. How to prevent each one. Where the capital comes from at
+          each stage. And the six non-negotiable principles that should guide every operational decision in
+          the first three years.
+        </p>
+
+        <h3 class="section-h">Risk register — ranked by probability</h3>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Risk</th>
+              <th>Likelihood</th>
+              <th>How to prevent it</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Becoming a generic wellness coach</td>
+              <td><span class="tag high">High</span></td>
+              <td>Enforce the biological age score without exception. Every client must have a measurable before/after marker. Drop that and you become HealthifyMe.</td>
+            </tr>
+            <tr>
+              <td>Biopeak expands to Hyderabad</td>
+              <td><span class="tag med">Medium</span></td>
+              <td>Move faster. Get to 50+ clients and a local brand before they arrive. The affordability tier (₹18K vs ₹1.1L) is a structural difference, not just positioning.</td>
+            </tr>
+            <tr>
+              <td>Lab results cause harm without clinical context</td>
+              <td><span class="tag med">Medium</span></td>
+              <td>Always position as optimization, not diagnosis. Doctor on retainer for edge cases. Clear disclaimers on every report. Never suggest stopping medications.</td>
+            </tr>
+            <tr>
+              <td>High CAC without enough referrals</td>
+              <td><span class="tag med">Medium</span></td>
+              <td>Obsess over client results. A client sharing their biological age transformation on LinkedIn is worth ₹50,000 in ad spend.</td>
+            </tr>
+            <tr>
+              <td>Key-person dependency (you as sole expert)</td>
+              <td><span class="tag med">Medium</span></td>
+              <td>Systematize protocols into written playbooks from day one. Every manual decision should be documented, so the first health coach hire is effective immediately.</td>
+            </tr>
+            <tr>
+              <td>Regulatory: medical device or service classification</td>
+              <td><span class="tag low">Low (Year 1)</span></td>
+              <td>Position as wellness coaching with bloodwork interpretation, not medical diagnosis. Lab tests ordered through your partner doctor. Avoids CDSCO classification.</td>
+            </tr>
+            <tr>
+              <td>Health insurance reimbursement does not develop</td>
+              <td><span class="tag low">Low</span></td>
+              <td>Don't depend on insurance reimbursement for the core business model. Indian health insurance does not cover preventive optimization, and is unlikely to within five years.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="section-h">Funding strategy — when to raise, how much, from whom</h3>
+
+        <div class="kf-list">
+          <div class="kf-item">
+            <div class="kf-num">01</div>
+            <div class="kf-content">
+              <h4>Bootstrap or friends &amp; family · Months 0-12 · ₹10-25L</h4>
+              <p>Do not raise institutional capital before proving product-market fit. Cost to serve 50 clients
+              is low. Get to ₹30-50L ARR on your own capital — that is your proof. Founders who raise too early
+              dilute themselves and end up with bad cap tables when they actually need leverage.</p>
+            </div>
+          </div>
+          <div class="kf-item">
+            <div class="kf-num">02</div>
+            <div class="kf-content">
+              <h4>Angel round · Months 12-18 · ₹50L-1.5Cr</h4>
+              <p>Target: health and tech angels — Nikhil Kamath network, Zerodha alumni, ex-Practo / PharmEasy
+              founders, Hyderabad tech entrepreneurs. Proof points needed: 50+ paying clients, 60% margin,
+              documented biological age change data, repeatable acquisition channel, low churn. Use the round to
+              hire a product/data person and expand to Bangalore.</p>
+            </div>
+          </div>
+          <div class="kf-item">
+            <div class="kf-num">03</div>
+            <div class="kf-content">
+              <h4>Seed round · Months 24-30 · ₹2-5Cr</h4>
+              <p>Target: Accel India (already backed Biopeak — they know the space), Blume Ventures, 3one4
+              Capital, Stellaris. The story: India's first outcomes-driven longevity platform with a proprietary
+              Indian biomarker dataset and documented intervention outcomes. By this point you should have
+              200+ clients, ₹1.5Cr+ ARR, and active research partnerships.</p>
+            </div>
+          </div>
+          <div class="kf-item">
+            <div class="kf-num">04</div>
+            <div class="kf-content">
+              <h4>Series A · Years 3-4 · ₹15-30Cr</h4>
+              <p>Trigger: ₹10Cr+ ARR, 1,000+ clients, published peer-reviewed research, IRB-approved studies.
+              Story: Southeast Asia's longevity data company, with a defensible scientific moat. Investors:
+              Sequoia India / Peak XV, Khosla Ventures (heavily invested in longevity globally), specialist
+              healthtech funds.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="section-h">The six non-negotiable execution principles</h3>
+
+        <div class="kf-list">
+          <div class="kf-item">
+            <div class="kf-num">01</div>
+            <div class="kf-content">
+              <h4>Sell before building.</h4>
+              <p>Get five paying clients before writing a single line of code or designing a platform.
+              Revenue validates the model. Everything else is speculation.</p>
+            </div>
+          </div>
+          <div class="kf-item">
+            <div class="kf-num">02</div>
+            <div class="kf-content">
+              <h4>Every client needs a before/after score.</h4>
+              <p>If they cannot see their biological age change, you have not delivered the product. This is
+              the non-negotiable core of the value proposition.</p>
+            </div>
+          </div>
+          <div class="kf-item">
+            <div class="kf-num">03</div>
+            <div class="kf-content">
+              <h4>Medical credibility is not optional.</h4>
+              <p>Get a doctor partner in month one. Pay them well. They de-risk you legally, validate your
+              protocols scientifically, and make you 10x more credible in marketing.</p>
+            </div>
+          </div>
+          <div class="kf-item">
+            <div class="kf-num">04</div>
+            <div class="kf-content">
+              <h4>Build Indian data, not Western protocols.</h4>
+              <p>What works for American bodies on American diets may not work for Indians — different genetics,
+              microbiome, cooking methods, stress patterns. This is your scientific differentiator and your
+              future intellectual property. Document Indian-specific insights from day one.</p>
+            </div>
+          </div>
+          <div class="kf-item">
+            <div class="kf-num">05</div>
+            <div class="kf-content">
+              <h4>Delay the deep tech.</h4>
+              <p>Do not spend money on epigenetics testing infrastructure, AI aging models, or research
+              capabilities until you have ₹1Cr+ ARR and validated outcome data. The temptation is real — it's
+              the most exciting part of the long-term vision. Resist it. Earn the right to build it.</p>
+            </div>
+          </div>
+          <div class="kf-item">
+            <div class="kf-num">06</div>
+            <div class="kf-content">
+              <h4>Your timing advantage is finite.</h4>
+              <p>Hyderabad has no serious longevity player. You have 12-18 months before Biopeak expands or a
+              well-funded competitor emerges. Move now, not when everything is perfect.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout principle">
+          <span class="callout-label">Closing Thought</span>
+          <p>
+            Your single biggest advantage is timing and location. Hyderabad has India's highest concentration of
+            tech professionals with high disposable income and zero serious longevity offerings. The window is
+            open right now. The strategy is sound. <strong>The only variable is execution.</strong>
+          </p>
+        </div>
+
+        <p class="body" style="margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--ink-fade); font-style: italic;">
+          End of strategy document v1.0 · April 2026 · Confidential · Tessera Health
+        </p>
+      </section>
+
+    </div>
+
+  </main>
+</div>
+
+<script>
+  // Smooth scroll
+  document.querySelectorAll('.nav-item').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.querySelector('.sidebar').classList.remove('open');
+      }
+    });
+  });
+
+  // Active nav highlighting on scroll
+  const sections = document.querySelectorAll('.chapter, #cover');
+  const navItems = document.querySelectorAll('.nav-item');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navItems.forEach(item => {
+          item.classList.toggle('active', item.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

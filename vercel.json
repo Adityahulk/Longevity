@@ -1,0 +1,24 @@
+{
+  "redirects": [
+    {
+      "source": "/tessera-strategy.html",
+      "destination": "/strategy",
+      "permanent": true
+    },
+    {
+      "source": "/index_1.html",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/strategy",
+      "destination": "/tessera-strategy.html"
+    },
+    {
+      "source": "/strategy/",
+      "destination": "/tessera-strategy.html"
+    }
+  ]
+}
