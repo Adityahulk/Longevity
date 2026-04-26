@@ -16,6 +16,11 @@
       "permanent": true
     },
     {
+      "source": "/tessera_60_day_roadmap.html",
+      "destination": "/tessera_60_day_roadmap",
+      "permanent": true
+    },
+    {
       "source": "/index_1.html",
       "destination": "/",
       "permanent": true
@@ -45,6 +50,14 @@
     {
       "source": "/tessera_getm_strategy/",
       "destination": "/tessera_gtm_strategy.html"
+    },
+    {
+      "source": "/tessera_60_day_roadmap",
+      "destination": "/tessera_60_day_roadmap.html"
+    },
+    {
+      "source": "/tessera_60_day_roadmap/",
+      "destination": "/tessera_60_day_roadmap.html"
     }
   ]
 }
