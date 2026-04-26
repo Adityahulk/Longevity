@@ -11,6 +11,11 @@
       "permanent": true
     },
     {
+      "source": "/tessera_gtm_strategy.html",
+      "destination": "/tessera_getm_strategy",
+      "permanent": true
+    },
+    {
       "source": "/index_1.html",
       "destination": "/",
       "permanent": true
@@ -32,6 +37,14 @@
     {
       "source": "/tessera-rulebook/",
       "destination": "/tessera-rulebook.html"
+    },
+    {
+      "source": "/tessera_getm_strategy",
+      "destination": "/tessera_gtm_strategy.html"
+    },
+    {
+      "source": "/tessera_getm_strategy/",
+      "destination": "/tessera_gtm_strategy.html"
     }
   ]
 }

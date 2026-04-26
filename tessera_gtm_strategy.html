@@ -1,0 +1,488 @@
+
+<h2 class="sr-only">Tessera GTM Strategy — 18-month sequenced go-to-market plan with channel economics and targeting</h2>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.gtm{font-family:var(--font-sans);padding:0 0 40px}
+.tabs{display:flex;gap:4px;margin-bottom:0;border-bottom:1px solid var(--color-border-tertiary);padding:0}
+.tab{padding:10px 18px;font-size:13px;font-weight:500;color:var(--color-text-secondary);cursor:pointer;border-bottom:2px solid transparent;transition:all 0.15s;white-space:nowrap}
+.tab.on{color:var(--color-text-primary);border-bottom-color:var(--color-text-primary)}
+.tab:hover:not(.on){color:var(--color-text-primary)}
+.pane{display:none;padding:24px 0 0}
+.pane.on{display:block}
+
+/* Phase header */
+.phase-header{display:grid;grid-template-columns:60px 1fr auto;gap:16px;align-items:center;padding:20px 20px;border-radius:8px;margin-bottom:20px;border-left:3px solid}
+.ph-num{font-family:var(--font-mono);font-size:28px;font-weight:600;line-height:1;opacity:0.5}
+.ph-title{font-size:17px;font-weight:500;color:var(--color-text-primary);margin-bottom:3px}
+.ph-sub{font-size:12px;color:var(--color-text-secondary)}
+.ph-target{text-align:right}
+.ph-arr{font-size:22px;font-weight:500;color:var(--color-text-primary);display:block}
+.ph-arrl{font-size:11px;color:var(--color-text-secondary);font-family:var(--font-mono)}
+
+/* Channel cards */
+.channels{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.ch-card{border:0.5px solid var(--color-border-tertiary);border-radius:8px;padding:18px;background:var(--color-background-primary);position:relative}
+.ch-card.primary{border-color:var(--color-border-secondary)}
+.ch-tag{font-family:var(--font-mono);font-size:9px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:2px 7px;border-radius:3px;display:inline-block;margin-bottom:10px}
+.ch-name{font-size:15px;font-weight:500;color:var(--color-text-primary);margin-bottom:6px}
+.ch-desc{font-size:13px;color:var(--color-text-secondary);line-height:1.5;margin-bottom:12px}
+.ch-metrics{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding-top:12px;border-top:0.5px solid var(--color-border-tertiary)}
+.cm-val{font-family:var(--font-mono);font-size:14px;font-weight:600;color:var(--color-text-primary);margin-bottom:2px}
+.cm-lbl{font-size:10px;color:var(--color-text-secondary);letter-spacing:0.05em;text-transform:uppercase}
+.ch-steps{margin-top:10px;padding-top:10px;border-top:0.5px solid var(--color-border-tertiary)}
+.ch-step{font-size:12.5px;color:var(--color-text-secondary);padding:4px 0;display:flex;gap:8px;align-items:flex-start;line-height:1.4}
+.ch-step::before{content:'→';color:var(--color-text-tertiary);flex-shrink:0;font-size:11px;margin-top:1px}
+.ch-step strong{color:var(--color-text-primary);font-weight:500}
+
+/* Callout */
+.callout{padding:14px 18px;border-left:3px solid;border-radius:0 6px 6px 0;margin:16px 0;font-size:13.5px;line-height:1.55;color:var(--color-text-secondary)}
+.callout strong{color:var(--color-text-primary);font-weight:500}
+.callout.teal{background:var(--color-background-info);border-color:var(--color-text-info)}
+.callout.amber{background:var(--color-background-warning);border-color:var(--color-text-warning)}
+.callout.green{background:var(--color-background-success);border-color:var(--color-text-success)}
+.callout.red{background:var(--color-background-danger);border-color:var(--color-text-danger)}
+
+/* Scoreboard */
+.sb{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
+.sb-card{background:var(--color-background-secondary);border-radius:8px;padding:14px 16px}
+.sb-num{font-size:24px;font-weight:500;color:var(--color-text-primary);line-height:1;margin-bottom:4px}
+.sb-lbl{font-size:11px;color:var(--color-text-secondary);line-height:1.3}
+
+/* Table */
+.t-wrap{overflow-x:auto;margin:16px 0}
+table.t{width:100%;border-collapse:collapse;font-size:13px}
+table.t th{text-align:left;padding:9px 12px;font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-text-secondary);border-bottom:0.5px solid var(--color-border-tertiary);font-weight:500}
+table.t td{padding:11px 12px;border-bottom:0.5px solid var(--color-border-tertiary);color:var(--color-text-secondary);vertical-align:top;line-height:1.45}
+table.t tr:last-child td{border-bottom:none}
+table.t td:first-child{color:var(--color-text-primary);font-weight:500}
+table.t .hi td{background:var(--color-background-secondary);color:var(--color-text-primary)}
+table.t .hi td:first-child{color:var(--color-text-primary)}
+.num{font-family:var(--font-mono);font-size:12.5px;font-weight:600;color:var(--color-text-primary)}
+
+/* Funnel visual */
+.funnel{margin:20px 0}
+.f-row{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.f-bar-wrap{flex:1;background:var(--color-background-secondary);border-radius:4px;height:36px;position:relative;overflow:hidden}
+.f-bar{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:12px;transition:width 0.6s ease}
+.f-label{font-size:13px;font-weight:500;color:var(--color-text-primary);min-width:180px}
+.f-num{font-family:var(--font-mono);font-size:12px;color:var(--color-text-secondary);min-width:60px;text-align:right}
+.f-bar-text{font-size:12px;font-weight:500;color:#fff;font-family:var(--font-mono);white-space:nowrap}
+
+/* Script box */
+.script-box{background:var(--color-background-secondary);border-radius:6px;padding:16px 18px;margin:12px 0;font-size:13.5px;line-height:1.65;color:var(--color-text-secondary);border-left:3px solid var(--color-border-secondary)}
+.script-box .label{font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:8px;display:block}
+.script-box em{color:var(--color-text-primary);font-style:italic}
+
+/* Monthly timeline */
+.timeline{margin:20px 0}
+.tl-row{display:grid;grid-template-columns:70px 1fr;gap:16px;margin-bottom:0}
+.tl-month{font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--color-text-secondary);padding:14px 0;border-right:1px solid var(--color-border-tertiary);text-align:right;padding-right:16px;letter-spacing:0.08em}
+.tl-content{padding:10px 0 20px 16px;border-left:1px solid var(--color-border-tertiary);margin-left:-1px}
+.tl-title{font-size:13.5px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
+.tl-items{font-size:12.5px;color:var(--color-text-secondary);line-height:1.6}
+.tl-rev{font-family:var(--font-mono);font-size:11px;color:var(--color-text-success);font-weight:600;margin-top:4px}
+
+.section-head{font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-text-secondary);margin:24px 0 12px;padding-bottom:8px;border-bottom:0.5px solid var(--color-border-tertiary)}
+</style>
+
+<div class="gtm">
+  <div class="tabs">
+    <div class="tab on" onclick="showTab('phase1')">Phase 1 — Seed</div>
+    <div class="tab" onclick="showTab('phase2')">Phase 2 — Proof</div>
+    <div class="tab" onclick="showTab('phase3')">Phase 3 — Scale</div>
+    <div class="tab" onclick="showTab('economics')">Channel economics</div>
+    <div class="tab" onclick="showTab('calendar')">18-month calendar</div>
+  </div>
+
+  <!-- PHASE 1 -->
+  <div class="pane on" id="phase1">
+    <div class="phase-header" style="background:var(--color-background-secondary);border-color:#0A6E72">
+      <div class="ph-num" style="color:#0A6E72">01</div>
+      <div>
+        <div class="ph-title">Seed — find your first 15 clients manually</div>
+        <div class="ph-sub">Month 1–3 · No ads · No website · No marketing team · Just you</div>
+      </div>
+      <div class="ph-target">
+        <span class="ph-arr">15</span>
+        <span class="ph-arrl">paying clients</span>
+      </div>
+    </div>
+
+    <div class="callout teal">
+      <strong>The phase 1 rule:</strong> You are not running campaigns. You are having conversations. Every single client in month 1–3 should come from a direct, personal interaction. This is research disguised as sales — you're learning what objection kills the deal, what language makes people say yes, and what type of person converts fastest.
+    </div>
+
+    <div class="section-head">The 4 channels that work right now</div>
+    <div class="channels">
+      <div class="ch-card primary">
+        <div class="ch-tag" style="background:var(--color-background-info);color:var(--color-text-info)">Channel 01 · Highest ROI</div>
+        <div class="ch-name">Your personal network — DM outreach</div>
+        <div class="ch-desc">40–60 people you already know who fit the profile: tech professional, earns well, talks about health, had a health scare, watches a parent decline. Message them personally. Not a broadcast.</div>
+        <div class="ch-steps">
+          <div class="ch-step"><strong>List 60 names</strong> — LinkedIn connections, college friends, ex-colleagues, gym buddies. Sort by: income signal + health interest + recent life event.</div>
+          <div class="ch-step"><strong>Offer a free "Biological Age Consultation"</strong> — 30 minutes, you walk them through what their biomarkers would likely reveal based on their lifestyle. No commitment needed.</div>
+          <div class="ch-step"><strong>Convert 20–30%</strong> of calls to paid clients at the Foundations tier. That's 12–18 calls → 3–5 clients from this channel alone.</div>
+        </div>
+        <div class="ch-metrics">
+          <div><div class="cm-val">₹0</div><div class="cm-lbl">CAC</div></div>
+          <div><div class="cm-val">~25%</div><div class="cm-lbl">Conversion</div></div>
+          <div><div class="cm-val">Days</div><div class="cm-lbl">Time to close</div></div>
+        </div>
+      </div>
+
+      <div class="ch-card">
+        <div class="ch-tag" style="background:var(--color-background-success);color:var(--color-text-success)">Channel 02 · Trust builder</div>
+        <div class="ch-name">You as case study #1 — LinkedIn content</div>
+        <div class="ch-desc">Run yourself through the full program first. Document every step publicly. Your biological age score before and after is the most credible marketing asset possible — it costs nothing and nobody else in Hyderabad has it.</div>
+        <div class="ch-steps">
+          <div class="ch-step"><strong>Start posting Week 1</strong> — before you have clients. "I just got my bloodwork back. Here's what 38-year-old biology actually looks like." Share your real numbers.</div>
+          <div class="ch-step"><strong>Post 3× per week</strong> — Mix: your own journey, education (what is ApoB), myth-busting (your HbA1c at 5.5 is not fine).</div>
+          <div class="ch-step"><strong>End every post with a soft CTA</strong> — "DM me if you're curious what your biological age is." Not "Buy my program."</div>
+        </div>
+        <div class="ch-metrics">
+          <div><div class="cm-val">₹0</div><div class="cm-lbl">CAC</div></div>
+          <div><div class="cm-val">2–4 wk</div><div class="cm-lbl">First lead</div></div>
+          <div><div class="cm-val">Months</div><div class="cm-lbl">Compounds</div></div>
+        </div>
+      </div>
+
+      <div class="ch-card">
+        <div class="ch-tag" style="background:var(--color-background-warning);color:var(--color-text-warning)">Channel 03 · Warm leads</div>
+        <div class="ch-name">Premium gym workshops — metabolic health talk</div>
+        <div class="ch-desc">Approach Cult.fit, F45, Anytime Fitness, and boutique studios in Banjara Hills and Jubilee Hills. Offer a 60-minute free member workshop — genuinely educational, not a pitch event.</div>
+        <div class="ch-steps">
+          <div class="ch-step"><strong>Workshop title:</strong> "Why your gym routine isn't enough: what your bloodwork reveals about how fast you're aging." Bring your doctor co-presenter for credibility.</div>
+          <div class="ch-step"><strong>Structure:</strong> 40 min education on metabolic markers + biological age concept. 20 min Q&A. Collect emails of interested attendees. Follow up within 24 hours.</div>
+          <div class="ch-step"><strong>Convert 5–10%</strong> of attendees to paid program. 30-person workshop → 2–3 clients. Run 3–4 workshops in month 1–2.</div>
+        </div>
+        <div class="ch-metrics">
+          <div><div class="cm-val">~₹2K</div><div class="cm-lbl">CAC</div></div>
+          <div><div class="cm-val">7%</div><div class="cm-lbl">Conversion</div></div>
+          <div><div class="cm-val">1 week</div><div class="cm-lbl">Close time</div></div>
+        </div>
+      </div>
+
+      <div class="ch-card">
+        <div class="ch-tag" style="background:var(--color-background-secondary);color:var(--color-text-secondary)">Channel 04 · Long game</div>
+        <div class="ch-name">Doctor referral partnerships</div>
+        <div class="ch-desc">Find 2–3 internists, cardiologists, or endocrinologists in Hyderabad who are seeing borderline patients: pre-diabetic, dyslipidemia, subclinical thyroid. Offer to be their lifestyle intervention arm.</div>
+        <div class="ch-steps">
+          <div class="ch-step"><strong>The pitch to doctors:</strong> "Your patient needs lifestyle change but you don't have time to coach it. We do. You refer, we handle 90 days, we report back. You look better. ₹2,000 referral fee per enrolled client."</div>
+          <div class="ch-step"><strong>Bring your medical advisor</strong> to the doctor meeting — peer credibility changes the dynamic entirely.</div>
+          <div class="ch-step"><strong>Expect slow start:</strong> doctors take 4–6 weeks to trust a new partner. First referrals arrive month 2–3. Then it compounds — one doctor refers 1–2 patients/month indefinitely.</div>
+        </div>
+        <div class="ch-metrics">
+          <div><div class="cm-val">₹2K</div><div class="cm-lbl">CAC</div></div>
+          <div><div class="cm-val">High</div><div class="cm-lbl">Quality</div></div>
+          <div><div class="cm-val">Recurr.</div><div class="cm-lbl">Ongoing</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-head">The exact LinkedIn DM script — word for word</div>
+    <div class="script-box">
+      <span class="label">Message to send (personalized per person)</span>
+      <em>Hey [Name], long time. I've been doing something pretty obsessive lately — I got a full metabolic bloodwork panel done and calculated my biological age. Turns out my body was aging about 4 years faster than my actual age. Changed my protocol entirely, re-tested 90 days later, and reversed most of it.</em><br><br>
+      <em>I'm now doing this for a small number of people in Hyderabad — structured 90-day programs with before/after biological age tracking. Given your [interest in fitness / recent conversation about health / family history of X] I thought you'd find it interesting at least.</em><br><br>
+      <em>I do a free 30-min consultation where I talk through what your biomarkers would likely look like based on your lifestyle. No commitment. Want me to send you a link?</em>
+    </div>
+
+    <div class="callout amber">
+      <strong>What to track in phase 1:</strong> Message-to-call conversion rate (target: 30%). Call-to-paid conversion rate (target: 25%). Which type of person converts fastest. What objection comes up most. What language makes people say yes. This data shapes your phase 2 targeting and messaging.
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="pane" id="phase2">
+    <div class="phase-header" style="background:var(--color-background-secondary);border-color:#8B6914">
+      <div class="ph-num" style="color:#8B6914">02</div>
+      <div>
+        <div class="ph-title">Proof — turn results into your growth engine</div>
+        <div class="ph-sub">Month 4–9 · First case studies · B2B launch · Referral flywheel · Still minimal ad spend</div>
+      </div>
+      <div class="ph-target">
+        <span class="ph-arr">50</span>
+        <span class="ph-arrl">cumulative clients</span>
+      </div>
+    </div>
+
+    <div class="callout green">
+      <strong>Phase 2 unlocks when:</strong> you have 3+ clients who completed Day 90, improved their biological age, and are willing to share their story. Before that, stay in Phase 1. Proof is what powers every channel in this phase.
+    </div>
+
+    <div class="section-head">Channel 1 — Case studies (your most powerful asset)</div>
+    <div class="ch-card" style="margin-bottom:12px">
+      <div class="ch-name">The perfect case study format</div>
+      <div class="ch-steps">
+        <div class="ch-step"><strong>Before biological age:</strong> [X] years. Chronological age: [Y]. Gap: [Z] years of accelerated aging.</div>
+        <div class="ch-step"><strong>The 3 biggest findings:</strong> HOMA-IR of 3.2 (severe insulin resistance), Vitamin D of 18 (deficient), ApoB of 118 (cardiovascular risk).</div>
+        <div class="ch-step"><strong>What we did:</strong> Cut refined carbs, 150 min Zone 2/week, 3g EPA+DHA/day, fixed Vitamin D.</div>
+        <div class="ch-step"><strong>Day 90:</strong> Biological age dropped from 42 to 37. HOMA-IR halved. ApoB dropped 22%. HRV up 40%.</div>
+        <div class="ch-step"><strong>Client quote</strong> with their name and role. A photo if possible. Specific, not generic ("I feel amazing").</div>
+        <div class="ch-step"><strong>Publish:</strong> Full post on LinkedIn. Short version on Instagram. PDF on website. Reference in every sales conversation.</div>
+      </div>
+    </div>
+
+    <div class="section-head">Channel 2 — HITEC City B2B corporate</div>
+    <div class="ch-card" style="margin-bottom:12px">
+      <div class="ch-name">The corporate outreach system</div>
+      <div class="ch-desc">One corporate deal = ₹4–8L MRR. This is your fastest path from ₹50L to ₹2Cr ARR. Target: CHROs and founders of 50–300 person tech companies in HITEC City and Nanakramguda.</div>
+      <div class="ch-steps">
+        <div class="ch-step"><strong>Target list:</strong> Identify 30 companies. Source CHROs via LinkedIn. Warm intro &gt; cold outreach. Use your doctor advisor or investor network for intros.</div>
+        <div class="ch-step"><strong>The pitch frame:</strong> Not "wellness program." Frame as "Executive metabolic performance." Lead with: "Your senior leaders are your highest-value assets. We optimize them the same way your engineering team optimizes infrastructure — with data and measurement."</div>
+        <div class="ch-step"><strong>The pilot offer:</strong> 10 employees at 25% discount. After 90 days, they see the before/after biological age scores of 10 of their people. That outcome report sells the full program renewal.</div>
+        <div class="ch-step"><strong>Who to target first:</strong> Founders and CEOs of 50–150 person companies (faster decisions, CHRO = founder's spouse or direct report). Then mid-size IT services firms with established HR structure.</div>
+      </div>
+      <div class="ch-metrics">
+        <div><div class="cm-val">₹8K</div><div class="cm-lbl">Per employee/mo</div></div>
+        <div><div class="cm-val">₹4L+</div><div class="cm-lbl">Per deal MRR</div></div>
+        <div><div class="cm-val">6–8 wk</div><div class="cm-lbl">Sales cycle</div></div>
+      </div>
+    </div>
+
+    <div class="section-head">Channel 3 — Referral system (engineer it, don't hope for it)</div>
+    <div class="ch-card" style="margin-bottom:12px">
+      <div class="ch-name">The structured referral program</div>
+      <div class="ch-desc">At Day 90, every client who improved their biological age is in the highest state of trust and enthusiasm they will ever be. This is your referral window. Engineer it, don't leave it to chance.</div>
+      <div class="ch-steps">
+        <div class="ch-step"><strong>The Day 90 ask:</strong> "You've dropped 4.7 biological years in 90 days. Who in your network would actually do something with that information if you showed it to them? Can you introduce me to 2 people?"</div>
+        <div class="ch-step"><strong>Referral incentive:</strong> ₹2,000 account credit per referred client who enrolls. Or offer a free additional bloodwork panel (costs you ₹1,500, perceived value ₹5,000).</div>
+        <div class="ch-step"><strong>Make sharing easy:</strong> Give them a one-page PDF of their before/after results they can show a friend. Give them language: "I just finished a 90-day biological age program — my numbers actually moved. Here's who did it."</div>
+      </div>
+    </div>
+
+    <div class="section-head">Channel 4 — Targeted LinkedIn content + early paid</div>
+    <div class="callout amber">
+      <strong>Phase 2 LinkedIn shift:</strong> Move from "my personal journey" to "client outcomes + deep educational content." Post: breakdown of a real client's biomarker pattern (anonymized), what drove their protocol, what changed. This posts builds authority and generates inbound DMs at scale.
+    </div>
+    <div class="ch-card">
+      <div class="ch-name">LinkedIn paid (₹15K–25K/month starting month 7)</div>
+      <div class="ch-steps">
+        <div class="ch-step"><strong>Target:</strong> Hyderabad + Bangalore. Job titles: Software Engineer, Senior Engineer, Engineering Manager, Product Manager, Founder, VP, CXO. Age 28–48. Interests: health and wellness, fitness, Peter Attia, longevity.</div>
+        <div class="ch-step"><strong>Ad creative that works:</strong> Image of an actual biomarker result with the headline "This 36-year-old's body was aging 6 years faster than his age. Here's what changed in 90 days." Not stock photos. Not "transform your life."</div>
+        <div class="ch-step"><strong>CTA:</strong> "Get a free biological age consultation" → Calendly link. Do not send to a homepage. Direct to booking.</div>
+        <div class="ch-step"><strong>Expected metrics:</strong> ₹300–500 CPL (cost per lead), 20–25% lead-to-call conversion, 15–20% call-to-paid conversion. CAC ≈ ₹8,000–12,000 for paid channel.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="pane" id="phase3">
+    <div class="phase-header" style="background:var(--color-background-secondary);border-color:#993C1D">
+      <div class="ph-num" style="color:#993C1D">03</div>
+      <div>
+        <div class="ph-title">Scale — systematic multi-channel growth</div>
+        <div class="ph-sub">Month 10–18 · Paid acquisition · Content engine · PR · Second city · Community</div>
+      </div>
+      <div class="ph-target">
+        <span class="ph-arr">100+</span>
+        <span class="ph-arrl">clients + corporate</span>
+      </div>
+    </div>
+
+    <div class="section-head">Channel 1 — Content as distribution (YouTube + Instagram)</div>
+    <div class="channels">
+      <div class="ch-card">
+        <div class="ch-tag" style="background:var(--color-background-danger);color:var(--color-text-danger)">YouTube</div>
+        <div class="ch-name">Longevity Lab series</div>
+        <div class="ch-desc">5–15 min educational videos. Not a vlog — a knowledge channel. Target: people Googling their biomarker values after getting bloodwork done.</div>
+        <div class="ch-steps">
+          <div class="ch-step"><strong>SEO-targeted titles:</strong> "What does an HbA1c of 5.6 actually mean?" "Why your doctor says your LDL is fine but Peter Attia disagrees." "I tracked my biological age for 90 days."</div>
+          <div class="ch-step"><strong>Cadence:</strong> 1 video per week minimum. First 12 videos are your evergreen library. They compound over 12–18 months.</div>
+          <div class="ch-step"><strong>CTA:</strong> Free consultation booking link in description + pinned comment. YouTube leads convert at 12–18% to consultation because they've already watched 10 min of you.</div>
+        </div>
+      </div>
+      <div class="ch-card">
+        <div class="ch-tag" style="background:var(--color-background-warning);color:var(--color-text-warning)">Instagram</div>
+        <div class="ch-name">Biomarker education + client stories</div>
+        <div class="ch-desc">Reels and carousels. Indian-context health content. "Why urban Indians get heart attacks at 45." "Your roti vs. millet — the insulin difference." Short, shareable, specific.</div>
+        <div class="ch-steps">
+          <div class="ch-step"><strong>What works:</strong> Before/after biological age reveals (with client permission), myth-busting posts ("your corporate health checkup doesn't test for this"), infographic biomarker explainers.</div>
+          <div class="ch-step"><strong>Frequency:</strong> 4–5 posts/week. Reels: 3/week. Stories: daily. 80% education, 20% social proof and program.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-head">Channel 2 — PR and media</div>
+    <div class="ch-card" style="margin-bottom:12px">
+      <div class="ch-name">Target publications and the exact pitch angle</div>
+      <div class="ch-steps">
+        <div class="ch-step"><strong>YourStory / Inc42 / Mint Lounge:</strong> Angle: "Hyderabad startup is calculating biological age for urban professionals — here's what they're finding about Indian metabolic health." One feature = 20–40 warm inbound leads. Send your data: "Our clients' average HOMA-IR is X, average biological age gap is Y years." Real data, not PR fluff.</div>
+        <div class="ch-step"><strong>ET Health World / Hindustan Times Health:</strong> Angle: "Why urban Indian professionals are aging faster than their Western counterparts — and what longevity science says about it." Position as commentary, not self-promotion.</div>
+        <div class="ch-step"><strong>Podcast circuit:</strong> Target: Indian startup podcasts (Nikhil Kamath's shows, Raj Shamani, Ishan Sharma). Your story is genuinely interesting: "I built a system to slow aging using bloodwork and data." This gets booked.</div>
+      </div>
+    </div>
+
+    <div class="section-head">Channel 3 — Community (your referral moat)</div>
+    <div class="ch-card" style="margin-bottom:12px">
+      <div class="ch-name">Private Longevity Circle — WhatsApp or Circle.so</div>
+      <div class="ch-desc">A private community for current and alumni clients. This is your most powerful retention and referral engine. People stay because of the community, not just the program.</div>
+      <div class="ch-steps">
+        <div class="ch-step"><strong>What happens inside:</strong> Weekly educational post from you. Members share their wearable data and ask questions. Monthly group call on a longevity topic. Peer accountability for protocols.</div>
+        <div class="ch-step"><strong>Why it drives referrals:</strong> Members show their metrics to friends. Friends see real people with real results. They DM you. Your community members become your salesforce.</div>
+        <div class="ch-step"><strong>Size target:</strong> 200 members by month 18. Each member refers on average 0.5 clients per year = 100 organic referrals/year at zero CAC.</div>
+      </div>
+    </div>
+
+    <div class="section-head">Channel 4 — Bangalore expansion</div>
+    <div class="callout teal">
+      <strong>When to expand to Bangalore:</strong> When you have ₹50L ARR, 50+ clients, and a waiting list in Hyderabad. Bangalore expansion is the same playbook — but you need a local health coach hire in Bangalore first. Do not try to manage Bangalore clients remotely from Hyderabad for the first 6 months.
+    </div>
+  </div>
+
+  <!-- CHANNEL ECONOMICS -->
+  <div class="pane" id="economics">
+    <div class="section-head">Channel performance — at full operation (Month 12+)</div>
+
+    <div class="funnel" id="funnel-viz"></div>
+
+    <div class="section-head">Detailed channel comparison</div>
+    <div class="t-wrap">
+    <table class="t">
+      <thead><tr>
+        <th>Channel</th><th>Phase</th><th>CAC</th><th>Lead→Call</th><th>Call→Paid</th><th>Volume cap</th><th>Time to first lead</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>Personal network DMs</td><td>1</td><td class="num">₹0</td><td>40%</td><td>25%</td><td>60 leads total</td><td>Day 1</td></tr>
+        <tr><td>You as case study (LinkedIn)</td><td>1→3</td><td class="num">₹0</td><td>Inbound</td><td>18%</td><td>Unlimited</td><td>Week 2–4</td></tr>
+        <tr><td>Gym workshops</td><td>1–2</td><td class="num">₹1,500–2K</td><td>15%</td><td>20%</td><td>3–4 workshops/mo</td><td>Week 2</td></tr>
+        <tr><td>Doctor referrals</td><td>1→3</td><td class="num">₹2K</td><td>High (pre-warm)</td><td>40%</td><td>1–2/month/doctor</td><td>Month 2</td></tr>
+        <tr><td>Referrals from clients</td><td>2→3</td><td class="num">₹0–2K</td><td>60%</td><td>35%</td><td>Grows with base</td><td>Month 3</td></tr>
+        <tr><td>LinkedIn organic content</td><td>1→3</td><td class="num">₹500–1.5K</td><td>Inbound</td><td>18%</td><td>Scales with following</td><td>Week 3–4</td></tr>
+        <tr><td>LinkedIn paid ads</td><td>2–3</td><td class="num">₹8–12K</td><td>20%</td><td>15%</td><td>Budget limited</td><td>Immediate</td></tr>
+        <tr><td>YouTube organic</td><td>3</td><td class="num">₹2–4K (blended)</td><td>18%</td><td>15%</td><td>Scales over 12+ mo</td><td>Month 3–4</td></tr>
+        <tr><td>PR / media features</td><td>2–3</td><td class="num">~₹1K (blended)</td><td>25%</td><td>12%</td><td>Spike, not steady</td><td>Month 4+</td></tr>
+        <tr class="hi"><td>Corporate / B2B</td><td>2–3</td><td class="num">₹20–40K</td><td>30%</td><td>25%</td><td>5–10 deals/year</td><td>Month 4</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout green">
+      <strong>Blended CAC target:</strong> Keep your blended CAC (total acquisition spend ÷ total new clients) under ₹6,000 through month 12. At an average revenue of ₹28,000 per client and 55% gross margin, your LTV:CAC ratio is roughly 2.5:1. That's healthy for a services business. When you raise seed funding, you can accept CAC up to ₹15,000 as you prove the retention loop.
+    </div>
+
+    <div class="section-head">The referral flywheel — the most important economic engine</div>
+    <div class="sb">
+      <div class="sb-card"><div class="sb-num">40%</div><div class="sb-lbl">Target referral rate by month 9</div></div>
+      <div class="sb-card"><div class="sb-num">₹0</div><div class="sb-lbl">CAC on every referred client</div></div>
+      <div class="sb-card"><div class="sb-num">₹70K+</div><div class="sb-lbl">LTV per client with 1 renewal</div></div>
+      <div class="sb-card"><div class="sb-num">11:1</div><div class="sb-lbl">LTV:CAC on referral channel</div></div>
+    </div>
+  </div>
+
+  <!-- CALENDAR -->
+  <div class="pane" id="calendar">
+    <div class="section-head">18-month operating calendar</div>
+    <div class="timeline">
+      <div class="tl-row">
+        <div class="tl-month">MON 1</div>
+        <div class="tl-content">
+          <div class="tl-title">Foundation week — before any outreach</div>
+          <div class="tl-items">Get your own bloodwork done. Calculate your PhenoAge. Set up Google Sheets tracker, Razorpay, Calendly, WhatsApp Business. Sign doctor advisor. Order lab accounts with Thyrocare + Redcliffe. Draft client agreement.</div>
+          <div class="tl-rev">Target: ₹0 revenue · First 5 DMs sent</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-month">MON 1–2</div>
+        <div class="tl-content">
+          <div class="tl-title">Personal network blitz — 60 DMs in 2 weeks</div>
+          <div class="tl-items">Send 60 personalized DMs. Run 15–20 free consultation calls. Close first 5 paying clients. Start LinkedIn content — post your own bloodwork story. Run first gym workshop at 1 Hyderabad premium gym.</div>
+          <div class="tl-rev">Target: ₹90K–1.7L revenue · 5 clients enrolled</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-month">MON 3</div>
+        <div class="tl-content">
+          <div class="tl-title">First Day 90 results — first case study</div>
+          <div class="tl-items">First clients complete program. Document before/after. Get written permission. Publish first case study on LinkedIn. Visit 3 more gyms for workshop partnerships. Begin doctor outreach — 5 target physicians identified.</div>
+          <div class="tl-rev">Target: ₹1.5–2.5L revenue · 12–15 clients total</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-month">MON 4–5</div>
+        <div class="tl-content">
+          <div class="tl-title">Corporate outreach begins</div>
+          <div class="tl-items">Build list of 30 Hyderabad tech companies. 10 LinkedIn outreach attempts per week. Aim for 3 meetings in month 4. First doctor referrals start arriving. Hire first health coach (part-time initially). LinkedIn following building — target 2,000 followers.</div>
+          <div class="tl-rev">Target: ₹3–4L/month · 25 active clients</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-month">MON 6</div>
+        <div class="tl-content">
+          <div class="tl-title">First corporate deal closes</div>
+          <div class="tl-items">Close first pilot with 10+ employees. Begin LinkedIn paid ads — ₹15K/month budget. First media outreach to YourStory or Mint Lounge. Launch private community (WhatsApp group for all clients). 3 case studies published.</div>
+          <div class="tl-rev">Target: ₹5–7L/month · 30–35 active clients</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-month">MON 7–9</div>
+        <div class="tl-content">
+          <div class="tl-title">Referral flywheel activates</div>
+          <div class="tl-items">Referral rate target: 30%+ of new clients. First media feature published. LinkedIn content: shift from personal journey to client outcomes and deep education. Doctor network: 3+ referring physicians. Angel investor conversations begin.</div>
+          <div class="tl-rev">Target: ₹8–12L/month · 50 active clients</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-month">MON 10–12</div>
+        <div class="tl-content">
+          <div class="tl-title">Platform build begins — YouTube launch</div>
+          <div class="tl-items">Hire product/data person to begin building actual platform. Launch YouTube channel — first 4 videos. LinkedIn paid: increase to ₹30K/month. 2nd corporate deal. Begin angel round conversations seriously. 5,000 LinkedIn followers target.</div>
+          <div class="tl-rev">Target: ₹15–20L/month · ₹1Cr+ ARR run rate</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-month">MON 13–15</div>
+        <div class="tl-content">
+          <div class="tl-title">Angel round closes — Bangalore begins</div>
+          <div class="tl-items">Close angel round (₹50L–1.5Cr). Hire Bangalore health coach. Begin Bangalore outreach — same playbook. Instagram reels content: 3/week. Podcast appearances: 2 per month. 3rd and 4th corporate deals.</div>
+          <div class="tl-rev">Target: ₹25–30L/month · 80 clients across 2 cities</div>
+        </div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-month">MON 16–18</div>
+        <div class="tl-content">
+          <div class="tl-title">₹1Cr ARR — seed round preparation</div>
+          <div class="tl-items">Platform launched with biomarker dashboard. Begin seed round preparation: deck, financials, data room. 5 corporate accounts active. Community: 150+ members. YouTube: 50+ videos, 10K+ subscribers. First peer-reviewed dataset analysis prepared.</div>
+          <div class="tl-rev">Target: ₹35–40L/month · ₹1Cr+ ARR confirmed</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout teal" style="margin-top:8px">
+      <strong>The honest timeline truth:</strong> Month 1–3 will feel slow. You'll be sending DMs and running workshops for ₹90K/month. That's fine — those clients and their case studies are the foundation that makes month 10–18 possible. The compounding is real, but it starts slow.
+    </div>
+  </div>
+</div>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab').forEach((t,i) => {
+    const ids = ['phase1','phase2','phase3','economics','calendar'];
+    t.classList.toggle('on', ids[i] === id);
+  });
+  document.querySelectorAll('.pane').forEach(p => {
+    p.classList.toggle('on', p.id === id);
+  });
+}
+
+// Funnel visualization
+const funnelData = [
+  {label:'Total leads generated/month', val:120, pct:100, color:'#185FA5'},
+  {label:'Leads who book a call', val:28, pct:23, color:'#0F6E56'},
+  {label:'Calls completed', val:22, pct:18, color:'#8B6914'},
+  {label:'Paid clients enrolled', val:5, pct:4.2, color:'#B85426'},
+];
+const fv = document.getElementById('funnel-viz');
+funnelData.forEach(d => {
+  fv.innerHTML += `<div class="f-row">
+    <div class="f-label">${d.label}</div>
+    <div class="f-bar-wrap">
+      <div class="f-bar" style="width:${d.pct}%;background:${d.color}">
+        <span class="f-bar-text">${d.val}</span>
+      </div>
+    </div>
+    <div class="f-num">${d.pct}%</div>
+  </div>`;
+});
+</script>
