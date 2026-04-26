@@ -6,6 +6,11 @@
       "permanent": true
     },
     {
+      "source": "/tessera-rulebook.html",
+      "destination": "/tessera-rulebook",
+      "permanent": true
+    },
+    {
       "source": "/index_1.html",
       "destination": "/",
       "permanent": true
@@ -19,6 +24,14 @@
     {
       "source": "/strategy/",
       "destination": "/tessera-strategy.html"
+    },
+    {
+      "source": "/tessera-rulebook",
+      "destination": "/tessera-rulebook.html"
+    },
+    {
+      "source": "/tessera-rulebook/",
+      "destination": "/tessera-rulebook.html"
     }
   ]
 }

@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tessera — Complete Operational Rulebook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#F8F6F0; --paper:#FFFFFF; --ink:#0D1117; --ink-soft:#1E2A38; --ink-mute:#4A5568;
+  --ink-fade:#718096; --rule:#E2DDD3; --rule-soft:#EDE9E0;
+  --accent:#B85426; --accent-bg:#FBF0E8; --accent-dark:#8B3A19;
+  --teal:#0A6E72; --teal-bg:#E4F2F2; --leaf:#2D5F3A; --leaf-bg:#E6F0E8;
+  --gold:#8B6914; --gold-bg:#FAF1D6; --rose:#A83248; --rose-bg:#F8E8EB;
+  --slate:#3A5A7C; --slate-bg:#E8EEF5; --purple:#5B4B8A; --purple-bg:#EEEAF8;
+  --mono:'JetBrains Mono',monospace; --sans:'Inter',sans-serif; --serif:'Fraunces',Georgia,serif;
+  --sidebar:260px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* LAYOUT */
+.layout{display:grid;grid-template-columns:var(--sidebar) 1fr;min-height:100vh}
+
+/* SIDEBAR */
+.sidebar{background:var(--ink);color:#C5CDD8;position:sticky;top:0;height:100vh;overflow-y:auto;padding:24px 0;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.1) transparent}
+.sidebar::-webkit-scrollbar{width:3px}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.12);border-radius:2px}
+.sb-brand{padding:0 20px 20px;margin-bottom:8px;border-bottom:0.5px solid rgba(255,255,255,0.08)}
+.sb-brand-name{font-family:var(--serif);font-size:20px;font-weight:500;color:#fff;letter-spacing:-0.02em;margin-bottom:3px}
+.sb-brand-sub{font-family:var(--mono);font-size:9.5px;letter-spacing:0.15em;color:var(--accent);text-transform:uppercase}
+.sb-section{margin-bottom:4px}
+.sb-section-label{font-family:var(--mono);font-size:9px;letter-spacing:0.2em;color:rgba(255,255,255,0.35);text-transform:uppercase;padding:12px 20px 6px;display:block}
+.sb-item{display:flex;align-items:flex-start;gap:10px;padding:7px 20px;color:#A0AEBB;font-size:12.5px;font-weight:400;cursor:pointer;transition:all 0.15s;text-decoration:none;line-height:1.35}
+.sb-item:hover{background:rgba(255,255,255,0.04);color:#fff;text-decoration:none}
+.sb-item.active{background:rgba(184,84,38,0.15);color:#fff;border-right:2px solid var(--accent)}
+.sb-num{font-family:var(--mono);font-size:9.5px;color:rgba(255,255,255,0.3);width:22px;flex-shrink:0;padding-top:1px}
+.sb-item.active .sb-num{color:var(--accent)}
+
+/* MAIN */
+.main{max-width:900px;padding:48px 60px 100px}
+
+/* COVER */
+.cover{padding:60px 0 80px;border-bottom:1px solid var(--rule);margin-bottom:0}
+.cover-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:0.2em;color:var(--accent);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.cover-tag::before{content:'';width:28px;height:1px;background:var(--accent)}
+.cover-h1{font-family:var(--serif);font-size:clamp(40px,5vw,64px);font-weight:400;line-height:1;letter-spacing:-0.03em;margin-bottom:20px;color:var(--ink)}
+.cover-h1 em{font-style:italic;color:var(--accent);font-weight:300}
+.cover-desc{font-size:17px;line-height:1.6;color:var(--ink-soft);max-width:700px;margin-bottom:32px}
+.cover-stat-row{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid var(--rule);padding-top:28px;margin-top:8px}
+.cover-stat{padding-right:20px;border-right:0.5px solid var(--rule)}
+.cover-stat:last-child{border-right:none}
+.csn{font-family:var(--serif);font-size:26px;font-weight:500;letter-spacing:-0.02em;color:var(--ink);line-height:1;margin-bottom:4px}
+.csl{font-family:var(--mono);font-size:9px;letter-spacing:0.1em;color:var(--ink-mute);text-transform:uppercase;line-height:1.4}
+
+/* CHAPTER HEADS */
+.chapter{padding-top:72px;scroll-margin-top:24px}
+.ch-meta{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;color:var(--accent);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.ch-meta::before{content:'';width:20px;height:1px;background:var(--accent)}
+.ch-title{font-family:var(--serif);font-size:clamp(30px,4vw,46px);font-weight:400;line-height:1.05;letter-spacing:-0.025em;margin-bottom:14px;color:var(--ink)}
+.ch-title em{font-style:italic;color:var(--accent);font-weight:300}
+.ch-lede{font-size:17px;line-height:1.65;color:var(--ink-soft);margin-bottom:36px;max-width:750px}
+
+/* SECTION HEADS */
+h3.sh{font-family:var(--serif);font-size:24px;font-weight:500;letter-spacing:-0.015em;margin:52px 0 14px;line-height:1.2;color:var(--ink)}
+h3.sh::before{content:'';display:block;width:28px;height:2px;background:var(--accent);margin-bottom:14px}
+h4.ssh{font-family:var(--mono);font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-mute);font-weight:600;margin:28px 0 10px}
+h5.sssl{font-family:var(--sans);font-size:13px;font-weight:700;color:var(--ink);margin:18px 0 6px}
+
+/* TEXT */
+p.p{font-size:15px;line-height:1.72;color:var(--ink-soft);margin-bottom:14px}
+p.p strong{color:var(--ink);font-weight:600}
+p.p em{font-style:italic;color:var(--ink-soft)}
+
+/* LISTS */
+ul.ul,ol.ol{list-style:none;margin-bottom:14px;padding:0}
+ul.ul li,ol.ol li{font-size:14.5px;line-height:1.65;color:var(--ink-soft);margin-bottom:8px;padding-left:22px;position:relative}
+ul.ul li::before{content:'';position:absolute;left:0;top:10px;width:10px;height:1.5px;background:var(--accent)}
+ol.ol{counter-reset:olc}
+ol.ol li{counter-increment:olc;padding-left:28px}
+ol.ol li::before{content:counter(olc,decimal-leading-zero);position:absolute;left:0;top:0;font-family:var(--mono);font-size:10.5px;font-weight:600;color:var(--accent)}
+ul.ul li strong,ol.ol li strong{color:var(--ink);font-weight:600}
+ul.ul li p,ol.ol li p{font-size:13.5px;color:var(--ink-mute);margin-top:3px;line-height:1.55}
+
+/* CALLOUTS */
+.callout{padding:16px 20px;border-left:3px solid;border-radius:0 4px 4px 0;margin:20px 0}
+.callout .cl{font-family:var(--mono);font-size:9.5px;letter-spacing:0.15em;text-transform:uppercase;font-weight:700;margin-bottom:7px;display:block}
+.callout p{font-size:14px;line-height:1.6;margin:0;color:var(--ink-soft)}
+.callout p strong{color:var(--ink)}
+.callout.info{background:var(--teal-bg);border-color:var(--teal)}.callout.info .cl{color:var(--teal)}
+.callout.warn{background:var(--gold-bg);border-color:var(--gold)}.callout.warn .cl{color:var(--gold)}
+.callout.good{background:var(--leaf-bg);border-color:var(--leaf)}.callout.good .cl{color:var(--leaf)}
+.callout.rule{background:var(--accent-bg);border-color:var(--accent)}.callout.rule .cl{color:var(--accent)}
+.callout.note{background:var(--slate-bg);border-color:var(--slate)}.callout.note .cl{color:var(--slate)}
+
+/* TABLES */
+.tbl-wrap{overflow-x:auto;margin:20px 0}
+table.tbl{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--paper);border:1px solid var(--rule)}
+table.tbl thead{background:var(--ink-soft)}
+table.tbl th{text-align:left;padding:11px 14px;font-family:var(--mono);font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:#C5CDD8;font-weight:500;border-right:0.5px solid rgba(255,255,255,0.08)}
+table.tbl td{padding:12px 14px;border-bottom:0.5px solid var(--rule-soft);border-right:0.5px solid var(--rule-soft);vertical-align:top;color:var(--ink-soft);line-height:1.5}
+table.tbl tr:last-child td{border-bottom:none}
+table.tbl td:first-child{color:var(--ink);font-weight:500}
+table.tbl .num{font-family:var(--mono);font-size:12.5px;color:var(--ink);font-weight:600}
+table.tbl .hl td{background:var(--accent-bg);color:var(--ink)}
+table.tbl .hl td:first-child{color:var(--accent-dark)}
+table.tbl td code{font-family:var(--mono);font-size:12px;background:var(--bg);padding:1px 5px;border-radius:3px;color:var(--accent)}
+
+/* METRIC GRID */
+.mg{display:grid;gap:12px;margin:20px 0}
+.mg.c2{grid-template-columns:1fr 1fr}
+.mg.c3{grid-template-columns:1fr 1fr 1fr}
+.mg.c4{grid-template-columns:1fr 1fr 1fr 1fr}
+.mc{background:var(--paper);border:1px solid var(--rule-soft);padding:18px 20px;border-radius:4px}
+.mc-num{font-family:var(--serif);font-size:28px;font-weight:500;letter-spacing:-0.02em;color:var(--ink);line-height:1;margin-bottom:5px}
+.mc-num .a{color:var(--accent)}
+.mc-num .sm{font-size:16px;vertical-align:top}
+.mc-lbl{font-family:var(--mono);font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-mute);font-weight:500;margin-bottom:8px}
+.mc-note{font-size:12px;color:var(--ink-mute);line-height:1.45;padding-top:8px;border-top:0.5px solid var(--rule-soft)}
+
+/* CODE BLOCKS */
+.code-block{background:var(--ink);color:#C5CDD8;padding:20px 24px;font-family:var(--mono);font-size:12.5px;line-height:1.7;border-radius:4px;margin:16px 0;overflow-x:auto}
+.code-block .k{color:#C084FC}
+.code-block .s{color:#86EFAC}
+.code-block .c{color:#4B5563;font-style:italic}
+.code-block .n{color:#FCA5A5}
+.code-block .v{color:#FCD34D}
+
+/* BIOMARKER ROWS */
+.bm-group{margin:16px 0;border:1px solid var(--rule-soft);border-radius:4px;overflow:hidden}
+.bm-group-header{background:var(--ink-soft);color:#E5EAF0;padding:10px 16px;font-family:var(--mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;font-weight:600;display:flex;justify-content:space-between;align-items:center}
+.bm-group-header span{font-family:var(--sans);font-size:11px;font-weight:400;color:rgba(255,255,255,0.55);letter-spacing:0}
+.bm-row{display:grid;grid-template-columns:1.8fr 1fr 0.8fr 1fr 1.2fr;gap:0;border-bottom:0.5px solid var(--rule-soft);background:var(--paper)}
+.bm-row:last-child{border-bottom:none}
+.bm-row:nth-child(even){background:var(--bg)}
+.bm-cell{padding:10px 14px;font-size:13px;color:var(--ink-soft);border-right:0.5px solid var(--rule-soft)}
+.bm-cell:last-child{border-right:none}
+.bm-cell.name{color:var(--ink);font-weight:600;font-size:13px}
+.bm-cell.ref{font-family:var(--mono);font-size:11.5px;color:var(--ink-mute)}
+.bm-cell.opt{font-family:var(--mono);font-size:11.5px;color:var(--leaf);font-weight:600}
+.bm-cell.why{font-size:12px;color:var(--ink-mute);line-height:1.4}
+.bm-header{display:grid;grid-template-columns:1.8fr 1fr 0.8fr 1fr 1.2fr;background:var(--rule-soft)}
+.bm-header div{padding:8px 14px;font-family:var(--mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-mute);font-weight:600;border-right:0.5px solid var(--rule)}
+.bm-header div:last-child{border-right:none}
+
+/* FLOW STEPS */
+.flow{margin:20px 0}
+.flow-step{display:grid;grid-template-columns:60px 1fr;gap:20px;margin-bottom:0}
+.flow-step-inner{padding-bottom:28px;border-left:1.5px solid var(--rule);padding-left:20px;margin-left:-1px}
+.flow-step:last-child .flow-step-inner{border-left:1.5px solid transparent}
+.flow-num{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:18px;font-weight:500;border:1.5px solid var(--rule);background:var(--paper);position:relative;z-index:2;color:var(--ink)}
+.flow-step:nth-child(1) .flow-num{background:var(--accent);border-color:var(--accent);color:#fff}
+.flow-step:nth-child(2) .flow-num{background:var(--teal);border-color:var(--teal);color:#fff}
+.flow-step:nth-child(3) .flow-num{background:var(--leaf);border-color:var(--leaf);color:#fff}
+.flow-step:nth-child(4) .flow-num{background:var(--gold);border-color:var(--gold);color:#fff}
+.flow-step:nth-child(5) .flow-num{background:var(--slate);border-color:var(--slate);color:#fff}
+.flow-step:nth-child(6) .flow-num{background:var(--purple);border-color:var(--purple);color:#fff}
+.flow-title{font-family:var(--serif);font-size:18px;font-weight:500;letter-spacing:-0.01em;color:var(--ink);margin-bottom:6px;margin-top:8px}
+.flow-sub{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;color:var(--ink-fade);text-transform:uppercase;margin-bottom:8px}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--rule);margin:64px 0;position:relative}
+.divider::after{content:'§';position:absolute;left:50%;top:-12px;transform:translateX(-50%);background:var(--bg);padding:0 14px;font-family:var(--serif);font-size:18px;font-style:italic;color:var(--ink-fade)}
+
+/* FORMULA BOX */
+.formula{background:var(--ink);color:#E5EAF0;padding:20px 24px;font-family:var(--mono);font-size:13px;line-height:1.8;border-radius:4px;margin:16px 0}
+.formula .comment{color:#4B5568;font-style:italic}
+.formula .highlight{color:#FCD34D;font-weight:600}
+.formula .result{color:#86EFAC;font-weight:600}
+
+/* READING LIST */
+.reading-item{border:1px solid var(--rule-soft);background:var(--paper);padding:18px 20px;margin-bottom:8px;border-radius:4px;display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:start}
+.ri-icon{width:36px;height:36px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.ri-title{font-family:var(--serif);font-size:16px;font-weight:500;letter-spacing:-0.01em;color:var(--ink);margin-bottom:3px}
+.ri-sub{font-size:12.5px;color:var(--ink-mute);line-height:1.4}
+.ri-type{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-fade);font-weight:500}
+
+/* TAG */
+.tag{display:inline-block;font-family:var(--mono);font-size:9.5px;font-weight:600;padding:2px 7px;border-radius:3px;letter-spacing:0.05em;text-transform:uppercase}
+.tag.r{background:var(--rose-bg);color:var(--rose)}
+.tag.g{background:var(--leaf-bg);color:var(--leaf)}
+.tag.y{background:var(--gold-bg);color:var(--gold)}
+.tag.b{background:var(--slate-bg);color:var(--slate)}
+.tag.a{background:var(--accent-bg);color:var(--accent)}
+.tag.t{background:var(--teal-bg);color:var(--teal)}
+
+/* QUESTION BLOCK */
+.q-block{border:1px solid var(--rule-soft);background:var(--paper);border-radius:4px;overflow:hidden;margin:12px 0}
+.q-category{background:var(--ink-soft);color:#E5EAF0;padding:9px 16px;font-family:var(--mono);font-size:9.5px;letter-spacing:0.15em;text-transform:uppercase;font-weight:600}
+.q-list li{padding:10px 16px;border-bottom:0.5px solid var(--rule-soft);font-size:14px;color:var(--ink-soft);display:flex;align-items:flex-start;gap:12px;list-style:none}
+.q-list li:last-child{border-bottom:none}
+.q-list li::before{content:'Q';font-family:var(--mono);font-size:10px;font-weight:700;color:var(--accent);padding:1px 5px;background:var(--accent-bg);border-radius:2px;flex-shrink:0;margin-top:2px}
+.q-list li span{line-height:1.5}
+
+/* PROTOCOL TABLE */
+.proto-row{border:1px solid var(--rule-soft);border-radius:4px;overflow:hidden;margin:12px 0}
+.proto-header{background:var(--accent);color:#fff;padding:11px 16px;display:flex;justify-content:space-between;align-items:center}
+.proto-h-title{font-family:var(--serif);font-size:15px;font-weight:500;letter-spacing:-0.01em}
+.proto-h-meta{font-family:var(--mono);font-size:10px;letter-spacing:0.08em}
+.proto-body{padding:16px;background:var(--paper)}
+.proto-item{display:flex;gap:12px;padding:8px 0;border-bottom:0.5px solid var(--rule-soft);align-items:flex-start;font-size:13.5px;color:var(--ink-soft)}
+.proto-item:last-child{border-bottom:none}
+.proto-item strong{color:var(--ink);font-weight:600;min-width:140px;flex-shrink:0}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr}
+  .sidebar{position:fixed;left:-280px;width:260px;z-index:100;transition:left 0.3s;height:100vh}
+  .sidebar.open{left:0}
+  .main{padding:24px 20px 60px}
+  .cover-stat-row{grid-template-columns:1fr 1fr}
+  .mg.c3,.mg.c4{grid-template-columns:1fr 1fr}
+  .bm-row{grid-template-columns:1fr 1fr;font-size:12px}
+  .bm-header{grid-template-columns:1fr 1fr}
+  .bm-cell.why,.bm-header div:nth-child(n+3):not(:first-child):not(:nth-child(2)){display:none}
+  .menu-btn{display:flex!important}
+}
+.menu-btn{display:none;position:fixed;top:16px;right:16px;z-index:200;background:var(--ink);color:#fff;border:none;width:42px;height:42px;border-radius:8px;align-items:center;justify-content:center;cursor:pointer;font-size:16px}
+</style>
+</head>
+<body>
+<button class="menu-btn" id="menuBtn">☰</button>
+<div class="layout">
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sb-brand">
+    <div class="sb-brand-name">Tessera Rulebook</div>
+    <div class="sb-brand-sub">Operational System v1.0</div>
+  </div>
+
+  <div class="sb-section">
+    <span class="sb-section-label">Foundation</span>
+    <a href="#cover" class="sb-item active"><span class="sb-num">00</span>System overview</a>
+    <a href="#biomarkers" class="sb-item"><span class="sb-num">01</span>The biomarker panel</a>
+    <a href="#labs" class="sb-item"><span class="sb-num">02</span>How to get it done</a>
+    <a href="#bio-age" class="sb-item"><span class="sb-num">03</span>Calculating biological age</a>
+  </div>
+
+  <div class="sb-section">
+    <span class="sb-section-label">Assessment</span>
+    <a href="#intake" class="sb-item"><span class="sb-num">04</span>Lifestyle questionnaire</a>
+    <a href="#interpretation" class="sb-item"><span class="sb-num">05</span>Reading the biomarkers</a>
+    <a href="#ai-doctor" class="sb-item"><span class="sb-num">06</span>AI + doctor workflow</a>
+  </div>
+
+  <div class="sb-section">
+    <span class="sb-section-label">Protocol Design</span>
+    <a href="#nutrition" class="sb-item"><span class="sb-num">07</span>Nutrition protocol</a>
+    <a href="#training" class="sb-item"><span class="sb-num">08</span>Training protocol</a>
+    <a href="#recovery" class="sb-item"><span class="sb-num">09</span>Recovery & sleep</a>
+    <a href="#supplements" class="sb-item"><span class="sb-num">10</span>Supplements</a>
+    <a href="#mind" class="sb-item"><span class="sb-num">11</span>Mind & mindfulness</a>
+  </div>
+
+  <div class="sb-section">
+    <span class="sb-section-label">Operations</span>
+    <a href="#calls" class="sb-item"><span class="sb-num">12</span>Call & check-in system</a>
+    <a href="#tools" class="sb-item"><span class="sb-num">13</span>Tools & templates</a>
+    <a href="#study" class="sb-item"><span class="sb-num">14</span>What to study</a>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- COVER -->
+<section class="cover" id="cover">
+  <div class="cover-tag">Complete Operational Rulebook</div>
+  <h1 class="cover-h1">The exact system.<br><em>Everything you need to run it.</em></h1>
+  <p class="cover-desc">
+    This document is your operating manual — from the precise biomarkers you order, to how you calculate
+    biological age, to the exact questions you ask clients, to how you interpret every result, design every
+    protocol, run every call, and build your knowledge base. Follow this and you can run the full program.
+  </p>
+  <div class="cover-stat-row">
+    <div class="cover-stat"><div class="csn">56</div><div class="csl">Core biomarkers tracked</div></div>
+    <div class="cover-stat"><div class="csn">9</div><div class="csl">PhenoAge formula inputs</div></div>
+    <div class="cover-stat"><div class="csn">127</div><div class="csl">Intake questions mapped</div></div>
+    <div class="cover-stat"><div class="csn">4</div><div class="csl">Protocol levers per client</div></div>
+    <div class="cover-stat"><div class="csn">90</div><div class="csl">Days per program cycle</div></div>
+  </div>
+</section>
+
+<!-- ═══════════ CHAPTER 1: BIOMARKERS ═══════════ -->
+<section class="chapter" id="biomarkers">
+  <div class="ch-meta">Chapter One</div>
+  <h2 class="ch-title">The <em>biomarker panel</em></h2>
+  <p class="ch-lede">The exact 56 markers you order for every client. Why each one matters, what range you're aiming for, and what abnormal values tell you about the body's aging trajectory.</p>
+
+  <div class="callout rule">
+    <span class="cl">The Rule</span>
+    <p><strong>Every client gets the same base panel.</strong> No exceptions. You cannot personalize without data. The 56-marker panel is your minimum. It costs ₹3,500–5,500 through partner labs. Do not let clients substitute a "corporate checkup panel" — those 12-marker panels miss everything that matters for metabolic aging.</p>
+  </div>
+
+  <h3 class="sh">Group 1 — Metabolic & Glucose Regulation</h3>
+  <p class="p">These markers reveal how the body handles glucose and energy — the foundation of metabolic aging. Insulin resistance typically develops 10–15 years before a diabetes diagnosis appears.</p>
+
+  <div class="bm-group">
+    <div class="bm-group-header">Metabolic Panel <span>6 markers · Critical for PhenoAge calculation</span></div>
+    <div class="bm-header"><div>Marker</div><div>Standard Range</div><div>Optimal</div><div>What it reveals</div><div>Why it matters for aging</div></div>
+    <div class="bm-row">
+      <div class="bm-cell name">Fasting Glucose</div>
+      <div class="bm-cell ref">70–100 mg/dL</div>
+      <div class="bm-cell opt">&lt;90</div>
+      <div class="bm-cell why">Blood sugar after 8hr fast</div>
+      <div class="bm-cell why">Input for PhenoAge. Elevated = insulin resistance beginning</div>
+    </div>
+    <div class="bm-row">
+      <div class="bm-cell name">HbA1c (Glycated Haemoglobin)</div>
+      <div class="bm-cell ref">&lt;5.7%</div>
+      <div class="bm-cell opt">&lt;5.2%</div>
+      <div class="bm-cell why">3-month average blood sugar</div>
+      <div class="bm-cell why">Input for PhenoAge. Each 1% rise = 18% higher CVD risk</div>
+    </div>
+    <div class="bm-row">
+      <div class="bm-cell name">Fasting Insulin</div>
+      <div class="bm-cell ref">2–25 µIU/mL</div>
+      <div class="bm-cell opt">&lt;8</div>
+      <div class="bm-cell why">Pancreatic insulin output at rest</div>
+      <div class="bm-cell why">Earliest insulin resistance signal. Lab won't flag 14 as abnormal but it is.</div>
+    </div>
+    <div class="bm-row">
+      <div class="bm-cell name">HOMA-IR (calculated)</div>
+      <div class="bm-cell ref">&lt;2.0</div>
+      <div class="bm-cell opt">&lt;1.5</div>
+      <div class="bm-cell why">Insulin resistance index. Formula: (Glucose × Insulin) ÷ 405</div>
+      <div class="bm-cell why">The single best early-warning insulin resistance number</div>
+    </div>
+    <div class="bm-row">
+      <div class="bm-cell name">Uric Acid</div>
+      <div class="bm-cell ref">3.5–7.2 mg/dL</div>
+      <div class="bm-cell opt">&lt;5.5</div>
+      <div class="bm-cell why">Purine metabolism byproduct</div>
+      <div class="bm-cell why">Elevated = fructose overconsumption, gout risk, kidney stress, mitochondrial dysfunction</div>
+    </div>
+    <div class="bm-row">
+      <div class="bm-cell name">C-Peptide</div>
+      <div class="bm-cell ref">0.5–2.0 nmol/L</div>
+      <div class="bm-cell opt">0.5–1.5</div>
+      <div class="bm-cell why">Pancreatic beta-cell output proxy</div>
+      <div class="bm-cell why">Differentiates insulin resistance from beta-cell failure</div>
+    </div>
+  </div>
+
+  <h3 class="sh">Group 2 — Lipids & Cardiovascular Risk</h3>
+  <p class="p">Standard lipid panels miss the most important markers. ApoB and Lp(a) are the actual atherogenic particles — LDL-C alone gives incomplete information. Peter Attia's framework: ApoB is the metric that drives cardiovascular disease, not LDL cholesterol.</p>
+
+  <div class="bm-group">
+    <div class="bm-group-header">Lipid & Cardiovascular Panel <span>8 markers · Standard lipid panel insufficient</span></div>
+    <div class="bm-header"><div>Marker</div><div>Standard Range</div><div>Optimal</div><div>What it reveals</div><div>Why it matters for aging</div></div>
+    <div class="bm-row">
+      <div class="bm-cell name">ApoB (Apolipoprotein B)</div>
+      <div class="bm-cell ref">&lt;130 mg/dL</div>
+      <div class="bm-cell opt">&lt;70</div>
+      <div class="bm-cell why">Total count of atherogenic particles (LDL, VLDL, IDL)</div>
+      <div class="bm-cell why">The single best predictor of cardiovascular events. Replaces LDL-C.</div>
+    </div>
+    <div class="bm-row">
+      <div class="bm-cell name">Lp(a) [Lipoprotein(a)]</div>
+      <div class="bm-cell ref">&lt;75 nmol/L</div>
+      <div class="bm-cell opt">&lt;30</div>
+      <div class="bm-cell why">Genetically determined atherogenic lipoprotein</div>
+      <div class="bm-cell why">Elevated in 20% of Indians. Independent CVD risk. Largely genetic.</div>
+    </div>
+    <div class="bm-row">
+      <div class="bm-cell name">LDL-C (standard)</div>
+      <div class="bm-cell ref">&lt;130 mg/dL</div>
+      <div class="bm-cell opt">&lt;100</div>
+      <div class="bm-cell why">LDL cholesterol concentration</div>
+      <div class="bm-cell why">Input for PhenoAge. Less informative than ApoB alone.</div>
+    </div>
+    <div class="bm-row">
+      <div class="bm-cell name">HDL-C</div>
+      <div class="bm-cell ref">40–60 mg/dL</div>
+      <div class="bm-cell opt">&gt;55</div>
+      <div class="bm-cell why">Reverse cholesterol transport capacity</div>
+      <div class="bm-cell why">Low HDL common in Indians on high-carb diets + sedentary lifestyle</div>
+    </div>
+    <div class="bm-row">
+      <div class="bm-cell name">Triglycerides</div>
+      <div class="bm-cell ref">&lt;150 mg/dL</div>
+      <div class="bm-cell opt">&lt;80</div>
+      <div class="bm-cell why">Circulating blood fats (reflects carb/sugar intake)</div>
+      <div class="bm-cell why">TG:HDL ratio &gt;3 is a strong insulin resistance marker in Indians</div>
+    </div>
+    <div class="bm-row">
+      <div class="bm-cell name">TG:HDL Ratio (calculated)</div>
+      <div class="bm-cell ref">&lt;3.0</div>
+      <div class="bm-cell opt">&lt;1.5</div>
+      <div class="bm-cell why">Proxy for small dense LDL particles and IR</div>
+      <div class="bm-cell why">Best single metabolic risk marker if ApoB not available</div>
+    </div>
+    <div class="bm-row">
+      <div class="bm-cell name">Total Cholesterol</div>
+      <div class="bm-cell ref">&lt;200 mg/dL</div>
+      <div class="bm-cell opt">150–200</div>
+      <div class="bm-cell why">Overall cholesterol pool</div>
+      <div class="bm-cell why">Input for PhenoAge. Context-dependent — too low also problematic.</div>
+    </div>
+    <div class="bm-row">
+      <div class="bm-cell name">Non-HDL Cholesterol (calculated)</div>
+      <div class="bm-cell ref">&lt;160 mg/dL</div>
+      <div class="bm-cell opt">&lt;100</div>
+      <div class="bm-cell why">Total-C minus HDL-C</div>
+      <div class="bm-cell why">Second-best CVD risk marker after ApoB. Easy to calculate.</div>
+    </div>
+  </div>
+
+  <h3 class="sh">Group 3 — Inflammation Markers</h3>
+  <p class="p">Chronic low-grade inflammation is the primary driver of biological aging. This is why Peter Attia calls inflammation "the engine of chronic disease." These markers detect it before symptoms emerge.</p>
+
+  <div class="bm-group">
+    <div class="bm-group-header">Inflammation Panel <span>5 markers · Key aging drivers</span></div>
+    <div class="bm-header"><div>Marker</div><div>Standard Range</div><div>Optimal</div><div>What it reveals</div><div>Why it matters for aging</div></div>
+    <div class="bm-row">
+      <div class="bm-cell name">hsCRP (high-sensitivity CRP)</div>
+      <div class="bm-cell ref">&lt;3.0 mg/L</div>
+      <div class="bm-cell opt">&lt;0.7</div>
+      <div class="bm-cell why">Liver-produced inflammation protein</div>
+      <div class="bm-cell why">Input for PhenoAge. Most widely available inflammation marker. Responds fast to intervention.</div>
+    </div>
+    <div class="bm-row">
+      <div class="bm-cell name">Homocysteine</div>
+      <div class="bm-cell ref">&lt;15 µmol/L</div>
+      <div class="bm-cell opt">&lt;8</div>
+      <div class="bm-cell why">Amino acid from methionine metabolism</div>
+      <div class="bm-cell why">Elevated in B12/folate deficiency. Damages endothelium. Dementia risk marker.</div>
+    </div>
+    <div class="bm-row">
+      <div class="bm-cell name">Fibrinogen</div>
+      <div class="bm-cell ref">200–400 mg/dL</div>
+      <div class="bm-cell opt">&lt;300</div>
+      <div class="bm-cell why">Clotting factor and inflammation marker</div>
+      <div class="bm-cell why">Input for PhenoAge. Elevated = endothelial inflammation, clot risk.</div>
+    </div>
+    <div class="bm-row">
+      <div class="bm-cell name">Ferritin</div>
+      <div class="bm-cell ref">12–300 ng/mL (M)</div>
+      <div class="bm-cell opt">50–150</div>
+      <div class="bm-cell why">Iron storage protein (also acute phase reactant)</div>
+      <div class="bm-cell why">Input for PhenoAge. Very high = iron overload or hidden inflammation. Very low = anaemia risk.</div>
+    </div>
+    <div class="bm-row">
+      <div class="bm-cell name">ESR (Erythrocyte Sedimentation Rate)</div>
+      <div class="bm-cell ref">&lt;20 mm/hr</div>
+      <div class="bm-cell opt">&lt;10</div>
+      <div class="bm-cell why">Non-specific inflammation rate</div>
+      <div class="bm-cell why">Cheap screening for hidden inflammation when hsCRP is borderline</div>
+    </div>
+  </div>
+
+  <h3 class="sh">Group 4 — Organ Function (Kidney & Liver)</h3>
+  <p class="p">Organ function markers are essential for safe supplementation, protein targets, and understanding detoxification capacity. They're also PhenoAge inputs.</p>
+
+  <div class="bm-group">
+    <div class="bm-group-header">Organ Function Panel <span>9 markers · Safety + PhenoAge inputs</span></div>
+    <div class="bm-header"><div>Marker</div><div>Standard Range</div><div>Optimal</div><div>What it reveals</div><div>Why it matters for aging</div></div>
+    <div class="bm-row"><div class="bm-cell name">Creatinine</div><div class="bm-cell ref">0.7–1.2 mg/dL</div><div class="bm-cell opt">0.7–1.0</div><div class="bm-cell why">Kidney filtration waste</div><div class="bm-cell why">Input for PhenoAge. Elevated = kidney stress.</div></div>
+    <div class="bm-row"><div class="bm-cell name">eGFR (estimated GFR)</div><div class="bm-cell ref">&gt;60 mL/min</div><div class="bm-cell opt">&gt;90</div><div class="bm-cell why">Kidney filtration rate estimate</div><div class="bm-cell why">Best overall kidney health marker. Decline = aging kidneys.</div></div>
+    <div class="bm-row"><div class="bm-cell name">BUN (Blood Urea Nitrogen)</div><div class="bm-cell ref">7–20 mg/dL</div><div class="bm-cell opt">10–16</div><div class="bm-cell why">Protein metabolism waste</div><div class="bm-cell why">High on high-protein diets + poor hydration. Tracks protein catabolism.</div></div>
+    <div class="bm-row"><div class="bm-cell name">ALT (Alanine Transaminase)</div><div class="bm-cell ref">&lt;40 U/L</div><div class="bm-cell opt">&lt;25</div><div class="bm-cell why">Liver cell enzyme — released when liver cells damaged</div><div class="bm-cell why">Elevated in fatty liver (NAFLD), very common in Indian urban males.</div></div>
+    <div class="bm-row"><div class="bm-cell name">AST (Aspartate Transaminase)</div><div class="bm-cell ref">&lt;40 U/L</div><div class="bm-cell opt">&lt;22</div><div class="bm-cell why">Liver + muscle enzyme</div><div class="bm-cell why">AST:ALT ratio &gt;2 suggests alcohol-related liver disease.</div></div>
+    <div class="bm-row"><div class="bm-cell name">GGT (Gamma-GT)</div><div class="bm-cell ref">&lt;50 U/L</div><div class="bm-cell opt">&lt;20</div><div class="bm-cell why">Liver/bile enzyme, alcohol and toxin sensitive</div><div class="bm-cell why">Excellent marker for alcohol, fatty liver, oxidative stress. Often overlooked.</div></div>
+    <div class="bm-row"><div class="bm-cell name">Albumin</div><div class="bm-cell ref">3.5–5.0 g/dL</div><div class="bm-cell opt">&gt;4.5</div><div class="bm-cell why">Liver-produced protein, nutrition status marker</div><div class="bm-cell why">Input for PhenoAge. Low albumin = poor nutrition, liver dysfunction, or inflammation.</div></div>
+    <div class="bm-row"><div class="bm-cell name">Alkaline Phosphatase</div><div class="bm-cell ref">44–147 U/L</div><div class="bm-cell opt">&lt;80</div><div class="bm-cell why">Liver/bone enzyme</div><div class="bm-cell why">Elevated in liver disease, vitamin D deficiency, bone disorders.</div></div>
+    <div class="bm-row"><div class="bm-cell name">Total Bilirubin</div><div class="bm-cell ref">0.1–1.2 mg/dL</div><div class="bm-cell opt">0.3–0.8</div><div class="bm-cell why">Bile pigment from RBC breakdown</div><div class="bm-cell why">Input for PhenoAge. Slightly elevated can indicate Gilbert's syndrome (benign).</div></div>
+  </div>
+
+  <h3 class="sh">Group 5 — Hormones</h3>
+  <p class="p">Hormonal status dictates energy, body composition, cognitive function, and motivation. Indian urban professionals are often deficient in testosterone (men) or dealing with thyroid disruption, driven by chronic stress, poor sleep, and refined-carb diets.</p>
+
+  <div class="bm-group">
+    <div class="bm-group-header">Hormonal Panel <span>11 markers · Gender-specific interpretation needed</span></div>
+    <div class="bm-header"><div>Marker</div><div>Standard Range</div><div>Optimal</div><div>What it reveals</div><div>Why it matters for aging</div></div>
+    <div class="bm-row"><div class="bm-cell name">TSH (Thyroid Stimulating Hormone)</div><div class="bm-cell ref">0.5–4.5 mIU/L</div><div class="bm-cell opt">0.8–2.0</div><div class="bm-cell why">Pituitary signal to thyroid</div><div class="bm-cell why">Most common hormonal disorder in India. TSH 3–4.5 = subclinical hypothyroid.</div></div>
+    <div class="bm-row"><div class="bm-cell name">Free T3</div><div class="bm-cell ref">2.3–4.2 pg/mL</div><div class="bm-cell opt">3.2–4.0</div><div class="bm-cell why">Active thyroid hormone at cellular level</div><div class="bm-cell why">Low T3 = low metabolic rate, fatigue, cold intolerance. Missed by TSH alone.</div></div>
+    <div class="bm-row"><div class="bm-cell name">Free T4</div><div class="bm-cell ref">0.8–1.8 ng/dL</div><div class="bm-cell opt">1.2–1.6</div><div class="bm-cell why">Thyroid precursor hormone</div><div class="bm-cell why">T4 converts to T3. Low conversion = "thyroid conversion problem."</div></div>
+    <div class="bm-row"><div class="bm-cell name">Anti-TPO Antibodies</div><div class="bm-cell ref">&lt;35 IU/mL</div><div class="bm-cell opt">&lt;10</div><div class="bm-cell why">Autoimmune thyroid attack marker</div><div class="bm-cell why">Detects Hashimoto's — the most common autoimmune disease in India.</div></div>
+    <div class="bm-row"><div class="bm-cell name">Total Testosterone (Men)</div><div class="bm-cell ref">300–1000 ng/dL</div><div class="bm-cell opt">600–800</div><div class="bm-cell why">Primary male sex hormone</div><div class="bm-cell why">Declines 1-2%/year from 30. Low = fatigue, low libido, poor muscle growth, depression.</div></div>
+    <div class="bm-row"><div class="bm-cell name">Free Testosterone (Men)</div><div class="bm-cell ref">5–25 ng/dL</div><div class="bm-cell opt">15–25</div><div class="bm-cell why">Bioavailable testosterone fraction</div><div class="bm-cell why">More relevant than total testosterone. SHBG elevation can make total normal but free low.</div></div>
+    <div class="bm-row"><div class="bm-cell name">SHBG</div><div class="bm-cell ref">10–57 nmol/L</div><div class="bm-cell opt">20–35</div><div class="bm-cell why">Sex hormone binding globulin</div><div class="bm-cell why">High SHBG binds testosterone, reducing free levels. Elevated by alcohol, hyperthyroidism.</div></div>
+    <div class="bm-row"><div class="bm-cell name">Estradiol (E2) — Men</div><div class="bm-cell ref">10–40 pg/mL</div><div class="bm-cell opt">20–30</div><div class="bm-cell why">Primary estrogen — men need low-normal levels</div><div class="bm-cell why">High E2 in men = aromatization from excess body fat. Causes gynecomastia, low libido.</div></div>
+    <div class="bm-row"><div class="bm-cell name">Estradiol (E2) — Women</div><div class="bm-cell ref">Cycle-dependent</div><div class="bm-cell opt">Follicular: 50-300</div><div class="bm-cell why">Primary female sex hormone</div><div class="bm-cell why">Interpret relative to cycle day and menopause status.</div></div>
+    <div class="bm-row"><div class="bm-cell name">DHEA-S</div><div class="bm-cell ref">80–560 µg/dL (M, 30-40)</div><div class="bm-cell opt">250–400</div><div class="bm-cell why">Adrenal precursor hormone</div><div class="bm-cell why">Declines steeply with age. Low = adrenal fatigue, poor stress resilience.</div></div>
+    <div class="bm-row"><div class="bm-cell name">Cortisol (AM fasted)</div><div class="bm-cell ref">6–23 µg/dL</div><div class="bm-cell opt">12–20</div><div class="bm-cell why">Primary stress hormone</div><div class="bm-cell why">Chronic elevation = muscle breakdown, fat storage, immune suppression, sleep disruption.</div></div>
+  </div>
+
+  <h3 class="sh">Group 6 — Micronutrients</h3>
+  <p class="p">Deficiencies in these four nutrients are endemic in urban India and drive fatigue, depression, cognitive decline, and poor recovery. Supplementing without testing is guesswork.</p>
+
+  <div class="bm-group">
+    <div class="bm-group-header">Micronutrient Panel <span>7 markers · Deficiencies endemic in India</span></div>
+    <div class="bm-header"><div>Marker</div><div>Standard Range</div><div>Optimal</div><div>What it reveals</div><div>Why it matters for aging</div></div>
+    <div class="bm-row"><div class="bm-cell name">25-OH Vitamin D</div><div class="bm-cell ref">30–100 ng/mL</div><div class="bm-cell opt">50–70</div><div class="bm-cell why">Stored Vitamin D level</div><div class="bm-cell why">80%+ of urban Indians deficient. Affects immunity, bone, mood, cancer risk, testosterone.</div></div>
+    <div class="bm-row"><div class="bm-cell name">Vitamin B12</div><div class="bm-cell ref">200–900 pg/mL</div><div class="bm-cell opt">&gt;500</div><div class="bm-cell why">Neurological function, DNA synthesis</div><div class="bm-cell why">Deficiency near-universal in vegetarians. Elevated homocysteine is a symptom. Neurological damage is irreversible.</div></div>
+    <div class="bm-row"><div class="bm-cell name">Folate (Serum)</div><div class="bm-cell ref">3–17 ng/mL</div><div class="bm-cell opt">&gt;10</div><div class="bm-cell why">B-vitamin for DNA methylation and cell repair</div><div class="bm-cell why">Low = elevated homocysteine, poor DNA repair, pregnancy risk. Check with B12.</div></div>
+    <div class="bm-row"><div class="bm-cell name">Magnesium (serum)</div><div class="bm-cell ref">1.7–2.2 mg/dL</div><div class="bm-cell opt">&gt;2.0</div><div class="bm-cell why">Involved in 300+ enzymatic reactions</div><div class="bm-cell why">Serum mag is insensitive — if borderline, assume cellular depletion. Deficiency causes sleep, mood, muscle problems.</div></div>
+    <div class="bm-row"><div class="bm-cell name">Iron (Serum)</div><div class="bm-cell ref">60–170 µg/dL</div><div class="bm-cell opt">80–130</div><div class="bm-cell why">Circulating iron level</div><div class="bm-cell why">Low = fatigue, poor exercise performance. High = oxidative stress and liver damage.</div></div>
+    <div class="bm-row"><div class="bm-cell name">Zinc (Serum)</div><div class="bm-cell ref">60–120 µg/dL</div><div class="bm-cell opt">90–110</div><div class="bm-cell why">Immune function, testosterone synthesis, wound healing</div><div class="bm-cell why">Deficient in 25%+ Indians due to phytate-rich diet. Low zinc → low testosterone.</div></div>
+    <div class="bm-row"><div class="bm-cell name">Omega-3 Index</div><div class="bm-cell ref">&gt;4%</div><div class="bm-cell opt">&gt;8%</div><div class="bm-cell why">EPA+DHA as % of total RBC fatty acids</div><div class="bm-cell why">Below 4% = high CVD, inflammation risk. Very low in Indians (low fish consumption).</div></div>
+  </div>
+
+  <h3 class="sh">Group 7 — Blood Count & Haematology</h3>
+
+  <div class="bm-group">
+    <div class="bm-group-header">CBC (Complete Blood Count) <span>7 markers · Immune + oxygen delivery + PhenoAge</span></div>
+    <div class="bm-header"><div>Marker</div><div>Standard Range</div><div>Optimal</div><div>What it reveals</div><div>Why it matters for aging</div></div>
+    <div class="bm-row"><div class="bm-cell name">White Blood Cell (WBC) Count</div><div class="bm-cell ref">4,000–11,000 /µL</div><div class="bm-cell opt">4,500–7,500</div><div class="bm-cell why">Total immune cell count</div><div class="bm-cell why">Input for PhenoAge. Chronically elevated = hidden infection or inflammation.</div></div>
+    <div class="bm-row"><div class="bm-cell name">Red Blood Cell (RBC) Count</div><div class="bm-cell ref">4.5–5.9 M/µL</div><div class="bm-cell opt">4.8–5.4</div><div class="bm-cell why">Oxygen transport capacity</div><div class="bm-cell why">Low = anaemia. High = dehydration, polycythemia, EPO abuse.</div></div>
+    <div class="bm-row"><div class="bm-cell name">Haemoglobin</div><div class="bm-cell ref">13–17 g/dL (M)</div><div class="bm-cell opt">&gt;14.5</div><div class="bm-cell why">Oxygen-carrying protein in RBCs</div><div class="bm-cell why">Low Hb = fatigue, exercise limitation. Iron, B12, folate all affect this.</div></div>
+    <div class="bm-row"><div class="bm-cell name">MCV (Mean Corpuscular Volume)</div><div class="bm-cell ref">80–100 fL</div><div class="bm-cell opt">82–92</div><div class="bm-cell why">RBC size</div><div class="bm-cell why">High MCV = B12/folate deficiency. Low MCV = iron deficiency or thalassemia trait.</div></div>
+    <div class="bm-row"><div class="bm-cell name">Platelet Count</div><div class="bm-cell ref">150,000–400,000</div><div class="bm-cell opt">170,000–320,000</div><div class="bm-cell why">Clotting cells</div><div class="bm-cell why">Input for PhenoAge. Very low = bleeding risk. Very high = clot risk.</div></div>
+    <div class="bm-row"><div class="bm-cell name">Lymphocyte %</div><div class="bm-cell ref">20–40%</div><div class="bm-cell opt">25–35%</div><div class="bm-cell why">Adaptive immune cells</div><div class="bm-cell why">Input for PhenoAge. Low = immune senescence or chronic stress.</div></div>
+    <div class="bm-row"><div class="bm-cell name">Mean Platelet Volume (MPV)</div><div class="bm-cell ref">7.5–12.5 fL</div><div class="bm-cell opt">8–11</div><div class="bm-cell why">Platelet size (larger = more active)</div><div class="bm-cell why">High MPV = increased clotting activation. Tracks cardiovascular risk over time.</div></div>
+  </div>
+
+  <h3 class="sh">Group 8 — Cardiac-Specific</h3>
+
+  <div class="bm-group">
+    <div class="bm-group-header">Cardiac Markers <span>3 markers · Indians face disproportionate CVD risk</span></div>
+    <div class="bm-header"><div>Marker</div><div>Standard Range</div><div>Optimal</div><div>What it reveals</div><div>Why it matters for aging</div></div>
+    <div class="bm-row"><div class="bm-cell name">NT-proBNP</div><div class="bm-cell ref">&lt;125 pg/mL</div><div class="bm-cell opt">&lt;75</div><div class="bm-cell why">Heart wall stress marker</div><div class="bm-cell why">Elevated = early cardiac strain. Useful baseline even in young healthy clients.</div></div>
+    <div class="bm-row"><div class="bm-cell name">Lipoprotein Ratios</div><div class="bm-cell ref">TC/HDL &lt;5</div><div class="bm-cell opt">&lt;3.5</div><div class="bm-cell why">Cholesterol risk ratio</div><div class="bm-cell why">Second-line CVD risk marker. Calculate from standard lipid results.</div></div>
+    <div class="bm-row"><div class="bm-cell name">High-Sensitivity Troponin I</div><div class="bm-cell ref">&lt;0.04 ng/mL</div><div class="bm-cell opt">Undetectable</div><div class="bm-cell why">Cardiac muscle cell damage marker</div><div class="bm-cell why">Order only if client has chest pain, family history, or very high CVD risk. Refer immediately if elevated.</div></div>
+  </div>
+
+  <h3 class="sh">Group 9 — Optional Advanced (Year 1: add for Pro/Continuum)</h3>
+
+  <div class="bm-group">
+    <div class="bm-group-header">Advanced Panel <span>6 markers · Add for Pro and Continuum tiers</span></div>
+    <div class="bm-header"><div>Marker</div><div>Standard Range</div><div>Optimal</div><div>What it reveals</div><div>Why it matters for aging</div></div>
+    <div class="bm-row"><div class="bm-cell name">IGF-1 (Insulin-like Growth Factor 1)</div><div class="bm-cell ref">Age-dependent</div><div class="bm-cell opt">Mid-range for age</div><div class="bm-cell why">Growth hormone axis proxy</div><div class="bm-cell why">Reflects anabolic capacity. Very low = poor recovery. Very high = cancer risk.</div></div>
+    <div class="bm-row"><div class="bm-cell name">PSA (Men over 40)</div><div class="bm-cell ref">&lt;4.0 ng/mL</div><div class="bm-cell opt">&lt;2.5</div><div class="bm-cell why">Prostate-specific antigen</div><div class="bm-cell why">Prostate cancer screening. Baseline value at 40 is critical for future monitoring.</div></div>
+    <div class="bm-row"><div class="bm-cell name">LH and FSH (Hormonal axis)</div><div class="bm-cell ref">Age-dependent</div><div class="bm-cell opt">Reference-dependent</div><div class="bm-cell why">Pituitary signals to gonads</div><div class="bm-cell why">Differentiates primary vs. secondary hypogonadism in men. Essential for women.</div></div>
+    <div class="bm-row"><div class="bm-cell name">HsCRP Cardiac Risk (2-panel)</div><div class="bm-cell ref">Low: &lt;1 / Med: 1-3 / High: &gt;3</div><div class="bm-cell opt">&lt;0.5</div><div class="bm-cell why">Same as hsCRP but specifically framed for CVD risk stratification</div><div class="bm-cell why">Used for formal AHA cardiovascular risk categorization.</div></div>
+    <div class="bm-row"><div class="bm-cell name">Prolactin</div><div class="bm-cell ref">&lt;18 ng/mL (M)</div><div class="bm-cell opt">&lt;10</div><div class="bm-cell why">Pituitary hormone</div><div class="bm-cell why">Elevated = pituitary adenoma, hypothyroidism. Causes low testosterone in men.</div></div>
+    <div class="bm-row"><div class="bm-cell name">Sex Hormone Profile (Women: E2, LH, FSH, Progesterone)</div><div class="bm-cell ref">Cycle-dependent</div><div class="bm-cell opt">Cycle-dependent</div><div class="bm-cell why">Full female hormonal picture</div><div class="bm-cell why">Order on Day 3 of cycle for best interpretation. Essential for PCOS, perimenopause assessment.</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ CHAPTER 2: LABS ═══════════ -->
+<section class="chapter" id="labs">
+  <div class="ch-meta">Chapter Two</div>
+  <h2 class="ch-title">How to get it <em>done</em></h2>
+  <p class="ch-lede">Exactly which labs to use, what to order, how to arrange home collection, what to tell clients, and what to do when results arrive.</p>
+
+  <h3 class="sh">Lab partners in Hyderabad (Ranked by recommendation)</h3>
+
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>Lab</th><th>Why to use them</th><th>Home collection</th><th>Turnaround</th><th>Panel cost (est.)</th><th>Order method</th></tr></thead>
+    <tbody>
+      <tr><td>Thyrocare</td><td>Cheapest, NABL accredited, best API for bulk orders. Aarogyam C panel covers most of what we need.</td><td>Yes — free above ₹500</td><td>24–48 hrs</td><td class="num">₹2,500–3,500</td><td>App / API / partner portal</td></tr>
+      <tr><td>Redcliffe Labs</td><td>Best digital reporting, good phlebotomist network, 1000+ tests. Recommended for Pro tier.</td><td>Yes — ₹150 fee</td><td>12–36 hrs</td><td class="num">₹3,000–4,500</td><td>App / website / B2B portal</td></tr>
+      <tr><td>Apollo Diagnostics</td><td>Strong brand trust, useful when clients need clinic walk-in option. Good for sensitivity.</td><td>Yes</td><td>24 hrs</td><td class="num">₹4,000–6,000</td><td>App / clinic walk-in</td></tr>
+      <tr><td>Metropolis</td><td>Best for specialized markers (Lp(a), Omega-3 Index, Anti-TPO). May need supplementary orders.</td><td>Yes</td><td>24–72 hrs</td><td class="num">₹4,500–7,000</td><td>App / B2B account</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 class="sh">Exact panel to order — by tier</h3>
+
+  <div class="callout info">
+    <span class="cl">Practical Note</span>
+    <p>No single lab will have a "longevity panel" product. You will either order named panels (like Thyrocare's <strong>Aarogyam C</strong> which covers ~72 markers for ~₹1,500) or custom-build from individual tests. Aarogyam C + ApoB + Lp(a) + Fasting Insulin + Anti-TPO + Vitamin D + B12 covers your base panel for ~₹3,200 via Thyrocare.</p>
+  </div>
+
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>Tier</th><th>What to order</th><th>Approx cost per client</th><th>Total markers</th></tr></thead>
+    <tbody>
+      <tr><td>Foundations (₹18K program)</td><td>Thyrocare Aarogyam C + ApoB + Lp(a) + Fasting Insulin + Anti-TPO + 25-OH Vitamin D + B12 + Omega-3 Index</td><td class="num">₹3,200–4,000</td><td>~48 markers</td></tr>
+      <tr><td>Performance (₹35K program)</td><td>Above + Free Testosterone + SHBG + DHEA-S + Cortisol + Homocysteine + Fibrinogen + hsCRP (high sensitivity) + Zinc + Folate</td><td class="num">₹5,500–7,000</td><td>~62 markers</td></tr>
+      <tr class="hl"><td>Continuum (₹75K program)</td><td>Above + IGF-1 + LH/FSH + Prolactin + NT-proBNP + PSA (if male 40+) + women's full hormonal panel</td><td class="num">₹8,000–10,000</td><td>~72 markers</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 class="sh">The blood draw process — step by step</h3>
+
+  <div class="flow">
+    <div class="flow-step">
+      <div class="flow-num">1</div>
+      <div class="flow-step-inner">
+        <div class="flow-sub">3 days before</div>
+        <div class="flow-title">Send the preparation protocol to the client</div>
+        <ul class="ul">
+          <li><strong>Fast 10–12 hours before the draw.</strong> Water only (plain, still water is fine — encouraged).</li>
+          <li>No alcohol for 48 hours before. Alcohol elevates GGT, triglycerides, and distorts many markers.</li>
+          <li>No strenuous exercise 24 hours before. Exercise temporarily elevates CRP, WBC, and creatinine — you'll misread the baseline.</li>
+          <li>Schedule the draw for 7–9 AM. Most hormone levels (especially cortisol, testosterone) follow diurnal rhythm and should be measured in the morning.</li>
+          <li>Take medications as normal unless doctor advises otherwise. Do not stop any prescription medication for the test.</li>
+          <li>No biotin supplements for 48 hours — biotin interferes with several immunoassay-based tests.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">2</div>
+      <div class="flow-step-inner">
+        <div class="flow-sub">Day of draw</div>
+        <div class="flow-title">Book the phlebotomist via lab app</div>
+        <p class="p">Book through Redcliffe or Thyrocare app. Enter the custom test list. Phlebotomist arrives at home with all required tubes (plain, EDTA, fluoride, citrate — different tests need different tubes). They handle everything. Client does not need to visit any clinic.</p>
+        <ul class="ul">
+          <li>Typical draw takes 10–15 minutes at home.</li>
+          <li>Client should be seated and relaxed for 5 minutes before draw.</li>
+          <li>For women: note the cycle day. Order full hormonal panel on Day 2–4 of the cycle if possible.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">3</div>
+      <div class="flow-step-inner">
+        <div class="flow-sub">24–72 hrs later</div>
+        <div class="flow-title">Results arrive digitally</div>
+        <p class="p">Most labs send PDF reports to the registered phone/email. You will receive them as the ordering entity or via the B2B portal. Download all results and enter them into your master tracking sheet (Google Sheets template in Chapter 13).</p>
+        <ul class="ul">
+          <li>Calculate HOMA-IR: (Fasting Glucose mg/dL × Fasting Insulin µIU/mL) ÷ 405</li>
+          <li>Calculate TG:HDL ratio, Non-HDL cholesterol, ApoB-to-HDL ratio</li>
+          <li>Enter the 9 PhenoAge markers into the biological age calculator (Chapter 3)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">4</div>
+      <div class="flow-step-inner">
+        <div class="flow-sub">Within 48 hrs of results</div>
+        <div class="flow-title">Doctor reviews edge cases</div>
+        <p class="p">Send results to your medical advisor for any client where one or more of these flags appear:</p>
+        <ul class="ul">
+          <li>Glucose &gt;126 (possible undiagnosed diabetes — must refer)</li>
+          <li>TSH &gt;4.5 or Anti-TPO &gt;100 (thyroid management needed)</li>
+          <li>ALT &gt;60 or GGT &gt;80 (possible NAFLD — lifestyle first, but document)</li>
+          <li>Haemoglobin &lt;11 (anaemia requiring clinical evaluation)</li>
+          <li>Any single value that is dramatically outside reference range</li>
+          <li>Creatinine &gt;1.3 with declining eGFR (kidney consultation needed)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <span class="cl">Important Boundary</span>
+    <p><strong>You are not a diagnostician.</strong> If a result suggests an undiagnosed disease (diabetes, thyroid disorder, kidney disease, NAFLD), you must refer to a physician for management. You continue managing the lifestyle protocol, but you cannot be the primary care provider for a pathological condition. Document this in writing to the client every time.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ CHAPTER 3: BIO AGE ═══════════ -->
+<section class="chapter" id="bio-age">
+  <div class="ch-meta">Chapter Three</div>
+  <h2 class="ch-title">Calculating <em>biological age</em></h2>
+  <p class="ch-lede">The PhenoAge algorithm — exactly how it works, the inputs, the formula, how to calculate it in a spreadsheet, and how to interpret the result for your client.</p>
+
+  <h3 class="sh">What is PhenoAge?</h3>
+  <p class="p">PhenoAge was developed by Dr. Morgan Levine (then at Yale, now at Altos Labs) and published in 2018 in <em>Aging</em> journal. It uses 9 standard blood markers to calculate a biological age. The model was trained on a US cohort (NHANES III) and validated for predicting all-cause mortality, with strong correlation across ethnicities.</p>
+  <p class="p">It is freely usable, scientifically peer-reviewed, and based entirely on markers available from standard Indian labs. This is your headline metric.</p>
+
+  <h3 class="sh">The 9 inputs required</h3>
+
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>#</th><th>Biomarker</th><th>Unit</th><th>Where to get it</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Albumin</td><td>g/dL</td><td>Liver function panel (standard in any CMP)</td></tr>
+      <tr><td>2</td><td>Creatinine</td><td>mg/dL</td><td>Kidney function panel (standard)</td></tr>
+      <tr><td>3</td><td>Glucose (fasting)</td><td>mg/dL</td><td>Fasting blood sugar (standard)</td></tr>
+      <tr><td>4</td><td>hsCRP</td><td>mg/L</td><td>High-sensitivity CRP (specify "hs" when ordering — regular CRP is too insensitive)</td></tr>
+      <tr><td>5</td><td>Lymphocyte %</td><td>%</td><td>CBC differential (standard)</td></tr>
+      <tr><td>6</td><td>Mean Corpuscular Volume (MCV)</td><td>fL</td><td>CBC (standard)</td></tr>
+      <tr><td>7</td><td>Red Cell Distribution Width (RDW)</td><td>%</td><td>CBC (standard)</td></tr>
+      <tr><td>8</td><td>Alkaline Phosphatase</td><td>U/L</td><td>Liver function panel (standard)</td></tr>
+      <tr><td>9</td><td>White Blood Cell Count</td><td>10³/µL</td><td>CBC (standard)</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout good">
+    <span class="cl">Good news</span>
+    <p>All 9 markers come from a basic CBC + CMP (Comprehensive Metabolic Panel), which any Indian lab provides. <strong>Thyrocare's Aarogyam basic package already includes all 9 PhenoAge inputs</strong> for under ₹500. The rest of your panel adds on top of this.</p>
+  </div>
+
+  <h3 class="sh">The formula — step by step</h3>
+
+  <div class="formula">
+    <span class="comment">// Step 1: Calculate phenotypic age score (xb)</span><br>
+    <span class="highlight">xb</span> = (−19.907) + <br>
+    &nbsp;&nbsp;(−0.0336 × albumin [g/dL]) +<br>
+    &nbsp;&nbsp;(0.0095 × creatinine [mg/dL × 88.4 to convert to µmol/L]) +<br>
+    &nbsp;&nbsp;(0.1953 × glucose [mg/dL]) +<br>
+    &nbsp;&nbsp;(0.0954 × ln(CRP [mg/L])) +<br>
+    &nbsp;&nbsp;(−0.0120 × lymphocyte%) +<br>
+    &nbsp;&nbsp;(0.0268 × MCV [fL]) +<br>
+    &nbsp;&nbsp;(0.3306 × RDW [%]) +<br>
+    &nbsp;&nbsp;(0.00188 × alkaline phosphatase [U/L]) +<br>
+    &nbsp;&nbsp;(0.0554 × WBC [10³/µL])<br><br>
+    <span class="comment">// Step 2: Calculate mortality score</span><br>
+    <span class="highlight">gamma</span> = 0.0076927<br>
+    <span class="highlight">mortality_score</span> = 1 − e^(−e^(xb) × (e^(gamma × 120) − 1) / gamma)<br><br>
+    <span class="comment">// Step 3: Calculate biological age</span><br>
+    <span class="result">PhenoAge</span> = 141.50 + (ln(−0.00553 × ln(1 − mortality_score)) / 0.0553)
+  </div>
+
+  <p class="p">This looks complex. In practice, you put this into a Google Sheet once and it auto-calculates when you input the 9 values. I'll provide the exact Google Sheet formula strings below.</p>
+
+  <h3 class="sh">Google Sheet implementation</h3>
+  <p class="p">In your client tracking sheet, create columns A through I for the 9 inputs (with client values). Then in column J, paste this formula (assuming A2=Albumin, B2=Creatinine, C2=Glucose, D2=hsCRP, E2=Lymphocyte%, F2=MCV, G2=RDW, H2=ALP, I2=WBC):</p>
+
+  <div class="code-block">
+    <span class="c">// In Google Sheets — Cell J2 (PhenoAge result)</span><br>
+    =LET(<br>
+    &nbsp;&nbsp;xb, (-19.907) + (-0.0336*A2) + (0.0095*(B2*88.4)) + (0.1953*C2) +<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;(0.0954*LN(D2)) + (-0.012*E2) + (0.0268*F2) + (0.3306*G2) +<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;(0.00188*H2) + (0.0554*I2),<br>
+    &nbsp;&nbsp;gamma, 0.0076927,<br>
+    &nbsp;&nbsp;ms, 1 - EXP(-EXP(xb) * (EXP(gamma*120)-1)/gamma),<br>
+    &nbsp;&nbsp;141.50 + (LN(-0.00553*LN(1-ms))/0.0553)<br>
+    )
+  </div>
+
+  <div class="callout warn">
+    <span class="cl">Critical: Use hsCRP not regular CRP</span>
+    <p>The formula uses <strong>ln(CRP)</strong>. If CRP is 0, this breaks (ln(0) = undefined). If a client's hsCRP comes back as 0.0 or "undetectable," enter <strong>0.1</strong> as the minimum value. Also: ensure your lab reports CRP in <strong>mg/L</strong> not mg/dL — multiply by 10 to convert if needed.</p>
+  </div>
+
+  <h3 class="sh">Interpreting the result for the client</h3>
+
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>PhenoAge vs. Chronological Age</th><th>Interpretation</th><th>What to tell the client</th></tr></thead>
+    <tbody>
+      <tr><td>PhenoAge &gt; Chron. Age by 5+ years</td><td>Accelerated aging — significant concern</td><td>"Your body is aging faster than your birthday suggests. This is the exact scenario we can address with the protocol." (This is a motivating finding, not a scary diagnosis.)</td></tr>
+      <tr><td>PhenoAge &gt; Chron. Age by 1–4 years</td><td>Mild acceleration — opportunity exists</td><td>"You're aging slightly faster than chronological. The good news: small biomarker shifts produce large changes in PhenoAge."</td></tr>
+      <tr><td>PhenoAge ≈ Chronological Age (±1yr)</td><td>Average aging — room to do better</td><td>"You're aging at the average rate. The goal is to get your body into the top 20th percentile — biologically younger than your age."</td></tr>
+      <tr><td>PhenoAge &lt; Chron. Age by 1–4 years</td><td>Decelerated aging — good baseline</td><td>"Your body is already aging slower than average. Protocol focuses on maintaining and pushing further."</td></tr>
+      <tr class="hl"><td>PhenoAge &lt; Chron. Age by 5+ years</td><td>Exceptional — outlier biology</td><td>"You're in the top decile for biological aging. Document this, maintain it, and we'll optimize the remaining high-leverage markers."</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout note">
+    <span class="cl">Science Caveat to Share With Clients</span>
+    <p>PhenoAge was validated on American populations. Indian bodies may have slightly different baseline distributions. <strong>Always present the delta (before vs. after) as the most meaningful number</strong> — not the absolute value. A 3-year reduction in biological age in 90 days is meaningful regardless of whether the absolute number is "correct."</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ CHAPTER 4: INTAKE ═══════════ -->
+<section class="chapter" id="intake">
+  <div class="ch-meta">Chapter Four</div>
+  <h2 class="ch-title">The lifestyle <em>questionnaire</em></h2>
+  <p class="ch-lede">Every question you need to ask, organized by category, with why each question matters and what the answer tells you about the protocol design. The intake is done as a 45-minute video conversation, not a form. Forms give you data. Conversations give you context.</p>
+
+  <div class="callout rule">
+    <span class="cl">Intake Principle</span>
+    <p>Do the intake <strong>after</strong> you have bloodwork results, not before. That way the conversation is informed by data — you can say "your insulin is 18, let's talk about what your typical day looks like from a food perspective." This is 10x more useful than a generic lifestyle questionnaire.</p>
+  </div>
+
+  <h3 class="sh">Section A — Demographics & Medical History</h3>
+
+  <div class="q-block">
+    <div class="q-category">Personal & Medical Baseline</div>
+    <ul class="q-list">
+      <li><span>Age, sex, height, weight. What's their current BMI? What BMI do they feel best at? (Their subjective target is often more useful than clinical targets.)</span></li>
+      <li><span>Any diagnosed medical conditions? When diagnosed? Are they currently managed, stable, or worsening?</span></li>
+      <li><span>Any current prescription medications? Supplements? At what doses? (Critical for interpreting bloodwork — statins lower LDL, metformin affects B12, beta-blockers limit heart rate response.)</span></li>
+      <li><span>Family medical history: parents and siblings. Cause and age of death of any deceased first-degree relatives. History of: diabetes, cardiovascular disease, cancer, Alzheimer's, autoimmune disease.</span></li>
+      <li><span>Any recent injuries, surgeries, or hospitalizations in the last 12 months?</span></li>
+      <li><span>Any previous comprehensive bloodwork or health assessments? Can they share those results?</span></li>
+    </ul>
+  </div>
+
+  <h3 class="sh">Section B — Nutrition</h3>
+
+  <div class="q-block">
+    <div class="q-category">Nutrition & Eating Patterns</div>
+    <ul class="q-list">
+      <li><span>Walk me through everything you ate yesterday, from waking to sleeping. (A 24-hour recall is the single best window into actual eating. Don't ask "what do you normally eat" — people answer with their aspirational diet.)</span></li>
+      <li><span>Are you vegetarian, vegan, non-vegetarian? How often do you eat meat/fish? This directly shapes protein recommendations.</span></li>
+      <li><span>What time do you typically wake up? Have your first meal? Last meal? (Eating window matters for circadian rhythm-aligned protocols.)</span></li>
+      <li><span>How many meals per day? Do you snack between meals? What do you snack on?</span></li>
+      <li><span>Do you drink alcohol? If yes: how many units per week? Which types? (Beer, wine, spirits — each metabolizes differently.) Are there weeks of heavy consumption?</span></li>
+      <li><span>How much tea or coffee? With milk and sugar? What time is the last caffeine of the day?</span></li>
+      <li><span>How often do you eat outside (restaurants, delivery, office food)? What does that typically look like?</span></li>
+      <li><span>Do you use cooking oils at home? Which ones? How much? (Refined vegetable oils vs. cold-pressed coconut/groundnut changes the omega-6:3 ratio significantly.)</span></li>
+      <li><span>Rate your current diet on a scale of 1-10. What would make it a 10?</span></li>
+      <li><span>Have you tried any specific eating approaches? Keto, IF, paleo? What happened?</span></li>
+      <li><span>Do you take any protein supplements currently? Which brand, what dose, when?</span></li>
+      <li><span>How much plain water do you drink daily? Do you drink sugary beverages?</span></li>
+    </ul>
+  </div>
+
+  <h3 class="sh">Section C — Exercise & Movement</h3>
+
+  <div class="q-block">
+    <div class="q-category">Physical Activity & Training</div>
+    <ul class="q-list">
+      <li><span>How many days per week do you exercise? For how long each session?</span></li>
+      <li><span>What type of exercise? Describe your typical workout. (Ask for specifics: "I go to the gym" is not useful. "I do 30 min treadmill at 6kmph then 20 min machines" is useful.)</span></li>
+      <li><span>Do you track heart rate during training? What's your typical workout HR? Do you know your max HR?</span></li>
+      <li><span>What is your current cardiovascular fitness — how long could you run continuously at a comfortable pace?</span></li>
+      <li><span>Do you do any mobility, stretching, or flexibility work?</span></li>
+      <li><span>What does your daily movement outside of exercise look like? Desk job? Standing? How many steps per day approximately?</span></li>
+      <li><span>Have you had any sports injuries that currently limit your training? (Important for exercise prescription.)</span></li>
+      <li><span>What is your training history? Have you been an athlete? Sedentary for long periods? This gives context for what the body has been adapted to.</span></li>
+      <li><span>What's your relationship with exercise — do you enjoy it, find it a chore, feel anxious about it?</span></li>
+    </ul>
+  </div>
+
+  <h3 class="sh">Section D — Sleep</h3>
+
+  <div class="q-block">
+    <div class="q-category">Sleep Quality & Architecture</div>
+    <ul class="q-list">
+      <li><span>What time do you go to bed? What time do you wake up? Is this consistent on weekends? (Social jet lag is a massive hidden stressor.)</span></li>
+      <li><span>How long does it take to fall asleep? (More than 30 minutes regularly = problem.)</span></li>
+      <li><span>Do you wake up in the middle of the night? How often? For how long?</span></li>
+      <li><span>Do you use a wearable that tracks sleep stages? Share the last 2 weeks of data. What's your average HRV? What's your average resting heart rate?</span></li>
+      <li><span>How do you feel when you wake up — refreshed or groggy? How long until you feel alert?</span></li>
+      <li><span>What's your screen exposure before bed? Do you use your phone in bed?</span></li>
+      <li><span>What's the temperature of your bedroom? Do you use blackout curtains?</span></li>
+      <li><span>Do you consume caffeine after 2pm? Alcohol within 3 hours of sleep? (Both devastate deep sleep architecture.)</span></li>
+      <li><span>Do you experience daytime sleepiness? Do you nap? For how long?</span></li>
+    </ul>
+  </div>
+
+  <h3 class="sh">Section E — Stress & Psychology</h3>
+
+  <div class="q-block">
+    <div class="q-category">Stress, Mental Load & Emotional State</div>
+    <ul class="q-list">
+      <li><span>On a scale of 1-10, how stressed do you feel on an average day? What's driving that stress?</span></li>
+      <li><span>Is your stress acute (deadline-driven) or chronic (structural — relationship, money, career)? This matters enormously because cortisol response is different.</span></li>
+      <li><span>What do you do to manage stress? Any regular practice — meditation, journaling, time in nature, breathwork?</span></li>
+      <li><span>How would you rate your focus and cognitive performance right now? Are you operating at your best mentally?</span></li>
+      <li><span>Any current anxiety or depressive symptoms? Are they being managed? (Not diagnosing — contextualizing. High cortisol tanks testosterone, wrecks sleep, drives inflammation.)</span></li>
+      <li><span>How is your current relationship quality? Work relationships? (Social connection is an independent longevity variable — stronger than many biomarkers.)</span></li>
+      <li><span>How many hours per day are you working? Does work overflow into evenings or weekends consistently?</span></li>
+    </ul>
+  </div>
+
+  <h3 class="sh">Section F — Current Supplements & Past Protocols</h3>
+
+  <div class="q-block">
+    <div class="q-category">Current Supplementation & Previous Attempts</div>
+    <ul class="q-list">
+      <li><span>List every supplement you currently take. Brand, dose, timing. (People are often taking 8-12 things with no coherent rationale — you'll be reducing this, not adding.)</span></li>
+      <li><span>How long have you been taking each one? What was the reason for starting?</span></li>
+      <li><span>Have you noticed any effects — positive or negative — from any supplement?</span></li>
+      <li><span>Have you tried any longevity-specific protocols before? (NMN, resveratrol, rapamycin — some clients in this category experiment aggressively.)</span></li>
+      <li><span>What is your monthly spend on health/wellness currently? (Supplement budget, gym, apps, etc.)</span></li>
+    </ul>
+  </div>
+
+  <h3 class="sh">Section G — Goals & Motivation</h3>
+
+  <div class="q-block">
+    <div class="q-category">Core Goals, Fears & Motivation</div>
+    <ul class="q-list">
+      <li><span>Why now? What made you sign up for this program at this specific moment in your life?</span></li>
+      <li><span>What does health look like to you at 60? Describe it concretely — what are you doing, how do you feel, what can you do physically?</span></li>
+      <li><span>What scares you most about your health trajectory? (This is the emotional anchor for the protocol — the fear is motivational fuel.)</span></li>
+      <li><span>What health goal have you tried and failed at before? What got in the way?</span></li>
+      <li><span>On a scale of 1-10, how confident are you that you'll follow through on a structured protocol? What's stopped you in the past?</span></li>
+      <li><span>Who else in your life needs to know about this program? Spouse? Family? Boss? (Protocol compliance often fails because of social environment, not willpower.)</span></li>
+      <li><span>What does success look like for you at Day 90? What specific change — physical or biomarker — would make you feel this was worth it?</span></li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ CHAPTER 5: INTERPRETATION ═══════════ -->
+<section class="chapter" id="interpretation">
+  <div class="ch-meta">Chapter Five</div>
+  <h2 class="ch-title">Reading the <em>biomarkers</em></h2>
+  <p class="ch-lede">How to take a full results report and systematically identify problems, rank them by priority, and map each problem to a specific intervention. This is the core intellectual skill of the program.</p>
+
+  <h3 class="sh">The interpretation framework — 4 priority tiers</h3>
+
+  <p class="p">When you receive results, you are looking for findings at four levels of urgency. Always work top to bottom before writing any protocol.</p>
+
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>Tier</th><th>Criteria</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag r">Tier 1 — Refer</span></td><td>Glucose &gt;126, TSH severely abnormal, eGFR &lt;60, Hb &lt;10, ALT &gt;100, any result suggesting active disease process</td><td>Contact doctor partner immediately. Inform client. Do not start lifestyle protocol until medically cleared. Document.</td></tr>
+      <tr><td><span class="tag y">Tier 2 — Primary target</span></td><td>3–5 markers outside optimal range, not requiring referral. High HOMA-IR, elevated ApoB, high hsCRP, low Vitamin D, low testosterone.</td><td>These become the core protocol targets. All 4 levers (nutrition, training, recovery, supplements) are aimed at these first.</td></tr>
+      <tr><td><span class="tag b">Tier 3 — Secondary target</span></td><td>Borderline findings. HbA1c at 5.4–5.6, TG:HDL ratio 2-3, homocysteine 10-15, Vit D 30-50.</td><td>Address once primary targets are in motion. Often resolve as downstream effects of primary interventions.</td></tr>
+      <tr class="hl"><td><span class="tag g">Tier 4 — Maintain</span></td><td>Within optimal range</td><td>Maintain. Note in protocol as "maintain" so client knows which things are already good.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 class="sh">The metabolic problem map</h3>
+  <p class="p">Every abnormal marker pattern corresponds to a likely root cause and a specific intervention pathway. Here are the most common patterns you'll see in your target demographic:</p>
+
+  <div class="proto-row">
+    <div class="proto-header"><span class="proto-h-title">Pattern 1: Insulin Resistance Triad</span><span class="proto-h-meta">Found in ~60% of your clients</span></div>
+    <div class="proto-body">
+      <div class="proto-item"><strong>Biomarker signals</strong>Fasting insulin &gt;10, HOMA-IR &gt;2.0, HbA1c 5.4–5.7, TG &gt;100, TG:HDL &gt;2, HDL &lt;45, slightly elevated ALT, elevated uric acid</div>
+      <div class="proto-item"><strong>Root cause</strong>Excess refined carbohydrate intake, sedentary lifestyle, visceral fat accumulation, sleep deprivation, chronic stress (all drive cortisol → glucose → insulin)</div>
+      <div class="proto-item"><strong>Protocol target</strong>Reduce refined carbs and sugar, add Zone 2 cardio (most potent insulin sensitizer), time-restricted eating, strength training to build glucose-disposal muscle</div>
+      <div class="proto-item"><strong>Expected timeline</strong>Fasting insulin responds in 4–6 weeks. HbA1c takes 90 days. HOMA-IR typically shows significant improvement by Day 90.</div>
+    </div>
+  </div>
+
+  <div class="proto-row">
+    <div class="proto-header" style="background:var(--teal)"><span class="proto-h-title">Pattern 2: Inflammatory Burden</span><span class="proto-h-meta">Found in ~45% of your clients</span></div>
+    <div class="proto-body">
+      <div class="proto-item"><strong>Biomarker signals</strong>hsCRP &gt;1.5, homocysteine &gt;12, elevated WBC, elevated ESR, sometimes elevated ferritin, low albumin</div>
+      <div class="proto-item"><strong>Root cause</strong>Poor diet (ultra-processed food, seed oils, excess sugar), inadequate sleep, high stress, lack of exercise, gut dysbiosis (not directly tested but inferred), low omega-3:6 ratio</div>
+      <div class="proto-item"><strong>Protocol target</strong>Anti-inflammatory diet (increase omega-3, reduce seed oils, add turmeric/ginger, remove ultra-processed food), improve sleep, add Zone 2 (anti-inflammatory via IL-6 resolution), omega-3 supplementation, B12/folate for homocysteine</div>
+      <div class="proto-item"><strong>Expected timeline</strong>hsCRP can drop in 4–6 weeks with diet change. Homocysteine takes 8–12 weeks on B12/folate.</div>
+    </div>
+  </div>
+
+  <div class="proto-row">
+    <div class="proto-header" style="background:var(--leaf)"><span class="proto-h-title">Pattern 3: Micronutrient Deficiency Cluster</span><span class="proto-h-meta">Near-universal in Indian urban professionals</span></div>
+    <div class="proto-body">
+      <div class="proto-item"><strong>Biomarker signals</strong>Vitamin D &lt;40, B12 &lt;400, Zinc &lt;80, Magnesium borderline, Omega-3 Index &lt;6%, elevated homocysteine (B12-related)</div>
+      <div class="proto-item"><strong>Root cause</strong>Low sun exposure (indoor work), vegetarian diet (B12), Indian diet low in fatty fish (omega-3), phytate-rich diet blocking zinc absorption, high stress depleting magnesium</div>
+      <div class="proto-item"><strong>Protocol target</strong>Targeted supplementation: Vitamin D3+K2 (4,000–8,000 IU/day depending on level), B12 methylcobalamin (1,000–2,500 mcg), Zinc bisglycinate, Magnesium glycinate (300–400mg), Omega-3 (2–4g EPA+DHA)</div>
+      <div class="proto-item"><strong>Expected timeline</strong>Vitamin D takes 60–90 days to normalize. B12 normalizes in 4–6 weeks. Omega-3 Index takes 90–120 days.</div>
+    </div>
+  </div>
+
+  <div class="proto-row">
+    <div class="proto-header" style="background:var(--slate)"><span class="proto-h-title">Pattern 4: Hormonal Disruption (Men)</span><span class="proto-h-meta">Found in ~35% of male clients 32+</span></div>
+    <div class="proto-body">
+      <div class="proto-item"><strong>Biomarker signals</strong>Total testosterone &lt;500, free testosterone low, SHBG elevated, cortisol elevated, low DHEA-S, LH may be elevated (primary) or low (secondary)</div>
+      <div class="proto-item"><strong>Root cause</strong>Chronic sleep deprivation (testosterone is made during sleep), excess cortisol (directly suppresses LH), overweight (aromatization to estrogen), alcohol, zinc deficiency, sedentary lifestyle</div>
+      <div class="proto-item"><strong>Protocol target</strong>Sleep optimization is the #1 lever (testosterone is produced in sleep). Resistance training (proven to raise testosterone). Body fat reduction. Zinc supplementation. Reduce alcohol. Add DHEA-S supplementation only if confirmed low AND doctor approves.</div>
+      <div class="proto-item"><strong>Expected timeline</strong>Testosterone responds to sleep improvement in 3–4 weeks. Full hormonal response takes 8–12 weeks of sustained lifestyle change.</div>
+    </div>
+  </div>
+
+  <div class="proto-row">
+    <div class="proto-header" style="background:var(--gold)"><span class="proto-h-title">Pattern 5: Cardiovascular Risk Loading</span><span class="proto-h-meta">More common in Indians than Western populations</span></div>
+    <div class="proto-body">
+      <div class="proto-item"><strong>Biomarker signals</strong>ApoB &gt;90, Lp(a) elevated (genetic — won't respond to lifestyle), non-HDL &gt;130, small dense LDL pattern (inferred from TG:HDL), elevated homocysteine</div>
+      <div class="proto-item"><strong>Root cause</strong>ApoB responds to diet (saturated fat reduction, fiber increase, weight loss). Lp(a) is genetic — lifestyle does not move it significantly. Elevated Lp(a) = refer to cardiologist for baseline management discussion.</div>
+      <div class="proto-item"><strong>Protocol target</strong>ApoB: Reduce saturated fat, increase soluble fiber (10–30g/day), add Zone 2 training, weight loss if BMI &gt;25. Homocysteine: B-vitamin protocol. Lp(a): Inform, refer, monitor — lifestyle can't fix genetics.</div>
+      <div class="proto-item"><strong>Expected timeline</strong>ApoB responds in 6–8 weeks of dietary change. 25% reduction is achievable in 90 days.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ CHAPTER 6: AI + DOCTOR ═══════════ -->
+<section class="chapter" id="ai-doctor">
+  <div class="ch-meta">Chapter Six</div>
+  <h2 class="ch-title">AI + doctor <em>workflow</em></h2>
+  <p class="ch-lede">Exactly how you use AI tools and your medical advisor together to generate, validate, and personalize every protocol. AI speeds up the first 80%. Your knowledge does the next 15%. The doctor handles the final 5% that requires clinical judgment.</p>
+
+  <h3 class="sh">The protocol generation workflow</h3>
+
+  <div class="flow">
+    <div class="flow-step">
+      <div class="flow-num">1</div>
+      <div class="flow-step-inner">
+        <div class="flow-title">Enter all results into your master template</div>
+        <p class="p">All 50+ biomarker values. All 127 intake answers. Calculate derived values: HOMA-IR, TG:HDL, PhenoAge, ApoB:HDL ratio. Flag Tier 1–4 findings. This structured input is what you'll paste into the AI prompt.</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">2</div>
+      <div class="flow-step-inner">
+        <div class="flow-title">Run the AI protocol prompt</div>
+        <p class="p">Use Claude (Sonnet or Opus). The prompt structure:</p>
+        <div class="code-block">
+You are an expert longevity and metabolic health protocol designer.<br><br>
+Client profile:<br>
+- Age: [X], Sex: [M/F], Weight: [kg], Height: [cm], BMI: [X]<br>
+- Chronological age: [X] | Biological age (PhenoAge): [X]<br><br>
+KEY BIOMARKER FINDINGS:<br>
+[List all Tier 1–3 findings with values]<br><br>
+INTAKE SUMMARY:<br>
+- Diet: [summary of eating pattern]<br>
+- Exercise: [current routine]<br>
+- Sleep: [hours, HRV, issues]<br>
+- Stress: [level, type]<br>
+- Current supplements: [list]<br><br>
+Generate a 90-day protocol covering:<br>
+1. Nutrition: specific macros, meal timing, foods to emphasize/avoid<br>
+2. Training: weekly structure with types, duration, intensity<br>
+3. Recovery: sleep optimization, stress management<br>
+4. Supplementation: what to stop, what to add with doses<br><br>
+For each recommendation, cite the specific biomarker it addresses.<br>
+Flag any recommendation that requires physician review.<br>
+Prioritize interventions by expected impact on PhenoAge.
+        </div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">3</div>
+      <div class="flow-step-inner">
+        <div class="flow-title">Review and edit the AI output</div>
+        <p class="p">The AI output is your 80% draft. Review it critically for:</p>
+        <ul class="ul">
+          <li>Is the protein target appropriate given their kidney function (creatinine)?</li>
+          <li>Are the supplement doses within safe ranges for their body weight and conditions?</li>
+          <li>Is the training volume realistic for their current fitness level?</li>
+          <li>Does the nutrition plan account for their vegetarian/non-veg status and Indian food context?</li>
+          <li>Are there any drug-supplement interactions with their current medications?</li>
+        </ul>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">4</div>
+      <div class="flow-step-inner">
+        <div class="flow-title">Doctor review call (30 minutes)</div>
+        <p class="p">Send the draft protocol to your medical advisor with a summary of the client's biomarkers. The doctor reviews for:</p>
+        <ul class="ul">
+          <li>Any Tier 1 findings requiring clinical management</li>
+          <li>Drug-supplement interactions (most common: blood thinners + omega-3, thyroid meds + calcium)</li>
+          <li>High-risk supplement recommendations (DHEA, high-dose vitamin D &gt;10,000 IU, melatonin)</li>
+          <li>Exercise restrictions based on cardiovascular markers</li>
+          <li>Overall protocol sign-off for liability protection</li>
+        </ul>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">5</div>
+      <div class="flow-step-inner">
+        <div class="flow-title">Finalize and deliver the protocol document</div>
+        <p class="p">Format the final protocol as a clean PDF. Structure: Executive summary (1 page) → Biomarker analysis → Nutrition protocol → Training protocol → Recovery protocol → Supplement protocol → 12-week week-by-week roadmap. Deliver via WhatsApp and Google Drive.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sh">AI tools and how to use each</h3>
+
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>Tool</th><th>Best use case in your workflow</th><th>Limitations</th></tr></thead>
+    <tbody>
+      <tr><td>Claude Opus / Sonnet</td><td>Protocol generation, interpreting complex biomarker patterns, writing client-facing protocol documents, answering complex physiological questions</td><td>Not a replacement for physician review. Can hallucinate specific drug dosages — always verify.</td></tr>
+      <tr><td>ChatGPT-4o</td><td>Cross-referencing supplement research, drafting client emails and check-in summaries, generating meal plan ideas for specific dietary constraints</td><td>Same hallucination risk for clinical details.</td></tr>
+      <tr><td>Perplexity</td><td>Real-time research on specific biomarker findings, new longevity studies, supplement interaction checks</td><td>Results need verification. Use for finding sources, not as the source itself.</td></tr>
+      <tr><td>NotebookLM (Google)</td><td>Upload key longevity textbooks and studies as a searchable knowledge base. Ask questions against your own curated sources.</td><td>Only as good as what you feed it.</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ CHAPTER 7: NUTRITION ═══════════ -->
+<section class="chapter" id="nutrition">
+  <div class="ch-meta">Chapter Seven</div>
+  <h2 class="ch-title">Nutrition <em>protocol</em></h2>
+  <p class="ch-lede">How to design a nutrition protocol from biomarkers. Not a generic diet plan — a specific, evidence-based prescription calibrated to each client's results.</p>
+
+  <h3 class="sh">The 5 nutrition levers and when to use each</h3>
+
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>Lever</th><th>When to use it</th><th>Biomarker trigger</th><th>Target outcome</th></tr></thead>
+    <tbody>
+      <tr><td>Protein optimization</td><td>Always. Every client.</td><td>Always applicable</td><td>Muscle protein synthesis, satiety, metabolic rate, longevity (mTOR regulation)</td></tr>
+      <tr><td>Carbohydrate reduction/timing</td><td>When metabolic markers are abnormal</td><td>HOMA-IR &gt;1.5, HbA1c &gt;5.2, TG &gt;100, fasting glucose &gt;90</td><td>Insulin sensitivity, TG reduction, fat loss</td></tr>
+      <tr><td>Fat quality adjustment</td><td>When lipid or inflammation markers are abnormal</td><td>ApoB &gt;90, hsCRP &gt;1.5, low Omega-3 Index, high TG</td><td>ApoB reduction, inflammation reduction</td></tr>
+      <tr><td>Eating window restriction</td><td>When insulin, weight, or metabolic markers are abnormal</td><td>HOMA-IR &gt;2.0, BMI &gt;27, late-night eating pattern on intake</td><td>Circadian alignment, insulin reduction, autophagy</td></tr>
+      <tr><td>Fiber increase</td><td>Almost always</td><td>High ApoB, high glucose, gut symptoms on intake, microbiome health</td><td>LDL/ApoB reduction via bile sequestration, glucose buffering, microbiome health</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 class="sh">Protein targets — the most important variable</h3>
+
+  <p class="p">Protein is the highest-leverage nutrition intervention for most clients. It's also the one most commonly underdone in India (especially in vegetarians). The anabolic resistance of aging means that older clients need <em>more</em> protein, not less.</p>
+
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>Client profile</th><th>Protein target</th><th>Timing rule</th><th>Source priority</th></tr></thead>
+    <tbody>
+      <tr><td>Sedentary / light exercise, no resistance training</td><td>1.2–1.4g per kg body weight per day</td><td>Even distribution across meals. Min 25g per meal.</td><td>Dal, paneer, eggs, chicken, fish, Greek yogurt</td></tr>
+      <tr><td>Moderate exercise (2–4x/week gym)</td><td>1.6–1.8g/kg/day</td><td>30–40g within 2 hours post-workout. Protein before bed.</td><td>Above + whey protein, casein for bedtime</td></tr>
+      <tr><td>Serious training (5+ days, heavy resistance)</td><td>2.0–2.2g/kg/day</td><td>25–50g every 3–4 hours. Post-workout critical.</td><td>Above + leucine-rich sources (whey, eggs) for MPS</td></tr>
+      <tr><td>Over 45 years old (anabolic resistance)</td><td>Add 0.2g/kg to any above category</td><td>Higher per-meal dose needed (40g+) to overcome anabolic resistance</td><td>Leucine content matters — prioritize animal or whey protein</td></tr>
+      <tr><td>Vegetarian / vegan</td><td>1.8–2.0g/kg/day minimum (absorption efficiency lower)</td><td>Every meal needs a protein anchor. Harder to achieve — needs planning.</td><td>Whey or plant protein supplement often necessary. Tofu, tempeh, dal, paneer, Greek yogurt, eggs if ovo-vegetarian.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 class="sh">Carbohydrate protocol — calibrated to insulin status</h3>
+
+  <ul class="ul">
+    <li><strong>Normal insulin sensitivity (HOMA-IR &lt;1.5):</strong> No restriction needed. Focus on quality — whole grains (brown rice, millets, oats), fruits, legumes. Avoid ultra-processed carbs and sugar-sweetened beverages.</li>
+    <li><strong>Mild IR (HOMA-IR 1.5–2.5, HbA1c 5.2–5.5):</strong> Time carbohydrates around exercise. Reduce total carb load by 30–40% from baseline. Replace refined with complex. Target: 130–160g carbs/day.</li>
+    <li><strong>Significant IR (HOMA-IR &gt;2.5, HbA1c &gt;5.5):</strong> Consider low-carb protocol: 50–100g/day. Eliminate all added sugar, refined flour, sugary beverages, white rice as primary starch. Switch to millets, oats, lentils. Reassess at Day 30.</li>
+    <li><strong>South Indian diet specific:</strong> Rice is the cultural core. Don't remove it entirely — reduce quantity, replace some meals with millets (ragi, jowar), add dal protein and vegetable fiber to slow glucose absorption. Idli/dosa are fermented — better than bread on glycemic terms.</li>
+  </ul>
+
+  <h3 class="sh">Dietary fat protocol — calibrated to lipid panel</h3>
+
+  <ul class="ul">
+    <li><strong>High ApoB (&gt;90):</strong> Reduce saturated fat to &lt;10% of total calories. Reduce red meat to 1–2x/week. Replace with monounsaturated fats (olive oil, avocado) and omega-3 rich sources (fatty fish 3x/week). Add 10g soluble fiber (psyllium husk is excellent and cheap).</li>
+    <li><strong>Low Omega-3 Index (&lt;6%):</strong> Supplement is the fastest fix (see Chapter 10). Dietary: sardines, mackerel, salmon 3–4x/week. Switch cooking oil from refined vegetable/sunflower to cold-pressed groundnut oil, ghee, or coconut oil.</li>
+    <li><strong>Elevated hsCRP (&gt;1.5):</strong> Anti-inflammatory eating pattern. Increase: extra-virgin olive oil, turmeric (with black pepper for bioavailability), ginger, dark leafy greens, berries. Reduce: fried food, ultra-processed food, trans fats, refined seed oils.</li>
+  </ul>
+
+  <h3 class="sh">Eating window (time-restricted eating)</h3>
+
+  <p class="p">TRE works by aligning eating with circadian biology and reducing total insulin exposure per day. Evidence supports 12:12 as a minimum, 16:8 as the primary target for metabolic benefit.</p>
+
+  <ul class="ul">
+    <li><strong>12:12 window (minimum):</strong> Stop eating by 8pm, breakfast no earlier than 8am. Suitable for clients who are metabolically normal and are new to eating window protocols.</li>
+    <li><strong>16:8 window (primary target):</strong> Eat between 10am–6pm or 12pm–8pm. First meal contains protein + fat, no refined carbs. Suitable for IR clients. Expect adjustment period of 1–2 weeks.</li>
+    <li><strong>18:6 or 20:4 (advanced):</strong> Only for clients who are metabolically adapted, genuinely not hungry in the morning, and whose training schedule accommodates it. Not suitable for hard training days (post-workout nutrition matters more than window length).</li>
+    <li><strong>Important caveat for women:</strong> Aggressive TRE (18:6+) can disrupt LH/FSH axis in some women. Start with 12:12. Assess hormonal symptoms before extending. Avoid aggressive fasting in luteal phase.</li>
+  </ul>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ CHAPTER 8: TRAINING ═══════════ -->
+<section class="chapter" id="training">
+  <div class="ch-meta">Chapter Eight</div>
+  <h2 class="ch-title">Training <em>protocol</em></h2>
+  <p class="ch-lede">How to prescribe exercise from biomarkers and wearable data. The four training modalities and what each does to the aging body. How to build a weekly structure for any client, any fitness level.</p>
+
+  <h3 class="sh">The four modalities of longevity training</h3>
+
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>Modality</th><th>What it targets biologically</th><th>Biomarker impact</th><th>Frequency target</th></tr></thead>
+    <tbody>
+      <tr><td>Zone 2 Cardio</td><td>Mitochondrial biogenesis, fat oxidation, insulin sensitivity, endothelial health</td><td>Lowers: insulin, TG, hsCRP, resting HR. Raises: HDL, HRV, eGFR</td><td>150–180 min/week minimum</td></tr>
+      <tr><td>VO₂ Max Training</td><td>Cardiac output, oxygen delivery, mitochondrial density ceiling</td><td>VO₂ max is the single strongest predictor of all-cause mortality across all studies</td><td>1–2 sessions/week, 4–8 intervals</td></tr>
+      <tr><td>Resistance Training</td><td>Muscle mass, bone density, glucose disposal, testosterone, insulin sensitivity</td><td>Lowers: insulin, glucose, body fat%. Raises: testosterone, IGF-1, functional strength</td><td>3–4 sessions/week</td></tr>
+      <tr><td>Stability & Mobility</td><td>Joint health, fall prevention, movement quality, injury prevention</td><td>Reduces cortisol (parasympathetic activation), improves sleep quality</td><td>Daily, 10–20 min</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 class="sh">Zone 2 — the most important modality</h3>
+  <p class="p">Zone 2 is low-intensity, aerobic-dominant exercise at roughly 60–70% of maximum heart rate. It's the zone where you can hold a conversation with effort. It's the primary driver of mitochondrial health — which is the primary driver of metabolic aging.</p>
+
+  <h4 class="ssh">How to find Zone 2 heart rate</h4>
+
+  <div class="formula">
+    <span class="comment">// Method 1: Percentage of max HR (least accurate, easiest)</span><br>
+    Max HR estimate = 208 − (0.7 × age)<br>
+    <span class="highlight">Zone 2 HR range</span> = Max HR × 0.60 to 0.70<br><br>
+    <span class="comment">// Method 2: Maffetone Method (MAF) — most practical</span><br>
+    <span class="highlight">MAF HR</span> = 180 − age (then add 5 if athletic history &gt;2 years)<br>
+    Zone 2 = work at or slightly below this number<br><br>
+    <span class="comment">// Method 3: Talk Test (most practical for clients)</span><br>
+    <span class="highlight">Zone 2</span> = pace where you can speak in complete sentences but wouldn't want to hold a long conversation<br>
+    <span class="result">If you can sing = Zone 1. If you can't speak = Zone 3+. Full sentences with effort = Zone 2. ✓</span>
+  </div>
+
+  <h4 class="ssh">Zone 2 weekly prescription</h4>
+
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>Client fitness level</th><th>Starting volume</th><th>Progression (monthly)</th><th>Preferred modalities</th></tr></thead>
+    <tbody>
+      <tr><td>Sedentary (&lt;2 workouts/week currently)</td><td>2 × 30 min sessions/week</td><td>Add 10–15 min/session every 3–4 weeks</td><td>Walking, cycling, swimming — whatever they'll do consistently</td></tr>
+      <tr><td>Moderate (2–3 workouts/week, mostly gym)</td><td>3 × 40 min sessions/week</td><td>Build toward 4 × 45 min by week 6</td><td>Rowing, cycling, elliptical — avoids high-impact if joint issues</td></tr>
+      <tr><td>Active (4+ workouts/week)</td><td>3–4 × 45–60 min sessions/week</td><td>Hold volume, focus on maintaining true Zone 2 HR (most "fit" clients train too hard)</td><td>Running, cycling, swimming — long continuous sessions</td></tr>
+      <tr><td>Very fit / competitive</td><td>4–5 × 60 min sessions/week</td><td>Maintain. Focus on zone specificity.</td><td>Running or cycling with HR monitor. True Zone 2 pace matters.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 class="sh">VO₂ Max training — the intervals</h3>
+
+  <p class="p">VO₂ max is measured in mL of oxygen per kg of bodyweight per minute. It declines 10% per decade after 30 unless trained. Each 1 MET increase in VO₂ max = 13% reduction in all-cause mortality (Peter Attia's data from Cooper Clinic).</p>
+
+  <h4 class="ssh">Standard VO₂ max interval protocol</h4>
+  <ul class="ul">
+    <li><strong>4×4 Norwegian Protocol:</strong> 4 intervals of 4 minutes each at 90–95% max HR. 3 minutes active recovery between each. 10 min warm-up, 10 min cool-down. Once or twice per week maximum.</li>
+    <li><strong>Shorter option (beginners):</strong> 8 × 1 minute at 90%+ HR with 2 minutes easy recovery. Same physiological target, less psychological barrier.</li>
+    <li><strong>When NOT to prescribe VO₂ work:</strong> NT-proBNP elevated, client is currently sick or recovering, HRV is significantly below their baseline, first 3 weeks of program (adaptation period).</li>
+  </ul>
+
+  <h3 class="sh">Resistance training — the weekly structure</h3>
+
+  <p class="p">Muscle is the longevity organ. Every kg of muscle gained is protection against metabolic disease, frailty, and aging. The goal is to build and maintain muscle mass and strength, with particular emphasis on compound movements and progressive overload.</p>
+
+  <h4 class="ssh">Weekly resistance training frameworks (choose by availability)</h4>
+
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>Days available</th><th>Split structure</th><th>Key movements per session</th></tr></thead>
+    <tbody>
+      <tr><td>2 days</td><td>Full body × 2</td><td>Day A: Squat, Push, Hinge. Day B: Squat variant, Pull, Hinge variant. Each session: 3–4 exercises, 3–4 sets, 6–10 reps</td></tr>
+      <tr><td>3 days</td><td>Push / Pull / Legs</td><td>Push: Bench press, overhead press, triceps. Pull: Row, pulldown, biceps. Legs: Squat, deadlift, lunge, calf raise</td></tr>
+      <tr><td>4 days</td><td>Upper / Lower / Upper / Lower</td><td>Upper days: Push + pull exercises. Lower days: Quad-dominant + hip-dominant. Most effective split for hypertrophy and strength.</td></tr>
+      <tr><td>5 days</td><td>Chest + tri / Back + bi / Legs / Shoulders / Full body</td><td>Traditional bodybuilder split. Good for experienced clients who enjoy high frequency.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h4 class="ssh">Key principles for all resistance programs</h4>
+  <ul class="ul">
+    <li><strong>Progressive overload is everything.</strong> Each session should be slightly harder than the last — more weight, more reps, less rest, or better form. Track it. Without overload, the stimulus is maintenance, not growth.</li>
+    <li><strong>Compound first.</strong> Squat, deadlift, bench press, row, overhead press. These give the most stimulus per unit of time and produce the strongest hormonal response.</li>
+    <li><strong>Train close to failure.</strong> Research (Schoenfeld, 2020s) shows that proximity to failure, not heavy weight per se, drives hypertrophy. Leave 1–3 reps in reserve per set.</li>
+    <li><strong>Minimum effective dose for beginners:</strong> 3 sets per muscle group per week is enough to produce measurable gains. Don't programme complexity they can't follow.</li>
+    <li><strong>Indian gym context:</strong> Most commercial gyms in Hyderabad have adequate free weights and machines. If client has no gym access, dumbbell home program or bodyweight works fine — frame expectations accordingly.</li>
+  </ul>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ CHAPTER 9: RECOVERY ═══════════ -->
+<section class="chapter" id="recovery">
+  <div class="ch-meta">Chapter Nine</div>
+  <h2 class="ch-title">Recovery &amp; <em>sleep protocol</em></h2>
+  <p class="ch-lede">Sleep is the most potent recovery and longevity intervention available. HRV is the daily readiness signal. Here is the exact system for optimizing both.</p>
+
+  <h3 class="sh">Sleep protocol — by problem type</h3>
+
+  <div class="proto-row">
+    <div class="proto-header"><span class="proto-h-title">Problem: Difficulty falling asleep (&gt;20 min to onset)</span><span class="proto-h-meta">Most common issue</span></div>
+    <div class="proto-body">
+      <div class="proto-item"><strong>Root causes</strong>Cortisol too high at bedtime, blue light suppressing melatonin, stimulants too late, anxiety/rumination, irregular schedule</div>
+      <div class="proto-item"><strong>Interventions</strong>Blue-light blocking glasses or screen dimming 2 hours before bed. No screens in bed — non-negotiable. 4-7-8 breathing (in 4, hold 7, out 8) before bed. Last caffeine by 1pm. Bedroom temperature 18–20°C. Same bedtime ±30 min every night. Magnesium glycinate 400mg 30 min before bed.</div>
+      <div class="proto-item"><strong>Timeline</strong>Sleep onset typically improves in 1–2 weeks with consistent implementation</div>
+    </div>
+  </div>
+
+  <div class="proto-row">
+    <div class="proto-header" style="background:var(--teal)"><span class="proto-h-title">Problem: Night waking / fragmented sleep</span><span class="proto-h-meta">Often cortisol or blood sugar related</span></div>
+    <div class="proto-body">
+      <div class="proto-item"><strong>Root causes</strong>Blood sugar dropping overnight (common in dieters), cortisol spike at 2–3 AM, alcohol (disrupts sleep architecture 3–4 hrs in), sleep apnoea (refer if chronic), noise/light</div>
+      <div class="proto-item"><strong>Interventions</strong>No alcohol within 3 hours of sleep. Small protein snack before bed (20g casein) if blood sugar instability suspected. Blackout curtains and ear plugs. Alcohol elimination trial (even just 2 weeks) is highly informative. If snoring reported by partner → refer for sleep apnoea screening.</div>
+      <div class="proto-item"><strong>Timeline</strong>Alcohol-related fragmentation resolves in 2–5 days of abstinence</div>
+    </div>
+  </div>
+
+  <div class="proto-row">
+    <div class="proto-header" style="background:var(--leaf)"><span class="proto-h-title">Problem: Low HRV despite adequate sleep</span><span class="proto-h-meta">Often stress or overtraining</span></div>
+    <div class="proto-body">
+      <div class="proto-item"><strong>Root causes</strong>Chronic life stress (highest driver of low HRV), overtraining without recovery, illness or infection, alcohol, dehydration</div>
+      <div class="proto-item"><strong>Interventions</strong>Reduce training volume in the current week if HRV is &gt;10% below 7-day average. Daily breathwork (5 minutes of slow breathing at 5–6 breaths/minute activates vagal tone and raises HRV acutely). Address the stressor directly where possible. Ashwagandha KSM-66 (600mg/day) — evidence-based adaptogen that reduces cortisol and raises HRV in 8 weeks.</div>
+      <div class="proto-item"><strong>Timeline</strong>HRV trend improves over 4–8 weeks of consistent stress management and training regulation</div>
+    </div>
+  </div>
+
+  <h3 class="sh">Using HRV to guide training decisions</h3>
+
+  <p class="p">HRV is the daily readiness signal. Give every client this decision framework based on their morning HRV reading (use Oura or Whoop app — they normalize HRV to their own baseline, which is more useful than absolute numbers):</p>
+
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>HRV status (vs. personal baseline)</th><th>Training prescription</th></tr></thead>
+    <tbody>
+      <tr class="hl"><td>HRV &gt; 10% above baseline (green)</td><td>High-intensity or VO₂ max session appropriate. Body is primed for stress.</td></tr>
+      <tr><td>HRV within 10% of baseline (normal)</td><td>Planned training as scheduled. No adjustment needed.</td></tr>
+      <tr><td>HRV 10–20% below baseline (amber)</td><td>Reduce planned intensity. Zone 2 only, no intervals. Shorter session.</td></tr>
+      <tr><td>HRV &gt;20% below baseline (red)</td><td>Rest or very light movement (20-minute walk). Investigate stressor. Do not force training.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 class="sh">Stress management protocols</h3>
+
+  <ul class="ul">
+    <li><strong>Physiological sigh (immediate cortisol reset):</strong> Double inhale through nose (two quick inhales), then long exhale through mouth. Repeat 3–5 times. Works in 30 seconds. Andrew Huberman's most evidence-backed acute stress tool.</li>
+    <li><strong>5–5–5 box breathing (pre-sleep / pre-stressor):</strong> In for 5, hold for 5, out for 5, hold for 5. 5 minutes daily. Activates parasympathetic system.</li>
+    <li><strong>NSDR (Non-Sleep Deep Rest):</strong> 10–20 minute yoga nidra or guided body scan. Particularly useful for clients who can't nap but need midday recovery. YouTube: "NSDR Andrew Huberman" — free, evidence-backed.</li>
+    <li><strong>Morning sunlight:</strong> 10–30 minutes of natural outdoor light within 30–60 minutes of waking. Resets cortisol and melatonin rhythm. No sunglasses. Sunscreen on face is fine. This single habit improves sleep onset time significantly.</li>
+  </ul>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ CHAPTER 10: SUPPLEMENTS ═══════════ -->
+<section class="chapter" id="supplements">
+  <div class="ch-meta">Chapter Ten</div>
+  <h2 class="ch-title">Supplement <em>protocol</em></h2>
+  <p class="ch-lede">The exact supplements, doses, forms, timing, and brands for every scenario. The philosophy: fix deficiencies first, then consider evidence-based optimization. Never start supplements without bloodwork. Always start by removing supplements with poor evidence.</p>
+
+  <div class="callout rule">
+    <span class="cl">The Supplement Hierarchy</span>
+    <p><strong>Tier 1 — Deficiency correction (always prescribe if deficient).</strong> Vitamin D, B12, Magnesium, Zinc, Omega-3, Folate. These are not optional — deficiencies cause measurable harm and directly affect biomarkers. <strong>Tier 2 — Evidence-based optimization (prescribe based on specific biomarker findings).</strong> Creatine, Ashwagandha, Berberine. Strong evidence, low risk. <strong>Tier 3 — Experimental longevity (do not prescribe in Year 1).</strong> NMN, Rapamycin, Metformin, Resveratrol. Complex evidence, risk without deep clinical oversight.</p>
+  </div>
+
+  <h3 class="sh">Tier 1 — Deficiency correction</h3>
+
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>Supplement</th><th>When to prescribe</th><th>Dose</th><th>Form (matters)</th><th>Timing</th><th>Brand example (India)</th></tr></thead>
+    <tbody>
+      <tr><td>Vitamin D3 + K2</td><td>Vitamin D &lt;50 ng/mL (nearly universal in India)</td><td>4,000 IU/day if 30–50; 6,000–8,000 IU/day if &lt;30; retest at 90 days</td><td>D3 (cholecalciferol), not D2. K2 as MK-7 (prevents calcium misdeposition)</td><td>With largest meal (fat-soluble)</td><td>Himalayan Organics D3+K2, NOW Foods</td></tr>
+      <tr><td>Vitamin B12</td><td>B12 &lt;400 pg/mL, vegetarian, elevated homocysteine</td><td>1,000–2,500 mcg/day (high dose OK — excess excreted)</td><td>Methylcobalamin, not cyanocobalamin. Sublingual if GI absorption issues.</td><td>Morning, on empty stomach or with breakfast</td><td>Neurobion (cyano — acceptable), NOW Methyl B12</td></tr>
+      <tr><td>Magnesium</td><td>Sleep issues, muscle cramps, stress, borderline serum mag</td><td>300–400 mg elemental magnesium/day</td><td>Glycinate (best tolerated, sleep benefits). NOT oxide (poor absorption, laxative effect).</td><td>30–60 min before bed</td><td>Himalayan Organics Magnesium Glycinate, Doctor's Best</td></tr>
+      <tr><td>Omega-3 (EPA+DHA)</td><td>Omega-3 Index &lt;6%, elevated TG, elevated hsCRP, low fish intake</td><td>2–4g EPA+DHA per day. (Check label — a 1000mg fish oil capsule often has only 300mg EPA+DHA)</td><td>Triglyceride form &gt; ethyl ester form for absorption. Re-esterified triglyceride = best.</td><td>With meals. Split dose (AM + PM) if taking &gt;2g</td><td>Nordic Naturals (import), Carbamide Forte (India)</td></tr>
+      <tr><td>Zinc</td><td>Zinc &lt;80 µg/dL, low testosterone, frequent infections, poor wound healing</td><td>15–25 mg elemental zinc/day. Do not exceed 40mg — competes with copper.</td><td>Zinc bisglycinate or picolinate. NOT zinc oxide (poor bioavailability).</td><td>With food — zinc on empty stomach causes nausea</td><td>NOW Zinc Glycinate, Himalayan Organics</td></tr>
+      <tr><td>Folate</td><td>Low serum folate, elevated homocysteine, MTHFR mutation suspected</td><td>400–800 mcg/day</td><td>Methylfolate (5-MTHF) — especially if MTHFR mutation possible (common in Indians)</td><td>With B12 — they work synergistically</td><td>Jarrow 5-MTHF (import)</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 class="sh">Tier 2 — Evidence-based optimization</h3>
+
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>Supplement</th><th>When to prescribe</th><th>Dose</th><th>Evidence level</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Creatine Monohydrate</td><td>Almost universally beneficial — resistance training, low muscle mass, cognitive performance</td><td>3–5g/day every day. No loading needed.</td><td><span class="tag g">Strong</span></td><td>Most studied supplement in sports science. Safe, cheap, effective. Slightly raises creatinine — flag in bloodwork interpretation (not kidney damage).</td></tr>
+      <tr><td>Ashwagandha (KSM-66)</td><td>Elevated cortisol, low HRV, stress-related sleep disruption, borderline low testosterone</td><td>600mg KSM-66 standardized extract per day</td><td><span class="tag g">Strong</span></td><td>Reduces cortisol by ~28% in 8-week studies. Raises testosterone ~15–17% in men with low normal levels. Use KSM-66 or Sensoril — extract quality matters.</td></tr>
+      <tr><td>Berberine</td><td>HOMA-IR &gt;2.5, HbA1c &gt;5.5, elevated ApoB — as a metabolic intervention</td><td>500mg 2–3x/day with meals</td><td><span class="tag b">Moderate-Strong</span></td><td>Called "nature's metformin." Activates AMPK. Check for drug interactions — inhibits CYP enzymes, affects many medications. Do not prescribe without doctor review.</td></tr>
+      <tr><td>Collagen + Vitamin C</td><td>Joint discomfort, connective tissue issues, skin integrity — relevant for athletes</td><td>10–15g collagen peptides + 50mg Vit C (30 min before exercise or on empty stomach)</td><td><span class="tag y">Moderate</span></td><td>Evidence for tendon/cartilage is building. Take 30–60 min before exercise to direct amino acids to joints during blood flow increase.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 class="sh">Supplements to typically STOP or reduce</h3>
+
+  <p class="p">Most clients arrive taking multiple supplements with poor evidence or poor form selection. Start by auditing and removing these before adding anything new.</p>
+
+  <ul class="ul">
+    <li><strong>Multi-vitamins (most brands):</strong> Inadequate doses of most things, wrong forms of several things (D2 not D3, cyanocobalamin not methylcobalamin, oxide forms). Stop and replace with targeted singles based on bloodwork.</li>
+    <li><strong>Generic fish oil (1g capsules):</strong> Most provide only 300mg EPA+DHA per capsule. Client is taking 3g fish oil thinking they're getting 3g omega-3. They're getting 900mg. Switch to concentrated fish oil with dose by EPA+DHA content.</li>
+    <li><strong>Iron supplements without confirmed deficiency:</strong> Excess iron is pro-oxidative and harmful. Only supplement if ferritin is genuinely low (serum iron &lt;60, ferritin &lt;30).</li>
+    <li><strong>Fat burners, testosterone boosters, proprietary blends:</strong> Remove entirely. Most are ineffective, some are harmful, all are overpriced.</li>
+    <li><strong>High-dose single antioxidants (Vit C &gt;1g, Vit E supplements):</strong> Evidence suggests high-dose antioxidants blunt the beneficial adaptations from exercise. Remove if client is training seriously.</li>
+  </ul>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ CHAPTER 11: MIND ═══════════ -->
+<section class="chapter" id="mind">
+  <div class="ch-meta">Chapter Eleven</div>
+  <h2 class="ch-title">Mind &amp; <em>mindfulness protocol</em></h2>
+  <p class="ch-lede">The cognitive and psychological practices that directly affect biomarkers. Not philosophy — measurable physiology.</p>
+
+  <h3 class="sh">Evidence-based practices (with biomarker impact)</h3>
+
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>Practice</th><th>Frequency/Duration</th><th>Biomarker impact</th><th>How to prescribe</th></tr></thead>
+    <tbody>
+      <tr><td>Slow breathing / diaphragmatic breathing</td><td>5–10 min/day</td><td>Lowers cortisol, raises HRV, lowers resting HR, reduces hsCRP in chronic stress</td><td>App: Oak or Insight Timer. 5–6 breath cycles/minute. "Coherent breathing" protocol.</td></tr>
+      <tr><td>Mindfulness meditation (MBSR-style)</td><td>20 min/day, 8-week MBSR protocol</td><td>Reduces cortisol by 20–31%, reduces inflammatory markers, improves sleep, lowers blood pressure</td><td>App: Headspace (structured), Insight Timer (free). Start with 5 min and build. Guided is fine.</td></tr>
+      <tr><td>Cold exposure (ending shower cold)</td><td>Daily, 30–90 sec cold water after warm shower</td><td>Acute norepinephrine spike (530%+). Improves mood, alertness. May increase brown fat activation (metabolic benefit). Improves HRV over time.</td><td>Start with 10 sec. Build to 60–90 sec. Exhale during the cold. Do not submerge face.</td></tr>
+      <tr><td>Morning sunlight exposure</td><td>10–30 min within 60 min of waking</td><td>Resets cortisol awakening response (healthy morning cortisol peak = better bedtime melatonin). Improves sleep onset. Raises mood via serotonin.</td><td>Walk outside without sunglasses. No window glass — UV doesn't penetrate. Overcast is fine (still sufficient photons).</td></tr>
+      <tr><td>Journaling (expressive writing)</td><td>10–15 min, 3–4x/week</td><td>Reduces hsCRP and other stress markers in studies of chronic stress. Improves emotional processing, reduces rumination.</td><td>No structure needed. "What's on my mind" free writing. Not a to-do list. Not gratitude performance. Actual emotional processing.</td></tr>
+      <tr><td>Social connection (quality time)</td><td>Regular — specific hours/week</td><td>Loneliness raises cortisol, IL-6, and mortality risk more than smoking 15 cigarettes/day (Holt-Lunstad meta-analysis)</td><td>Prescribe specifically: "Schedule 2 social dinners or activities with people you enjoy this month." Frame as a health intervention.</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ CHAPTER 12: CALLS ═══════════ -->
+<section class="chapter" id="calls">
+  <div class="ch-meta">Chapter Twelve</div>
+  <h2 class="ch-title">Call &amp; check-in <em>system</em></h2>
+  <p class="ch-lede">The exact structure of every touchpoint over the 90-day program — what happens when, what you cover, how long it runs, and what happens after each call.</p>
+
+  <h3 class="sh">The 90-day touchpoint calendar</h3>
+
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>When</th><th>Type</th><th>Duration</th><th>What you cover</th></tr></thead>
+    <tbody>
+      <tr><td>Pre-start (Day −7)</td><td>Onboarding email + instructions</td><td>—</td><td>Bloodwork booking link, prep instructions, wearable data access request, what to expect</td></tr>
+      <tr><td>Day 1 (bloodwork done)</td><td>Intake call (video)</td><td>45 min</td><td>Full lifestyle questionnaire. Review wearable data. Set goals. Build rapport. Do NOT share results yet.</td></tr>
+      <tr><td>Day 5–7 (results in)</td><td>Protocol delivery call (video)</td><td>60 min</td><td>Walk through all results. Explain biological age. Deliver protocol. Get questions answered. Set Week 1 habits.</td></tr>
+      <tr><td>Day 14</td><td>WhatsApp check-in</td><td>Async</td><td>How's the first week? What's working? What's hard? Adjust one thing if needed. Reinforce wins.</td></tr>
+      <tr><td>Day 21 (Week 3)</td><td>Video check-in #1</td><td>30 min</td><td>Protocol compliance review. Wearable data check (HRV trend, sleep). Adjust nutrition or training if needed.</td></tr>
+      <tr><td>Day 35 (Week 5)</td><td>WhatsApp check-in</td><td>Async</td><td>Midpoint energy and motivation check. Any supplements started? Any issues?</td></tr>
+      <tr><td>Day 45 (Week 6–7)</td><td>Video check-in #2</td><td>30 min</td><td>Halfway review. Energy, sleep, training progress. Check if wearable metrics are trending. Adjust protocol.</td></tr>
+      <tr><td>Day 60</td><td>WhatsApp check-in</td><td>Async</td><td>Book Day 90 bloodwork. Remind them of preparation protocol. Reinforce final push.</td></tr>
+      <tr><td>Day 90 (bloodwork done)</td><td>Re-test bloodwork</td><td>—</td><td>Same panel. Same lab. Same time of day. Same prep protocol.</td></tr>
+      <tr class="hl"><td>Day 95–97 (results in)</td><td>Outcome review call (video)</td><td>75–90 min</td><td>New biological age. Before/after comparison on every marker. What drove the change. Continuation plan or renewal offer.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 class="sh">Call structure — the Intake Call (Day 1)</h3>
+
+  <ul class="ol">
+    <li><strong>Open (5 min):</strong> Build rapport. "Before we dive in — what made you decide to do this now?" This is not small talk; it's anchoring motivation that you'll reference throughout the 90 days.</li>
+    <li><strong>Questionnaire (30 min):</strong> Work through Sections A–G from Chapter 4. Take notes. Probe when something is interesting or vague.</li>
+    <li><strong>Wearable data review (5 min):</strong> Ask them to share their screen or send screenshots. What does their HRV trend look like? Sleep duration? Resting HR? Note the baselines.</li>
+    <li><strong>Set expectations (5 min):</strong> "Results arrive in 3–5 days. I'll book our next call once I have them. You'll have the protocol within 7 days. Between now and then, the one thing I'd ask you to do is: [one simple habit — e.g., get morning sunlight, drink 2L of water daily]. Just one thing."</li>
+  </ul>
+
+  <h3 class="sh">Call structure — Protocol Delivery Call (Day 5–7)</h3>
+
+  <ul class="ol">
+    <li><strong>The number (10 min):</strong> Lead with biological age. "Before I show you the results — what would you expect your biological age to be, given how you feel?" Then reveal it. Let the number land. If PhenoAge is higher than chronological, this is your most powerful motivational moment.</li>
+    <li><strong>Marker tour (20 min):</strong> Walk through Tier 1 and Tier 2 findings. Explain each in plain language. Use analogies. "Your HOMA-IR of 2.8 means your cells are about 40% less sensitive to insulin than optimal. Think of insulin as a key — yours is a slightly bent key." Avoid overwhelming with every marker. Focus on the 5–8 most actionable.</li>
+    <li><strong>Protocol walkthrough (20 min):</strong> Go through each lever. Nutrition first, then training, then recovery, then supplements. For each: what to do, why (connected to their specific biomarker), and how to start this week.</li>
+    <li><strong>Question and resistance handling (10 min):</strong> "What feels hard? What do you already do?" Acknowledge what's already good. Make the protocol feel achievable.</li>
+    <li><strong>Week 1 commitments (5 min):</strong> "This week, just these 3 things: [habit 1], [habit 2], [habit 3]. Send me a WhatsApp at the end of each day with a thumbs up or down on each."</li>
+  </ul>
+
+  <h3 class="sh">WhatsApp daily accountability system</h3>
+
+  <p class="p">Daily WhatsApp check-in is the highest-leverage retention tool. Do not skip it. Compliance drops dramatically without daily light accountability.</p>
+
+  <ul class="ul">
+    <li><strong>The daily message (their side):</strong> Client sends: "✅ ✅ ❌" against their 3 weekly habits. Takes 10 seconds. You respond within 2–4 hours.</li>
+    <li><strong>Your response:</strong> Emoji acknowledgment + one sentence of encouragement or a specific protocol note if they missed something. Never shame. Always coach.</li>
+    <li><strong>Weekly summary (your side, Sundays):</strong> Send: "Week [X] summary: You hit [N] out of [X] habits. HRV trend this week: [up/stable/down]. One thing to focus on this week: [specific]."</li>
+    <li><strong>At scale:</strong> This daily system is manageable for up to 15 clients manually. At 30+ clients, hire a health coach who handles all check-ins within 4-hour response windows.</li>
+  </ul>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ CHAPTER 13: TOOLS ═══════════ -->
+<section class="chapter" id="tools">
+  <div class="ch-meta">Chapter Thirteen</div>
+  <h2 class="ch-title">Tools &amp; <em>templates</em></h2>
+  <p class="ch-lede">Every tool, template, and document you need to run the system. What to set up before your first client arrives.</p>
+
+  <h3 class="sh">Essential setup checklist</h3>
+
+  <ul class="ul">
+    <li><strong>Google Sheets Master Tracker:</strong> One sheet per client. Tab 1: Demographics. Tab 2: All biomarker values (Day 1 and Day 90 side by side). Tab 3: Calculated values (HOMA-IR, TG:HDL, PhenoAge). Tab 4: Protocol summary. Tab 5: Check-in log.</li>
+    <li><strong>Airtable Client Database:</strong> One record per client. Fields: Name, age, program tier, start date, Day 90 date, lab order status, protocol delivery status, next call date. Use Airtable to trigger reminders to yourself.</li>
+    <li><strong>Calendly (or Cal.com):</strong> Two event types: "Initial consultation (free, 30 min)" and "Client check-in call (30 min)" and "Outcome review (60 min)." Connect to Google Calendar. Send reminders automatically.</li>
+    <li><strong>WhatsApp Business:</strong> Create a WhatsApp Business account. Set an automatic greeting. Create "Quick Replies" for common check-in messages. Keep client contacts organized in labeled groups.</li>
+    <li><strong>Lab ordering accounts:</strong> Create B2B/partner accounts with Thyrocare and Redcliffe. These give you: preferred pricing, home collection coordination, direct digital results, and the ability to order on behalf of clients easily.</li>
+    <li><strong>Razorpay:</strong> Payment links for each tier. Set up automatic payment reminders. Issue receipts automatically.</li>
+    <li><strong>Google Drive:</strong> One shared folder per client. Contains: their signed agreement, bloodwork PDFs, protocol document, check-in summaries, outcome report.</li>
+    <li><strong>DocuSign or Zoho Sign (free tier):</strong> Digital signing for the client agreement. This agreement should specify: scope of service, limitation of liability (not medical treatment), data handling, and refund policy.</li>
+  </ul>
+
+  <h3 class="sh">Documents to create before your first client</h3>
+
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>Document</th><th>Purpose</th><th>Key contents</th></tr></thead>
+    <tbody>
+      <tr><td>Client Agreement / Service Contract</td><td>Legal protection + sets expectations</td><td>Scope (wellness coaching, not medical treatment), acknowledgment of doctor referral necessity, data handling, refund policy, liability limitation</td></tr>
+      <tr><td>Pre-test preparation guide</td><td>Ensure clean baseline results</td><td>12-hour fasting instructions, no exercise 24hr, no alcohol 48hr, no biotin 48hr, morning timing, what to bring, how to book home collection</td></tr>
+      <tr><td>Protocol document template</td><td>Professional delivery of program</td><td>Cover page with biological age, biomarker summary with flagged findings, nutrition protocol, training protocol, recovery protocol, supplement list, 12-week calendar</td></tr>
+      <tr><td>WhatsApp check-in template</td><td>Daily accountability</td><td>Client's 3 weekly habits listed clearly, emoji shorthand (✅ = done, ❌ = missed, 🟡 = partial)</td></tr>
+      <tr><td>Outcome report template</td><td>Day 90 deliverable</td><td>Executive summary, before/after biological age comparison, marker-by-marker change table, what drove improvement, next program recommendation</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ CHAPTER 14: STUDY ═══════════ -->
+<section class="chapter" id="study">
+  <div class="ch-meta">Chapter Fourteen</div>
+  <h2 class="ch-title">What to <em>study</em></h2>
+  <p class="ch-lede">The exact curriculum to become deeply knowledgeable. Prioritized by what you need to learn first. With 6–8 hours per week, you can be fluent in this domain within 6 months.</p>
+
+  <h3 class="sh">Tier 1 — Read/listen to these first (Months 1–2)</h3>
+
+  <div class="reading-item">
+    <div class="ri-icon" style="background:var(--accent-bg)">📘</div>
+    <div>
+      <div class="ri-title">Outlive — Peter Attia with Bill Gifford</div>
+      <div class="ri-sub">The most comprehensive, evidence-based longevity framework for practitioners. Covers the four horsemen of chronic disease, VO₂ max, Zone 2, strength training, metabolic health, sleep. This is your primary textbook. Read this first.</div>
+    </div>
+    <div class="ri-type">Book · Priority 1</div>
+  </div>
+
+  <div class="reading-item">
+    <div class="ri-icon" style="background:var(--teal-bg)">🎧</div>
+    <div>
+      <div class="ri-title">The Peter Attia Drive Podcast (FoundMyFitness clips also excellent)</div>
+      <div class="ri-sub">Start with: AMA episodes on Zone 2, the insulin resistance series, the lipidology series (Ep 234, 235, 236 with Tom Dayspring on lipids — essential), the sleep series with Matt Walker, the exercise series.</div>
+    </div>
+    <div class="ri-type">Podcast · Weekly</div>
+  </div>
+
+  <div class="reading-item">
+    <div class="ri-icon" style="background:var(--leaf-bg)">📗</div>
+    <div>
+      <div class="ri-title">Why We Sleep — Matthew Walker</div>
+      <div class="ri-sub">Everything about sleep architecture, what disrupts it, what the biomarker consequences are, and the interventions that work. This single book will change how you think about sleep protocols.</div>
+    </div>
+    <div class="ri-type">Book · Priority 2</div>
+  </div>
+
+  <div class="reading-item">
+    <div class="ri-icon" style="background:var(--gold-bg)">📙</div>
+    <div>
+      <div class="ri-title">Good Calories Bad Calories — Gary Taubes</div>
+      <div class="ri-sub">The scientific history of nutritional research and why conventional dietary advice is wrong. Dense but essential for understanding the insulin-obesity-disease connection at a mechanistic level.</div>
+    </div>
+    <div class="ri-type">Book · Priority 3</div>
+  </div>
+
+  <h3 class="sh">Tier 2 — Build deeper expertise (Months 3–6)</h3>
+
+  <div class="reading-item">
+    <div class="ri-icon" style="background:var(--slate-bg)">🎓</div>
+    <div>
+      <div class="ri-title">Stanford Continuing Studies: Physiology of Exercise — edX or Coursera</div>
+      <div class="ri-sub">Formal understanding of exercise physiology: energy systems, VO₂ max, muscle physiology, hormonal response to training. About 30 hours of content. Free to audit.</div>
+    </div>
+    <div class="ri-type">Course · Free to audit</div>
+  </div>
+
+  <div class="reading-item">
+    <div class="ri-icon" style="background:var(--accent-bg)">📘</div>
+    <div>
+      <div class="ri-title">The Obesity Code / The Diabetes Code — Jason Fung</div>
+      <div class="ri-sub">Insulin resistance and metabolic disease from first principles. Practical framework for understanding why and how to intervene on glucose dysregulation. Highly readable. Fasting discussion especially useful.</div>
+    </div>
+    <div class="ri-type">Books</div>
+  </div>
+
+  <div class="reading-item">
+    <div class="ri-icon" style="background:var(--teal-bg)">🎧</div>
+    <div>
+      <div class="ri-title">Huberman Lab Podcast — Selected episodes</div>
+      <div class="ri-sub">Start with: Cortisol and stress (Ep. 21), Testosterone (Ep. 15), Sleep toolkit (Ep. 84), Gut-brain axis (Ep. 62), Zone 2 (Ep. 98 with Attia), Breathing (Ep. 28). Use these as client education resources too.</div>
+    </div>
+    <div class="ri-type">Podcast</div>
+  </div>
+
+  <div class="reading-item">
+    <div class="ri-icon" style="background:var(--purple-bg)">📒</div>
+    <div>
+      <div class="ri-title">Lifespan — David Sinclair</div>
+      <div class="ri-sub">The information theory of aging. Understand sirtuins, NAD+, mTOR, AMPK, and the theoretical mechanisms of aging. Don't implement his supplement recommendations wholesale — but understand the science.</div>
+    </div>
+    <div class="ri-type">Book</div>
+  </div>
+
+  <h3 class="sh">Tier 3 — Scientific literacy (Ongoing)</h3>
+
+  <div class="reading-item">
+    <div class="ri-icon" style="background:var(--leaf-bg)">🔬</div>
+    <div>
+      <div class="ri-title">PubMed + Examine.com</div>
+      <div class="ri-sub">PubMed for primary literature. Examine.com for supplement research summaries (evidence-graded, updated regularly). Every supplement recommendation you make should be verifiable here. Examine has a Human Effect Matrix that shows effect size, consistency, and evidence quality.</div>
+    </div>
+    <div class="ri-type">Research databases · Ongoing</div>
+  </div>
+
+  <div class="reading-item">
+    <div class="ri-icon" style="background:var(--gold-bg)">📊</div>
+    <div>
+      <div class="ri-title">Levine Lab Papers on Biological Aging</div>
+      <div class="ri-sub">Morgan Levine's published work. Start with the 2018 PhenoAge paper (An epigenetic biomarker of aging — Cell Metabolism 2018). Then DunedinPACE paper (pace of aging, 2022). These are the scientific foundation of your core product.</div>
+    </div>
+    <div class="ri-type">Academic papers</div>
+  </div>
+
+  <div class="reading-item">
+    <div class="ri-icon" style="background:var(--slate-bg)">🇮🇳</div>
+    <div>
+      <div class="ri-title">Indian-specific literature: ICMR dietary guidelines, Indian Heart Association, RSSDI guidelines</div>
+      <div class="ri-sub">Essential for calibrating Western research to Indian bodies. Indians have higher cardiometabolic risk at lower BMI, different optimal lipid ranges, different microbiome composition, different dietary patterns. Read: "Thin-fat phenotype in Indians" (C.S. Yajnik's work), ICMR Nutrient Requirements 2020.</div>
+    </div>
+    <div class="ri-type">Guidelines + Papers</div>
+  </div>
+
+  <h3 class="sh">Certifications to consider (not mandatory but useful)</h3>
+
+  <div class="tbl-wrap">
+  <table class="tbl">
+    <thead><tr><th>Certification</th><th>Provider</th><th>Why it helps</th><th>Cost</th></tr></thead>
+    <tbody>
+      <tr><td>Precision Nutrition Level 1</td><td>PN (online)</td><td>Evidence-based nutrition coaching certification. Most respected coaching credential in this space. Covers behavior change coaching — essential skill.</td><td>~$1,400 USD</td></tr>
+      <tr><td>CSCS or CPT (strength & conditioning)</td><td>NSCA / NASM</td><td>Exercise science credibility. CSCS is the gold standard for serious practitioners.</td><td>$300–500 USD</td></tr>
+      <tr><td>Functional Medicine Certification</td><td>IFM (Institute for Functional Medicine)</td><td>Systemic, root-cause medicine framework. Most directly applicable to this work. Used by many longevity practitioners.</td><td>$1,500–5,000 USD depending on level</td></tr>
+      <tr><td>Health Coaching Certification</td><td>NBHWC (US) or equivalent India</td><td>Behavior change, motivational interviewing, client communication frameworks. The non-technical skills matter enormously.</td><td>$500–1,000 USD</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout good">
+    <span class="cl">Study Schedule Recommendation</span>
+    <p>
+      <strong>Month 1:</strong> Read Outlive cover to cover. Listen to 2 Peter Attia episodes per week. Begin the Google Sheet tracker setup.<br>
+      <strong>Month 2:</strong> Read Why We Sleep. Listen to Huberman's sleep and stress episodes. Start Precision Nutrition Level 1.<br>
+      <strong>Month 3:</strong> Read Obesity Code. Deep dive into lipidology (Attia + Dayspring episodes). Learn the PhenoAge calculator cold.<br>
+      <strong>Month 4:</strong> Functional Medicine concepts. Indian-specific literature. Start Examine.com research database use.<br>
+      <strong>Month 5–6:</strong> Lifespan (Sinclair). Primary PhenoAge papers. Ongoing podcast maintenance 2x/week.<br>
+      <strong>Ongoing:</strong> One new longevity study per week via Perplexity or PubMed. Monthly review of Examine updates.
+    </p>
+  </div>
+
+  <p class="p" style="margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--ink-fade); font-style: italic;">
+    End of Tessera Operational Rulebook v1.0 · April 2026 · Confidential
+  </p>
+</section>
+
+</main>
+</div>
+
+<script>
+// Nav active state
+const sections = document.querySelectorAll('.chapter, .cover');
+const navItems = document.querySelectorAll('.sb-item');
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      const id = e.target.id;
+      navItems.forEach(n => {
+        n.classList.toggle('active', n.getAttribute('href') === '#'+id);
+      });
+    }
+  });
+}, {rootMargin:'-20% 0px -70% 0px'});
+
+sections.forEach(s => io.observe(s));
+
+// Mobile menu
+document.getElementById('menuBtn')?.addEventListener('click', () => {
+  document.getElementById('sidebar').classList.toggle('open');
+});
+
+navItems.forEach(n => {
+  n.addEventListener('click', () => {
+    document.getElementById('sidebar').classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>
