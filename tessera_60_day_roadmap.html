@@ -1,0 +1,427 @@
+
+<h2 class="sr-only">Tessera 60-day founder roadmap — week-by-week tasks across business setup, content, outreach, and research</h2>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans)}
+.rm{padding:0 0 32px}
+
+.week-nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:24px;padding-bottom:16px;border-bottom:0.5px solid var(--color-border-tertiary)}
+.wbtn{padding:6px 14px;font-size:12.5px;font-weight:500;border:0.5px solid var(--color-border-tertiary);border-radius:99px;cursor:pointer;color:var(--color-text-secondary);background:transparent;transition:all 0.15s;white-space:nowrap}
+.wbtn.on{background:var(--color-text-primary);color:var(--color-background-primary);border-color:var(--color-text-primary)}
+.wbtn:hover:not(.on){background:var(--color-background-secondary);color:var(--color-text-primary)}
+
+.week-view{display:none}
+.week-view.on{display:block}
+
+.week-header{margin-bottom:20px}
+.wh-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:12px}
+.wh-num{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:0.15em;color:var(--color-text-secondary);text-transform:uppercase;margin-bottom:6px}
+.wh-title{font-size:18px;font-weight:500;color:var(--color-text-primary);line-height:1.2;margin-bottom:4px}
+.wh-sub{font-size:13px;color:var(--color-text-secondary);line-height:1.5}
+.wh-focus{text-align:right;flex-shrink:0}
+.focus-label{font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:4px}
+.focus-pill{font-size:11.5px;font-weight:500;padding:4px 10px;border-radius:99px;display:inline-block}
+
+.tracks{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.track{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);background:var(--color-background-primary);overflow:hidden}
+.track-head{padding:10px 14px;border-bottom:0.5px solid var(--color-border-tertiary);display:flex;align-items:center;gap:8px}
+.track-icon{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.track-name{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-text-secondary)}
+.track-body{padding:10px 14px}
+.task{display:flex;gap:10px;padding:7px 0;border-bottom:0.5px solid var(--color-border-tertiary);align-items:flex-start}
+.task:last-child{border-bottom:none}
+.task-check{width:14px;height:14px;border:0.5px solid var(--color-border-secondary);border-radius:3px;flex-shrink:0;margin-top:2px;cursor:pointer;transition:all 0.15s;display:flex;align-items:center;justify-content:center}
+.task-check.done{background:var(--color-text-primary);border-color:var(--color-text-primary)}
+.task-check.done::after{content:'';width:7px;height:5px;border-left:1.5px solid var(--color-background-primary);border-bottom:1.5px solid var(--color-background-primary);transform:rotate(-45deg) translate(1px,-1px);display:block}
+.task-text{font-size:13px;color:var(--color-text-secondary);line-height:1.5;cursor:pointer;transition:color 0.15s}
+.task-text.done{color:var(--color-text-tertiary);text-decoration:line-through}
+.task-text strong{color:var(--color-text-primary);font-weight:500}
+.task-text.done strong{color:var(--color-text-tertiary)}
+
+.daily-box{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);background:var(--color-background-secondary);padding:14px 16px;margin-bottom:12px}
+.daily-title{font-family:var(--font-mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-text-secondary);font-weight:500;margin-bottom:10px}
+.daily-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px}
+.daily-item{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 12px}
+.di-time{font-family:var(--font-mono);font-size:10px;color:var(--color-text-tertiary);margin-bottom:3px;letter-spacing:0.05em}
+.di-task{font-size:12.5px;color:var(--color-text-primary);font-weight:500;margin-bottom:2px;line-height:1.3}
+.di-sub{font-size:11.5px;color:var(--color-text-secondary);line-height:1.4}
+
+.deliverable-row{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.deliverable-row:last-child{border-bottom:none}
+.del-num{font-family:var(--font-mono);font-size:11px;font-weight:500;color:var(--color-text-tertiary);min-width:24px;margin-top:1px}
+.del-name{font-size:13.5px;color:var(--color-text-primary);font-weight:500;margin-bottom:2px}
+.del-sub{font-size:12px;color:var(--color-text-secondary);line-height:1.4}
+.del-tag{font-family:var(--font-mono);font-size:9.5px;font-weight:500;padding:1px 6px;border-radius:3px;letter-spacing:0.05em;margin-left:6px;text-transform:uppercase;display:inline-block}
+
+.content-row{border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:12px 14px;margin-bottom:8px;background:var(--color-background-primary)}
+.cr-platform{font-family:var(--font-mono);font-size:9.5px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px}
+.cr-title{font-size:13.5px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px;line-height:1.3}
+.cr-hook{font-size:12.5px;color:var(--color-text-secondary);line-height:1.5;font-style:italic}
+
+.progress-bar{height:3px;background:var(--color-border-tertiary);border-radius:2px;margin-top:12px;overflow:hidden}
+.progress-fill{height:100%;border-radius:2px;background:var(--color-text-primary);transition:width 0.4s ease}
+
+.summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px;margin-top:12px}
+.sg-card{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px;text-align:center}
+.sg-num{font-size:20px;font-weight:500;color:var(--color-text-primary);line-height:1;margin-bottom:3px}
+.sg-lbl{font-size:10.5px;color:var(--color-text-secondary);line-height:1.3}
+
+.callout{padding:12px 16px;border-left:2px solid;border-radius:0 6px 6px 0;margin-top:14px;font-size:13px;line-height:1.55;color:var(--color-text-secondary)}
+.callout strong{color:var(--color-text-primary);font-weight:500}
+.ct{border-color:var(--color-text-info);background:var(--color-background-info)}
+.ca{border-color:var(--color-text-warning);background:var(--color-background-warning)}
+.cg{border-color:var(--color-text-success);background:var(--color-background-success)}
+.cr2{border-color:var(--color-text-danger);background:var(--color-background-danger)}
+</style>
+
+<div class="rm">
+<div class="week-nav" id="weeknav"></div>
+<div id="week-container"></div>
+</div>
+
+<script>
+const WEEKS = [
+  {
+    num:"Week 1", days:"Days 1–7",
+    title:"Infrastructure + your own bloodwork",
+    sub:"Nothing visible to the outside world yet. All setup, all internal. This week has no shortcuts.",
+    focus:"Setup", focusColor:"var(--color-background-info)", focusTxt:"var(--color-text-info)",
+    tracks:[
+      {name:"Business setup", color:"#185FA5", tasks:[
+        "Sign and onboard your doctor advisor — have the retainer agreement signed by Day 3",
+        "Create Razorpay account. Set up 3 payment links: Foundations ₹18K, Performance ₹35K, Continuum ₹75K",
+        "Create Calendly with 3 event types: Free consult (30min), Check-in call (30min), Outcome review (60min)",
+        "Set up WhatsApp Business account with greeting message and 5 quick replies for common questions",
+        "Create Airtable client database — fields: name, tier, start date, Day-90 date, lab status, next call",
+        "Open B2B partner accounts with Thyrocare and Redcliffe Labs — takes 2–3 days to activate",
+        "Build master Google Sheet: biomarker tracker + PhenoAge formula + protocol template tabs"
+      ]},
+      {name:"Your own bloodwork", color:"#0F6E56", tasks:[
+        "Book your own bloodwork TODAY — Performance panel (60 markers). Fast from tonight.",
+        "Get the blood draw done. Home collection via Redcliffe is the smoothest experience.",
+        "When results arrive (Day 3–5): calculate your PhenoAge using the Google Sheet formula",
+        "Document everything with screenshots — before numbers, PhenoAge score, key findings",
+        "Write your own protocol using the rulebook. This IS your product validation.",
+        "This is Case Study #0. You are the product demo. Everything else depends on this."
+      ]},
+      {name:"Content foundations", color:"#854F0B", tasks:[
+        "Set up LinkedIn Creator Mode. Write a new headline: 'Building India's first biological age tracking program | Longevity researcher | Hyderabad'",
+        "Set up Instagram account @tessera.longevity (or your brand name). Bio: 'Measuring how fast urban Indians age. Bloodwork-based biological age programs. Hyderabad.'",
+        "Install Buffer or Later for scheduling — free tier handles both platforms",
+        "Write your first LinkedIn post draft: 'I just got my bloodwork back. Here's what 28 years of Indian urban life does to your biology.' (publish Day 5–6 when you have results)"
+      ]}
+    ],
+    daily:[
+      {time:"6–7am", task:"Morning study block", sub:"Outlive, Chapter 1–3"},
+      {time:"9am–12pm", task:"Setup tasks", sub:"Business infrastructure"},
+      {time:"2–4pm", task:"Rulebook review", sub:"Biomarker panel deep study"},
+      {time:"4–5pm", task:"Write content draft", sub:"LinkedIn post #1 prep"},
+      {time:"Evening", task:"Bloodwork prep", sub:"Fast from 8pm Day 1"}
+    ],
+    callout:{type:"ct", text:"<strong>The non-negotiable of Week 1:</strong> Get your own blood drawn. If you skip this, you have no case study, no credibility, no numbers to post about, and no lived experience of your own product. Everything cascades from this one action."}
+  },
+  {
+    num:"Week 2", days:"Days 8–14",
+    title:"Go public + begin outreach",
+    sub:"Your results are back. Your story is real. Time to put it in front of people.",
+    focus:"Launch", focusColor:"var(--color-background-success)", focusTxt:"var(--color-text-success)",
+    tracks:[
+      {name:"LinkedIn outreach", color:"#185FA5", tasks:[
+        "Build your list of 60 target contacts — use the profile criteria from the GTM guide",
+        "Send 10 personalized DMs per day (Mon–Fri). That's 50 DMs this week. Personal, not copy-paste.",
+        "Target: 15–20 replies. 8–12 people open to a free consultation call.",
+        "Book all consultation calls into Calendly — aim for 8+ calls scheduled by end of week",
+        "LinkedIn post #1: Your bloodwork results + biological age reveal. Post Tuesday 8–9am.",
+        "LinkedIn post #2: 'What does HbA1c of 5.5 actually mean?' Educational. Post Thursday.",
+        "LinkedIn post #3: 'Why I built this program.' Founder story. Post Saturday."
+      ]},
+      {name:"Instagram launch", color:"#0F6E56", tasks:[
+        "Post #1 Reel: 60-sec 'What is biological age?' explainer. Show your own PhenoAge number.",
+        "Post #2 Carousel: '5 biomarkers your corporate health checkup doesn't test for.' 6 slides.",
+        "Post #3 Reel: 'I got 60 blood markers tested. Here's the one that shocked me.' (Your insulin result)",
+        "Story series: daily BTS of setting up the program. 'Day 1 of building Tessera in Hyderabad.'",
+        "Follow 200 target accounts: fitness influencers in Hyderabad, health content accounts, longevity researchers"
+      ]},
+      {name:"Blog — post #1", color:"#854F0B", tasks:[
+        "Write and publish Blog Post #1 on Medium or your website: 'I calculated my biological age at 28. Here's what I found about how urban Indian professionals are actually aging.'",
+        "Length: 1,200–1,500 words. Use your real data. Include your PhenoAge number. Add biomarker explanations.",
+        "SEO target keyword: 'biological age India' + 'how fast am I aging bloodwork'",
+        "Cross-post to LinkedIn as a long-form article (slightly different intro). Share link in WhatsApp groups."
+      ]}
+    ],
+    daily:[
+      {time:"7–8am", task:"10 LinkedIn DMs", sub:"Personalized outreach"},
+      {time:"9–10am", task:"Content creation", sub:"1 piece per day"},
+      {time:"10am–1pm", task:"Consultation calls", sub:"Free 30-min calls"},
+      {time:"2–4pm", task:"Study block", sub:"Outlive + Attia podcast"},
+      {time:"4–5pm", task:"DM replies + follow-ups", sub:"Nurture conversations"}
+    ],
+    callout:{type:"cg", text:"<strong>Target by end of Week 2:</strong> 50 DMs sent. 8+ free consultation calls booked. 3 LinkedIn posts live. Instagram account launched with 3 posts. Blog #1 published. First 1–2 people expressing serious interest in paying."}
+  },
+  {
+    num:"Week 3", days:"Days 15–21",
+    title:"First paying clients + gym workshop",
+    sub:"Convert your consultation calls. Run your first workshop. Enroll clients 1–3.",
+    focus:"Revenue", focusColor:"var(--color-background-warning)", focusTxt:"var(--color-text-warning)",
+    tracks:[
+      {name:"Client conversion", color:"#185FA5", tasks:[
+        "Run all 8+ consultation calls booked in Week 2. Use the protocol delivery call structure from rulebook.",
+        "Present their biological age estimate based on self-reported lifestyle (tell them the real number comes after bloodwork)",
+        "Close 2–3 paying clients this week. Target: 1 Foundations + 1 Performance minimum.",
+        "Once paid: book bloodwork immediately. Brief them on prep protocol. Send prep PDF.",
+        "Send 30 more DMs (10/day Mon–Wed). Pipeline needs to stay full.",
+        "Follow up with everyone from Week 2 who didn't reply — different angle, not the same message"
+      ]},
+      {name:"First gym workshop", color:"#0F6E56", tasks:[
+        "This week: visit 3 premium gyms physically. Speak to manager or owner only, not front desk.",
+        "Pitch: 'I want to run a free 60-min member workshop on metabolic health and biological age. No selling. Just education. I'll bring a doctor co-presenter. You get something valuable for your members.'",
+        "Target: 1 workshop confirmed and dated for Week 4 or 5.",
+        "Prepare workshop slide deck: 10 slides. 'What your gym routine can't fix: the metabolic markers of aging.' Bring your own bloodwork as the centerpiece."
+      ]},
+      {name:"Content — week 3", color:"#854F0B", tasks:[
+        "LinkedIn post #4: 'I just enrolled my first client. Here's their starting biological age.' (with permission or anonymized)",
+        "LinkedIn post #5: Deep educational — 'ApoB vs LDL: why your cardiologist is measuring the wrong thing'",
+        "LinkedIn post #6: 'The 5 signs your body is aging faster than your age'",
+        "Instagram: 3 posts. 1 Reel (Zone 2 explainer: 'The only cardio that actually slows aging'). 1 Carousel (bloodwork prep guide). 1 story series (consultation call prep BTS)",
+        "Research paper outline: Begin outlining Paper #1 — 'Biological age estimation in Indian urban professionals: a composite biomarker approach using PhenoAge'"
+      ]}
+    ],
+    daily:[
+      {time:"7–8am", task:"10 DMs + follow-ups", sub:"Outreach engine"},
+      {time:"9am–12pm", task:"Client calls", sub:"Consultation + onboarding"},
+      {time:"1–2pm", task:"Research paper", sub:"30 min outline work"},
+      {time:"2–4pm", task:"Study", sub:"Why We Sleep — Walker"},
+      {time:"4–6pm", task:"Content creation", sub:"Next 2 posts drafted"}
+    ],
+    callout:{type:"ca", text:"<strong>The conversion conversation:</strong> When someone says 'I need to think about it' on the call, ask one question: 'What specifically would need to be different for this to be an obvious yes?' That answer tells you the real objection. Address it directly. Do not follow up with a generic 'just checking in' message."}
+  },
+  {
+    num:"Week 4", days:"Days 22–28",
+    title:"Research paper draft + content engine",
+    sub:"First clients are in their programs. You're coaching. Now build the intellectual credibility layer.",
+    focus:"Research", focusColor:"var(--color-background-secondary)", focusTxt:"var(--color-text-secondary)",
+    tracks:[
+      {name:"Research paper #1", color:"#185FA5", tasks:[
+        "Title: 'Biological age estimation in Indian urban professionals using composite biomarker scoring: baseline findings from a longitudinal intervention cohort'",
+        "Section 1 (Introduction): Indian CVD risk, metabolic disease burden, gap in biological age research in South Asian populations. ~400 words.",
+        "Section 2 (Methods): PhenoAge model description, panel used, population (your clients — anonymized), inclusion criteria. ~300 words.",
+        "Section 3 (Preliminary Findings): Your own data + any client data available. PhenoAge vs chronological age gap analysis. ~300 words.",
+        "Section 4 (Discussion): Indian-specific patterns vs Western literature. Limitations. Future directions. ~300 words.",
+        "Use AI (Claude) to help structure arguments and check literature references. Cross-check every citation on PubMed.",
+        "Target: Full draft by end of Week 4. Submit to medRxiv (preprint) — doesn't require peer review to publish."
+      ]},
+      {name:"Gym workshop execution", color:"#0F6E56", tasks:[
+        "Run first gym workshop (if confirmed in Week 3). 30–40 attendees target.",
+        "Collect WhatsApp number of every attendee at the end: 'I'll send you a free guide on the 5 biomarkers that predict how fast you're aging.'",
+        "Follow up within 24 hours. Book consultation calls with interested attendees.",
+        "Approach 2 more gyms. Show them a photo of the workshop crowd if you have one."
+      ]},
+      {name:"Content — week 4", color:"#854F0B", tasks:[
+        "LinkedIn #7: Share your research paper outline — 'I'm writing what might be India's first paper on biological age in urban professionals. Here's what we're studying.'",
+        "LinkedIn #8: Client Week 3 progress update (anonymized). First HRV trend improvements.",
+        "LinkedIn #9: 'The Indian metabolic paradox: why we get diabetes and heart disease 10 years earlier than the West'",
+        "Blog #2: 'Zone 2 cardio: why it's the most important exercise most Indians never do' — 1,500 words, target keyword 'zone 2 cardio India'",
+        "Instagram: 3 posts. 1 Reel (HRV explainer). 1 Carousel (Indian diet and insulin: roti vs. millet glucose comparison). 1 Story poll: 'Do you know your HbA1c?'"
+      ]}
+    ],
+    daily:[
+      {time:"6–8am", task:"Research paper writing", sub:"500 words before breakfast"},
+      {time:"9–10am", task:"Client check-ins", sub:"WhatsApp accountability"},
+      {time:"10am–12pm", task:"Outreach (10 DMs)", sub:"Pipeline maintenance"},
+      {time:"2–4pm", task:"Content batch", sub:"Write 2 posts at once"},
+      {time:"4–5pm", task:"Study", sub:"Obesity Code — Fung"}
+    ],
+    callout:{type:"ct", text:"<strong>On the research paper:</strong> You don't need a university affiliation to publish a preprint on medRxiv or bioRxiv. You need: a real dataset (your clients, anonymized), a clear methodology (PhenoAge model, described in the rulebook), and honest limitations stated. A preprint is not peer-reviewed — but it gives you a citable DOI and signals scientific seriousness to investors and media."}
+  },
+  {
+    num:"Week 5", days:"Days 29–35",
+    title:"Corporate outreach begins + first case study",
+    sub:"Your first clients are 4–5 weeks in. Early data is emerging. Now use it.",
+    focus:"B2B + Proof", focusColor:"var(--color-background-info)", focusTxt:"var(--color-text-info)",
+    tracks:[
+      {name:"Corporate outreach", color:"#185FA5", tasks:[
+        "Build HITEC City target list: 30 companies, 50–200 employees, tech/fintech/consulting. Source CHROs on LinkedIn.",
+        "Outreach message — not 'we have a wellness program.' Say: 'We run a 90-day metabolic performance program for leadership teams — biomarker-tracked, physician-reviewed, outcome-measured. The average client drops 4+ biological age years. Would a 20-min call make sense?'",
+        "Send 5 corporate outreach messages per day this week. Warm intros &gt; cold. Ask your network who knows CHROs.",
+        "Target: 2–3 corporate meetings booked by end of week."
+      ]},
+      {name:"First client case study", color:"#0F6E56", tasks:[
+        "Your Week 1 clients are now 4–5 weeks into their program. Check their wearable trends: HRV, resting HR, sleep.",
+        "Request a mid-program 'progress check-in' — not a re-test, but a conversation about what's changing subjectively.",
+        "Write the first case study draft: before numbers, protocol, early subjective changes, wearable trends.",
+        "DO NOT publish without explicit written permission — WhatsApp message counts, screenshot it.",
+        "Publish on LinkedIn with real numbers (HRV from 34 to 52ms, sleep score up 18%). This post will get significant engagement."
+      ]},
+      {name:"Content — week 5", color:"#854F0B", tasks:[
+        "LinkedIn #10: Publish first client case study (with permission). Full post with before/after wearable data.",
+        "LinkedIn #11: Corporate angle post — 'Your senior engineers are your most expensive assets. Here's what their biology actually looks like.'",
+        "LinkedIn #12: 'What I've learned from reviewing 5 sets of bloodwork in 5 weeks'",
+        "Instagram: Research paper announcement Reel — 'Writing India's first study on biological age in urban professionals.' Shows notebook, data, numbers. Authentic.",
+        "Blog #3: 'What 5 weeks of tracking your biological age actually teaches you' — personal, data-rich, 1,200 words"
+      ]}
+    ],
+    daily:[
+      {time:"7–8am", task:"5 corporate DMs", sub:"HITEC City CHROs"},
+      {time:"8–9am", task:"Client WhatsApp check-ins", sub:"Protocol compliance"},
+      {time:"10am–1pm", task:"Consultation calls", sub:"New client pipeline"},
+      {time:"2–3pm", task:"Research paper revision", sub:"Finalize draft"},
+      {time:"3–5pm", task:"Content creation", sub:"Week's posts batched"}
+    ],
+    callout:{type:"cg", text:"<strong>By end of Week 5 you should have:</strong> 8–12 paying clients enrolled. 1 case study live. Research paper draft complete. 2–3 corporate meetings booked. 15+ LinkedIn posts published. Instagram at 150–300 followers. Your pipeline is full and the content engine is running."}
+  },
+  {
+    num:"Week 6", days:"Days 36–42",
+    title:"Research paper submission + media pitch",
+    sub:"Submit the paper. Pitch the first journalist. Approach your first podcast.",
+    focus:"Credibility", focusColor:"var(--color-background-secondary)", focusTxt:"var(--color-text-secondary)",
+    tracks:[
+      {name:"Paper submission", color:"#185FA5", tasks:[
+        "Final review of research paper draft — read aloud to catch errors. Have your doctor advisor read it.",
+        "Format for medRxiv submission: title, abstract (250 words), main text, references in standard format.",
+        "Submit to medRxiv.org — free, immediate, gives you a DOI within 24–48 hours.",
+        "Once live: screenshot the DOI and paper URL. This is now a citable scientific document.",
+        "LinkedIn announcement: 'We just published what may be India's first preprint study on biological age in urban professionals. Here's the finding that surprised me most.' Link to paper."
+      ]},
+      {name:"Media and podcast pitch", color:"#0F6E56", tasks:[
+        "Write a 150-word media pitch email. Subject: 'Hyderabad startup just published India's first biological age study — and the findings about urban professionals are alarming.'",
+        "Send to: YourStory health reporter, Mint Lounge health editor, The Hindu BusinessLine health desk, ET Health World. Find journalist emails via LinkedIn.",
+        "Podcast pitch: Write to Raj Shamani show, Ishan Sharma's podcast, and 2 health-focused Indian podcasts. Subject: 'Founder building India's longevity platform — we're tracking biological age with blood, not apps.'",
+        "Do NOT pitch as 'my startup.' Pitch as 'this research finding about how fast urban Indians are aging.' The story is more interesting than the product."
+      ]},
+      {name:"Content — week 6", color:"#854F0B", tasks:[
+        "LinkedIn #13: Research paper announcement + key finding",
+        "LinkedIn #14: 'What a medRxiv preprint means — and why I chose to publish our early data before we had 100 clients'",
+        "LinkedIn #15: '6 weeks in: what I've learned about Indian metabolic health that no mainstream source is talking about'",
+        "Instagram: Paper announcement Reel — show the actual medRxiv page, your name on it, key finding number. 60 seconds.",
+        "Blog #4: Full breakdown of the paper findings — written for a general audience. This becomes your best SEO content.",
+        "Begin outlining Paper #2: 'Effect of a 90-day multimodal lifestyle intervention on PhenoAge in Indian urban professionals: preliminary results'"
+      ]}
+    ],
+    daily:[
+      {time:"6–8am", task:"Paper final edits", sub:"Submission morning"},
+      {time:"9am", task:"Submit to medRxiv", sub:"Done in 30 min"},
+      {time:"10am–12pm", task:"Media pitches sent", sub:"5 journalists, 3 podcasts"},
+      {time:"2–5pm", task:"Client work + calls", sub:"Normal program delivery"},
+      {time:"Evening", task:"Batch next week content", sub:"Write 3 posts tonight"}
+    ],
+    callout:{type:"ca", text:"<strong>On the media pitch:</strong> Most journalists will not reply to the first email. Follow up once after 5 days with a different angle. If still no reply, move on. The goal is 1 feature in 60 days — one is enough to generate 30–50 warm leads. Don't chase; pitch well and stay consistent."}
+  },
+  {
+    num:"Weeks 7–8", days:"Days 43–60",
+    title:"First Day-90 results + compound everything",
+    sub:"Your first clients complete. Real before/after data lands. This is the moment the whole system was built for.",
+    focus:"Results", focusColor:"var(--color-background-success)", focusTxt:"var(--color-text-success)",
+    tracks:[
+      {name:"First Day-90 outcomes", color:"#185FA5", tasks:[
+        "Book Day-90 bloodwork for Week 1 clients — same lab, same panel, same timing. Do this Week 7 Day 1.",
+        "When results arrive: calculate new PhenoAge. Run side-by-side comparison in your Google Sheet.",
+        "Run the 75-min outcome review call. Walk them through every marker that moved. The biological age reveal is your product's defining moment.",
+        "Request a written testimonial AND permission for a full case study with real numbers.",
+        "Offer renewal immediately on the call: 'Most people do another round. Your next 90 days would focus on [specific remaining targets].' Convert 60%+ to renewal.",
+        "Publish the full case study — before/after biological age, 8 specific biomarker changes, client photo if permitted. This is your most powerful asset."
+      ]},
+      {name:"Pipeline and corporate", color:"#0F6E56", tasks:[
+        "By Week 7 you should have 2–3 corporate meetings completed. Push for pilot proposal this week.",
+        "Send a formal pilot proposal document: 10 employees, 90 days, before/after biological age scores for the whole group, ₹6,000/person/month (discounted pilot rate).",
+        "Continue DM outreach — you should now be getting inbound from LinkedIn content. Track inbound vs outbound ratio.",
+        "Hire or contract first part-time health coach if client load exceeds 15 active clients.",
+        "Doctor advisor: schedule a monthly review call to discuss any edge cases from the first cohort."
+      ]},
+      {name:"Content — weeks 7–8", color:"#854F0B", tasks:[
+        "LinkedIn #16–18: Day-90 case study reveal. 3-part series: Part 1 'We re-tested everything.' Part 2 'The biomarker that moved the most.' Part 3 'What a 4.7-year biological age reduction actually looks like.'",
+        "LinkedIn #19–21: Shift to deeper science — 'The AMPK pathway: why Zone 2 cardio is longevity's most important mechanism.' Show you know the science, not just the protocol.",
+        "Instagram: Full Reel of the Day-90 reveal process — anonymized but showing the actual bloodwork comparison sheet. This video will perform very well.",
+        "Blog #5: 'Our first 90-day results: what actually moved, what didn't, and what we learned'",
+        "Paper #2: Draft Section 1 and 2. This paper has real before/after data now — much stronger than the first."
+      ]}
+    ],
+    daily:[
+      {time:"7–8am", task:"Content creation", sub:"Now batching 3 at once"},
+      {time:"9–10am", task:"Client check-ins", sub:"15+ clients in system"},
+      {time:"10am–1pm", task:"New consultations", sub:"Inbound leads from content"},
+      {time:"2–4pm", task:"Study + research paper", sub:"Deep work block"},
+      {time:"4–5pm", task:"Corporate follow-ups", sub:"Pilot proposal discussions"}
+    ],
+    callout:{type:"cg", text:"<strong>Where you should be at Day 60:</strong> 15–20 paying clients enrolled across 3 tiers. 1 complete case study with real before/after biological age data. 1 preprint paper published with DOI. 21+ LinkedIn posts. 18+ Instagram posts. 5 blog posts. 2–3 corporate meetings done, 1 pilot proposal sent. 1–2 media pitches getting responses. ₹3–6L in revenue. And a very clear picture of exactly what to do in Month 3."}
+  }
+];
+
+const nav = document.getElementById('weeknav');
+const container = document.getElementById('week-container');
+
+WEEKS.forEach((w,i) => {
+  const btn = document.createElement('button');
+  btn.className = 'wbtn' + (i===0?' on':'');
+  btn.textContent = w.num + ' — ' + w.days;
+  btn.onclick = () => {
+    document.querySelectorAll('.wbtn').forEach(b=>b.classList.remove('on'));
+    document.querySelectorAll('.week-view').forEach(v=>v.classList.remove('on'));
+    btn.classList.add('on');
+    document.getElementById('wv'+i).classList.add('on');
+  };
+  nav.appendChild(btn);
+
+  const div = document.createElement('div');
+  div.className = 'week-view' + (i===0?' on':'');
+  div.id = 'wv'+i;
+
+  let trackHTML = w.tracks.map(t => `
+    <div class="track">
+      <div class="track-head">
+        <div class="track-icon" style="background:${t.color}"></div>
+        <div class="track-name">${t.name}</div>
+      </div>
+      <div class="track-body">
+        ${t.tasks.map(task => `
+          <div class="task">
+            <div class="task-check" onclick="toggleTask(this)"></div>
+            <div class="task-text" onclick="toggleTask(this.previousElementSibling)">${task}</div>
+          </div>`).join('')}
+      </div>
+    </div>`).join('');
+
+  let dailyHTML = '';
+  if(w.daily) {
+    dailyHTML = `<div class="daily-box">
+      <div class="daily-title">Daily schedule — this week</div>
+      <div class="daily-grid">
+        ${w.daily.map(d=>`<div class="daily-item">
+          <div class="di-time">${d.time}</div>
+          <div class="di-task">${d.task}</div>
+          <div class="di-sub">${d.sub}</div>
+        </div>`).join('')}
+      </div>
+    </div>`;
+  }
+
+  div.innerHTML = `
+    <div class="week-header">
+      <div class="wh-top">
+        <div>
+          <div class="wh-num">${w.num} · ${w.days}</div>
+          <div class="wh-title">${w.title}</div>
+          <div class="wh-sub">${w.sub}</div>
+        </div>
+        <div class="wh-focus">
+          <div class="focus-label">Focus</div>
+          <div class="focus-pill" style="background:${w.focusColor};color:${w.focusTxt}">${w.focus}</div>
+        </div>
+      </div>
+    </div>
+    <div class="tracks">${trackHTML}</div>
+    ${dailyHTML}
+    <div class="callout ${w.callout.type}">${w.callout.text}</div>`;
+
+  container.appendChild(div);
+});
+
+function toggleTask(check) {
+  check.classList.toggle('done');
+  const text = check.nextElementSibling || check;
+  if(text.classList.contains('task-text')) text.classList.toggle('done');
+  if(check.classList.contains('task-text')) {
+    const c = check.previousElementSibling;
+    if(c && c.classList.contains('task-check')) c.classList.toggle('done');
+  }
+}
+</script>
