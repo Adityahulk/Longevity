@@ -30,9 +30,21 @@ body{font-family:var(--font-sans)}
 .track-body{padding:10px 14px}
 .task{display:flex;gap:10px;padding:7px 0;border-bottom:0.5px solid var(--color-border-tertiary);align-items:flex-start}
 .task:last-child{border-bottom:none}
-.task-check{width:14px;height:14px;border:0.5px solid var(--color-border-secondary);border-radius:3px;flex-shrink:0;margin-top:2px;cursor:pointer;transition:all 0.15s;display:flex;align-items:center;justify-content:center}
+.task-check{
+  width:18px;height:18px;
+  border:1.5px solid var(--color-text-primary);
+  background:var(--color-background-primary);
+  box-shadow:0 0 0 1px var(--color-border-tertiary) inset;
+  border-radius:4px;
+  flex-shrink:0;
+  margin-top:1px;
+  cursor:pointer;
+  transition:all 0.15s;
+  display:flex;align-items:center;justify-content:center
+}
+.task-check:hover{border-color:var(--color-text-info);box-shadow:0 0 0 2px rgba(24,95,165,0.2)}
 .task-check.done{background:var(--color-text-primary);border-color:var(--color-text-primary)}
-.task-check.done::after{content:'';width:7px;height:5px;border-left:1.5px solid var(--color-background-primary);border-bottom:1.5px solid var(--color-background-primary);transform:rotate(-45deg) translate(1px,-1px);display:block}
+.task-check.done::after{content:'';width:8px;height:5px;border-left:2px solid var(--color-background-primary);border-bottom:2px solid var(--color-background-primary);transform:rotate(-45deg) translate(1px,-1px);display:block}
 .task-text{font-size:13px;color:var(--color-text-secondary);line-height:1.5;cursor:pointer;transition:color 0.15s}
 .task-text.done{color:var(--color-text-tertiary);text-decoration:line-through}
 .task-text strong{color:var(--color-text-primary);font-weight:500}
