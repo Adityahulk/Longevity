@@ -12,7 +12,12 @@
     },
     {
       "source": "/tessera_gtm_strategy.html",
-      "destination": "/tessera_getm_strategy",
+      "destination": "/tessera-gtm-strategy",
+      "permanent": true
+    },
+    {
+      "source": "/tessera_getm_strategy",
+      "destination": "/tessera-gtm-strategy",
       "permanent": true
     },
     {
@@ -44,11 +49,11 @@
       "destination": "/tessera-rulebook.html"
     },
     {
-      "source": "/tessera_getm_strategy",
+      "source": "/tessera-gtm-strategy",
       "destination": "/tessera_gtm_strategy.html"
     },
     {
-      "source": "/tessera_getm_strategy/",
+      "source": "/tessera-gtm-strategy/",
       "destination": "/tessera_gtm_strategy.html"
     },
     {
@@ -58,6 +63,22 @@
     {
       "source": "/tessera_60_day_roadmap/",
       "destination": "/tessera_60_day_roadmap.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/privacy/",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/journey",
+      "destination": "/journey.html"
+    },
+    {
+      "source": "/journey/",
+      "destination": "/journey.html"
     }
   ]
 }

@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy & Data Ethics — Tessera</title>
+<meta name="description" content="How Tessera collects, uses, and protects your health data. Our data ethics commitments, lab partnerships, and your rights.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream:      #F5F1E8;
+  --paper:      #FBF8F1;
+  --ink:        #0E1B2C;
+  --ink-soft:   #1F2D40;
+  --ink-mute:   #4A5668;
+  --ink-fade:   #7A8497;
+  --rule:       #C8BFA8;
+  --rule-soft:  #DCD3BC;
+  --accent:     #B85426;
+  --leaf:       #2F5D3C;
+  --gold:       #8B6914;
+  --serif:      'Fraunces', Georgia, serif;
+  --sans:       'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono:       'JetBrains Mono', ui-monospace, monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(245, 241, 232, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 0.5px solid var(--rule-soft);
+  padding: 18px 0;
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 32px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.logo {
+  font-family: var(--serif); font-size: 22px; font-weight: 500;
+  letter-spacing: -0.02em; color: var(--ink); text-decoration: none;
+  display: flex; align-items: center; gap: 10px;
+}
+.logo-mark { width: 20px; height: 20px; position: relative; }
+.logo-mark::before, .logo-mark::after {
+  content: ''; position: absolute; inset: 0;
+  border: 1.5px solid var(--ink); border-radius: 50%;
+}
+.logo-mark::after { inset: 5px; background: var(--accent); border: none; }
+.nav-back {
+  font-size: 13px; color: var(--ink-mute); text-decoration: none;
+  display: flex; align-items: center; gap: 8px; transition: color 0.2s;
+}
+.nav-back:hover { color: var(--accent); text-decoration: none; }
+.nav-back::before { content: '←'; }
+
+/* LAYOUT */
+.layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+  gap: 80px;
+  align-items: start;
+}
+
+/* SIDEBAR TOC */
+.toc {
+  position: sticky; top: 80px;
+  padding: 40px 0;
+}
+.toc-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--ink-fade);
+  margin-bottom: 16px; display: block;
+}
+.toc-list { list-style: none; }
+.toc-list li { margin-bottom: 2px; }
+.toc-list a {
+  font-size: 13px; color: var(--ink-mute); text-decoration: none;
+  padding: 5px 12px; display: block; border-left: 2px solid transparent;
+  transition: all 0.2s; line-height: 1.4;
+}
+.toc-list a:hover { color: var(--ink); border-left-color: var(--rule); }
+.toc-list a.active { color: var(--accent); border-left-color: var(--accent); }
+.toc-updated {
+  margin-top: 24px; padding-top: 20px; border-top: 0.5px solid var(--rule-soft);
+  font-family: var(--mono); font-size: 10.5px; color: var(--ink-fade);
+  line-height: 1.5;
+}
+
+/* MAIN CONTENT */
+.main { padding: 56px 0 100px; }
+
+.page-eyebrow {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 20px; display: flex; align-items: center; gap: 12px;
+}
+.page-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
+
+h1 {
+  font-family: var(--serif); font-size: clamp(36px, 4vw, 52px);
+  font-weight: 400; line-height: 1.05; letter-spacing: -0.025em;
+  margin-bottom: 20px; color: var(--ink);
+}
+h1 em { font-style: italic; color: var(--accent); font-weight: 300; }
+
+.intro {
+  font-size: 17px; line-height: 1.65; color: var(--ink-soft);
+  max-width: 660px; margin-bottom: 16px;
+}
+
+.version-bar {
+  display: flex; gap: 24px; align-items: center;
+  padding: 12px 16px; background: var(--paper);
+  border: 0.5px solid var(--rule-soft); margin-bottom: 56px;
+  font-family: var(--mono); font-size: 11px; color: var(--ink-mute);
+}
+.version-bar span { color: var(--ink); font-weight: 500; }
+
+/* SECTIONS */
+.section { margin-bottom: 64px; scroll-margin-top: 100px; }
+.section:last-child { margin-bottom: 0; }
+
+.section-num {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+  color: var(--ink-fade); margin-bottom: 10px; display: block;
+}
+h2 {
+  font-family: var(--serif); font-size: clamp(26px, 3vw, 36px);
+  font-weight: 500; line-height: 1.1; letter-spacing: -0.02em;
+  margin-bottom: 16px; color: var(--ink);
+  padding-bottom: 16px; border-bottom: 1px solid var(--rule-soft);
+}
+h2 em { font-style: italic; color: var(--accent); font-weight: 300; }
+
+h3 {
+  font-family: var(--serif); font-size: 20px; font-weight: 500;
+  letter-spacing: -0.01em; margin: 32px 0 10px; color: var(--ink);
+}
+h3::before {
+  content: ''; display: block; width: 20px; height: 1.5px;
+  background: var(--accent); margin-bottom: 10px;
+}
+
+p { color: var(--ink-soft); margin-bottom: 14px; }
+p:last-child { margin-bottom: 0; }
+
+ul {
+  list-style: none; margin: 14px 0; padding: 0;
+}
+ul li {
+  font-size: 14.5px; color: var(--ink-soft); padding: 8px 0 8px 22px;
+  position: relative; border-bottom: 0.5px solid var(--rule-soft);
+  line-height: 1.55;
+}
+ul li:last-child { border-bottom: none; }
+ul li::before {
+  content: ''; position: absolute; left: 0; top: 17px;
+  width: 10px; height: 1.5px; background: var(--accent);
+}
+ul li strong { color: var(--ink); font-weight: 600; }
+
+/* CALLOUT */
+.callout {
+  padding: 16px 20px; border-left: 3px solid; margin: 24px 0;
+  border-radius: 0 4px 4px 0;
+}
+.callout.green { background: rgba(47, 93, 60, 0.06); border-color: var(--leaf); }
+.callout.amber { background: rgba(139, 105, 20, 0.06); border-color: var(--gold); }
+.callout.accent { background: rgba(184, 84, 38, 0.06); border-color: var(--accent); }
+.callout-label {
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.15em;
+  text-transform: uppercase; font-weight: 700; margin-bottom: 7px; display: block;
+}
+.callout.green .callout-label { color: var(--leaf); }
+.callout.amber .callout-label { color: var(--gold); }
+.callout.accent .callout-label { color: var(--accent); }
+.callout p { font-size: 14px; line-height: 1.6; margin: 0; }
+
+/* DATA TABLE */
+.data-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 13.5px; margin: 20px 0;
+  border: 1px solid var(--rule-soft);
+  background: var(--paper);
+}
+.data-table thead { background: var(--ink-soft); }
+.data-table th {
+  text-align: left; padding: 10px 14px;
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: #C5CDD8; font-weight: 500;
+}
+.data-table td {
+  padding: 11px 14px; border-bottom: 0.5px solid var(--rule-soft);
+  color: var(--ink-soft); vertical-align: top; line-height: 1.5;
+}
+.data-table td:first-child { color: var(--ink); font-weight: 500; }
+.data-table tr:last-child td { border-bottom: none; }
+
+/* LAB CARD */
+.lab-card {
+  border: 1px solid var(--rule-soft); background: var(--paper);
+  padding: 24px 28px; margin: 20px 0;
+}
+.lab-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--leaf); font-weight: 600;
+  background: rgba(47, 93, 60, 0.08); padding: 4px 10px;
+  border-radius: 3px; margin-bottom: 12px;
+}
+.lab-badge::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--leaf); flex-shrink: 0;
+}
+.lab-name { font-family: var(--serif); font-size: 22px; font-weight: 500; color: var(--ink); margin-bottom: 6px; }
+.lab-meta { font-size: 13.5px; color: var(--ink-mute); line-height: 1.55; }
+
+/* CONTACT BOX */
+.contact-box {
+  background: var(--ink); color: var(--cream);
+  padding: 32px 36px; margin-top: 56px;
+}
+.contact-box h3 {
+  color: var(--cream); font-size: 22px; margin-bottom: 10px;
+}
+.contact-box h3::before { background: var(--accent); }
+.contact-box p { color: rgba(245, 241, 232, 0.7); }
+.contact-box a { color: var(--accent); }
+.contact-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px;
+}
+.contact-item { }
+.contact-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: rgba(245, 241, 232, 0.45); margin-bottom: 5px;
+}
+.contact-value { font-size: 14px; color: var(--cream); }
+.contact-value a { color: var(--accent-warm, #D17244); }
+
+/* FOOTER */
+footer {
+  background: var(--cream); padding: 40px 0;
+  border-top: 1px solid var(--rule);
+}
+.footer-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 32px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-copy {
+  font-family: var(--mono); font-size: 11px; color: var(--ink-fade);
+}
+.footer-links {
+  display: flex; gap: 24px;
+}
+.footer-links a { font-size: 13px; color: var(--ink-mute); }
+.footer-links a:hover { color: var(--accent); }
+
+/* RESPONSIVE */
+@media (max-width: 860px) {
+  .layout { grid-template-columns: 1fr; gap: 0; padding: 0 20px; }
+  .toc { display: none; }
+  .main { padding: 40px 0 80px; }
+  .contact-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <span class="logo-mark"></span>
+      Tessera
+    </a>
+    <a href="/" class="nav-back">Back to home</a>
+  </div>
+</nav>
+
+<div class="layout">
+
+  <!-- SIDEBAR TOC -->
+  <aside class="toc">
+    <span class="toc-label">On this page</span>
+    <ul class="toc-list">
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#data-collected">Data we collect</a></li>
+      <li><a href="#how-we-use">How we use it</a></li>
+      <li><a href="#data-ethics">Data ethics commitments</a></li>
+      <li><a href="#sharing">Sharing & third parties</a></li>
+      <li><a href="#lab-partners">Lab partners</a></li>
+      <li><a href="#retention">Data retention</a></li>
+      <li><a href="#your-rights">Your rights</a></li>
+      <li><a href="#security">Security</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="toc-updated">
+      Last updated<br>
+      <span style="color: var(--ink); font-weight: 500;">April 2026</span><br>
+      Version 1.0
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="page-eyebrow">Trust & data</div>
+    <h1>Privacy Policy<br>&amp; <em>Data Ethics</em></h1>
+    <p class="intro">
+      We collect sensitive health data. We take that seriously. This document explains exactly
+      what we collect, how we use it, what we will never do with it, and how you can control it.
+    </p>
+    <p class="intro" style="font-size: 15px;">
+      If something is unclear, email us before signing up — not after. We would rather answer
+      ten questions upfront than have a client feel surprised by something they didn't understand.
+    </p>
+
+    <div class="version-bar">
+      Effective date: <span>1 April 2026</span>
+      &nbsp;·&nbsp; Entity: <span>Tessera Health Pvt. Ltd.</span>
+      &nbsp;·&nbsp; Jurisdiction: <span>India (IT Act 2000, DPDP Act 2023)</span>
+    </div>
+
+    <!-- OVERVIEW -->
+    <section class="section" id="overview">
+      <span class="section-num">01 — Overview</span>
+      <h2>The short version</h2>
+      <p>
+        Tessera is a health optimization coaching platform. We collect biomarker data, lifestyle
+        questionnaire responses, and wearable device data to build and adjust your personalized
+        health protocol. We re-test after 90 days to measure outcomes.
+      </p>
+
+      <div class="callout green">
+        <span class="callout-label">Core commitments</span>
+        <p>
+          <strong>We do not sell your data.</strong> We do not share identifiable health data with
+          advertisers, insurers, employers, or any third party for commercial purposes.
+          Your data is used to serve you — and only you.
+        </p>
+      </div>
+
+      <ul>
+        <li><strong>You own your data.</strong> You can export or delete it at any time, for any reason, with no penalty.</li>
+        <li><strong>Health data is never identifiable in research.</strong> Any use of your data in aggregate analysis is anonymized and aggregated — your name, email, and contact details are never attached.</li>
+        <li><strong>No affiliate economics on your data.</strong> We earn from program fees. Not from monetizing what we learn about you.</li>
+        <li><strong>Bloodwork results belong to you.</strong> Lab reports are issued to you by the laboratory. We receive a copy with your consent. You can revoke that consent.</li>
+      </ul>
+    </section>
+
+    <!-- DATA COLLECTED -->
+    <section class="section" id="data-collected">
+      <span class="section-num">02 — Data we collect</span>
+      <h2>What we <em>actually</em> collect</h2>
+      <p>
+        We collect only what is necessary to build and run your protocol. Here is a complete
+        list — no surprises.
+      </p>
+
+      <h3>Identity & contact</h3>
+      <ul>
+        <li><strong>Name and email address</strong> — to identify your account and communicate with you</li>
+        <li><strong>Phone number</strong> — for WhatsApp check-ins, shared with your program lead only</li>
+        <li><strong>City and pin code</strong> — to coordinate at-home blood draws and lab logistics</li>
+        <li><strong>Date of birth</strong> — required to calculate your biological age score accurately</li>
+        <li><strong>Biological sex</strong> — used to apply sex-appropriate reference ranges and protocol adjustments</li>
+      </ul>
+
+      <h3>Health & biomarker data</h3>
+      <ul>
+        <li><strong>Blood panel results</strong> — 40–60 markers depending on program tier, received from our lab partner with your written consent</li>
+        <li><strong>Biological age score</strong> — calculated from your blood panel using the PhenoAge model (Levine, 2018)</li>
+        <li><strong>Lifestyle questionnaire</strong> — sleep hours, stress levels, exercise history, dietary patterns, alcohol and supplement use</li>
+        <li><strong>Medical history (self-reported)</strong> — current medications, prior diagnoses, family history of cardiovascular disease or metabolic conditions</li>
+        <li><strong>Wearable data</strong> — HRV, resting heart rate, sleep stages, activity data from Apple Health, Oura, Whoop, or Fitbit. Shared via export or manual entry — we do not request API-level access to your device accounts</li>
+      </ul>
+
+      <h3>Communication data</h3>
+      <ul>
+        <li><strong>WhatsApp messages</strong> — with your program lead. WhatsApp is a third-party platform subject to Meta's privacy policy. Do not send documents with your full name + bloodwork together in WhatsApp messages.</li>
+        <li><strong>Video call recordings</strong> — recorded only with your explicit verbal consent at the start of each call, for internal quality review only</li>
+        <li><strong>Email correspondence</strong> — stored on our email provider (Google Workspace)</li>
+      </ul>
+
+      <h3>Technical data</h3>
+      <ul>
+        <li><strong>Website analytics</strong> — page views, session duration, traffic source via Google Tag Manager. No health data passes through analytics tools.</li>
+        <li><strong>Calendar booking data</strong> — name, email, and meeting time via Calendly</li>
+      </ul>
+    </section>
+
+    <!-- HOW WE USE -->
+    <section class="section" id="how-we-use">
+      <span class="section-num">03 — How we use it</span>
+      <h2>What we do with your data</h2>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Purpose</th>
+            <th>Data used</th>
+            <th>Legal basis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Build your personalized protocol</td>
+            <td>Bloodwork, wearable data, questionnaire</td>
+            <td>Contract performance</td>
+          </tr>
+          <tr>
+            <td>Calculate biological age score</td>
+            <td>11 blood markers + date of birth</td>
+            <td>Contract performance</td>
+          </tr>
+          <tr>
+            <td>Check-in calls and WhatsApp accountability</td>
+            <td>Contact details, protocol progress</td>
+            <td>Contract performance</td>
+          </tr>
+          <tr>
+            <td>Protocol adjustment over 90 days</td>
+            <td>Wearable trends, self-reported response</td>
+            <td>Contract performance</td>
+          </tr>
+          <tr>
+            <td>Anonymized protocol research</td>
+            <td>Aggregated, de-identified biomarker deltas</td>
+            <td>Legitimate interest (scientific)</td>
+          </tr>
+          <tr>
+            <td>Client case studies (published)</td>
+            <td>Anonymized outcomes only</td>
+            <td>Explicit written consent only</td>
+          </tr>
+          <tr>
+            <td>Service communications</td>
+            <td>Email, phone</td>
+            <td>Contract performance</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout amber">
+        <span class="callout-label">What we do not do</span>
+        <p>
+          We do not use your health data for advertising targeting, behavioral profiling,
+          insurance underwriting, employer wellness reporting, or any purpose not listed above.
+          We do not run remarketing campaigns using your email or phone number.
+        </p>
+      </div>
+    </section>
+
+    <!-- DATA ETHICS -->
+    <section class="section" id="data-ethics">
+      <span class="section-num">04 — Data ethics</span>
+      <h2>Our <em>ethics commitments</em></h2>
+      <p>
+        Privacy law sets a floor. We've set our own ceiling. Here are commitments we hold
+        ourselves to that go beyond legal requirements.
+      </p>
+
+      <h3>No data monetization, ever</h3>
+      <p>
+        Our business model is program fees. We do not have a data business, a data partnership,
+        or a data licensing arm. If we ever change this — which we do not intend to — we will
+        notify every client in writing, offer full data deletion before the change takes effect,
+        and not retroactively apply any new terms to existing data.
+      </p>
+
+      <h3>Health data is never identifiable in any shared output</h3>
+      <p>
+        Case studies published on our website or social channels use anonymized data with
+        explicit written consent obtained before publishing. We do not post biomarker data
+        alongside photos, names, employers, or any detail that could make a person identifiable
+        to their social circle. Consent is revocable — if you change your mind after publication,
+        we remove the case study.
+      </p>
+
+      <h3>No insurance or employer disclosures</h3>
+      <p>
+        We will never share your health data with your employer (including as part of a corporate
+        wellness program), with any insurance company, or with any financial institution.
+        If we receive a formal legal request for your data, we will notify you before complying
+        unless we are legally prohibited from doing so.
+      </p>
+
+      <h3>Aggregate research ethics</h3>
+      <p>
+        We use anonymized, aggregated cohort data to improve our protocols — for example,
+        "clients with baseline fasting insulin above 12 who followed a restricted eating window
+        saw insulin drop by X% on average." This data cannot be reverse-engineered to identify
+        any individual. You can opt out of this aggregate analysis entirely while still completing
+        your program — email us to request this.
+      </p>
+
+      <h3>AI & automated decision-making</h3>
+      <p>
+        We use AI tools to assist protocol design and data analysis. No automated system makes
+        unreviewed decisions about your protocol. Every protocol recommendation is reviewed by
+        a human program lead and, at the Performance and Continuum tiers, by our medical advisor
+        before it reaches you. You have the right to request a human review of any recommendation.
+      </p>
+    </section>
+
+    <!-- SHARING -->
+    <section class="section" id="sharing">
+      <span class="section-num">05 — Sharing & third parties</span>
+      <h2>Who we share data with</h2>
+      <p>
+        We share the minimum necessary data with a small number of service providers needed
+        to operate the program. We do not sell data to any third party.
+      </p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Party</th>
+            <th>Purpose</th>
+            <th>Data shared</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>NABL-accredited lab partner</td>
+            <td>Blood draw and analysis</td>
+            <td>Name, DOB, sex, test order — no financial data</td>
+          </tr>
+          <tr>
+            <td>Licensed phlebotomist</td>
+            <td>At-home blood draw</td>
+            <td>Name, address, appointment time only</td>
+          </tr>
+          <tr>
+            <td>Longevity MD (medical advisor)</td>
+            <td>Protocol review</td>
+            <td>Bloodwork results and protocol draft — bound by professional confidentiality</td>
+          </tr>
+          <tr>
+            <td>Google Workspace</td>
+            <td>Email and document storage</td>
+            <td>Communication data, documents you share with us</td>
+          </tr>
+          <tr>
+            <td>Calendly</td>
+            <td>Appointment scheduling</td>
+            <td>Name, email, meeting time</td>
+          </tr>
+          <tr>
+            <td>Meta (WhatsApp)</td>
+            <td>Check-in messaging</td>
+            <td>Messages you send — subject to Meta's own privacy policy</td>
+          </tr>
+          <tr>
+            <td>Google Tag Manager</td>
+            <td>Website analytics (no health data)</td>
+            <td>Anonymous session data, traffic source</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        We do not use Facebook Pixel, LinkedIn Insight Tag, or any advertising tracking pixel
+        on pages that handle health or account data.
+      </p>
+    </section>
+
+    <!-- LAB PARTNERS -->
+    <section class="section" id="lab-partners">
+      <span class="section-num">06 — Lab partners</span>
+      <h2>Our laboratory <em>partners</em></h2>
+      <p>
+        All bloodwork is processed through NABL-accredited laboratories — the National
+        Accreditation Board for Testing and Calibration Laboratories, the Indian standard
+        equivalent to CAP accreditation in the US. Results are issued directly to you
+        by the laboratory; we receive a copy with your written consent.
+      </p>
+
+      <div class="lab-card">
+        <div class="lab-badge">NABL Accredited · Hyderabad</div>
+        <div class="lab-name">Primary Partner Laboratory</div>
+        <div class="lab-meta">
+          Hospital-grade clinical laboratory operating in Hyderabad.
+          Full panel turnaround: 5–7 working days. Fasted blood draw
+          conducted at your home or office by a licensed phlebotomist.
+          Results delivered securely via the lab's patient portal and shared
+          with your Tessera program lead with your written consent.
+        </div>
+      </div>
+
+      <h3>How blood draw logistics work</h3>
+      <ul>
+        <li><strong>You schedule</strong> a fasted morning blood draw (ideally before 9am) after your intake call</li>
+        <li><strong>A licensed phlebotomist</strong> arrives at your home or office — you do not visit a clinic</li>
+        <li><strong>Samples are sealed and labelled</strong> at collection and go directly to the lab's cold chain</li>
+        <li><strong>You receive results</strong> via the lab's secure patient portal within 5–7 working days</li>
+        <li><strong>You share results</strong> with your Tessera program lead by forwarding the lab report — this is your choice, not automatic</li>
+        <li><strong>Currently available</strong> in Hyderabad. Bangalore and Pune expansion: Q3 2026</li>
+      </ul>
+
+      <div class="callout accent">
+        <span class="callout-label">Important</span>
+        <p>
+          Tessera does not store raw bloodwork PDFs on our own servers. Lab reports live in the
+          lab's own secure portal and in your email. We work from the data you share with us —
+          you are always in control of what you forward.
+        </p>
+      </div>
+    </section>
+
+    <!-- RETENTION -->
+    <section class="section" id="retention">
+      <span class="section-num">07 — Data retention</span>
+      <h2>How long we keep your data</h2>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Data type</th>
+            <th>Retention period</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Identity & contact data</td>
+            <td>Duration of program + 2 years</td>
+            <td>Deleted on request at any time</td>
+          </tr>
+          <tr>
+            <td>Protocol documents</td>
+            <td>Duration of program + 1 year</td>
+            <td>You receive a copy; ours is deleted after 1 year</td>
+          </tr>
+          <tr>
+            <td>Video call recordings</td>
+            <td>90 days</td>
+            <td>Auto-deleted unless flagged for quality review</td>
+          </tr>
+          <tr>
+            <td>Anonymized biomarker data</td>
+            <td>Indefinite (aggregated, not identifiable)</td>
+            <td>Used for protocol research; opt-out available</td>
+          </tr>
+          <tr>
+            <td>Financial records</td>
+            <td>7 years</td>
+            <td>Required by Indian tax law; health data not included</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- YOUR RIGHTS -->
+    <section class="section" id="your-rights">
+      <span class="section-num">08 — Your rights</span>
+      <h2>What you can <em>ask us to do</em></h2>
+      <p>
+        Under the Digital Personal Data Protection Act 2023 (India) and our own commitments,
+        you have the following rights. All requests are honored within 15 working days.
+      </p>
+
+      <ul>
+        <li>
+          <strong>Access</strong> — Request a complete export of all personal data we hold about you,
+          in a machine-readable format (JSON or CSV).
+        </li>
+        <li>
+          <strong>Correction</strong> — Request correction of any inaccurate personal data.
+        </li>
+        <li>
+          <strong>Deletion</strong> — Request deletion of all personal data. We will delete within 15 days
+          and confirm in writing. Anonymized aggregated data cannot be deleted as it is not identifiable.
+        </li>
+        <li>
+          <strong>Withdrawal of consent</strong> — Withdraw consent for any specific data use at any time.
+          Withdrawal does not affect the legality of processing before withdrawal.
+        </li>
+        <li>
+          <strong>Opt out of aggregate research</strong> — Request exclusion from anonymized cohort analysis
+          while continuing your program.
+        </li>
+        <li>
+          <strong>Grievance redressal</strong> — Raise a complaint about how we have handled your data.
+          We will respond within 10 working days and escalate to the Data Protection Board if unresolved.
+        </li>
+      </ul>
+
+      <div class="callout green">
+        <span class="callout-label">How to exercise your rights</span>
+        <p>
+          Email <strong>privacy@tessera.health</strong> with the subject line "Data request — [your name]".
+          No forms, no hoops, no waiting on hold. A human reads every privacy email and responds directly.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECURITY -->
+    <section class="section" id="security">
+      <span class="section-num">09 — Security</span>
+      <h2>How we protect your data</h2>
+      <ul>
+        <li><strong>Access control</strong> — Only your program lead and, where required, our medical advisor can access your health data. No one else at Tessera has access.</li>
+        <li><strong>No public cloud storage of health documents</strong> — We do not upload bloodwork PDFs to shared drives, public cloud folders, or any tool without access controls.</li>
+        <li><strong>Encryption in transit</strong> — All web traffic is encrypted via TLS 1.3. Email uses TLS where supported by recipient servers.</li>
+        <li><strong>No third-party health data tools</strong> — We do not pipe your health data through SaaS analytics platforms, CRMs with undefined data policies, or AI tools with training-data retention.</li>
+        <li><strong>Incident notification</strong> — If we ever experience a data breach affecting your personal health data, we will notify you within 72 hours of becoming aware of it.</li>
+      </ul>
+    </section>
+
+    <!-- CONTACT -->
+    <div class="contact-box" id="contact">
+      <h3>Questions about this policy</h3>
+      <p style="margin-bottom: 20px;">
+        If anything here is unclear, or if you want to exercise any of your rights,
+        reach us directly. A person reads every message.
+      </p>
+      <div class="contact-row">
+        <div class="contact-item">
+          <div class="contact-label">Privacy email</div>
+          <div class="contact-value"><a href="mailto:privacy@tessera.health">privacy@tessera.health</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">Company</div>
+          <div class="contact-value">Tessera Health Pvt. Ltd.</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">Registered address</div>
+          <div class="contact-value">Hyderabad, Telangana, India</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">Response time</div>
+          <div class="contact-value">Within 15 working days</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy">© 2026 TESSERA HEALTH PVT. LTD. — Hyderabad, India</div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/privacy">Privacy policy</a>
+      <a href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a consultation</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Highlight active TOC link on scroll
+  const sections = document.querySelectorAll('.section[id]');
+  const tocLinks = document.querySelectorAll('.toc-list a');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.toc-list a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

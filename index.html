@@ -142,7 +142,25 @@ body::before {
   background: var(--accent);
   transform: translateY(-1px);
 }
-.mobile-toggle { display: none; }
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.mobile-toggle span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--ink);
+  transition: all 0.3s ease;
+}
+.mobile-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.mobile-toggle.open span:nth-child(2) { opacity: 0; }
+.mobile-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
 /* ─────────── HERO ─────────── */
 .hero {
@@ -1077,8 +1095,30 @@ footer {
 /* ─────────── RESPONSIVE ─────────── */
 @media (max-width: 900px) {
   .container, .narrow { padding: 0 24px; }
-  .nav-links { gap: 24px; }
-  .nav-links a:not(.cta-link) { display: none; }
+  .mobile-toggle { display: flex; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(245, 241, 232, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule-soft);
+    flex-direction: column;
+    padding: 16px 24px 24px;
+    gap: 4px;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a:not(.cta-link) {
+    display: block;
+    padding: 11px 0;
+    border-bottom: 0.5px solid var(--rule-soft);
+    font-size: 15px;
+  }
+  .nav-links a:not(.cta-link)::after { display: none; }
+  .cta-link { margin-top: 12px; text-align: center; display: block; }
   .hero { padding: 60px 0 50px; }
   .hero-stats { grid-template-columns: 1fr 1fr; gap: 24px; padding-top: 28px; }
   .stat { padding: 0; border-right: none; padding-bottom: 24px; border-bottom: 0.5px solid var(--rule-soft); }
@@ -1131,9 +1171,15 @@ footer {
       <span class="logo-mark"></span>
       Tessera
     </a>
-    <div class="nav-links">
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
       <a href="#how">How it works</a>
       <a href="#protocol">The protocol</a>
+      <a href="/journey">Your journey</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">Questions</a>
       <a href="https://calendly.com/company-kalman-labs/30min" class="cta-link" target="_blank" rel="noopener noreferrer">Book consultation</a>
@@ -1260,7 +1306,7 @@ footer {
       <div class="step">
         <div class="step-num">02</div>
         <div class="step-content">
-          <div class="step-week">Weeks 2 — 10 — Intervention</div>
+          <div class="step-week">Weeks 2–10 · Intervention</div>
           <h3 class="step-title">A protocol calibrated to your biology.</h3>
           <p class="step-desc">
             Your protocol covers four domains — <strong>nutrition, training, recovery, and supplementation</strong> — each calibrated to your specific numbers, not generic guidelines. Your nutritionist and program lead review your data with our medical advisor. You get bi-weekly 30-minute video check-ins, daily WhatsApp accountability, and protocol adjustments based on how your body actually responds.
@@ -1346,12 +1392,12 @@ footer {
           <div class="bio-age-cell">
             <div class="bio-age-label">Biological Age</div>
             <div class="bio-age-num">42.1</div>
-            <div class="bio-age-unit">Day 1 — PhenoAge</div>
+            <div class="bio-age-unit">Day 1 · PhenoAge</div>
           </div>
           <div class="bio-age-cell bio-age-after">
             <div class="bio-age-label">After 90 Days</div>
             <div class="bio-age-num">37.4</div>
-            <div class="bio-age-unit">Day 90 — PhenoAge</div>
+            <div class="bio-age-unit">Day 90 · PhenoAge</div>
           </div>
         </div>
 
@@ -1732,18 +1778,18 @@ footer {
         <h5>Company</h5>
         <ul>
           <li><a href="/strategy">About</a></li>
-          <li><a href="/tessera-rulebook">rulebook</a></li>
-          <li><a href="#">Research</a></li>
-          <li><a href="/tessera_getm_strategy">GTM</a></li>
+          <li><a href="/tessera-rulebook">Rulebook</a></li>
+          <li><a href="/tessera_60_day_roadmap">Roadmap</a></li>
+          <li><a href="/tessera-gtm-strategy">GTM strategy</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Trust &amp; data</h5>
         <ul>
-          <li><a href="#">Privacy policy</a></li>
-          <li><a href="#">Data ethics</a></li>
-          <li><a href="#">Lab partners</a></li>
-          <li><a href="/tessera_60_day_roadmap">Roadmap</a></li>
+          <li><a href="/privacy">Privacy policy</a></li>
+          <li><a href="/privacy#data-ethics">Data ethics</a></li>
+          <li><a href="/privacy#lab-partners">Lab partners</a></li>
+          <li><a href="mailto:privacy@tessera.health">Contact us</a></li>
         </ul>
       </div>
     </div>
@@ -1763,6 +1809,23 @@ footer {
 </footer>
 
 <script>
+  // Mobile nav toggle
+  const toggle = document.getElementById('mobileToggle');
+  const navLinks = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open);
+  });
+  // Close mobile nav when a link is clicked
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', false);
+    });
+  });
+
   // FAQ accordion
   document.querySelectorAll('.faq-item').forEach(item => {
     const q = item.querySelector('.faq-q');

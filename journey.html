@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Journey — Tessera</title>
+<meta name="description" content="Everything that happens from the moment you book your consultation to your Day 90 outcome report. The full client journey, step by step.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#F8F6F0; --paper:#FFFFFF; --ink:#0D1117; --ink-soft:#1E2A38; --ink-mute:#4A5568;
+  --ink-fade:#718096; --rule:#E2DDD3; --rule-soft:#EDE9E0;
+  --accent:#B85426; --accent-bg:#FBF0E8; --accent-dark:#8B3A19;
+  --teal:#0A6E72; --teal-bg:#E4F2F2; --leaf:#2D5F3A; --leaf-bg:#E6F0E8;
+  --gold:#8B6914; --gold-bg:#FAF1D6; --rose:#A83248; --rose-bg:#F8E8EB;
+  --slate:#3A5A7C; --slate-bg:#E8EEF5;
+  --mono:'JetBrains Mono',monospace; --sans:'Inter',sans-serif; --serif:'Fraunces',Georgia,serif;
+  --sidebar:260px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* LAYOUT */
+.layout{display:grid;grid-template-columns:var(--sidebar) 1fr;min-height:100vh}
+
+/* SIDEBAR */
+.sidebar{background:var(--ink);color:#C5CDD8;position:sticky;top:0;height:100vh;overflow-y:auto;padding:24px 0;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.1) transparent}
+.sidebar::-webkit-scrollbar{width:3px}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.12);border-radius:2px}
+.sb-brand{padding:0 20px 20px;margin-bottom:8px;border-bottom:0.5px solid rgba(255,255,255,0.08)}
+.sb-brand-name{font-family:var(--serif);font-size:20px;font-weight:500;color:#fff;letter-spacing:-0.02em;margin-bottom:3px}
+.sb-brand-sub{font-family:var(--mono);font-size:9.5px;letter-spacing:0.15em;color:var(--accent);text-transform:uppercase}
+.sb-home{display:flex;align-items:center;gap:8px;padding:10px 20px;color:rgba(255,255,255,0.35);font-size:12px;text-decoration:none;transition:color 0.15s;border-bottom:0.5px solid rgba(255,255,255,0.06);margin-bottom:8px}
+.sb-home:hover{color:rgba(255,255,255,0.7);text-decoration:none}
+.sb-home::before{content:'←';font-size:11px}
+.sb-section{margin-bottom:4px}
+.sb-section-label{font-family:var(--mono);font-size:9px;letter-spacing:0.2em;color:rgba(255,255,255,0.3);text-transform:uppercase;padding:12px 20px 6px;display:block}
+.sb-item{display:flex;align-items:flex-start;gap:10px;padding:7px 20px;color:#A0AEBB;font-size:12.5px;font-weight:400;cursor:pointer;transition:all 0.15s;text-decoration:none;line-height:1.35}
+.sb-item:hover{background:rgba(255,255,255,0.04);color:#fff;text-decoration:none}
+.sb-item.active{background:rgba(184,84,38,0.15);color:#fff;border-right:2px solid var(--accent)}
+.sb-num{font-family:var(--mono);font-size:9.5px;color:rgba(255,255,255,0.3);width:22px;flex-shrink:0;padding-top:1px}
+.sb-item.active .sb-num{color:var(--accent)}
+
+/* MAIN */
+.main{max-width:900px;padding:48px 60px 120px}
+
+/* COVER */
+.cover{padding:60px 0 80px;border-bottom:1px solid var(--rule);margin-bottom:0}
+.cover-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:0.2em;color:var(--accent);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.cover-tag::before{content:'';width:28px;height:1px;background:var(--accent)}
+.cover-h1{font-family:var(--serif);font-size:clamp(40px,5vw,64px);font-weight:400;line-height:1;letter-spacing:-0.03em;margin-bottom:20px;color:var(--ink)}
+.cover-h1 em{font-style:italic;color:var(--accent);font-weight:300}
+.cover-desc{font-size:17px;line-height:1.65;color:var(--ink-soft);max-width:700px;margin-bottom:36px}
+.cover-stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--rule);padding-top:28px;margin-top:8px}
+.cover-stat{padding-right:20px;border-right:0.5px solid var(--rule)}
+.cover-stat:last-child{border-right:none}
+.csn{font-family:var(--serif);font-size:26px;font-weight:500;letter-spacing:-0.02em;color:var(--ink);line-height:1;margin-bottom:4px}
+.csl{font-family:var(--mono);font-size:9px;letter-spacing:0.1em;color:var(--ink-mute);text-transform:uppercase;line-height:1.4}
+
+/* CHAPTER */
+.chapter{padding-top:72px;scroll-margin-top:24px}
+.ch-meta{font-family:var(--mono);font-size:10px;letter-spacing:0.2em;color:var(--accent);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.ch-meta::before{content:'';width:20px;height:1px;background:var(--accent)}
+.ch-title{font-family:var(--serif);font-size:clamp(28px,4vw,44px);font-weight:400;line-height:1.05;letter-spacing:-0.025em;margin-bottom:14px;color:var(--ink)}
+.ch-title em{font-style:italic;color:var(--accent);font-weight:300}
+.ch-lede{font-size:17px;line-height:1.65;color:var(--ink-soft);margin-bottom:36px;max-width:750px}
+
+/* SECTION HEADS */
+h3.sh{font-family:var(--serif);font-size:22px;font-weight:500;letter-spacing:-0.015em;margin:48px 0 12px;line-height:1.2;color:var(--ink)}
+h3.sh::before{content:'';display:block;width:24px;height:2px;background:var(--accent);margin-bottom:12px}
+h4.ssh{font-family:var(--mono);font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-mute);font-weight:600;margin:24px 0 8px}
+
+/* TEXT */
+p.p{font-size:15px;line-height:1.72;color:var(--ink-soft);margin-bottom:14px}
+p.p strong{color:var(--ink);font-weight:600}
+p.p em{font-style:italic}
+
+/* LISTS */
+ul.ul{list-style:none;margin-bottom:14px;padding:0}
+ul.ul li{font-size:14.5px;line-height:1.65;color:var(--ink-soft);margin-bottom:6px;padding-left:22px;position:relative}
+ul.ul li::before{content:'';position:absolute;left:0;top:10px;width:10px;height:1.5px;background:var(--accent)}
+ul.ul li strong{color:var(--ink);font-weight:600}
+ul.ul li p{font-size:13px;color:var(--ink-mute);margin-top:3px;line-height:1.5}
+
+/* CALLOUTS */
+.callout{padding:16px 20px;border-left:3px solid;border-radius:0 4px 4px 0;margin:20px 0}
+.callout .cl{font-family:var(--mono);font-size:9.5px;letter-spacing:0.15em;text-transform:uppercase;font-weight:700;margin-bottom:7px;display:block}
+.callout p{font-size:14px;line-height:1.6;margin:0;color:var(--ink-soft)}
+.callout p strong{color:var(--ink)}
+.callout.info{background:var(--teal-bg);border-color:var(--teal)}.callout.info .cl{color:var(--teal)}
+.callout.warn{background:var(--gold-bg);border-color:var(--gold)}.callout.warn .cl{color:var(--gold)}
+.callout.good{background:var(--leaf-bg);border-color:var(--leaf)}.callout.good .cl{color:var(--leaf)}
+.callout.rule{background:var(--accent-bg);border-color:var(--accent)}.callout.rule .cl{color:var(--accent)}
+.callout.note{background:var(--slate-bg);border-color:var(--slate)}.callout.note .cl{color:var(--slate)}
+
+/* TIMELINE / FLOW */
+.flow{margin:24px 0}
+.flow-step{display:grid;grid-template-columns:56px 1fr;gap:0;margin-bottom:0}
+.flow-step-inner{padding-bottom:32px;border-left:1.5px solid var(--rule);padding-left:24px;margin-left:-1px}
+.flow-step:last-child .flow-step-inner{border-left:1.5px solid transparent}
+.flow-num{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:17px;font-weight:500;border:1.5px solid var(--rule);background:var(--paper);position:relative;z-index:2;color:var(--ink);flex-shrink:0}
+.flow-title{font-family:var(--serif);font-size:18px;font-weight:500;letter-spacing:-0.01em;color:var(--ink);margin-bottom:6px;margin-top:8px}
+.flow-sub{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;color:var(--ink-fade);text-transform:uppercase;margin-bottom:10px}
+.flow-body{font-size:14.5px;color:var(--ink-soft);line-height:1.65}
+.flow-body strong{color:var(--ink);font-weight:600}
+
+/* EXPERIENCE CARD */
+.exp-card{background:var(--paper);border:1px solid var(--rule-soft);padding:24px 28px;margin:16px 0}
+.exp-card-label{font-family:var(--mono);font-size:9.5px;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-fade);margin-bottom:12px;display:block}
+.exp-card h4{font-family:var(--serif);font-size:20px;font-weight:500;letter-spacing:-0.01em;color:var(--ink);margin-bottom:10px}
+.exp-card p{font-size:14.5px;color:var(--ink-soft);line-height:1.65;margin-bottom:0}
+
+/* WHAT TO EXPECT STRIP */
+.expect-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+.expect-cell{background:var(--paper);border:0.5px solid var(--rule-soft);padding:18px 20px}
+.expect-cell-label{font-family:var(--mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px;display:block}
+.expect-cell-label.yes{color:var(--leaf)}
+.expect-cell-label.no{color:var(--ink-fade)}
+.expect-cell ul{list-style:none;padding:0;margin:0}
+.expect-cell li{font-size:13.5px;color:var(--ink-soft);padding:6px 0 6px 18px;position:relative;border-bottom:0.5px dashed var(--rule-soft);line-height:1.4}
+.expect-cell li:last-child{border-bottom:none}
+.expect-cell li::before{position:absolute;left:0;top:8px;font-size:10px}
+.expect-cell.yes li::before{content:'→';color:var(--leaf)}
+.expect-cell.no li::before{content:'×';color:var(--ink-fade)}
+.expect-cell.no li{color:var(--ink-fade)}
+
+/* DAY MARKER */
+.day-marker{display:flex;align-items:center;gap:16px;padding:16px 20px;background:var(--ink);color:var(--paper);margin:32px 0}
+.day-marker-num{font-family:var(--serif);font-size:32px;font-weight:400;letter-spacing:-0.02em;color:#fff;line-height:1}
+.day-marker-label{font-family:var(--mono);font-size:9.5px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:3px;display:block}
+.day-marker-title{font-size:14px;color:rgba(255,255,255,0.8);font-family:var(--serif);font-style:italic}
+
+/* BIOMARKER RESULT MOCK */
+.result-card{background:var(--paper);border:1px solid var(--rule);padding:28px;margin:20px 0}
+.result-card-header{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:14px;border-bottom:0.5px solid var(--rule-soft);margin-bottom:20px}
+.result-card-title{font-family:var(--serif);font-size:17px;font-weight:500;color:var(--ink)}
+.result-card-meta{font-family:var(--mono);font-size:10px;color:var(--ink-fade);letter-spacing:0.05em}
+.result-row{display:grid;grid-template-columns:2fr 1fr 1fr;gap:0;padding:10px 0;border-bottom:0.5px solid var(--rule-soft);font-family:var(--mono);font-size:12.5px}
+.result-row:last-child{border-bottom:none}
+.result-row .marker{color:var(--ink);font-size:13px;font-family:var(--sans);font-weight:500}
+.result-row .val{text-align:right;color:var(--ink-mute)}
+.result-row .delta{text-align:right;font-weight:600}
+.delta-good{color:var(--leaf)}
+.delta-strong{color:var(--leaf);font-weight:700}
+.delta-mild{color:var(--gold)}
+
+/* QUOTE */
+.quote{padding:20px 24px;border-left:2px solid var(--rule);margin:24px 0}
+.quote p{font-family:var(--serif);font-size:18px;font-style:italic;color:var(--ink-soft);line-height:1.55;margin-bottom:8px}
+.quote cite{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-fade)}
+
+/* PROTOCOL SPEC */
+.spec-block{border:1px solid var(--rule-soft);border-radius:0;overflow:hidden;margin:16px 0}
+.spec-header{background:var(--ink-soft);color:#E5EAF0;padding:10px 16px;font-family:var(--mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;font-weight:600;display:flex;justify-content:space-between;align-items:center}
+.spec-header span{font-family:var(--sans);font-size:11px;font-weight:400;color:rgba(255,255,255,0.45);letter-spacing:0}
+.spec-row{display:grid;grid-template-columns:1.6fr 1fr;gap:0;border-bottom:0.5px solid var(--rule-soft);background:var(--paper)}
+.spec-row:nth-child(even){background:var(--bg)}
+.spec-row:last-child{border-bottom:none}
+.spec-cell{padding:10px 14px;font-size:13px;color:var(--ink-soft);border-right:0.5px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none;font-family:var(--mono);font-size:12px;color:var(--ink);font-weight:500}
+.spec-cell.name{color:var(--ink);font-weight:500}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--rule);margin:64px 0;position:relative}
+.divider::after{content:'§';position:absolute;left:50%;top:-12px;transform:translateX(-50%);background:var(--bg);padding:0 14px;font-family:var(--serif);font-size:18px;font-style:italic;color:var(--ink-fade)}
+
+/* CHECKLIST */
+.checklist{border:1px solid var(--rule-soft);background:var(--paper);overflow:hidden;margin:20px 0}
+.checklist-header{background:var(--accent);color:#fff;padding:10px 16px;font-family:var(--mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;font-weight:600}
+.checklist-item{display:flex;align-items:flex-start;gap:12px;padding:11px 16px;border-bottom:0.5px solid var(--rule-soft);font-size:14px;color:var(--ink-soft)}
+.checklist-item:last-child{border-bottom:none}
+.checklist-box{width:16px;height:16px;border:1.5px solid var(--rule);border-radius:3px;flex-shrink:0;margin-top:2px}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr}
+  .sidebar{position:fixed;left:-var(--sidebar);width:var(--sidebar);z-index:100;transition:left 0.3s;height:100vh;left:-260px}
+  .sidebar.open{left:0}
+  .main{padding:24px 20px 80px}
+  .cover-stat-row{grid-template-columns:1fr 1fr}
+  .expect-grid{grid-template-columns:1fr}
+  .menu-btn{display:flex!important}
+}
+.menu-btn{display:none;position:fixed;top:16px;right:16px;z-index:200;background:var(--ink);color:#fff;border:none;width:42px;height:42px;border-radius:8px;align-items:center;justify-content:center;cursor:pointer;font-size:18px}
+</style>
+</head>
+<body>
+
+<button class="menu-btn" id="menuBtn">☰</button>
+
+<div class="layout">
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sb-brand">
+    <div class="sb-brand-name">Tessera</div>
+    <div class="sb-brand-sub">Your 90-Day Journey</div>
+  </div>
+
+  <a href="/" class="sb-home">Back to home</a>
+
+  <div class="sb-section">
+    <span class="sb-section-label">Before you start</span>
+    <a href="#cover" class="sb-item active"><span class="sb-num">00</span>Overview</a>
+    <a href="#fit" class="sb-item"><span class="sb-num">01</span>Is this right for you?</a>
+    <a href="#consultation" class="sb-item"><span class="sb-num">02</span>The free consultation</a>
+    <a href="#prepare" class="sb-item"><span class="sb-num">03</span>How to prepare</a>
+  </div>
+
+  <div class="sb-section">
+    <span class="sb-section-label">Week 1 — Baseline</span>
+    <a href="#blood-draw" class="sb-item"><span class="sb-num">04</span>The blood draw</a>
+    <a href="#results" class="sb-item"><span class="sb-num">05</span>Your results arrive</a>
+    <a href="#bio-age" class="sb-item"><span class="sb-num">06</span>Your biological age</a>
+    <a href="#intake-call" class="sb-item"><span class="sb-num">07</span>The intake call</a>
+  </div>
+
+  <div class="sb-section">
+    <span class="sb-section-label">Weeks 2–10 — Protocol</span>
+    <a href="#protocol-doc" class="sb-item"><span class="sb-num">08</span>Your protocol document</a>
+    <a href="#nutrition" class="sb-item"><span class="sb-num">09</span>Nutrition</a>
+    <a href="#training" class="sb-item"><span class="sb-num">10</span>Training</a>
+    <a href="#recovery" class="sb-item"><span class="sb-num">11</span>Recovery & sleep</a>
+    <a href="#supplements" class="sb-item"><span class="sb-num">12</span>Supplements</a>
+    <a href="#checkins" class="sb-item"><span class="sb-num">13</span>Check-ins</a>
+  </div>
+
+  <div class="sb-section">
+    <span class="sb-section-label">Day 90 — Re-test</span>
+    <a href="#retest" class="sb-item"><span class="sb-num">14</span>The second blood draw</a>
+    <a href="#report" class="sb-item"><span class="sb-num">15</span>Your outcome report</a>
+    <a href="#review-call" class="sb-item"><span class="sb-num">16</span>The review call</a>
+  </div>
+
+  <div class="sb-section">
+    <span class="sb-section-label">After Day 90</span>
+    <a href="#next" class="sb-item"><span class="sb-num">17</span>What comes next</a>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- COVER -->
+<section class="cover" id="cover">
+  <div class="cover-tag">Client Journey Guide</div>
+  <h1 class="cover-h1">Ninety days.<br><em>Everything that happens.</em></h1>
+  <p class="cover-desc">
+    This is the complete picture of your Tessera experience — from your first consultation call
+    to the moment you read your Day 90 outcome report. No surprises. No hidden steps.
+    You'll know exactly what to expect, what to do, and what you'll get at every stage.
+  </p>
+  <div class="cover-stat-row">
+    <div class="cover-stat"><div class="csn">1</div><div class="csl">Free consultation to start</div></div>
+    <div class="cover-stat"><div class="csn">2</div><div class="csl">Blood draws — Day 1 and Day 90</div></div>
+    <div class="cover-stat"><div class="csn">90</div><div class="csl">Days of coached protocol</div></div>
+    <div class="cover-stat"><div class="csn">1</div><div class="csl">Outcome report with every number</div></div>
+  </div>
+</section>
+
+<!-- ═══ CHAPTER: BEFORE YOU START ═══ -->
+<section class="chapter" id="fit">
+  <div class="ch-meta">Before you start</div>
+  <h2 class="ch-title">Is this <em>right for you?</em></h2>
+  <p class="ch-lede">
+    Be honest with yourself before you book. This program is rigorous, data-driven, and requires
+    real behavioural change over 90 days. It works for a specific kind of person.
+    It won't work for another.
+  </p>
+
+  <div class="expect-grid">
+    <div class="expect-cell yes">
+      <span class="expect-cell-label yes">This is for you if</span>
+      <ul>
+        <li>You're 28–48, generally healthy, and want to optimize — not just maintain</li>
+        <li>You already track something — sleep, training, or food — and want to do it better</li>
+        <li>You've had a bloodwork panel done and "normal" felt underwhelming as a verdict</li>
+        <li>You read Peter Attia, Huberman, Rhonda Patrick, or Galpin — and you want the program, not just the ideas</li>
+        <li>You can commit 4–6 hours a week to training, recovery, and protocol adherence</li>
+        <li>You want feedback loops, not motivation</li>
+        <li>You're willing to share real data — bloodwork, wearable exports, honest lifestyle answers</li>
+      </ul>
+    </div>
+    <div class="expect-cell no">
+      <span class="expect-cell-label no">This is not for you if</span>
+      <ul>
+        <li>You're looking for fast weight loss or visible aesthetic results in 30 days</li>
+        <li>You want supplement recommendations without behavioural change</li>
+        <li>You have an active medical condition that needs primary clinical management</li>
+        <li>You're not willing to do at-home bloodwork or share wearable data</li>
+        <li>You want certainty without the discipline of measurement</li>
+        <li>You expect anti-aging claims — we don't make them, we move biomarkers and re-test</li>
+        <li>You're looking for a generic training plan or diet program</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout rule">
+    <span class="cl">The honest version</span>
+    <p>
+      We turn people away in consultations. If the program isn't the right fit — because of your current health status, your timeline, or your goals — we'll tell you directly. We'd rather lose a sale than take on a client we can't genuinely help.
+    </p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ CONSULTATION ═══ -->
+<section class="chapter" id="consultation">
+  <div class="ch-meta">Step 01</div>
+  <h2 class="ch-title">The free <em>consultation call</em></h2>
+  <p class="ch-lede">
+    Thirty minutes. No script, no sales pitch. This is a real conversation to figure out
+    whether the program is right for you — and whether you're right for it.
+  </p>
+
+  <h3 class="sh">What actually happens in the call</h3>
+  <p class="p">Your program lead runs the call. They will ask you questions — not to qualify you for a sale, but to genuinely understand your current health picture and what you're trying to change. You will also get to ask anything you want.</p>
+
+  <div class="flow">
+    <div class="flow-step">
+      <div class="flow-num" style="background:var(--accent);border-color:var(--accent);color:#fff">1</div>
+      <div class="flow-step-inner">
+        <div class="flow-sub">First 10 minutes</div>
+        <div class="flow-title">Your current health picture</div>
+        <div class="flow-body">We ask about your energy, your training history, what you're currently eating, how you sleep, your stress load, and whether you've had recent bloodwork. We're building a rough sketch of your starting point.</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num" style="background:var(--teal);border-color:var(--teal);color:#fff">2</div>
+      <div class="flow-step-inner">
+        <div class="flow-sub">Next 10 minutes</div>
+        <div class="flow-title">What you're optimizing for</div>
+        <div class="flow-body">What does success look like to you in 90 days? Energy? Metabolic markers? Cardiovascular fitness? Weight? We want to understand your priorities so we can calibrate the protocol appropriately. We push back if your expectation is misaligned with what 90 days can deliver.</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num" style="background:var(--leaf);border-color:var(--leaf);color:#fff">3</div>
+      <div class="flow-step-inner">
+        <div class="flow-sub">Final 10 minutes</div>
+        <div class="flow-title">Your questions, our honest answers</div>
+        <div class="flow-body">Ask us anything. How does the bloodwork work? What happens if my markers don't improve? Who is the medical advisor? What does the protocol actually look like week to week? We give you direct answers — including "we don't know yet, that depends on your results."</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout good">
+    <span class="cl">After the call</span>
+    <p>If we both agree it's a good fit, we send you the program agreement and payment link within 24 hours. Once confirmed, your blood draw is scheduled within the week. If it's not the right fit, we tell you what we think you should do instead — sometimes that's a different program entirely, sometimes it's just starting with a standard health checkup and coming back in 6 months.</p>
+  </div>
+
+  <h3 class="sh">What to have ready before the call</h3>
+  <ul class="ul">
+    <li><strong>Any recent bloodwork</strong> — even a basic corporate checkup panel from the last 12 months. Don't worry if it's old or incomplete.</li>
+    <li><strong>Your wearable device, if you have one</strong> — Apple Watch, Oura Ring, Whoop, Fitbit. Having a rough sense of your average HRV and resting HR is useful.</li>
+    <li><strong>A list of current supplements</strong> — whatever you're taking right now, including doses if you know them.</li>
+    <li><strong>Any medications you're on</strong> — prescription only. Our medical advisor reviews these before your protocol is designed.</li>
+    <li><strong>Your honest training picture</strong> — how many sessions per week, what type, and for how long. Be accurate, not aspirational.</li>
+  </ul>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ PREPARE ═══ -->
+<section class="chapter" id="prepare">
+  <div class="ch-meta">Step 02</div>
+  <h2 class="ch-title">How to <em>prepare</em> for Day 1</h2>
+  <p class="ch-lede">
+    Once you've signed up, your blood draw is scheduled within 5–7 days. Here is exactly
+    what you need to do in the 48 hours before it.
+  </p>
+
+  <div class="checklist">
+    <div class="checklist-header">48 hours before your blood draw</div>
+    <div class="checklist-item"><div class="checklist-box"></div>No alcohol for 48 hours. Alcohol elevates GGT, triglycerides, and distorts several liver markers — you'll get an inaccurate baseline.</div>
+    <div class="checklist-item"><div class="checklist-box"></div>No strenuous exercise for 24 hours before the draw. Exercise temporarily elevates CRP, creatinine, and WBC — your inflammation markers will look artificially high.</div>
+    <div class="checklist-item"><div class="checklist-box"></div>Stop biotin supplements 48 hours before. Biotin interferes with several immunoassay-based tests. This includes any multivitamins with biotin.</div>
+    <div class="checklist-item"><div class="checklist-box"></div>Continue all prescription medications as normal. Do not stop any medication for the test unless your physician has specifically advised it.</div>
+    <div class="checklist-item"><div class="checklist-box"></div>Fast for 10–12 hours before the draw. Water is not only allowed — it's encouraged. Plain still water only. No coffee, no tea, no juice.</div>
+    <div class="checklist-item"><div class="checklist-box"></div>Schedule your draw for 7–9 AM. Most hormones — especially cortisol and testosterone — follow a diurnal rhythm and must be measured in the morning to be interpretable.</div>
+    <div class="checklist-item"><div class="checklist-box"></div>Wear a short-sleeved or loose-sleeved top. The phlebotomist needs easy access to your inner elbow or forearm.</div>
+    <div class="checklist-item"><div class="checklist-box"></div>Stay hydrated the evening before. Dehydration makes veins harder to access and slightly alters several blood markers.</div>
+  </div>
+
+  <div class="callout warn">
+    <span class="cl">Common mistake</span>
+    <p>Going to the gym the morning of your blood draw because you "want to get it in before the fast ends." Don't. Exercise within 24 hours will meaningfully distort your hsCRP, creatinine, WBC, and uric acid — markers that are central to your biological age calculation. Rest day before, always.</p>
+  </div>
+</section>
+
+<!-- ═══ CHAPTER: WEEK 1 ═══ -->
+<div class="divider"></div>
+
+<section class="chapter" id="blood-draw">
+  <div class="ch-meta">Week 1 · Step 04</div>
+  <h2 class="ch-title">The <em>blood draw</em></h2>
+  <p class="ch-lede">
+    A licensed phlebotomist comes to your home or office. You don't go anywhere.
+    Here's what the experience actually looks like.
+  </p>
+
+  <div class="day-marker">
+    <div class="day-marker-num">Day 1</div>
+    <div>
+      <span class="day-marker-label">Your starting point</span>
+      <div class="day-marker-title">The baseline blood draw — 7–9 AM, at your location</div>
+    </div>
+  </div>
+
+  <h3 class="sh">What happens during the visit</h3>
+
+  <div class="flow">
+    <div class="flow-step">
+      <div class="flow-num" style="background:var(--accent);border-color:var(--accent);color:#fff">1</div>
+      <div class="flow-step-inner">
+        <div class="flow-sub">Arrival · 5 minutes</div>
+        <div class="flow-title">Verification and prep</div>
+        <div class="flow-body">The phlebotomist confirms your identity, checks you've fasted the required hours, and reviews the test order form. They'll ask about water intake and any medications taken that morning. The entire visit takes 15–20 minutes.</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num" style="background:var(--teal);border-color:var(--teal);color:#fff">2</div>
+      <div class="flow-step-inner">
+        <div class="flow-sub">Collection · 5–8 minutes</div>
+        <div class="flow-title">The draw itself</div>
+        <div class="flow-body">Depending on your panel tier, <strong>3–5 vials of blood</strong> are collected. This is standard — each vial goes to a different assay. The draw takes less than 5 minutes once the needle is placed. The phlebotomist seals, labels, and bags every vial in front of you.</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num" style="background:var(--leaf);border-color:var(--leaf);color:#fff">3</div>
+      <div class="flow-step-inner">
+        <div class="flow-sub">Dispatch · Same morning</div>
+        <div class="flow-title">Cold chain to the lab</div>
+        <div class="flow-body">Samples go into a cold-pack bag and are dispatched to our NABL-accredited lab the same morning. You do not need to do anything. The phlebotomist handles all handoff logistics. Your unique sample ID is sent to you via WhatsApp for tracking.</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">4</div>
+      <div class="flow-step-inner">
+        <div class="flow-sub">After the draw</div>
+        <div class="flow-title">Break your fast</div>
+        <div class="flow-body">Have a proper meal as soon as the phlebotomist leaves. Do not train until the next day — your blood was drawn fasted and your body needs recovery, not stress. Your results will arrive in 5–7 working days via the lab's patient portal and email.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout info">
+    <span class="cl">If you feel lightheaded</span>
+    <p>This is normal for some people after a fasted draw. Lie down if needed. Drink water immediately. Have a banana or a piece of fruit ready. The phlebotomist is trained to handle this — tell them before the draw if you've felt faint from blood draws in the past.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ RESULTS ═══ -->
+<section class="chapter" id="results">
+  <div class="ch-meta">Week 1 · Step 05</div>
+  <h2 class="ch-title">Your results <em>arrive</em></h2>
+  <p class="ch-lede">
+    5–7 working days after your draw, your lab report lands. Here's how to read it before
+    your intake call — and what not to panic about.
+  </p>
+
+  <h3 class="sh">What you'll receive</h3>
+  <p class="p">The lab sends you a PDF report directly. It lists every marker with your result, the standard reference range, and a flag if you're outside that range. <strong>Important:</strong> the reference ranges on lab reports are population-average "normal" ranges — not optimal ranges. A marker can be unflagged and still be suboptimal for longevity purposes. Your program lead will walk through every marker with you in the intake call.</p>
+
+  <div class="callout warn">
+    <span class="cl">Don't Google your results before the call</span>
+    <p>Lab report context without clinical interpretation leads to unnecessary anxiety. A fasting insulin of 11 won't look alarming on the report — but it's meaningfully elevated. An ApoB of 105 won't be flagged — but it's higher than our target. Sit with the numbers until your intake call. That's what the call is for.</p>
+  </div>
+
+  <h3 class="sh">What your program lead does with your results</h3>
+  <p class="p">Before your intake call, your program lead reviews your full panel and:</p>
+  <ul class="ul">
+    <li>Flags every marker that's outside our <strong>optimal ranges</strong> (not just lab reference ranges)</li>
+    <li>Identifies the <strong>3–5 highest-priority markers</strong> to target in your protocol</li>
+    <li>Runs your <strong>biological age calculation</strong> using the PhenoAge model</li>
+    <li>Drafts the preliminary protocol framework, ready to discuss in the intake call</li>
+    <li>Sends your results to the <strong>medical advisor</strong> for review if any markers require physician-level interpretation</li>
+  </ul>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ BIO AGE ═══ -->
+<section class="chapter" id="bio-age">
+  <div class="ch-meta">Week 1 · Step 06</div>
+  <h2 class="ch-title">Your <em>biological age</em></h2>
+  <p class="ch-lede">
+    This is the number that anchors the entire program. Here's what it means,
+    how it's calculated, and how to interpret it honestly.
+  </p>
+
+  <h3 class="sh">What biological age actually is</h3>
+  <p class="p">Biological age is not a wellness score. It's a <strong>mortality risk estimate</strong> — a calibrated number that says: "Based on the composition of your blood, your risk profile matches an average person of this age." It's calculated using the <strong>PhenoAge model</strong> (Levine et al., 2018, published in Aging) — a peer-reviewed algorithm trained on NHANES data from over 11,000 people, validated against all-cause mortality outcomes.</p>
+
+  <div class="exp-card">
+    <span class="exp-card-label">The PhenoAge formula uses these 9 markers from your blood panel</span>
+    <p>Albumin · Creatinine · Glucose · C-reactive protein · Lymphocyte % · Mean corpuscular volume (MCV) · Red cell distribution width (RDW) · Alkaline phosphatase · White blood cell count — plus your chronological age. All of these are in your standard panel. No special test needed.</p>
+  </div>
+
+  <h3 class="sh">How to read your score</h3>
+  <ul class="ul">
+    <li><strong>Biological age below calendar age</strong> — your blood composition is "younger" than average for your age. Your mortality risk profile is better than most people your age.</li>
+    <li><strong>Biological age equal to calendar age</strong> — you're aging at the average rate. Not bad. But there's room to move the number in the right direction.</li>
+    <li><strong>Biological age above calendar age</strong> — your blood is showing an accelerated aging signal. This is not a diagnosis. It's a data point — and it's the reason you're here. Most first-time clients are 2–6 years ahead of their calendar age. This is common and moveable.</li>
+  </ul>
+
+  <div class="callout good">
+    <span class="cl">What changes the score</span>
+    <p>
+      PhenoAge responds to real metabolic change. In our pilot cohort, 90 days of a well-executed protocol moved biological age by <strong>3–6 years</strong> in most clients. The markers most responsive to intervention: hsCRP (inflammation), fasting glucose, albumin, and WBC count.
+    </p>
+  </div>
+
+  <h3 class="sh">The score is your baseline — not your ceiling</h3>
+  <p class="p">Your Day 1 biological age is the starting point. You will re-run the exact same calculation from the exact same markers at Day 90. The delta — how many years you moved the number — is the program's primary outcome. We do not set a target in advance. We see what the protocol delivers and show you the number honestly.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ INTAKE CALL ═══ -->
+<section class="chapter" id="intake-call">
+  <div class="ch-meta">Week 1 · Step 07</div>
+  <h2 class="ch-title">The <em>intake call</em></h2>
+  <p class="ch-lede">
+    A 45-minute video call with your program lead. This is where your results get interpreted,
+    your protocol gets built, and you ask everything you need to ask before starting.
+  </p>
+
+  <h3 class="sh">What the call covers</h3>
+
+  <div class="flow">
+    <div class="flow-step">
+      <div class="flow-num" style="background:var(--accent);border-color:var(--accent);color:#fff">1</div>
+      <div class="flow-step-inner">
+        <div class="flow-sub">First 15 minutes</div>
+        <div class="flow-title">Walking through every marker</div>
+        <div class="flow-body">Your program lead takes you through each flagged marker — what it means in plain language, why it's either high or low, and how it connects to your biological age score. You'll understand your own blood by the end of this section.</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num" style="background:var(--teal);border-color:var(--teal);color:#fff">2</div>
+      <div class="flow-step-inner">
+        <div class="flow-sub">Next 20 minutes</div>
+        <div class="flow-title">Building your protocol together</div>
+        <div class="flow-body">Your protocol draft is presented. You'll see the specific targets across all four levers — nutrition, training, recovery, and supplements. You'll get to push back, ask about tradeoffs, and flag anything that doesn't fit your life. The protocol is calibrated to your biology <em>and</em> your schedule.</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num" style="background:var(--leaf);border-color:var(--leaf);color:#fff">3</div>
+      <div class="flow-step-inner">
+        <div class="flow-sub">Final 10 minutes</div>
+        <div class="flow-title">Practical setup</div>
+        <div class="flow-body">WhatsApp group is set up. Check-in dates are confirmed. You get the full protocol document. We agree on what data you'll track and how you'll share it at each check-in. You leave the call knowing exactly what to do on Day 1 of the protocol.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout note">
+    <span class="cl">If the medical advisor needs to weigh in</span>
+    <p>For clients with elevated cardiovascular markers, hormonal results outside normal range, or current medications that interact with protocol elements, our medical advisor joins the call or sends a written note to your program lead before the call. You'll be told in advance if this applies to you.</p>
+  </div>
+</section>
+
+<!-- ═══ CHAPTER: THE PROTOCOL ═══ -->
+<div class="divider"></div>
+
+<section class="chapter" id="protocol-doc">
+  <div class="ch-meta">Weeks 2–10 · Step 08</div>
+  <h2 class="ch-title">Your <em>protocol document</em></h2>
+  <p class="ch-lede">
+    After the intake call, you receive your personalized protocol as a structured document.
+    This is not a generic guide. It is built from your specific numbers.
+  </p>
+
+  <h3 class="sh">What the document contains</h3>
+  <p class="p">Your protocol document is typically 8–14 pages. It has four sections — one for each lever — and each section has specific, measurable targets. Not "eat more protein." Not "exercise regularly." Numbers. Timings. Ranges. Here's an example of what a nutrition section looks like:</p>
+
+  <div class="spec-block">
+    <div class="spec-header">Sample protocol — Nutrition section <span>Calibrated to specific client biomarkers</span></div>
+    <div class="spec-row"><div class="spec-cell name">Daily protein target</div><div class="spec-cell">175g (2.1g/kg lean body mass)</div></div>
+    <div class="spec-row"><div class="spec-cell name">Carbohydrate timing</div><div class="spec-cell">Around training only — not at rest</div></div>
+    <div class="spec-row"><div class="spec-cell name">Eating window</div><div class="spec-cell">8am–7pm (11-hour fast, not strict IF)</div></div>
+    <div class="spec-row"><div class="spec-cell name">Daily fibre target</div><div class="spec-cell">≥40g/day from whole food sources</div></div>
+    <div class="spec-row"><div class="spec-cell name">Fat composition</div><div class="spec-cell">Prioritise MUFA + omega-3 rich sources. Limit saturated fat to &lt;10% of calories. Reason: ApoB at 112.</div></div>
+    <div class="spec-row"><div class="spec-cell name">Foods to limit</div><div class="spec-cell">Refined carbs, fruit juice, white rice as primary carb source. Reason: fasting insulin at 14.2.</div></div>
+    <div class="spec-row"><div class="spec-cell name">Foods to emphasise</div><div class="spec-cell">Oily fish 3×/week, leafy greens daily, legumes at 2+ meals/day, whole eggs as protein anchor</div></div>
+  </div>
+
+  <div class="callout rule">
+    <span class="cl">What makes this different</span>
+    <p>Every target in your protocol document has a <strong>reason tied to a specific biomarker</strong>. If we ask you to eat more fibre, it says why — "to reduce LDL-C particle size and improve insulin sensitivity, both currently elevated in your panel." You are not being asked to trust us. You are being shown the logic.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ NUTRITION ═══ -->
+<section class="chapter" id="nutrition">
+  <div class="ch-meta">Weeks 2–10 · Step 09</div>
+  <h2 class="ch-title"><em>Nutrition</em> — what changes</h2>
+  <p class="ch-lede">
+    Most people eat reasonably well. The protocol doesn't overhaul your life.
+    It calibrates specific variables that your bloodwork says need to move.
+  </p>
+
+  <h3 class="sh">The variables we actually target</h3>
+  <ul class="ul">
+    <li><strong>Protein sufficiency.</strong> Most adults significantly undereat protein. Your target is set in grams based on your lean body mass — not a generic "high protein" suggestion. Protein drives muscle protein synthesis, satiety, and glycaemic stability.</li>
+    <li><strong>Carbohydrate timing.</strong> When you eat carbohydrates matters almost as much as how much. Carbs around training are used. Carbs at rest — particularly in the evening — drive insulin response without the glucose disposal advantage of muscle contraction.</li>
+    <li><strong>Fibre threshold.</strong> 35–40g of daily fibre is the target. This is non-negotiable if your LDL-C, ApoB, or gut health markers are off. Most clients eat 12–18g/day currently.</li>
+    <li><strong>Eating window.</strong> We don't prescribe strict OMAD or 16:8 fasting. We set a reasonable eating window based on your cortisol pattern, sleep timing, and training schedule. Most clients land at a 10–12 hour window naturally.</li>
+    <li><strong>Specific foods to emphasise or limit.</strong> Calibrated to your specific lipid picture, insulin sensitivity, and nutrient deficiencies. This is not a generic clean-eating list.</li>
+  </ul>
+
+  <h3 class="sh">What we don't do</h3>
+  <ul class="ul">
+    <li>We don't prescribe a meal plan — you're an adult, not a patient. We give you targets and logic.</li>
+    <li>We don't recommend calorie counting unless your goals or metabolic markers specifically require it.</li>
+    <li>We don't ban food groups. We adjust ratios and timing based on your biology.</li>
+    <li>We don't sell meal kits, supplements, or food products. There is no commercial angle to our nutrition recommendations.</li>
+  </ul>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ TRAINING ═══ -->
+<section class="chapter" id="training">
+  <div class="ch-meta">Weeks 2–10 · Step 10</div>
+  <h2 class="ch-title"><em>Training</em> — the structure</h2>
+  <p class="ch-lede">
+    Three orthogonal training stimuli. Each one targets a different biological system.
+    All three are required. The dose is calibrated to your starting capacity and your markers.
+  </p>
+
+  <div class="spec-block">
+    <div class="spec-header">The three training modes — why each one exists</div>
+    <div class="spec-row"><div class="spec-cell name">Zone 2 cardio</div><div class="spec-cell">150–200 min/week · Mitochondrial density, fat oxidation, cardiovascular base</div></div>
+    <div class="spec-row"><div class="spec-cell name">VO₂ max work</div><div class="spec-cell">1–2 sessions/week · Maximum oxygen capacity, cardiac output, VO₂ max ceiling</div></div>
+    <div class="spec-row"><div class="spec-cell name">Resistance training</div><div class="spec-cell">3–4 sessions/week · Muscle mass, bone density, insulin sensitivity, longevity proxy</div></div>
+  </div>
+
+  <h3 class="sh">Zone 2 — the one most people get wrong</h3>
+  <p class="p">Zone 2 is 60–70% of your maximum heart rate. You should be able to hold a full conversation. Most people go too hard — what they call "steady state cardio" is actually Zone 3–4 work, which has different biological effects. We use your resting heart rate and HRV as calibration points to set your Zone 2 ceiling accurately.</p>
+
+  <div class="exp-card">
+    <span class="exp-card-label">How to know you're in Zone 2</span>
+    <h4>The talk test</h4>
+    <p>You can speak in complete sentences without gasping. You could sustain a phone call. You feel challenged but not breathless. If you can't do this, slow down — you're above Zone 2. Heart rate targets vary by individual; your program lead will set yours based on your resting HR and initial fitness assessment.</p>
+  </div>
+
+  <h3 class="sh">Resistance training</h3>
+  <p class="p">The goal is progressive overload — consistently increasing the stimulus on your muscles over 90 days. We don't prescribe a rigid program; we give you principles and volume targets based on your current training history. If you already train consistently, we build on that. If you're starting from scratch, we scale appropriately.</p>
+
+  <h3 class="sh">Recovery days are part of the protocol</h3>
+  <p class="p">We prescribe rest. Your HRV data tells us when your nervous system hasn't recovered from the previous session. Training hard on a low-HRV day is counterproductive — you get less adaptation and more stress hormones. We track this in your bi-weekly check-ins and adjust volume accordingly.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ RECOVERY ═══ -->
+<section class="chapter" id="recovery">
+  <div class="ch-meta">Weeks 2–10 · Step 11</div>
+  <h2 class="ch-title"><em>Recovery</em> and sleep</h2>
+  <p class="ch-lede">
+    Recovery is not optional. It's where the adaptation from training actually happens.
+    Your wearable data is the primary input — not your subjective sense of how rested you feel.
+  </p>
+
+  <h3 class="sh">What we track</h3>
+  <ul class="ul">
+    <li><strong>HRV (heart rate variability)</strong> — the primary recovery marker. Trending up over 90 days is the signal that your protocol is working. Trending down for more than 3–4 consecutive days means we need to reduce load or investigate a stressor.</li>
+    <li><strong>Resting heart rate</strong> — should trend down with improved cardiovascular fitness over 90 days. A 5–10 bpm drop is typical for clients starting from a sedentary baseline.</li>
+    <li><strong>Sleep duration and consistency</strong> — we don't chase 8 hours as a number. We look at consistency (same sleep and wake time ±30 min) and your deep + REM architecture if your device reports it.</li>
+    <li><strong>Sleep timing relative to training</strong> — training within 2 hours of bed impairs sleep quality for most people. We set your last workout window accordingly.</li>
+  </ul>
+
+  <h3 class="sh">Sleep hygiene — what actually moves the needle</h3>
+  <ul class="ul">
+    <li><strong>Consistent wake time.</strong> This is the anchor for your circadian rhythm. More important than your sleep time. Set one and hold it, including weekends.</li>
+    <li><strong>Morning light exposure.</strong> 10–15 minutes of outdoor light within 30 minutes of waking. This sets your cortisol peak at the right time, which improves sleep onset 14–16 hours later.</li>
+    <li><strong>Temperature.</strong> Cooling the sleep environment to 18–20°C improves deep sleep architecture in most people. This is evidence-based.</li>
+    <li><strong>No screens as a rule — reduced light as a principle.</strong> Avoiding blue light after 9pm is the practical version. Use Night Shift or f.lux as a floor, not a ceiling.</li>
+  </ul>
+
+  <div class="callout info">
+    <span class="cl">How we use your wearable data</span>
+    <p>At each bi-weekly check-in, you share a 2-week HRV and resting HR export from your device. We look for trends, not single data points. A low HRV day is noise. A downward HRV trend over 10 days is a signal worth investigating — and adjusting your training load accordingly.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ SUPPLEMENTS ═══ -->
+<section class="chapter" id="supplements">
+  <div class="ch-meta">Weeks 2–10 · Step 12</div>
+  <h2 class="ch-title"><em>Supplements</em> — the audit</h2>
+  <p class="ch-lede">
+    We start by removing things. Then we add only what your bloodwork says is missing.
+    Most clients leave with a smaller, cheaper, more effective stack than they started with.
+  </p>
+
+  <h3 class="sh">The audit process</h3>
+  <p class="p">In the intake call, you go through your current supplement list with your program lead. For each supplement, we ask three questions: Is this deficiency confirmed in your bloodwork? Is the dose correct for your actual level? Is this the right form for bioavailability? Most supplement stacks fail at least one of these criteria for most items.</p>
+
+  <div class="callout rule">
+    <span class="cl">Our commercial position</span>
+    <p>We have no affiliate relationships with any supplement brand. We earn nothing from what you buy. Our only incentive is that your bloodwork moves. We will tell you to stop taking expensive things if they're not indicated. We will tell you to buy cheap things if they're what your blood needs.</p>
+  </div>
+
+  <h3 class="sh">The most common deficiencies we find</h3>
+  <ul class="ul">
+    <li><strong>Vitamin D — almost universal in urban India.</strong> The fix is typically D3+K2 at 4,000–6,000 IU/day. Most people supplement 1,000 IU (insufficient) or take D2 (inferior bioavailability).</li>
+    <li><strong>Vitamin B12 — near-universal in vegetarians.</strong> Methylcobalamin at 1,000–2,000 mcg/day. Most people supplement but at insufficient doses or as cyanocobalamin (poor cellular uptake).</li>
+    <li><strong>Magnesium — commonly depleted by stress and poor sleep.</strong> Magnesium glycinate at 300–400 mg before bed. Serum magnesium tests are insensitive — if your lifestyle suggests depletion, we supplement regardless.</li>
+    <li><strong>Omega-3 — very low in Indians with low fish intake.</strong> 2–4g EPA+DHA/day. Most fish oil supplements contain 300mg EPA+DHA per capsule — people take one and think they're covered. They need 6–12 capsules of a standard brand, or a concentrated form.</li>
+  </ul>
+
+  <h3 class="sh">What we stop</h3>
+  <p class="p">Ashwagandha without cortisol testing. NMN without baseline NAD+ data. Collagen without understanding protein sufficiency. Any antioxidant supplement during hard training phases (they can blunt adaptation). We stop things with weak evidence when the same money is better spent on the things your blood says you actually need.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ CHECK-INS ═══ -->
+<section class="chapter" id="checkins">
+  <div class="ch-meta">Weeks 2–10 · Step 13</div>
+  <h2 class="ch-title">Check-ins and <em>accountability</em></h2>
+  <p class="ch-lede">
+    The protocol doesn't run itself. Your program lead is active every week.
+    Here's how the support structure works.
+  </p>
+
+  <h3 class="sh">WhatsApp — daily touchpoint</h3>
+  <p class="p">Your program lead is available on WhatsApp throughout the program. You're not expected to send a daily update — but if something isn't working, if you have a question, or if a week went sideways, you message and get a response the same day. This is not a chatbot. It's a person who has read your bloodwork.</p>
+
+  <h3 class="sh">Bi-weekly video check-ins</h3>
+  <p class="p">30 minutes, every two weeks. Structured around three questions:</p>
+  <ul class="ul">
+    <li><strong>What did you actually do?</strong> — Training, nutrition, sleep, supplement adherence. We track against the protocol targets.</li>
+    <li><strong>What did your wearable data show?</strong> — HRV trend, resting HR trend, sleep consistency. You share a 2-week export before the call.</li>
+    <li><strong>What needs to change?</strong> — Protocol adjustments based on your response so far. We adapt. The protocol is not fixed.</li>
+  </ul>
+
+  <div class="exp-card">
+    <span class="exp-card-label">What a typical check-in at Week 6 looks like</span>
+    <h4>Mid-program review</h4>
+    <p>Your program lead reviews 6 weeks of HRV data, checks against training targets, discusses any nutrition compliance gaps, and adjusts supplement timing if needed. If a specific marker is suspected to be moving well (e.g. HRV trending up strongly), the protocol load may be gently increased. If you've been under-sleeping, the training volume gets reduced and the recovery protocol gets tightened. The program responds to you.</p>
+  </div>
+
+  <h3 class="sh">Protocol adjustments are normal — not a failure</h3>
+  <p class="p">Most clients need at least one meaningful protocol adjustment in 90 days. Your biology responds differently than the model predicts. Your schedule changes. A stressor arrives. The protocol adapts. This is what the check-ins are for — not to audit your compliance, but to make the protocol work better for your actual life.</p>
+</section>
+
+<!-- ═══ CHAPTER: DAY 90 ═══ -->
+<div class="divider"></div>
+
+<section class="chapter" id="retest">
+  <div class="ch-meta">Day 90 · Step 14</div>
+  <h2 class="ch-title">The <em>second blood draw</em></h2>
+  <p class="ch-lede">
+    Same panel. Same lab. Same fasted protocol. Same time of day. This is the control for
+    the experiment. The only thing that changed is what you did for 90 days.
+  </p>
+
+  <div class="day-marker">
+    <div class="day-marker-num">Day 90</div>
+    <div>
+      <span class="day-marker-label">The re-test</span>
+      <div class="day-marker-title">The second draw — identical conditions to Day 1</div>
+    </div>
+  </div>
+
+  <h3 class="sh">Why identical conditions matter</h3>
+  <p class="p">Biomarker measurements are sensitive to pre-test conditions. If you fasted 12 hours for the first draw but only 8 for the second, your glucose will read differently. If you trained the day before the second draw but rested before the first, your hsCRP will be skewed. We control for every variable so the delta reflects the protocol — not the conditions.</p>
+
+  <div class="checklist">
+    <div class="checklist-header">Day 90 draw — same rules as Day 1</div>
+    <div class="checklist-item"><div class="checklist-box"></div>No alcohol for 48 hours before</div>
+    <div class="checklist-item"><div class="checklist-box"></div>No strenuous exercise for 24 hours before</div>
+    <div class="checklist-item"><div class="checklist-box"></div>10–12 hour fast, water only</div>
+    <div class="checklist-item"><div class="checklist-box"></div>Scheduled for 7–9 AM, same as Day 1</div>
+    <div class="checklist-item"><div class="checklist-box"></div>Stop biotin supplements 48 hours before</div>
+    <div class="checklist-item"><div class="checklist-box"></div>Same lab partner, same assay methods</div>
+  </div>
+
+  <h3 class="sh">The waiting period</h3>
+  <p class="p">Results arrive in 5–7 working days, same as the first draw. Your program lead reviews them immediately and prepares your full outcome report. The review call is scheduled as soon as the report is ready — typically within 3 days of results arriving.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ OUTCOME REPORT ═══ -->
+<section class="chapter" id="report">
+  <div class="ch-meta">Day 90 · Step 15</div>
+  <h2 class="ch-title">Your <em>outcome report</em></h2>
+  <p class="ch-lede">
+    The most comprehensive health analysis you've ever received. Every marker. Every delta.
+    Every protocol element that drove each change.
+  </p>
+
+  <h3 class="sh">What the report contains</h3>
+  <ul class="ul">
+    <li><strong>Biological age — before and after.</strong> The headline number. Calculated from the same 9-marker PhenoAge formula, applied to both draws. The delta is your primary outcome.</li>
+    <li><strong>Per-marker comparison table.</strong> Every marker from your panel, side by side: Day 1 value, Day 90 value, delta, direction, and whether it moved toward or away from optimal range.</li>
+    <li><strong>Protocol attribution.</strong> For each marker that moved significantly, the report identifies which protocol element most likely drove the change — and the evidence behind that attribution.</li>
+    <li><strong>Markers that didn't move.</strong> We're explicit about what didn't shift and why. Some markers are slow movers biologically (Lp(a) doesn't respond to lifestyle). Some reflect compliance gaps. Some need more than 90 days. We tell you which is which.</li>
+    <li><strong>Recommendations for the next phase.</strong> Based on your outcomes, what should the next 90 days focus on? Which markers need more work? What can be maintained on a lighter touch?</li>
+  </ul>
+
+  <div class="result-card">
+    <div class="result-card-header">
+      <div class="result-card-title">Sample outcome — key marker deltas</div>
+      <div class="result-card-meta">Anonymised · 90-day program</div>
+    </div>
+    <div class="result-row"><div class="marker">Biological Age (PhenoAge)</div><div class="val">42.1 → 37.4</div><div class="delta delta-strong">−4.7 yrs</div></div>
+    <div class="result-row"><div class="marker">ApoB (mg/dL)</div><div class="val">112 → 84</div><div class="delta delta-strong">−25%</div></div>
+    <div class="result-row"><div class="marker">Fasting Insulin (μIU/mL)</div><div class="val">14.2 → 7.1</div><div class="delta delta-strong">−50%</div></div>
+    <div class="result-row"><div class="marker">hsCRP (mg/L)</div><div class="val">2.8 → 0.9</div><div class="delta delta-strong">−68%</div></div>
+    <div class="result-row"><div class="marker">HDL-C (mg/dL)</div><div class="val">42 → 54</div><div class="delta delta-good">+29%</div></div>
+    <div class="result-row"><div class="marker">HRV average (ms)</div><div class="val">38 → 61</div><div class="delta delta-strong">+61%</div></div>
+    <div class="result-row"><div class="marker">Resting HR (bpm)</div><div class="val">67 → 54</div><div class="delta delta-good">−13</div></div>
+    <div class="result-row"><div class="marker">Vitamin D (ng/mL)</div><div class="val">21 → 48</div><div class="delta delta-good">+128%</div></div>
+  </div>
+
+  <div class="callout good">
+    <span class="cl">The report is yours to keep</span>
+    <p>You receive the outcome report as a PDF, permanently. The data, the analysis, the protocol attribution — it's yours. You can share it with your physician. You can use it as a baseline for future programs. You can take it and never work with us again. The point is that you understand your own biology better than you did 90 days ago.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ REVIEW CALL ═══ -->
+<section class="chapter" id="review-call">
+  <div class="ch-meta">Day 90 · Step 16</div>
+  <h2 class="ch-title">The <em>review call</em></h2>
+  <p class="ch-lede">
+    A 60-minute call with your program lead and, for Performance and Continuum tier clients,
+    the medical advisor. This is where the numbers get explained and the next chapter gets decided.
+  </p>
+
+  <h3 class="sh">What gets covered</h3>
+  <ul class="ul">
+    <li><strong>The biological age delta.</strong> How much the number moved, what drove it, and whether the result is consistent with your 90-day adherence and wearable data trends.</li>
+    <li><strong>The marker-by-marker walkthrough.</strong> Every significant change gets explained in terms of which protocol element drove it and what the clinical significance is at your new level.</li>
+    <li><strong>The markers that didn't move.</strong> Honest assessment of why — biology, compliance, or simply needing more time. What to do about each.</li>
+    <li><strong>What the medical advisor says (Performance/Continuum).</strong> If any markers warrant physician-level commentary — either because they've moved into a clinical range or because they haven't moved despite intervention — the medical advisor's written review is presented and discussed.</li>
+    <li><strong>Your options going forward.</strong> Continue, adapt, escalate, or graduate. See the next section.</li>
+  </ul>
+
+  <div class="quote">
+    <p>"I've spent more on supplements than this program cost — and learned more about my body in 90 days than in the previous 38 years. The numbers were the unlock. Once I could see them move, the protocol stopped feeling like a chore."</p>
+    <cite>Client #04 · M, 38 · Software architect · Hyderabad</cite>
+  </div>
+</section>
+
+<!-- ═══ CHAPTER: AFTER DAY 90 ═══ -->
+<div class="divider"></div>
+
+<section class="chapter" id="next">
+  <div class="ch-meta">After Day 90 · Step 17</div>
+  <h2 class="ch-title">What <em>comes next</em></h2>
+  <p class="ch-lede">
+    The 90-day program ends with a decision, not a cliff edge.
+    Here are your four options — and how we help you choose the right one.
+  </p>
+
+  <div class="flow">
+    <div class="flow-step">
+      <div class="flow-num" style="background:var(--accent);border-color:var(--accent);color:#fff">A</div>
+      <div class="flow-step-inner">
+        <div class="flow-sub">If most markers moved well</div>
+        <div class="flow-title">Quarterly maintenance</div>
+        <div class="flow-body">You're in a good place. You understand the protocol. You can maintain it yourself with a light quarterly touchpoint — one bloodwork panel every 90 days, a 30-minute review call, and protocol updates if anything drifts. This is the graduate path. Most clients who complete the program with strong results choose this.</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num" style="background:var(--teal);border-color:var(--teal);color:#fff">B</div>
+      <div class="flow-step-inner">
+        <div class="flow-sub">If 1–2 markers need more work</div>
+        <div class="flow-title">Targeted second cycle</div>
+        <div class="flow-body">Some markers — particularly ApoB, Lp(a), or hormonal markers — need more than 90 days of intervention. A second 90-day cycle targets these specifically with an adjusted protocol. The price is lower than the first cycle because the baseline is already established and the protocol is less complex to build.</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num" style="background:var(--gold);border-color:var(--gold);color:#fff">C</div>
+      <div class="flow-step-inner">
+        <div class="flow-sub">If you want deeper coverage</div>
+        <div class="flow-title">Upgrade to Continuum</div>
+        <div class="flow-body">Clients who complete the Foundations or Performance program and want continuous tracking — bi-monthly bloodwork, weekly check-ins, three physician consultations — can upgrade to the Continuum tier. This is for executives and athletes who want the program as a permanent part of how they manage their health.</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">D</div>
+      <div class="flow-step-inner">
+        <div class="flow-sub">If you're satisfied with your results</div>
+        <div class="flow-title">Graduate and go independently</div>
+        <div class="flow-body">You keep the protocol document, the outcome report, and the understanding of how to read your own blood. You can order your own annual or bi-annual panels and track your biological age independently using the same PhenoAge formula. We'll tell you exactly how. If you want to come back in a year, the door is open.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout good">
+    <span class="cl">No pressure, ever</span>
+    <p>We don't upsell at the review call. We present your options and the reasoning for each. The decision is yours, made with full information about what your data says. We'd rather have you graduate satisfied than continue a program you don't need.</p>
+  </div>
+
+  <h3 class="sh">Ready to start?</h3>
+  <p class="p">Book a free 30-minute consultation. No commitment required. We'll walk through your current health picture, tell you what your panel would likely reveal, and let you decide from there.</p>
+  <div style="margin-top:24px">
+    <a href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer"
+       style="display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:#fff;padding:14px 28px;text-decoration:none;font-family:var(--sans);font-size:14px;font-weight:500;transition:background 0.2s"
+       onmouseover="this.style.background='var(--accent)'" onmouseout="this.style.background='var(--ink)'">
+      Book a free consultation
+      <span style="font-size:12px">→</span>
+    </a>
+  </div>
+</section>
+
+</main>
+</div>
+
+<script>
+  // Mobile sidebar toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const sidebar = document.getElementById('sidebar');
+  menuBtn.addEventListener('click', () => sidebar.classList.toggle('open'));
+  document.addEventListener('click', e => {
+    if (!sidebar.contains(e.target) && e.target !== menuBtn) sidebar.classList.remove('open');
+  });
+
+  // Active sidebar link on scroll
+  const chapters = document.querySelectorAll('[id]');
+  const sbLinks = document.querySelectorAll('.sb-item');
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        sbLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.sb-item[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+
+  chapters.forEach(c => io.observe(c));
+</script>
+
+</body>
+</html>
