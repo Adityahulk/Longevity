@@ -29,6 +29,11 @@
       "source": "/index_1.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/research.html",
+      "destination": "/research",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -79,6 +84,14 @@
     {
       "source": "/journey/",
       "destination": "/journey.html"
+    },
+    {
+      "source": "/research",
+      "destination": "/research.html"
+    },
+    {
+      "source": "/research/",
+      "destination": "/research.html"
     }
   ]
 }
