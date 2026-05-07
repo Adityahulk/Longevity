@@ -1182,6 +1182,70 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0s !important; transition: none !important; }
 }
+
+/* ─────────── SCIENCE TEASER ─────────── */
+.science-strip {
+  padding: 90px 0;
+  background: var(--paper);
+  border-top: 1px solid var(--rule-soft);
+  border-bottom: 1px solid var(--rule-soft);
+}
+.science-strip-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  margin-top: 48px;
+}
+.science-strip-left p {
+  font-size: 16px;
+  color: var(--ink-mute);
+  line-height: 1.7;
+  margin-bottom: 28px;
+  max-width: 460px;
+}
+.science-bullets { display: flex; flex-direction: column; gap: 0; }
+.science-bullet {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 20px;
+  align-items: start;
+  padding: 18px 0;
+  border-bottom: 0.5px solid var(--rule-soft);
+}
+.science-bullet:first-child { border-top: 0.5px solid var(--rule-soft); }
+.science-bullet-num {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  padding-top: 2px;
+}
+.science-bullet-text {
+  font-size: 14px;
+  color: var(--ink-mute);
+  line-height: 1.6;
+}
+.science-bullet-text strong { color: var(--ink); font-weight: 500; }
+.science-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 4px;
+  transition: opacity 0.2s;
+  margin-top: 8px;
+}
+.science-cta:hover { opacity: 0.7; }
+@media (max-width: 900px) {
+  .science-strip-grid { grid-template-columns: 1fr; gap: 40px; }
+}
 </style>
 </head>
 <body>
@@ -1446,6 +1510,48 @@ footer {
 
         <div style="margin-top: 24px; padding-top: 20px; border-top: 0.5px solid var(--rule-soft); font-family: var(--serif); font-size: 14px; font-style: italic; color: var(--ink-mute); line-height: 1.55;">
           "I've spent more on supplements than this program cost — and learned more about my body in 90 days than in the previous 38 years. The numbers were the unlock. Once I could see them move, the protocol stopped feeling like a chore."
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SCIENCE TEASER ═══════ -->
+<section class="science-strip">
+  <div class="narrow">
+    <span class="section-num">03b — The science</span>
+    <h2 class="section-title">Built on a decade of <em>Nobel Prize-winning science.</em></h2>
+    <div class="science-strip-grid">
+      <div class="science-strip-left">
+        <p>
+          From Yamanaka's 2006 discovery that cells can be reprogrammed to a younger state, to the first FDA-accepted clinical trial targeting aging itself — the science of biological age reversal is the fastest-moving field in medicine. The question has shifted from "is this possible?" to "how do we deploy it?"
+        </p>
+        <p>
+          Tessera's protocol is built on the interventions that consistently move epigenetic clocks in peer-reviewed trials: structured training, metabolic nutrition, sleep optimization, and targeted supplementation. Same levers. Evidence-based doses.
+        </p>
+        <a href="/research" class="science-cta">
+          Read the full research
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+      <div class="science-bullets">
+        <div class="science-bullet">
+          <div class="science-bullet-num">2012</div>
+          <div class="science-bullet-text"><strong>Nobel Prize in Medicine</strong> — Yamanaka proves adult cells can be reprogrammed to a younger state using 4 transcription factors. Aging has an address.</div>
+        </div>
+        <div class="science-bullet">
+          <div class="science-bullet-num">−3.2y</div>
+          <div class="science-bullet-text"><strong>Biological age reversed in 8 weeks</strong> using diet, sleep, and exercise alone. No drugs. Fitzgerald et al. 2021, <em>Aging</em> journal.</div>
+        </div>
+        <div class="science-bullet">
+          <div class="science-bullet-num">$3B</div>
+          <div class="science-bullet-text"><strong>Altos Labs raised</strong> — backed by Jeff Bezos and Yuri Milner — to develop cellular reprogramming as a human therapy. The largest biotech launch in history.</div>
+        </div>
+        <div class="science-bullet">
+          <div class="science-bullet-num">12</div>
+          <div class="science-bullet-text"><strong>Hallmarks of aging</strong> identified by López-Otín et al. (<em>Cell</em>). Tessera's 4-lever protocol directly addresses 7 of the 12.</div>
         </div>
       </div>
     </div>

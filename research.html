@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Full Research Blueprint: Tabular Foundation Models as Surrogate Epigenetic Clocks</title>
+<title>Longevity Research — Tessera</title>
+<meta name="description" content="The science of biological age reversal — from Yamanaka's Nobel Prize-winning reprogramming factors to active clinical trials targeting aging itself.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -18,23 +19,28 @@
   --ink-fade:     #7A8497;
   --rule:         #C8BFA8;
   --rule-soft:    #DCD3BC;
-  --accent:       #B85426; /* burnt orange */
+  --accent:       #B85426;
+  --accent-warm:  #D17244;
+  --leaf:         #2F5D3C;
+  --gold:         #8B6914;
   --serif:        'Fraunces', Georgia, serif;
   --sans:         'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --mono:         'JetBrains Mono', ui-monospace, monospace;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   font-family: var(--sans);
   background: var(--cream);
   color: var(--ink);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
+
+/* ─── NAV ─── */
 .nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  position: sticky; top: 0; z-index: 100;
   background: rgba(245, 241, 232, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -43,158 +49,999 @@ body {
 }
 .nav-inner {
   max-width: 1200px; margin: 0 auto; padding: 0 32px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; justify-content: space-between; align-items: center;
 }
 .logo {
-  font-family: var(--serif);
-  font-size: 24px;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  font-family: var(--serif); font-size: 24px; font-weight: 500;
+  letter-spacing: -0.02em; color: var(--ink); text-decoration: none;
+  display: flex; align-items: center; gap: 10px;
 }
-.logo-mark {
-  width: 22px; height: 22px; position: relative;
-}
+.logo-mark { width: 22px; height: 22px; position: relative; }
 .logo-mark::before, .logo-mark::after {
-  content: ''; position: absolute; inset: 0; border: 1.5px solid var(--ink); border-radius: 50%;
+  content: ''; position: absolute; inset: 0;
+  border: 1.5px solid var(--ink); border-radius: 50%;
 }
-.logo-mark::after {
-  inset: 5px; background: var(--accent); border: none;
+.logo-mark::after { inset: 5px; background: var(--accent); border: none; }
+.nav-back {
+  font-family: var(--mono); font-size: 12px; color: var(--ink-mute);
+  text-decoration: none; letter-spacing: 0.05em;
+  display: flex; align-items: center; gap: 8px;
+  transition: color 0.2s;
 }
-.content {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 80px 32px;
-}
-h1 {
-  font-family: var(--serif);
-  font-size: 42px;
-  line-height: 1.2;
-  font-weight: 400;
-  margin-bottom: 40px;
-  color: var(--ink);
-}
-h2 {
-  font-family: var(--serif);
-  font-size: 28px;
-  font-weight: 400;
-  margin-top: 60px;
-  margin-bottom: 24px;
-  color: var(--ink);
+.nav-back:hover { color: var(--accent); }
+
+/* ─── LAYOUT ─── */
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+.wrap-narrow { max-width: 780px; margin: 0 auto; padding: 0 40px; }
+
+/* ─── PAGE HERO ─── */
+.page-hero {
+  padding: 90px 0 72px;
   border-bottom: 1px solid var(--rule-soft);
-  padding-bottom: 8px;
 }
-h3 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-top: 40px;
-  margin-bottom: 16px;
-  color: var(--ink-soft);
+.page-eyebrow {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--accent);
+  display: flex; align-items: center; gap: 14px; margin-bottom: 28px;
 }
-p {
-  margin-bottom: 24px;
-  color: var(--ink-soft);
-  font-size: 17px;
+.page-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--accent); }
+.page-hero h1 {
+  font-family: var(--serif); font-size: clamp(40px, 5.5vw, 68px);
+  font-weight: 400; line-height: 1.05; letter-spacing: -0.03em;
+  margin-bottom: 28px; color: var(--ink);
 }
-ul, ol {
-  margin-bottom: 24px;
-  padding-left: 24px;
-  color: var(--ink-soft);
+.page-hero h1 em { font-style: italic; color: var(--accent); font-weight: 300; }
+.page-hero-lede {
+  font-size: 18px; line-height: 1.65; color: var(--ink-mute);
+  max-width: 680px; margin-bottom: 36px;
 }
-li {
-  margin-bottom: 12px;
-  font-size: 17px;
+.hero-disclaimer {
+  font-family: var(--mono); font-size: 11px; color: var(--ink-fade);
+  letter-spacing: 0.04em; line-height: 1.7; max-width: 600px;
+  padding: 14px 18px; border-left: 2px solid var(--rule); background: var(--paper);
 }
-strong {
-  font-weight: 600;
-  color: var(--ink);
+
+/* ─── SECTION SHELL ─── */
+.rs { padding: 90px 0; }
+.rs.bg-paper { background: var(--paper); border-top: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); }
+.rs.bg-ink { background: var(--ink); color: var(--cream); }
+.rs-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 14px;
 }
-blockquote {
-  border-left: 4px solid var(--accent);
-  padding-left: 20px;
-  margin: 32px 0;
-  font-style: italic;
-  color: var(--ink-mute);
-  background: rgba(184, 84, 38, 0.05);
-  padding: 24px;
-  border-radius: 0 8px 8px 0;
+.rs.bg-ink .rs-label { color: var(--accent-warm); }
+.rs-title {
+  font-family: var(--serif); font-size: clamp(30px, 4vw, 46px);
+  font-weight: 400; line-height: 1.08; letter-spacing: -0.025em;
+  margin-bottom: 20px; color: var(--ink);
 }
-pre {
-  background: var(--ink);
-  color: var(--cream);
-  padding: 24px;
-  border-radius: 8px;
-  overflow-x: auto;
-  margin: 32px 0;
-  font-family: var(--mono);
-  font-size: 14px;
-  line-height: 1.5;
+.rs.bg-ink .rs-title { color: var(--cream); }
+.rs-title em { font-style: italic; color: var(--accent); font-weight: 300; }
+.rs.bg-ink .rs-title em { color: var(--accent-warm); }
+.rs-intro {
+  font-size: 17px; line-height: 1.7; color: var(--ink-mute); max-width: 700px; margin-bottom: 52px;
 }
-code {
-  font-family: var(--mono);
-  background: rgba(14, 27, 44, 0.05);
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-size: 0.9em;
-  color: var(--accent);
+.rs.bg-ink .rs-intro { color: rgba(245,241,232,0.65); }
+
+/* ─── HALLMARKS GRID ─── */
+.hallmarks-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: var(--rule-soft);
+  border: 1px solid var(--rule-soft); margin-top: 8px;
 }
-pre code {
-  background: transparent;
-  padding: 0;
-  color: inherit;
+.hallmark-item {
+  background: var(--cream); padding: 22px 20px;
+  display: flex; flex-direction: column; gap: 8px;
 }
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 32px 0;
-  font-size: 15px;
+.hallmark-item.new { background: rgba(184, 84, 38, 0.04); }
+.hallmark-num {
+  font-family: var(--mono); font-size: 10px; color: var(--accent);
+  letter-spacing: 0.1em;
 }
-th {
-  text-align: left;
-  padding: 12px 16px;
-  border-bottom: 2px solid var(--ink);
-  font-weight: 600;
-  color: var(--ink);
+.hallmark-name {
+  font-family: var(--serif); font-size: 16px; font-weight: 500;
+  color: var(--ink); line-height: 1.3;
 }
-td {
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--rule-soft);
-  color: var(--ink-soft);
+.hallmark-desc {
+  font-size: 12.5px; color: var(--ink-mute); line-height: 1.55;
 }
-tr:hover td {
-  background: rgba(14, 27, 44, 0.02);
+.hallmark-new-badge {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em;
+  color: var(--accent); border: 0.5px solid rgba(184,84,38,0.4);
+  padding: 2px 7px; border-radius: 99px; align-self: flex-start; margin-top: 2px;
 }
-hr {
-  border: none;
-  border-top: 1px solid var(--rule);
-  margin: 60px 0;
+.hallmarks-source {
+  margin-top: 20px; font-family: var(--mono); font-size: 11px;
+  color: var(--ink-fade); letter-spacing: 0.04em;
 }
-@media (max-width: 768px) {
-  h1 { font-size: 32px; }
-  h2 { font-size: 24px; }
-  .content { padding: 40px 24px; }
-  table { display: block; overflow-x: auto; }
+
+/* ─── RESEARCH BLOCKS ─── */
+.research-block {
+  border: 1px solid var(--rule); background: var(--cream); margin-bottom: 28px;
+}
+.rb-header {
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: start; gap: 40px;
+  padding: 30px 36px; border-bottom: 1px solid var(--rule-soft);
+  background: var(--paper);
+}
+.rb-tag {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent);
+  background: rgba(184,84,38,0.08); display: inline-block;
+  padding: 4px 10px; border-radius: 99px; margin-bottom: 10px; align-self: flex-start;
+}
+.rb-title {
+  font-family: var(--serif); font-size: 22px; font-weight: 500;
+  color: var(--ink); line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 8px;
+}
+.rb-cite {
+  font-family: var(--mono); font-size: 11px; color: var(--ink-fade); line-height: 1.8;
+}
+.rb-stat { text-align: right; flex-shrink: 0; }
+.rb-stat-num {
+  font-family: var(--serif); font-size: 44px; font-weight: 500;
+  color: var(--leaf); letter-spacing: -0.025em; line-height: 1;
+}
+.rb-stat-num.accent { color: var(--accent); }
+.rb-stat-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.07em;
+  text-transform: uppercase; color: var(--ink-fade); margin-top: 6px; line-height: 1.5;
+}
+.rb-body {
+  padding: 32px 36px; display: grid;
+  grid-template-columns: 1fr 1fr; gap: 32px;
+}
+.rb-col h4 {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--ink-fade); margin-bottom: 12px;
+}
+.rb-col p { font-size: 14.5px; line-height: 1.65; color: var(--ink-mute); margin-bottom: 0; }
+.rb-col ul { padding-left: 16px; }
+.rb-col li { font-size: 14px; line-height: 1.6; color: var(--ink-mute); margin-bottom: 8px; }
+.rb-col li strong { color: var(--ink); font-weight: 600; }
+.rb-footer {
+  padding: 18px 36px; border-top: 0.5px solid var(--rule-soft);
+  background: rgba(47,93,60,0.04);
+  display: flex; align-items: flex-start; gap: 12px;
+}
+.tessera-pill {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--leaf);
+  background: rgba(47,93,60,0.1); padding: 4px 9px;
+  border-radius: 99px; flex-shrink: 0; margin-top: 2px;
+}
+.rb-relevance { font-size: 13.5px; color: var(--ink-mute); line-height: 1.6; }
+.rb-relevance strong { color: var(--leaf); }
+
+/* ─── STAT CALLOUT ROW ─── */
+.stat-row {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0; border: 1px solid var(--rule-soft);
+  background: var(--rule-soft); margin-bottom: 48px;
+}
+.stat-cell {
+  background: var(--cream); padding: 28px 24px;
+  border-right: 0.5px solid var(--rule-soft);
+}
+.stat-cell:last-child { border-right: none; }
+.stat-cell-num {
+  font-family: var(--serif); font-size: 36px; font-weight: 500;
+  color: var(--ink); letter-spacing: -0.02em; line-height: 1; margin-bottom: 8px;
+}
+.stat-cell-num.green { color: var(--leaf); }
+.stat-cell-num.orange { color: var(--accent); }
+.stat-cell-label { font-size: 12.5px; color: var(--ink-mute); line-height: 1.5; }
+
+/* ─── TIMELINE (Reprogramming history) ─── */
+.timeline-list { list-style: none; padding: 0; position: relative; }
+.timeline-list::before {
+  content: ''; position: absolute; left: 56px; top: 12px; bottom: 12px;
+  width: 1px; background: linear-gradient(to bottom, var(--accent), var(--rule-soft));
+}
+.tl-item {
+  display: grid; grid-template-columns: 72px 1fr;
+  gap: 28px; margin-bottom: 36px; align-items: start; position: relative;
+}
+.tl-year {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  color: var(--accent); text-align: right; padding-top: 3px;
+  position: relative; z-index: 2;
+  background: var(--cream); /* masks the timeline line */
+}
+.rs.bg-ink .tl-year { background: var(--ink); color: var(--accent-warm); }
+.tl-content {}
+.tl-event {
+  font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 5px; line-height: 1.3;
+}
+.rs.bg-ink .tl-event { color: var(--cream); }
+.tl-detail { font-size: 14px; color: var(--ink-mute); line-height: 1.6; }
+.rs.bg-ink .tl-detail { color: rgba(245,241,232,0.55); }
+.tl-badge {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 3px 8px; border-radius: 99px;
+  display: inline-block; margin-top: 6px;
+}
+.tl-badge.highlight {
+  background: rgba(184,84,38,0.12); color: var(--accent);
+  border: 0.5px solid rgba(184,84,38,0.3);
+}
+.tl-badge.green {
+  background: rgba(47,93,60,0.1); color: var(--leaf);
+  border: 0.5px solid rgba(47,93,60,0.3);
+}
+
+/* ─── PULLQUOTE ─── */
+.pullquote {
+  border-left: 3px solid var(--accent); padding: 22px 28px;
+  background: rgba(184,84,38,0.05); margin: 36px 0; border-radius: 0 6px 6px 0;
+}
+.pullquote p {
+  font-family: var(--serif); font-size: 19px; font-style: italic;
+  color: var(--ink-soft); line-height: 1.55; margin-bottom: 10px;
+}
+.rs.bg-ink .pullquote { background: rgba(245,241,232,0.05); border-color: var(--accent-warm); }
+.rs.bg-ink .pullquote p { color: rgba(245,241,232,0.8); }
+.pullquote-source { font-family: var(--mono); font-size: 11px; color: var(--ink-fade); letter-spacing: 0.06em; }
+.rs.bg-ink .pullquote-source { color: rgba(245,241,232,0.4); }
+
+/* ─── TRIALS TABLE ─── */
+.trials-table {
+  width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 8px;
+}
+.trials-table th {
+  text-align: left; padding: 11px 16px;
+  border-bottom: 1.5px solid var(--ink);
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--ink-fade); font-weight: 500;
+}
+.trials-table td {
+  padding: 14px 16px; border-bottom: 1px solid var(--rule-soft);
+  color: var(--ink-soft); vertical-align: top; line-height: 1.5;
+}
+.trials-table tr:hover td { background: rgba(14,27,44,0.02); }
+.trial-name { font-weight: 600; color: var(--ink); display: block; margin-bottom: 2px; }
+.trial-org { font-family: var(--mono); font-size: 11px; color: var(--ink-fade); }
+.status-badge {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 4px 9px; border-radius: 99px;
+  white-space: nowrap; display: inline-block;
+}
+.status-active { background: rgba(47,93,60,0.1); color: var(--leaf); border: 0.5px solid rgba(47,93,60,0.3); }
+.status-ongoing { background: rgba(139,105,20,0.1); color: var(--gold); border: 0.5px solid rgba(139,105,20,0.3); }
+.status-phase2 { background: rgba(184,84,38,0.08); color: var(--accent); border: 0.5px solid rgba(184,84,38,0.3); }
+.status-complete { background: rgba(14,27,44,0.06); color: var(--ink-mute); border: 0.5px solid var(--rule); }
+
+/* ─── COMPANY GRID ─── */
+.company-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--rule-soft);
+  border: 1px solid var(--rule-soft); margin-top: 8px;
+}
+.company-card { background: var(--paper); padding: 28px 26px; }
+.company-card:hover { background: var(--cream); transition: background 0.25s; }
+.company-name {
+  font-family: var(--serif); font-size: 19px; font-weight: 500;
+  color: var(--ink); margin-bottom: 6px;
+}
+.company-funding {
+  font-family: var(--mono); font-size: 11px; color: var(--accent);
+  letter-spacing: 0.06em; margin-bottom: 10px;
+}
+.company-focus { font-size: 13.5px; color: var(--ink-mute); line-height: 1.6; }
+.company-backers {
+  margin-top: 10px; font-family: var(--mono); font-size: 10.5px;
+  color: var(--ink-fade); letter-spacing: 0.04em;
+}
+
+/* ─── OUR RESEARCH DIVIDER ─── */
+.our-research-divider {
+  padding: 80px 0 0;
+}
+.our-research-header {
+  display: flex; align-items: center; gap: 20px; margin-bottom: 20px;
+}
+.our-research-header::after { content: ''; flex: 1; height: 1px; background: var(--rule-soft); }
+.our-research-pill {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--accent);
+  background: rgba(184,84,38,0.08); padding: 7px 16px;
+  border-radius: 99px; border: 0.5px solid rgba(184,84,38,0.25);
+  white-space: nowrap;
+}
+.our-research-sub {
+  font-size: 15px; color: var(--ink-mute); line-height: 1.65; max-width: 640px;
+  margin-bottom: 48px;
+}
+
+/* ─── BLUEPRINT STYLES (existing research doc) ─── */
+.blueprint {
+  padding: 0 0 100px;
+}
+.blueprint h1 {
+  font-family: var(--serif); font-size: 36px; line-height: 1.2;
+  font-weight: 400; margin-bottom: 40px; color: var(--ink);
+}
+.blueprint h2 {
+  font-family: var(--serif); font-size: 26px; font-weight: 400;
+  margin-top: 60px; margin-bottom: 20px; color: var(--ink);
+  border-bottom: 1px solid var(--rule-soft); padding-bottom: 8px;
+}
+.blueprint h3 { font-size: 18px; font-weight: 600; margin-top: 36px; margin-bottom: 14px; color: var(--ink-soft); }
+.blueprint p { margin-bottom: 20px; color: var(--ink-soft); font-size: 16px; line-height: 1.7; }
+.blueprint ul, .blueprint ol { margin-bottom: 20px; padding-left: 22px; color: var(--ink-soft); }
+.blueprint li { margin-bottom: 10px; font-size: 16px; line-height: 1.6; }
+.blueprint strong { font-weight: 600; color: var(--ink); }
+.blueprint blockquote {
+  border-left: 3px solid var(--accent); padding: 20px 24px;
+  margin: 28px 0; font-style: italic; color: var(--ink-mute);
+  background: rgba(184,84,38,0.04); border-radius: 0 6px 6px 0;
+}
+.blueprint pre {
+  background: var(--ink); color: var(--cream); padding: 22px;
+  border-radius: 6px; overflow-x: auto; margin: 28px 0;
+  font-family: var(--mono); font-size: 13px; line-height: 1.5;
+}
+.blueprint code {
+  font-family: var(--mono); background: rgba(14,27,44,0.06);
+  padding: 2px 6px; border-radius: 3px; font-size: 0.875em; color: var(--accent);
+}
+.blueprint pre code { background: transparent; padding: 0; color: inherit; }
+.blueprint table { width: 100%; border-collapse: collapse; margin: 28px 0; font-size: 14px; }
+.blueprint th {
+  text-align: left; padding: 11px 14px; border-bottom: 2px solid var(--ink);
+  font-weight: 600; color: var(--ink); font-size: 12px;
+}
+.blueprint td {
+  padding: 11px 14px; border-bottom: 1px solid var(--rule-soft); color: var(--ink-soft);
+}
+.blueprint tr:hover td { background: rgba(14,27,44,0.02); }
+.blueprint hr { border: none; border-top: 1px solid var(--rule); margin: 56px 0; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .wrap, .wrap-narrow { padding: 0 24px; }
+  .hallmarks-grid { grid-template-columns: repeat(2, 1fr); }
+  .rb-header { grid-template-columns: 1fr; }
+  .rb-stat { text-align: left; }
+  .rb-stat-num { font-size: 36px; }
+  .rb-body { grid-template-columns: 1fr; gap: 24px; }
+  .rb-body, .rb-footer { padding: 24px; }
+  .rb-header { padding: 24px; }
+  .stat-row { grid-template-columns: 1fr 1fr; }
+  .stat-cell { border-right: none; border-bottom: 0.5px solid var(--rule-soft); }
+  .company-grid { grid-template-columns: 1fr 1fr; }
+  .page-hero { padding: 60px 0 48px; }
+  .rs { padding: 64px 0; }
+  .tl-item { grid-template-columns: 56px 1fr; gap: 18px; }
+  .timeline-list::before { left: 44px; }
+}
+@media (max-width: 600px) {
+  .hallmarks-grid { grid-template-columns: 1fr; }
+  .company-grid { grid-template-columns: 1fr; }
+  .stat-row { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
 
+<!-- ═══ NAV ═══ -->
 <nav class="nav">
   <div class="nav-inner">
     <a href="/" class="logo">
       <span class="logo-mark"></span>
       Tessera
     </a>
+    <a href="/" class="nav-back">← Back to main site</a>
   </div>
 </nav>
 
-<div class="content">
+
+<!-- ═══ PAGE HERO ═══ -->
+<section class="page-hero">
+  <div class="wrap-narrow">
+    <div class="page-eyebrow">Longevity Science</div>
+    <h1>What the science actually says<br>about <em>reversing biological age.</em></h1>
+    <p class="page-hero-lede">
+      A decade ago, "anti-aging" was the domain of supplement marketing and wishful thinking. Today it's Nobel Prize-winning biology, $3 billion venture rounds, and the first FDA-accepted clinical trial targeting aging as a disease. This is what the research actually shows — and what it doesn't.
+    </p>
+    <div class="hero-disclaimer">
+      DISCLAIMER — This page summarizes published peer-reviewed research. Tessera does not administer drugs or hormones. Our protocols are lifestyle-based: nutrition, training, recovery, and evidence-based supplements. Some research below involves pharmaceutical interventions not used in our program.
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ THE FRAMEWORK: 12 HALLMARKS ═══ -->
+<section class="rs bg-paper" id="hallmarks">
+  <div class="wrap">
+    <span class="rs-label">01 — The framework</span>
+    <h2 class="rs-title">The 12 Hallmarks of Aging</h2>
+    <p class="rs-intro">
+      In 2013, López-Otín et al. published a landmark paper in <em>Cell</em> establishing 9 distinct biological mechanisms that drive aging. A decade of evidence led to a 2023 update — adding 3 more hallmarks and cementing this as the field's operating framework. Every serious longevity intervention targets one or more of these. Tessera's 4-lever protocol addresses 7 of the 12.
+    </p>
+
+    <div class="hallmarks-grid">
+      <div class="hallmark-item">
+        <div class="hallmark-num">01</div>
+        <div class="hallmark-name">Genomic Instability</div>
+        <div class="hallmark-desc">DNA damage accumulates over time from oxidative stress, replication errors, and radiation. Repair mechanisms become less efficient.</div>
+      </div>
+      <div class="hallmark-item">
+        <div class="hallmark-num">02</div>
+        <div class="hallmark-name">Telomere Attrition</div>
+        <div class="hallmark-desc">Protective caps on chromosome ends shorten with each cell division. Short telomeres trigger cell senescence or death.</div>
+      </div>
+      <div class="hallmark-item">
+        <div class="hallmark-num">03</div>
+        <div class="hallmark-name">Epigenetic Alterations</div>
+        <div class="hallmark-desc">DNA methylation patterns, histone modifications, and chromatin structure drift away from their youthful configuration — measurable via epigenetic clocks.</div>
+      </div>
+      <div class="hallmark-item">
+        <div class="hallmark-num">04</div>
+        <div class="hallmark-name">Loss of Proteostasis</div>
+        <div class="hallmark-desc">Protein folding quality control degrades. Damaged proteins accumulate. Autophagy (cellular housekeeping) becomes less efficient.</div>
+      </div>
+      <div class="hallmark-item">
+        <div class="hallmark-num">05</div>
+        <div class="hallmark-name">Deregulated Nutrient Sensing</div>
+        <div class="hallmark-desc">mTOR, AMPK, sirtuins, and insulin/IGF-1 signaling pathways lose calibration. Cells grow when they should repair — and vice versa.</div>
+      </div>
+      <div class="hallmark-item">
+        <div class="hallmark-num">06</div>
+        <div class="hallmark-name">Mitochondrial Dysfunction</div>
+        <div class="hallmark-desc">Mitochondria produce more reactive oxygen species and less ATP. Energy availability declines. Cell signaling degrades.</div>
+      </div>
+      <div class="hallmark-item">
+        <div class="hallmark-num">07</div>
+        <div class="hallmark-name">Cellular Senescence</div>
+        <div class="hallmark-desc">Damaged cells stop dividing but refuse to die. They secrete a cocktail of inflammatory signals (SASP) that poison neighbouring tissue.</div>
+      </div>
+      <div class="hallmark-item">
+        <div class="hallmark-num">08</div>
+        <div class="hallmark-name">Stem Cell Exhaustion</div>
+        <div class="hallmark-desc">Tissue-specific stem cells decline in number and function. Regenerative capacity falls across most organs and tissues.</div>
+      </div>
+      <div class="hallmark-item">
+        <div class="hallmark-num">09</div>
+        <div class="hallmark-name">Altered Intercellular Communication</div>
+        <div class="hallmark-desc">Hormones, cytokines, and exosomes that coordinate tissue function become dysregulated. Chronic low-grade inflammation (inflammaging) takes hold.</div>
+      </div>
+      <div class="hallmark-item new">
+        <div class="hallmark-num">10</div>
+        <div class="hallmark-name">Disabled Macroautophagy</div>
+        <div class="hallmark-desc">The cell's recycling system — responsible for clearing damaged organelles and misfolded proteins — becomes progressively impaired.</div>
+        <span class="hallmark-new-badge">Added 2023</span>
+      </div>
+      <div class="hallmark-item new">
+        <div class="hallmark-num">11</div>
+        <div class="hallmark-name">Chronic Inflammation</div>
+        <div class="hallmark-desc">Low-grade sterile inflammation (inflammaging) persists systemically — driving cardiovascular disease, neurodegeneration, and metabolic dysfunction.</div>
+        <span class="hallmark-new-badge">Added 2023</span>
+      </div>
+      <div class="hallmark-item new">
+        <div class="hallmark-num">12</div>
+        <div class="hallmark-name">Dysbiosis</div>
+        <div class="hallmark-desc">The gut microbiome shifts toward a pro-inflammatory composition with age — contributing to immune dysregulation and systemic inflammation.</div>
+        <span class="hallmark-new-badge">Added 2023</span>
+      </div>
+    </div>
+    <p class="hallmarks-source">Source: López-Otín et al., <em>Cell</em> 2013 (9 hallmarks); López-Otín et al., <em>Cell</em> 2023 (updated to 12 hallmarks)</p>
+  </div>
+</section>
+
+
+<!-- ═══ YAMANAKA FACTORS / REPROGRAMMING ═══ -->
+<section class="rs bg-ink" id="reprogramming">
+  <div class="wrap">
+    <span class="rs-label">02 — Cellular reprogramming</span>
+    <h2 class="rs-title">Yamanaka Factors and the<br><em>age reversal breakthrough</em></h2>
+    <p class="rs-intro">
+      In 2006, Shinya Yamanaka discovered that four transcription factors — Oct4, Sox2, Klf4, and c-Myc (OSKM) — could reprogram any adult cell back to a pluripotent stem cell state. The implication: the genome retains a full "memory" of youth. Aging isn't a one-way ratchet. In 2012, Yamanaka received the Nobel Prize in Medicine. Since then, the question has shifted from "can we reprogram cells?" to "can we do it safely, partially, in living organisms?"
+    </p>
+
+    <ul class="timeline-list">
+      <li class="tl-item">
+        <div class="tl-year">2006</div>
+        <div class="tl-content">
+          <div class="tl-event">Yamanaka discovers OSKM factors</div>
+          <div class="tl-detail">Published in <em>Cell</em>. Four transcription factors convert adult mouse fibroblasts into induced pluripotent stem cells (iPSCs). The entire scientific world stops to take notice.</div>
+          <span class="tl-badge highlight">Nobel Prize 2012</span>
+        </div>
+      </li>
+      <li class="tl-item">
+        <div class="tl-year">2013</div>
+        <div class="tl-content">
+          <div class="tl-event">The problem: full reprogramming causes cancer</div>
+          <div class="tl-detail">Complete OSKM expression causes cells to lose their identity and form teratomas (tumors). The dream of whole-body reprogramming hits a hard wall. Researchers pivot to "partial" reprogramming — brief, cyclic expression that reverses aging marks without erasing cell identity.</div>
+        </div>
+      </li>
+      <li class="tl-item">
+        <div class="tl-year">2016</div>
+        <div class="tl-content">
+          <div class="tl-event">Ocampo et al. — partial reprogramming extends lifespan in mice</div>
+          <div class="tl-detail">Salk Institute, published in <em>Cell</em>. Cyclic OSKM expression in progeria mice (a rapid-aging model) extended their lifespan by 30% and reversed signs of aging in multiple tissues — without causing tumors. Proof that partial reprogramming works in vivo.</div>
+          <span class="tl-badge highlight">First in vivo success</span>
+        </div>
+      </li>
+      <li class="tl-item">
+        <div class="tl-year">2020</div>
+        <div class="tl-content">
+          <div class="tl-event">Lu et al. — vision restored in old mice via OSK reprogramming</div>
+          <div class="tl-detail">Sinclair Lab, Harvard. Published in <em>Nature</em>. Delivery of OSK factors (c-Myc dropped — too risky) to aging retinal ganglion cells reversed their epigenetic age and restored visual function in old and injured mice. The cells "remembered" their youthful state. One of the most striking demonstrations of biological age reversal in a complex tissue.</div>
+          <span class="tl-badge green">Nature · 2020</span>
+        </div>
+      </li>
+      <li class="tl-item">
+        <div class="tl-year">2022</div>
+        <div class="tl-content">
+          <div class="tl-event">Altos Labs founded — $3 billion raised</div>
+          <div class="tl-detail">Jeff Bezos and Yuri Milner back the largest biotech launch in history. Mission: cellular rejuvenation programming. Scientists include Shinya Yamanaka (board), Juan Carlos Izpisua Belmonte, and Deepak Srivastava. Also: Retro Biosciences ($180M, Sam Altman) and NewLimit ($130M) enter the space.</div>
+          <span class="tl-badge highlight">$3B raised · Bezos backed</span>
+        </div>
+      </li>
+      <li class="tl-item">
+        <div class="tl-year">2023</div>
+        <div class="tl-content">
+          <div class="tl-event">Multiple labs demonstrate multi-tissue partial reprogramming</div>
+          <div class="tl-detail">Studies show partial reprogramming rejuvenates liver, muscle, skin, and brain cells in old mice. The field moves from proof-of-concept to mechanistic understanding. First human safety studies begin planning. Regulatory path remains undefined.</div>
+          <span class="tl-badge green">Ongoing</span>
+        </div>
+      </li>
+    </ul>
+
+    <div class="pullquote" style="margin-top: 48px;">
+      <p>"We can reset the age of a cell, and it remembers its youthful state. Aging has an address — and we've found it."</p>
+      <div class="pullquote-source">David Sinclair, Harvard Medical School — paraphrased from multiple interviews, 2020–2023</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ SINCLAIR / INFORMATION THEORY ═══ -->
+<section class="rs" id="sinclair">
+  <div class="wrap">
+    <span class="rs-label">03 — David Sinclair & the information theory</span>
+    <h2 class="rs-title">Aging as <em>information loss</em> — and how to get it back</h2>
+    <p class="rs-intro">
+      Professor David Sinclair (Harvard Medical School, Paul F. Glenn Center for Biology of Aging Research) has built the most coherent single theory of aging currently in science. His 2019 book <em>Lifespan</em> brought these ideas to a mainstream audience. The core claim: aging is not wear-and-tear or mutation accumulation — it's the progressive loss of the epigenetic information that tells cells who they are and how to behave.
+    </p>
+
+    <div class="research-block" style="margin-bottom: 36px;">
+      <div class="rb-header">
+        <div>
+          <div class="rb-tag">The Core Theory · Published 2019–2023</div>
+          <div class="rb-title">The Information Theory of Aging</div>
+          <div class="rb-cite">Sinclair & LaPlante, Lifespan (2019) · Multiple Cell / Nature publications</div>
+        </div>
+        <div class="rb-stat">
+          <div class="rb-stat-num accent">DNA</div>
+          <div class="rb-stat-label">is the CD.<br>Epigenome is the music.</div>
+        </div>
+      </div>
+      <div class="rb-body">
+        <div class="rb-col">
+          <h4>The hypothesis</h4>
+          <p>The genome is like a compact disc — it contains all the information needed for life. The epigenome is like the music encoded on it. With age, the disc gets scratched. The information is still there, but it can't be read correctly. Cells forget who they're supposed to be. Sinclair argues this is the primary cause of aging — not genetic mutation.</p>
+        </div>
+        <div class="rb-col">
+          <h4>The supporting evidence</h4>
+          <ul>
+            <li><strong>Reprogramming works</strong> — cells can be reset to a younger epigenetic state, proving the original information is preserved</li>
+            <li><strong>Sirtuins as guardians</strong> — these NAD+-dependent enzymes maintain epigenetic fidelity. When they're busy repairing DNA damage, they neglect epigenetic maintenance</li>
+            <li><strong>NAD+ decline</strong> — NAD+ drops ~50% between 20 and 60, reducing sirtuin activity and accelerating epigenetic drift</li>
+            <li><strong>Stress accelerates clocks</strong> — epigenetic clocks run faster under chronic stress, poor sleep, and sedentary lifestyle — consistent with the theory</li>
+          </ul>
+        </div>
+      </div>
+      <div class="rb-footer">
+        <span class="tessera-pill">Tessera link</span>
+        <div class="rb-relevance">Tessera's protocol directly targets NAD+ restoration via exercise and metabolic optimization — the same pathway Sinclair's work identifies as central to epigenetic maintenance. <strong>Our bloodwork panel tracks the downstream markers of sirtuin activity and metabolic health.</strong></div>
+      </div>
+    </div>
+
+    <div class="research-block">
+      <div class="rb-header">
+        <div>
+          <div class="rb-tag">NAD+ & Sirtuins · Clinical Research 2019–2023</div>
+          <div class="rb-title">NMN, NR, and the NAD+ restoration debate</div>
+          <div class="rb-cite">Yoshino et al. 2021 (Science) · Liao et al. 2021 · Dollerup et al. 2020</div>
+        </div>
+        <div class="rb-stat">
+          <div class="rb-stat-num green">~50%</div>
+          <div class="rb-stat-label">NAD+ decline<br>ages 20 → 60</div>
+        </div>
+      </div>
+      <div class="rb-body">
+        <div class="rb-col">
+          <h4>What the trials show</h4>
+          <ul>
+            <li><strong>Yoshino et al. 2021 (Science)</strong> — NMN supplementation improved muscle insulin sensitivity and gene expression in postmenopausal women with prediabetes. Double-blind, placebo-controlled.</li>
+            <li><strong>Liao et al. 2021</strong> — NMN safe and well-tolerated in older adults over 60 days at up to 900mg/day. Raised blood NAD+ levels.</li>
+            <li><strong>Dollerup et al. 2020</strong> — NR raised blood NAD+ but showed no significant metabolic benefit at 12 weeks. Stirred debate about bioavailability and what raising blood NAD+ actually means.</li>
+          </ul>
+        </div>
+        <div class="rb-col">
+          <h4>Honest assessment</h4>
+          <p>The NAD+ space is contested. Blood NAD+ can be raised — the question is whether this translates to meaningful intracellular effects in aged tissues. Phase II trials are ongoing. Exercise remains the most robustly proven method of raising NAD+ and activating sirtuins — which is why it's the backbone of every serious longevity protocol, including Tessera's.</p>
+          <p style="margin-top: 16px; font-size: 13.5px; color: var(--ink-fade); font-style: italic;">Sinclair's self-experiments (1g NMN daily) are widely publicized but are n=1 anecdotes, not clinical data. He acknowledges this.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ SENOLYTICS ═══ -->
+<section class="rs bg-paper" id="senolytics">
+  <div class="wrap">
+    <span class="rs-label">04 — Senolytics</span>
+    <h2 class="rs-title">Clearing the cells that shouldn't still be there</h2>
+    <p class="rs-intro">
+      Cellular senescence is one of the most actionable hallmarks of aging. Senescent cells stop dividing after DNA damage, telomere shortening, or oncogene activation — a short-term safety mechanism that prevents cancer. But over time, the immune system fails to clear them efficiently, and they accumulate throughout the body, releasing a toxic cocktail of inflammatory signals (SASP: Senescence-Associated Secretory Phenotype). Senolytics are drugs that selectively kill these cells.
+    </p>
+
+    <div class="stat-row">
+      <div class="stat-cell">
+        <div class="stat-cell-num green">SASP</div>
+        <div class="stat-cell-label">IL-6, IL-8, MMP3, PAI-1 — the inflammatory molecules senescent cells secrete, damaging neighbouring tissue</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-cell-num orange">D + Q</div>
+        <div class="stat-cell-label">Dasatinib + Quercetin — the leading senolytic combination. Dasatinib is a cancer drug; quercetin is a plant flavonoid.</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-cell-num">2019</div>
+        <div class="stat-cell-label">First human senolytic trial published (Kirkland, Mayo Clinic) — 11 patients, IPF. Reduced senescent cell markers.</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-cell-num">2023</div>
+        <div class="stat-cell-label">D+Q shown to reduce senescent cell burden in diabetic kidney disease. Improvement in physical function.</div>
+      </div>
+    </div>
+
+    <div class="research-block">
+      <div class="rb-header">
+        <div>
+          <div class="rb-tag">Mayo Clinic · 2019–2023</div>
+          <div class="rb-title">Kirkland Lab: Dasatinib + Quercetin in humans</div>
+          <div class="rb-cite">Kirkland & Tchkonia, <em>Cell Metabolism</em> 2020 · Quercetin + Dasatinib human trials, EBioMedicine 2019, Aging Cell 2023</div>
+        </div>
+        <div class="rb-stat">
+          <div class="rb-stat-num green">Phase II</div>
+          <div class="rb-stat-label">Multiple active human trials across conditions</div>
+        </div>
+      </div>
+      <div class="rb-body">
+        <div class="rb-col">
+          <h4>What the research shows</h4>
+          <ul>
+            <li>Intermittent D+Q dosing (3 days on, 2 weeks off) selectively eliminates senescent cells in human tissue</li>
+            <li>2019 IPF trial: reduced senescent cell markers (p16, p21), improved 6-minute walk distance</li>
+            <li>2023 DKD trial: reduced senescent cell burden in kidneys, improved eGFR in some patients</li>
+            <li>Frailty trials ongoing at multiple Mayo sites</li>
+          </ul>
+        </div>
+        <div class="rb-col">
+          <h4>Current limitations</h4>
+          <ul>
+            <li>Small trials — most n &lt; 50. Effect sizes need replication at scale.</li>
+            <li>SASP creates feedback loops — clearing too aggressively may trigger immune response</li>
+            <li>Dasatinib is not a benign drug — side effects include pleural effusion at therapeutic doses</li>
+            <li>No FDA-approved senolytic therapy exists yet. Unity Biotechnology's UBX0101 failed Phase II for knee osteoarthritis (2020)</li>
+            <li>Quercetin alone has poor bioavailability — the D+Q combination appears synergistic</li>
+          </ul>
+        </div>
+      </div>
+      <div class="rb-footer">
+        <span class="tessera-pill">Tessera link</span>
+        <div class="rb-relevance">Tessera tracks <strong>hsCRP, IL-6, and homocysteine</strong> — downstream markers of SASP-driven inflammation. Exercise is the most accessible senolytic-adjacent intervention: it stimulates immune clearance of senescent cells and reduces SASP systemically. We optimize for this.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ RAPAMYCIN / mTOR ═══ -->
+<section class="rs" id="rapamycin">
+  <div class="wrap">
+    <span class="rs-label">05 — mTOR & Rapamycin</span>
+    <h2 class="rs-title">The most robust longevity drug<br>in <em>animal models</em></h2>
+    <p class="rs-intro">
+      mTOR (mechanistic Target of Rapamycin) is the master regulator of cellular growth, protein synthesis, and autophagy. When it's chronically active, cells prioritize growth over repair — accumulating damage faster. Caloric restriction works partly by reducing mTOR. Rapamycin, a drug originally developed as an immunosuppressant, is its most potent inhibitor — and has the most replicated lifespan-extension data of any drug in mammalian models.
+    </p>
+
+    <div class="research-block" style="margin-bottom: 28px;">
+      <div class="rb-header">
+        <div>
+          <div class="rb-tag">NIA Interventions Testing Program · 2009 — ongoing</div>
+          <div class="rb-title">Rapamycin: the only drug to repeatedly extend lifespan across independent labs</div>
+          <div class="rb-cite">Harrison et al., <em>Nature</em> 2009 · Multiple ITP replication papers · Miller et al., <em>Aging Cell</em></div>
+        </div>
+        <div class="rb-stat">
+          <div class="rb-stat-num green">+13%</div>
+          <div class="rb-stat-label">median lifespan extension in mice — even when started at 20 months (equivalent to ~60 human years)</div>
+        </div>
+      </div>
+      <div class="rb-body">
+        <div class="rb-col">
+          <h4>What makes this remarkable</h4>
+          <ul>
+            <li><strong>Late intervention still works</strong> — Harrison 2009: rapamycin fed to mice at 20 months (equivalent to starting a human at ~60) still extended lifespan 9–14%. Most drugs only work if given from youth.</li>
+            <li><strong>Three independent labs</strong> — the ITP requires replication at Michigan, Maine, and Texas. Rapamycin passed. Only a handful of interventions have.</li>
+            <li><strong>Immune rejuvenation in humans</strong> — Mannick et al. 2014 (<em>Science TM</em>): low-dose rapamycin improved vaccine response and immune function in elderly humans. Reversal of immunosenescence.</li>
+          </ul>
+        </div>
+        <div class="rb-col">
+          <h4>The open questions</h4>
+          <ul>
+            <li><strong>Dosing problem</strong> — chronic high-dose rapamycin (transplant doses) impairs insulin signaling and wound healing. Intermittent dosing (1–3x/week) appears to preserve benefits while reducing side effects.</li>
+            <li><strong>Dog Aging Project</strong> — Matt Kaeberlein's rapamycin trials in middle-aged pet dogs show improved cardiac function and apparent slowing of biological aging. Largest dog longevity trial ever run.</li>
+            <li><strong>TRIAD Trial</strong> — Phase II/III human trial of rapamycin for aging. Enrolling 2024–2025. First proper human longevity data coming.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-block">
+      <div class="rb-header">
+        <div>
+          <div class="rb-tag">Albert Einstein College of Medicine · TAME Trial</div>
+          <div class="rb-title">Metformin: the first FDA-accepted trial targeting aging as a disease</div>
+          <div class="rb-cite">Barzilai et al., Cell Metabolism 2016 · TAME Trial design, 2020 · Enrolling 2023–2024</div>
+        </div>
+        <div class="rb-stat">
+          <div class="rb-stat-num">3,000</div>
+          <div class="rb-stat-label">participants · 14 clinical sites · 6-year follow-up · $75M trial</div>
+        </div>
+      </div>
+      <div class="rb-body">
+        <div class="rb-col">
+          <h4>Why TAME matters</h4>
+          <p>TAME (Targeting Aging with Metformin) is historic not because metformin is the most powerful longevity drug — it probably isn't — but because the FDA accepted "aging" as a therapeutic target for the first time. If TAME produces positive data, it opens a regulatory pathway for every future longevity drug. The trial enrolls adults 65–79 who already have one age-related condition. Primary endpoint: time to development of any additional age-related disease.</p>
+        </div>
+        <div class="rb-col">
+          <h4>Why metformin?</h4>
+          <ul>
+            <li>40+ years of safety data — widely prescribed for type 2 diabetes</li>
+            <li>Epidemiological data shows diabetics on metformin live longer than non-diabetics not on it (Bannister et al. 2014, <em>Diabetes, Obesity and Metabolism</em>)</li>
+            <li>Activates AMPK (the cellular energy sensor) and modestly inhibits mTOR</li>
+            <li>Anti-inflammatory, reduces oxidative stress</li>
+            <li>Nir Barzilai's bet: affordable, safe, scalable. Not the best drug — the best first drug.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ EPIGENETIC CLOCKS ═══ -->
+<section class="rs bg-paper" id="clocks">
+  <div class="wrap">
+    <span class="rs-label">06 — Measuring biological age</span>
+    <h2 class="rs-title">Epigenetic clocks — <em>the measuring instruments</em> of the longevity revolution</h2>
+    <p class="rs-intro">
+      You cannot manage what you cannot measure. The epigenetic clock revolution gave aging research its first rigorous outcome metrics — molecular timekeepers that quantify biological age from DNA methylation patterns or blood chemistry. These clocks are why the field can now run clinical trials and produce quantifiable results. They're also what Tessera uses operationally to measure client outcomes.
+    </p>
+
+    <div class="research-block" style="margin-bottom: 0; border-bottom: none;">
+      <div class="rb-body" style="padding: 0; border: none; grid-template-columns: 1fr 1fr 1fr; background: none;">
+        <div class="rb-col" style="border: 1px solid var(--rule); padding: 24px; background: var(--cream);">
+          <h4>Horvath Clock · 2013</h4>
+          <p><strong>Published:</strong> Steve Horvath, <em>Genome Biology</em></p>
+          <p style="margin-top: 12px;">353 CpG methylation sites predict biological age across 51 different tissues and cell types. The first pan-tissue epigenetic clock. Measures cumulative epigenetic aging. Slows with caloric restriction; responds to reprogramming experiments.</p>
+        </div>
+        <div class="rb-col" style="border: 1px solid var(--rule); padding: 24px; background: var(--cream);">
+          <h4>GrimAge · 2019</h4>
+          <p><strong>Published:</strong> Lu et al., <em>Aging</em></p>
+          <p style="margin-top: 12px;">The strongest predictor of time-to-death among all existing clocks. Trained on mortality data directly. Integrates smoking history via methylation proxies. Most clinically relevant for longevity interventions. Requires methylation array ($300–500/sample).</p>
+        </div>
+        <div class="rb-col" style="border: 1px solid var(--rule); padding: 24px; background: var(--cream);">
+          <h4>DunedinPACE · 2022</h4>
+          <p><strong>Published:</strong> Belsky et al., <em>eLife</em></p>
+          <p style="margin-top: 12px;">Measures the <em>pace</em> of aging — not your biological age, but how fast you're aging right now. A DunedinPACE of 0.9 means aging 10% slower than average. The most sensitive clock for detecting short-term intervention effects. Used in the CALERIE trial.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 28px; padding: 28px 32px; background: var(--cream); border: 1px solid var(--rule-soft);">
+      <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-fade); margin-bottom: 16px;">What the clocks say about interventions</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px;">
+        <div>
+          <div style="font-family: var(--serif); font-size: 28px; font-weight: 500; color: var(--leaf); letter-spacing: -0.02em; line-height: 1; margin-bottom: 8px;">−3.2 yr</div>
+          <div style="font-size: 13px; color: var(--ink-mute); line-height: 1.6;">Horvath clock reversal in 8 weeks via diet, exercise, sleep, stress (Fitzgerald et al. 2021, <em>Aging</em>). No drugs.</div>
+        </div>
+        <div>
+          <div style="font-family: var(--serif); font-size: 28px; font-weight: 500; color: var(--leaf); letter-spacing: -0.02em; line-height: 1; margin-bottom: 8px;">−2.5 yr</div>
+          <div style="font-size: 13px; color: var(--ink-mute); line-height: 1.6;">Horvath clock reversal over 12 months with GH + DHEA + metformin (Fahy et al. 2019, TRIIM Trial, <em>Aging</em>). First controlled reversal trial.</div>
+        </div>
+        <div>
+          <div style="font-family: var(--serif); font-size: 28px; font-weight: 500; color: var(--leaf); letter-spacing: -0.02em; line-height: 1; margin-bottom: 8px;">↓ Pace</div>
+          <div style="font-size: 13px; color: var(--ink-mute); line-height: 1.6;">DunedinPACE significantly slowed by 2-year caloric restriction in 220 adults (CALERIE Trial, <em>Nature Aging</em> 2023). Largest longevity RCT in non-obese humans.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 20px; padding: 22px 28px; background: rgba(47,93,60,0.05); border: 1px solid rgba(47,93,60,0.15);">
+      <div style="font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--leaf); margin-bottom: 10px;">What Tessera uses</div>
+      <p style="font-size: 14px; color: var(--ink-mute); line-height: 1.65; margin: 0;">Tessera calculates <strong style="color: var(--ink);">PhenoAge (Levine 2018, <em>Nature Medicine</em>)</strong> from your 50+ marker blood panel. PhenoAge is a blood-chemistry-based model trained on mortality risk — 9 markers, fully calculable from standard bloodwork, validated across multiple cohorts. It is not an epigenetic clock (that requires methylation arrays at $300–500/sample), but it is the most clinically accessible and well-validated biological age model available at population scale. For our 90-day program, PhenoAge delta is the right metric. We are separately building a model to predict epigenetic clock scores from blood chemistry — see Our Research below.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ CLINICAL TRIALS ═══ -->
+<section class="rs" id="trials">
+  <div class="wrap">
+    <span class="rs-label">07 — Active clinical trials</span>
+    <h2 class="rs-title">The trials that will define the <em>next decade</em></h2>
+    <p class="rs-intro">
+      Clinical evidence in longevity is still early but moving fast. These are the most significant active or recently completed trials targeting biological aging in humans.
+    </p>
+
+    <table class="trials-table">
+      <thead>
+        <tr>
+          <th>Trial</th>
+          <th>Intervention</th>
+          <th>N</th>
+          <th>Duration</th>
+          <th>Primary Endpoint</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <span class="trial-name">TAME</span>
+            <span class="trial-org">Barzilai, Albert Einstein College of Medicine</span>
+          </td>
+          <td>Metformin 1500mg/day</td>
+          <td>3,000</td>
+          <td>6 years</td>
+          <td>Composite of 5 age-related conditions (CVD, cancer, dementia, disability, death)</td>
+          <td><span class="status-badge status-active">Enrolling</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="trial-name">TRIIM-X</span>
+            <span class="trial-org">Fahy, Intervene Immune</span>
+          </td>
+          <td>GH + DHEA + metformin (replication of TRIIM)</td>
+          <td>~100</td>
+          <td>12 months</td>
+          <td>Epigenetic clock reversal (Horvath, GrimAge)</td>
+          <td><span class="status-badge status-ongoing">Ongoing</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="trial-name">Dog Aging Project / TRIAD</span>
+            <span class="trial-org">Kaeberlein, Univ. of Washington</span>
+          </td>
+          <td>Rapamycin (low-dose, intermittent)</td>
+          <td>580 dogs → human trial planning</td>
+          <td>4 years (dogs)</td>
+          <td>All-cause mortality, healthspan, cardiac function</td>
+          <td><span class="status-badge status-active">Active</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="trial-name">CALERIE II</span>
+            <span class="trial-org">Duke, Tufts, Washington Univ.</span>
+          </td>
+          <td>25% caloric restriction</td>
+          <td>220</td>
+          <td>2 years</td>
+          <td>DunedinPACE, cardiometabolic risk</td>
+          <td><span class="status-badge status-complete">Completed · Nature Aging 2023</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="trial-name">PEARL (NMN)</span>
+            <span class="trial-org">Procter & Gamble / Keio University</span>
+          </td>
+          <td>NMN 250mg/day</td>
+          <td>~30 per arm</td>
+          <td>12 weeks</td>
+          <td>Muscle function, insulin sensitivity, NAD+ levels</td>
+          <td><span class="status-badge status-complete">Completed · Science 2021</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="trial-name">Senolytic D+Q</span>
+            <span class="trial-org">Kirkland, Mayo Clinic — multiple studies</span>
+          </td>
+          <td>Dasatinib + Quercetin (intermittent)</td>
+          <td>11–100 (varies by arm)</td>
+          <td>3–6 months</td>
+          <td>Senescent cell markers (p16, p21), physical function</td>
+          <td><span class="status-badge status-phase2">Phase II ongoing</span></td>
+        </tr>
+        <tr>
+          <td>
+            <span class="trial-name">Rapamycin in Healthy Adults</span>
+            <span class="trial-org">Multiple academic sites, 2024–2025</span>
+          </td>
+          <td>Low-dose rapamycin (weekly)</td>
+          <td>~250</td>
+          <td>12 months</td>
+          <td>Biological age clocks, immune function, cardiometabolic markers</td>
+          <td><span class="status-badge status-active">Enrolling 2024–25</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<!-- ═══ INDUSTRY LANDSCAPE ═══ -->
+<section class="rs bg-paper" id="industry">
+  <div class="wrap">
+    <span class="rs-label">08 — The industry</span>
+    <h2 class="rs-title">Where the <em>serious money</em> is going</h2>
+    <p class="rs-intro">
+      Longevity has moved from fringe to the most-funded area in biotechnology. These are the companies that matter — not supplement brands or wellness influencers, but organizations with serious scientific leadership and institutional capital.
+    </p>
+
+    <div class="company-grid">
+      <div class="company-card">
+        <div class="company-name">Altos Labs</div>
+        <div class="company-funding">$3B · Founded 2022</div>
+        <div class="company-focus">Cellular rejuvenation programming via partial reprogramming. The largest biotech launch in history. Led by world-class scientists including Juan Carlos Izpisua Belmonte, Deepak Srivastava. Yamanaka on scientific advisory board.</div>
+        <div class="company-backers">Backed by: Jeff Bezos, Yuri Milner</div>
+      </div>
+      <div class="company-card">
+        <div class="company-name">Calico (Alphabet)</div>
+        <div class="company-funding">$1.5B+ · Founded 2013</div>
+        <div class="company-focus">Google's longevity bet. Research-heavy, publications-focused. Long-term biology of aging across organisms. Partnered with AbbVie for drug development. Notoriously private about results.</div>
+        <div class="company-backers">Backed by: Alphabet / Google</div>
+      </div>
+      <div class="company-card">
+        <div class="company-name">Retro Biosciences</div>
+        <div class="company-funding">$180M · Founded 2022</div>
+        <div class="company-focus">Partial reprogramming, autophagy enhancement, plasma-inspired therapeutics. Targeting a 10-year extension of healthy human lifespan. Focused on translating longevity science into clinical therapies.</div>
+        <div class="company-backers">Backed by: Sam Altman</div>
+      </div>
+      <div class="company-card">
+        <div class="company-name">NewLimit</div>
+        <div class="company-funding">$130M · Founded 2021</div>
+        <div class="company-focus">Partial epigenetic reprogramming. Using machine learning to design reprogramming regimens. Founded by Brian Armstrong (Coinbase CEO) and Blake Byers. Sinclair on scientific board.</div>
+        <div class="company-backers">Backed by: Coinbase founders, institutional VCs</div>
+      </div>
+      <div class="company-card">
+        <div class="company-name">Unity Biotechnology</div>
+        <div class="company-funding">Public (UBX)</div>
+        <div class="company-focus">Senolytics — drugs that selectively eliminate senescent cells. Had a Phase II setback in knee osteoarthritis (UBX0101, 2020). Pivoted to ophthalmology (UBX2954). Still the pioneer in clinical senolytic development.</div>
+        <div class="company-backers">Backed by: Bezos, Mayo Clinic collaboration</div>
+      </div>
+      <div class="company-card">
+        <div class="company-name">BioAge Labs</div>
+        <div class="company-funding">$90M+</div>
+        <div class="company-focus">Using longitudinal biomarker data and machine learning to identify novel drug targets for aging. Partnered with Abbvie. The "data-first" approach to longevity drug discovery — closest in philosophy to what Tessera is building on the research side.</div>
+        <div class="company-backers">Backed by: a16z, GV (Google Ventures)</div>
+      </div>
+    </div>
+
+    <div class="pullquote" style="margin-top: 48px;">
+      <p>"We are at the beginning of a new era in medicine. Not treating diseases of aging, but treating aging itself — before those diseases emerge."</p>
+      <div class="pullquote-source">Nir Barzilai, Director of the TAME Trial — Interview, Nature Medicine 2022</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════ OUR RESEARCH ═══════ -->
+<div class="our-research-divider wrap-narrow">
+  <div class="our-research-header">
+    <span class="our-research-pill">Our Research</span>
+  </div>
+  <p class="our-research-sub">
+    Beyond running the Tessera program, we are building the deep technology to make epigenetic age testing 10× cheaper and accessible to any clinical panel. Below is our full research blueprint.
+  </p>
+</div>
+
+<div class="blueprint wrap-narrow" style="padding-top: 0;">
 
   <h1>Full Research Blueprint: Tabular Foundation Models as Surrogate Epigenetic Clocks</h1>
   <hr>
@@ -202,8 +1049,8 @@ hr {
   <h2>The Problem, Precisely Stated</h2>
   <p><strong>Gold standard:</strong> Epigenetic clocks (GrimAge, DunedinPACE, Horvath, PhenoAge-DNAm) require Illumina EPIC 850K methylation arrays. $300–500/sample. 3–6 week lab processing. Specialized bioinformatics pipeline.</p>
   <p><strong>Current blood-based alternative:</strong> PhenoAge (Levine et al., 2018, <em>Nature Medicine</em>) — linear regression on 9 blood markers trained to predict chronological age, not methylation clock outputs. Linear. 2018. Never updated. Not actually trained to approximate GrimAge or DunedinPACE.</p>
-  <p><strong>The gap you fill:</strong> Train a deep tabular model directly on the 30–60 blood chemistry markers available in a standard clinical panel, with methylation clock scores as the prediction target. Multi-task across 4 clocks simultaneously. Calibrated uncertainty. Graceful missingness. Deployable for $30/sample.</p>
-  <p><strong>Your unique edge:</strong> You're operationally running PhenoAge at Tessera. You understand what 50-marker panels look like in practice, what's actually missable, and what "clinical deployment" requires. No competing researcher has that grounding.</p>
+  <p><strong>The gap we fill:</strong> Train a deep tabular model directly on the 30–60 blood chemistry markers available in a standard clinical panel, with methylation clock scores as the prediction target. Multi-task across 4 clocks simultaneously. Calibrated uncertainty. Graceful missingness. Deployable for $30/sample.</p>
+  <p><strong>Our unique edge:</strong> Tessera is operationally running PhenoAge on real clients. We understand what 50-marker panels look like in practice, what's missable, and what "clinical deployment" requires. No competing researcher has that grounding.</p>
 
   <hr>
 
@@ -214,10 +1061,10 @@ hr {
   <p><strong>What it has:</strong></p>
   <ul>
     <li>~500K participants total</li>
-    <li>~45,000 participants with EPIC 850K methylation arrays (the Olink/methylation sub-cohort)</li>
-    <li>Blood biochemistry: 34 markers measured at the Assessment Centre — Albumin, ALP, ALT, ApoA, ApoB, AST, Calcium, Cholesterol, CRP, Creatinine, Cystatin C, Direct bilirubin, eGFR, GGT, Glucose, HbA1c, HDL, IGF-1, LDL, Lipoprotein-A, Phosphate, SHBG, Testosterone, Total bilirubin, Total protein, Triglycerides, Urate, Urea, Vitamin D</li>
+    <li>~45,000 participants with EPIC 850K methylation arrays</li>
+    <li>Blood biochemistry: 34 markers — Albumin, ALP, ALT, ApoA, ApoB, AST, Calcium, Cholesterol, CRP, Creatinine, Cystatin C, Direct bilirubin, eGFR, GGT, Glucose, HbA1c, HDL, IGF-1, LDL, Lipoprotein-A, Phosphate, SHBG, Testosterone, Total bilirubin, Total protein, Triglycerides, Urate, Urea, Vitamin D</li>
     <li>Full CBC: WBC, RBC, Haemoglobin, MCV, Platelets, Neutrophils, Lymphocytes, Monocytes, Eosinophils, Basophils</li>
-    <li>~42 blood markers total in the subset with methylation</li>
+    <li>~42 blood markers total in the methylation subset</li>
   </ul>
 
   <p><strong>How to calculate your targets from this data:</strong></p>
@@ -225,20 +1072,20 @@ hr {
     <li><strong>Horvath clock</strong> — from methylation CpGs using the <code>methylclock</code> R package</li>
     <li><strong>GrimAge</strong> — from methylation using <code>grimage</code> R package (Lu et al., 2019)</li>
     <li><strong>DunedinPACE</strong> — from methylation using <code>DunedinPACE</code> R package (Belsky et al., 2020)</li>
-    <li><strong>PhenoAge-DNAm</strong> — the methylation-based version (not the blood-based one you know)</li>
+    <li><strong>PhenoAge-DNAm</strong> — the methylation-based version (distinct from the blood-based PhenoAge)</li>
   </ul>
 
-  <p>So your training data becomes: <code>[blood chemistry vector] → [4 clock output scores]</code></p>
+  <p>Training data becomes: <code>[blood chemistry vector] → [4 clock output scores]</code></p>
 
   <p><strong>How to apply:</strong></p>
   <ol>
-    <li>Register at <code>ukbiobank.ac.uk</code> — do this today, the process takes 2–4 months</li>
+    <li>Register at <code>ukbiobank.ac.uk</code> — the process takes 2–4 months. Start today.</li>
     <li>Complete mandatory GDPR and data handling training</li>
     <li>Submit a project application with your research question (below)</li>
-    <li>Data delivered to a Tier 2 secure compute environment (can't copy raw data locally)</li>
+    <li>Data delivered to a Tier 2 secure compute environment</li>
   </ol>
 
-  <p><strong>Application pitch (copy-paste this):</strong></p>
+  <p><strong>Application pitch:</strong></p>
   <blockquote>
     "We aim to develop deep learning surrogate models for epigenetic biological age clocks using standard clinical blood biochemistry. Using paired methylation array and blood biochemistry data, we will train tabular transformer architectures to predict established clock outputs (GrimAge, DunedinPACE, Horvath's DNAmAge, PhenoAge-DNAm) from routine blood markers alone. This work aims to enable scalable, low-cost population-level biological age monitoring without requiring DNA methylation arrays."
   </blockquote>
@@ -247,7 +1094,7 @@ hr {
 
   <hr>
 
-  <h3>Secondary Datasets (use for external validation — critical for Nature-tier papers)</h3>
+  <h3>Secondary Datasets (external validation — critical for Nature-tier papers)</h3>
   <table>
     <thead>
       <tr>
@@ -294,33 +1141,17 @@ hr {
         <td>Collaboration with Helmholtz</td>
         <td>European replication</td>
       </tr>
-      <tr>
-        <td><strong>INTERVAL</strong></td>
-        <td>~3,200</td>
-        <td>Yes — blood donors</td>
-        <td>Application to NIHR BioResource</td>
-        <td>UK replication</td>
-      </tr>
     </tbody>
   </table>
 
-  <p><strong>For GEO datasets</strong> (immediately downloadable, no application):</p>
-  <ul>
-    <li>GSE40279 — Hannum 2013, blood, n=656, includes some clinical metadata</li>
-    <li>GSE55763 — whole blood, n=2,711, has age and sex</li>
-    <li>GSE87571 — blood, n=750</li>
-  </ul>
-
-  <p>These GEO datasets have methylation + age/sex but often lack full blood chemistry. Use them for clock calculation target verification and age-stratified analyses, not as primary training data.</p>
-
-  <p><strong>The Indian cohort angle (your unique contribution):</strong><br>
-  Your Tessera clients — even a small cohort of 30–50 — give you something no competing lab has: Indian urban professional blood chemistry paired with biological age calculation. After your main model, validate it on this cohort. The cross-ancestry generalizability section writes itself, and it's publishable as a standalone finding. Most epigenetic clock validation is 95% European-ancestry cohorts.</p>
+  <p><strong>The Indian cohort angle (our unique contribution):</strong><br>
+  Tessera clients — even a small cohort of 30–50 — give us something no competing lab has: Indian urban professional blood chemistry paired with biological age calculation. After the main model, we validate on this cohort. Cross-ancestry generalizability writes itself as a finding. Most epigenetic clock validation is 95% European-ancestry cohorts.</p>
 
   <hr>
 
   <h2>Section 2 — Architecture Design</h2>
 
-  <h3>Baselines (you must beat all of these)</h3>
+  <h3>Baselines (we must beat all of these)</h3>
   <table>
     <thead>
       <tr>
@@ -329,38 +1160,17 @@ hr {
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>PhenoAge (Levine 2018)</td>
-        <td>Existing clinical standard — 9 markers, linear</td>
-      </tr>
-      <tr>
-        <td>Ridge/ElasticNet on all features</td>
-        <td>Shows linear benefit of more features</td>
-      </tr>
-      <tr>
-        <td>Random Forest</td>
-        <td>Tree ensemble baseline</td>
-      </tr>
-      <tr>
-        <td>XGBoost / LightGBM</td>
-        <td>Strong GBDT baseline — hardest to beat</td>
-      </tr>
-      <tr>
-        <td>MLP (vanilla deep net)</td>
-        <td>Shows basic DL doesn't automatically win</td>
-      </tr>
-      <tr>
-        <td>FT-Transformer (Gorishniy 2021)</td>
-        <td>Best off-the-shelf tabular transformer</td>
-      </tr>
-      <tr>
-        <td>TabNet (Arik &amp; Pfister 2019)</td>
-        <td>Interpretable attention baseline</td>
-      </tr>
+      <tr><td>PhenoAge (Levine 2018)</td><td>Existing clinical standard — 9 markers, linear</td></tr>
+      <tr><td>Ridge/ElasticNet on all features</td><td>Shows linear benefit of more features</td></tr>
+      <tr><td>Random Forest</td><td>Tree ensemble baseline</td></tr>
+      <tr><td>XGBoost / LightGBM</td><td>Strong GBDT baseline — hardest to beat</td></tr>
+      <tr><td>MLP (vanilla deep net)</td><td>Shows basic DL doesn't automatically win</td></tr>
+      <tr><td>FT-Transformer (Gorishniy 2021)</td><td>Best off-the-shelf tabular transformer</td></tr>
+      <tr><td>TabNet (Arik &amp; Pfister 2019)</td><td>Interpretable attention baseline</td></tr>
     </tbody>
   </table>
 
-  <h3>Your novel architecture: BioAge-Transformer</h3>
+  <h3>Our novel architecture: BioAge-Transformer</h3>
   <p><strong>Core design principles:</strong></p>
   <ol>
     <li>Feature tokenization (each biomarker becomes a vector, not a raw float)</li>
@@ -391,7 +1201,6 @@ hr {
         super().__init__()
 
         # ── Feature tokenization ──────────────────────────────────────
-        # Each feature gets a learned identity embedding + value projection
         self.feature_embedding = nn.Embedding(n_features, d_model)
         self.value_projector   = nn.Linear(1, d_model)
 
@@ -399,556 +1208,200 @@ hr {
         self.missing_tokens = nn.Parameter(torch.randn(n_features, d_model))
 
         # ── Biological pathway embeddings ────────────────────────────
-        # Assign each biomarker to a pathway; pathway embedding added to token
         self.pathway_embedding = nn.Embedding(n_pathways, d_model)
-        # feature_to_pathway: [n_features] int tensor — registered as buffer
-        # e.g. fasting glucose, insulin, HbA1c → pathway 0 (metabolic)
-        #      ApoB, LDL, HDL, TG → pathway 1 (lipid)
-        #      hsCRP, homocysteine, fibrinogen → pathway 2 (inflammation)
-        #      testosterone, SHBG, TSH, cortisol → pathway 3 (hormonal)
-        #      WBC, RBC, MCV, platelets → pathway 4 (CBC)
-        #      Vit D, B12, Mg, Zn, omega-3 → pathway 5 (nutrients)
 
         # ── [CLS] token ───────────────────────────────────────────────
         self.cls_token = nn.Parameter(torch.randn(1, 1, d_model))
 
         # ── Transformer encoder ───────────────────────────────────────
         encoder_layer = nn.TransformerEncoderLayer(
-            d_model       = d_model,
-            nhead         = n_heads,
-            dim_feedforward = 4 * d_model,
-            dropout       = dropout,
-            activation    = 'gelu',
-            batch_first   = True,
-            norm_first    = True,   # Pre-LN — more stable training
+            d_model=d_model, nhead=n_heads,
+            dim_feedforward=4 * d_model, dropout=dropout,
+            activation='gelu', batch_first=True, norm_first=True,
         )
         self.transformer = nn.TransformerEncoder(encoder_layer, n_layers)
 
         # ── Shared projection head ─────────────────────────────────────
         self.shared_head = nn.Sequential(
-            nn.LayerNorm(d_model),
-            nn.Linear(d_model, 128),
-            nn.GELU(),
-            nn.Dropout(dropout),
+            nn.LayerNorm(d_model), nn.Linear(d_model, 128),
+            nn.GELU(), nn.Dropout(dropout),
         )
 
         # ── Per-clock output heads (mean + log_variance) ──────────────
-        # Predicting distribution, not point estimate
         self.clock_heads = nn.ModuleList([
-            nn.Sequential(
-                nn.Linear(128, 64),
-                nn.GELU(),
-                nn.Linear(64, 2),   # [mean, log_var]
-            )
+            nn.Sequential(nn.Linear(128, 64), nn.GELU(), nn.Linear(64, 2))
             for _ in range(n_clocks)
         ])
 
-        # ── Auxiliary head: chronological age (regularization) ────────
+        # ── Auxiliary head: chronological age ────────────────────────
         self.age_head = nn.Linear(128, 1)
-
-    def tokenize(self, x: Tensor, mask: Tensor) -> Tensor:
-        """
-        x:    [B, n_features]   — normalized biomarker values
-        mask: [B, n_features]   — True where feature is missing
-        """
-        B, F = x.shape
-        feat_ids = torch.arange(F, device=x.device)
-
-        # Identity embedding per feature
-        feat_emb = self.feature_embedding(feat_ids)            # [F, D]
-
-        # Value embedding
-        val_emb = self.value_projector(x.unsqueeze(-1))        # [B, F, D]
-
-        # Combine: identity + value
-        tokens = feat_emb.unsqueeze(0) + val_emb              # [B, F, D]
-
-        # Replace missing features with learned missing token
-        if mask is not None:
-            missing_emb = self.missing_tokens.unsqueeze(0)    # [1, F, D]
-            tokens = torch.where(
-                mask.unsqueeze(-1).expand_as(tokens),
-                missing_emb.expand(B, -1, -1),
-                tokens
-            )
-
-        # Add pathway embeddings
-        pathway_emb = self.pathway_embedding(self.feature_to_pathway)  # [F, D]
-        tokens = tokens + pathway_emb.unsqueeze(0)
-
-        return tokens
 
     def forward(self, x: Tensor, mask: Tensor = None):
         B = x.shape[0]
+        feat_ids = torch.arange(x.shape[1], device=x.device)
+        feat_emb = self.feature_embedding(feat_ids)
+        val_emb  = self.value_projector(x.unsqueeze(-1))
+        tokens   = feat_emb.unsqueeze(0) + val_emb
 
-        # Tokenize features
-        tokens = self.tokenize(x, mask)                       # [B, F, D]
+        if mask is not None:
+            missing_emb = self.missing_tokens.unsqueeze(0)
+            tokens = torch.where(mask.unsqueeze(-1).expand_as(tokens),
+                                 missing_emb.expand(B, -1, -1), tokens)
 
-        # Prepend CLS token
-        cls = self.cls_token.expand(B, -1, -1)               # [B, 1, D]
-        tokens = torch.cat([cls, tokens], dim=1)              # [B, F+1, D]
+        pathway_emb = self.pathway_embedding(self.feature_to_pathway)
+        tokens = tokens + pathway_emb.unsqueeze(0)
 
-        # Transformer forward
-        out = self.transformer(tokens)                        # [B, F+1, D]
-        cls_out = out[:, 0]                                   # [B, D]
+        cls    = self.cls_token.expand(B, -1, -1)
+        tokens = torch.cat([cls, tokens], dim=1)
+        out    = self.transformer(tokens)
+        shared = self.shared_head(out[:, 0])
 
-        # Shared projection
-        shared = self.shared_head(cls_out)                    # [B, 128]
-
-        # Per-clock predictions
         clock_preds = [head(shared) for head in self.clock_heads]
-        # Each: [B, 2] → [:, 0] = mean, [:, 1] = log_var
-
-        # Auxiliary age prediction
-        age_pred = self.age_head(shared).squeeze(-1)          # [B]
-
+        age_pred    = self.age_head(shared).squeeze(-1)
         return clock_preds, age_pred
 </code></pre>
 
   <p><strong>Training loss:</strong></p>
 <pre><code>def gaussian_nll(pred, target):
-    """
-    Negative log-likelihood of Gaussian.
-    pred: [B, 2] — (mean, log_var)
-    target: [B] — ground truth clock score
-    """
-    mean    = pred[:, 0]
-    log_var = pred[:, 1].clamp(-6, 6)   # stability
-    var     = torch.exp(log_var)
-    nll     = 0.5 * (log_var + (target - mean)**2 / var)
-    return nll.mean()
+    mean, log_var = pred[:, 0], pred[:, 1].clamp(-6, 6)
+    return (0.5 * (log_var + (target - mean)**2 / log_var.exp())).mean()
 
 def total_loss(clock_preds, clock_targets, age_pred, age_target,
-               clock_weights=(1.0, 1.0, 0.8, 0.8),
-               lambda_age=0.1):
-    """
-    clock_preds:   list of [B, 2] — one per clock
-    clock_targets: list of [B]   — GrimAge, DunedinPACE, Horvath, PhenoAgeDNAm
-    """
-    clock_loss = sum(
-        w * gaussian_nll(pred, target)
-        for w, pred, target in zip(clock_weights, clock_preds, clock_targets)
-    )
-    age_loss = F.mse_loss(age_pred, age_target)
-    return clock_loss + lambda_age * age_loss
+               clock_weights=(1.0, 1.0, 0.8, 0.8), lambda_age=0.1):
+    clock_loss = sum(w * gaussian_nll(p, t)
+                     for w, p, t in zip(clock_weights, clock_preds, clock_targets))
+    return clock_loss + lambda_age * F.mse_loss(age_pred, age_target)
 </code></pre>
-
-  <p><strong>Why this architecture is novel:</strong></p>
-  <ul>
-    <li>No existing paper uses multi-task transformer to jointly predict all 4 major clocks</li>
-    <li>No existing paper uses learned per-feature missing tokens for this task</li>
-    <li>The pathway-aware tokenization is a novel inductive bias grounded in biology</li>
-    <li>Calibrated uncertainty output makes it clinically deployable</li>
-  </ul>
 
   <hr>
 
   <h2>Section 3 — The Full Experiment Suite</h2>
 
-  <h3>Experiment 1: Main comparison table (Table 2 in paper)</h3>
-  <p><strong>Goal:</strong> Show BioAge-Transformer beats all baselines on all 4 clocks.</p>
-  <p>Run all models on same train/val/test split (80/10/10, stratified by age decade and sex).</p>
-  <p><strong>Metrics per model × clock:</strong></p>
-  <ul>
-    <li>MAE (years) — the clinically interpretable metric</li>
-    <li>R² (variance explained) — statistical standard</li>
-    <li>Pearson r — what most clock papers report</li>
-    <li>Spearman ρ — rank correlation (robust to outliers)</li>
-  </ul>
-  <p><strong>Expected results target:</strong> For GrimAge specifically, prior blood-based approaches achieve r~0.65–0.75 with the actual methylation-derived GrimAge. You want to demonstrate r > 0.80.</p>
+  <h3>Experiment 1: Main comparison table</h3>
+  <p>Run all models on same train/val/test split (80/10/10, stratified by age decade and sex). Metrics: MAE, R², Pearson r, Spearman ρ per model × clock. Target for GrimAge: r > 0.80 (prior blood-based approaches achieve ~0.65–0.75).</p>
 
   <h3>Experiment 2: Feature minimization curve</h3>
-  <p><strong>Goal:</strong> Show the minimum panel needed. This is your clinical deployment message.</p>
-  <p>Start with all 42 features. Remove in reverse order of importance (use SHAP or attention weights). At each step, record MAE.</p>
-  <p><strong>Plot:</strong> x = number of features, y = MAE for GrimAge. Show the elbow curve.</p>
-  <p><strong>Key finding to demonstrate:</strong> "A 20-marker panel achieves 95% of full-panel performance. The 9-marker PhenoAge panel achieves only 78%." This is the result that generates clinical press interest.</p>
-  <p>Feature removal order strategies to compare:</p>
-  <ul>
-    <li>SHAP-based importance (your model's own ranking)</li>
-    <li>Correlation with clock targets (naive baseline)</li>
-    <li>Biological pathway completeness (drop whole pathways)</li>
-  </ul>
+  <p>Start with all 42 features. Remove in reverse order of SHAP importance. Plot MAE vs. panel size. Key finding to demonstrate: "A 20-marker panel achieves 95% of full-panel performance. The 9-marker PhenoAge panel achieves only 78%." This is the clinical deployment argument.</p>
 
   <h3>Experiment 3: Missing data robustness</h3>
-  <p><strong>Goal:</strong> Show clinical deployability — your model degrades gracefully, others don't.</p>
-  <p>Artificially introduce missingness at rates: 5%, 10%, 20%, 30%, 50%, 70%.</p>
-  <p>Three missingness mechanisms:</p>
-  <ul>
-    <li><strong>MCAR</strong> (Missing Completely at Random) — random features missing</li>
-    <li><strong>MAR</strong> (Missing at Random) — features more likely missing in older patients, etc.</li>
-    <li><strong>MNAR</strong> (Missing Not at Random) — expensive/specialty markers more likely missing</li>
-  </ul>
-  <p>Compare:</p>
-  <ul>
-    <li>Your learned missing token approach</li>
-    <li>Mean imputation</li>
-    <li>Iterative imputation (sklearn IterativeImputer)</li>
-    <li>KNN imputation</li>
-    <li>GAIN (generative adversarial imputation)</li>
-  </ul>
-  <p><strong>Expected result:</strong> Your learned token outperforms all imputation methods at all missingness levels. Plot as 5-line figure (one per imputation strategy).</p>
+  <p>Introduce missingness at 5%, 10%, 20%, 30%, 50%, 70% under MCAR, MAR, and MNAR mechanisms. Compare learned token approach vs. mean imputation, iterative imputation, KNN, and GAIN. Expected result: learned token outperforms all imputation strategies at all missingness levels.</p>
 
   <h3>Experiment 4: Multi-task vs. single-task</h3>
-  <p><strong>Goal:</strong> Show multi-task learning helps, especially for harder clocks.</p>
-  <p>Train 5 models:</p>
-  <ul>
-    <li>Single-task model for GrimAge only</li>
-    <li>Single-task model for DunedinPACE only</li>
-    <li>Single-task model for Horvath only</li>
-    <li>Single-task model for PhenoAge-DNAm only</li>
-    <li><strong>Multi-task model (BioAge-Transformer)</strong> predicting all 4</li>
-  </ul>
-  <p><strong>Expected result:</strong> Multi-task model outperforms all single-task models, especially on DunedinPACE (pace of aging, hardest to predict from blood alone). The clocks share variance — joint training exploits this.</p>
+  <p>Train 4 single-task models vs. BioAge-Transformer. Expected result: multi-task model outperforms all single-task models, especially on DunedinPACE (hardest clock to predict from blood alone).</p>
 
   <h3>Experiment 5: Calibration analysis</h3>
-  <p><strong>Goal:</strong> Prove your uncertainty estimates are meaningful.</p>
-  <p><strong>Reliability diagram:</strong> For each 10th-percentile prediction interval (10%, 20%, ... 90%), what fraction of true values actually fall inside? A perfectly calibrated model follows the diagonal.</p>
-  <p><strong>Expected Calibration Error (ECE):</strong> Calculate and report for each model.</p>
-  <p><strong>Clinical framing:</strong> "A 90% prediction interval for biological age of [34, 41] should contain the true value 90% of the time. Our model achieves ECE = X vs. XGBoost ECE = Y (XGBoost has no uncertainty output — we use bootstrapped confidence intervals for comparison)."</p>
+  <p>Reliability diagram: for each 10th-percentile prediction interval, what fraction of true values fall inside? Report Expected Calibration Error (ECE) per model. Clinical framing: our model's 90% intervals should contain the true value 90% of the time.</p>
 
-  <h3>Experiment 6: External validation (the paper's credibility test)</h3>
-  <p><strong>Goal:</strong> Show generalizability. Reviewers at npj Digital Medicine and Nature Communications will reject without this.</p>
-  <ul>
-    <li>Train on UK Biobank (n~40,000)</li>
-    <li>Validate on Generation Scotland (n~3,000)</li>
-    <li>Validate on MESA (n~1,200, more diverse ancestry)</li>
-    <li>Validate on Framingham (n~2,000, different era, longitudinal)</li>
-  </ul>
-  <p>Expect a performance drop (~5–15% MAE increase) — that's fine. Show it's not catastrophic and is consistent with known cohort differences.</p>
-  <p>Report delta in MAE between UKB test set and each external cohort.</p>
+  <h3>Experiment 6: External validation</h3>
+  <p>Train on UK Biobank (~40K). Validate on Generation Scotland (~3K), MESA (~1.2K), Framingham (~2K). Expect 5–15% MAE increase on external cohorts. Show it's not catastrophic.</p>
 
-  <h3>Experiment 7: Longitudinal tracking (if Framingham or LBC data available)</h3>
-  <p><strong>Goal:</strong> Can the surrogate track aging over time?</p>
-  <p>Framingham and LBC have participants with blood draws at multiple time points (2–3 draws, 3–7 years apart). Apply your model to all time points and plot individual aging trajectories.</p>
-  <p><strong>Key question:</strong> Does the predicted biological age increase over time at roughly the expected rate? Does it increase faster in people who subsequently developed disease?</p>
-  <p>This is a weaker experiment (small n with repeats) but adds clinical narrative.</p>
+  <h3>Experiment 7: Longitudinal tracking</h3>
+  <p>Apply model to participants with repeat blood draws (Framingham, LBC). Does predicted biological age increase at the expected rate? Does it rise faster in people who develop disease?</p>
 
-  <h3>Experiment 8: Interpretability analysis</h3>
-  <p><strong>Goal:</strong> Biological plausibility — reviewers at life-science journals demand this.</p>
-  <p><strong>Attention weight heatmap:</strong> For each attention head, visualize which biomarkers attend most strongly to each other. Do metabolic markers (glucose, insulin, HbA1c) form a cluster? Do the lipid markers (ApoB, LDL, HDL, TG) cluster?</p>
-  <p><strong>SHAP analysis:</strong> Compute SHAP values for each feature per clock prediction. Show:</p>
-  <ul>
-    <li>Top 10 features for GrimAge prediction</li>
-    <li>Top 10 features for DunedinPACE prediction</li>
-    <li>Feature overlap and divergence between clocks</li>
-  </ul>
-  <p><strong>Expected biological story:</strong> GrimAge is heavily driven by smoking-related proteins and age — you'd expect ApoA, albumin, and inflammation markers to dominate. DunedinPACE is pace-of-aging — expect metabolic markers. This section should read like a biology paper, not an ML paper.</p>
+  <h3>Experiment 8: Interpretability</h3>
+  <p>Attention weight heatmap per head. SHAP values per feature per clock. Expected biological story: GrimAge dominated by albumin, inflammation, ApoA; DunedinPACE dominated by metabolic markers. This section should read like biology, not ML.</p>
 
   <h3>Experiment 9: Subgroup analysis</h3>
-  <p><strong>Goal:</strong> Fairness and equity — required for top journals.</p>
-  <p>Run all metrics stratified by:</p>
-  <ul>
-    <li>Sex (male vs. female, since hormonal markers differ)</li>
-    <li>Age decade (30s, 40s, 50s, 60s, 70s)</li>
-    <li>BMI category</li>
-    <li>Smoking status</li>
-    <li>Ancestry (if UK Biobank has sufficient non-European participants)</li>
-  </ul>
-  <p>Check for heterogeneous performance — are there subgroups where the model fails? If yes, investigate why and either fix or disclose clearly.</p>
+  <p>All metrics stratified by sex, age decade, BMI, smoking status, ancestry. Check for heterogeneous performance. Investigate and fix — or disclose clearly.</p>
 
-  <h3>Experiment 10: Comparison to existing DL biological age papers</h3>
-  <p><strong>Goal:</strong> Context in the literature.</p>
-  <p>There are a handful of recent DL biological age papers you need to directly compare against:</p>
-  <ul>
-    <li>Lee et al., 2023 (<em>Aging</em>) — deep learning for biological age from blood</li>
-    <li>Bae et al., 2021 (<em>npj Digital Medicine</em>) — DL biological age from CBC</li>
-    <li>Putin et al., 2016 (<em>Aging</em>) — original deep neural net for biological age</li>
-  </ul>
-  <p>Run their models (code usually available) on your test set. Show your model's superiority directly. This is the "Related work, directly compared" section that gives you credibility.</p>
+  <h3>Experiment 10: Comparison to existing DL papers</h3>
+  <p>Directly compare against Lee et al. 2023 (<em>Aging</em>), Bae et al. 2021 (<em>npj Digital Medicine</em>), Putin et al. 2016 (<em>Aging</em>). Run their models on our test set. Show superiority directly.</p>
 
   <hr>
 
-  <h2>Section 4 — Results, Figures, and Tables Strategy</h2>
-
-  <h3>Paper structure</h3>
-<pre><code>Title
-Abstract (250 words)
-Introduction (800 words, 5 paragraphs)
-Results (2,500 words)
-  — Main performance comparison
-  — Feature minimization
-  — Missing data robustness
-  — External validation
-  — Interpretability
-Discussion (1,200 words)
-Methods (2,000 words)
-  — Data sources and preprocessing
-  — Model architectures
-  — Training procedure
-  — Evaluation metrics
-  — Statistical analysis
-Supplementary (all ablations, full tables, extended figures)
-</code></pre>
-
-  <h3>The 6 core figures</h3>
-  <p><strong>Figure 1 — Architecture</strong><br>
-  Clean schematic: input blood markers → feature tokenization → transformer layers → CLS token → 4 clock output heads. Use color coding for biological pathways. This figure should be understandable to a non-ML clinician reviewer.</p>
-  <p><strong>Figure 2 — Main results</strong><br>
-  Split violin plots or grouped bar charts: MAE per model per clock. BioAge-Transformer clearly best. Include 95% confidence intervals from bootstrap.</p>
-  <p><strong>Figure 3 — Feature minimization curve</strong><br>
-  Line plot, x = panel size, y = normalized MAE. Mark: "Minimal effective panel (20 markers)", "PhenoAge panel (9 markers)", "Full Tessera panel (50 markers)". Add cost axis on the right (approximate ₹ / $ per sample at each panel size). This figure is your clinical deployment argument.</p>
-  <p><strong>Figure 4 — Calibration</strong><br>
-  Reliability diagram for all models. Your model follows the diagonal; others don't. Include ECE in legend.</p>
-  <p><strong>Figure 5 — Interpretability</strong><br>
-  Two-panel: (A) attention weight heatmap grouped by biological pathway. (B) SHAP values for top 15 features per clock, shown as a dot plot. This is the biology section.</p>
-  <p><strong>Figure 6 — External validation</strong><br>
-  Bar chart: model performance (MAE) on UKB test set vs. each external cohort. Show consistent performance with error bars. Optional: world map showing cohort locations.</p>
+  <h2>Section 4 — Figures Strategy</h2>
+  <p><strong>Figure 1 — Architecture:</strong> Clean schematic of the full BioAge-Transformer. Pathway-color-coded. Should be readable by a non-ML clinician.</p>
+  <p><strong>Figure 2 — Main results:</strong> Grouped bar charts, MAE per model per clock, 95% bootstrap CIs.</p>
+  <p><strong>Figure 3 — Feature minimization curve:</strong> x = panel size, y = normalized MAE. Mark the "20-marker elbow." Add cost axis on right.</p>
+  <p><strong>Figure 4 — Calibration:</strong> Reliability diagram. Our model follows the diagonal; others don't.</p>
+  <p><strong>Figure 5 — Interpretability:</strong> (A) Attention heatmap by pathway. (B) SHAP dot plot, top 15 features per clock.</p>
+  <p><strong>Figure 6 — External validation:</strong> Performance on UKB test set vs. each external cohort, with error bars.</p>
 
   <hr>
 
-  <h2>Section 5 — Technical Execution Plan</h2>
+  <h2>Section 5 — Week-by-Week Timeline</h2>
 
-  <h3>Week-by-week plan</h3>
-  <p><strong>Weeks 1–2 (now):</strong></p>
-  <ul>
-    <li>Apply for UK Biobank access (critical — starts the 2-4 month clock)</li>
-    <li>Apply for MESA via dbGaP (faster, ~4 weeks)</li>
-    <li>Download NHANES data (free, immediate)</li>
-    <li>Set up compute: A100 GPU on GCP or AWS, or a local server</li>
-  </ul>
-  <p><strong>Weeks 3–6:</strong></p>
-  <ul>
-    <li>While waiting for UKB, build the full data pipeline:
-      <ul>
-        <li>NHANES feature extraction and normalization</li>
-        <li>GEO methylation data download (GSE40279, GSE55763)</li>
-        <li>PhenoAge calculation pipeline (verify against published outputs)</li>
-        <li>Train/val/test split logic with stratification</li>
-      </ul>
-    </li>
-    <li>Implement all baseline models</li>
-    <li>Run baselines on NHANES + GEO data (can't do methylation targets yet, but can validate blood feature extraction)</li>
-  </ul>
-  <p><strong>Weeks 7–12:</strong></p>
-  <ul>
-    <li>UK Biobank access (hopefully) arrives</li>
-    <li>Compute targets: calculate GrimAge, DunedinPACE, Horvath, PhenoAge-DNAm from methylation data using R packages</li>
-    <li>Extract and join blood chemistry features</li>
-    <li>Run all baselines on UKB</li>
-  </ul>
-  <p><strong>Weeks 13–18:</strong></p>
-  <ul>
-    <li>Implement BioAge-Transformer in PyTorch</li>
-    <li>Hyperparameter sweep with Optuna (budget: 200 trials)</li>
-    <li>Run all 10 experiments</li>
-    <li>Log everything in W&amp;B (Weights &amp; Biases)</li>
-  </ul>
-  <p><strong>Weeks 19–24:</strong></p>
-  <ul>
-    <li>External validation on secondary cohorts</li>
-    <li>Interpretability analysis</li>
-    <li>Statistical analysis (bootstrap CIs, significance tests)</li>
-    <li>Supplementary material</li>
-  </ul>
-  <p><strong>Weeks 25–30:</strong></p>
-  <ul>
-    <li>Paper writing in LaTeX (use NeurIPS or Nature template depending on target)</li>
-    <li>Figure production (publication-quality matplotlib/seaborn)</li>
-    <li>Internal review → revise</li>
-    <li>Submit</li>
-  </ul>
+  <p><strong>Weeks 1–2:</strong> Apply for UK Biobank access (critical — 2–4 month wait). Apply MESA via dbGaP. Download NHANES (free, immediate). Set up GPU compute.</p>
+  <p><strong>Weeks 3–6:</strong> Build full data pipeline on NHANES + GEO data while waiting for UKB. Implement all baseline models.</p>
+  <p><strong>Weeks 7–12:</strong> UK Biobank access arrives. Calculate clock targets from methylation data in R. Extract and join blood chemistry features. Run baselines.</p>
+  <p><strong>Weeks 13–18:</strong> Implement BioAge-Transformer in PyTorch. Optuna hyperparameter sweep (200 trials). Run all 10 experiments. Log everything in W&amp;B.</p>
+  <p><strong>Weeks 19–24:</strong> External validation. Interpretability analysis. Statistical analysis (bootstrap CIs). Supplementary material.</p>
+  <p><strong>Weeks 25–30:</strong> Paper writing in LaTeX. Figure production (publication-quality matplotlib/seaborn). Submit to npj Digital Medicine.</p>
 
   <h3>Compute requirements</h3>
   <table>
     <thead>
-      <tr>
-        <th>Task</th>
-        <th>Hardware needed</th>
-        <th>Time estimate</th>
-      </tr>
+      <tr><th>Task</th><th>Hardware</th><th>Time estimate</th></tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Baseline models (XGBoost, RF, etc.)</td>
-        <td>CPU, 16GB RAM</td>
-        <td>2–4 hours</td>
-      </tr>
-      <tr>
-        <td>BioAge-Transformer training</td>
-        <td>1× A100 (40GB)</td>
-        <td>6–12 hours per run</td>
-      </tr>
-      <tr>
-        <td>Hyperparameter sweep (200 trials)</td>
-        <td>4× A100 in parallel</td>
-        <td>2–3 days</td>
-      </tr>
-      <tr>
-        <td>External validation</td>
-        <td>CPU sufficient</td>
-        <td>Hours</td>
-      </tr>
-      <tr>
-        <td>Interpretability (SHAP on 40K samples)</td>
-        <td>GPU recommended</td>
-        <td>4–8 hours</td>
-      </tr>
+      <tr><td>Baseline models</td><td>CPU, 16GB RAM</td><td>2–4 hours</td></tr>
+      <tr><td>BioAge-Transformer training</td><td>1× A100 (40GB)</td><td>6–12 hours per run</td></tr>
+      <tr><td>Hyperparameter sweep (200 trials)</td><td>4× A100 parallel</td><td>2–3 days</td></tr>
+      <tr><td>Interpretability (SHAP on 40K)</td><td>GPU recommended</td><td>4–8 hours</td></tr>
     </tbody>
   </table>
-  <p>GCP: <code>a2-highgpu-1g</code> (1× A100) = ~$3.67/hr. For the full project: budget ~$500–800 compute.</p>
-
-  <h3>Essential tools and libraries</h3>
-<pre><code># Core
-torch, torchvision            # PyTorch
-numpy, pandas, scipy          # Data
-scikit-learn                  # Baselines + preprocessing
-
-# Tabular DL
-rtdl                          # FT-Transformer reference implementation (Gorishniy)
-pytorch-tabnet                # TabNet
-tabpfn                        # TabPFN
-
-# Explainability
-shap                          # SHAP values
-captum                        # Gradient-based interpretability for PyTorch
-
-# Hyperparameter optimization
-optuna                        # Bayesian HPO
-
-# Experiment tracking
-wandb                         # W&amp;B — log every experiment
-
-# Statistical analysis
-pingouin                      # Statistical tests in Python
-lifelines                     # Survival analysis (if using mortality outcomes)
-
-# R packages (for methylation clock calculation)
-# methylclock, minfi, ENmix, DunedinPACE, GrimAge
-</code></pre>
+  <p>GCP <code>a2-highgpu-1g</code> (1× A100) = ~$3.67/hr. Full project: budget ~$500–800 compute.</p>
 
   <hr>
 
-  <h2>Section 6 — Novelty Framing (what you claim, precisely)</h2>
-  <p>In the introduction and abstract, these are your 5 distinct novelty claims:</p>
+  <h2>Section 6 — The 5 Novelty Claims</h2>
   <ol>
-    <li><strong>First deep tabular model trained to directly approximate methylation-derived epigenetic clocks from blood chemistry</strong> — PhenoAge approximates mortality risk, not GrimAge/DunedinPACE/Horvath. These are different targets. You are the first to bridge this gap at scale.</li>
-    <li><strong>Multi-task learning across 4 biological age clocks</strong> — the clocks measure correlated but distinct aging processes. Joint training exploits shared variance and improves performance, especially on harder clocks like DunedinPACE.</li>
-    <li><strong>Principled missingness handling via learned tokens</strong> — all prior work uses imputation, which leaks distributional assumptions. Your model is trained with random feature masking and handles arbitrary missingness patterns without separate imputation.</li>
-    <li><strong>Calibrated uncertainty quantification</strong> — clinical deployment requires confidence intervals, not point estimates. You provide per-sample prediction intervals that are demonstrably well-calibrated.</li>
-    <li><strong>Feature minimization analysis establishing minimum effective panels</strong> — you establish empirically what the minimum blood panel is for each level of clock prediction performance, enabling cost-aware deployment decisions.</li>
+    <li><strong>First deep tabular model trained to directly approximate methylation-derived epigenetic clocks from blood chemistry</strong> — PhenoAge approximates mortality risk, not GrimAge/DunedinPACE/Horvath. These are different targets.</li>
+    <li><strong>Multi-task learning across 4 biological age clocks</strong> — joint training exploits shared variance and improves performance on harder clocks like DunedinPACE.</li>
+    <li><strong>Principled missingness handling via learned tokens</strong> — all prior work uses imputation. Our model handles arbitrary missingness patterns without separate imputation.</li>
+    <li><strong>Calibrated uncertainty quantification</strong> — clinical deployment requires confidence intervals. We provide per-sample prediction intervals that are demonstrably well-calibrated.</li>
+    <li><strong>Feature minimization analysis establishing minimum effective panels</strong> — what is the minimum blood panel for each level of clock prediction performance?</li>
   </ol>
 
   <hr>
 
-  <h2>Section 7 — Journal Selection and Submission Strategy</h2>
-
-  <h3>Primary target: <em>npj Digital Medicine</em> (Nature Portfolio)</h3>
-  <ul>
-    <li>Impact factor: ~15</li>
-    <li>Scope: exactly this — digital health, AI, clinical translation</li>
-    <li>Review time: 4–8 weeks to first decision</li>
-    <li>Open access required</li>
-    <li>Word limit: 3,000 words main + supplementary</li>
-    <li>Requires: strong external validation, clinical relevance framing</li>
-  </ul>
-  <p><strong>Submission checklist for npj:</strong></p>
-  <ul>
-    <li>Code publicly available on GitHub with README</li>
-    <li>Data access statement (UK Biobank — accession number)</li>
-    <li>Reporting Standards: follow TRIPOD (transparent reporting of multivariable prediction models)</li>
-    <li>Ethics statement (UKB has standing ethics; your Tessera data needs separate IRB/ethics clearance in India)</li>
-  </ul>
-
-  <h3>Secondary target (if npj rejects): <em>Nature Communications</em></h3>
-  <ul>
-    <li>Broader scope, slightly harder to get in, longer review</li>
-    <li>Worth the attempt if npj rejects with "out of scope" rather than "insufficient novelty"</li>
-  </ul>
-
-  <h3>Tertiary targets: <em>Aging (Albany NY)</em> or <em>PLOS Computational Biology</em></h3>
-  <ul>
-    <li>Aging is the home journal of most clock papers (Levine, Lu publish here)</li>
-    <li>Lower impact factor (~4-6) but highly respected within the field</li>
-    <li>More likely to accept if your external validation cohorts are limited</li>
-  </ul>
-
-  <h3>Do not target first:</h3>
-  <ul>
-    <li><em>Nature Medicine</em> — requires clinical trial-level evidence or prospective data</li>
-    <li><em>Cell</em> — requires new biological discovery, not engineering</li>
-    <li><em>Lancet Digital Health</em> — good target for v2 with real-world deployment data</li>
-  </ul>
+  <h2>Section 7 — Journal Selection</h2>
+  <p><strong>Primary target: <em>npj Digital Medicine</em> (Nature Portfolio)</strong> — IF ~15, scope exactly this, open access, 4–8 weeks to first decision.</p>
+  <p><strong>Secondary: <em>Nature Communications</em></strong> — broader scope, slightly harder.</p>
+  <p><strong>Tertiary: <em>Aging (Albany NY)</em></strong> — home journal of most clock papers, IF ~4–6, more likely if external validation is limited.</p>
+  <p>Do not target Nature Medicine, Cell, or Lancet Digital Health on first submission.</p>
 
   <hr>
 
-  <h2>Section 8 — The Tessera Data Angle (Your Secret Weapon)</h2>
-  <p>This is what nobody else can replicate and what makes this paper yours:</p>
-  <p><strong>In the paper's Discussion or as a supplementary experiment:</strong></p>
+  <h2>Section 8 — The Tessera Data Angle</h2>
   <blockquote>
-    "To demonstrate real-world clinical utility, we apply BioAge-Transformer to a prospectively collected cohort of n=X urban Indian professionals enrolled in the Tessera longevity program (Hyderabad, India). This cohort differs from UK Biobank in ancestry, diet, and metabolic risk profile. Despite these differences, BioAge-Transformer [maintains performance / shows X% performance drop] on this held-out cohort, suggesting [generalizability beyond European-ancestry populations / the need for fine-tuning in South Asian populations]. Notably, n=Y clients had repeat blood draws at 90-day intervals following a structured lifestyle intervention, enabling the first demonstration of surrogate clock tracking over a short-term intervention period."
+    "To demonstrate real-world clinical utility, we apply BioAge-Transformer to a prospectively collected cohort of n=X urban Indian professionals enrolled in the Tessera longevity program (Hyderabad, India). This cohort differs from UK Biobank in ancestry, diet, and metabolic risk profile. Despite these differences, BioAge-Transformer [maintains performance / shows X% performance drop], suggesting [generalizability beyond European-ancestry populations / the need for fine-tuning in South Asian populations]. Notably, n=Y clients had repeat blood draws at 90-day intervals following a structured lifestyle intervention — the first demonstration of surrogate clock tracking over a short-term intervention period."
   </blockquote>
-  <p>Even n=20 paired before/after samples is a publishable finding if you show the clock moves with the intervention — it validates that the surrogate is sensitive to the biological changes you're inducing.</p>
-  <p>For this to work you need ethics clearance in India. Apply to an Indian IRB (Institutional Review Board) or ethics committee. Options: ICMR guidelines, hospital-affiliated IRB in Hyderabad.</p>
+  <p>Even n=20 paired before/after samples is a publishable finding if the surrogate clock moves with the intervention. Apply to an Indian IRB before collecting data for research purposes.</p>
 
   <hr>
 
-  <h2>The 8 Papers to Read This Week (in order)</h2>
+  <h2>The 8 Papers to Read This Week</h2>
   <ol>
-    <li><strong>Levine et al., 2018</strong> — PhenoAge, <em>Nature Medicine</em>. Your benchmark. Read the methods carefully.</li>
-    <li><strong>Lu et al., 2019</strong> — GrimAge, <em>Aging</em>. Your primary prediction target.</li>
-    <li><strong>Belsky et al., 2022</strong> — DunedinPACE, <em>eLife</em>. Your hardest prediction target.</li>
-    <li><strong>Horvath, 2013</strong> — Original epigenetic clock, <em>Genome Biology</em>. The original.</li>
-    <li><strong>Gorishniy et al., 2021</strong> — FT-Transformer, <em>NeurIPS</em>. Your primary architecture baseline.</li>
+    <li><strong>Levine et al., 2018</strong> — PhenoAge, <em>Nature Medicine</em>. Your benchmark.</li>
+    <li><strong>Lu et al., 2019</strong> — GrimAge, <em>Aging</em>. Primary prediction target.</li>
+    <li><strong>Belsky et al., 2022</strong> — DunedinPACE, <em>eLife</em>. Hardest prediction target.</li>
+    <li><strong>Horvath, 2013</strong> — Original epigenetic clock, <em>Genome Biology</em>.</li>
+    <li><strong>Gorishniy et al., 2021</strong> — FT-Transformer, <em>NeurIPS</em>. Primary architecture baseline.</li>
     <li><strong>Hollmann et al., 2022</strong> — TabPFN, <em>NeurIPS</em>. Second architecture baseline.</li>
-    <li><strong>Lee et al., 2023</strong> — "Deep learning for biological age prediction from blood" — closest existing work to yours. Find and read carefully to understand how to differentiate.</li>
-    <li><strong>Bae et al., 2021</strong> — DL biological age from CBC, <em>npj Digital Medicine</em>. The paper most similar to yours. This is your primary "we improve upon" citation.</li>
+    <li><strong>Lee et al., 2023</strong> — Deep learning for biological age from blood. Closest existing work.</li>
+    <li><strong>Bae et al., 2021</strong> — DL biological age from CBC, <em>npj Digital Medicine</em>. Primary "we improve upon" citation.</li>
   </ol>
 
   <hr>
 
-  <h2>Immediate Action Items (This Week)</h2>
+  <h2>Immediate Action Items</h2>
   <table>
     <thead>
-      <tr>
-        <th>Priority</th>
-        <th>Task</th>
-        <th>Time</th>
-      </tr>
+      <tr><th>Priority</th><th>Task</th><th>Time</th></tr>
     </thead>
     <tbody>
-      <tr>
-        <td>🔴 Critical</td>
-        <td>Apply for UK Biobank access</td>
-        <td>3 hours</td>
-      </tr>
-      <tr>
-        <td>🔴 Critical</td>
-        <td>Download NHANES data, start feature pipeline</td>
-        <td>4 hours</td>
-      </tr>
-      <tr>
-        <td>🟠 High</td>
-        <td>Apply for MESA via dbGaP</td>
-        <td>1 hour</td>
-      </tr>
-      <tr>
-        <td>🟠 High</td>
-        <td>Set up GPU compute environment (GCP/AWS)</td>
-        <td>2 hours</td>
-      </tr>
-      <tr>
-        <td>🟠 High</td>
-        <td>Read the 8 papers above</td>
-        <td>This week</td>
-      </tr>
-      <tr>
-        <td>🟡 Medium</td>
-        <td>Set up GitHub repo (public, MIT license)</td>
-        <td>1 hour</td>
-      </tr>
-      <tr>
-        <td>🟡 Medium</td>
-        <td>Apply to Indian IRB for Tessera data</td>
-        <td>2 hours</td>
-      </tr>
-      <tr>
-        <td>🟢 Later</td>
-        <td>Generation Scotland collaboration email</td>
-        <td>1 hour</td>
-      </tr>
+      <tr><td>🔴 Critical</td><td>Apply for UK Biobank access</td><td>3 hours</td></tr>
+      <tr><td>🔴 Critical</td><td>Download NHANES data, start feature pipeline</td><td>4 hours</td></tr>
+      <tr><td>🟠 High</td><td>Apply for MESA via dbGaP</td><td>1 hour</td></tr>
+      <tr><td>🟠 High</td><td>Set up GPU compute environment (GCP/AWS)</td><td>2 hours</td></tr>
+      <tr><td>🟠 High</td><td>Read the 8 papers above</td><td>This week</td></tr>
+      <tr><td>🟡 Medium</td><td>Set up GitHub repo (public, MIT license)</td><td>1 hour</td></tr>
+      <tr><td>🟡 Medium</td><td>Apply to Indian IRB for Tessera data</td><td>2 hours</td></tr>
+      <tr><td>🟢 Later</td><td>Generation Scotland collaboration email</td><td>1 hour</td></tr>
     </tbody>
   </table>
-  <p><strong>The UK Biobank application is the hardest blocker. Start today.</strong> Everything else can run in parallel while you wait for approval.</p>
+  <p><strong>The UK Biobank application is the hardest blocker. Start today.</strong></p>
 
 </div>
 
