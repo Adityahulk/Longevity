@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tessera — Biomarker Panel</title>
+<meta name="description" content="Tessera's complete 55-marker blood panel. Single draw, fasted morning collection. Everything needed to calculate biological age and build a personalized protocol.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:       #F5F1E8;
+  --cream-dark:  #EDE7D9;
+  --paper:       #FBF8F1;
+  --ink:         #0E1B2C;
+  --ink-soft:    #1F2D40;
+  --ink-mute:    #4A5668;
+  --ink-fade:    #7A8497;
+  --rule:        #C8BFA8;
+  --rule-soft:   #DCD3BC;
+  --accent:      #B85426;
+  --accent-warm: #D17244;
+  --leaf:        #2F5D3C;
+  --serif:       'Fraunces', Georgia, serif;
+  --sans:        'Inter', -apple-system, sans-serif;
+  --mono:        'JetBrains Mono', ui-monospace, monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+/* ── NAV ── */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(245, 241, 232, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 0.5px solid var(--rule-soft);
+  padding: 16px 0;
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 32px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.logo {
+  font-family: var(--serif); font-size: 22px; font-weight: 500;
+  letter-spacing: -0.02em; color: var(--ink); text-decoration: none;
+  display: flex; align-items: center; gap: 10px;
+}
+.logo-mark { width: 20px; height: 20px; position: relative; }
+.logo-mark::before, .logo-mark::after {
+  content: ''; position: absolute; inset: 0;
+  border: 1.5px solid var(--ink); border-radius: 50%;
+}
+.logo-mark::after { inset: 5px; background: var(--accent); border: none; }
+.nav-actions { display: flex; align-items: center; gap: 20px; }
+.nav-back {
+  font-family: var(--mono); font-size: 11px; color: var(--ink-mute);
+  text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s;
+}
+.nav-back:hover { color: var(--accent); }
+.nav-print {
+  font-family: var(--mono); font-size: 11px; color: var(--ink);
+  background: transparent; border: 0.5px solid var(--rule);
+  padding: 7px 14px; cursor: pointer; letter-spacing: 0.06em;
+  transition: all 0.2s; text-transform: uppercase;
+}
+.nav-print:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ── PAGE HERO ── */
+.hero {
+  border-bottom: 1px solid var(--rule-soft);
+  padding: 64px 0 52px;
+  background: var(--paper);
+}
+.hero-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+.hero-eyebrow {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--accent);
+  display: flex; align-items: center; gap: 12px; margin-bottom: 22px;
+}
+.hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
+.hero h1 {
+  font-family: var(--serif); font-size: clamp(32px, 4.5vw, 52px);
+  font-weight: 400; line-height: 1.08; letter-spacing: -0.025em;
+  color: var(--ink); margin-bottom: 20px;
+}
+.hero h1 em { font-style: italic; color: var(--accent); font-weight: 300; }
+.hero-sub {
+  font-size: 16px; color: var(--ink-mute); max-width: 620px; line-height: 1.65;
+  margin-bottom: 36px;
+}
+.hero-stats {
+  display: flex; gap: 0;
+  border-top: 1px solid var(--rule-soft); padding-top: 28px;
+  flex-wrap: wrap;
+}
+.hero-stat {
+  padding-right: 36px; margin-right: 36px;
+  border-right: 0.5px solid var(--rule-soft);
+}
+.hero-stat:last-child { border-right: none; }
+.hero-stat-num {
+  font-family: var(--serif); font-size: 32px; font-weight: 500;
+  color: var(--ink); letter-spacing: -0.02em; line-height: 1; margin-bottom: 5px;
+}
+.hero-stat-label { font-size: 12px; color: var(--ink-fade); line-height: 1.4; }
+
+/* ── LAYOUT ── */
+.page-body { max-width: 1100px; margin: 0 auto; padding: 56px 32px 80px; }
+.panel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule-soft);
+  border: 1px solid var(--rule-soft);
+}
+
+/* ── CATEGORY CARD ── */
+.cat-card {
+  background: var(--cream);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.cat-card.full-width { grid-column: span 2; }
+.cat-header {
+  padding: 22px 28px 18px;
+  border-bottom: 0.5px solid var(--rule-soft);
+  background: var(--paper);
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;
+}
+.cat-num {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em;
+  color: var(--accent); margin-bottom: 5px; display: block;
+}
+.cat-name {
+  font-family: var(--serif); font-size: 19px; font-weight: 500;
+  color: var(--ink); line-height: 1.2; letter-spacing: -0.01em;
+}
+.cat-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--ink-fade); margin-top: 4px;
+  font-style: normal;
+}
+.cat-count {
+  font-family: var(--mono); font-size: 11px; color: var(--ink-fade);
+  white-space: nowrap; padding: 4px 10px;
+  border: 0.5px solid var(--rule-soft); border-radius: 99px;
+  flex-shrink: 0; margin-top: 2px;
+}
+.cat-body { padding: 20px 28px 24px; flex: 1; }
+.marker-list { list-style: none; }
+.marker-list li {
+  font-size: 13.5px; color: var(--ink-soft); line-height: 1.5;
+  padding: 7px 0;
+  border-bottom: 0.5px dashed var(--rule-soft);
+  display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+}
+.marker-list li:last-child { border-bottom: none; padding-bottom: 0; }
+.marker-name { flex: 1; }
+.marker-tag {
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 2px 7px; border-radius: 99px;
+  white-space: nowrap; flex-shrink: 0;
+}
+.tag-phenoage {
+  background: rgba(184, 84, 38, 0.1);
+  color: var(--accent);
+  border: 0.5px solid rgba(184, 84, 38, 0.25);
+}
+.tag-female {
+  background: rgba(139, 105, 20, 0.08);
+  color: var(--gold, #8B6914);
+  border: 0.5px solid rgba(139, 105, 20, 0.25);
+}
+
+/* ── PHENOAGE NOTE ── */
+.phenoage-note {
+  margin-top: 32px;
+  padding: 20px 24px;
+  background: var(--paper);
+  border: 1px solid var(--rule-soft);
+  border-left: 3px solid var(--accent);
+  display: flex; align-items: flex-start; gap: 14px;
+}
+.phenoage-note-icon {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--accent);
+  background: rgba(184, 84, 38, 0.08); padding: 4px 9px;
+  border-radius: 99px; flex-shrink: 0; margin-top: 1px;
+}
+.phenoage-note-text { font-size: 13.5px; color: var(--ink-mute); line-height: 1.65; }
+.phenoage-note-text strong { color: var(--ink); font-weight: 600; }
+
+/* ── COLLECTION INSTRUCTIONS ── */
+.instructions {
+  margin-top: 32px;
+  border: 1px solid var(--rule-soft);
+  background: var(--ink);
+  color: var(--cream);
+}
+.instructions-header {
+  padding: 20px 28px 16px;
+  border-bottom: 0.5px solid rgba(245, 241, 232, 0.12);
+  display: flex; align-items: center; gap: 12px;
+}
+.instructions-title {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--accent-warm);
+}
+.instructions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.instr-item {
+  padding: 20px 28px;
+  border-right: 0.5px solid rgba(245, 241, 232, 0.08);
+  border-bottom: 0.5px solid rgba(245, 241, 232, 0.08);
+}
+.instr-item:nth-child(3n) { border-right: none; }
+.instr-item:nth-last-child(-n+3) { border-bottom: none; }
+.instr-label {
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: rgba(245, 241, 232, 0.4); margin-bottom: 7px;
+}
+.instr-value { font-size: 13.5px; color: rgba(245, 241, 232, 0.85); line-height: 1.55; }
+.instr-value strong { color: var(--cream); font-weight: 500; }
+
+/* ── FOOTER SUMMARY ── */
+.panel-summary {
+  margin-top: 32px;
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: center; gap: 24px;
+  padding: 24px 28px;
+  background: var(--paper); border: 1px solid var(--rule-soft);
+}
+.summary-text { font-size: 13px; color: var(--ink-mute); line-height: 1.6; }
+.summary-text strong { color: var(--ink); }
+.summary-stat {
+  text-align: right; flex-shrink: 0;
+}
+.summary-stat-num {
+  font-family: var(--serif); font-size: 36px; font-weight: 500;
+  color: var(--ink); letter-spacing: -0.02em; line-height: 1;
+}
+.summary-stat-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--ink-fade); margin-top: 4px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  .panel-grid { grid-template-columns: 1fr; }
+  .cat-card.full-width { grid-column: span 1; }
+  .instructions-grid { grid-template-columns: 1fr 1fr; }
+  .instr-item:nth-child(3n) { border-right: 0.5px solid rgba(245,241,232,0.08); }
+  .instr-item:nth-child(2n) { border-right: none; }
+  .hero-stats { gap: 0; }
+  .hero-stat { padding: 0 24px 0 0; margin: 0 24px 0 0; }
+  .panel-summary { grid-template-columns: 1fr; }
+  .summary-stat { text-align: left; }
+}
+@media (max-width: 560px) {
+  .nav-inner { padding: 0 20px; }
+  .hero-inner, .page-body { padding-left: 20px; padding-right: 20px; }
+  .instructions-grid { grid-template-columns: 1fr; }
+  .instr-item { border-right: none !important; }
+  .cat-header, .cat-body { padding-left: 20px; padding-right: 20px; }
+  .hero-stat { padding-right: 16px; margin-right: 16px; }
+}
+
+/* ── PRINT ── */
+@media print {
+  .nav, .nav-print { display: none; }
+  body { background: white; }
+  .panel-grid { border: 1px solid #ccc; background: #ccc; }
+  .cat-card { background: white; }
+  .cat-header { background: #f8f8f8; }
+  .instructions { background: #1a1a1a; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .hero { background: white; }
+  .page-body { padding-top: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <span class="logo-mark"></span>
+      Tessera
+    </a>
+    <div class="nav-actions">
+      <a href="/" class="nav-back">← Main site</a>
+      <button class="nav-print" onclick="window.print()">Print / Save PDF</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Biomarker Panel</div>
+    <h1>The complete blood panel.<br><em>Every marker. One draw.</em></h1>
+    <p class="hero-sub">
+      Every test Tessera runs — organized by category, with collection instructions.
+      Share this directly with any NABL-accredited lab for pricing.
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">~55</div>
+        <div class="hero-stat-label">Measurable values<br>from a single draw</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">11</div>
+        <div class="hero-stat-label">Test categories<br>one needle stick</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">9</div>
+        <div class="hero-stat-label">PhenoAge markers<br>all included</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">7–10 AM</div>
+        <div class="hero-stat-label">Collection window<br>fasted, mandatory</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PANEL GRID ── -->
+<div class="page-body">
+
+  <div class="panel-grid">
+
+    <!-- 1. CBC -->
+    <div class="cat-card full-width">
+      <div class="cat-header">
+        <div>
+          <span class="cat-num">01</span>
+          <div class="cat-name">Complete Blood Count with 5-Part Differential</div>
+          <div class="cat-label">CBC — 5-Part Diff</div>
+        </div>
+        <span class="cat-count">14 values · 1 test order</span>
+      </div>
+      <div class="cat-body">
+        <ul class="marker-list" style="columns: 2; gap: 32px;">
+          <li><span class="marker-name">Haemoglobin</span> <span class="marker-tag tag-phenoage">PhenoAge</span></li>
+          <li><span class="marker-name">Total Leucocyte Count (WBC)</span> <span class="marker-tag tag-phenoage">PhenoAge</span></li>
+          <li><span class="marker-name">RBC Count</span></li>
+          <li><span class="marker-name">Haematocrit (PCV)</span></li>
+          <li><span class="marker-name">MCV</span> <span class="marker-tag tag-phenoage">PhenoAge</span></li>
+          <li><span class="marker-name">MCH</span></li>
+          <li><span class="marker-name">MCHC</span></li>
+          <li><span class="marker-name">RDW-CV</span> <span class="marker-tag tag-phenoage">PhenoAge</span></li>
+          <li><span class="marker-name">Platelet Count</span></li>
+          <li><span class="marker-name">Neutrophils % + Absolute</span></li>
+          <li><span class="marker-name">Lymphocytes % + Absolute</span> <span class="marker-tag tag-phenoage">PhenoAge</span></li>
+          <li><span class="marker-name">Monocytes % + Absolute</span></li>
+          <li><span class="marker-name">Eosinophils % + Absolute</span></li>
+          <li><span class="marker-name">Basophils % + Absolute</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 2. Blood Sugar -->
+    <div class="cat-card">
+      <div class="cat-header">
+        <div>
+          <span class="cat-num">02</span>
+          <div class="cat-name">Blood Sugar and Insulin</div>
+          <div class="cat-label">Glucose · HbA1c · Insulin</div>
+        </div>
+        <span class="cat-count">3 tests</span>
+      </div>
+      <div class="cat-body">
+        <ul class="marker-list">
+          <li><span class="marker-name">Fasting Blood Sugar (FBS)</span> <span class="marker-tag tag-phenoage">PhenoAge</span></li>
+          <li><span class="marker-name">HbA1c (Glycosylated Haemoglobin)</span></li>
+          <li><span class="marker-name">Fasting Insulin (Serum)</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3. Lipid -->
+    <div class="cat-card">
+      <div class="cat-header">
+        <div>
+          <span class="cat-num">03</span>
+          <div class="cat-name">Lipid Profile — Advanced</div>
+          <div class="cat-label">Lipid Panel + Apolipoproteins</div>
+        </div>
+        <span class="cat-count">6 tests</span>
+      </div>
+      <div class="cat-body">
+        <ul class="marker-list">
+          <li><span class="marker-name">Total Cholesterol</span></li>
+          <li><span class="marker-name">LDL Cholesterol (Direct)</span></li>
+          <li><span class="marker-name">HDL Cholesterol</span></li>
+          <li><span class="marker-name">Triglycerides</span></li>
+          <li><span class="marker-name">ApoB (Apolipoprotein B)</span></li>
+          <li><span class="marker-name">Lp(a) — Lipoprotein(a)</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 4. LFT -->
+    <div class="cat-card">
+      <div class="cat-header">
+        <div>
+          <span class="cat-num">04</span>
+          <div class="cat-name">Liver Function Test</div>
+          <div class="cat-label">LFT — Full Panel</div>
+        </div>
+        <span class="cat-count">8 values · 1 panel order</span>
+      </div>
+      <div class="cat-body">
+        <ul class="marker-list">
+          <li><span class="marker-name">SGOT (AST)</span></li>
+          <li><span class="marker-name">SGPT (ALT)</span></li>
+          <li><span class="marker-name">Alkaline Phosphatase (ALP)</span> <span class="marker-tag tag-phenoage">PhenoAge</span></li>
+          <li><span class="marker-name">GGT (Gamma GT)</span></li>
+          <li><span class="marker-name">Total Bilirubin</span></li>
+          <li><span class="marker-name">Direct Bilirubin</span></li>
+          <li><span class="marker-name">Total Protein</span></li>
+          <li><span class="marker-name">Albumin</span> <span class="marker-tag tag-phenoage">PhenoAge</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 5. KFT -->
+    <div class="cat-card">
+      <div class="cat-header">
+        <div>
+          <span class="cat-num">05</span>
+          <div class="cat-name">Kidney Function Test with Electrolytes</div>
+          <div class="cat-label">KFT / RFT + Electrolytes</div>
+        </div>
+        <span class="cat-count">7 tests</span>
+      </div>
+      <div class="cat-body">
+        <ul class="marker-list">
+          <li><span class="marker-name">Serum Creatinine</span> <span class="marker-tag tag-phenoage">PhenoAge</span></li>
+          <li><span class="marker-name">Blood Urea</span></li>
+          <li><span class="marker-name">Uric Acid (Serum)</span></li>
+          <li><span class="marker-name">Sodium (Serum)</span></li>
+          <li><span class="marker-name">Potassium (Serum)</span></li>
+          <li><span class="marker-name">Chloride (Serum)</span></li>
+          <li><span class="marker-name">Calcium (Serum)</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 6. Inflammation -->
+    <div class="cat-card">
+      <div class="cat-header">
+        <div>
+          <span class="cat-num">06</span>
+          <div class="cat-name">Inflammatory Markers</div>
+          <div class="cat-label">hsCRP · Homocysteine</div>
+        </div>
+        <span class="cat-count">2 tests</span>
+      </div>
+      <div class="cat-body">
+        <ul class="marker-list">
+          <li>
+            <span class="marker-name">hsCRP — <strong>High-Sensitivity CRP only</strong></span>
+            <span class="marker-tag tag-phenoage">PhenoAge</span>
+          </li>
+          <li><span class="marker-name">Homocysteine (Serum)</span></li>
+        </ul>
+        <p style="margin-top: 14px; font-family: var(--mono); font-size: 11px; color: var(--ink-fade); line-height: 1.6;">
+          Note: Standard CRP is not sufficient.<br>High-sensitivity assay mandatory.
+        </p>
+      </div>
+    </div>
+
+    <!-- 7. Thyroid -->
+    <div class="cat-card">
+      <div class="cat-header">
+        <div>
+          <span class="cat-num">07</span>
+          <div class="cat-name">Thyroid Function Test</div>
+          <div class="cat-label">TFT — Full Panel</div>
+        </div>
+        <span class="cat-count">3 tests</span>
+      </div>
+      <div class="cat-body">
+        <ul class="marker-list">
+          <li><span class="marker-name">TSH (Ultrasensitive / 3rd Generation)</span></li>
+          <li><span class="marker-name">Free T3 (FT3)</span></li>
+          <li><span class="marker-name">Free T4 (FT4)</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 8. Hormones -->
+    <div class="cat-card">
+      <div class="cat-header">
+        <div>
+          <span class="cat-num">08</span>
+          <div class="cat-name">Hormones</div>
+          <div class="cat-label">Testosterone · SHBG · Female Panel</div>
+        </div>
+        <span class="cat-count">2 tests (male) · 6 tests (female)</span>
+      </div>
+      <div class="cat-body">
+        <ul class="marker-list">
+          <li><span class="marker-name">Total Testosterone</span></li>
+          <li><span class="marker-name">SHBG (Sex Hormone Binding Globulin)</span></li>
+          <li>
+            <span class="marker-name">Estradiol (E2)</span>
+            <span class="marker-tag tag-female">Female</span>
+          </li>
+          <li>
+            <span class="marker-name">LH (Luteinizing Hormone)</span>
+            <span class="marker-tag tag-female">Female</span>
+          </li>
+          <li>
+            <span class="marker-name">FSH (Follicle Stimulating Hormone)</span>
+            <span class="marker-tag tag-female">Female</span>
+          </li>
+          <li>
+            <span class="marker-name">Prolactin</span>
+            <span class="marker-tag tag-female">Female</span>
+          </li>
+        </ul>
+        <p style="margin-top: 14px; font-family: var(--mono); font-size: 11px; color: var(--ink-fade); line-height: 1.6;">
+          Testosterone + SHBG: morning sample mandatory.<br>
+          Female panel: note cycle day on report.
+        </p>
+      </div>
+    </div>
+
+    <!-- 9. Vitamins -->
+    <div class="cat-card">
+      <div class="cat-header">
+        <div>
+          <span class="cat-num">09</span>
+          <div class="cat-name">Vitamins</div>
+          <div class="cat-label">D · B12 · Folate</div>
+        </div>
+        <span class="cat-count">3 tests</span>
+      </div>
+      <div class="cat-body">
+        <ul class="marker-list">
+          <li><span class="marker-name">Vitamin D (25-OH Vitamin D / Calcidiol)</span></li>
+          <li><span class="marker-name">Vitamin B12 (Cobalamin)</span></li>
+          <li><span class="marker-name">Folic Acid (Serum Folate)</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 10. Iron -->
+    <div class="cat-card">
+      <div class="cat-header">
+        <div>
+          <span class="cat-num">10</span>
+          <div class="cat-name">Iron Studies — Complete</div>
+          <div class="cat-label">Iron · TIBC · Ferritin</div>
+        </div>
+        <span class="cat-count">3 tests</span>
+      </div>
+      <div class="cat-body">
+        <ul class="marker-list">
+          <li><span class="marker-name">Serum Iron</span></li>
+          <li><span class="marker-name">TIBC (Total Iron Binding Capacity)</span></li>
+          <li><span class="marker-name">Serum Ferritin</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 11. Minerals -->
+    <div class="cat-card">
+      <div class="cat-header">
+        <div>
+          <span class="cat-num">11</span>
+          <div class="cat-name">Minerals</div>
+          <div class="cat-label">Magnesium</div>
+        </div>
+        <span class="cat-count">1 test</span>
+      </div>
+      <div class="cat-body">
+        <ul class="marker-list">
+          <li><span class="marker-name">Magnesium (Serum)</span></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PhenoAge note -->
+  <div class="phenoage-note">
+    <span class="phenoage-note-icon">PhenoAge</span>
+    <div class="phenoage-note-text">
+      Markers tagged <strong>PhenoAge</strong> are the 9 inputs used to calculate your biological age score using the Levine et al. 2018 (<em>Nature Medicine</em>) validated model. All 9 are captured within this panel from a single fasted blood draw.
+    </div>
+  </div>
+
+  <!-- Collection Instructions -->
+  <div class="instructions">
+    <div class="instructions-header">
+      <span class="instructions-title">Collection Instructions — For Lab</span>
+    </div>
+    <div class="instructions-grid">
+      <div class="instr-item">
+        <div class="instr-label">Fasting</div>
+        <div class="instr-value"><strong>10–12 hours minimum.</strong> Water allowed. No food, coffee, or supplements.</div>
+      </div>
+      <div class="instr-item">
+        <div class="instr-label">Timing</div>
+        <div class="instr-value"><strong>7–10 AM strictly.</strong> Testosterone and cortisol peak in this window.</div>
+      </div>
+      <div class="instr-item">
+        <div class="instr-label">hsCRP Assay</div>
+        <div class="instr-value"><strong>High-sensitivity method mandatory.</strong> Standard CRP not accepted.</div>
+      </div>
+      <div class="instr-item">
+        <div class="instr-label">Fasting Insulin</div>
+        <div class="instr-value">Chemiluminescence method preferred for accuracy.</div>
+      </div>
+      <div class="instr-item">
+        <div class="instr-label">CBC Differential</div>
+        <div class="instr-value"><strong>5-part differential required.</strong> 3-part not sufficient for this panel.</div>
+      </div>
+      <div class="instr-item">
+        <div class="instr-label">Female Hormones</div>
+        <div class="instr-value">Note menstrual cycle day on report. Day 2–5 preferred for FSH/LH.</div>
+      </div>
+      <div class="instr-item">
+        <div class="instr-label">Report Format</div>
+        <div class="instr-value">PDF soft copy, all individual values itemized, within <strong>48 hours</strong> of draw.</div>
+      </div>
+      <div class="instr-item">
+        <div class="instr-label">Sample Type</div>
+        <div class="instr-value">EDTA tube (CBC, HbA1c) + SST serum tubes + fluoride tube (FBS). Single venipuncture.</div>
+      </div>
+      <div class="instr-item">
+        <div class="instr-label">Total Draw</div>
+        <div class="instr-value">Approximately <strong>20–25 mL</strong> total across 3–4 tubes. Standard volume.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div class="panel-summary">
+    <div class="summary-text">
+      <strong>Single venipuncture. One sitting. ~5 minutes at collection.</strong><br>
+      All tests run from the same blood draw. NABL-accredited lab required.
+      Results in 48 hours. This panel covers biological age calculation (PhenoAge),
+      personalized nutrition, training prescription, lifestyle, and supplement recommendations.
+    </div>
+    <div class="summary-stat">
+      <div class="summary-stat-num">~55</div>
+      <div class="summary-stat-label">Values · One draw</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

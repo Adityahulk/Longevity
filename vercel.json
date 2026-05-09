@@ -92,6 +92,14 @@
     {
       "source": "/research/",
       "destination": "/research.html"
+    },
+    {
+      "source": "/blood-test",
+      "destination": "/blood-test.html"
+    },
+    {
+      "source": "/blood-test/",
+      "destination": "/blood-test.html"
     }
   ]
 }
