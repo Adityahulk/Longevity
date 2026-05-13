@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{client_first_name}} · Tessera Longevity Report · {{report_date}}</title>
+<meta name="description" content="A personalized longevity report for {{client_first_name}}: biological age, biomarker analysis, and a 90-day protocol across nutrition, training, recovery, supplements, and mind.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream:        #F5F1E8;
+  --cream-dark:   #EDE7D9;
+  --paper:        #FBF8F1;
+  --ink:          #0E1B2C;
+  --ink-soft:     #1F2D40;
+  --ink-mute:     #4A5668;
+  --ink-fade:     #7A8497;
+  --rule:         #C8BFA8;
+  --rule-soft:    #DCD3BC;
+  --accent:       #B85426;
+  --accent-warm:  #D17244;
+  --accent-soft:  #F4E5DC;
+  --leaf:         #2F5D3C;
+  --leaf-soft:    #DCE7DE;
+  --gold:         #8B6914;
+  --gold-soft:    #EFE6CB;
+  --danger:       #9B2C2C;
+  --danger-soft:  #F8DDDA;
+  --serif:        'Fraunces', Georgia, serif;
+  --sans:         'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono:         'JetBrains Mono', ui-monospace, monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--ink);
+  font-weight: 400;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(184, 84, 38, 0.025) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(47, 93, 60, 0.02) 0%, transparent 50%);
+  z-index: 0;
+}
+
+.page {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-fade);
+}
+
+h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; letter-spacing: -0.01em; }
+h1 { font-size: 56px; line-height: 1.05; }
+h2 { font-size: 36px; line-height: 1.15; margin-bottom: 8px; }
+h3 { font-size: 22px; line-height: 1.25; }
+h4 { font-family: var(--sans); font-size: 14px; font-weight: 600; letter-spacing: 0.02em; color: var(--ink); }
+
+p { color: var(--ink-soft); }
+p + p { margin-top: 14px; }
+
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
+a:hover { border-bottom-color: var(--accent); }
+
+ul, ol { padding-left: 22px; color: var(--ink-soft); }
+li { margin-bottom: 6px; }
+li::marker { color: var(--accent); }
+
+strong { color: var(--ink); font-weight: 600; }
+em { font-style: italic; color: var(--ink-mute); }
+
+hr {
+  border: 0;
+  border-top: 0.5px solid var(--rule);
+  margin: 0;
+}
+
+/* ─────────── COVER ─────────── */
+.cover {
+  min-height: 100vh;
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 60px 0;
+  page-break-after: always;
+}
+.cover-top { display: flex; justify-content: space-between; align-items: baseline; }
+.cover-logo {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.cover-logo-mark {
+  color: var(--accent);
+  font-style: italic;
+  font-weight: 400;
+}
+.cover-meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-fade);
+}
+
+.cover-center {
+  margin: 80px 0;
+}
+.cover-title-eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+.cover-title {
+  font-size: 64px;
+  line-height: 1.02;
+  font-weight: 400;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+.cover-title em {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 300;
+}
+.cover-for {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--ink-mute);
+  margin-bottom: 64px;
+}
+.cover-for strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.headline-stat {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 28px 0;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 32px;
+  align-items: center;
+}
+.headline-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.headline-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-fade);
+}
+.headline-value {
+  font-family: var(--serif);
+  font-size: 60px;
+  line-height: 1;
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.headline-value.accent { color: var(--accent); }
+.headline-value.leaf { color: var(--leaf); }
+.headline-value.danger { color: var(--danger); }
+.headline-unit {
+  font-size: 18px;
+  font-family: var(--sans);
+  font-weight: 400;
+  color: var(--ink-mute);
+  margin-left: 4px;
+}
+.headline-divider {
+  width: 1px;
+  height: 60px;
+  background: var(--rule);
+}
+.headline-delta-block {
+  text-align: right;
+}
+.headline-delta-block .headline-label { text-align: right; }
+
+.cover-bottom {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-fade);
+  display: flex;
+  justify-content: space-between;
+  border-top: 0.5px solid var(--rule);
+  padding-top: 24px;
+}
+
+/* ─────────── SECTION ─────────── */
+section {
+  padding: 80px 0;
+  border-top: 0.5px solid var(--rule-soft);
+}
+.section-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.section-title {
+  font-size: 42px;
+  font-weight: 400;
+  margin-bottom: 32px;
+  max-width: 720px;
+  letter-spacing: -0.015em;
+}
+.section-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+.lede {
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 300;
+  color: var(--ink-soft);
+  margin-bottom: 32px;
+  max-width: 680px;
+}
+
+/* ─────────── EXECUTIVE SUMMARY ─────────── */
+.summary-list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.summary-item {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 18px;
+  align-items: start;
+  padding: 22px 24px;
+  background: var(--paper);
+  border: 0.5px solid var(--rule-soft);
+  border-radius: 4px;
+}
+.summary-num {
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--accent);
+  font-style: italic;
+  line-height: 1;
+}
+.summary-text strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 16px;
+}
+.summary-text p {
+  margin: 0;
+  color: var(--ink-mute);
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+
+/* ─────────── BIOLOGICAL AGE ─────────── */
+.bio-age-hero {
+  background: var(--paper);
+  border: 0.5px solid var(--rule);
+  border-radius: 6px;
+  padding: 40px;
+  margin-bottom: 36px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.bio-age-display {
+  text-align: center;
+}
+.bio-age-number {
+  font-family: var(--serif);
+  font-size: 110px;
+  line-height: 0.9;
+  font-weight: 300;
+  color: var(--accent);
+  letter-spacing: -0.04em;
+}
+.bio-age-number.leaf { color: var(--leaf); }
+.bio-age-number.danger { color: var(--danger); }
+.bio-age-number.muted { color: var(--ink-mute); font-size: 40px; }
+.bio-age-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-fade);
+  margin-top: 12px;
+}
+.bio-age-delta {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  color: var(--ink-soft);
+  margin-top: 16px;
+  line-height: 1.45;
+}
+.bio-age-delta em { color: var(--accent); font-weight: 500; }
+
+.phenoage-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 24px;
+  font-size: 14px;
+}
+.phenoage-table th,
+.phenoage-table td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 0.5px solid var(--rule-soft);
+}
+.phenoage-table th {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-fade);
+  font-weight: 500;
+  background: var(--cream-dark);
+}
+.phenoage-table td.value {
+  font-family: var(--mono);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* ─────────── BIOMARKER PANELS ─────────── */
+.panel {
+  margin-top: 40px;
+}
+.panel:first-child { margin-top: 0; }
+.panel-title {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+.panel-count {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--ink-fade);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.panel-summary {
+  font-size: 14.5px;
+  color: var(--ink-mute);
+  margin-bottom: 18px;
+  max-width: 640px;
+}
+
+.marker {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr auto;
+  gap: 18px;
+  padding: 18px 22px;
+  border: 0.5px solid var(--rule-soft);
+  border-radius: 4px;
+  margin-bottom: 10px;
+  background: var(--paper);
+  align-items: start;
+}
+.marker.tier-1 { border-color: var(--danger); background: var(--danger-soft); }
+.marker.tier-2 { border-left: 3px solid var(--accent); }
+.marker.tier-3 { border-left: 3px solid var(--gold); }
+.marker.tier-4 { border-left: 3px solid var(--leaf); }
+
+.marker-name {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink);
+}
+.marker-name-sub {
+  display: block;
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--ink-fade);
+  margin-top: 2px;
+  letter-spacing: 0.02em;
+}
+
+.marker-value {
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.marker-value-unit {
+  font-size: 12px;
+  color: var(--ink-fade);
+  margin-left: 4px;
+}
+.marker-range {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-mute);
+}
+.marker-range-label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-fade);
+  margin-bottom: 4px;
+  font-family: var(--mono);
+}
+
+.status-badge {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-weight: 500;
+  white-space: nowrap;
+  align-self: start;
+}
+.status-badge.optimal { background: var(--leaf-soft); color: var(--leaf); }
+.status-badge.acceptable { background: var(--gold-soft); color: var(--gold); }
+.status-badge.off { background: var(--accent-soft); color: var(--accent); }
+.status-badge.tier-1 { background: var(--danger); color: white; }
+.status-badge.na { background: var(--cream-dark); color: var(--ink-fade); }
+
+.marker-interpretation {
+  grid-column: 1 / -1;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 0.5px dashed var(--rule-soft);
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+/* ─────────── TIER 1 CALLOUT ─────────── */
+.tier1-callout {
+  background: var(--danger-soft);
+  border-left: 4px solid var(--danger);
+  padding: 28px 32px;
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+.tier1-callout h3 {
+  color: var(--danger);
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.tier1-callout p {
+  color: var(--ink-soft);
+  font-size: 15px;
+}
+.tier1-callout ul { margin-top: 12px; }
+.tier1-callout li::marker { color: var(--danger); }
+
+/* ─────────── PROTOCOL DOMAINS ─────────── */
+.domain-grid {
+  display: grid;
+  gap: 24px;
+}
+.domain-card {
+  background: var(--paper);
+  border: 0.5px solid var(--rule);
+  border-radius: 6px;
+  padding: 36px 38px;
+  position: relative;
+  overflow: hidden;
+}
+.domain-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--accent);
+}
+.domain-card[data-domain="nutrition"]::before  { background: var(--leaf); }
+.domain-card[data-domain="training"]::before   { background: var(--accent); }
+.domain-card[data-domain="recovery"]::before   { background: var(--gold); }
+.domain-card[data-domain="supplements"]::before{ background: var(--ink-soft); }
+.domain-card[data-domain="mind"]::before       { background: var(--accent-warm); }
+
+.domain-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.domain-name {
+  font-family: var(--serif);
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.domain-tag {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-fade);
+}
+.domain-lede {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  margin-bottom: 24px;
+  max-width: 580px;
+}
+.domain-body {
+  display: grid;
+  gap: 22px;
+}
+.domain-block h4 {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-fade);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.domain-block p,
+.domain-block ul {
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+.domain-block ul { padding-left: 20px; }
+.domain-block li { margin-bottom: 4px; }
+
+.kv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 28px;
+  margin-bottom: 8px;
+}
+.kv-item {
+  border-left: 2px solid var(--rule-soft);
+  padding-left: 12px;
+}
+.kv-key {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-fade);
+  margin-bottom: 2px;
+}
+.kv-value {
+  font-size: 15.5px;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.supplement-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.supplement-table th {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-fade);
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 0.5px solid var(--rule);
+  font-weight: 500;
+}
+.supplement-table td {
+  padding: 12px 14px;
+  border-bottom: 0.5px solid var(--rule-soft);
+  vertical-align: top;
+  color: var(--ink-soft);
+}
+.supplement-table td:first-child {
+  font-weight: 600;
+  color: var(--ink);
+}
+.supplement-table td.dose {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+/* ─────────── 90-DAY PLAN ─────────── */
+.timeline {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+.timeline-week {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 28px;
+  padding: 24px 0;
+  border-top: 0.5px solid var(--rule-soft);
+}
+.timeline-week:first-child { border-top: 0; }
+.timeline-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+}
+.timeline-label .week-range {
+  display: block;
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  font-style: italic;
+  margin-top: 4px;
+  text-transform: none;
+}
+.timeline-content h4 {
+  font-family: var(--serif);
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+.timeline-content p { font-size: 14.5px; color: var(--ink-soft); }
+.timeline-content ul { margin-top: 10px; padding-left: 20px; }
+.timeline-content li { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 4px; }
+
+/* ─────────── RETEST ─────────── */
+.retest-card {
+  background: var(--paper);
+  border: 0.5px solid var(--rule);
+  border-radius: 6px;
+  padding: 32px 36px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+}
+.retest-card h3 { margin-bottom: 12px; }
+.retest-card p { font-size: 14.5px; color: var(--ink-soft); }
+.retest-card ul { padding-left: 20px; }
+.retest-card li { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 6px; }
+
+/* ─────────── DISCLAIMERS ─────────── */
+.disclaimer {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--ink-mute);
+  background: var(--cream-dark);
+  border: 0.5px dashed var(--rule);
+  padding: 24px 28px;
+  border-radius: 4px;
+}
+.disclaimer p + p { margin-top: 10px; }
+.disclaimer strong { color: var(--ink-soft); }
+
+/* ─────────── FOOTER ─────────── */
+.report-footer {
+  padding: 60px 0 80px;
+  border-top: 0.5px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: end;
+}
+.report-footer .cover-logo { font-size: 22px; }
+.report-footer .footer-meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-fade);
+  text-align: right;
+}
+
+/* ─────────── PRINT ─────────── */
+@media print {
+  @page { size: A4; margin: 18mm 16mm; }
+  body { background: white; }
+  body::before { display: none; }
+  .page { max-width: 100%; padding: 0; }
+  section { padding: 28px 0; border-top: 0.5px solid var(--rule-soft); page-break-inside: avoid; }
+  .cover { min-height: 100vh; padding: 0; page-break-after: always; }
+  .bio-age-hero,
+  .domain-card,
+  .retest-card,
+  .summary-item,
+  .marker,
+  .tier1-callout { page-break-inside: avoid; }
+  h2 { page-break-after: avoid; }
+  .panel { page-break-inside: auto; }
+  .panel-title { page-break-after: avoid; }
+}
+
+@media (max-width: 760px) {
+  h1, .cover-title { font-size: 40px; }
+  h2, .section-title { font-size: 30px; }
+  .page { padding: 0 24px; }
+  .bio-age-hero { grid-template-columns: 1fr; gap: 24px; padding: 28px; }
+  .bio-age-number { font-size: 78px; }
+  .headline-stat { grid-template-columns: 1fr; gap: 18px; }
+  .headline-divider { display: none; }
+  .headline-delta-block { text-align: left; }
+  .headline-delta-block .headline-label { text-align: left; }
+  .marker { grid-template-columns: 1fr; gap: 8px; }
+  .marker-interpretation { grid-column: 1; }
+  .retest-card { grid-template-columns: 1fr; }
+  .timeline-week { grid-template-columns: 1fr; gap: 8px; }
+  .kv-grid { grid-template-columns: 1fr; }
+  .domain-card { padding: 28px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═════════════════════════════ COVER ═════════════════════════════ -->
+<div class="cover">
+  <div class="page">
+    <div class="cover-top">
+      <div class="cover-logo">Tessera<span class="cover-logo-mark">.</span></div>
+      <div class="cover-meta">Personalized Longevity Report</div>
+    </div>
+
+    <div class="cover-center">
+      <div class="cover-title-eyebrow">Your 90-Day Baseline</div>
+      <h1 class="cover-title">A measured look at <em>how you're aging</em>, and what to change.</h1>
+      <div class="cover-for">Prepared for <strong>{{client_full_name}}</strong> &nbsp;·&nbsp; {{report_date}}</div>
+
+      <div class="headline-stat">
+        <div class="headline-block">
+          <div class="headline-label">Chronological Age</div>
+          <div class="headline-value">{{chronological_age}}<span class="headline-unit">yrs</span></div>
+        </div>
+        <div class="headline-divider"></div>
+        <div class="headline-block headline-delta-block">
+          <div class="headline-label">Biological Age — PhenoAge</div>
+          <div class="headline-value {{biological_age_class}}">{{biological_age_display}}<span class="headline-unit">{{biological_age_unit}}</span></div>
+        </div>
+      </div>
+
+      <p style="margin-top: 24px; font-family: var(--serif); font-style: italic; font-size: 19px; color: var(--ink-soft); line-height: 1.5;">
+        {{age_delta_sentence}}
+      </p>
+    </div>
+
+    <div class="cover-bottom">
+      <span>Tessera · Hyderabad</span>
+      <span>{{biomarker_count}} biomarkers measured · {{rules_triggered_count}} rules applied</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════════════════════ EXECUTIVE SUMMARY ═════════════════════════════ -->
+<section>
+  <div class="page">
+    <div class="section-eyebrow">01 · Executive Summary</div>
+    <h2 class="section-title">The <em>five things</em> that matter most.</h2>
+    <p class="lede">{{executive_summary_lede}}</p>
+
+    <ul class="summary-list">
+      {{executive_summary_items}}
+      <!--
+        Repeat for 4–6 findings:
+        <li class="summary-item">
+          <span class="summary-num">i.</span>
+          <div class="summary-text">
+            <strong>{{finding_headline}}</strong>
+            <p>{{finding_detail}}</p>
+          </div>
+        </li>
+      -->
+    </ul>
+  </div>
+</section>
+
+<!-- ═════════════════════════════ TIER 1 (CONDITIONAL) ═════════════════════════════ -->
+{{tier1_section_open}}
+<section>
+  <div class="page">
+    <div class="section-eyebrow" style="color: var(--danger);">02 · Medical-Advisory Findings</div>
+    <h2 class="section-title">Please discuss these with <em>your physician</em>.</h2>
+    <p class="lede">{{tier1_lede}}</p>
+    {{tier1_callouts}}
+    <!--
+      For each Tier 1 finding:
+      <div class="tier1-callout">
+        <h3>{{tier1_marker_name}} — {{tier1_value}}</h3>
+        <p>{{tier1_explanation}}</p>
+        <h4 style="margin-top: 14px; margin-bottom: 6px;">What to ask your doctor:</h4>
+        <ul>
+          <li>{{q1}}</li>
+          <li>{{q2}}</li>
+        </ul>
+      </div>
+    -->
+  </div>
+</section>
+{{tier1_section_close}}
+
+<!-- ═════════════════════════════ BIOLOGICAL AGE ═════════════════════════════ -->
+<section>
+  <div class="page">
+    <div class="section-eyebrow">{{biological_age_section_num}} · Biological Age</div>
+    <h2 class="section-title">How fast you're aging, <em>by the blood</em>.</h2>
+    <p class="lede">PhenoAge is a validated estimate of biological aging derived from nine blood markers + your chronological age, trained on long-term US mortality data (Levine et al., 2018, <em>Aging</em>). It is not a diagnosis or a destiny. It is a snapshot, and it is movable.</p>
+
+    <div class="bio-age-hero">
+      <div class="bio-age-display">
+        <div class="bio-age-number {{biological_age_class}}">{{biological_age_display}}</div>
+        <div class="bio-age-label">{{biological_age_label}}</div>
+      </div>
+      <div>
+        <div class="bio-age-delta">{{age_delta_paragraph}}</div>
+        <p style="margin-top: 18px; font-size: 14.5px; color: var(--ink-mute);">{{phenoage_context_paragraph}}</p>
+      </div>
+    </div>
+
+    <h3 style="font-size: 18px; margin-bottom: 12px; margin-top: 24px;">The nine inputs</h3>
+    <table class="phenoage-table">
+      <thead>
+        <tr>
+          <th>Marker</th>
+          <th>Your value</th>
+          <th>PhenoAge input</th>
+          <th>Optimal range</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{phenoage_table_rows}}
+        <!--
+          <tr>
+            <td>{{marker_name}}</td>
+            <td class="value">{{user_value_with_unit}}</td>
+            <td class="value">{{normalized_input}}</td>
+            <td>{{optimal_range}}</td>
+          </tr>
+        -->
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═════════════════════════════ BIOMARKER ANALYSIS ═════════════════════════════ -->
+<section>
+  <div class="page">
+    <div class="section-eyebrow">{{biomarker_section_num}} · Biomarker Analysis</div>
+    <h2 class="section-title">Your <em>full panel</em>, interpreted.</h2>
+    <p class="lede">{{biomarker_section_lede}}</p>
+
+    {{biomarker_panels_html}}
+    <!--
+      For each panel:
+      <div class="panel">
+        <h3 class="panel-title">{{panel_name}} <span class="panel-count">{{count}} markers · {{summary_pill}}</span></h3>
+        <p class="panel-summary">{{panel_summary}}</p>
+
+        For each marker:
+        <div class="marker tier-{{tier}}">
+          <div class="marker-name">{{name}}<span class="marker-name-sub">{{alt_name}}</span></div>
+          <div class="marker-value">{{value}}<span class="marker-value-unit">{{unit}}</span></div>
+          <div class="marker-range"><span class="marker-range-label">Optimal</span>{{optimal_range}}</div>
+          <div class="status-badge {{status_class}}">{{status_label}}</div>
+          <div class="marker-interpretation">{{interpretation}}</div>
+        </div>
+      </div>
+    -->
+  </div>
+</section>
+
+<!-- ═════════════════════════════ PROTOCOL ═════════════════════════════ -->
+<section>
+  <div class="page">
+    <div class="section-eyebrow">{{protocol_section_num}} · Your Protocol</div>
+    <h2 class="section-title">Five levers, <em>tuned to you</em>.</h2>
+    <p class="lede">The protocol below is the union of every rule your biomarkers + intake triggered, deduplicated and prioritized. The goal of the next 90 days is not to do all of this at once — it is to install three to five of these habits deeply enough that they don't require willpower by Day 90.</p>
+
+    <div class="domain-grid">
+
+      <!-- ── NUTRITION ── -->
+      <div class="domain-card" data-domain="nutrition">
+        <div class="domain-header">
+          <div class="domain-name">Nutrition</div>
+          <div class="domain-tag">Lever 01</div>
+        </div>
+        <div class="domain-lede">{{nutrition_lede}}</div>
+        <div class="domain-body">
+          {{nutrition_body}}
+          <!--
+            Use a mix of these blocks:
+
+            Key-value grid for daily targets:
+            <div class="kv-grid">
+              <div class="kv-item">
+                <div class="kv-key">Daily protein</div>
+                <div class="kv-value">{{value}}</div>
+              </div>
+              ... up to ~6 KV items
+            </div>
+
+            Bullet blocks:
+            <div class="domain-block">
+              <h4>Foods to emphasize</h4>
+              <ul>
+                <li>{{food}} — {{why}}</li>
+                ...
+              </ul>
+            </div>
+
+            Sample day:
+            <div class="domain-block">
+              <h4>A sample day</h4>
+              <p><strong>Breakfast (7:30 AM)</strong> — {{meal}}</p>
+              <p><strong>Lunch (1:00 PM)</strong> — {{meal}}</p>
+              <p><strong>Snack (4:30 PM)</strong> — {{meal}}</p>
+              <p><strong>Dinner (7:30 PM)</strong> — {{meal}}</p>
+            </div>
+          -->
+        </div>
+      </div>
+
+      <!-- ── TRAINING ── -->
+      <div class="domain-card" data-domain="training">
+        <div class="domain-header">
+          <div class="domain-name">Training</div>
+          <div class="domain-tag">Lever 02</div>
+        </div>
+        <div class="domain-lede">{{training_lede}}</div>
+        <div class="domain-body">
+          {{training_body}}
+          <!--
+            <div class="kv-grid">
+              <div class="kv-item"><div class="kv-key">Zone 2 / week</div><div class="kv-value">150–180 min</div></div>
+              <div class="kv-item"><div class="kv-key">Zone 2 heart rate</div><div class="kv-value">≤ {{maf_hr}} bpm</div></div>
+              <div class="kv-item"><div class="kv-key">VO₂max sessions / week</div><div class="kv-value">1–2</div></div>
+              <div class="kv-item"><div class="kv-key">Resistance / week</div><div class="kv-value">3 full-body</div></div>
+            </div>
+
+            <div class="domain-block">
+              <h4>A sample week</h4>
+              <ul>
+                <li>Mon — Full-body resistance (45 min): squat, hinge, push, pull, carry</li>
+                <li>Tue — Zone 2 walk/cycle 45 min</li>
+                ...
+              </ul>
+            </div>
+          -->
+        </div>
+      </div>
+
+      <!-- ── RECOVERY & SLEEP ── -->
+      <div class="domain-card" data-domain="recovery">
+        <div class="domain-header">
+          <div class="domain-name">Recovery &amp; Sleep</div>
+          <div class="domain-tag">Lever 03</div>
+        </div>
+        <div class="domain-lede">{{recovery_lede}}</div>
+        <div class="domain-body">
+          {{recovery_body}}
+        </div>
+      </div>
+
+      <!-- ── SUPPLEMENTS ── -->
+      <div class="domain-card" data-domain="supplements">
+        <div class="domain-header">
+          <div class="domain-name">Supplements</div>
+          <div class="domain-tag">Lever 04</div>
+        </div>
+        <div class="domain-lede">{{supplements_lede}}</div>
+        <div class="domain-body">
+          {{supplements_body}}
+          <!--
+            Use the supplement table:
+            <table class="supplement-table">
+              <thead>
+                <tr><th>Compound</th><th>Form</th><th>Dose</th><th>Timing</th><th>Why</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Vitamin D3</td>
+                  <td>oil softgel</td>
+                  <td class="dose">2,000 IU</td>
+                  <td>with breakfast</td>
+                  <td>Your 25-OH-D is {{value}} ng/mL; target 40–60.</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p style="margin-top: 16px; font-size: 13px; color: var(--ink-mute);"><strong>Please discuss this list with your physician before starting</strong>, especially if you take prescription medications.</p>
+          -->
+        </div>
+      </div>
+
+      <!-- ── MIND & WELLNESS ── -->
+      <div class="domain-card" data-domain="mind">
+        <div class="domain-header">
+          <div class="domain-name">Mind &amp; Wellness</div>
+          <div class="domain-tag">Lever 05</div>
+        </div>
+        <div class="domain-lede">{{mind_lede}}</div>
+        <div class="domain-body">
+          {{mind_body}}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════════════ 90-DAY PLAN ═════════════════════════════ -->
+<section>
+  <div class="page">
+    <div class="section-eyebrow">{{plan_section_num}} · The 90-Day Plan</div>
+    <h2 class="section-title">A <em>cadence</em>, not a sprint.</h2>
+    <p class="lede">Habit installation, not heroic effort. The plan progresses by block: foundation first, then build, then deepen, then peak into the Day-90 retest.</p>
+
+    <div class="timeline">
+      {{plan_timeline}}
+      <!--
+        For each block (Weeks 1–2, 3–6, 7–10, 11–13):
+        <div class="timeline-week">
+          <div class="timeline-label">
+            Block {{n}}
+            <span class="week-range">Weeks {{range}}</span>
+          </div>
+          <div class="timeline-content">
+            <h4>{{block_title}}</h4>
+            <p>{{block_intro}}</p>
+            <ul>
+              <li>{{habit}}</li>
+              ...
+            </ul>
+          </div>
+        </div>
+      -->
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════════════ RETEST ═════════════════════════════ -->
+<section>
+  <div class="page">
+    <div class="section-eyebrow">{{retest_section_num}} · The Day-90 Re-test</div>
+    <h2 class="section-title">Same panel. Same conditions. <em>New numbers.</em></h2>
+
+    <div class="retest-card">
+      <div>
+        <h3>Protocol for re-test</h3>
+        <p>Identical pre-test conditions are essential for a fair comparison:</p>
+        <ul>
+          <li>Fasted 10–12 hours (water only)</li>
+          <li>Same lab partner, same time window (7–10 AM)</li>
+          <li>No alcohol for 72 hours prior</li>
+          <li>No heavy training in the 48 hours prior</li>
+          <li>Same supplements continued — note any changes</li>
+        </ul>
+      </div>
+      <div>
+        <h3>What we expect to move</h3>
+        <ul>
+          {{retest_expectations}}
+          <!--
+            <li><strong>{{marker}}</strong> — {{current}} → target {{target}}</li>
+            ...
+          -->
+        </ul>
+        <p style="margin-top: 14px; font-size: 13.5px; color: var(--ink-mute);">These are estimates based on average response to similar protocols in similar profiles. Individual response varies — the point of the retest is the truth, not the prediction.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════════════ DISCLAIMERS ═════════════════════════════ -->
+<section>
+  <div class="page">
+    <div class="section-eyebrow">{{disclaimer_section_num}} · Important Notes</div>
+    <h2 class="section-title" style="font-size: 28px;">A few things to read carefully.</h2>
+
+    <div class="disclaimer">
+      <p><strong>This report is not a medical diagnosis.</strong> It is an evidence-based interpretation of your blood panel and lifestyle inputs, designed to inform a 90-day metabolic-performance program. It does not replace consultation with a licensed physician.</p>
+      <p><strong>Tier 1 findings must be discussed with a physician</strong> before any structured intervention. Where this report identifies such findings, please follow the medical-advisory callout in Section 02. If you experience symptoms (chest pain, breathlessness, severe fatigue, fainting, depression, suicidal thoughts), seek immediate medical care.</p>
+      <p><strong>We do not make anti-aging or longevity-extension claims.</strong> The PhenoAge biological age estimate is a mortality-risk-derived snapshot, not a prediction. The aim is to move biomarkers in a healthy direction — moving biomarkers is the outcome we measure, and the only outcome we promise to measure.</p>
+      <p><strong>Supplement recommendations are evidence-anchored but not personalized to your medication list at the clinical level.</strong> Please discuss every recommended supplement with your physician — especially if you take blood-thinners, diabetes medications, thyroid medications, or psychiatric medications. Do not change any prescribed dose based on this report.</p>
+      <p><strong>Data &amp; privacy.</strong> Your blood test results, intake responses, and this report are personal health data covered by the Digital Personal Data Protection Act, 2023 (India). Tessera retains them per the privacy policy at tessera.health/privacy and will delete them within 15 days of a written request, subject to legal retention requirements. We do not share your identified health data with employers, insurers, or third-party advertisers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════════════ FOOTER ═════════════════════════════ -->
+<div class="page">
+  <div class="report-footer">
+    <div>
+      <div class="cover-logo">Tessera<span class="cover-logo-mark">.</span></div>
+      <p style="font-size: 13px; color: var(--ink-mute); margin-top: 6px; max-width: 480px;">A 90-day metabolic performance program. Measure your biological age. Run a personalized protocol. Re-measure. See the change.</p>
+    </div>
+    <div class="footer-meta">
+      Report generated {{report_date}}<br>
+      Rulebook v1.0 · PhenoAge v2018<br>
+      Hyderabad, India
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
