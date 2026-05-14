@@ -1,0 +1,37 @@
+{
+  "client_first_name": "Aditya",
+  "report_date": "2026-05-15",
+  "blood_draw_date": "2026-05-12",
+  "pipeline_version": "0.2.0-phase-A-B",
+  "rulebook_version": "0.2.0-phase-A-B",
+  "rulebook_hash": "c19c43573184a6f96328293cb113f781acfe395f251ec2334fdb5f97610eb7e7",
+  "phenoage_formula_version": "Levine-2018",
+  "skills_used": [
+    "tessera-lab-parse@0.1.0",
+    "tessera-intake-v2@0.1.0",
+    "tessera-wearable-ingest@0.1.0-stub",
+    "tessera-genetics-ingest@0.1.0-stub",
+    "tessera-rule-evaluate@0.1.0",
+    "tessera-rootcause-phenotype@0.1.0",
+    "tessera-safety-screen@0.1.0",
+    "tessera-protocol-author@0.1.0",
+    "tessera-report-compose@0.1.0",
+    "tessera-pipeline@0.1.0"
+  ],
+  "input_hashes": {
+    "blood_test_pdf_sha256": "5cc59a9bcb0c6f29ea62b1daae4d16f901ff647bf2a45df474f09336b0d9675e"
+  },
+  "outputs": {
+    "biomarkers_json": "/Users/serverport/Longevity/.claude/worktrees/festive-mendel-e6b478/examples/aditya-2026-05/biomarkers.json",
+    "panel_completeness_json": "/Users/serverport/Longevity/.claude/worktrees/festive-mendel-e6b478/examples/aditya-2026-05/panel-completeness.json",
+    "intake_json": "/Users/serverport/Longevity/.claude/worktrees/festive-mendel-e6b478/examples/aditya-2026-05/intake.json",
+    "rule_evaluation_json": "/Users/serverport/Longevity/.claude/worktrees/festive-mendel-e6b478/examples/aditya-2026-05/rule-evaluation.json",
+    "phenotype_json": "/Users/serverport/Longevity/.claude/worktrees/festive-mendel-e6b478/examples/aditya-2026-05/phenotype.json",
+    "rootcause_json": "/Users/serverport/Longevity/.claude/worktrees/festive-mendel-e6b478/examples/aditya-2026-05/rootcause.json",
+    "safety_json": "/Users/serverport/Longevity/.claude/worktrees/festive-mendel-e6b478/examples/aditya-2026-05/safety.json",
+    "protocol_json": "/Users/serverport/Longevity/.claude/worktrees/festive-mendel-e6b478/examples/aditya-2026-05/protocol.json",
+    "report_html": "/Users/serverport/Longevity/.claude/worktrees/festive-mendel-e6b478/examples/aditya-2026-05/report.html",
+    "report_pdf": "/Users/serverport/Longevity/.claude/worktrees/festive-mendel-e6b478/examples/aditya-2026-05/report.pdf"
+  },
+  "generated_at_utc": "2026-05-14T18:41:32.052615+00:00"
+}

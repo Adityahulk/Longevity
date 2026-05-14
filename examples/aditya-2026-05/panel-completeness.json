@@ -1,0 +1,82 @@
+{
+  "analyzed_at_utc": "2026-05-14T17:58:51.714929+00:00",
+  "panel_complete": false,
+  "core_missing": [],
+  "advanced_missing": [
+    "testosterone_free",
+    "shbg",
+    "anti_tpo",
+    "dhea_s",
+    "igf_1",
+    "cystatin_c"
+  ],
+  "research_missing": [
+    "glyca",
+    "omega_3_index",
+    "hs_troponin",
+    "nt_probnp"
+  ],
+  "recommended_add_ons_for_retest": [
+    {
+      "marker": "free_t",
+      "tier_priority": 1,
+      "rationale": "Completes T context \u2014 your total T 502 is below Tessera-optimal 600+; need Free T + SHBG to interpret bioavailable fraction"
+    },
+    {
+      "marker": "shbg",
+      "tier_priority": 1,
+      "rationale": "Needed to compute bioavailable testosterone"
+    },
+    {
+      "marker": "anti_tpo",
+      "tier_priority": 1,
+      "rationale": "Screens for autoimmune thyroid given borderline-high eosinophils 9.4% (Th2/atopic bias) \u2014 Hashimoto correlates with atopic phenotype"
+    },
+    {
+      "marker": "dhea_s",
+      "tier_priority": 2,
+      "rationale": "Adrenal reserve given cortisol AM 20 (high-normal); rules in/out HPA fatigue"
+    },
+    {
+      "marker": "igf_1",
+      "tier_priority": 2,
+      "rationale": "Anabolic axis check, especially relevant for young M with optimization goals"
+    },
+    {
+      "marker": "cystatin_c",
+      "tier_priority": 2,
+      "rationale": "Confirms kidney function; creatinine 1.02 sits at high-normal \u2014 could be muscle mass or early GFR drift"
+    },
+    {
+      "marker": "glyca",
+      "tier_priority": 3,
+      "rationale": "NMR chronic-inflammation marker; finer-grained than hsCRP for monitoring"
+    },
+    {
+      "marker": "omega_3_index",
+      "tier_priority": 3,
+      "rationale": "Cellular EPA+DHA \u2014 strong CV mortality predictor, independent of lipids"
+    },
+    {
+      "marker": "hs_troponin",
+      "tier_priority": 3,
+      "rationale": "Research-grade chronic myocardial stress; useful baseline at age 25"
+    },
+    {
+      "marker": "nt_probnp",
+      "tier_priority": 3,
+      "rationale": "Atrial wall stress baseline"
+    },
+    {
+      "marker": "ige_specific_panel",
+      "tier_priority": 1,
+      "rationale": "If atopic HPI confirmed (rhinitis/eczema/asthma) \u2014 total IgE 30 is normal but specific panel identifies triggers"
+    },
+    {
+      "marker": "vitamin_d_recheck_at_week_12",
+      "tier_priority": 1,
+      "rationale": "Mandatory recheck post-loading dose"
+    }
+  ],
+  "summary": "Panel covers metabolic, cardiometabolic, endocrine, and hematology foundations well. To reach a complete Tessera longevity panel for Aditya: add Free T + SHBG (interpret T context), Anti-TPO (atopic/autoimmune overlap), and at least one of DHEA-S / IGF-1 / Cystatin C. Research-grade GlycA + omega-3 index are next-layer."
+}

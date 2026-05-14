@@ -1,0 +1,126 @@
+{
+  "screened_at_utc": "2026-05-14T18:31:45.342798+00:00",
+  "safety_matrix_version": "0.1.0",
+  "items": [
+    {
+      "name": "Vitamin D3 60,000 IU/week (loading) + 2,000 IU/day maintenance",
+      "form": "cholecalciferol softgel (e.g., HK Vitals D3 60k, Carbamide Forte D3 60k)",
+      "dose": "60,000 IU once weekly \u00d7 8-12 weeks, then 2,000 IU/day; ALWAYS WITH FATTY MEAL for absorption",
+      "rationale": "From R-VIT-D-02 (Tier 1, severely deficient)",
+      "verdict": "cleared",
+      "checks_passed": [
+        "Medications: none \u2192 no interaction",
+        "Conditions: no CKD / hemochromatosis / sarcoidosis \u2192 cleared",
+        "Allergens: cholecalciferol from lanolin (wool) \u2014 no wool allergy noted \u2192 cleared",
+        "Pregnancy: not applicable (M) \u2192 cleared",
+        "Dose: physician-supervised loading range for severe deficiency (<20 ng/mL) \u2192 cleared"
+      ],
+      "checks_warnings": [],
+      "checks_blockers": [],
+      "monthly_cost_inr": 300,
+      "physician_supervision_required": true
+    },
+    {
+      "name": "Vitamin K2 (MK-7) 100\u00b5g/day",
+      "form": "MK-7 menaquinone (e.g., Carbamide Forte K2, Wellbeing Nutrition K2 MK-7)",
+      "dose": "100 \u00b5g/day with Vit D dose",
+      "rationale": "Direct Ca to bone/teeth not soft-tissue during high-dose Vit D loading",
+      "verdict": "cleared",
+      "checks_passed": [
+        "Medications: not on warfarin/coumadin \u2192 cleared",
+        "Conditions: no bleeding disorder \u2192 cleared",
+        "Pregnancy: not applicable \u2192 cleared"
+      ],
+      "monthly_cost_inr": 400
+    },
+    {
+      "name": "Magnesium glycinate 300-400mg before bed",
+      "form": "magnesium bisglycinate (e.g., HK Vitals Mg Glycinate, Now Foods Mg Glycinate)",
+      "dose": "300mg, 1h before bed",
+      "rationale": "Vit D synergy (Mg is cofactor for 25-OH-D \u2192 1,25-OH-D conversion) + sleep onset support + RBC-Mg often suboptimal at serum 2.02",
+      "verdict": "cleared",
+      "checks_passed": [
+        "Medications: no diuretics / no ACE-I \u2192 cleared",
+        "Conditions: no CKD \u2192 cleared (Mg is renally cleared)",
+        "Pregnancy: not applicable \u2192 cleared"
+      ],
+      "monthly_cost_inr": 500
+    },
+    {
+      "name": "Omega-3 EPA+DHA 2g/day",
+      "form": "marine fish oil softgel; 3rd-party tested for heavy metals (e.g., Carbamide Forte triple-strength, Setu omega-3, Unived OmegaPure)",
+      "dose": "2g combined EPA+DHA daily with lunch",
+      "rationale": "From R-ATO-01 (Th2 modulation) + general CV optimization; addresses missing omega-3 index marker",
+      "verdict": "cleared_with_note",
+      "checks_passed": [
+        "Medications: not on anticoagulant \u2192 cleared",
+        "Conditions: no bleeding disorder \u2192 cleared",
+        "Allergens: no fish allergy \u2192 cleared (else switch to algal omega-3)",
+        "Pregnancy: not applicable \u2192 cleared"
+      ],
+      "checks_warnings": [
+        "Verify product is 3rd-party tested (IFOS / NSF) for heavy metals \u2014 Bay of Bengal and Arabian Sea fish-derived oils need this check."
+      ],
+      "monthly_cost_inr": 1500
+    },
+    {
+      "name": "Quercetin 500mg \u00d7 2/day with meals",
+      "form": "dihydrate (e.g., Setu Quercetin, Now Quercetin with Bromelain)",
+      "dose": "500mg AM + 500mg with lunch, with food",
+      "rationale": "From R-ATO-01 (mast-cell stabilization + Th2 modulation); strongest evidence in atopic/allergic adults",
+      "verdict": "cleared",
+      "checks_passed": [
+        "Medications: no anticoagulant \u2192 cleared (quercetin has mild blood-thinning at high doses but 1g/day is within safety)",
+        "Conditions: no bleeding disorder \u2192 cleared",
+        "Pregnancy: not applicable \u2192 cleared"
+      ],
+      "monthly_cost_inr": 800,
+      "evidence_tier": "E3 \u2014 limited but mechanistic + small RCTs"
+    },
+    {
+      "name": "Whey protein 2 scoops/day (continuing)",
+      "form": "whey isolate (current supplement)",
+      "dose": "2 scoops (~50g protein) post-workout / breakfast",
+      "rationale": "Strength training support, lean-mass preservation",
+      "verdict": "cleared",
+      "checks_passed": [
+        "Medications: none \u2192 cleared",
+        "Conditions: no CKD (eGFR 105) \u2192 cleared",
+        "Allergens: dairy not flagged \u2192 cleared (verify lactose tolerance \u2014 minimal in isolate)",
+        "Dose: 50g whey + dietary protein keeps total well under 2.0 g/kg ceiling"
+      ],
+      "monthly_cost_inr": 2500
+    },
+    {
+      "name": "Creatine monohydrate ~5g/day (continuing)",
+      "form": "micronized monohydrate (current supplement)",
+      "dose": "5g daily, no loading needed",
+      "rationale": "Strength + cognition + cellular hydration",
+      "verdict": "cleared",
+      "checks_passed": [
+        "Medications: none \u2192 cleared",
+        "Conditions: no CKD \u2192 cleared (creatine + CKD interaction does not apply at eGFR 105)",
+        "Dose: standard 0.07 g/kg \u2248 5.8g \u2014 current 5g is conservative"
+      ],
+      "monthly_cost_inr": 500,
+      "note": "Creatine elevates serum creatinine ~0.1-0.2 mg/dL; current 1.02 includes this. eGFR derived from creatinine may slightly underestimate true kidney function. Cystatin C confirmation recommended at retest."
+    }
+  ],
+  "blocked_items": [],
+  "items_considered_but_skipped": [
+    {
+      "name": "Ashwagandha KSM-66 600mg/day",
+      "reason_skipped": "Originally would have fired from R-HOR-03 (stress) BUT downgraded \u2014 PSS-4 = 4 (LOW), mood 7-8, no GAD-2 signal. Adding ashwagandha at low-stress baseline = unnecessary and adds adaptogen load. Revisit only if cortisol AM persists elevated AFTER circadian shift at retest, or if PSS-4 rises."
+    },
+    {
+      "name": "Methylated B-complex",
+      "reason_skipped": "Folate 8.10 + B12 508 + homocysteine 7.46 are all in range. Mild RDW signal can be monitored. Skip unless RDW persists elevated at retest."
+    }
+  ],
+  "summary": {
+    "cleared_count": 7,
+    "warning_count": 1,
+    "blocked_count": 0,
+    "total_monthly_cost_inr": 6500
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "classified_at_utc": "2026-05-14T18:31:45.342416+00:00",
+  "primary_phenotype": {
+    "code": "P-01",
+    "label": "Lean Metabolically Excellent",
+    "match_score": 0.95,
+    "diagnostic_features_met": [
+      "BMI 24.8 (in 18-25, lean-athletic)",
+      "Waist 76 cm \u2014 waist:height 0.41 (well below 0.5 risk threshold)",
+      "HOMA-IR 0.74 (excellent; optimal <1.0)",
+      "HbA1c 4.8% (optimal; <5.3)",
+      "Fasting insulin 3.80 \u00b5U/mL (optimal; <6)",
+      "Lipids: TC 146, LDL 86, HDL 49, TG 56, ApoB 70 \u2014 every marker optimal or near-optimal",
+      "Liver: ALT 17, AST 23, GGT 11, ALP 90, Albumin 5.00 \u2014 every marker optimal",
+      "Kidney: eGFR 105, Creatinine 1.02 \u2014 optimal",
+      "Thyroid: TSH 2.064, FT3/FT4 in range \u2014 euthyroid",
+      "hsCRP 0.90 (in acceptable; near optimal)",
+      "Homocysteine 7.46 (near optimal)",
+      "Strength training 3-4\u00d7/wk PPL split \u2014 solid base",
+      "No metabolic-syndrome features"
+    ]
+  },
+  "overlays": [
+    {
+      "code": "P-06",
+      "label": "Atopic / Allergic Overlay",
+      "match_score": 0.85,
+      "diagnostic_features_met": [
+        "Eosinophils 9.4% (>6% threshold)",
+        "Eosinophils absolute 0.5 \u00d7 10\u00b3/\u03bcL (top of normal)",
+        "HPI confirms seasonal rhinitis (severity 4/10)",
+        "Total IgE 30 \u2014 in normal range BUT atopic phenotype clinically confirmed regardless"
+      ],
+      "additional_signal": "Recent travel to Bihar (rural India) + Thailand \u2192 parasitic differential CANNOT be ruled out without stool O&P; runs as parallel workup track to atopic"
+    }
+  ],
+  "downgraded_overlays": [
+    {
+      "code": "P-04",
+      "label": "Stress / Cortisol-Dominant",
+      "reason_downgraded": "Cortisol AM 20 \u00b5g/dL initially suggested HPA hyperactivation, BUT: PSS-4 = 4 (LOW band), self-stress 4-5/10, PHQ-2 borderline at 3 (mood 7-8 contradicts depression), fatigue 1, brain fog 1, libido active. Cortisol reading better explained by circadian phase-shift (sample at 8:53am on likely delayed sleep schedule). Re-routed to a new 'R-MET-CIRC-01' Tier 3 rule.",
+      "match_score_after_downgrade": 0.25
+    }
+  ],
+  "full_label": "Lean Metabolically Excellent \u00b7 Atopic overlay \u00b7 Circadian-shifted",
+  "longevity_baseline_note": "EXCEPTIONAL \u2014 4 grandparents past 85 is a top-decile genetic longevity baseline.",
+  "protocol_voice": "Peer, future-focused, optimization framing. You are already in top-decile metabolic shape for your age \u2014 every blood-chemistry chassis is humming. The work is at the edges: one severe nutrient deficiency (Vit D), one atopic + post-travel inflammatory signal needing workup, one circadian shift to make. This is sharpening, not fixing.",
+  "lead_domains": [
+    "Supplements (precision)",
+    "Recovery (circadian shift)",
+    "Training (Zone 2 fill)"
+  ],
+  "deprioritize": [
+    "aggressive metabolic interventions",
+    "stress-meds (PSS-4 doesn't warrant)",
+    "weight-loss framing"
+  ]
+}

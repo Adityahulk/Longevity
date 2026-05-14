@@ -1,0 +1,499 @@
+{
+  "authored_at_utc": "2026-05-14T18:34:16.742787+00:00",
+  "author_version": "0.1.0",
+  "headline": {
+    "phenotype_label": "Lean Metabolically Excellent \u00b7 Atopic overlay \u00b7 Circadian-shifted",
+    "bio_age": 22.3,
+    "chronological_age": 25,
+    "delta_years": -2.7,
+    "voice": "Peer, future-focused. Top-decile metabolic profile at 25 \u2014 every chassis (lipids, glucose, liver, kidney, thyroid) is humming. The work is at three edges: one severe Vit D deficiency, one atopic-and-possibly-parasitic eosinophil signal needing workup, one circadian shift. This is sharpening, not fixing.",
+    "longevity_baseline_note": "4 grandparents past 85 \u2014 top-decile genetic longevity baseline."
+  },
+  "root_attack_pillars": [
+    {
+      "name": "Pillar 1 \u2014 Vitamin D restoration (the single highest-leverage move)",
+      "root_mechanism": "M-02",
+      "why_this_pillar": "Sits upstream of 3 of your 4 sub-optimal findings: atopy (Th2 bias), relative-low T (steroidogenic cofactor), borderline RDW (immune modulation). Move this one number and three others normalize.",
+      "anchor_interventions": [
+        "Vitamin D3 60,000 IU/week \u00d7 8-12 weeks with fatty meal (physician supervised)",
+        "K2 (MK-7) 100\u00b5g/day + Mg glycinate 300mg bedtime",
+        "AM sunlight 15 min/day on forearms \u2014 Hyderabad before 10am or after 4pm",
+        "Maintenance 2,000 IU/day after week-12 retest"
+      ],
+      "expected_to_shift": [
+        "vitamin_d_25oh \u2192 40-60 ng/mL",
+        "eosinophils \u2193 (partial)",
+        "testosterone \u2192 600-800",
+        "RDW \u2192 <13.5",
+        "mood + sleep modulation"
+      ]
+    },
+    {
+      "name": "Pillar 2 \u2014 Circadian shift + sleep architecture (T-optimization lever)",
+      "root_mechanism": "M-27 + M-03",
+      "why_this_pillar": "Your AM cortisol 20 is not chronic stress (PSS-4 = 4) \u2014 it's a phase-shifted curve from late dinner (11pm-12am) + late bedtime (~1am). T peaks in deep-sleep windows. Compress these and T rises.",
+      "anchor_interventions": [
+        "Move dinner to 8-9pm (drop 3 hours earlier from current 11pm-12am)",
+        "Anchor bedtime by 11pm-midnight; anchor wake by 7-8am",
+        "15-min AM sunlight within 30 min of waking",
+        "Phone out of bedroom; screen curfew 30 min before sleep (currently 8-9h daily screen)",
+        "Magnesium glycinate 300mg at bedtime (also helps onset latency 20-40min)"
+      ],
+      "expected_to_shift": [
+        "AM cortisol \u2192 10-15 \u00b5g/dL",
+        "T \u2192 600-800",
+        "sleep onset latency \u2192 <15 min",
+        "compressed deep-sleep window"
+      ]
+    },
+    {
+      "name": "Pillar 3 \u2014 Atopic + parasitic workup (parallel medical track)",
+      "root_mechanism": "M-10 + parasitic differential",
+      "why_this_pillar": "Eosinophils 9.4% with confirmed seasonal rhinitis + recent travel to Bihar (rural India) + Thailand. You can't assume which it is \u2014 must test.",
+      "anchor_interventions": [
+        "**Medical referral**: Primary care for stool ova-and-parasite (O&P) panel \u2014 rule out helminths/giardia post-Bihar travel. Cheap and definitive.",
+        "**Medical referral**: Allergist consult if rhinitis severity rises above 6/10, OR if AEC stays elevated at Day-90 retest. Specific-IgE panel (dust mite, pollen, mold).",
+        "Quercetin 500mg \u00d7 2/day + omega-3 2g/day (already in supplement stack)",
+        "HEPA filter in bedroom \u2014 Hyderabad winter pollen + dust mite",
+        "Shower before bed during high-pollen seasons (Aug-Sep, Nov-Feb)"
+      ],
+      "expected_to_shift": [
+        "eosinophils \u2192 <4%",
+        "rhinitis severity \u2192 <2/10 with avoidance + Vit D"
+      ]
+    }
+  ],
+  "domains": {
+    "nutrition": {
+      "leading_principles": [
+        "Your existing diet is solid (chicken + roti + curries + protein shake + low alcohol + low caffeine). 3 surgical shifts:",
+        "1. MOVE DINNER 3 HOURS EARLIER. Currently 11pm-12am \u2192 target 8-9pm. This is the single biggest non-supplement lever for T + cortisol + sleep architecture.",
+        "2. COMPRESS EATING WINDOW. Currently 13h (11am\u219212am) \u2192 target 10-11h (e.g., 11am\u21929pm). You stated 10h but actual is 13h \u2014 fix the math.",
+        "3. ADD ZINC + FATTY-FISH FREQUENCY. Salmon/mackerel 2\u00d7/week + 30g pumpkin seeds/day. Both support T + Vit D."
+      ],
+      "daily_targets": {
+        "protein_g": 130,
+        "protein_per_kg": "1.55 g/kg (at 83.5 kg \u2014 optimal for muscle-building goal)",
+        "fiber_g": 35,
+        "eating_window_target_hours": 10,
+        "carbs": "moderate \u2014 keep with lunch (your largest meal); reduce at dinner",
+        "fats": "fatty fish 2\u00d7/wk, eggs, nuts, olive/mustard oil"
+      },
+      "concrete_meal_shifts_north_south_indian": [
+        "Breakfast (11am)**: continue protein shake; add 2 boiled eggs + 1 cup berries or banana \u2014 adds 15g protein + antioxidants",
+        "Lunch (2pm)**: keep heavy \u2014 chicken + rotis + dal + 1 cup palak/methi (cooked, lemon-dressed) + curd. This is your biggest meal \u2014 good.",
+        "Snack (5:30-6pm)**: 30g almonds/walnuts + 1 fruit. Add 30g pumpkin seeds 3-4\u00d7/wk for zinc.",
+        "**Dinner (8:30pm \u2014 MOVED EARLIER)**: lighter \u2014 chicken or paneer (150g) + 2 rotis + 1 cup sabzi (palak/methi/lauki) + small bowl curd. Skip the protein shake at dinner \u2014 you've hit your daily protein already.",
+        "Salmon / mackerel 2\u00d7/wk replacing chicken at lunch or dinner"
+      ],
+      "foods_to_emphasize": [
+        "fatty fish (salmon, mackerel, sardines) 2\u00d7/wk",
+        "egg yolks daily (Vit D + choline)",
+        "pumpkin seeds 30g/day (zinc)",
+        "leafy greens (palak, methi, moringa) daily",
+        "turmeric + black pepper (anti-inflammatory)",
+        "berries / pomegranate (polyphenols)"
+      ],
+      "foods_to_deprioritize_for_atopic_overlay": [
+        "consider 4-week elimination trial if rhinitis worsens: dairy, gluten, common nuts (not all at once)",
+        "avoid late-evening heavy meals",
+        "ultra-processed snacks (chips, biscuits, namkeen) if currently any"
+      ],
+      "alcohol_guidance": "Current 0.5 drinks/wk \u2014 keep at or below this. No change.",
+      "caffeine_guidance": "1 cup/day is fine. Keep before 2pm to avoid sleep onset interference.",
+      "evidence_tags": [
+        "E1 for protein 1.5 g/kg + leafy greens",
+        "E2 for fatty fish + eating window",
+        "E2 for early dinner cortisol curve"
+      ]
+    },
+    "training": {
+      "summary": "Your training is already excellent. Two adjustments: more Zone 2 base, more NEAT outside the gym.",
+      "weekly_structure_target": {
+        "strength_sessions": "3-4\u00d7/wk PPL (keep)",
+        "high_intensity_sessions": "1-2\u00d7 HIIT/boxing (keep, but cap at 2)",
+        "zone_2_cardio_minutes": 120,
+        "zone_2_note": "Currently long run every 2 weeks \u2192 bump to weekly. Add 2\u00d7 30-min easy bike/treadmill at conversational pace. Target 120-150 min Zone 2/wk.",
+        "mobility": "10 min daily \u2014 yoga or dynamic flow"
+      },
+      "neat_steps_target": {
+        "current": 3500,
+        "target": 8000,
+        "note": "Single biggest non-gym training change. Add 20-min post-lunch walk + 10-min post-dinner walk + 1 phone call/day walking. Easy to find 5k more steps in flexible schedule."
+      },
+      "twelve_week_plan": [
+        {
+          "weeks": "1-2",
+          "focus": "Foundation + circadian shift",
+          "additions": "Move dinner to 9pm. Add 1\u00d7 weekly long Zone 2 (60 min). NEAT to 6k/day."
+        },
+        {
+          "weeks": "3-6",
+          "focus": "Build Zone 2 base",
+          "additions": "Zone 2 to 90 min/wk (split into 2-3 sessions). NEAT to 8k/day. Keep strength + HIIT."
+        },
+        {
+          "weeks": "7-10",
+          "focus": "Peak conditioning",
+          "additions": "Zone 2 to 120 min/wk. Add 1\u00d7 VO2max session (4\u00d74 min hard intervals). Keep PPL."
+        },
+        {
+          "weeks": "11-13",
+          "focus": "Maintain + retest prep",
+          "additions": "Hold all habits. Week 12: fast 12h, no caffeine 24h, no alcohol 72h before retest."
+        }
+      ],
+      "rationale": "You have insulin sensitivity (HOMA-IR 0.74) without the Zone 2 base. Building Zone 2 mitochondrial density lowers RHR, improves HRV, supports T optimization, and adds healthspan years \u2014 for someone with 4 grandparents past 85, this is the big lifelong lever.",
+      "evidence_tags": [
+        "E1"
+      ]
+    },
+    "recovery_sleep": {
+      "headline": "Your sleep quality is good (7-8/10) \u2014 the issue is the CLOCK, not the architecture. Shift the whole schedule 2-3 hours earlier.",
+      "target_bedtime": "23:00",
+      "target_wake": "07:00-07:30",
+      "wind_down_protocol": [
+        "20:30: dinner finished (3h before bed)",
+        "21:00-22:00: screen curfew \u2014 no laptop/phone (use red-light glasses if reading on phone)",
+        "22:00: 5-10 min slow breathing (4-7-8 or physiological sigh) \u2014 anchors parasympathetic",
+        "22:30: Mg glycinate 300mg with water",
+        "23:00: bed",
+        "07:00: wake + 15 min AM sunlight within 30 min (Hyderabad balcony or short walk)"
+      ],
+      "environment_fixes": [
+        "Room temp: aim for 22-24\u00b0C (use AC or fan; currently 'moderate-warm' \u2014 temperature drives sleep architecture)",
+        "Light: blackout curtains if not present",
+        "Phone: out of bedroom (charge in another room)",
+        "HEPA filter in bedroom (also helps atopic)"
+      ],
+      "caffeine_cutoff": "2pm (10h before bed)",
+      "alcohol": "minimal already \u2014 keep",
+      "expected_outcome": "Sleep onset 20-40 min \u2192 <15 min; consistent 8h at correct phase; AM cortisol normalizes; T pulses optimized; mood + cognition compound benefits.",
+      "evidence_tags": [
+        "E1"
+      ]
+    },
+    "supplements": {
+      "stack": [
+        {
+          "name": "Vitamin D3",
+          "dose": "60,000 IU/week \u00d7 8 wk \u2192 2,000 IU/day after",
+          "form": "softgel, with fatty meal",
+          "timing": "Sunday AM with breakfast",
+          "rationale": "Pillar 1 \u2014 root cause",
+          "evidence_tier": "E1",
+          "monthly_cost_inr": 300,
+          "indian_sku_examples": [
+            "HK Vitals D3 60k",
+            "Carbamide Forte D3 60k",
+            "Wellbeing Nutrition K2D3"
+          ],
+          "safety_cleared": true,
+          "physician_supervised": true
+        },
+        {
+          "name": "Vitamin K2 (MK-7)",
+          "dose": "100 \u00b5g/day",
+          "timing": "with Vit D dose",
+          "rationale": "Direct Ca to bone during high-dose D loading",
+          "evidence_tier": "E2",
+          "monthly_cost_inr": 400,
+          "indian_sku_examples": [
+            "Carbamide Forte K2",
+            "Wellbeing K2 MK-7"
+          ],
+          "safety_cleared": true
+        },
+        {
+          "name": "Magnesium glycinate",
+          "dose": "300 mg",
+          "timing": "30-60 min before bed",
+          "rationale": "Vit D cofactor + sleep onset + RBC-Mg optimization",
+          "evidence_tier": "E1",
+          "monthly_cost_inr": 500,
+          "indian_sku_examples": [
+            "HK Vitals Mg Glycinate",
+            "Now Foods Mg Glycinate (import)"
+          ],
+          "safety_cleared": true
+        },
+        {
+          "name": "Omega-3 EPA+DHA",
+          "dose": "2 g combined EPA+DHA/day",
+          "timing": "with lunch",
+          "rationale": "Th2 modulation (atopic) + CV optimization + replaces missing omega-3 index marker",
+          "evidence_tier": "E2",
+          "monthly_cost_inr": 1500,
+          "indian_sku_examples": [
+            "Carbamide Forte Triple-Strength",
+            "Setu Omega-3",
+            "Unived OmegaPure"
+          ],
+          "safety_cleared": true,
+          "note": "Verify 3rd-party tested (IFOS/NSF) for heavy metals"
+        },
+        {
+          "name": "Quercetin",
+          "dose": "500 mg \u00d7 2/day with meals",
+          "timing": "AM + lunch",
+          "rationale": "Mast-cell stabilization + Th2 modulation (atopic)",
+          "evidence_tier": "E3",
+          "monthly_cost_inr": 800,
+          "indian_sku_examples": [
+            "Setu Quercetin",
+            "Now Foods Quercetin with Bromelain"
+          ],
+          "safety_cleared": true
+        },
+        {
+          "name": "Whey protein (continuing)",
+          "dose": "2 scoops/day (~50g)",
+          "timing": "post-workout / breakfast",
+          "rationale": "Muscle-building primary goal",
+          "evidence_tier": "E1",
+          "monthly_cost_inr": 2500,
+          "safety_cleared": true
+        },
+        {
+          "name": "Creatine monohydrate (continuing)",
+          "dose": "5 g/day",
+          "timing": "any consistent time",
+          "rationale": "Strength + cognition + cellular hydration; safe at your kidney function (eGFR 105)",
+          "evidence_tier": "E1",
+          "monthly_cost_inr": 500,
+          "safety_cleared": true,
+          "note": "Creatine raises serum creatinine 0.1-0.2 mg/dL (your 1.02 includes this); consider Cystatin C at retest for true kidney check"
+        }
+      ],
+      "monthly_cost_total_inr": 6500,
+      "budget_inr": 7500,
+      "headroom_inr": 1000,
+      "headroom_note": "\u20b91000/month spare \u2014 reserve for either: (a) methylated B-complex (\u20b9400) if RDW persists at retest, (b) zinc bisglycinate 25mg (\u20b9300) if zinc is added at retest, or (c) buffer for premium 3rd-party-tested versions of core stack.",
+      "items_intentionally_omitted": [
+        {
+          "name": "Ashwagandha",
+          "reason": "PSS-4 = 4 (LOW), mood 7-8 \u2014 no stress signal warranting adaptogen load."
+        },
+        {
+          "name": "Methylated B-complex",
+          "reason": "B12 508, folate 8.10, homocysteine 7.46 all in acceptable range \u2014 monitor at retest."
+        },
+        {
+          "name": "DHEA / TRT / direct hormone",
+          "reason": "T 502 is suboptimal but not deficient. Root-attack (Vit D + sleep) is the right move at age 25."
+        }
+      ],
+      "schedule_summary": {
+        "morning_with_breakfast": [
+          "Vit D3 60k (Sundays)",
+          "Omega-3 (with lunch)",
+          "Quercetin 500mg",
+          "Whey 1 scoop",
+          "K2 100\u00b5g (with Vit D)",
+          "Creatine 5g"
+        ],
+        "lunch": [
+          "Omega-3 2g",
+          "Quercetin 500mg"
+        ],
+        "post_workout": [
+          "Whey 1 scoop"
+        ],
+        "before_bed": [
+          "Magnesium glycinate 300mg"
+        ]
+      },
+      "evidence_tags_summary": "Stack is E1-E2 across the core (Vit D, K2, Mg, omega-3, whey, creatine). Quercetin is E3 \u2014 keep but lower confidence."
+    },
+    "mind_wellness": {
+      "headline": "Your mental health profile is essentially healthy. PSS-4 low, mood 7-8, fatigue 1, brain fog 1, GAD-2 negative. PHQ-2 at threshold (3) is borderline \u2014 consider a brief check-in if it persists.",
+      "daily_practice": "5-10 min slow breathing (4-7-8 or physiological sigh) at bedtime \u2014 primary anchor for parasympathetic shift + sleep onset.",
+      "weekly_practice": "1 outdoor walk in nature (Hyderabad has Necklace Road, Lumbini Park, KBR Park \u2014 get 30+ min weekly).",
+      "screen_curfew": "Phone/laptop off 60 min before bed. Currently 8-9h screen time daily \u2014 keep the volume but cap the timing.",
+      "phq_2_followup": "If borderline PHQ-2 persists at next intake (90 days), book one session with a counselor \u2014 iCall India (9152987821, free) or a PCP. Not urgent now but worth tracking.",
+      "evidence_tags": [
+        "E2"
+      ]
+    }
+  },
+  "ninety_day_habit_stack": [
+    {
+      "weeks": "1-2",
+      "habits": [
+        "Anchor wake 7:00 daily incl. weekends",
+        "15-min AM sunlight within 30 min of waking",
+        "Move dinner to 9:00pm"
+      ]
+    },
+    {
+      "weeks": "3-6",
+      "habits": [
+        "+ Vit D 60k Sunday + K2 + Mg + omega-3 + quercetin (full stack on)",
+        "+ Bedtime 23:00 anchor"
+      ]
+    },
+    {
+      "weeks": "7-10",
+      "habits": [
+        "+ Zone 2 to 120 min/wk (long run weekly + 2\u00d7 easy cycle/treadmill)",
+        "+ NEAT to 8k steps/day"
+      ]
+    },
+    {
+      "weeks": "11-13",
+      "habits": [
+        "Maintain all 6 habits + pre-retest prep (week 12: fast 12h, caffeine off 24h, alcohol off 72h)"
+      ]
+    }
+  ],
+  "retest_plan": {
+    "day_30": [
+      {
+        "marker": "cortisol_am",
+        "expected": "\u2193 2-4 \u00b5g/dL",
+        "rationale": "Earliest signal of circadian shift working"
+      },
+      {
+        "marker": "CBC differential (eos)",
+        "expected": "eosinophils \u2193 1-2%",
+        "rationale": "Atopic-vit-D axis early signal; also confirms parasitic differential if O&P negative"
+      }
+    ],
+    "day_60": [
+      {
+        "marker": "lipid panel",
+        "expected": "stable \u2014 already excellent",
+        "rationale": "Lipid turnover ~6 weeks"
+      }
+    ],
+    "day_90": {
+      "core_panel": "Full repeat of current panel",
+      "add_ons_recommended": [
+        {
+          "marker": "free_testosterone",
+          "tier_priority": 1,
+          "rationale": "Completes T context; expected total T 600-800, want to confirm bioavailable fraction",
+          "estimated_cost_inr": 800
+        },
+        {
+          "marker": "shbg",
+          "tier_priority": 1,
+          "rationale": "Needed for bioavailable T calculation",
+          "estimated_cost_inr": 700
+        },
+        {
+          "marker": "anti_tpo",
+          "tier_priority": 1,
+          "rationale": "Atopic-autoimmune overlap screen given eosinophilia pattern",
+          "estimated_cost_inr": 800
+        },
+        {
+          "marker": "stool_op_panel",
+          "tier_priority": 1,
+          "rationale": "DO NOT WAIT \u2014 order this within 2 weeks of report given Bihar/Thailand travel",
+          "estimated_cost_inr": 1200
+        },
+        {
+          "marker": "dhea_s",
+          "tier_priority": 2,
+          "rationale": "HPA reserve check at age 25 baseline",
+          "estimated_cost_inr": 800
+        },
+        {
+          "marker": "igf_1",
+          "tier_priority": 2,
+          "rationale": "Anabolic axis; relevant for build_muscle goal",
+          "estimated_cost_inr": 1500
+        },
+        {
+          "marker": "cystatin_c",
+          "tier_priority": 2,
+          "rationale": "True kidney function (creatinine confounded by creatine supplementation)",
+          "estimated_cost_inr": 1000
+        },
+        {
+          "marker": "glyca",
+          "tier_priority": 3,
+          "rationale": "NMR inflammation marker; finer than hsCRP",
+          "estimated_cost_inr": 2500
+        },
+        {
+          "marker": "omega_3_index",
+          "tier_priority": 3,
+          "rationale": "Cellular EPA+DHA; CV mortality predictor",
+          "estimated_cost_inr": 3000
+        }
+      ],
+      "estimated_addon_cost_must_inr": 3500,
+      "estimated_addon_cost_full_inr": 12300
+    },
+    "week_12_vit_d_specific": {
+      "marker": "vitamin_d_25oh",
+      "expected_value": "40-60 ng/mL",
+      "estimated_cost_inr": 800,
+      "rationale": "Mandatory recheck post loading dose \u2014 informs maintenance dose"
+    },
+    "six_month": {
+      "markers": [
+        "glyca",
+        "omega_3_index"
+      ],
+      "rationale": "Research-grade markers for full optimizer profile after 90-day foundation set"
+    }
+  },
+  "outcome_expectations": [
+    {
+      "rule": "R-VIT-D-02",
+      "marker": "vitamin_d_25oh",
+      "current": 15.0,
+      "expected_day_90": "40-60 ng/mL"
+    },
+    {
+      "rule": "R-ATO-01",
+      "marker": "eosinophils_pct",
+      "current": 9.4,
+      "expected_day_90": "<4% (assuming O&P negative; if positive + treated, faster)"
+    },
+    {
+      "rule": "R-HOR-04",
+      "marker": "testosterone_total",
+      "current": 502,
+      "expected_day_90": "600-800 ng/dL"
+    },
+    {
+      "rule": "R-HEM-01",
+      "marker": "rdw_cv",
+      "current": 14.1,
+      "expected_day_90": "13.0-13.5%"
+    },
+    {
+      "rule": "R-MET-CIRC-01",
+      "marker": "cortisol_am",
+      "current": 20.0,
+      "expected_day_90": "10-15 \u00b5g/dL (consistent ~8am draw)"
+    },
+    {
+      "derived": true,
+      "marker": "bio_age (PhenoAge)",
+      "current": 22.3,
+      "expected_day_90": "21-22 (marginal additional gain \u2014 already excellent)"
+    }
+  ],
+  "physician_referrals_required": [
+    {
+      "reason": "TIER 1 \u2014 Severe Vitamin D deficiency (15 ng/mL, threshold <20)",
+      "specialty": "Primary care or Endocrinology",
+      "purpose": "Sign-off on loading dose protocol (60,000 IU/wk \u00d7 8-12 wk); rule out malabsorption or hyperparathyroidism if no response at week 12; check ionized calcium baseline"
+    },
+    {
+      "reason": "Eosinophilia 9.4% + recent Bihar/Thailand travel \u2014 parasitic workup",
+      "specialty": "Primary care",
+      "purpose": "Stool ova-and-parasite (O&P) panel \u00d7 3 samples; serology for strongyloides, schistosoma (depending on travel itinerary); CBC differential repeat in 4-6 weeks"
+    },
+    {
+      "reason": "Seasonal rhinitis severity 4/10 with confirmed atopic phenotype",
+      "specialty": "Allergist (only if symptoms persist past Vit D restoration at week 12)",
+      "purpose": "Specific-IgE panel (dust mite, pollen, mold); pulmonary function test if any cough/breathing symptoms emerge"
+    }
+  ]
+}

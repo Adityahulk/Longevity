@@ -1,0 +1,633 @@
+{
+  "evaluated_at_utc": "2026-05-14T18:31:45.341771+00:00",
+  "evaluator_version": "0.1.0",
+  "rulebook_version": "0.2.0-phase-A-B",
+  "rulebook_hash": "c19c43573184a6f96328293cb113f781acfe395f251ec2334fdb5f97610eb7e7",
+  "phenoage": {
+    "computable": true,
+    "bio_age": 22.3,
+    "chronological_age": 25,
+    "delta_years": -2.7,
+    "xb": -10.8344,
+    "mort_score": 0.003879,
+    "inputs_used": {
+      "albumin_g_per_L": 50.0,
+      "creatinine_umol_per_L": 90.17,
+      "glucose_mmol_per_L": 4.384,
+      "hs_crp_mg_per_L": 0.9,
+      "lymphocytes_pct": 39.1,
+      "mcv_fL": 89.0,
+      "rdw_cv_pct": 14.1,
+      "alp_U_per_L": 90,
+      "wbc_K_per_uL": 5.29,
+      "age": 25
+    },
+    "missing_inputs": []
+  },
+  "fired_rules": [
+    {
+      "code": "R-VIT-D-02",
+      "tier": 1,
+      "triggering_markers": [
+        {
+          "code": "vitamin_d_25oh",
+          "value": 15.0,
+          "unit": "ng/mL",
+          "threshold": "<20"
+        }
+      ],
+      "intake_context": "Hyderabad latitude \u2014 adequate UVB available but indoor lifestyle + ~30 min commute likely limits exposure",
+      "root_cause_hypothesis": "Severe Vit D deficiency. Cascade: \u2193immune regulation (Th2 bias \u2192 atopic flare, eosinophilia), \u2193Ca absorption, \u2193T support (Vit D is steroidogenic cofactor), \u2193mood, \u2193sleep.",
+      "domain_interventions": {
+        "N": "Fatty fish 2\u00d7/wk (salmon, mackerel, sardines); egg yolks daily; mushrooms (D2 in vegetarian backup).",
+        "T": null,
+        "R": "AM sunlight 15 min/day on forearms \u2014 Hyderabad before 10am or after 4pm is ideal (UV index moderate, low skin damage).",
+        "S": "Loading: Vit D3 60,000 IU/week \u00d7 8-12 wk WITH FATTY MEAL \u00b7 K2 MK-7 100 \u00b5g/day \u00b7 Mg glycinate 300-400 mg/day at bedtime (also helps sleep). Maintenance 2,000-4,000 IU/day after retest at week 12. PHYSICIAN-SUPERVISED.",
+        "M": null
+      },
+      "retest_signal": "Vit D \u2191 to 40-60 ng/mL in 12 weeks",
+      "evidence_tier": "E1",
+      "physician_referral_required": true
+    },
+    {
+      "code": "R-ATO-01",
+      "tier": 2,
+      "triggering_markers": [
+        {
+          "code": "eosinophils_pct",
+          "value": 9.4,
+          "unit": "%",
+          "threshold": ">6%"
+        },
+        {
+          "code": "eosinophils_abs",
+          "value": 0.5,
+          "unit": "10\u00b3/\u03bcL",
+          "threshold": ">0.5"
+        }
+      ],
+      "intake_context": "HPI confirms seasonal rhinitis (severity 4/10) \u2014 atopic phenotype confirmed. Recent travel to Bihar (rural India) + Thailand adds PARASITIC differential \u2014 both atopic AND parasitic load can elevate eosinophils.",
+      "root_cause_hypothesis": "Atopic / Th2-skewed immune response, possibly amplified by Vit D deficiency. Parasitic infection cannot be ruled out without stool ova-and-parasite testing post-Bihar travel.",
+      "domain_interventions": {
+        "N": "Consider 4-week elimination trial of common triggers if rhinitis worsens (dairy, gluten, common nuts). Anti-inflammatory base: turmeric + black pepper daily, fatty fish 2\u00d7/wk.",
+        "T": "Avoid outdoor cardio on high-pollen/high-AQI days \u2014 Hyderabad winter (Nov-Feb) and Aug-Sep are pollen-heaviest.",
+        "R": "HEPA filter in bedroom \u00b7 hot-wash bedding weekly (dust mites) \u00b7 shower at night during high-pollen seasons.",
+        "S": "Quercetin 500mg \u00d7 2/day with meals [E3 \u2014 mast-cell stabilization] \u00b7 Omega-3 2g EPA+DHA/day [E2 \u2014 Th2 modulation] \u00b7 Vit D restoration is foundational [E2].",
+        "M": "Stress mediates atopic flares \u2014 current PSS-4 = 4 is low; not a primary lever for you."
+      },
+      "physician_referral_required": true,
+      "physician_referral_specifics": "Stool ova-and-parasite (O&P) panel post-Bihar travel; CBC differential repeat in 4-6 weeks; specific-IgE panel (aeroallergens \u2014 dust mite, pollen, mold) if seasonal rhinitis worsens; consider allergist consult if rhinitis severity \u2265 6/10.",
+      "retest_signal": "Eosinophils \u2193 to <4% in 90 days with trigger avoidance + Vit D restoration. If parasitic, much faster after treatment.",
+      "evidence_tier": "E2"
+    },
+    {
+      "code": "R-HOR-04",
+      "tier": 3,
+      "triggering_markers": [
+        {
+          "code": "testosterone_total",
+          "value": 502,
+          "unit": "ng/dL",
+          "threshold": "400-599 (M 18-50)"
+        }
+      ],
+      "intake_context": "Lean (BMI 24.8), libido active, mood good, no symptoms. This is an OPTIMIZATION opportunity, not treatment. Likely driven by: (a) Vit D deficiency suppressing steroidogenesis, (b) late dinner/circadian misalignment compressing deep-sleep (T peaks in REM/deep), (c) below-optimal Zone 2 base.",
+      "root_cause_hypothesis": "Sub-optimal-for-age T, likely lifestyle-mediated. Will likely rise as Vit D restores and sleep architecture improves.",
+      "domain_interventions": {
+        "N": "Already on protein anchor (2 scoops whey/d). Add: zinc-rich foods \u2014 pumpkin seeds 30g/day, oysters/red meat 1-2\u00d7/wk.",
+        "T": "Already strong (3-4\u00d7 PPL). Add: 90-150 min Zone 2/wk to build mitochondrial density (long run weekly, not biweekly; or 3\u00d730min easy bike/treadmill).",
+        "R": "**HIGHEST LEVERAGE FOR T**: anchor bedtime by 11pm-midnight (currently late). Deep-sleep window is when T is made. Move dinner to 8-9pm (currently 11-12am).",
+        "S": "Vit D loading (already planned). Magnesium glycinate (already planned). Zinc bisglycinate 25mg/day [E2 if intake low].",
+        "M": "No direct mental-health intervention needed \u2014 PSS-4 low, mood 7-8. Continue current rhythm."
+      },
+      "retest_signal": "T \u2191 to 600-800 in 90 days achievable with Vit D restoration + earlier dinner + sleep anchor + zone 2 ramp.",
+      "evidence_tier": "E2"
+    },
+    {
+      "code": "R-HEM-01",
+      "tier": 3,
+      "triggering_markers": [
+        {
+          "code": "rdw_cv",
+          "value": 14.1,
+          "unit": "%",
+          "threshold": "13.5-14.5 (top-of-normal)"
+        }
+      ],
+      "intake_context": "B12 508 (adequate but not Tessera-optimal 500-900), folate 8.1 (adequate), ferritin 137 (good). Most likely a low-grade systemic-stress signal rather than nutrient-driven.",
+      "root_cause_hypothesis": "Borderline RDW (top of normal). NHANES cohort data \u2014 RDW is one of the strongest aging biomarkers. At 14.1% the signal is mild but worth monitoring. Drivers: low-grade oxidative/inflammatory stress, partial nutrient repletion, or genetic variance.",
+      "domain_interventions": {
+        "N": "Continue iron-adequate diet (current ferritin 137 is great). Boost B12 to Tessera-optimal: increase egg/dairy intake; or maintain whey (small B12 source).",
+        "T": null,
+        "R": null,
+        "S": "Consider methylated B-complex (methylcobalamin 1000mcg + methylfolate 400mcg) \u2014 low-cost \u20b9400/mo \u2014 if budget allows.",
+        "M": null
+      },
+      "retest_signal": "RDW \u2193 0.3-0.6% in 90 days as Vit D + sleep + B-vitamin optimization compounds.",
+      "evidence_tier": "E2"
+    },
+    {
+      "code": "R-MET-CIRC-01",
+      "tier": 3,
+      "triggering_markers": [
+        {
+          "code": "cortisol_am",
+          "value": 20.0,
+          "unit": "\u03bcg/dL",
+          "threshold": "15-23 with circadian-misalignment intake signal"
+        }
+      ],
+      "intake_context": "Critically: PSS-4 = 4 (LOW), self-stress 4-5, mood 7-8, fatigue 1, brain fog 1. NOT chronic stress. But: dinner at 11pm-12am + likely bedtime 1am + sample at 8:53am puts the lab draw close to cortisol's natural peak (6-8am) on a delayed-phase schedule. Circadian misalignment, not HPA hyperactivation.",
+      "root_cause_hypothesis": "Cortisol elevation is likely circadian-phase-shifted, not stress-driven. Late dinner \u2192 delayed melatonin \u2192 delayed sleep onset \u2192 delayed peak cortisol clearance \u2192 high-normal AM lab reading.",
+      "domain_interventions": {
+        "N": "Move dinner to 8-9pm (drop ~3 hours earlier). Light dinner protein + veg, save calorie-load for lunch.",
+        "T": null,
+        "R": "Anchor bedtime by 11pm. Anchor wake by 7am. 15-min AM sunlight \u226430 min after waking \u2014 directly resets circadian phase.",
+        "S": "Magnesium glycinate 300-400mg at bedtime (already in stack for Vit D synergy + sleep onset).",
+        "M": "Optional: 5-10 min slow-breath (4-7-8 or physiological sigh) before sleep \u2014 anchor parasympathetic shift."
+      },
+      "retest_signal": "AM cortisol \u2192 10-15 \u03bcg/dL in 90 days with circadian shift (assuming sample drawn at consistent ~8am).",
+      "evidence_tier": "E2",
+      "_note": "This is a NEW rule extending R-HOR-03 \u2014 separates 'circadian misalignment' from 'chronic stress'. Codifying it for the rulebook in next iteration."
+    }
+  ],
+  "per_marker_tiers": [
+    {
+      "code": "hemoglobin",
+      "value": 15.8,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "rbc",
+      "value": 5.25,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "hct",
+      "value": 46.8,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "mcv",
+      "value": 89.0,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "mch",
+      "value": 30.2,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "mchc",
+      "value": 33.9,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "rdw_cv",
+      "value": 14.1,
+      "tier": 3,
+      "status_badge": "WATCH"
+    },
+    {
+      "code": "wbc",
+      "value": 5.29,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "neutrophils_pct",
+      "value": 41,
+      "tier": 3,
+      "status_badge": "WATCH"
+    },
+    {
+      "code": "lymphocytes_pct",
+      "value": 39.1,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "monocytes_pct",
+      "value": 10.1,
+      "tier": 2,
+      "status_badge": "OFF-TARGET"
+    },
+    {
+      "code": "eosinophils_pct",
+      "value": 9.4,
+      "tier": 2,
+      "status_badge": "OFF-TARGET"
+    },
+    {
+      "code": "basophils_pct",
+      "value": 0.4,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "neutrophils_abs",
+      "value": 2.17,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "lymphocytes_abs",
+      "value": 2.07,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "monocytes_abs",
+      "value": 0.53,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "eosinophils_abs",
+      "value": 0.5,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "basophils_abs",
+      "value": 0.02,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "platelets",
+      "value": 203,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "mpv",
+      "value": 10.8,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "pdw",
+      "value": 20.4,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "esr",
+      "value": 3,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "glucose_fasting",
+      "value": 79,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "hba1c",
+      "value": 4.8,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "insulin_fasting",
+      "value": 3.8,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "cholesterol_total",
+      "value": 146,
+      "tier": 3,
+      "status_badge": "WATCH"
+    },
+    {
+      "code": "triglycerides",
+      "value": 56,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "hdl",
+      "value": 49,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "ldl",
+      "value": 86,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "non_hdl",
+      "value": 97,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "lp_a",
+      "value": 11.4,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "apo_a1",
+      "value": 134.0,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "apo_b",
+      "value": 70.0,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "apo_b_a1_ratio",
+      "value": 0.52,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "hs_crp",
+      "value": 0.9,
+      "tier": 3,
+      "status_badge": "WATCH"
+    },
+    {
+      "code": "crp",
+      "value": 1.1,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "homocysteine",
+      "value": 7.46,
+      "tier": 3,
+      "status_badge": "WATCH"
+    },
+    {
+      "code": "alt",
+      "value": 17,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "ast",
+      "value": 23,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "alp",
+      "value": 90,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "ggt",
+      "value": 11,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "bilirubin_total",
+      "value": 0.7,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "protein_total",
+      "value": 7.9,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "albumin",
+      "value": 5.0,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "creatinine",
+      "value": 1.02,
+      "tier": 3,
+      "status_badge": "WATCH"
+    },
+    {
+      "code": "uric_acid",
+      "value": 3.7,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "sodium",
+      "value": 138,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "potassium",
+      "value": 4.3,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "egfr",
+      "value": 105,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "calcium",
+      "value": 9.4,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "phosphorus",
+      "value": 4.6,
+      "tier": 2,
+      "status_badge": "OFF-TARGET"
+    },
+    {
+      "code": "tsh",
+      "value": 2.064,
+      "tier": 3,
+      "status_badge": "WATCH"
+    },
+    {
+      "code": "t3_total",
+      "value": 0.97,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "t4_total",
+      "value": 6.7,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "free_t3",
+      "value": 2.84,
+      "tier": 3,
+      "status_badge": "WATCH"
+    },
+    {
+      "code": "free_t4",
+      "value": 1.01,
+      "tier": 3,
+      "status_badge": "WATCH"
+    },
+    {
+      "code": "vitamin_d_25oh",
+      "value": 15.0,
+      "tier": 1,
+      "status_badge": "REFER"
+    },
+    {
+      "code": "vitamin_b12",
+      "value": 508.0,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "folate",
+      "value": 8.1,
+      "tier": 3,
+      "status_badge": "WATCH"
+    },
+    {
+      "code": "iron_serum",
+      "value": 104,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "tibc",
+      "value": 285,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "ferritin",
+      "value": 137.75,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "testosterone_total",
+      "value": 502.08,
+      "tier": 3,
+      "status_badge": "WATCH"
+    },
+    {
+      "code": "cortisol_am",
+      "value": 20.0,
+      "tier": 3,
+      "status_badge": "WATCH"
+    },
+    {
+      "code": "ige_total",
+      "value": 30,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "lipase",
+      "value": 30.0,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "amylase",
+      "value": 47,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "rheumatoid_factor",
+      "value": 20.0,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "psa_total",
+      "value": 0.481,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "homa_ir",
+      "value": 0.741,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "tg_hdl_ratio",
+      "value": 1.143,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "aip",
+      "value": 0.058,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "castelli_1",
+      "value": 2.98,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "castelli_2",
+      "value": 1.76,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "fib_4",
+      "value": 0.687,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "nlr",
+      "value": 1.05,
+      "tier": 4,
+      "status_badge": "OPTIMAL"
+    },
+    {
+      "code": "mhr",
+      "value": 0.0108,
+      "tier": 3,
+      "status_badge": "WATCH"
+    },
+    {
+      "code": "transferrin_saturation",
+      "value": 36.5,
+      "tier": 3,
+      "status_badge": "WATCH"
+    }
+  ],
+  "tier_summary": {
+    "tier_1_count": 1,
+    "tier_2_count": 1,
+    "tier_3_count": 3,
+    "tier_4_count": "see per_marker_tiers",
+    "rules_fired_total": 5
+  },
+  "conflicts": [],
+  "warnings": []
+}

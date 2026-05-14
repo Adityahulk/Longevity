@@ -1,0 +1,131 @@
+{
+  "analyzed_at_utc": "2026-05-14T18:31:45.342615+00:00",
+  "root_nodes": [
+    {
+      "mechanism_id": "M-02",
+      "name": "Vitamin D deficiency cascade",
+      "score": 4.5,
+      "confidence": "high",
+      "root_driver": "Severe Vit D deficiency (25-OH = 15 ng/mL) \u2014 driver of immune dysregulation (Th2 bias amplifies atopy + eosinophilia), reduced calcium/bone homeostasis, reduced steroidogenesis (suppresses T support), reduced mood/sleep modulation.",
+      "covers_fired_rules": [
+        "R-VIT-D-02"
+      ],
+      "partially_explains_rules": [
+        "R-ATO-01",
+        "R-HOR-04",
+        "R-HEM-01"
+      ],
+      "covers_markers": [
+        {
+          "code": "vitamin_d_25oh",
+          "value": 15.0,
+          "explanation": "definitional"
+        },
+        {
+          "code": "eosinophils_pct",
+          "value": 9.4,
+          "explanation": "Vit D regulates Th1/Th2 balance; deficiency biases toward Th2/atopic"
+        },
+        {
+          "code": "testosterone_total",
+          "value": 502,
+          "explanation": "Vit D is steroidogenic cofactor; deficiency suppresses T synthesis"
+        },
+        {
+          "code": "rdw_cv",
+          "value": 14.1,
+          "explanation": "weakly \u2014 chronic micronutrient deficiency contributes to RBC heterogeneity"
+        }
+      ],
+      "intake_confirming_signals": [
+        "Indoor work + 30-min commute (limited UVB)",
+        "Hyderabad latitude has adequate UVB year-round, but exposure is operational not climatic",
+        "No current Vit D supplementation"
+      ],
+      "intervention_class": "Supplements (loading dose), Recovery (AM sunlight), Nutrition (fatty fish + egg yolks)"
+    },
+    {
+      "mechanism_id": "M-27 (extended) + M-03",
+      "name": "Circadian misalignment + sleep-architecture compression",
+      "score": 2.8,
+      "confidence": "moderate-high",
+      "root_driver": "Late dinner (11pm-12am) \u2192 delayed digestion \u2192 delayed melatonin \u2192 late bedtime (~1am) \u2192 cortisol peak shifts later \u2192 high-normal AM cortisol on standard 8am draw. Deep-sleep window compressed by both late onset and likely interrupted sleep \u2014 directly impacts T synthesis (REM/deep-sleep dependent).",
+      "covers_fired_rules": [
+        "R-MET-CIRC-01"
+      ],
+      "partially_explains_rules": [
+        "R-HOR-04"
+      ],
+      "covers_markers": [
+        {
+          "code": "cortisol_am",
+          "value": 20.0,
+          "explanation": "phase-shifted peak rather than chronic elevation"
+        },
+        {
+          "code": "testosterone_total",
+          "value": 502,
+          "explanation": "compressed deep-sleep window reduces T pulse synthesis"
+        }
+      ],
+      "intake_confirming_signals": [
+        "Dinner 11pm-12am (13h eating window actual vs 10h stated)",
+        "Time to fall asleep 20-40 min (mild sleep-onset latency)",
+        "Bedtime inferred ~1am (late phase)",
+        "PSS-4 = 4 (LOW) \u2014 disproves chronic-stress interpretation of cortisol",
+        "Mood 7-8 + libido stable \u2014 contradicts HPA-fatigue pattern"
+      ],
+      "intervention_class": "Recovery (anchor bedtime 11pm, dinner 8-9pm, AM sunlight \u226430 min after wake), Supplements (Mg glycinate bedtime)"
+    },
+    {
+      "mechanism_id": "M-10 + parasitic-load track",
+      "name": "Atopic Th2-skewed immunity + post-travel parasitic workup",
+      "score": 3.2,
+      "confidence": "moderate",
+      "root_driver": "Atopic phenotype (seasonal rhinitis + Th2 bias amplified by Vit D deficiency) confirmed clinically. Parallel: recent travel to Bihar (rural India \u2014 endemic for helminths/giardia) + Thailand creates a parasitic differential that MUST be ruled out before attributing eosinophilia 9.4% solely to atopy.",
+      "covers_fired_rules": [
+        "R-ATO-01"
+      ],
+      "covers_markers": [
+        {
+          "code": "eosinophils_pct",
+          "value": 9.4,
+          "explanation": "Th2 bias OR parasitic \u2014 needs workup"
+        },
+        {
+          "code": "eosinophils_abs",
+          "value": 0.5,
+          "explanation": "top of normal \u2014 same"
+        }
+      ],
+      "intake_confirming_signals": [
+        "Confirmed seasonal rhinitis (severity 4/10)",
+        "Recent travel: Bihar, Thailand, Goa (last 6 months)",
+        "No GI symptoms currently (mild bloating only)",
+        "No diagnosed food allergies"
+      ],
+      "intervention_class": "Medical (stool O&P testing, allergist consult if rhinitis worsens), Supplements (quercetin, omega-3, Vit D restoration), Recovery (allergen avoidance, HEPA bedroom)"
+    }
+  ],
+  "leaf_findings_explained": {
+    "eosinophils_9.4%": "Multi-causal leaf \u2014 primary: Th2 atopic + Vit D deficiency; differential: post-travel parasitic. Workup via stool O&P recommended.",
+    "testosterone_502": "Leaf of M-02 (Vit D) + circadian root. Don't intervene at the T level directly \u2014 restore Vit D + sleep architecture, expect T to rise to 600-800 by Day 90.",
+    "rdw_cv_14.1": "Mild leaf of low-grade systemic perturbation. Will likely normalize as roots resolve. Monitor.",
+    "cortisol_am_20": "Leaf of circadian misalignment, NOT chronic stress (PSS-4 = 4 disproves stress interpretation).",
+    "monocytes_10.1%": "Top of range \u2014 possibly post-Thailand/Bihar travel residue or just constitutional. Recheck CBC in 4-6 weeks.",
+    "pdw_20.4": "Above range but isolated and clinically insignificant in absence of other platelet abnormalities. Monitor."
+  },
+  "unexplained_findings": [
+    {
+      "marker": "phosphorus_4.60",
+      "value_status": "slightly above range (top 4.5)",
+      "note": "Mild \u2014 possible Vit D pathway disruption (Vit D regulates phosphate); could also be sample timing / dietary. Recheck at Day 90 \u2014 expect to normalize with Vit D restoration."
+    }
+  ],
+  "interaction_notes": [
+    "Vit D restoration is the single highest-leverage move \u2014 it sits upstream of 3 of your 4 sub-optimal findings (atopy, T, RDW).",
+    "Circadian shift + sleep architecture is the second-highest lever \u2014 directly drives T synthesis, modulates cortisol diurnal curve.",
+    "Atopic + parasitic dual-track keeps the eosinophilia interpretation honest. Don't assume; test.",
+    "The 4-grandparent longevity baseline + already-optimal metabolic profile means: marginal gains. You don't need a big intervention; you need precision."
+  ]
+}

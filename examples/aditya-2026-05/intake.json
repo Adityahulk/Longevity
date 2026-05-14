@@ -1,0 +1,136 @@
+{
+  "collected_at_utc": "2026-05-14T18:31:45.337588+00:00",
+  "intake_version": "v2.0.0",
+  "identity": {
+    "first_name": "Aditya",
+    "age": 25,
+    "sex_at_birth": "M",
+    "city": "Hyderabad",
+    "primary_goal": [
+      "build_muscle",
+      "more_energy",
+      "better_sleep",
+      "mental_clarity",
+      "longevity"
+    ],
+    "motivation_1_to_10": 8,
+    "time_available_daily_minutes": 30
+  },
+  "body_medical": {
+    "weight_kg": 83.5,
+    "height_cm": 183.5,
+    "bmi": 24.8,
+    "waist_cm": 76,
+    "waist_cm_note": "User reported '30' \u2014 interpreted as 30 inches (76 cm) given lean physique. Confirm.",
+    "waist_height_ratio": 0.41,
+    "vegetarian_status": "omni",
+    "current_medications": "none",
+    "known_conditions": "none",
+    "allergies_intolerances": "none",
+    "pregnancy_status": null
+  },
+  "diet": {
+    "typical_breakfast": "Protein shake (whey 2 scoops) ~11am",
+    "typical_lunch": "Heavy meal \u2014 multiple rotis + curries + chicken, ~2pm",
+    "typical_snacks": "Fruits at 5:30-6pm",
+    "typical_dinner_and_time": "Rotis + egg omelette + protein shake, 11pm-12am",
+    "eating_window_hours_stated": 10,
+    "eating_window_hours_actual": 13,
+    "eating_window_note": "Stated 10h but 11am-12am = 13h actual. First meal late-AM, late dinner. Suggests inverted-circadian eating pattern (late-evening calorie load).",
+    "weekly_alcohol_drinks": 0.5,
+    "daily_caffeine_cups": 1,
+    "processed_food_score_1_to_10": 7,
+    "current_supplements": [
+      {
+        "name": "Whey protein",
+        "dose": "2 scoops/day"
+      },
+      {
+        "name": "Creatine monohydrate",
+        "dose": "1 spoon (~5g)/day"
+      }
+    ]
+  },
+  "exercise": {
+    "cardio_per_week_minutes": 90,
+    "cardio_types": "HIIT/boxing 1-3\u00d7/week (high-intensity); long run once every 2 weeks (Zone 2 sparse)",
+    "strength_sessions_per_week": 3.5,
+    "strength_split": "Push / Pull / Legs",
+    "equipment_access": "commercial gym",
+    "daily_step_count_avg": 3500,
+    "step_count_note": "Low \u2014 sedentary outside training sessions"
+  },
+  "sleep_stress": {
+    "bedtime": "01:00",
+    "wake_time": "09:00",
+    "bedtime_note": "Inferred from 'Bedtime \u2192 10am' + dinner at 11pm-12am + 7-8h sleep quality. Probable late-circadian phase: bed ~1am, wake ~9am.",
+    "total_sleep_hours_estimated": 8,
+    "sleep_quality_1_to_10": 7.5,
+    "time_to_fall_asleep_min": 30,
+    "stress_level_1_to_10": 4.5,
+    "stress_management_current": null
+  },
+  "hpi": {
+    "rhinitis_present": true,
+    "rhinitis_severity_0_to_10": 4,
+    "rhinitis_pattern": "seasonal",
+    "asthma_present": false,
+    "eczema_present": false,
+    "food_allergies": [],
+    "fatigue_severity_0_to_10": 1,
+    "brain_fog_0_to_10": 1,
+    "headaches_per_week": 0,
+    "joint_pain": "none",
+    "gi_symptoms": "occasional bloating",
+    "recent_travel_endemic_areas": "Goa (low risk), Thailand (moderate risk for tropical parasites), Bihar/India (rural \u2014 endemic for helminths, giardia)",
+    "libido_status": "stable / very active",
+    "mood_overall_0_to_10": 7.5,
+    "recent_infections_3mo": "none"
+  },
+  "family": {
+    "premature_cardiovascular_first_degree": false,
+    "diabetes_first_degree": false,
+    "cancers": [],
+    "dementia_alzheimers": false,
+    "autoimmune": [],
+    "thyroid": false,
+    "longevity_outliers_grandparents_over_85": 4,
+    "longevity_baseline_note": "Exceptional \u2014 4 grandparents past 85 is a strong genetic longevity signal"
+  },
+  "constraints": {
+    "monthly_supplement_budget_inr": 7500,
+    "kitchen_access": "shared",
+    "cooking_skill_1_to_10": null,
+    "regional_cuisine_preference": [
+      "north_indian",
+      "south_indian"
+    ],
+    "eating_out_frequency_per_week": null,
+    "religious_dietary_constraints": [],
+    "strict_allergens_dislikes": [],
+    "time_for_protocol_minutes_per_day": 30,
+    "weekly_schedule_shape": "flexible_and_easy"
+  },
+  "environment": {
+    "city_aqi_tier": "moderate (Hyderabad year-average; spikes to high in winter Nov-Feb)",
+    "pollution_protection_current": "none",
+    "occupational_hazards": [],
+    "sleep_environment_temperature": "moderate-to-warm",
+    "sleep_environment_light_noise": "moderate",
+    "commute_minutes_each_way": 30,
+    "daily_screen_time_hours": 8.5,
+    "recent_mold_water_damage": false,
+    "pets_at_home": "none reported"
+  },
+  "mental_health": {
+    "phq_2_score": 3,
+    "phq_2_positive": true,
+    "phq_2_note": "Borderline positive (score 3 at threshold) but mood 7-8, fatigue 1, brain fog 1, libido stable, social/family functioning intact \u2014 likely mild/subthreshold. Surface as 'consider check-in with PCP/therapist if persistent', not clinical flag.",
+    "gad_2_score": 2,
+    "gad_2_positive": false,
+    "pss_4_score": 4,
+    "pss_4_band": "low",
+    "memory_self_rated_0_to_10": null,
+    "focus_self_rated_0_to_10": null
+  }
+}
