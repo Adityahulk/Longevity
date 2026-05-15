@@ -57,6 +57,12 @@ Habit stack capped at **≤6 habits total across all 12 weeks**. More than that 
 - **Weeks 7-10 (Deepen)**: add 1-2 more — training progression or mind/wellness practice
 - **Weeks 11-13 (Peak + Retest Prep)**: maintain; pre-retest preparation
 
+**Each block also gets a `coach_check_in_days` + `coach_check_in_focus` pair** (see schema). The check-in days map to the bi-weekly call cadence from `journey.html` (Day 14 / Day 28+42 / Day 56+70 / Day 84+90). The focus string is 1-2 sentences telling the coach exactly what to ask in that block's call — specific to the habits installed, the client's likely friction points (drawn from intake constraints: weekend social patterns, AQI, work shifts, training background), and the rule-driven hypotheses for that block. Avoid generic prompts like "check adherence" — name the specific question.
+
+### Step 4b — Compute biological-age trajectory
+
+Author `biological_age_trajectory` with three values: Day 1 (current PhenoAge), Day 30 estimate (apply early-mover `retest_signal` deltas — cortisol AM, eosinophils partial, hsCRP if applicable — to PhenoAge inputs), and Day 90 target (apply all fired-rule `retest_signal` deltas across the 9 PhenoAge inputs). Round to one decimal. Assume 80%+ adherence on the 6-habit stack. If the Day 1 PhenoAge is already ≤ chronological age, the Day 90 target should reflect modest additional gain only (do not over-promise).
+
 ### Step 5 — Retest plan (per-marker cadence)
 
 NOT a generic Day-90 retest. Per-marker cadence based on biological turnover + intervention timeline:
@@ -94,6 +100,14 @@ Reply with tight summary: "Protocol authored. N=[N rules covered], Pillars: [roo
     "bio_age": 24.3,
     "delta_years": -0.7,
     "voice": "peer, future-focused; foundations-first for stress + atopic; optimization framing"
+  },
+
+  "biological_age_trajectory": {
+    "day_1": 24.3,
+    "day_30_estimate": 23.8,
+    "day_90_target": 23.0,
+    "adherence_assumed": "80%+ on the 6-habit stack",
+    "method": "Day 30: apply early-mover retest_signals (cortisol AM, eos partial, hsCRP if applicable) to PhenoAge inputs. Day 90: apply full fired-rule retest_signals across all 9 PhenoAge inputs."
   },
 
   "root_attack_pillars": [
@@ -162,10 +176,30 @@ Reply with tight summary: "Protocol authored. N=[N rules covered], Pillars: [roo
   },
 
   "ninety_day_habit_stack": [
-    {"weeks": "1-2", "habits": ["Anchor wake time 7:00 daily (incl. weekends)", "15-min AM sunlight before 11am"]},
-    {"weeks": "3-6", "habits": ["+ Vit D 60k weekly Sunday AM with breakfast", "+ 30g protein at breakfast"]},
-    {"weeks": "7-10", "habits": ["+ 10-min daily breathwork before screen time", "+ 3× resistance training/week"]},
-    {"weeks": "11-13", "habits": ["Maintain all 6; pre-retest week — fast 12h, no caffeine 24h, no alcohol 72h"]}
+    {
+      "weeks": "1-2",
+      "habits": ["Anchor wake time 7:00 daily (incl. weekends)", "15-min AM sunlight before 11am"],
+      "coach_check_in_days": "Day 14",
+      "coach_check_in_focus": "How is the 7am wake holding on weekends? Any AM-sunlight friction (balcony AQI, work calls)? Are anchor habits feeling forced or settling?"
+    },
+    {
+      "weeks": "3-6",
+      "habits": ["+ Vit D 60k weekly Sunday AM with breakfast", "+ 30g protein at breakfast"],
+      "coach_check_in_days": "Day 28 + Day 42",
+      "coach_check_in_focus": "Supplement adherence (Sunday Vit D taken with fat? GI tolerance?). Protein at breakfast — feasible or rushed? Energy at 7am — better, same, worse?"
+    },
+    {
+      "weeks": "7-10",
+      "habits": ["+ 10-min daily breathwork before screen time", "+ 3× resistance training/week"],
+      "coach_check_in_days": "Day 56 + Day 70",
+      "coach_check_in_focus": "Training adherence — sessions completed vs. planned. Subjective stress + breathwork stickiness. Any unintended drops in earlier habits?"
+    },
+    {
+      "weeks": "11-13",
+      "habits": ["Maintain all 6; pre-retest week — fast 12h, no caffeine 24h, no alcohol 72h"],
+      "coach_check_in_days": "Day 84 + Day 90 review",
+      "coach_check_in_focus": "Confirm retest fasting window, caffeine 24h cutoff, alcohol 72h cutoff, no heavy training 48h prior. Same lab, same morning slot as Day 1."
+    }
   ],
 
   "retest_plan": {

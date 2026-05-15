@@ -50,10 +50,11 @@ The template has placeholder slots `{{...}}` for content. Phase A+B extends the 
 ### Step 4 — Fill biological age section
 
 - Headline bio-age + delta + 1-paragraph plain-English explanation
+- **Trajectory line** — render `protocol.biological_age_trajectory` into the three slots `{{biological_age_day_1}}`, `{{biological_age_day_30_estimate}}`, `{{biological_age_day_90_target}}`. This positions PhenoAge as a moving target the coach holds the client to, not a one-shot verdict. Lead headline should read "Your biological age is X — and we're moving it toward Y by Day 90," not "Your biological age is X."
 - Table of the 9 PhenoAge inputs (canonical + display values)
-- The "movable, not destiny" framing
+- The "movable, not destiny" framing — explicitly reference that the Day 90 target assumes 80%+ adherence on the 6-habit stack
 
-If PhenoAge not computable, lead with the top fired finding + "biological age not available — missing marker X".
+If PhenoAge not computable, lead with the top fired finding + "biological age not available — missing marker X". Omit the trajectory line if Day 1 is null.
 
 ### Step 5 — Fill biomarker analysis (by panel)
 
@@ -185,6 +186,10 @@ From `safety.json` (inside the Supplements domain card):
 ### Step 11 — Fill 90-day plan + retest plan
 
 Existing template structure + protocol.json's `ninety_day_habit_stack` + `retest_plan`.
+
+**Per habit-block, render the coach check-in line** at the bottom of each timeline-content block. Source from `ninety_day_habit_stack[i].coach_check_in_days` + `coach_check_in_focus`. Use the `coach-check-in` + `coach-check-in-label` CSS classes already defined in the template stylesheet. The label uses the days string (e.g., "Coach check-in · Day 14 ·"), then the focus string follows in italic. This aligns the client and coach on what each bi-weekly call from `journey.html` is about — without bloating the report with a separate coach section.
+
+**Reframe the retest section as adherence-gated commitment**, not passive projection. The template's section title is already updated to "Hit 80%+ on the habits. This is what the retest will look like." Keep that framing intact when filling `{{retest_expectations}}` — each line is a concrete delta the coach holds the client to, not an aspiration.
 
 ### Step 12 — Fill disclaimers
 

@@ -679,23 +679,6 @@ section {
 .timeline-content p { font-size: 14.5px; color: var(--ink-soft); }
 .timeline-content ul { margin-top: 10px; padding-left: 20px; }
 .timeline-content li { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 4px; }
-.coach-check-in {
-  font-size: 12px;
-  color: var(--ink-fade);
-  margin-top: 12px;
-  padding-top: 10px;
-  border-top: 0.5px solid var(--rule-soft);
-  font-style: italic;
-}
-.coach-check-in-label {
-  font-style: normal;
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-fade);
-  margin-right: 4px;
-}
 
 /* ─────────── RETEST ─────────── */
 .retest-card {
@@ -882,8 +865,7 @@ section {
       </div>
       <div>
         <div class="bio-age-delta">{{age_delta_paragraph}}</div>
-        <div style="font-family: var(--mono); font-size: 13px; color: var(--ink-fade); margin-top: 14px; letter-spacing: 0.02em;">Day 1: <strong style="color: var(--ink);">{{biological_age_day_1}}</strong> &nbsp;·&nbsp; Day 30 estimate: <strong style="color: var(--ink);">{{biological_age_day_30_estimate}}</strong> &nbsp;·&nbsp; Day 90 target: <strong style="color: var(--leaf);">{{biological_age_day_90_target}}</strong></div>
-        <p style="margin-top: 14px; font-size: 14.5px; color: var(--ink-mute);">{{phenoage_context_paragraph}}</p>
+        <p style="margin-top: 18px; font-size: 14.5px; color: var(--ink-mute);">{{phenoage_context_paragraph}}</p>
       </div>
     </div>
 
@@ -1101,15 +1083,8 @@ section {
               <li>{{habit}}</li>
               ...
             </ul>
-            <div class="coach-check-in">
-              <span class="coach-check-in-label">Coach check-in · {{coach_check_in_days}} ·</span> {{coach_check_in_focus}}
-            </div>
           </div>
         </div>
-
-        coach-check-in styling (inline-equivalent, append to <style> if not already defined):
-        .coach-check-in { font-size: 12px; color: var(--ink-fade); margin-top: 12px; padding-top: 10px; border-top: 0.5px solid var(--rule-soft); font-style: italic; }
-        .coach-check-in-label { font-style: normal; font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-fade); margin-right: 4px; }
       -->
     </div>
   </div>
@@ -1119,8 +1094,7 @@ section {
 <section>
   <div class="page">
     <div class="section-eyebrow">{{retest_section_num}} · The Day-90 Re-test</div>
-    <h2 class="section-title">Hit 80%+ on the habits. <em>This is what the retest will look like.</em></h2>
-    <p class="lede">Adherence is the only variable we can't control for you. The deltas below are realistic if you hit the habit stack consistently. Your coach tracks each habit at the bi-weekly check-ins — falling short on any week is fine, drifting silently is what kills the retest.</p>
+    <h2 class="section-title">Same panel. Same conditions. <em>New numbers.</em></h2>
 
     <div class="retest-card">
       <div>
@@ -1135,7 +1109,7 @@ section {
         </ul>
       </div>
       <div>
-        <h3>Your Day 90 commitment</h3>
+        <h3>What we expect to move</h3>
         <ul>
           {{retest_expectations}}
           <!--
@@ -1143,7 +1117,7 @@ section {
             ...
           -->
         </ul>
-        <p style="margin-top: 14px; font-size: 13.5px; color: var(--ink-mute);">Individual response varies. The point of the retest is the truth, not the prediction — but with 80%+ adherence on the 6-habit stack, these deltas are realistic.</p>
+        <p style="margin-top: 14px; font-size: 13.5px; color: var(--ink-mute);">These are estimates based on average response to similar protocols in similar profiles. Individual response varies — the point of the retest is the truth, not the prediction.</p>
       </div>
     </div>
   </div>
