@@ -34,6 +34,11 @@
       "source": "/research.html",
       "destination": "/research",
       "permanent": true
+    },
+    {
+      "source": "/clinic.html",
+      "destination": "/clinic",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -108,6 +113,14 @@
     {
       "source": "/aditya-report/",
       "destination": "/aditya-report.html"
+    },
+    {
+      "source": "/clinic",
+      "destination": "/clinic.html"
+    },
+    {
+      "source": "/clinic/",
+      "destination": "/clinic.html"
     }
   ]
 }
