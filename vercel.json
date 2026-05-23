@@ -39,6 +39,11 @@
       "source": "/clinic.html",
       "destination": "/clinic",
       "permanent": true
+    },
+    {
+      "source": "/gym.html",
+      "destination": "/gym",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -121,6 +126,14 @@
     {
       "source": "/clinic/",
       "destination": "/clinic.html"
+    },
+    {
+      "source": "/gym",
+      "destination": "/gym.html"
+    },
+    {
+      "source": "/gym/",
+      "destination": "/gym.html"
     }
   ]
 }
