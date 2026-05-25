@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Ayush — Tessera Client Record</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+:root {
+  --bg:           #FAFAF7;
+  --paper:        #FFFFFF;
+  --paper-tint:   #F5F3ED;
+  --paper-warm:   #FBF5EC;
+  --ink:          #0F1419;
+  --ink-soft:     #2A3340;
+  --ink-mute:     #4F5868;
+  --ink-fade:     #7A8497;
+  --rule:         #E0DDD3;
+  --rule-soft:    #EDEAE0;
+  --accent:       #B85426;
+  --accent-soft:  #FBF0E8;
+  --teal:         #0D7377;
+  --leaf:         #2F5D3C;
+  --leaf-soft:    #E8F0EA;
+  --gold:         #8B6914;
+  --rose:         #B23A48;
+  --rose-soft:    #F8E8EA;
+  --serif:        'Fraunces', Georgia, serif;
+  --sans:         'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono:         'JetBrains Mono', ui-monospace, monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  font-size: 15px;
+}
+a { color: var(--accent); text-decoration: none; }
+
+.wrap { max-width: 940px; margin: 0 auto; padding: 0 32px; }
+
+/* ─────────── HEADER ─────────── */
+.client-header {
+  background: var(--ink);
+  color: #E8EBF0;
+  padding: 48px 0 40px;
+}
+.client-header .wrap { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 24px; }
+.ch-brand {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #E07B47;
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+.ch-name {
+  font-family: var(--serif);
+  font-size: 64px;
+  font-weight: 300;
+  letter-spacing: -0.025em;
+  color: #fff;
+  line-height: 1;
+}
+.ch-sub {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 18px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 10px;
+}
+.ch-status {
+  text-align: right;
+}
+.status-badge {
+  display: inline-block;
+  background: rgba(224,123,71,0.15);
+  border: 1px solid #E07B47;
+  color: #E07B47;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.ch-meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.8;
+}
+
+/* ─────────── SECTION NAV ─────────── */
+.section-nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(250,250,247,0.94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+}
+.section-nav .wrap {
+  display: flex; gap: 4px; overflow-x: auto;
+  padding-top: 4px; padding-bottom: 4px;
+}
+.section-nav a {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  padding: 12px 14px;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+}
+.section-nav a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* ─────────── SECTIONS ─────────── */
+section.block { padding: 56px 0; border-bottom: 1px solid var(--rule); }
+.section-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-label .num { color: var(--ink-fade); }
+.section-title {
+  font-family: var(--serif);
+  font-size: 34px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+.section-lede {
+  font-size: 16px;
+  color: var(--ink-mute);
+  max-width: 760px;
+  margin-bottom: 32px;
+}
+
+/* ─────────── PROFILE / INFO CARDS ─────────── */
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.info-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 28px;
+}
+.info-card.alert { border-color: var(--rose); background: var(--rose-soft); }
+.info-card-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-fade);
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+.info-card.alert .info-card-label { color: var(--rose); }
+.info-card ul { list-style: none; }
+.info-card ul li {
+  padding: 9px 0 9px 22px;
+  position: relative;
+  font-size: 15px;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--rule-soft);
+}
+.info-card ul li:last-child { border-bottom: none; }
+.info-card ul li::before {
+  content: "•"; position: absolute; left: 4px; color: var(--accent); font-weight: 700;
+}
+.info-card.alert ul li::before { color: var(--rose); }
+.info-card ul li strong { color: var(--ink); font-weight: 600; }
+.tag-note {
+  font-size: 13px; color: var(--ink-mute); font-style: italic; margin-top: 14px; line-height: 1.5;
+}
+
+/* ─────────── TEST PANEL ─────────── */
+.test-banner {
+  background: var(--paper-warm);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: 28px 30px;
+  margin-bottom: 24px;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;
+}
+.test-banner .tb-left .tb-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.test-banner .tb-left .tb-detail { font-size: 14px; color: var(--ink-mute); }
+.date-field { display: flex; flex-direction: column; gap: 6px; }
+.date-field label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-fade);
+  font-weight: 600;
+}
+.date-field input {
+  font-family: var(--mono);
+  font-size: 15px;
+  padding: 10px 14px;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--ink);
+}
+.date-field input:focus { outline: none; border-color: var(--accent); }
+
+.panel-list { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px 24px; }
+.panel-group { margin-bottom: 6px; }
+.panel-group h4 {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.panel-group ul { list-style: none; }
+.panel-group ul li {
+  font-size: 13px; color: var(--ink-soft); padding: 3px 0;
+}
+.panel-add {
+  background: var(--leaf-soft);
+  border: 1px solid var(--leaf);
+  border-radius: 6px;
+  padding: 18px 22px;
+  margin-top: 20px;
+  display: flex; align-items: center; gap: 16px;
+}
+.panel-add .add-badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--leaf);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 100px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.panel-add .add-text { font-size: 14px; color: var(--ink-soft); }
+.panel-add .add-text strong { color: var(--ink); }
+
+/* ─────────── FORM / QUESTIONNAIRE ─────────── */
+.q-group { margin-bottom: 36px; }
+.q-group-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+.q-group-sub { font-size: 13px; color: var(--ink-fade); margin-bottom: 20px; font-family: var(--mono); letter-spacing: 0.04em; }
+.q-row { margin-bottom: 20px; }
+.q-row label.q-label {
+  display: block;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+.q-row .q-hint { font-size: 13px; color: var(--ink-fade); font-weight: 400; }
+.q-row input[type="text"],
+.q-row input[type="number"],
+.q-row select,
+.q-row textarea {
+  width: 100%;
+  font-family: var(--sans);
+  font-size: 15px;
+  padding: 11px 14px;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--ink);
+}
+.q-row textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
+.q-row input:focus, .q-row select:focus, .q-row textarea:focus { outline: none; border-color: var(--accent); }
+.q-inline { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.q-inline-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+.radio-group { display: flex; flex-wrap: wrap; gap: 8px; }
+.radio-group label {
+  font-size: 14px;
+  padding: 8px 16px;
+  border: 1px solid var(--rule);
+  border-radius: 100px;
+  cursor: pointer;
+  background: var(--paper);
+  transition: all 0.12s;
+  user-select: none;
+}
+.radio-group input { display: none; }
+.radio-group input:checked + span { font-weight: 600; }
+.radio-group label:has(input:checked) {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.range-wrap { display: flex; align-items: center; gap: 16px; }
+.range-wrap input[type="range"] { flex: 1; accent-color: var(--accent); }
+.range-val {
+  font-family: var(--mono); font-size: 18px; font-weight: 600; color: var(--accent);
+  min-width: 36px; text-align: center;
+}
+
+/* ─────────── SAVE BAR ─────────── */
+.save-bar {
+  position: sticky; bottom: 0;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 8px;
+  padding: 18px 24px;
+  margin-top: 32px;
+  display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+}
+.save-bar .sb-status { font-family: var(--mono); font-size: 12px; color: rgba(255,255,255,0.6); letter-spacing: 0.04em; }
+.save-bar .sb-status.saved { color: #7FB069; }
+.save-bar .sb-actions { display: flex; gap: 10px; }
+.btn {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 11px 20px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: #A04820; }
+.btn-ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+.btn-ghost:hover { border-color: #fff; }
+
+/* ─────────── PLACEHOLDER (future) ─────────── */
+.placeholder {
+  background: var(--paper-tint);
+  border: 1px dashed var(--rule);
+  border-radius: 6px;
+  padding: 40px;
+  text-align: center;
+}
+.placeholder .ph-icon {
+  font-family: var(--mono); font-size: 24px; color: var(--ink-fade); margin-bottom: 12px;
+}
+.placeholder .ph-title { font-family: var(--serif); font-size: 20px; font-weight: 500; margin-bottom: 8px; color: var(--ink-mute); }
+.placeholder .ph-detail { font-size: 14px; color: var(--ink-fade); max-width: 480px; margin: 0 auto; }
+
+/* ─────────── FOOTER ─────────── */
+footer {
+  padding: 48px 0 64px;
+}
+.footer-brand { font-family: var(--serif); font-size: 20px; font-weight: 500; }
+.footer-brand .dot { color: var(--accent); }
+.footer-meta { font-family: var(--mono); font-size: 11px; color: var(--ink-fade); margin-top: 8px; letter-spacing: 0.04em; }
+
+@media (max-width: 760px) {
+  .ch-name { font-size: 44px; }
+  .info-grid { grid-template-columns: 1fr; }
+  .panel-list { grid-template-columns: 1fr; }
+  .q-inline, .q-inline-3 { grid-template-columns: 1fr; }
+  .client-header .wrap { flex-direction: column; align-items: flex-start; }
+  .ch-status { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════ HEADER ═══════════════════════ -->
+<header class="client-header">
+  <div class="wrap">
+    <div>
+      <div class="ch-brand">Tessera · Client Record</div>
+      <div class="ch-name">Ayush</div>
+      <div class="ch-sub">90-day biological age program · Client 001</div>
+    </div>
+    <div class="ch-status">
+      <div class="status-badge">Onboarding</div>
+      <div class="ch-meta">
+        Program: 90-day flagship<br/>
+        Record opened: <span id="recordDate"></span><br/>
+        Coach: Aditya
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════ SECTION NAV ═══════════════════════ -->
+<nav class="section-nav">
+  <div class="wrap">
+    <a href="#profile">Profile</a>
+    <a href="#tests">Blood tests</a>
+    <a href="#intake">Lifestyle intake</a>
+    <a href="#reports">Reports</a>
+    <a href="#protocol">Protocol</a>
+    <a href="#timeline">Timeline</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════ 01 — PROFILE ═══════════════════════ -->
+<section class="block" id="profile">
+  <div class="wrap">
+    <div class="section-label"><span class="num">01</span> Profile &amp; flags</div>
+    <h2 class="section-title">What we know going in.</h2>
+    <p class="section-lede">
+      Recorded at intake. These flags drive both the blood-panel selection and the safety screen
+      when his protocol is authored — especially the allergies.
+    </p>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-card-label">Health conditions (minor)</div>
+        <ul>
+          <li><strong>Asthma</strong> — mild</li>
+          <li><strong>Sinus</strong> — recurrent</li>
+          <li><strong>Right knee pain</strong> — localised</li>
+        </ul>
+        <div class="tag-note">Asthma + sinus point to an allergic / atopic picture — this is why Total IgE is added to his panel. Knee is treated as a clinical / imaging item, not a blood item.</div>
+      </div>
+
+      <div class="info-card alert">
+        <div class="info-card-label">⚠ Allergies — protocol guardrails</div>
+        <ul>
+          <li><strong>Shellfish + crustaceans</strong></li>
+          <li><strong>Albiprofin</strong> (NSAID class)</li>
+          <li><strong>Aciloc</strong> (H2 blocker)</li>
+          <li><strong>Panta-D</strong> (PPI)</li>
+          <li><strong>Any gas / antacid medicines</strong></li>
+        </ul>
+        <div class="tag-note">
+          Hard rules for his protocol: no shellfish-derived glucosamine · no krill oil (fish/algae omega-3 OK) · no NSAID-class interventions · careful selection on any GI-support supplement.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 02 — TESTS ═══════════════════════ -->
+<section class="block" id="tests">
+  <div class="wrap">
+    <div class="section-label"><span class="num">02</span> Blood tests</div>
+    <h2 class="section-title">The panel for Ayush.</h2>
+    <p class="section-lede">
+      The standard Tessera 60-marker longevity panel, plus one addition (Total IgE) for the atopic picture.
+      Same draw at Day 1 and Day 90.
+    </p>
+
+    <div class="test-banner">
+      <div class="tb-left">
+        <div class="tb-title">Standard panel + Total IgE</div>
+        <div class="tb-detail">At-home collection · fasting 10–12 hrs · morning slot</div>
+      </div>
+      <div class="date-field">
+        <label for="testDate">Test date</label>
+        <input type="date" id="testDate" />
+      </div>
+    </div>
+
+    <div class="panel-list">
+      <div class="panel-group">
+        <h4>CBC + Differential</h4>
+        <ul>
+          <li>Haemoglobin, RBC, WBC</li>
+          <li>Platelets, Hct, MCV, RDW</li>
+          <li>Neutrophils, Lymphocytes</li>
+          <li>Eosinophils, Monocytes</li>
+        </ul>
+      </div>
+      <div class="panel-group">
+        <h4>Glucose &amp; Insulin</h4>
+        <ul>
+          <li>Fasting glucose</li>
+          <li>HbA1c</li>
+          <li>Fasting insulin</li>
+          <li>HOMA-IR (derived)</li>
+        </ul>
+      </div>
+      <div class="panel-group">
+        <h4>Lipids</h4>
+        <ul>
+          <li>Total / HDL / LDL</li>
+          <li>Triglycerides</li>
+          <li>ApoB, Lp(a)</li>
+          <li>TG:HDL, AIP (derived)</li>
+        </ul>
+      </div>
+      <div class="panel-group">
+        <h4>Liver</h4>
+        <ul>
+          <li>AST, ALT, GGT</li>
+          <li>Bilirubin, ALP</li>
+          <li>Albumin, Protein</li>
+        </ul>
+      </div>
+      <div class="panel-group">
+        <h4>Kidney</h4>
+        <ul>
+          <li>Creatinine, Urea</li>
+          <li>eGFR, Uric acid</li>
+          <li>Electrolytes</li>
+        </ul>
+      </div>
+      <div class="panel-group">
+        <h4>Thyroid</h4>
+        <ul>
+          <li>TSH, Free T3, Free T4</li>
+        </ul>
+      </div>
+      <div class="panel-group">
+        <h4>Vitamins &amp; Minerals</h4>
+        <ul>
+          <li>Vitamin D (25-OH)</li>
+          <li>Vitamin B12, Folate</li>
+          <li>Ferritin, Iron</li>
+          <li>Calcium, Magnesium</li>
+        </ul>
+      </div>
+      <div class="panel-group">
+        <h4>Inflammation</h4>
+        <ul>
+          <li>hs-CRP</li>
+          <li>Derived ratios (NLR)</li>
+        </ul>
+      </div>
+      <div class="panel-group">
+        <h4>Hormones</h4>
+        <ul>
+          <li>Testosterone (total)</li>
+          <li>Cortisol (AM)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="panel-add">
+      <div class="add-badge">+ Added for Ayush</div>
+      <div class="add-text">
+        <strong>Total IgE</strong> — confirms whether his asthma + sinus are allergy-driven. Pairs with eosinophils (already in CBC) to read his atopic activation. The one marker beyond the standard panel.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 03 — INTAKE ═══════════════════════ -->
+<section class="block" id="intake">
+  <div class="wrap">
+    <div class="section-label"><span class="num">03</span> Lifestyle intake</div>
+    <h2 class="section-title">Ayush — please answer these.</h2>
+    <p class="section-lede">
+      Be honest, not aspirational — the protocol is only as good as this. Takes about 10 minutes.
+      Your answers save automatically on this device; tap <strong>Save</strong> and then
+      <strong>Send to coach</strong> when you're done.
+    </p>
+
+    <!-- BODY BASICS -->
+    <div class="q-group">
+      <div class="q-group-title">Body basics</div>
+      <div class="q-group-sub">The starting numbers</div>
+      <div class="q-inline-3">
+        <div class="q-row">
+          <label class="q-label" for="q_age">Age</label>
+          <input type="number" id="q_age" placeholder="years" />
+        </div>
+        <div class="q-row">
+          <label class="q-label" for="q_height">Height</label>
+          <input type="number" id="q_height" placeholder="cm" />
+        </div>
+        <div class="q-row">
+          <label class="q-label" for="q_weight">Weight</label>
+          <input type="number" id="q_weight" placeholder="kg" />
+        </div>
+      </div>
+      <div class="q-inline">
+        <div class="q-row">
+          <label class="q-label" for="q_waist">Waist <span class="q-hint">(at the navel, relaxed)</span></label>
+          <input type="number" id="q_waist" placeholder="cm or inches" />
+        </div>
+        <div class="q-row">
+          <label class="q-label">Sex</label>
+          <div class="radio-group">
+            <label><input type="radio" name="q_sex" value="Male" /><span>Male</span></label>
+            <label><input type="radio" name="q_sex" value="Female" /><span>Female</span></label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CURRENT STATE -->
+    <div class="q-group">
+      <div class="q-group-title">How you feel right now</div>
+      <div class="q-group-sub">Current symptoms &amp; energy</div>
+      <div class="q-row">
+        <label class="q-label" for="q_energy">Daytime energy through a typical day</label>
+        <div class="radio-group">
+          <label><input type="radio" name="q_energy" value="Consistently good" /><span>Consistently good</span></label>
+          <label><input type="radio" name="q_energy" value="Afternoon crash" /><span>Afternoon crash</span></label>
+          <label><input type="radio" name="q_energy" value="Low most of the day" /><span>Low most of the day</span></label>
+          <label><input type="radio" name="q_energy" value="Up and down" /><span>Up and down</span></label>
+        </div>
+      </div>
+      <div class="q-row">
+        <label class="q-label" for="q_asthma">Asthma / sinus — how often does it affect you, and what triggers it?</label>
+        <textarea id="q_asthma" placeholder="e.g. flares in dust / weather change / mornings; using an inhaler X times a week…"></textarea>
+      </div>
+      <div class="q-row">
+        <label class="q-label" for="q_knee">Right knee — when does it hurt, and does it swell or stiffen?</label>
+        <textarea id="q_knee" placeholder="e.g. hurts on stairs / after sitting / during squats; any swelling or morning stiffness…"></textarea>
+      </div>
+      <div class="q-row">
+        <label class="q-label" for="q_meds">Any medicines or supplements you currently take (regular or occasional)</label>
+        <textarea id="q_meds" placeholder="inhaler name, any vitamins, painkillers, anything…"></textarea>
+      </div>
+    </div>
+
+    <!-- DIET -->
+    <div class="q-group">
+      <div class="q-group-title">Food &amp; drink</div>
+      <div class="q-group-sub">A normal week, not your best week</div>
+      <div class="q-row">
+        <label class="q-label">Diet type</label>
+        <div class="radio-group">
+          <label><input type="radio" name="q_diet" value="Vegetarian" /><span>Vegetarian</span></label>
+          <label><input type="radio" name="q_diet" value="Eggetarian" /><span>Eggetarian</span></label>
+          <label><input type="radio" name="q_diet" value="Non-vegetarian" /><span>Non-vegetarian</span></label>
+          <label><input type="radio" name="q_diet" value="Vegan" /><span>Vegan</span></label>
+        </div>
+      </div>
+      <div class="q-row">
+        <label class="q-label" for="q_meals">Walk us through a typical day of eating — morning to night</label>
+        <textarea id="q_meals" placeholder="Breakfast: … Lunch: … Snacks: … Dinner: …"></textarea>
+      </div>
+      <div class="q-inline">
+        <div class="q-row">
+          <label class="q-label" for="q_eatout">Meals eaten out / ordered per week</label>
+          <input type="number" id="q_eatout" placeholder="e.g. 5" />
+        </div>
+        <div class="q-row">
+          <label class="q-label" for="q_water">Water per day <span class="q-hint">(litres, rough)</span></label>
+          <input type="number" id="q_water" step="0.5" placeholder="e.g. 2" />
+        </div>
+      </div>
+      <div class="q-inline">
+        <div class="q-row">
+          <label class="q-label">Caffeine</label>
+          <div class="radio-group">
+            <label><input type="radio" name="q_caffeine" value="None" /><span>None</span></label>
+            <label><input type="radio" name="q_caffeine" value="1-2/day" /><span>1–2/day</span></label>
+            <label><input type="radio" name="q_caffeine" value="3+/day" /><span>3+/day</span></label>
+          </div>
+        </div>
+        <div class="q-row">
+          <label class="q-label">Alcohol</label>
+          <div class="radio-group">
+            <label><input type="radio" name="q_alcohol" value="None" /><span>None</span></label>
+            <label><input type="radio" name="q_alcohol" value="Occasional" /><span>Occasional</span></label>
+            <label><input type="radio" name="q_alcohol" value="Weekly" /><span>Weekly</span></label>
+            <label><input type="radio" name="q_alcohol" value="Most days" /><span>Most days</span></label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXERCISE -->
+    <div class="q-group">
+      <div class="q-group-title">Movement &amp; training</div>
+      <div class="q-group-sub">What you actually do, not what you intend to</div>
+      <div class="q-row">
+        <label class="q-label">How often do you train / exercise?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="q_exfreq" value="Rarely" /><span>Rarely</span></label>
+          <label><input type="radio" name="q_exfreq" value="1-2x/week" /><span>1–2x/week</span></label>
+          <label><input type="radio" name="q_exfreq" value="3-4x/week" /><span>3–4x/week</span></label>
+          <label><input type="radio" name="q_exfreq" value="5+/week" /><span>5+/week</span></label>
+        </div>
+      </div>
+      <div class="q-row">
+        <label class="q-label" for="q_extype">What kind? And do you have gym access / equipment?</label>
+        <textarea id="q_extype" placeholder="e.g. gym 3x (weights), walk daily; or home only, no equipment…"></textarea>
+      </div>
+      <div class="q-row">
+        <label class="q-label" for="q_steps">Rough daily steps, if you track them</label>
+        <input type="number" id="q_steps" placeholder="e.g. 6000" />
+      </div>
+    </div>
+
+    <!-- SLEEP & STRESS -->
+    <div class="q-group">
+      <div class="q-group-title">Sleep &amp; stress</div>
+      <div class="q-group-sub">The two levers that move the most, fastest</div>
+      <div class="q-inline">
+        <div class="q-row">
+          <label class="q-label" for="q_bedtime">Usual bedtime</label>
+          <input type="text" id="q_bedtime" placeholder="e.g. 12:30 am" />
+        </div>
+        <div class="q-row">
+          <label class="q-label" for="q_waketime">Usual wake time</label>
+          <input type="text" id="q_waketime" placeholder="e.g. 7:30 am" />
+        </div>
+      </div>
+      <div class="q-row">
+        <label class="q-label">Sleep quality</label>
+        <div class="radio-group">
+          <label><input type="radio" name="q_sleepqual" value="Deep, wake refreshed" /><span>Deep, wake refreshed</span></label>
+          <label><input type="radio" name="q_sleepqual" value="OK but not enough" /><span>OK but not enough</span></label>
+          <label><input type="radio" name="q_sleepqual" value="Broken / restless" /><span>Broken / restless</span></label>
+        </div>
+      </div>
+      <div class="q-row">
+        <label class="q-label" for="q_stress">Stress level over the last month <span class="q-hint">(0 = none, 10 = constant)</span></label>
+        <div class="range-wrap">
+          <input type="range" id="q_stress" min="0" max="10" value="5" />
+          <span class="range-val" id="q_stress_val">5</span>
+        </div>
+      </div>
+      <div class="q-row">
+        <label class="q-label" for="q_screen">Screen time in the hour before bed</label>
+        <div class="radio-group">
+          <label><input type="radio" name="q_screen" value="None" /><span>None</span></label>
+          <label><input type="radio" name="q_screen" value="A little" /><span>A little</span></label>
+          <label><input type="radio" name="q_screen" value="Right up to sleep" /><span>Right up to sleep</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAMILY HISTORY -->
+    <div class="q-group">
+      <div class="q-group-title">Family history</div>
+      <div class="q-group-sub">Parents, grandparents, siblings</div>
+      <div class="q-row">
+        <label class="q-label" for="q_family">Any diabetes, heart disease, blood pressure, thyroid, cancer, or autoimmune conditions in the family?</label>
+        <textarea id="q_family" placeholder="e.g. father — diabetes + BP; mother's side — thyroid…"></textarea>
+      </div>
+    </div>
+
+    <!-- CONTEXT -->
+    <div class="q-group">
+      <div class="q-group-title">Life context</div>
+      <div class="q-group-sub">So the plan fits your real life</div>
+      <div class="q-inline">
+        <div class="q-row">
+          <label class="q-label" for="q_city">City</label>
+          <input type="text" id="q_city" placeholder="e.g. Hyderabad" />
+        </div>
+        <div class="q-row">
+          <label class="q-label" for="q_work">Work pattern</label>
+          <input type="text" id="q_work" placeholder="e.g. desk job, 10–7, some travel" />
+        </div>
+      </div>
+      <div class="q-row">
+        <label class="q-label" for="q_cook">Who cooks at home, and how much can you control your food?</label>
+        <textarea id="q_cook" placeholder="e.g. mom cooks; I eat what's made; or I cook for myself…"></textarea>
+      </div>
+      <div class="q-row">
+        <label class="q-label" for="q_goal">In your own words — what do you most want out of these 90 days?</label>
+        <textarea id="q_goal" placeholder="e.g. more energy, fewer asthma flares, lose some weight, just feel younger…"></textarea>
+      </div>
+    </div>
+
+    <!-- MOOD MICRO-SCREEN -->
+    <div class="q-group">
+      <div class="q-group-title">A quick check-in</div>
+      <div class="q-group-sub">Over the last 2 weeks · entirely private</div>
+      <div class="q-row">
+        <label class="q-label">Little interest or pleasure in doing things</label>
+        <div class="radio-group">
+          <label><input type="radio" name="q_phq1" value="Not at all" /><span>Not at all</span></label>
+          <label><input type="radio" name="q_phq1" value="Several days" /><span>Several days</span></label>
+          <label><input type="radio" name="q_phq1" value="More than half the days" /><span>More than half</span></label>
+          <label><input type="radio" name="q_phq1" value="Nearly every day" /><span>Nearly every day</span></label>
+        </div>
+      </div>
+      <div class="q-row">
+        <label class="q-label">Feeling down, anxious, or on edge</label>
+        <div class="radio-group">
+          <label><input type="radio" name="q_phq2" value="Not at all" /><span>Not at all</span></label>
+          <label><input type="radio" name="q_phq2" value="Several days" /><span>Several days</span></label>
+          <label><input type="radio" name="q_phq2" value="More than half the days" /><span>More than half</span></label>
+          <label><input type="radio" name="q_phq2" value="Nearly every day" /><span>Nearly every day</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- SAVE BAR -->
+    <div class="save-bar">
+      <div class="sb-status" id="saveStatus">Answers save automatically as you type</div>
+      <div class="sb-actions">
+        <button class="btn btn-ghost" onclick="downloadAnswers()">Download</button>
+        <button class="btn btn-ghost" onclick="copyAnswers()">Copy</button>
+        <button class="btn btn-primary" onclick="sendToCoach()">Send to coach</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 04 — REPORTS ═══════════════════════ -->
+<section class="block" id="reports">
+  <div class="wrap">
+    <div class="section-label"><span class="num">04</span> Test reports</div>
+    <h2 class="section-title">Bloodwork &amp; results.</h2>
+    <div class="placeholder">
+      <div class="ph-icon">— · —</div>
+      <div class="ph-title">No reports yet</div>
+      <div class="ph-detail">Day-1 panel results will be added here once the blood draw is done. Day-90 retest will sit alongside it for a side-by-side delta.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 05 — PROTOCOL ═══════════════════════ -->
+<section class="block" id="protocol">
+  <div class="wrap">
+    <div class="section-label"><span class="num">05</span> Protocol</div>
+    <h2 class="section-title">The 90-day plan.</h2>
+    <div class="placeholder">
+      <div class="ph-icon">— · —</div>
+      <div class="ph-title">Protocol not authored yet</div>
+      <div class="ph-detail">Once the Day-1 panel + this intake are in, Ayush's personalised 5-domain protocol and full Tessera report will be linked here.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 06 — TIMELINE ═══════════════════════ -->
+<section class="block" id="timeline">
+  <div class="wrap">
+    <div class="section-label"><span class="num">06</span> Timeline</div>
+    <h2 class="section-title">The record, as it grows.</h2>
+    <div class="placeholder">
+      <div class="ph-icon">— · —</div>
+      <div class="ph-title">Day 0 — record opened</div>
+      <div class="ph-detail">Coach check-ins, retests, protocol adjustments and notes will be logged here through the 90 days.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-brand">Tessera<span class="dot">.</span></div>
+    <div class="footer-meta">Private client record · Ayush · Client 001 · maintained by Aditya</div>
+  </div>
+</footer>
+
+<script>
+  // record opened date
+  const RECORD_KEY = 'tessera_ayush';
+  (function setRecordDate(){
+    let d = localStorage.getItem(RECORD_KEY + '_opened');
+    if (!d) {
+      d = new Date().toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' });
+      localStorage.setItem(RECORD_KEY + '_opened', d);
+    }
+    document.getElementById('recordDate').textContent = d;
+  })();
+
+  // stress slider live value
+  const stress = document.getElementById('q_stress');
+  const stressVal = document.getElementById('q_stress_val');
+  stress.addEventListener('input', () => stressVal.textContent = stress.value);
+
+  // collect all fields
+  function allInputs() {
+    return document.querySelectorAll('#intake input, #intake textarea, #intake select, #testDate');
+  }
+
+  // save / restore via localStorage
+  function saveAll() {
+    const data = {};
+    allInputs().forEach(el => {
+      if (el.type === 'radio') {
+        if (el.checked) data[el.name] = el.value;
+      } else {
+        if (el.id) data[el.id] = el.value;
+      }
+    });
+    localStorage.setItem(RECORD_KEY, JSON.stringify(data));
+    flashSaved();
+  }
+  function restoreAll() {
+    const raw = localStorage.getItem(RECORD_KEY);
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    allInputs().forEach(el => {
+      if (el.type === 'radio') {
+        if (data[el.name] === el.value) el.checked = true;
+      } else if (el.id && data[el.id] !== undefined) {
+        el.value = data[el.id];
+      }
+    });
+    if (data['q_stress']) stressVal.textContent = data['q_stress'];
+  }
+  function flashSaved() {
+    const s = document.getElementById('saveStatus');
+    s.textContent = '✓ Saved on this device';
+    s.classList.add('saved');
+    clearTimeout(window._st);
+    window._st = setTimeout(() => {
+      s.textContent = 'Answers save automatically as you type';
+      s.classList.remove('saved');
+    }, 2000);
+  }
+
+  document.addEventListener('input', e => {
+    if (e.target.closest('#intake') || e.target.id === 'testDate') saveAll();
+  });
+  document.addEventListener('change', e => {
+    if (e.target.closest('#intake') || e.target.id === 'testDate') saveAll();
+  });
+
+  restoreAll();
+
+  // build a readable summary
+  function buildSummary() {
+    const labels = {
+      testDate:'Test date', q_age:'Age', q_height:'Height (cm)', q_weight:'Weight (kg)',
+      q_waist:'Waist', q_sex:'Sex', q_energy:'Daytime energy', q_asthma:'Asthma/sinus',
+      q_knee:'Right knee', q_meds:'Current meds/supplements', q_diet:'Diet type', q_meals:'Typical day of eating',
+      q_eatout:'Meals out/week', q_water:'Water/day (L)', q_caffeine:'Caffeine', q_alcohol:'Alcohol',
+      q_exfreq:'Exercise frequency', q_extype:'Exercise type/equipment', q_steps:'Daily steps',
+      q_bedtime:'Bedtime', q_waketime:'Wake time', q_sleepqual:'Sleep quality', q_stress:'Stress (0-10)',
+      q_screen:'Screen before bed', q_family:'Family history', q_city:'City', q_work:'Work pattern',
+      q_cook:'Cooking/food control', q_goal:'90-day goal', q_phq1:'Interest/pleasure (2wk)', q_phq2:'Mood/anxiety (2wk)'
+    };
+    const raw = localStorage.getItem(RECORD_KEY);
+    const data = raw ? JSON.parse(raw) : {};
+    let out = 'TESSERA — AYUSH — LIFESTYLE INTAKE\n';
+    out += '=================================\n\n';
+    for (const key in labels) {
+      const v = data[key];
+      if (v !== undefined && v !== '') out += labels[key] + ': ' + v + '\n';
+    }
+    out += '\nSubmitted: ' + new Date().toLocaleString('en-IN');
+    return out;
+  }
+
+  function downloadAnswers() {
+    saveAll();
+    const blob = new Blob([buildSummary()], { type: 'text/plain' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'ayush-intake.txt';
+    a.click();
+  }
+  function copyAnswers() {
+    saveAll();
+    navigator.clipboard.writeText(buildSummary()).then(() => {
+      const s = document.getElementById('saveStatus');
+      s.textContent = '✓ Copied — paste it to your coach';
+      s.classList.add('saved');
+    });
+  }
+  function sendToCoach() {
+    saveAll();
+    const text = encodeURIComponent(buildSummary());
+    // opens WhatsApp with the summary prefilled — Ayush just hits send
+    window.open('https://wa.me/?text=' + text, '_blank');
+  }
+</script>
+
+</body>
+</html>
