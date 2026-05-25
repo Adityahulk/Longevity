@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 
 <style>
 :root {
@@ -807,7 +808,10 @@ footer {
 
     <!-- SAVE BAR -->
     <div class="save-bar">
-      <div class="sb-status" id="saveStatus">Answers save automatically as you type</div>
+      <div>
+        <div class="sb-status" id="saveStatus">Answers save automatically as you type</div>
+        <div class="sb-status" id="syncStatus" style="margin-top:4px;font-size:11px;opacity:0.55;"></div>
+      </div>
       <div class="sb-actions">
         <button class="btn btn-ghost" onclick="downloadAnswers()">Download</button>
         <button class="btn btn-ghost" onclick="copyAnswers()">Copy</button>
@@ -864,119 +868,202 @@ footer {
 </footer>
 
 <script>
-  // record opened date
-  const RECORD_KEY = 'tessera_ayush';
-  (function setRecordDate(){
-    let d = localStorage.getItem(RECORD_KEY + '_opened');
-    if (!d) {
-      d = new Date().toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' });
-      localStorage.setItem(RECORD_KEY + '_opened', d);
+// ─────────────────────────────────────────────────────────────────────
+// SUPABASE CONFIG
+// 1. Go to https://supabase.com → new free project
+// 2. SQL editor → run:
+//    create table ayush_intake (
+//      id text primary key default 'ayush',
+//      data jsonb,
+//      updated_at timestamptz default now()
+//    );
+//    alter table ayush_intake enable row level security;
+//    create policy "allow all" on ayush_intake for all using (true) with check (true);
+// 3. Settings → API → copy Project URL + anon public key → paste below
+// ─────────────────────────────────────────────────────────────────────
+const SUPABASE_URL = 'YOUR_SUPABASE_URL';      // e.g. https://abcxyz.supabase.co
+const SUPABASE_KEY = 'YOUR_SUPABASE_ANON_KEY'; // Settings → API → anon public
+
+const COACH_WA = '918292098293'; // Aditya's WhatsApp (91 = India country code)
+const RECORD_KEY = 'tessera_ayush';
+const ROW_ID = 'ayush';
+
+// init Supabase if configured
+const dbReady = SUPABASE_URL !== 'YOUR_SUPABASE_URL' && SUPABASE_KEY !== 'YOUR_SUPABASE_ANON_KEY';
+const db = dbReady ? supabase.createClient(SUPABASE_URL, SUPABASE_KEY) : null;
+
+// ─── record opened date ───
+(function setRecordDate(){
+  let d = localStorage.getItem(RECORD_KEY + '_opened');
+  if (!d) {
+    d = new Date().toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' });
+    localStorage.setItem(RECORD_KEY + '_opened', d);
+  }
+  document.getElementById('recordDate').textContent = d;
+})();
+
+// ─── stress slider ───
+const stress = document.getElementById('q_stress');
+const stressVal = document.getElementById('q_stress_val');
+stress.addEventListener('input', () => stressVal.textContent = stress.value);
+
+function allInputs() {
+  return document.querySelectorAll('#intake input, #intake textarea, #intake select, #testDate');
+}
+
+// ─── collect form → plain object ───
+function collectData() {
+  const data = {};
+  allInputs().forEach(el => {
+    if (el.type === 'radio') {
+      if (el.checked) data[el.name] = el.value;
+    } else {
+      if (el.id) data[el.id] = el.value;
     }
-    document.getElementById('recordDate').textContent = d;
-  })();
+  });
+  return data;
+}
 
-  // stress slider live value
-  const stress = document.getElementById('q_stress');
-  const stressVal = document.getElementById('q_stress_val');
-  stress.addEventListener('input', () => stressVal.textContent = stress.value);
+// ─── apply object → form ───
+function applyData(data) {
+  allInputs().forEach(el => {
+    if (el.type === 'radio') {
+      if (data[el.name] === el.value) el.checked = true;
+    } else if (el.id && data[el.id] !== undefined) {
+      el.value = data[el.id];
+    }
+  });
+  if (data['q_stress']) stressVal.textContent = data['q_stress'];
+}
 
-  // collect all fields
-  function allInputs() {
-    return document.querySelectorAll('#intake input, #intake textarea, #intake select, #testDate');
+// ─── SAVE ───
+let _syncTimer = null;
+function saveAll() {
+  const data = collectData();
+  // 1. localStorage (instant)
+  localStorage.setItem(RECORD_KEY, JSON.stringify(data));
+  flashSaved();
+  // 2. Supabase (debounced 1.5s so we don't hit DB on every keystroke)
+  if (db) {
+    clearTimeout(_syncTimer);
+    _syncTimer = setTimeout(() => syncToDB(data), 1500);
   }
+}
 
-  // save / restore via localStorage
-  function saveAll() {
-    const data = {};
-    allInputs().forEach(el => {
-      if (el.type === 'radio') {
-        if (el.checked) data[el.name] = el.value;
-      } else {
-        if (el.id) data[el.id] = el.value;
-      }
+async function syncToDB(data) {
+  const syncEl = document.getElementById('syncStatus');
+  syncEl.textContent = '↑ syncing…';
+  try {
+    const { error } = await db.from('ayush_intake').upsert({
+      id: ROW_ID,
+      data: data,
+      updated_at: new Date().toISOString()
     });
-    localStorage.setItem(RECORD_KEY, JSON.stringify(data));
-    flashSaved();
+    if (error) throw error;
+    const ts = new Date().toLocaleTimeString('en-IN', { hour:'2-digit', minute:'2-digit' });
+    syncEl.textContent = '✓ synced to cloud · ' + ts;
+  } catch (err) {
+    syncEl.textContent = '⚠ cloud sync failed — saved locally';
+    console.error('Supabase sync error:', err);
   }
-  function restoreAll() {
-    const raw = localStorage.getItem(RECORD_KEY);
-    if (!raw) return;
-    const data = JSON.parse(raw);
-    allInputs().forEach(el => {
-      if (el.type === 'radio') {
-        if (data[el.name] === el.value) el.checked = true;
-      } else if (el.id && data[el.id] !== undefined) {
-        el.value = data[el.id];
+}
+
+// ─── RESTORE ───
+async function restoreAll() {
+  // try cloud first if configured
+  if (db) {
+    const syncEl = document.getElementById('syncStatus');
+    syncEl.textContent = '↓ loading from cloud…';
+    try {
+      const { data: row, error } = await db
+        .from('ayush_intake')
+        .select('data, updated_at')
+        .eq('id', ROW_ID)
+        .maybeSingle();
+      if (!error && row && row.data) {
+        applyData(row.data);
+        // also update localStorage so offline works
+        localStorage.setItem(RECORD_KEY, JSON.stringify(row.data));
+        const ts = new Date(row.updated_at).toLocaleString('en-IN', {
+          day:'numeric', month:'short', hour:'2-digit', minute:'2-digit'
+        });
+        syncEl.textContent = '✓ loaded from cloud · last saved ' + ts;
+        return;
       }
-    });
-    if (data['q_stress']) stressVal.textContent = data['q_stress'];
+    } catch(e) { /* fall through to localStorage */ }
+    syncEl.textContent = 'cloud not reachable — loaded local copy';
   }
-  function flashSaved() {
+  // fallback: localStorage
+  const raw = localStorage.getItem(RECORD_KEY);
+  if (raw) applyData(JSON.parse(raw));
+}
+
+function flashSaved() {
+  const s = document.getElementById('saveStatus');
+  s.textContent = '✓ Saved';
+  s.classList.add('saved');
+  clearTimeout(window._st);
+  window._st = setTimeout(() => {
+    s.textContent = 'Answers save automatically as you type';
+    s.classList.remove('saved');
+  }, 2000);
+}
+
+document.addEventListener('input', e => {
+  if (e.target.closest('#intake') || e.target.id === 'testDate') saveAll();
+});
+document.addEventListener('change', e => {
+  if (e.target.closest('#intake') || e.target.id === 'testDate') saveAll();
+});
+
+restoreAll();
+
+// ─── SUMMARY ───
+function buildSummary() {
+  const labels = {
+    testDate:'Test date', q_age:'Age', q_height:'Height (cm)', q_weight:'Weight (kg)',
+    q_waist:'Waist', q_sex:'Sex', q_energy:'Daytime energy', q_asthma:'Asthma/sinus',
+    q_knee:'Right knee', q_meds:'Current meds/supplements', q_diet:'Diet type',
+    q_meals:'Typical day of eating', q_eatout:'Meals out/week', q_water:'Water/day (L)',
+    q_caffeine:'Caffeine', q_alcohol:'Alcohol', q_exfreq:'Exercise frequency',
+    q_extype:'Exercise type/equipment', q_steps:'Daily steps', q_bedtime:'Bedtime',
+    q_waketime:'Wake time', q_sleepqual:'Sleep quality', q_stress:'Stress (0-10)',
+    q_screen:'Screen before bed', q_family:'Family history', q_city:'City',
+    q_work:'Work pattern', q_cook:'Cooking/food control', q_goal:'90-day goal',
+    q_phq1:'Interest/pleasure (2wk)', q_phq2:'Mood/anxiety (2wk)'
+  };
+  const raw = localStorage.getItem(RECORD_KEY);
+  const data = raw ? JSON.parse(raw) : {};
+  let out = 'TESSERA — AYUSH — LIFESTYLE INTAKE\n=================================\n\n';
+  for (const key in labels) {
+    const v = data[key];
+    if (v !== undefined && v !== '') out += labels[key] + ': ' + v + '\n';
+  }
+  out += '\nSubmitted: ' + new Date().toLocaleString('en-IN');
+  return out;
+}
+
+function downloadAnswers() {
+  saveAll();
+  const blob = new Blob([buildSummary()], { type: 'text/plain' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'ayush-intake.txt';
+  a.click();
+}
+function copyAnswers() {
+  saveAll();
+  navigator.clipboard.writeText(buildSummary()).then(() => {
     const s = document.getElementById('saveStatus');
-    s.textContent = '✓ Saved on this device';
+    s.textContent = '✓ Copied to clipboard';
     s.classList.add('saved');
-    clearTimeout(window._st);
-    window._st = setTimeout(() => {
-      s.textContent = 'Answers save automatically as you type';
-      s.classList.remove('saved');
-    }, 2000);
-  }
-
-  document.addEventListener('input', e => {
-    if (e.target.closest('#intake') || e.target.id === 'testDate') saveAll();
   });
-  document.addEventListener('change', e => {
-    if (e.target.closest('#intake') || e.target.id === 'testDate') saveAll();
-  });
-
-  restoreAll();
-
-  // build a readable summary
-  function buildSummary() {
-    const labels = {
-      testDate:'Test date', q_age:'Age', q_height:'Height (cm)', q_weight:'Weight (kg)',
-      q_waist:'Waist', q_sex:'Sex', q_energy:'Daytime energy', q_asthma:'Asthma/sinus',
-      q_knee:'Right knee', q_meds:'Current meds/supplements', q_diet:'Diet type', q_meals:'Typical day of eating',
-      q_eatout:'Meals out/week', q_water:'Water/day (L)', q_caffeine:'Caffeine', q_alcohol:'Alcohol',
-      q_exfreq:'Exercise frequency', q_extype:'Exercise type/equipment', q_steps:'Daily steps',
-      q_bedtime:'Bedtime', q_waketime:'Wake time', q_sleepqual:'Sleep quality', q_stress:'Stress (0-10)',
-      q_screen:'Screen before bed', q_family:'Family history', q_city:'City', q_work:'Work pattern',
-      q_cook:'Cooking/food control', q_goal:'90-day goal', q_phq1:'Interest/pleasure (2wk)', q_phq2:'Mood/anxiety (2wk)'
-    };
-    const raw = localStorage.getItem(RECORD_KEY);
-    const data = raw ? JSON.parse(raw) : {};
-    let out = 'TESSERA — AYUSH — LIFESTYLE INTAKE\n';
-    out += '=================================\n\n';
-    for (const key in labels) {
-      const v = data[key];
-      if (v !== undefined && v !== '') out += labels[key] + ': ' + v + '\n';
-    }
-    out += '\nSubmitted: ' + new Date().toLocaleString('en-IN');
-    return out;
-  }
-
-  function downloadAnswers() {
-    saveAll();
-    const blob = new Blob([buildSummary()], { type: 'text/plain' });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'ayush-intake.txt';
-    a.click();
-  }
-  function copyAnswers() {
-    saveAll();
-    navigator.clipboard.writeText(buildSummary()).then(() => {
-      const s = document.getElementById('saveStatus');
-      s.textContent = '✓ Copied — paste it to your coach';
-      s.classList.add('saved');
-    });
-  }
-  function sendToCoach() {
-    saveAll();
-    const text = encodeURIComponent(buildSummary());
-    // opens WhatsApp with the summary prefilled — Ayush just hits send
-    window.open('https://wa.me/?text=' + text, '_blank');
-  }
+}
+function sendToCoach() {
+  saveAll();
+  const text = encodeURIComponent(buildSummary());
+  window.open('https://wa.me/' + COACH_WA + '?text=' + text, '_blank');
+}
 </script>
 
 </body>
