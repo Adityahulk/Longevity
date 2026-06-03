@@ -45,14 +45,15 @@ body { font-family:var(--sans); background:var(--cream); color:var(--ink); line-
 .section-title { font-family:var(--serif); font-size:clamp(24px,3vw,32px); font-weight:500; line-height:1.2; letter-spacing:-0.02em; margin-bottom:28px; }
 .section-title em { font-style:italic; color:var(--accent); }
 
-.essay-list { display:flex; flex-direction:column; gap:1px; background:var(--rule-soft); border:1px solid var(--rule-soft); border-radius:6px; overflow:hidden; }
-.essay { background:var(--cream); padding:32px 30px; display:grid; grid-template-columns:64px 1fr auto; gap:24px; align-items:center; text-decoration:none; transition:background 0.2s; }
-.essay:hover { background:var(--paper); }
-.essay-idx { font-family:var(--mono); font-size:13px; color:var(--accent); }
-.essay-body h3 { font-family:var(--serif); font-size:22px; font-weight:500; color:var(--ink); line-height:1.25; margin-bottom:8px; letter-spacing:-0.01em; }
-.essay-body p { font-size:14.5px; color:var(--ink-mute); line-height:1.6; max-width:600px; }
-.essay-tag { font-family:var(--mono); font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-fade); white-space:nowrap; }
-.essay-arrow { color:var(--accent); font-size:22px; }
+.post-list { display:flex; flex-direction:column; }
+.post { display:block; padding:30px 0; border-top:1px solid var(--rule-soft); text-decoration:none; transition:opacity 0.2s; }
+.post:first-child { border-top:none; }
+.post:hover { opacity:0.72; }
+.post-meta { font-family:var(--mono); font-size:11px; letter-spacing:0.06em; color:var(--ink-fade); margin-bottom:10px; display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
+.post-meta .tag { color:var(--accent); text-transform:uppercase; letter-spacing:0.1em; }
+.post h3 { font-family:var(--serif); font-size:25px; font-weight:500; color:var(--ink); line-height:1.22; margin-bottom:10px; letter-spacing:-0.015em; }
+.post p { font-size:15.5px; color:var(--ink-mute); line-height:1.6; max-width:640px; }
+.post .readlink { font-family:var(--mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); margin-top:14px; display:inline-block; }
 
 .foundations { background:var(--paper); border:1px solid var(--rule-soft); border-left:3px solid var(--leaf); border-radius:6px; padding:30px 32px; margin-top:8px; }
 .foundations .mono-tag { font-family:var(--mono); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--leaf); display:block; margin-bottom:10px; }
@@ -109,37 +110,43 @@ footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); pa
 </div></section>
 
 <section class="section"><div class="narrow">
-  <span class="section-num">Start here · the essentials</span>
-  <h2 class="section-title">Three things <em>worth understanding</em> before you optimize anything.</h2>
+  <span class="section-num">Writing · newest first</span>
 
-  <div class="essay-list">
-    <a class="essay" href="/learn/reference-ranges">
-      <div class="essay-idx">01</div>
-      <div class="essay-body">
-        <h3>Your blood report uses the wrong reference ranges</h3>
-        <p>"Normal" on a lab report means "average for people who walked into a lab", including the unwell. Optimal is a different number, and for South Asian bodies it's different again. Why your report says fine when you're not.</p>
-      </div>
-      <div class="essay-tag">Reference ranges</div>
-      <div class="essay-arrow">→</div>
+  <!-- ════════════════════════════════════════════════════════════════
+       HOW TO ADD A NEW POST
+       1. Copy content/blog-post-template.html to a new file named
+          learn-<slug>.html  (e.g. learn-ferritin.html)
+       2. Write the post. Update title, dek, date, tag, read-time, body.
+       3. Add a route pair in vercel.json:
+            redirect  /learn-<slug>.html -> /learn/<slug>
+            rewrite   /learn/<slug>      -> /learn-<slug>.html
+       4. Add a <a class="post"> card below, AT THE TOP of the list
+          (newest first). Copy the block, change date/tag/title/excerpt/href.
+       ════════════════════════════════════════════════════════════════ -->
+
+  <div class="post-list">
+
+    <a class="post" href="/learn/four-levers">
+      <div class="post-meta"><span>2 June 2026</span><span class="tag">Interventions</span><span>9 min read</span></div>
+      <h3>The four levers that actually move your biomarkers in 90 days</h3>
+      <p>Almost everything you can change runs through four levers: nutrition, training, sleep, and a short list of supplements. What the evidence supports, ranked by how much it moves the needle and how fast.</p>
+      <span class="readlink">Read →</span>
     </a>
-    <a class="essay" href="/learn/biological-age">
-      <div class="essay-idx">02</div>
-      <div class="essay-body">
-        <h3>Biological age, honestly: what PhenoAge can and can't tell you</h3>
-        <p>Biological-age scores are real science, and routinely oversold. What PhenoAge actually measures, what an epigenetic clock is, why we use a blood-based model, and how to read your number without fooling yourself.</p>
-      </div>
-      <div class="essay-tag">Biological age</div>
-      <div class="essay-arrow">→</div>
+
+    <a class="post" href="/learn/biological-age">
+      <div class="post-meta"><span>30 May 2026</span><span class="tag">Biological age</span><span>8 min read</span></div>
+      <h3>Biological age, honestly: what PhenoAge can and can't tell you</h3>
+      <p>Biological-age scores are real science, and routinely oversold. What PhenoAge measures, what an epigenetic clock is, why we use a blood-based model, and how to read your number without fooling yourself.</p>
+      <span class="readlink">Read →</span>
     </a>
-    <a class="essay" href="/learn/four-levers">
-      <div class="essay-idx">03</div>
-      <div class="essay-body">
-        <h3>The four levers that actually move your biomarkers in 90 days</h3>
-        <p>Most of what you can change runs through four levers, nutrition, training, sleep, and a short list of supplements. What the evidence actually supports, ranked by how much it moves the needle, and how fast.</p>
-      </div>
-      <div class="essay-tag">Interventions</div>
-      <div class="essay-arrow">→</div>
+
+    <a class="post" href="/learn/reference-ranges">
+      <div class="post-meta"><span>28 May 2026</span><span class="tag">Reference ranges</span><span>7 min read</span></div>
+      <h3>Your blood report uses the wrong reference ranges</h3>
+      <p>"Normal" on a lab report is the average of everyone who walked into a lab, the unwell included. Optimal is a different number, and for South Asian bodies different again. Why your report can say fine when you're not.</p>
+      <span class="readlink">Read →</span>
     </a>
+
   </div>
 </div></section>
 
