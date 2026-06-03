@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Engine — How Tessera reasons | Tessera</title>
+<meta name="description" content="Tessera's reasoning engine: nine deterministic agents, typed JSON contracts, hard safety gates, a versioned open rulebook, and a reproducible audit trail. Auditable by design — inspect the reasoning before you trust it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:#F5F1E8; --cream-dark:#EDE7D9; --paper:#FBF8F1;
+  --ink:#0E1B2C; --ink-soft:#1F2D40; --ink-mute:#4A5668; --ink-fade:#7A8497;
+  --rule:#C8BFA8; --rule-soft:#DCD3BC; --accent:#B85426; --accent-warm:#D17244;
+  --leaf:#2F5D3C; --gold:#8B6914;
+  --serif:'Fraunces',Georgia,serif; --sans:'Inter',-apple-system,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:var(--sans); background:var(--cream); color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+.container { max-width:1100px; margin:0 auto; padding:0 32px; }
+.narrow { max-width:860px; margin:0 auto; padding:0 32px; }
+
+/* NAV */
+.nav { position:sticky; top:0; z-index:100; background:rgba(245,241,232,0.92); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:0.5px solid var(--rule-soft); padding:18px 0; }
+.nav-inner { display:flex; justify-content:space-between; align-items:center; }
+.logo { font-family:var(--serif); font-size:24px; font-weight:500; letter-spacing:-0.02em; color:var(--ink); text-decoration:none; display:flex; align-items:center; gap:10px; }
+.logo-mark { width:22px; height:22px; position:relative; }
+.logo-mark::before,.logo-mark::after { content:''; position:absolute; inset:0; border:1.5px solid var(--ink); border-radius:50%; }
+.logo-mark::after { inset:5px; background:var(--accent); border:none; }
+.nav-links { display:flex; gap:32px; align-items:center; }
+.nav-links a { color:var(--ink-soft); text-decoration:none; font-size:14px; transition:color 0.2s; }
+.nav-links a:hover { color:var(--accent); }
+.cta-link { background:var(--ink); color:var(--cream)!important; padding:10px 20px; border-radius:2px; font-size:13px!important; }
+.cta-link:hover { background:var(--accent); }
+.mobile-toggle { display:none; }
+
+/* HERO */
+.page-hero { border-bottom:1px solid var(--rule-soft); padding:80px 0 60px; background:var(--paper); }
+.eyebrow { font-family:var(--mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:22px; display:flex; align-items:center; gap:12px; }
+.eyebrow::before { content:''; width:28px; height:1px; background:var(--accent); }
+.page-hero h1 { font-family:var(--serif); font-size:clamp(34px,5vw,56px); font-weight:400; line-height:1.08; letter-spacing:-0.025em; margin-bottom:22px; }
+.page-hero h1 em { font-style:italic; color:var(--accent); }
+.page-lede { font-size:18px; color:var(--ink-mute); max-width:680px; line-height:1.65; }
+
+/* SECTIONS */
+.section { padding:72px 0; border-top:1px solid var(--rule-soft); }
+.section-num { font-family:var(--mono); font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:16px; }
+.section-title { font-family:var(--serif); font-size:clamp(26px,3.4vw,38px); font-weight:500; line-height:1.15; letter-spacing:-0.02em; margin-bottom:20px; }
+.section-title em { font-style:italic; color:var(--accent); }
+.section-lede { font-size:17px; color:var(--ink-mute); line-height:1.65; max-width:740px; margin-bottom:8px; }
+p.body { font-size:15.5px; color:var(--ink-soft); line-height:1.7; max-width:760px; margin-bottom:16px; }
+p.body strong { color:var(--ink); font-weight:600; }
+
+/* PIPELINE */
+.pipeline { display:flex; flex-direction:column; gap:0; margin:40px 0 8px; border:1px solid var(--rule-soft); border-radius:6px; overflow:hidden; }
+.pipe-stage { display:grid; grid-template-columns:54px 1.3fr 1fr; gap:0; background:var(--cream); border-bottom:1px solid var(--rule-soft); }
+.pipe-stage:last-child { border-bottom:none; }
+.pipe-stage:nth-child(even) { background:var(--paper); }
+.pipe-idx { font-family:var(--mono); font-size:13px; color:var(--accent); padding:18px 0 0 18px; font-weight:500; }
+.pipe-mid { padding:16px 20px; }
+.pipe-mid h4 { font-family:var(--serif); font-size:17px; font-weight:500; color:var(--ink); margin-bottom:4px; }
+.pipe-mid p { font-size:13px; color:var(--ink-mute); line-height:1.5; }
+.pipe-contract { padding:16px 20px; border-left:1px solid var(--rule-soft); display:flex; align-items:center; }
+.pipe-contract code { font-family:var(--mono); font-size:12px; color:var(--leaf); background:rgba(47,93,60,0.07); padding:4px 9px; border-radius:3px; }
+.pipe-gate { color:var(--accent)!important; background:rgba(184,84,38,0.08)!important; }
+
+/* CALLOUT */
+.callout { background:var(--ink); color:var(--cream); border-radius:8px; padding:36px 34px; margin:36px 0; }
+.callout .mono-tag { font-family:var(--mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent-warm); margin-bottom:14px; display:block; }
+.callout h3 { font-family:var(--serif); font-size:24px; font-weight:400; line-height:1.3; color:var(--cream); margin-bottom:12px; }
+.callout p { font-size:14.5px; color:rgba(245,241,232,0.78); line-height:1.65; max-width:720px; }
+.callout code { font-family:var(--mono); font-size:13px; color:var(--accent-warm); }
+
+/* JSON BLOCK */
+.codeblock { background:#0B1622; border:1px solid #1d2d40; border-radius:6px; padding:22px 24px; margin:24px 0; overflow-x:auto; }
+.codeblock pre { font-family:var(--mono); font-size:12.5px; line-height:1.7; color:#9DB4CC; white-space:pre; }
+.codeblock .k { color:#D17244; }
+.codeblock .s { color:#7FAE8A; }
+.codeblock .c { color:#5A6B7D; font-style:italic; }
+
+/* GATES */
+.gate-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--rule-soft); border:1px solid var(--rule-soft); border-radius:6px; overflow:hidden; margin-top:28px; }
+.gate { background:var(--cream); padding:22px 24px; }
+.gate h4 { font-family:var(--mono); font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; }
+.gate p { font-size:13.5px; color:var(--ink-mute); line-height:1.6; }
+
+/* PRINCIPLE */
+.principle-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:36px; }
+.principle { border-top:2px solid var(--accent); padding-top:18px; }
+.principle h4 { font-family:var(--serif); font-size:19px; font-weight:500; margin-bottom:10px; }
+.principle p { font-size:14px; color:var(--ink-mute); line-height:1.6; }
+
+/* CTA */
+.cta-section { background:var(--ink); color:var(--cream); padding:80px 0; text-align:center; margin-top:8px; }
+.cta-section h2 { font-family:var(--serif); font-size:clamp(28px,4vw,40px); font-weight:400; line-height:1.2; margin-bottom:18px; }
+.cta-section h2 em { font-style:italic; color:var(--accent-warm); }
+.cta-section p { color:rgba(245,241,232,0.72); max-width:560px; margin:0 auto 32px; font-size:16px; }
+.btn-primary { display:inline-flex; align-items:center; gap:10px; background:var(--accent); color:var(--cream); padding:15px 30px; border-radius:2px; text-decoration:none; font-size:15px; font-weight:500; transition:background 0.2s; }
+.btn-primary:hover { background:var(--accent-warm); }
+.crosslinks { display:flex; gap:20px; justify-content:center; margin-top:26px; flex-wrap:wrap; }
+.crosslinks a { font-family:var(--mono); font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--accent-warm); text-decoration:none; border-bottom:1px solid transparent; }
+.crosslinks a:hover { border-bottom-color:var(--accent-warm); }
+
+/* FOOTER */
+footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); padding:56px 0 32px; }
+.footer-bottom { display:flex; justify-content:space-between; font-family:var(--mono); font-size:11px; color:var(--ink-fade); letter-spacing:0.05em; flex-wrap:wrap; gap:12px; }
+.footer-links { display:flex; gap:24px; margin-bottom:28px; flex-wrap:wrap; }
+.footer-links a { font-size:13px; color:var(--ink-soft); text-decoration:none; }
+.footer-links a:hover { color:var(--accent); }
+
+@media (max-width:820px) {
+  .nav-links { display:none; }
+  .pipe-stage { grid-template-columns:44px 1fr; }
+  .pipe-contract { grid-column:1 / -1; border-left:none; border-top:1px solid var(--rule-soft); }
+  .gate-grid, .principle-grid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="container nav-inner">
+  <a href="/" class="logo"><span class="logo-mark"></span>Tessera</a>
+  <div class="nav-links">
+    <a href="/#how">How it works</a>
+    <a href="/engine">Engine</a>
+    <a href="/tessera-rulebook">Rulebook</a>
+    <a href="/learn">Learn</a>
+    <a href="/journey">Your journey</a>
+    <a href="https://calendly.com/company-kalman-labs/30min" class="cta-link" target="_blank" rel="noopener noreferrer">Book consultation</a>
+  </div>
+</div></nav>
+
+<section class="page-hero"><div class="narrow">
+  <div class="eyebrow">The engine · how Tessera reasons</div>
+  <h1>Clinical reasoning you can <em>audit</em> — not a black box with a glossy PDF.</h1>
+  <p class="page-lede">
+    Every Tessera protocol is produced by nine deterministic agents, each with a typed output contract and a hard
+    safety gate, running against a versioned clinical rulebook that is published in full. Same inputs, same rulebook
+    version, same protocol — every time. Here is exactly how it works.
+  </p>
+</div></section>
+
+<!-- PIPELINE -->
+<section class="section"><div class="narrow">
+  <span class="section-num">01 — The pipeline</span>
+  <h2 class="section-title">Nine agents. One reproducible run.</h2>
+  <p class="section-lede">
+    Your bloodwork PDF and intake answers enter at the top. A finished, safety-screened protocol and a 20+ page
+    report come out the bottom. Each stage hands the next a typed JSON artifact — so every intermediate decision is
+    inspectable, and any single agent failing halts the run rather than guessing.
+  </p>
+
+  <div class="pipeline">
+    <div class="pipe-stage"><div class="pipe-idx">01</div><div class="pipe-mid"><h4>Normalizer</h4><p>Parses the lab PDF, converts units, reconciles lab-platform differences, handles missing values.</p></div><div class="pipe-contract"><code>biomarkers.json</code></div></div>
+    <div class="pipe-stage"><div class="pipe-idx">02</div><div class="pipe-mid"><h4>Panel-completeness</h4><p>Flags missing markers by clinical leverage — what's absent and how much it matters.</p></div><div class="pipe-contract"><code>panel-completeness.json</code></div></div>
+    <div class="pipe-stage"><div class="pipe-idx">03</div><div class="pipe-mid"><h4>Intake parser</h4><p>Structures medical history, medications, lifestyle, training, sleep, stress, family history.</p></div><div class="pipe-contract"><code>intake.json</code></div></div>
+    <div class="pipe-stage"><div class="pipe-idx">04</div><div class="pipe-mid"><h4>Rule evaluator</h4><p>Deterministically fires every triggered rule from the 217+ rule versioned rulebook. Authors no prose.</p></div><div class="pipe-contract"><code>rule-evaluation.json</code></div></div>
+    <div class="pipe-stage"><div class="pipe-idx">05</div><div class="pipe-mid"><h4>Phenotype classifier</h4><p>Reduces a list of independent rule-fires to one or two coherent metabolic phenotypes.</p></div><div class="pipe-contract"><code>phenotype.json</code></div></div>
+    <div class="pipe-stage"><div class="pipe-idx">06</div><div class="pipe-mid"><h4>Root-cause analyzer</h4><p>Traces the causal graph to name the 2–3 upstream mechanisms worth attacking — not just symptoms.</p></div><div class="pipe-contract"><code>rootcause.json</code></div></div>
+    <div class="pipe-stage"><div class="pipe-idx">07</div><div class="pipe-mid"><h4>Safety screener</h4><p>Cross-checks every candidate intervention against medications, conditions, and contraindications.</p></div><div class="pipe-contract"><code class="pipe-gate">safety.json · HARD GATE</code></div></div>
+    <div class="pipe-stage"><div class="pipe-idx">08</div><div class="pipe-mid"><h4>Protocol author</h4><p>Assembles the personalized protocol — nutrition, training, recovery, supplements — from cleared interventions only.</p></div><div class="pipe-contract"><code>protocol.json</code></div></div>
+    <div class="pipe-stage"><div class="pipe-idx">09</div><div class="pipe-mid"><h4>Report renderer</h4><p>Composes the client-facing 20+ page report (HTML + PDF) with every finding traced to its rule.</p></div><div class="pipe-contract"><code>report.html / .pdf</code></div></div>
+  </div>
+</div></section>
+
+<!-- JSON CONTRACT -->
+<section class="section"><div class="narrow">
+  <span class="section-num">02 — Typed contracts</span>
+  <h2 class="section-title">Every step is an <em>inspectable artifact.</em></h2>
+  <p class="body">
+    Nothing in the pipeline is a free-text hand-wave. Each agent emits structured JSON that the next agent consumes,
+    and every fired rule carries its evidence trail and the rulebook hash it came from. A fired rule looks like this:
+  </p>
+  <div class="codeblock"><pre><span class="c">// one entry from rule-evaluation.json</span>
+{
+  <span class="k">"rule_id"</span>: <span class="s">"R-MET-04"</span>,
+  <span class="k">"tier"</span>: <span class="s">2</span>,
+  <span class="k">"triggered_by"</span>: { <span class="k">"fasting_insulin"</span>: <span class="s">11.4</span>, <span class="k">"hba1c"</span>: <span class="s">5.6</span> },
+  <span class="k">"finding"</span>: <span class="s">"Subclinical insulin resistance"</span>,
+  <span class="k">"evidence_tier"</span>: <span class="s">"E1"</span>,
+  <span class="k">"interventions"</span>: [<span class="s">"resistance_training_3x"</span>, <span class="s">"protein_floor"</span>, <span class="s">"berberine?"</span>],
+  <span class="k">"rulebook_hash"</span>: <span class="s">"sha256:4f2a…c91d"</span>
+}</pre></div>
+  <p class="body">
+    Because the output is data, not prose, it can be replayed, diffed across retests, and audited by a clinician.
+    The <code>berberine?</code> above carries a question mark deliberately — it is a <em>candidate</em>, not yet cleared.
+    Whether it survives is decided by the safety screener, not the rule.
+  </p>
+</div></section>
+
+<!-- SAFETY GATES -->
+<section class="section"><div class="narrow">
+  <span class="section-num">03 — Safety gates</span>
+  <h2 class="section-title">The screener can <em>veto</em> any recommendation.</h2>
+  <p class="section-lede">
+    Agent 07 is a hard gate: no intervention reaches your protocol until it clears every relevant safety check
+    against your specific medications and conditions. When a check fails, the item is blocked with a stated reason —
+    it never silently slips through.
+  </p>
+  <div class="gate-grid">
+    <div class="gate"><h4>Medication interactions</h4><p>Every supplement is screened against your current prescriptions for known interactions, CYP-pathway effects, and timing conflicts.</p></div>
+    <div class="gate"><h4>Anticoagulant rules</h4><p>Blood-thinner users get omega-3 caps and automatic blocks on curcumin, high-dose vitamin E, ginkgo, and garlic supplements.</p></div>
+    <div class="gate"><h4>Renal function</h4><p>eGFR thresholds gate creatine dosing and trigger a nephrology-referral flag below 60 — never a blanket recommendation.</p></div>
+    <div class="gate"><h4>Hard exclusions</h4><p>Pregnancy, active eating-disorder history without clearance, and type-1 diabetes halt the protocol and route to a physician.</p></div>
+  </div>
+</div></section>
+
+<!-- DETERMINISM / AUDIT -->
+<section class="section"><div class="narrow">
+  <span class="section-num">04 — Reproducibility</span>
+  <h2 class="section-title">Same inputs. Same rulebook version. <em>Same protocol.</em></h2>
+  <p class="body">
+    Every run is stamped with a <strong>run-manifest</strong>: the rulebook version and hash, the model version of
+    each agent, the input file hashes, and a UTC timestamp. Given the same bloodwork and the same rulebook version,
+    the engine produces the same protocol — every time. This is what makes the reasoning auditable rather than
+    vibes-based, and it's what lets a doctor verify a recommendation months later.
+  </p>
+  <div class="codeblock"><pre><span class="c">// run-manifest.json</span>
+{
+  <span class="k">"rulebook_version"</span>: <span class="s">"v2.4"</span>,
+  <span class="k">"rulebook_hash"</span>: <span class="s">"sha256:4f2a…c91d"</span>,
+  <span class="k">"phenoage_formula"</span>: <span class="s">"Levine-2018"</span>,
+  <span class="k">"agents"</span>: [<span class="s">"normalizer@0.3"</span>, <span class="s">"rule-eval@0.3"</span>, <span class="s">"…"</span>],
+  <span class="k">"input_hashes"</span>: { <span class="k">"bloodwork_pdf"</span>: <span class="s">"sha256:…"</span> },
+  <span class="k">"generated_at_utc"</span>: <span class="s">"2026-06-02T09:14:00Z"</span>
+}</pre></div>
+
+  <div class="callout">
+    <span class="mono-tag">Open by design</span>
+    <h3>Audit the reasoning before you trust any of it.</h3>
+    <p>
+      The rules are published. The pipeline is typed. The runs are reproducible. We would rather you — or your
+      physician — interrogate our logic and find it sound than ask you to trust an algorithm you can't see. Open
+      reasoning isn't a marketing posture; it's the only honest way to put AI between a person and their health
+      decisions.
+    </p>
+  </div>
+</div></section>
+
+<!-- WHY IT MATTERS -->
+<section class="section"><div class="narrow">
+  <span class="section-num">05 — Why it's built this way</span>
+  <h2 class="section-title">Three commitments most longevity products <em>can't make.</em></h2>
+  <div class="principle-grid">
+    <div class="principle"><h4>Transparent</h4><p>Our clinical logic is public and versioned. You can read the exact rule behind any recommendation you receive.</p></div>
+    <div class="principle"><h4>Accountable</h4><p>Every protocol traces to a fired rule, a safety decision, and a rulebook hash. Nothing is unsourced.</p></div>
+    <div class="principle"><h4>Compounding</h4><p>Each paired Day-1/Day-90 result is structured outcome data. The engine sharpens; the dataset becomes the moat.</p></div>
+  </div>
+</div></section>
+
+<section class="cta-section"><div class="narrow">
+  <h2>See the reasoning. Then <em>see your own numbers.</em></h2>
+  <p>Start with a 30-minute consultation. We'll look at whatever bloodwork you already have and show you what the engine sees.</p>
+  <a href="https://calendly.com/company-kalman-labs/30min" class="btn-primary" target="_blank" rel="noopener noreferrer">Book a free consultation →</a>
+  <div class="crosslinks">
+    <a href="/tessera-rulebook">Read the open rulebook</a>
+    <a href="/learn">Field notes & science</a>
+    <a href="/research">Research foundations</a>
+  </div>
+</div></section>
+
+<footer><div class="container">
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/engine">Engine</a>
+    <a href="/tessera-rulebook">Rulebook</a>
+    <a href="/learn">Learn</a>
+    <a href="/journey">Journey</a>
+    <a href="/research">Research</a>
+    <a href="/privacy">Privacy</a>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 TESSERA HEALTH PVT. LTD.</div>
+    <div>Open reasoning · Hyderabad, India</div>
+  </div>
+</div></footer>
+
+</body>
+</html>

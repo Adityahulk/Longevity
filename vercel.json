@@ -49,9 +49,62 @@
       "source": "/ayush.html",
       "destination": "/ayush",
       "permanent": true
+    },
+    {
+      "source": "/engine.html",
+      "destination": "/engine",
+      "permanent": true
+    },
+    {
+      "source": "/learn.html",
+      "destination": "/learn",
+      "permanent": true
+    },
+    {
+      "source": "/learn-reference-ranges.html",
+      "destination": "/learn/reference-ranges",
+      "permanent": true
+    },
+    {
+      "source": "/learn-biological-age.html",
+      "destination": "/learn/biological-age",
+      "permanent": true
+    },
+    {
+      "source": "/learn-four-levers.html",
+      "destination": "/learn/four-levers",
+      "permanent": true
     }
   ],
   "rewrites": [
+    {
+      "source": "/engine",
+      "destination": "/engine.html"
+    },
+    {
+      "source": "/engine/",
+      "destination": "/engine.html"
+    },
+    {
+      "source": "/learn",
+      "destination": "/learn.html"
+    },
+    {
+      "source": "/learn/",
+      "destination": "/learn.html"
+    },
+    {
+      "source": "/learn/reference-ranges",
+      "destination": "/learn-reference-ranges.html"
+    },
+    {
+      "source": "/learn/biological-age",
+      "destination": "/learn-biological-age.html"
+    },
+    {
+      "source": "/learn/four-levers",
+      "destination": "/learn-four-levers.html"
+    },
     {
       "source": "/strategy",
       "destination": "/tessera-strategy.html"

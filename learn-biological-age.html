@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biological age, honestly: what PhenoAge can and can't tell you | Tessera Field Notes</title>
+<meta name="description" content="Biological-age scores are real science and routinely oversold. What PhenoAge actually measures, what an epigenetic clock is, why we use a blood-based model, and how to read your number without fooling yourself.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:#F5F1E8; --cream-dark:#EDE7D9; --paper:#FBF8F1;
+  --ink:#0E1B2C; --ink-soft:#1F2D40; --ink-mute:#4A5668; --ink-fade:#7A8497;
+  --rule:#C8BFA8; --rule-soft:#DCD3BC; --accent:#B85426; --accent-warm:#D17244;
+  --leaf:#2F5D3C; --gold:#8B6914;
+  --serif:'Fraunces',Georgia,serif; --sans:'Inter',-apple-system,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:var(--sans); background:var(--cream); color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+.container { max-width:1100px; margin:0 auto; padding:0 32px; }
+.article { max-width:720px; margin:0 auto; padding:0 32px; }
+.nav { position:sticky; top:0; z-index:100; background:rgba(245,241,232,0.92); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:0.5px solid var(--rule-soft); padding:18px 0; }
+.nav-inner { display:flex; justify-content:space-between; align-items:center; }
+.logo { font-family:var(--serif); font-size:24px; font-weight:500; letter-spacing:-0.02em; color:var(--ink); text-decoration:none; display:flex; align-items:center; gap:10px; }
+.logo-mark { width:22px; height:22px; position:relative; }
+.logo-mark::before,.logo-mark::after { content:''; position:absolute; inset:0; border:1.5px solid var(--ink); border-radius:50%; }
+.logo-mark::after { inset:5px; background:var(--accent); border:none; }
+.nav-links { display:flex; gap:32px; align-items:center; }
+.nav-links a { color:var(--ink-soft); text-decoration:none; font-size:14px; transition:color 0.2s; }
+.nav-links a:hover { color:var(--accent); }
+.cta-link { background:var(--ink); color:var(--cream)!important; padding:10px 20px; border-radius:2px; font-size:13px!important; }
+
+.art-head { padding:72px 0 36px; border-bottom:1px solid var(--rule-soft); }
+.breadcrumb { font-family:var(--mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); margin-bottom:24px; }
+.breadcrumb a { color:var(--accent); text-decoration:none; }
+.art-head h1 { font-family:var(--serif); font-size:clamp(30px,4.6vw,46px); font-weight:400; line-height:1.12; letter-spacing:-0.025em; margin-bottom:22px; }
+.art-head h1 em { font-style:italic; color:var(--accent); }
+.art-dek { font-size:19px; color:var(--ink-mute); line-height:1.6; margin-bottom:26px; }
+.art-meta { font-family:var(--mono); font-size:11.5px; letter-spacing:0.04em; color:var(--ink-fade); display:flex; gap:18px; flex-wrap:wrap; }
+
+.art-body { padding:44px 0 20px; }
+.art-body p { font-size:17px; color:var(--ink-soft); line-height:1.75; margin-bottom:22px; }
+.art-body h2 { font-family:var(--serif); font-size:28px; font-weight:500; letter-spacing:-0.015em; margin:44px 0 16px; line-height:1.2; }
+.art-body h3 { font-family:var(--serif); font-size:21px; font-weight:500; margin:32px 0 12px; }
+.art-body strong { color:var(--ink); font-weight:600; }
+.art-body a { color:var(--accent); text-decoration:underline; text-underline-offset:2px; }
+.art-body ul { margin:0 0 22px 0; padding-left:22px; }
+.art-body li { font-size:17px; color:var(--ink-soft); line-height:1.7; margin-bottom:10px; }
+
+.pullquote { font-family:var(--serif); font-size:24px; font-style:italic; font-weight:400; line-height:1.4; color:var(--ink); border-left:3px solid var(--accent); padding:6px 0 6px 26px; margin:34px 0; }
+
+.datatable { width:100%; border-collapse:collapse; margin:28px 0; background:var(--paper); border:1px solid var(--rule-soft); border-radius:6px; overflow:hidden; }
+.datatable th, .datatable td { padding:13px 16px; text-align:left; border-bottom:1px solid var(--rule-soft); font-size:14.5px; }
+.datatable th { background:var(--cream-dark); font-family:var(--mono); font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink); }
+.datatable td.mono { font-family:var(--mono); font-size:13px; }
+.datatable tr:last-child td { border-bottom:none; }
+
+.note { background:var(--paper); border:1px solid var(--rule-soft); border-left:3px solid var(--leaf); border-radius:6px; padding:20px 24px; margin:30px 0; font-size:15px; color:var(--ink-mute); line-height:1.65; }
+.note strong { color:var(--ink); }
+
+.bridge { background:var(--ink); color:var(--cream); border-radius:8px; padding:40px 38px; margin:48px 0 0; }
+.bridge .mono-tag { font-family:var(--mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent-warm); margin-bottom:14px; display:block; }
+.bridge h3 { font-family:var(--serif); font-size:25px; font-weight:400; line-height:1.3; margin-bottom:14px; }
+.bridge p { color:rgba(245,241,232,0.78); font-size:15.5px; line-height:1.65; margin-bottom:22px; max-width:600px; }
+.bridge a.btn { display:inline-flex; align-items:center; gap:9px; background:var(--accent); color:var(--cream); padding:13px 26px; border-radius:2px; text-decoration:none; font-size:14.5px; font-weight:500; }
+.bridge a.btn:hover { background:var(--accent-warm); }
+
+.readmore { padding:44px 0 20px; border-top:1px solid var(--rule-soft); margin-top:48px; }
+.readmore .mono-tag { font-family:var(--mono); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin-bottom:18px; display:block; }
+.readmore-links { display:flex; gap:16px; flex-wrap:wrap; }
+.readmore-links a { flex:1; min-width:220px; background:var(--paper); border:1px solid var(--rule-soft); border-radius:6px; padding:20px 22px; text-decoration:none; transition:border-color 0.2s; }
+.readmore-links a:hover { border-color:var(--accent); }
+.readmore-links h4 { font-family:var(--serif); font-size:17px; font-weight:500; color:var(--ink); margin-bottom:6px; }
+.readmore-links p { font-size:13px; color:var(--ink-mute); line-height:1.5; }
+
+footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); padding:48px 0 32px; margin-top:56px; }
+.footer-links { display:flex; gap:24px; margin-bottom:24px; flex-wrap:wrap; }
+.footer-links a { font-size:13px; color:var(--ink-soft); text-decoration:none; }
+.footer-bottom { display:flex; justify-content:space-between; font-family:var(--mono); font-size:11px; color:var(--ink-fade); flex-wrap:wrap; gap:12px; }
+
+@media (max-width:820px){ .nav-links{ display:none; } .art-body p,.art-body li{ font-size:16px; } }
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="container nav-inner">
+  <a href="/" class="logo"><span class="logo-mark"></span>Tessera</a>
+  <div class="nav-links">
+    <a href="/#how">How it works</a>
+    <a href="/engine">Engine</a>
+    <a href="/tessera-rulebook">Rulebook</a>
+    <a href="/learn">Learn</a>
+    <a href="https://calendly.com/company-kalman-labs/30min" class="cta-link" target="_blank" rel="noopener noreferrer">Book consultation</a>
+  </div>
+</div></nav>
+
+<article>
+<div class="art-head"><div class="article">
+  <div class="breadcrumb"><a href="/learn">← Field Notes</a> · Biological age</div>
+  <h1>Biological age, honestly: what PhenoAge <em>can and can't</em> tell you.</h1>
+  <p class="art-dek">Biological-age scores are genuine science — and routinely oversold by people with a supplement to sell. Here's what the number actually measures, what an epigenetic clock is, why we use a blood-based model, and how to read your result without fooling yourself.</p>
+  <div class="art-meta"><span>Tessera Field Notes</span><span>· 8 min read</span><span>· Biological age</span></div>
+</div></div>
+
+<div class="art-body"><div class="article">
+
+  <p>"Reverse your biological age." It's the most seductive promise in the longevity industry, and the most abused. Somewhere between the real science — which is genuinely remarkable — and the marketing — which is mostly nonsense — is a number that can actually be useful, if you understand what it is.</p>
+
+  <p>So let's be precise. There are really two families of "biological age," and conflating them is where most of the confusion (and most of the selling) happens.</p>
+
+  <h2>Two kinds of clock</h2>
+
+  <h3>1. Epigenetic clocks (the famous ones)</h3>
+
+  <p>Your DNA doesn't change much as you age, but the chemical marks <em>on</em> it do. The most studied is <strong>DNA methylation</strong> — small methyl groups that attach to specific sites on the genome and shift in predictable patterns over a lifetime. In 2013, Steve Horvath showed you could read those patterns at a few hundred sites and predict chronological age with startling accuracy. That was the first "epigenetic clock."</p>
+
+  <p>Later clocks — Horvath's, Hannum's, and especially <strong>GrimAge</strong> and <strong>DunedinPACE</strong> — got better at predicting not just age but <em>healthspan and mortality risk</em>. These are the gold standard for measuring biological age. They are also, today, impractical for routine use: they need a methylation array, they're expensive, and they're not validated for retail labs at scale, particularly in India.</p>
+
+  <h3>2. Clinical-biomarker clocks (the practical ones)</h3>
+
+  <p>The second family asks a simpler question: can we estimate biological age from ordinary blood markers you can get at any lab? The standout here is <strong>PhenoAge</strong>, published by Morgan Levine and colleagues in 2018.</p>
+
+  <p>PhenoAge takes nine routine inputs — albumin, creatinine, glucose, hs-CRP, lymphocyte percentage, mean cell volume, red-cell distribution width, alkaline phosphatase, white-blood-cell count — plus your chronological age, and combines them into a single number: the age at which your mortality risk would be "average." It was trained and validated against more than a decade of real mortality data.</p>
+
+  <p class="pullquote">PhenoAge isn't measuring your cells' age directly. It's measuring how much your blood chemistry looks like that of an older — or younger — person, on average.</p>
+
+  <p>That's the honest framing. It's a <em>statistical</em> age, built from markers that track with aging and death across large populations. It's not a methylation readout. And that's exactly why it's useful in practice: you can compute it from a standard blood panel, today, for a few thousand rupees — and you can recompute it after an intervention.</p>
+
+  <h2>Why we use PhenoAge anyway</h2>
+
+  <p>Given that methylation clocks are "better," why build on PhenoAge? Three honest reasons:</p>
+
+  <ul>
+    <li><strong>It's deployable.</strong> Every input is on a standard panel. No specialized array, no sending samples abroad. That means we can actually measure it Day 1 and Day 90 — and a number you can't re-measure is useless for proving change.</li>
+    <li><strong>It's validated against outcomes.</strong> PhenoAge predicts mortality and disease risk better than chronological age — that's the whole point of it, and it's been replicated across cohorts.</li>
+    <li><strong>It's movable, and we can see what moved it.</strong> Because the inputs are interpretable (glucose, inflammation, etc.), a change in PhenoAge traces back to specific markers you changed. A methylation number that drops gives you a number; PhenoAge gives you a number <em>and</em> the mechanism.</li>
+  </ul>
+
+  <div class="note">
+    <strong>What we'd switch to, and when:</strong> if methylation clocks become economically deployable at retail scale in India, we'll adopt them — and we say so openly. PhenoAge is the right tool for <em>now</em>, not a claim that it's the best tool that will ever exist.
+  </div>
+
+  <h2>How to read your number without fooling yourself</h2>
+
+  <p>Say your chronological age is 38 and your PhenoAge comes back 43. Five years "older." What does that actually mean — and what does it not?</p>
+
+  <h3>What it means</h3>
+  <p>Your blood chemistry currently resembles that of an average 43-year-old. On a population basis, that's associated with higher near-term risk than your birthday suggests. It's a real signal, and the drivers are usually identifiable — most often elevated glucose/insulin, inflammation (hs-CRP), or both.</p>
+
+  <h3>What it does not mean</h3>
+  <p>It does <em>not</em> mean you will die at the rate of a 43-year-old, that every cell is "older," or that the number is precise to the year. Biological-age estimates carry real measurement noise. A single point is a snapshot with error bars, not a verdict.</p>
+
+  <p class="pullquote">The number is most useful not as an absolute, but as a baseline you move. The delta is the signal. The single reading is just the starting line.</p>
+
+  <p>This is the part the marketing gets backwards. A creator posting "my biological age is 9 years younger!" is showing you one noisy reading, often from a method they can't reproduce, with no before-and-after under controlled conditions. That's a vanity metric. The useful version is: <em>same panel, same lab, same fasted protocol, ninety days apart</em> — and then you look at whether the inputs that drove your number actually improved.</p>
+
+  <h2>The bottom line</h2>
+
+  <p>Biological age is a real, useful idea wrapped in an unusual amount of hype. PhenoAge specifically is a validated, deployable, interpretable estimate — good enough to baseline you and to measure change, honest enough to admit its own error bars. Treat it as a <strong>compass, not a verdict</strong>: it points you at the markers worth fixing, and it lets you prove, ninety days later, that the fixing worked.</p>
+
+  <p>Anyone selling you a biological age that only goes down, never has error bars, and can't be reproduced on a standard panel is selling you a feeling. The real thing is more modest — and far more useful.</p>
+
+  <div class="bridge">
+    <span class="mono-tag">How Tessera uses this</span>
+    <h3>We compute PhenoAge Day 1, then again at Day 90 — same panel, same lab.</h3>
+    <p>Your biological age is a baseline we move, not a number we sell. You see which markers drove it, what the protocol targets, and exactly how much it shifted at retest. Honest error bars included.</p>
+    <a class="btn" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Measure your baseline →</a>
+  </div>
+
+  <div class="readmore">
+    <span class="mono-tag">Keep reading</span>
+    <div class="readmore-links">
+      <a href="/learn/reference-ranges"><h4>The wrong reference ranges</h4><p>Why your report says "fine" when your biology isn't.</p></a>
+      <a href="/learn/four-levers"><h4>The four levers</h4><p>What actually moves your biomarkers in 90 days, ranked by evidence.</p></a>
+      <a href="/research"><h4>Science foundations</h4><p>Epigenetic clocks, hallmarks of aging, and the deeper research.</p></a>
+    </div>
+  </div>
+
+</div></div>
+</article>
+
+<footer><div class="container">
+  <div class="footer-links">
+    <a href="/">Home</a><a href="/engine">Engine</a><a href="/tessera-rulebook">Rulebook</a><a href="/learn">Learn</a><a href="/research">Research</a><a href="/privacy">Privacy</a>
+  </div>
+  <div class="footer-bottom"><div>© 2026 TESSERA HEALTH PVT. LTD.</div><div>Field notes · Hyderabad, India</div></div>
+</div></footer>
+
+</body>
+</html>

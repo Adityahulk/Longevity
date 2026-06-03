@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tessera — Measure how fast you're aging. Then change it.</title>
-<meta name="description" content="A 90-day metabolic performance program for urban professionals. Measure your biological age. Run a personalized, evidence-based protocol. Re-measure. See the change.">
+<title>Tessera — Personalized longevity intelligence. Measure how you're aging, then change it.</title>
+<meta name="description" content="An open intelligence layer for personalized longevity. Transparent agentic reasoning, a publicly published clinical rulebook, and a measured biological-age delta in 90 days. Built for South Asian biology.">
 
 <!-- Fonts: serif display + clean sans + mono for data -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -218,8 +218,19 @@ body::before {
   line-height: 1.55;
   color: var(--ink-soft);
   max-width: 640px;
-  margin-bottom: 44px;
+  margin-bottom: 20px;
   font-weight: 400;
+}
+.hero-subline {
+  font-family: var(--mono);
+  font-size: 13.5px;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+  color: var(--accent);
+  max-width: 640px;
+  margin-bottom: 44px;
+  padding-left: 16px;
+  border-left: 2px solid var(--accent);
 }
 .hero-cta-row {
   display: flex;
@@ -1264,10 +1275,10 @@ footer {
     </button>
     <div class="nav-links" id="navLinks">
       <a href="#how">How it works</a>
-      <a href="#protocol">The protocol</a>
+      <a href="/engine">Engine</a>
+      <a href="/tessera-rulebook">Rulebook</a>
+      <a href="/learn">Learn</a>
       <a href="/journey">Your journey</a>
-      <!-- <a href="#pricing">Pricing</a> -->
-      <a href="#faq">Questions</a>
       <a href="https://calendly.com/company-kalman-labs/30min" class="cta-link" target="_blank" rel="noopener noreferrer">Book consultation</a>
     </div>
   </div>
@@ -1276,7 +1287,7 @@ footer {
 <!-- ═══════ HERO ═══════ -->
 <section class="hero">
   <div class="container">
-    <div class="hero-eyebrow reveal">A 90-day metabolic performance program</div>
+    <div class="hero-eyebrow reveal">An open intelligence layer for personalized longevity</div>
     <h1 class="reveal">
       Measure how fast<br>
       you're <em>actually aging.</em><br>
@@ -1286,6 +1297,9 @@ footer {
       Most people optimize their portfolio more rigorously than their biology. We run 50+ biomarkers,
       calculate your biological age using validated science, and design a personalized intervention
       protocol — then re-measure in 90 days. No guessing. No supplement marketing. Just data, delivered.
+    </p>
+    <p class="hero-subline reveal">
+      The reasoning is transparent. The protocol is yours. The intelligence compounds with every result.
     </p>
     <div class="hero-cta-row reveal">
       <a href="https://calendly.com/company-kalman-labs/30min" class="btn-primary" target="_blank" rel="noopener noreferrer">
@@ -1443,6 +1457,74 @@ footer {
           <div class="detail-label"><span>Protocol library</span><span>Yours to keep</span></div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ HOW TESSERA THINKS — INTELLIGENCE DIFFERENTIATOR ═══════ -->
+<style>
+.think-section { padding: 96px 0; border-top: 1px solid var(--rule-soft); }
+.think-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule-soft); border: 1px solid var(--rule-soft); margin-top: 48px; }
+.think-card { background: var(--cream); padding: 36px 32px 32px; display: flex; flex-direction: column; }
+.think-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+.think-card h3 { font-family: var(--serif); font-size: 23px; font-weight: 500; letter-spacing: -0.015em; color: var(--ink); margin-bottom: 12px; line-height: 1.2; }
+.think-card p { font-size: 14.5px; color: var(--ink-mute); line-height: 1.65; flex: 1; }
+.think-card .think-link { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); text-decoration: none; margin-top: 20px; display: inline-flex; align-items: center; gap: 6px; border-bottom: 1px solid transparent; transition: border-color 0.2s; align-self: flex-start; }
+.think-card .think-link:hover { border-bottom-color: var(--accent); }
+.think-trajectory { margin-top: 40px; padding: 22px 26px; background: var(--paper); border: 1px solid var(--rule-soft); border-left: 3px solid var(--accent); font-size: 14px; color: var(--ink-mute); line-height: 1.65; max-width: 820px; }
+.think-trajectory strong { color: var(--ink); font-weight: 600; }
+.think-trajectory .mono-tag { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--accent); text-transform: uppercase; display: block; margin-bottom: 8px; }
+@media (max-width: 860px) { .think-grid { grid-template-columns: 1fr; } }
+</style>
+<section class="think-section">
+  <div class="narrow">
+    <span class="section-num">03 — The intelligence underneath</span>
+    <h2 class="section-title">A protocol is the <em>output.</em> The real product is <em>how it reasons.</em></h2>
+    <p class="section-lede">
+      Most longevity products are an opaque algorithm and a glossy PDF. Tessera is the opposite: an open,
+      auditable reasoning engine. You — or your doctor — can inspect exactly why every recommendation was made,
+      before you trust any of it.
+    </p>
+
+    <div class="think-grid">
+      <div class="think-card">
+        <div class="think-num">01 · OPEN</div>
+        <h3>A published clinical rulebook</h3>
+        <p>
+          217+ versioned, evidence-tiered clinical rules — the exact logic that turns your biomarkers into a
+          protocol. Published in full, openly. No black box. No "trust us." The single most transparent
+          reasoning layer in consumer longevity.
+        </p>
+        <a href="/tessera-rulebook" class="think-link">Read the rulebook →</a>
+      </div>
+      <div class="think-card">
+        <div class="think-num">02 · AGENTIC</div>
+        <h3>Nine reasoning agents, not a chatbot</h3>
+        <p>
+          Your data flows through nine deterministic agents — parse, rule-evaluate, phenotype, root-cause,
+          safety-screen, protocol-author, and more — each with a typed JSON contract and a hard safety gate.
+          Every run is logged and reproducible. This is engineered software, not a prompt.
+        </p>
+        <a href="/engine" class="think-link">See how it reasons →</a>
+      </div>
+      <div class="think-card">
+        <div class="think-num">03 · COMPOUNDING</div>
+        <h3>Intelligence that sharpens with use</h3>
+        <p>
+          Every client produces one paired Day-1 / Day-90 datapoint on a known intervention — the structured
+          outcome data almost no one else collects. The engine gets more precise with every result. The dataset
+          is the moat, and it compounds quietly from day one.
+        </p>
+        <a href="/learn" class="think-link">Read the science →</a>
+      </div>
+    </div>
+
+    <div class="think-trajectory">
+      <span class="mono-tag">Where this is going</span>
+      Today, Tessera ships you a personalized 90-day protocol. As the paired-outcome dataset compounds, the same
+      engine becomes <strong>intervention-response intelligence</strong> — the ability to predict which protocol
+      will move <em>your</em> biology, before you run it. The consumer program is the wedge. The reasoning engine
+      and the dataset are the long game.
     </div>
   </div>
 </section>
@@ -1895,21 +1977,21 @@ footer {
         </p>
       </div>
       <div class="footer-col">
-        <h5>Program</h5>
+        <h5>Product</h5>
         <ul>
           <li><a href="#how">How it works</a></li>
-          <li><a href="#protocol">The protocol</a></li>
-          <!-- <li><a href="#pricing">Pricing</a></li> -->
-          <li><a href="#faq">Questions</a></li>
+          <li><a href="/engine">The engine</a></li>
+          <li><a href="/tessera-rulebook">Open rulebook</a></li>
+          <li><a href="/journey">Your journey</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Company</h5>
+        <h5>Learn</h5>
         <ul>
-          <li><a href="/strategy">About</a></li>
-          <li><a href="/tessera-rulebook">Rulebook</a></li>
-          <li><a href="/tessera_60_day_roadmap">Roadmap</a></li>
-          <li><a href="/tessera-gtm-strategy">GTM strategy</a></li>
+          <li><a href="/learn">Field notes</a></li>
+          <li><a href="/learn/reference-ranges">Reference ranges</a></li>
+          <li><a href="/learn/biological-age">Biological age</a></li>
+          <li><a href="/research" target="_blank">Science foundations</a></li>
         </ul>
       </div>
       <div class="footer-col">
