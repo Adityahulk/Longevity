@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Engine — How Tessera reasons | Tessera</title>
-<meta name="description" content="Tessera's reasoning engine: nine deterministic agents, typed JSON contracts, hard safety gates, a versioned open rulebook, and a reproducible audit trail. Auditable by design — inspect the reasoning before you trust it.">
+<title>The Engine, How Tessera reasons | Tessera</title>
+<meta name="description" content="Tessera's reasoning engine: nine deterministic agents, typed JSON contracts, hard safety gates, a versioned open rulebook, and a reproducible audit trail. Auditable by design, inspect the reasoning before you trust it.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -134,40 +134,40 @@ footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); pa
 
 <section class="page-hero"><div class="narrow">
   <div class="eyebrow">The engine · how Tessera reasons</div>
-  <h1>Clinical reasoning you can <em>audit</em> — not a black box with a glossy PDF.</h1>
+  <h1>Clinical reasoning you can <em>audit</em>, not a black box with a glossy PDF.</h1>
   <p class="page-lede">
     Every Tessera protocol is produced by nine deterministic agents, each with a typed output contract and a hard
     safety gate, running against a versioned clinical rulebook that is published in full. Same inputs, same rulebook
-    version, same protocol — every time. Here is exactly how it works.
+    version, same protocol, every time. Here is exactly how it works.
   </p>
 </div></section>
 
 <!-- PIPELINE -->
 <section class="section"><div class="narrow">
-  <span class="section-num">01 — The pipeline</span>
+  <span class="section-num">01, The pipeline</span>
   <h2 class="section-title">Nine agents. One reproducible run.</h2>
   <p class="section-lede">
     Your bloodwork PDF and intake answers enter at the top. A finished, safety-screened protocol and a 20+ page
-    report come out the bottom. Each stage hands the next a typed JSON artifact — so every intermediate decision is
+    report come out the bottom. Each stage hands the next a typed JSON artifact, so every intermediate decision is
     inspectable, and any single agent failing halts the run rather than guessing.
   </p>
 
   <div class="pipeline">
     <div class="pipe-stage"><div class="pipe-idx">01</div><div class="pipe-mid"><h4>Normalizer</h4><p>Parses the lab PDF, converts units, reconciles lab-platform differences, handles missing values.</p></div><div class="pipe-contract"><code>biomarkers.json</code></div></div>
-    <div class="pipe-stage"><div class="pipe-idx">02</div><div class="pipe-mid"><h4>Panel-completeness</h4><p>Flags missing markers by clinical leverage — what's absent and how much it matters.</p></div><div class="pipe-contract"><code>panel-completeness.json</code></div></div>
+    <div class="pipe-stage"><div class="pipe-idx">02</div><div class="pipe-mid"><h4>Panel-completeness</h4><p>Flags missing markers by clinical leverage, what's absent and how much it matters.</p></div><div class="pipe-contract"><code>panel-completeness.json</code></div></div>
     <div class="pipe-stage"><div class="pipe-idx">03</div><div class="pipe-mid"><h4>Intake parser</h4><p>Structures medical history, medications, lifestyle, training, sleep, stress, family history.</p></div><div class="pipe-contract"><code>intake.json</code></div></div>
     <div class="pipe-stage"><div class="pipe-idx">04</div><div class="pipe-mid"><h4>Rule evaluator</h4><p>Deterministically fires every triggered rule from the 217+ rule versioned rulebook. Authors no prose.</p></div><div class="pipe-contract"><code>rule-evaluation.json</code></div></div>
     <div class="pipe-stage"><div class="pipe-idx">05</div><div class="pipe-mid"><h4>Phenotype classifier</h4><p>Reduces a list of independent rule-fires to one or two coherent metabolic phenotypes.</p></div><div class="pipe-contract"><code>phenotype.json</code></div></div>
-    <div class="pipe-stage"><div class="pipe-idx">06</div><div class="pipe-mid"><h4>Root-cause analyzer</h4><p>Traces the causal graph to name the 2–3 upstream mechanisms worth attacking — not just symptoms.</p></div><div class="pipe-contract"><code>rootcause.json</code></div></div>
+    <div class="pipe-stage"><div class="pipe-idx">06</div><div class="pipe-mid"><h4>Root-cause analyzer</h4><p>Traces the causal graph to name the 2–3 upstream mechanisms worth attacking, not just symptoms.</p></div><div class="pipe-contract"><code>rootcause.json</code></div></div>
     <div class="pipe-stage"><div class="pipe-idx">07</div><div class="pipe-mid"><h4>Safety screener</h4><p>Cross-checks every candidate intervention against medications, conditions, and contraindications.</p></div><div class="pipe-contract"><code class="pipe-gate">safety.json · HARD GATE</code></div></div>
-    <div class="pipe-stage"><div class="pipe-idx">08</div><div class="pipe-mid"><h4>Protocol author</h4><p>Assembles the personalized protocol — nutrition, training, recovery, supplements — from cleared interventions only.</p></div><div class="pipe-contract"><code>protocol.json</code></div></div>
+    <div class="pipe-stage"><div class="pipe-idx">08</div><div class="pipe-mid"><h4>Protocol author</h4><p>Assembles the personalized protocol, nutrition, training, recovery, supplements, from cleared interventions only.</p></div><div class="pipe-contract"><code>protocol.json</code></div></div>
     <div class="pipe-stage"><div class="pipe-idx">09</div><div class="pipe-mid"><h4>Report renderer</h4><p>Composes the client-facing 20+ page report (HTML + PDF) with every finding traced to its rule.</p></div><div class="pipe-contract"><code>report.html / .pdf</code></div></div>
   </div>
 </div></section>
 
 <!-- JSON CONTRACT -->
 <section class="section"><div class="narrow">
-  <span class="section-num">02 — Typed contracts</span>
+  <span class="section-num">02, Typed contracts</span>
   <h2 class="section-title">Every step is an <em>inspectable artifact.</em></h2>
   <p class="body">
     Nothing in the pipeline is a free-text hand-wave. Each agent emits structured JSON that the next agent consumes,
@@ -185,36 +185,36 @@ footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); pa
 }</pre></div>
   <p class="body">
     Because the output is data, not prose, it can be replayed, diffed across retests, and audited by a clinician.
-    The <code>berberine?</code> above carries a question mark deliberately — it is a <em>candidate</em>, not yet cleared.
+    The <code>berberine?</code> above carries a question mark deliberately, it is a <em>candidate</em>, not yet cleared.
     Whether it survives is decided by the safety screener, not the rule.
   </p>
 </div></section>
 
 <!-- SAFETY GATES -->
 <section class="section"><div class="narrow">
-  <span class="section-num">03 — Safety gates</span>
+  <span class="section-num">03, Safety gates</span>
   <h2 class="section-title">The screener can <em>veto</em> any recommendation.</h2>
   <p class="section-lede">
     Agent 07 is a hard gate: no intervention reaches your protocol until it clears every relevant safety check
-    against your specific medications and conditions. When a check fails, the item is blocked with a stated reason —
+    against your specific medications and conditions. When a check fails, the item is blocked with a stated reason , 
     it never silently slips through.
   </p>
   <div class="gate-grid">
     <div class="gate"><h4>Medication interactions</h4><p>Every supplement is screened against your current prescriptions for known interactions, CYP-pathway effects, and timing conflicts.</p></div>
     <div class="gate"><h4>Anticoagulant rules</h4><p>Blood-thinner users get omega-3 caps and automatic blocks on curcumin, high-dose vitamin E, ginkgo, and garlic supplements.</p></div>
-    <div class="gate"><h4>Renal function</h4><p>eGFR thresholds gate creatine dosing and trigger a nephrology-referral flag below 60 — never a blanket recommendation.</p></div>
+    <div class="gate"><h4>Renal function</h4><p>eGFR thresholds gate creatine dosing and trigger a nephrology-referral flag below 60, never a blanket recommendation.</p></div>
     <div class="gate"><h4>Hard exclusions</h4><p>Pregnancy, active eating-disorder history without clearance, and type-1 diabetes halt the protocol and route to a physician.</p></div>
   </div>
 </div></section>
 
 <!-- DETERMINISM / AUDIT -->
 <section class="section"><div class="narrow">
-  <span class="section-num">04 — Reproducibility</span>
+  <span class="section-num">04, Reproducibility</span>
   <h2 class="section-title">Same inputs. Same rulebook version. <em>Same protocol.</em></h2>
   <p class="body">
     Every run is stamped with a <strong>run-manifest</strong>: the rulebook version and hash, the model version of
     each agent, the input file hashes, and a UTC timestamp. Given the same bloodwork and the same rulebook version,
-    the engine produces the same protocol — every time. This is what makes the reasoning auditable rather than
+    the engine produces the same protocol, every time. This is what makes the reasoning auditable rather than
     vibes-based, and it's what lets a doctor verify a recommendation months later.
   </p>
   <div class="codeblock"><pre><span class="c">// run-manifest.json</span>
@@ -231,8 +231,8 @@ footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); pa
     <span class="mono-tag">Open by design</span>
     <h3>Audit the reasoning before you trust any of it.</h3>
     <p>
-      The rules are published. The pipeline is typed. The runs are reproducible. We would rather you — or your
-      physician — interrogate our logic and find it sound than ask you to trust an algorithm you can't see. Open
+      The rules are published. The pipeline is typed. The runs are reproducible. We would rather you, or your
+      physician, interrogate our logic and find it sound than ask you to trust an algorithm you can't see. Open
       reasoning isn't a marketing posture; it's the only honest way to put AI between a person and their health
       decisions.
     </p>
@@ -241,7 +241,7 @@ footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); pa
 
 <!-- WHY IT MATTERS -->
 <section class="section"><div class="narrow">
-  <span class="section-num">05 — Why it's built this way</span>
+  <span class="section-num">05, Why it's built this way</span>
   <h2 class="section-title">Three commitments most longevity products <em>can't make.</em></h2>
   <div class="principle-grid">
     <div class="principle"><h4>Transparent</h4><p>Our clinical logic is public and versioned. You can read the exact rule behind any recommendation you receive.</p></div>
