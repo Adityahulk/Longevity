@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Tessera mark · inverse (for dark backgrounds)
+  Outer ring stroke is cream; inner disc stays burnt-orange (brand anchor).
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Tessera">
+  <title>Tessera</title>
+  <circle cx="32" cy="32" r="27.6" fill="none" stroke="#F5F1E8" stroke-width="4.36"/>
+  <circle cx="32" cy="32" r="17.45" fill="#B85426"/>
+</svg>

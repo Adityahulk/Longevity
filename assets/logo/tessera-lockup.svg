@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Tessera horizontal lockup · mark + wordmark
+  Font: Fraunces (serif), weight 500, letter-spacing -0.02em
+    Loads Google Fonts inline so PNG export from headless Chrome picks it up.
+  Layout: 320×80 viewBox. Mark on left (40px diameter), wordmark right of it.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" role="img" aria-label="Tessera">
+  <title>Tessera</title>
+  <defs>
+    <style type="text/css">
+      @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&amp;display=swap');
+      .word { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 44px; letter-spacing: -0.02em; fill: #0E1B2C; }
+    </style>
+  </defs>
+
+  <!-- Mark · scaled into a 40px box positioned at (20, 20) -->
+  <g transform="translate(20,20) scale(0.625)">
+    <circle cx="32" cy="32" r="27.6" fill="none" stroke="#0E1B2C" stroke-width="4.36"/>
+    <circle cx="32" cy="32" r="17.45" fill="#B85426"/>
+  </g>
+
+  <!-- Wordmark · baseline aligned with mark center -->
+  <text class="word" x="74" y="54">Tessera</text>
+</svg>

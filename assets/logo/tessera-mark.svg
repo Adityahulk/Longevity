@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Tessera mark · square icon
+  Geometry: 64×64 viewBox.
+    Outer ring: center (32,32), radius 27.6, stroke 4.36 (matches 1.5/22 stroke ratio)
+    Inner disc: center (32,32), radius 17.45 (matches the 12/22 inner-circle ratio)
+  Colors:
+    Ink     #0E1B2C  (outer ring stroke)
+    Accent  #B85426  (inner disc fill)
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Tessera">
+  <title>Tessera</title>
+  <circle cx="32" cy="32" r="27.6" fill="none" stroke="#0E1B2C" stroke-width="4.36"/>
+  <circle cx="32" cy="32" r="17.45" fill="#B85426"/>
+</svg>
