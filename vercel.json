@@ -74,6 +74,21 @@
       "source": "/learn-four-levers.html",
       "destination": "/learn/four-levers",
       "permanent": true
+    },
+    {
+      "source": "/program.html",
+      "destination": "/program",
+      "permanent": true
+    },
+    {
+      "source": "/packages.html",
+      "destination": "/packages",
+      "permanent": true
+    },
+    {
+      "source": "/newsletter.html",
+      "destination": "/newsletter",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -104,6 +119,30 @@
     {
       "source": "/learn/four-levers",
       "destination": "/learn-four-levers.html"
+    },
+    {
+      "source": "/program",
+      "destination": "/program.html"
+    },
+    {
+      "source": "/program/",
+      "destination": "/program.html"
+    },
+    {
+      "source": "/packages",
+      "destination": "/packages.html"
+    },
+    {
+      "source": "/packages/",
+      "destination": "/packages.html"
+    },
+    {
+      "source": "/newsletter",
+      "destination": "/newsletter.html"
+    },
+    {
+      "source": "/newsletter/",
+      "destination": "/newsletter.html"
     },
     {
       "source": "/strategy",

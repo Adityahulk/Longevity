@@ -95,6 +95,7 @@ footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); pa
   <div class="nav-links">
     <a href="/#how">How it works</a>
     <a href="/engine">Engine</a>
+    <a href="/packages">Packages</a>
     <a href="/tessera-rulebook">Rulebook</a>
     <a href="/learn">Learn</a>
     <a href="/journey">Your journey</a>
@@ -174,13 +175,31 @@ footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); pa
       New essays, plus the occasional note on what we're learning from building an open longevity engine. No spam,
       no selling, unsubscribe in one click.
     </p>
-    <form class="news-form" action="mailto:company@kalman-labs.com" method="post" enctype="text/plain">
+    <form class="news-form sub-form" method="post" target="popupwindow">
       <input type="email" name="email" placeholder="you@email.com" aria-label="Email address" required>
       <button type="submit">Subscribe</button>
     </form>
-    <div class="news-fine">We'll wire this to a proper provider soon, for now it reaches us directly.</div>
+    <div class="news-fine sub-note">No spam. Unsubscribe in one click.</div>
   </div>
 </div></section>
+
+<!-- Newsletter wiring (Buttondown). Set NEWSLETTER_USER to go live. See content/NEWSLETTER-SETUP.md -->
+<script>
+  window.NEWSLETTER_USER = "BUTTONDOWN_USERNAME";
+  document.querySelectorAll('.sub-form').forEach(function(f){
+    f.addEventListener('submit', function(e){
+      var note = (f.parentNode && f.parentNode.querySelector('.sub-note'));
+      var user = window.NEWSLETTER_USER;
+      if(!user || user === "BUTTONDOWN_USERNAME"){
+        e.preventDefault();
+        if(note){ note.textContent = "Newsletter launching shortly, check back very soon."; note.style.color = "var(--accent-warm)"; }
+        return;
+      }
+      f.action = "https://buttondown.com/api/emails/embed-subscribe/" + user;
+      try { window.open('https://buttondown.com/' + user, 'popupwindow'); } catch(_){}
+    });
+  });
+</script>
 
 <footer><div class="container">
   <div class="footer-links">

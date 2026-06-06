@@ -128,6 +128,7 @@ footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); pa
   <div class="nav-links">
     <a href="/#how">How it works</a>
     <a href="/engine">Engine</a>
+    <a href="/packages">Packages</a>
     <a href="/tessera-rulebook">Rulebook</a>
     <a href="/learn">Learn</a>
     <a href="/journey">Your journey</a>
@@ -147,7 +148,7 @@ footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); pa
 
 <!-- PIPELINE -->
 <section class="section"><div class="narrow">
-  <span class="section-num">01, The pipeline</span>
+  <span class="section-num">01 · The pipeline</span>
   <h2 class="section-title">Nine agents. One reproducible run.</h2>
   <p class="section-lede">
     Your bloodwork PDF and intake answers enter at the top. A finished, safety-screened protocol and a 20+ page
@@ -170,7 +171,7 @@ footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); pa
 
 <!-- JSON CONTRACT -->
 <section class="section"><div class="narrow">
-  <span class="section-num">02, Typed contracts</span>
+  <span class="section-num">02 · Typed contracts</span>
   <h2 class="section-title">Every step is an <em>inspectable artifact.</em></h2>
   <p class="body">
     Nothing in the pipeline is a free-text hand-wave. Each agent emits structured JSON that the next agent consumes,
@@ -195,7 +196,7 @@ footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); pa
 
 <!-- SAFETY GATES -->
 <section class="section"><div class="narrow">
-  <span class="section-num">03, Safety gates</span>
+  <span class="section-num">03 · Safety gates</span>
   <h2 class="section-title">The screener can <em>veto</em> any recommendation.</h2>
   <p class="section-lede">
     Agent 07 is a hard gate: no intervention reaches your protocol until it clears every relevant safety check
@@ -212,7 +213,7 @@ footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); pa
 
 <!-- DETERMINISM / AUDIT -->
 <section class="section"><div class="narrow">
-  <span class="section-num">04, Reproducibility</span>
+  <span class="section-num">04 · Reproducibility</span>
   <h2 class="section-title">Same inputs. Same rulebook version. <em>Same protocol.</em></h2>
   <p class="body">
     Every run is stamped with a <strong>run-manifest</strong>: the rulebook version and hash, the model version of
@@ -244,7 +245,47 @@ footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); pa
 
 <!-- WHY IT MATTERS -->
 <section class="section"><div class="narrow">
-  <span class="section-num">05, Why it's built this way</span>
+  <span class="section-num">05 · One record, many modules</span>
+  <h2 class="section-title">The engine is <em>modality-agnostic.</em></h2>
+  <p class="section-lede">
+    The engine doesn't read "a blood test." It reads a record. Each kind of data is an ingestion module that
+    normalizes into one shared health record, then the same agents reason over whatever is present. Blood is
+    live today. The others plug into the same spine.
+  </p>
+  <div class="gate-grid">
+    <div class="gate"><h4>Blood · live</h4><p>50+ markers parsed, unit-normalized, and evaluated against the rulebook. The foundation every record starts from.</p></div>
+    <div class="gate"><h4>Wearable / CGM · ready</h4><p>HRV, resting heart rate, sleep and glucose trends as continuous context the protocol adapts to.</p></div>
+    <div class="gate"><h4>Genome · partner</h4><p>Read once. Variants that change protocol personalization (B-vitamin form, caffeine, lipid response) enrich every future cycle.</p></div>
+    <div class="gate"><h4>Imaging reports · roadmap</h4><p>DEXA and coronary-calcium findings parsed into structured fields the engine can reason over alongside blood.</p></div>
+  </div>
+  <p class="body" style="margin-top:24px;">
+    Because everything lands in one record, your protocol is reasoned over your full history, not a single
+    snapshot, and it gets more precise as more modules are switched on. This is why Tessera is a record and a
+    reasoning engine, not a test.
+  </p>
+</div></section>
+
+<section class="section"><div class="narrow">
+  <span class="section-num">06 · Where this is going</span>
+  <h2 class="section-title">Tessera for Clinics.</h2>
+  <p class="section-lede">
+    Clinics, premium gyms, and corporate-health programs can collect data, sometimes with their own scanners,
+    but they have no reasoning layer and no protocol engine. Reports get filed and forgotten.
+  </p>
+  <div class="callout">
+    <span class="mono-tag">The infrastructure layer</span>
+    <h3>The same engine, offered as infrastructure others can run their members through.</h3>
+    <p>
+      Long term, Tessera is the data + reasoning + protocol layer beneath any longevity space: they bring the
+      bodies and the raw data, we provide the record, the reasoning, and the branded report. The consumer
+      program proves the engine; the clinic layer is how it scales. This is the trajectory, stated honestly,
+      not a product on sale today.
+    </p>
+  </div>
+</div></section>
+
+<section class="section"><div class="narrow">
+  <span class="section-num">07 · Why it's built this way</span>
   <h2 class="section-title">Three commitments most longevity products <em>can't make.</em></h2>
   <div class="principle-grid">
     <div class="principle"><h4>Transparent</h4><p>Our clinical logic is public and versioned. You can read the exact rule behind any recommendation you receive.</p></div>

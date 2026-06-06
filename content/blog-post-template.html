@@ -31,6 +31,17 @@
          <span class="readlink">Read →</span>
        </a>
 
+  5. Add an <item> to feed.xml, AT THE TOP of the item list (newest first), so the
+     newsletter auto-emails it to subscribers:
+       <item>
+         <title>{{plain headline}}</title>
+         <link>https://tessera.kalman-labs.com/learn/<slug></link>
+         <guid isPermaLink="true">https://tessera.kalman-labs.com/learn/<slug></guid>
+         <pubDate>{{RFC-822 date, e.g. Tue, 09 Jun 2026 09:00:00 +0530}}</pubDate>
+         <description>{{1-2 sentence excerpt}}</description>
+       </item>
+     (Buttondown watches feed.xml and turns each new item into an email. See content/NEWSLETTER-SETUP.md)
+
   WRITING STYLE (house rules):
    - Plain, science-backed, honest. Teach something useful even to a non-buyer.
    - No em-dashes (—). Use commas, colons, or periods.
