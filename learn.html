@@ -3,226 +3,107 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Field Notes, Tessera Learn | Aging & biomarker science, translated</title>
-<meta name="description" content="Tessera Field Notes: cutting-edge aging and biomarker science translated into what to actually do. Reference ranges, biological age, the levers that move your markers. Written by the team building Tessera.">
+<title>Field Notes | Tessera</title>
+<meta name="description" content="Evidence-aware writing on biomarkers, performance, biological age and South Asian health risks, translated into practical decisions.">
 <link rel="icon" type="image/svg+xml" href="/assets/logo/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/png/favicon-32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/png/favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root {
-  --cream:#F5F1E8; --cream-dark:#EDE7D9; --paper:#FBF8F1;
-  --ink:#0E1B2C; --ink-soft:#1F2D40; --ink-mute:#4A5668; --ink-fade:#7A8497;
-  --rule:#C8BFA8; --rule-soft:#DCD3BC; --accent:#B85426; --accent-warm:#D17244;
-  --leaf:#2F5D3C; --gold:#8B6914;
-  --serif:'Fraunces',Georgia,serif; --sans:'Inter',-apple-system,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
-}
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body { font-family:var(--sans); background:var(--cream); color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
-.container { max-width:1100px; margin:0 auto; padding:0 32px; }
-.narrow { max-width:820px; margin:0 auto; padding:0 32px; }
-.nav { position:sticky; top:0; z-index:100; background:rgba(245,241,232,0.92); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:0.5px solid var(--rule-soft); padding:18px 0; }
-.nav-inner { display:flex; justify-content:space-between; align-items:center; }
-.logo { font-family:var(--serif); font-size:24px; font-weight:500; letter-spacing:-0.02em; color:var(--ink); text-decoration:none; display:flex; align-items:center; gap:10px; }
-.logo-mark { width:22px; height:22px; position:relative; }
-.logo-mark::before,.logo-mark::after { content:''; position:absolute; inset:0; border:1.5px solid var(--ink); border-radius:50%; }
-.logo-mark::after { inset:5px; background:var(--accent); border:none; }
-.nav-links { display:flex; gap:32px; align-items:center; }
-.nav-links a { color:var(--ink-soft); text-decoration:none; font-size:14px; transition:color 0.2s; }
-.nav-links a:hover { color:var(--accent); }
-.cta-link { background:var(--ink); color:var(--cream)!important; padding:10px 20px; border-radius:2px; font-size:13px!important; }
-.cta-link:hover { background:var(--accent); }
-
-.page-hero { border-bottom:1px solid var(--rule-soft); padding:80px 0 56px; background:var(--paper); }
-.eyebrow { font-family:var(--mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:22px; display:flex; align-items:center; gap:12px; }
-.eyebrow::before { content:''; width:28px; height:1px; background:var(--accent); }
-.page-hero h1 { font-family:var(--serif); font-size:clamp(34px,5vw,54px); font-weight:400; line-height:1.08; letter-spacing:-0.025em; margin-bottom:22px; }
-.page-hero h1 em { font-style:italic; color:var(--accent); }
-.page-lede { font-size:18px; color:var(--ink-mute); max-width:680px; line-height:1.65; }
-
-.section { padding:64px 0; }
-.section-num { font-family:var(--mono); font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:16px; }
-.section-title { font-family:var(--serif); font-size:clamp(24px,3vw,32px); font-weight:500; line-height:1.2; letter-spacing:-0.02em; margin-bottom:28px; }
-.section-title em { font-style:italic; color:var(--accent); }
-
-.post-list { display:flex; flex-direction:column; }
-.post { display:block; padding:30px 0; border-top:1px solid var(--rule-soft); text-decoration:none; transition:opacity 0.2s; }
-.post:first-child { border-top:none; }
-.post:hover { opacity:0.72; }
-.post-meta { font-family:var(--mono); font-size:11px; letter-spacing:0.06em; color:var(--ink-fade); margin-bottom:10px; display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
-.post-meta .tag { color:var(--accent); text-transform:uppercase; letter-spacing:0.1em; }
-.post h3 { font-family:var(--serif); font-size:25px; font-weight:500; color:var(--ink); line-height:1.22; margin-bottom:10px; letter-spacing:-0.015em; }
-.post p { font-size:15.5px; color:var(--ink-mute); line-height:1.6; max-width:640px; }
-.post .readlink { font-family:var(--mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); margin-top:14px; display:inline-block; }
-
-.foundations { background:var(--paper); border:1px solid var(--rule-soft); border-left:3px solid var(--leaf); border-radius:6px; padding:30px 32px; margin-top:8px; }
-.foundations .mono-tag { font-family:var(--mono); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--leaf); display:block; margin-bottom:10px; }
-.foundations h3 { font-family:var(--serif); font-size:21px; font-weight:500; margin-bottom:10px; }
-.foundations p { font-size:14.5px; color:var(--ink-mute); line-height:1.65; max-width:680px; margin-bottom:14px; }
-.foundations a { font-family:var(--mono); font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--leaf); text-decoration:none; border-bottom:1px solid var(--leaf); padding-bottom:2px; }
-
-.newsletter { background:var(--ink); color:var(--cream); border-radius:8px; padding:44px 40px; margin:8px 0 0; text-align:center; }
-.newsletter .mono-tag { font-family:var(--mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent-warm); margin-bottom:14px; display:block; }
-.newsletter h3 { font-family:var(--serif); font-size:26px; font-weight:400; line-height:1.3; margin-bottom:12px; }
-.newsletter p { color:rgba(245,241,232,0.72); max-width:520px; margin:0 auto 26px; font-size:15px; line-height:1.6; }
-.news-form { display:flex; gap:10px; max-width:440px; margin:0 auto; flex-wrap:wrap; justify-content:center; }
-.news-form input { flex:1; min-width:220px; padding:13px 16px; border:1px solid #2a3d54; border-radius:3px; background:#0B1622; color:var(--cream); font-family:var(--sans); font-size:14px; }
-.news-form input::placeholder { color:var(--ink-fade); }
-.news-form button { padding:13px 24px; background:var(--accent); color:var(--cream); border:none; border-radius:3px; font-family:var(--sans); font-size:14px; font-weight:500; cursor:pointer; transition:background 0.2s; }
-.news-form button:hover { background:var(--accent-warm); }
-.news-fine { font-family:var(--mono); font-size:11px; color:var(--ink-fade); margin-top:14px; letter-spacing:0.04em; }
-
-footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); padding:56px 0 32px; margin-top:64px; }
-.footer-links { display:flex; gap:24px; margin-bottom:28px; flex-wrap:wrap; }
-.footer-links a { font-size:13px; color:var(--ink-soft); text-decoration:none; }
-.footer-links a:hover { color:var(--accent); }
-.footer-bottom { display:flex; justify-content:space-between; font-family:var(--mono); font-size:11px; color:var(--ink-fade); letter-spacing:0.05em; flex-wrap:wrap; gap:12px; }
-
-@media (max-width:820px) {
-  .nav-links { display:none; }
-  .essay { grid-template-columns:1fr; gap:10px; }
-  .essay-idx, .essay-tag, .essay-arrow { display:none; }
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="alternate" type="application/rss+xml" title="Tessera Field Notes" href="/feed.xml">
 </head>
 <body>
-
-<nav class="nav"><div class="container nav-inner">
-  <a href="/" class="logo"><span class="logo-mark"></span>Tessera</a>
-  <div class="nav-links">
-    <a href="/#how">How it works</a>
-    <a href="/engine">Engine</a>
-    <a href="/packages">Packages</a>
-    <a href="/tessera-rulebook">Rulebook</a>
-    <a href="/learn">Learn</a>
-    <a href="/journey">Your journey</a>
-    <a href="https://calendly.com/company-kalman-labs/30min" class="cta-link" target="_blank" rel="noopener noreferrer">Book consultation</a>
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="container nav-inner">
+    <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span>Tessera</a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <div class="nav-links" data-nav-links>
+      <a href="/program">Program</a><a href="/#how">How it works</a><a href="/#results">Results</a><a href="/research">Science</a>
+      <a href="/learn" aria-current="page">Field Notes</a>
+      <a class="btn nav-cta" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a fit call</a>
+    </div>
   </div>
-</div></nav>
+</nav>
 
-<section class="page-hero"><div class="narrow">
-  <div class="eyebrow">Field notes · Tessera</div>
-  <h1>The latest longevity research, <em>decoded.</em></h1>
-  <p class="page-lede">
-    New studies, biohacking claims, and what's actually happening at the edge of aging science. We read the
-    papers the week they drop, then write the version that tells you what it really means, what's hype, and what
-    to do with it. No affiliate links, evidence tagged honestly.
-  </p>
-</div></section>
+<main>
+  <header class="page-hero">
+    <div class="container page-hero-grid">
+      <div>
+        <p class="section-kicker">Tessera Field Notes</p>
+        <h1>Research for people who want to use it, not worship it.</h1>
+        <p>Biomarkers, performance and aging science translated into practical decisions, with uncertainty and evidence quality left intact.</p>
+      </div>
+      <nav class="topic-list" aria-label="Field Notes topics">
+        <a href="#latest">Latest</a><a href="/learn/biological-age">Biological age</a><a href="/learn/reference-ranges">Biomarkers</a><a href="/learn/four-levers">Interventions</a><a href="/research">Foundations</a>
+      </nav>
+    </div>
+  </header>
 
-<section class="section"><div class="narrow">
-  <span class="section-num">Writing · newest first</span>
+  <section class="section" id="latest">
+    <div class="container field-grid">
+      <a class="featured-post" href="/learn/mitochondrial-aging">
+        <div class="feature-visual">
+          <span class="section-kicker">Featured · Research</span>
+          <div class="diagram" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <span>Conceptual illustration · mutation burden by age</span>
+        </div>
+        <div class="post-meta">6 June 2026 · 11 min read</div>
+        <h3>Rethinking mitochondrial aging: what 750,000 genomes tell us about longevity</h3>
+        <p>A large Nature study challenges a familiar oxidative-damage story. Here is what changed, what did not and what the findings mean for popular interventions.</p>
+      </a>
+      <div>
+        <p class="section-kicker">Latest notes</p>
+        <div class="post-stack">
+          <a class="post-row" href="/learn/four-levers"><div class="post-meta">2 June 2026 · Interventions · 9 min</div><h3>The four levers that actually move your biomarkers in 90 days</h3><p>Evidence-supported actions across nutrition, training, sleep and supplements.</p></a>
+          <a class="post-row" href="/learn/biological-age"><div class="post-meta">30 May 2026 · Biological age · 8 min</div><h3>Biological age, honestly: what PhenoAge can and cannot tell you</h3><p>How to use a statistical estimate without mistaking it for a verdict.</p></a>
+          <a class="post-row" href="/learn/reference-ranges"><div class="post-meta">28 May 2026 · Biomarkers · 7 min</div><h3>Your blood report uses the wrong reference ranges</h3><p>Why population “normal” and useful preventive targets answer different questions.</p></a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- ════════════════════════════════════════════════════════════════
-       HOW TO ADD A NEW POST
-       1. Copy content/blog-post-template.html to a new file named
-          learn-<slug>.html  (e.g. learn-ferritin.html)
-       2. Write the post. Update title, dek, date, tag, read-time, body.
-       3. Add a route pair in vercel.json:
-            redirect  /learn-<slug>.html -> /learn/<slug>
-            rewrite   /learn/<slug>      -> /learn-<slug>.html
-       4. Add a <a class="post"> card below, AT THE TOP of the list
-          (newest first). Copy the block, change date/tag/title/excerpt/href.
-       ════════════════════════════════════════════════════════════════ -->
+  <section class="section section-alt">
+    <div class="container">
+      <p class="section-kicker">The archive</p>
+      <h2 class="section-title">Read by question, not by hype cycle.</h2>
+      <div class="posts-grid">
+        <a class="post-card" href="/learn/reference-ranges"><div class="post-meta">Reference ranges</div><h2>Why “normal” can still hide a useful signal</h2><p>How lab intervals are constructed, why they are not treatment targets, and where South Asian context matters.</p></a>
+        <a class="post-card" href="/learn/biological-age"><div class="post-meta">Measurement</div><h2>What a biological-age number is actually measuring</h2><p>PhenoAge, epigenetic clocks, error bars and the difference between a baseline and a marketing claim.</p></a>
+        <a class="post-card" href="/learn/four-levers"><div class="post-meta">Interventions</div><h2>What changes quickly, slowly or barely at all</h2><p>A practical ranking of intervention categories and the markers they can reasonably influence.</p></a>
+        <a class="post-card" href="/research"><div class="post-meta">Science foundations</div><h2>The deeper map of aging research</h2><p>Hallmarks, clocks, senescence, metabolic health and the limits of current human evidence.</p></a>
+      </div>
+    </div>
+  </section>
 
-  <div class="post-list">
+  <section class="section">
+    <div class="container newsletter-panel">
+      <div>
+        <p class="section-kicker">Field Notes by email</p>
+        <h2>One careful interpretation at a time.</h2>
+        <p>New essays, useful biomarker explainers and occasional notes from building Tessera. Roughly weekly when there is something worth sending.</p>
+      </div>
+      <div>
+        <form class="signup-form" method="post" target="popupwindow" data-newsletter-form>
+          <label style="position:absolute;left:-9999px" for="learn-email">Email address</label>
+          <input id="learn-email" type="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+          <button class="btn" type="submit">Subscribe</button>
+        </form>
+        <p class="form-note" data-form-note>No spam or affiliate promotions. Unsubscribe in one click.</p>
+      </div>
+    </div>
+  </section>
+</main>
 
-    <a class="post" href="/learn/mitochondrial-aging">
-      <div class="post-meta"><span>6 June 2026</span><span class="tag">Research</span><span>11 min read</span></div>
-      <h3>Rethinking mitochondrial aging: what 750,000 genomes tell us about longevity</h3>
-      <p>A new Nature study of nearly 750,000 people upends the classic "oxidative damage" theory of mitochondrial aging. The mutations don't look like wear-and-tear, they look like a competitive race inside your bone marrow. What it means for antioxidants, mitophagy, and your longevity strategy.</p>
-      <span class="readlink">Read →</span>
-    </a>
-
-    <a class="post" href="/learn/four-levers">
-      <div class="post-meta"><span>2 June 2026</span><span class="tag">Interventions</span><span>9 min read</span></div>
-      <h3>The four levers that actually move your biomarkers in 90 days</h3>
-      <p>Almost everything you can change runs through four levers: nutrition, training, sleep, and a short list of supplements. What the evidence supports, ranked by how much it moves the needle and how fast.</p>
-      <span class="readlink">Read →</span>
-    </a>
-
-    <a class="post" href="/learn/biological-age">
-      <div class="post-meta"><span>30 May 2026</span><span class="tag">Biological age</span><span>8 min read</span></div>
-      <h3>Biological age, honestly: what PhenoAge can and can't tell you</h3>
-      <p>Biological-age scores are real science, and routinely oversold. What PhenoAge measures, what an epigenetic clock is, why we use a blood-based model, and how to read your number without fooling yourself.</p>
-      <span class="readlink">Read →</span>
-    </a>
-
-    <a class="post" href="/learn/reference-ranges">
-      <div class="post-meta"><span>28 May 2026</span><span class="tag">Reference ranges</span><span>7 min read</span></div>
-      <h3>Your blood report uses the wrong reference ranges</h3>
-      <p>"Normal" on a lab report is the average of everyone who walked into a lab, the unwell included. Optimal is a different number, and for South Asian bodies different again. Why your report can say fine when you're not.</p>
-      <span class="readlink">Read →</span>
-    </a>
-
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a class="brand" href="/"><span class="brand-mark"></span>Tessera</a><p>Biomarker-guided performance and health optimization, with transparent reasoning and measured follow-up.</p></div>
+      <div class="footer-col"><h3>Explore</h3><a href="/program">Program</a><a href="/journey">Client journey</a><a href="/tessera-rulebook">Rulebook</a><a href="/research">Science</a></div>
+      <div class="footer-col"><h3>Read and contact</h3><a href="/learn">Field Notes</a><a href="/newsletter">Newsletter</a><a href="/privacy">Privacy</a><a href="mailto:company@kalman-labs.com">company@kalman-labs.com</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Tessera Health Pvt. Ltd. · Hyderabad, India</span><span>Health optimization coaching, not medical diagnosis or treatment.</span></div>
   </div>
-</div></section>
-
-<section class="section" style="padding-top:0"><div class="narrow">
-  <div class="foundations">
-    <span class="mono-tag">Going deeper</span>
-    <h3>The science foundations</h3>
-    <p>
-      If you want the full picture, the twelve hallmarks of aging, Yamanaka factors, the information theory of
-      aging, senescence, rapamycin, epigenetic clocks, and where the serious research money is going, we keep a
-      standing reference page. It's the bedrock these field notes are built on.
-    </p>
-    <a href="/research">Read the science foundations →</a>
-  </div>
-</div></section>
-
-<section class="section" style="padding-top:0"><div class="narrow">
-  <div class="newsletter">
-    <span class="mono-tag">Field notes · roughly weekly</span>
-    <h3>One useful thing about your biology, most weeks.</h3>
-    <p>
-      New essays, plus the occasional note on what we're learning from building an open longevity engine. No spam,
-      no selling, unsubscribe in one click.
-    </p>
-    <form class="news-form sub-form" method="post" target="popupwindow">
-      <input type="email" name="email" placeholder="you@email.com" aria-label="Email address" required>
-      <button type="submit">Subscribe</button>
-    </form>
-    <div class="news-fine sub-note">No spam. Unsubscribe in one click.</div>
-  </div>
-</div></section>
-
-<!-- Newsletter wiring (Buttondown). Set NEWSLETTER_USER to go live. See content/NEWSLETTER-SETUP.md -->
-<script>
-  window.NEWSLETTER_USER = "BUTTONDOWN_USERNAME";
-  document.querySelectorAll('.sub-form').forEach(function(f){
-    f.addEventListener('submit', function(e){
-      var note = (f.parentNode && f.parentNode.querySelector('.sub-note'));
-      var user = window.NEWSLETTER_USER;
-      if(!user || user === "BUTTONDOWN_USERNAME"){
-        e.preventDefault();
-        if(note){ note.textContent = "Newsletter launching shortly, check back very soon."; note.style.color = "var(--accent-warm)"; }
-        return;
-      }
-      f.action = "https://buttondown.com/api/emails/embed-subscribe/" + user;
-      try { window.open('https://buttondown.com/' + user, 'popupwindow'); } catch(_){}
-    });
-  });
-</script>
-
-<footer><div class="container">
-  <div class="footer-links">
-    <a href="/">Home</a>
-    <a href="/engine">Engine</a>
-    <a href="/tessera-rulebook">Rulebook</a>
-    <a href="/learn">Learn</a>
-    <a href="/journey">Journey</a>
-    <a href="/research">Research</a>
-    <a href="/privacy">Privacy</a>
-  </div>
-  <div class="footer-bottom">
-    <div>© 2026 TESSERA HEALTH PVT. LTD.</div>
-    <div>Field notes · Hyderabad, India</div>
-  </div>
-</div></footer>
-
+</footer>
+<script src="/assets/site.js" defer></script>
 </body>
 </html>

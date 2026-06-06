@@ -3,1569 +3,330 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tessera · Personalized longevity intelligence. Measure how you're aging, then change it.</title>
-<meta name="description" content="An open intelligence layer for personalized longevity. Transparent agentic reasoning, a publicly published clinical rulebook, and a measured biological-age delta in 90 days. Built for South Asian biology.">
-
-<!-- Favicon & app icons -->
+<title>Tessera | Measure how your biology responds</title>
+<meta name="description" content="Tessera connects biomarkers, training, recovery and lifestyle data to build a focused 90-day protocol, then re-tests under comparable conditions to measure the response.">
 <link rel="icon" type="image/svg+xml" href="/assets/logo/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/png/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/png/favicon-180.png">
-
-<!-- Open Graph / Twitter card -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://tessera.kalman-labs.com/">
-<meta property="og:title" content="Tessera · Personalized longevity intelligence">
-<meta property="og:description" content="Measure how you're aging, then change it. 50+ biomarkers, a personalized 90-day plan, then a retest.">
-<meta property="og:image" content="https://tessera.kalman-labs.com/assets/logo/png/tessera-og-1200x630.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://tessera.kalman-labs.com/assets/logo/png/tessera-og-1200x630.png">
-
-<!-- Fonts: serif display + clean sans + mono for data -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --cream:        #F5F1E8;
-  --cream-dark:   #EDE7D9;
-  --paper:        #FBF8F1;
-  --ink:          #0E1B2C;
-  --ink-soft:     #1F2D40;
-  --ink-mute:     #4A5668;
-  --ink-fade:     #7A8497;
-  --rule:         #C8BFA8;
-  --rule-soft:    #DCD3BC;
-  --accent:       #B85426; /* burnt orange */
-  --accent-warm:  #D17244;
-  --leaf:         #2F5D3C;
-  --gold:         #8B6914;
-  --serif:        'Fraunces', Georgia, serif;
-  --sans:         'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --mono:         'JetBrains Mono', ui-monospace, monospace;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: var(--sans);
-  background: var(--cream);
-  color: var(--ink);
-  font-weight: 400;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  overflow-x: hidden;
-}
-
-/* Subtle paper texture */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    radial-gradient(circle at 20% 30%, rgba(184, 84, 38, 0.025) 0%, transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(47, 93, 60, 0.02) 0%, transparent 50%);
-  z-index: 0;
-}
-
-.container { max-width: 1200px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
-.narrow { max-width: 880px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
-
-/* ─────────── NAV ─────────── */
-.nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(245, 241, 232, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 0.5px solid var(--rule-soft);
-  padding: 18px 0;
-}
-.nav-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.logo {
-  font-family: var(--serif);
-  font-size: 24px;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.logo-mark {
-  width: 22px;
-  height: 22px;
-  position: relative;
-}
-.logo-mark::before, .logo-mark::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border: 1.5px solid var(--ink);
-  border-radius: 50%;
-}
-.logo-mark::after {
-  inset: 5px;
-  background: var(--accent);
-  border: none;
-}
-.nav-links {
-  display: flex;
-  gap: 36px;
-  align-items: center;
-}
-.nav-links a {
-  color: var(--ink-soft);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-  transition: color 0.2s;
-  position: relative;
-}
-.nav-links a:hover { color: var(--accent); }
-.nav-links a:not(.cta-link)::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--accent);
-  transition: width 0.3s ease;
-}
-.nav-links a:not(.cta-link):hover::after { width: 100%; }
-.cta-link {
-  background: var(--ink);
-  color: var(--cream) !important;
-  padding: 10px 20px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 500;
-  transition: all 0.2s;
-}
-.cta-link:hover {
-  background: var(--accent);
-  transform: translateY(-1px);
-}
-.mobile-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-}
-.mobile-toggle span {
-  display: block;
-  width: 22px;
-  height: 1.5px;
-  background: var(--ink);
-  transition: all 0.3s ease;
-}
-.mobile-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.mobile-toggle.open span:nth-child(2) { opacity: 0; }
-.mobile-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
-/* ─────────── HERO ─────────── */
-.hero {
-  padding: 100px 0 80px;
-  position: relative;
-}
-.hero-eyebrow {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 28px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-.hero-eyebrow::before {
-  content: '';
-  width: 32px;
-  height: 1px;
-  background: var(--accent);
-}
-.hero h1 {
-  font-family: var(--serif);
-  font-size: clamp(48px, 7vw, 88px);
-  font-weight: 400;
-  line-height: 0.98;
-  letter-spacing: -0.035em;
-  margin-bottom: 32px;
-  color: var(--ink);
-}
-.hero h1 em {
-  font-style: italic;
-  font-weight: 300;
-  color: var(--accent);
-}
-.hero h1 .underline-word {
-  position: relative;
-  white-space: nowrap;
-}
-.hero h1 .underline-word::after {
-  content: '';
-  position: absolute;
-  bottom: 4px;
-  left: 0;
-  width: 100%;
-  height: 6px;
-  background: var(--accent);
-  opacity: 0.18;
-  z-index: -1;
-}
-.hero-lede {
-  font-size: 19px;
-  line-height: 1.55;
-  color: var(--ink-soft);
-  max-width: 640px;
-  margin-bottom: 20px;
-  font-weight: 400;
-}
-.hero-subline {
-  font-family: var(--mono);
-  font-size: 13.5px;
-  letter-spacing: 0.01em;
-  line-height: 1.6;
-  color: var(--accent);
-  max-width: 640px;
-  margin-bottom: 44px;
-  padding-left: 16px;
-  border-left: 2px solid var(--accent);
-}
-.hero-cta-row {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 70px;
-}
-.btn-primary {
-  background: var(--ink);
-  color: var(--cream);
-  padding: 16px 32px;
-  border: none;
-  border-radius: 999px;
-  font-family: var(--sans);
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.btn-primary:hover {
-  background: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(184, 84, 38, 0.2);
-}
-.btn-primary svg { transition: transform 0.25s; }
-.btn-primary:hover svg { transform: translateX(4px); }
-
-.btn-secondary {
-  background: transparent;
-  color: var(--ink);
-  padding: 16px 24px;
-  border: none;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border-bottom: 1px solid var(--ink);
-  border-radius: 0;
-  padding-bottom: 8px;
-}
-.btn-secondary:hover { color: var(--accent); border-bottom-color: var(--accent); }
-
-/* Hero stats strip */
-.hero-stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  border-top: 1px solid var(--rule);
-  padding-top: 36px;
-  margin-top: 20px;
-}
-.stat {
-  padding-right: 24px;
-  border-right: 0.5px solid var(--rule-soft);
-}
-.stat:last-child { border-right: none; }
-.stat-num {
-  font-family: var(--serif);
-  font-size: 38px;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  line-height: 1;
-  margin-bottom: 6px;
-}
-.stat-num sup {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--accent);
-  font-weight: 400;
-  vertical-align: super;
-  margin-left: 2px;
-}
-.stat-label {
-  font-size: 12px;
-  color: var(--ink-mute);
-  line-height: 1.4;
-  letter-spacing: 0.01em;
-}
-
-/* ─────────── PROBLEM SECTION ─────────── */
-.section { padding: 100px 0; position: relative; }
-.section-num {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  color: var(--ink-fade);
-  margin-bottom: 16px;
-  display: block;
-}
-.section-title {
-  font-family: var(--serif);
-  font-size: clamp(34px, 4.5vw, 52px);
-  font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: -0.025em;
-  margin-bottom: 24px;
-  color: var(--ink);
-}
-.section-title em { font-style: italic; color: var(--accent); font-weight: 300; }
-.section-lede {
-  font-size: 18px;
-  line-height: 1.6;
-  color: var(--ink-soft);
-  max-width: 680px;
-  margin-bottom: 56px;
-}
-
-.problem-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: var(--rule-soft);
-  border: 1px solid var(--rule-soft);
-}
-.problem-card {
-  background: var(--paper);
-  padding: 40px;
-  position: relative;
-}
-.problem-card-num {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--accent);
-  letter-spacing: 0.15em;
-  margin-bottom: 20px;
-}
-.problem-card h3 {
-  font-family: var(--serif);
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 1.2;
-  margin-bottom: 14px;
-  color: var(--ink);
-  letter-spacing: -0.01em;
-}
-.problem-card p {
-  font-size: 15px;
-  color: var(--ink-mute);
-  line-height: 1.6;
-}
-
-/* ─────────── HOW IT WORKS ─────────── */
-.how {
-  padding: 100px 0;
-  background: var(--paper);
-  border-top: 1px solid var(--rule-soft);
-  border-bottom: 1px solid var(--rule-soft);
-  position: relative;
-}
-.how::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image:
-    linear-gradient(to right, var(--rule-soft) 0.5px, transparent 0.5px);
-  background-size: 80px 100%;
-  opacity: 0.3;
-  pointer-events: none;
-}
-.how-header {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  align-items: end;
-  margin-bottom: 80px;
-  gap: 60px;
-  position: relative;
-}
-.how-aside {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 18px;
-  color: var(--ink-mute);
-  line-height: 1.5;
-  padding-left: 24px;
-  border-left: 2px solid var(--accent);
-}
-
-.timeline {
-  position: relative;
-}
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 28px;
-  top: 60px;
-  bottom: 60px;
-  width: 1px;
-  background: linear-gradient(to bottom, var(--accent), var(--rule));
-}
-.step {
-  display: grid;
-  grid-template-columns: 80px 1fr 320px;
-  gap: 60px;
-  align-items: start;
-  margin-bottom: 80px;
-  position: relative;
-}
-.step:last-child { margin-bottom: 0; }
-.step-num {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: var(--cream);
-  border: 1px solid var(--rule);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--serif);
-  font-size: 22px;
-  font-weight: 500;
-  color: var(--ink);
-  position: relative;
-  z-index: 2;
-  margin-left: 0;
-}
-.step:nth-child(1) .step-num { background: var(--accent); color: var(--cream); border-color: var(--accent); }
-.step:nth-child(2) .step-num { background: var(--leaf); color: var(--cream); border-color: var(--leaf); }
-.step:nth-child(3) .step-num { background: var(--gold); color: var(--cream); border-color: var(--gold); }
-.step:nth-child(4) .step-num { background: var(--ink); color: var(--cream); border-color: var(--ink); }
-
-.step-content {
-  padding-top: 4px;
-}
-.step-week {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  color: var(--ink-fade);
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-.step-title {
-  font-family: var(--serif);
-  font-size: 30px;
-  font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin-bottom: 14px;
-  color: var(--ink);
-}
-.step-desc {
-  font-size: 15px;
-  line-height: 1.65;
-  color: var(--ink-mute);
-}
-.step-desc strong { color: var(--ink); font-weight: 500; }
-.step-detail-card {
-  background: var(--cream);
-  border: 0.5px solid var(--rule);
-  padding: 24px;
-  font-family: var(--mono);
-  font-size: 11.5px;
-  line-height: 1.85;
-  color: var(--ink-mute);
-}
-.step-detail-card .detail-label {
-  display: flex;
-  justify-content: space-between;
-  padding: 4px 0;
-  border-bottom: 0.5px dashed var(--rule-soft);
-}
-.step-detail-card .detail-label:last-child { border-bottom: none; }
-.step-detail-card .detail-label span:first-child { color: var(--ink-mute); }
-.step-detail-card .detail-label span:last-child { color: var(--ink); font-weight: 500; }
-
-/* ─────────── PROOF / DATA SHOWCASE ─────────── */
-.proof-section { padding: 120px 0; }
-.proof-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-
-/* Data visualization card */
-.data-card {
-  background: var(--paper);
-  border: 1px solid var(--rule);
-  padding: 32px;
-  position: relative;
-}
-.data-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding-bottom: 16px;
-  border-bottom: 0.5px solid var(--rule-soft);
-  margin-bottom: 24px;
-}
-.data-card-title {
-  font-family: var(--serif);
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--ink);
-}
-.data-card-meta {
-  font-family: var(--mono);
-  font-size: 10px;
-  color: var(--ink-fade);
-  letter-spacing: 0.05em;
-}
-.bio-age-comparison {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-bottom: 32px;
-}
-.bio-age-cell {
-  text-align: left;
-}
-.bio-age-label {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-fade);
-  margin-bottom: 8px;
-}
-.bio-age-num {
-  font-family: var(--serif);
-  font-size: 64px;
-  font-weight: 400;
-  line-height: 0.9;
-  color: var(--ink);
-  margin-bottom: 6px;
-  letter-spacing: -0.03em;
-}
-.bio-age-after .bio-age-num { color: var(--leaf); }
-.bio-age-unit {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--ink-mute);
-}
-
-/* Biomarker rows */
-.biomarker-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-family: var(--mono);
-  font-size: 12px;
-}
-.biomarker-table th {
-  text-align: left;
-  padding: 8px 0;
-  border-bottom: 1px solid var(--rule);
-  font-weight: 500;
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink-fade);
-}
-.biomarker-table th:nth-child(2),
-.biomarker-table th:nth-child(3) { text-align: right; }
-.biomarker-table th:last-child { text-align: right; }
-.biomarker-table td {
-  padding: 11px 0;
-  border-bottom: 0.5px solid var(--rule-soft);
-  color: var(--ink);
-}
-.biomarker-table td:nth-child(2),
-.biomarker-table td:nth-child(3) { text-align: right; color: var(--ink-mute); }
-.biomarker-table td:last-child {
-  text-align: right;
-  font-weight: 500;
-}
-.delta-good { color: var(--leaf); }
-.delta-strong { color: var(--leaf); font-weight: 600; }
-.delta-mild { color: var(--gold); }
-
-/* ─────────── DIFFERENTIATOR / WHO IT'S FOR ─────────── */
-.who-section {
-  padding: 100px 0;
-  background: var(--ink);
-  color: var(--cream);
-  position: relative;
-  overflow: hidden;
-}
-.who-section::before {
-  content: '';
-  position: absolute;
-  top: -200px;
-  right: -100px;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(184, 84, 38, 0.15), transparent 60%);
-  pointer-events: none;
-}
-.who-section .section-num { color: var(--accent-warm); }
-.who-section .section-title { color: var(--cream); }
-.who-section .section-title em { color: var(--accent-warm); }
-.who-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  margin-top: 64px;
-}
-.who-col h4 {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin-bottom: 24px;
-  padding-bottom: 12px;
-  border-bottom: 0.5px solid rgba(245, 241, 232, 0.2);
-}
-.who-col-yes h4 { color: var(--accent-warm); }
-.who-col-no h4 { color: var(--ink-fade); }
-.who-list { list-style: none; }
-.who-list li {
-  padding: 14px 0;
-  font-size: 16px;
-  line-height: 1.5;
-  border-bottom: 0.5px solid rgba(245, 241, 232, 0.08);
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-}
-.who-list li:last-child { border-bottom: none; }
-.who-list li::before {
-  flex-shrink: 0;
-  margin-top: 8px;
-}
-.who-col-yes li::before {
-  content: '';
-  width: 12px;
-  height: 1.5px;
-  background: var(--accent-warm);
-}
-.who-col-no li::before {
-  content: '';
-  width: 12px;
-  height: 1.5px;
-  background: var(--ink-fade);
-  opacity: 0.5;
-}
-.who-col-no li { color: var(--ink-fade); }
-
-/* ─────────── PROTOCOL DEPTH ─────────── */
-.protocol-section {
-  padding: 120px 0;
-}
-.protocol-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--rule-soft);
-  border: 1px solid var(--rule-soft);
-  margin-top: 60px;
-}
-.protocol-card {
-  background: var(--cream);
-  padding: 36px 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  transition: background 0.3s;
-}
-.protocol-card:hover { background: var(--paper); }
-.protocol-icon {
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 8px;
-}
-.protocol-card h3 {
-  font-family: var(--serif);
-  font-size: 22px;
-  font-weight: 500;
-  line-height: 1.2;
-  color: var(--ink);
-  letter-spacing: -0.015em;
-}
-.protocol-card p {
-  font-size: 14.5px;
-  line-height: 1.6;
-  color: var(--ink-mute);
-}
-.protocol-list {
-  list-style: none;
-  margin-top: 4px;
-  padding-top: 16px;
-  border-top: 0.5px solid var(--rule-soft);
-}
-.protocol-list li {
-  font-family: var(--mono);
-  font-size: 11.5px;
-  color: var(--ink-mute);
-  padding: 5px 0;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 0.5px dashed var(--rule-soft);
-}
-.protocol-list li:last-child { border-bottom: none; }
-.protocol-list li span:last-child { color: var(--ink); font-weight: 500; }
-
-/* ─────────── PRICING ─────────── */
-.pricing-section { padding: 120px 0; background: var(--paper); border-top: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); }
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 64px;
-}
-.price-card {
-  background: var(--cream);
-  border: 1px solid var(--rule-soft);
-  padding: 40px 32px;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  transition: all 0.3s ease;
-}
-.price-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--rule);
-  box-shadow: 0 12px 32px rgba(14, 27, 44, 0.06);
-}
-.price-card.featured {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: var(--cream);
-}
-.price-card.featured::before {
-  content: 'MOST CHOSEN';
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  font-family: var(--mono);
-  font-size: 9.5px;
-  letter-spacing: 0.15em;
-  color: var(--accent-warm);
-  padding: 4px 8px;
-  border: 0.5px solid var(--accent-warm);
-  border-radius: 99px;
-}
-.price-tier {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
-  margin-bottom: 16px;
-}
-.price-card.featured .price-tier { color: var(--accent-warm); }
-.price-name {
-  font-family: var(--serif);
-  font-size: 30px;
-  font-weight: 500;
-  line-height: 1.1;
-  margin-bottom: 8px;
-  letter-spacing: -0.015em;
-}
-.price-duration {
-  font-size: 13px;
-  color: var(--ink-fade);
-  margin-bottom: 28px;
-}
-.price-card.featured .price-duration { color: var(--ink-fade); }
-.price-amount {
-  font-family: var(--serif);
-  font-size: 48px;
-  font-weight: 500;
-  line-height: 1;
-  margin-bottom: 6px;
-  letter-spacing: -0.025em;
-}
-.price-amount .currency {
-  font-size: 20px;
-  vertical-align: top;
-  margin-right: 4px;
-  font-weight: 400;
-  color: var(--ink-mute);
-}
-.price-card.featured .price-amount .currency { color: var(--ink-fade); }
-.price-billing {
-  font-size: 12px;
-  color: var(--ink-fade);
-  margin-bottom: 28px;
-  padding-bottom: 28px;
-  border-bottom: 0.5px solid var(--rule-soft);
-}
-.price-card.featured .price-billing { border-color: rgba(245, 241, 232, 0.15); }
-.price-features {
-  list-style: none;
-  margin-bottom: 32px;
-  flex-grow: 1;
-}
-.price-features li {
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 8px 0;
-  color: var(--ink-soft);
-  display: flex;
-  gap: 12px;
-}
-.price-card.featured .price-features li { color: var(--cream); }
-.price-features li::before {
-  content: '';
-  width: 14px;
-  height: 14px;
-  margin-top: 5px;
-  flex-shrink: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath fill='none' stroke='%23B85426' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' d='M2 7l3.5 3.5L12 4'/%3E%3C/svg%3E");
-}
-.price-cta {
-  background: var(--ink);
-  color: var(--cream);
-  border: none;
-  padding: 14px 24px;
-  font-family: var(--sans);
-  font-size: 14px;
-  font-weight: 500;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: all 0.2s;
-  text-decoration: none;
-  text-align: center;
-  display: block;
-}
-.price-card.featured .price-cta {
-  background: var(--accent);
-  color: var(--cream);
-}
-.price-cta:hover { background: var(--accent); }
-.price-card.featured .price-cta:hover { background: var(--accent-warm); }
-
-/* ─────────── FAQ ─────────── */
-.faq-section { padding: 120px 0; }
-.faq-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 80px;
-  align-items: start;
-}
-.faq-list {
-  border-top: 0.5px solid var(--rule);
-}
-.faq-item {
-  border-bottom: 0.5px solid var(--rule);
-  padding: 24px 0;
-  cursor: pointer;
-  transition: padding 0.2s;
-}
-.faq-item:hover { padding-left: 8px; }
-.faq-q {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 24px;
-  font-family: var(--serif);
-  font-size: 19px;
-  font-weight: 500;
-  line-height: 1.35;
-  color: var(--ink);
-  letter-spacing: -0.005em;
-}
-.faq-toggle {
-  flex-shrink: 0;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  border: 0.5px solid var(--rule);
-  background: transparent;
-  position: relative;
-  transition: all 0.3s;
-}
-.faq-toggle::before, .faq-toggle::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 10px;
-  height: 1px;
-  background: var(--ink);
-  transform: translate(-50%, -50%);
-  transition: transform 0.3s ease;
-}
-.faq-toggle::after { transform: translate(-50%, -50%) rotate(90deg); }
-.faq-item.open .faq-toggle {
-  background: var(--ink);
-  border-color: var(--ink);
-}
-.faq-item.open .faq-toggle::before,
-.faq-item.open .faq-toggle::after { background: var(--cream); }
-.faq-item.open .faq-toggle::after { transform: translate(-50%, -50%) rotate(0deg); }
-.faq-a {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, margin-top 0.3s ease;
-  font-size: 15px;
-  line-height: 1.65;
-  color: var(--ink-mute);
-  padding-right: 48px;
-}
-.faq-item.open .faq-a {
-  max-height: 400px;
-  margin-top: 14px;
-}
-
-/* ─────────── CTA SECTION ─────────── */
-.cta-section {
-  padding: 140px 0;
-  text-align: center;
-  background: var(--ink);
-  color: var(--cream);
-  position: relative;
-  overflow: hidden;
-}
-.cta-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(circle at 30% 50%, rgba(184, 84, 38, 0.12), transparent 50%),
-    radial-gradient(circle at 70% 50%, rgba(47, 93, 60, 0.08), transparent 50%);
-  pointer-events: none;
-}
-.cta-content { position: relative; z-index: 2; }
-.cta-eyebrow {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  color: var(--accent-warm);
-  margin-bottom: 24px;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-}
-.cta-eyebrow::before, .cta-eyebrow::after {
-  content: '';
-  width: 24px;
-  height: 1px;
-  background: var(--accent-warm);
-}
-.cta-section h2 {
-  font-family: var(--serif);
-  font-size: clamp(40px, 5.5vw, 64px);
-  font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: -0.025em;
-  margin-bottom: 32px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.cta-section h2 em { font-style: italic; color: var(--accent-warm); font-weight: 300; }
-.cta-section p {
-  font-size: 18px;
-  color: var(--ink-fade);
-  max-width: 560px;
-  margin: 0 auto 48px;
-  line-height: 1.55;
-}
-.cta-form {
-  display: flex;
-  gap: 12px;
-  max-width: 480px;
-  margin: 0 auto 24px;
-  background: rgba(245, 241, 232, 0.05);
-  border: 0.5px solid rgba(245, 241, 232, 0.2);
-  border-radius: 999px;
-  padding: 6px;
-  transition: border-color 0.3s;
-}
-.cta-form:focus-within { border-color: var(--accent-warm); }
-.cta-form input {
-  flex-grow: 1;
-  background: transparent;
-  border: none;
-  outline: none;
-  padding: 12px 20px;
-  color: var(--cream);
-  font-family: var(--sans);
-  font-size: 14px;
-}
-.cta-form input::placeholder { color: var(--ink-fade); }
-.cta-form button {
-  background: var(--accent);
-  color: var(--cream);
-  border: none;
-  padding: 12px 28px;
-  border-radius: 999px;
-  font-family: var(--sans);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.cta-form button:hover { background: var(--accent-warm); }
-.cta-fineprint {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--ink-fade);
-  letter-spacing: 0.05em;
-}
-
-/* ─────────── FOOTER ─────────── */
-footer {
-  background: var(--cream);
-  padding: 64px 0 36px;
-  border-top: 1px solid var(--rule);
-}
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 60px;
-  margin-bottom: 48px;
-}
-.footer-brand {
-  font-family: var(--serif);
-  font-size: 28px;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.footer-tagline {
-  font-size: 14px;
-  color: var(--ink-mute);
-  line-height: 1.55;
-  max-width: 320px;
-}
-.footer-col h5 {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--ink-fade);
-  margin-bottom: 18px;
-  font-weight: 500;
-}
-.footer-col ul { list-style: none; }
-.footer-col li { margin-bottom: 12px; }
-.footer-col a {
-  color: var(--ink-soft);
-  text-decoration: none;
-  font-size: 14px;
-  transition: color 0.2s;
-}
-.footer-col a:hover { color: var(--accent); }
-.footer-contact-info {
-  display: none;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 12px;
-  padding: 12px 16px;
-  background: rgba(245, 241, 232, 0.5);
-  border: 0.5px solid var(--rule-soft);
-  border-radius: 8px;
-  animation: fadeUp 0.3s ease-out forwards;
-}
-.footer-contact-info.show {
-  display: flex;
-}
-.footer-contact-info a {
-  font-family: var(--mono);
-  font-size: 13px;
-  color: var(--ink-soft) !important;
-}
-.footer-contact-info a:hover {
-  color: var(--accent) !important;
-}
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 28px;
-  border-top: 0.5px solid var(--rule-soft);
-  font-size: 12px;
-  color: var(--ink-fade);
-  font-family: var(--mono);
-}
-.footer-disclaimer {
-  font-family: var(--sans);
-  font-size: 11px;
-  color: var(--ink-fade);
-  max-width: 800px;
-  line-height: 1.5;
-  margin-top: 16px;
-}
-
-/* ─────────── RESPONSIVE ─────────── */
-@media (max-width: 900px) {
-  .container, .narrow { padding: 0 24px; }
-  .mobile-toggle { display: flex; }
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: rgba(245, 241, 232, 0.98);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--rule-soft);
-    flex-direction: column;
-    padding: 16px 24px 24px;
-    gap: 4px;
-  }
-  .nav-links.open { display: flex; }
-  .nav-links a:not(.cta-link) {
-    display: block;
-    padding: 11px 0;
-    border-bottom: 0.5px solid var(--rule-soft);
-    font-size: 15px;
-  }
-  .nav-links a:not(.cta-link)::after { display: none; }
-  .cta-link { margin-top: 12px; text-align: center; display: block; }
-  .hero { padding: 60px 0 50px; }
-  .hero-stats { grid-template-columns: 1fr 1fr; gap: 24px; padding-top: 28px; }
-  .stat { padding: 0; border-right: none; padding-bottom: 24px; border-bottom: 0.5px solid var(--rule-soft); }
-  .stat:nth-last-child(-n+2) { border-bottom: none; padding-bottom: 0; }
-  .stat-num { font-size: 32px; }
-  .section { padding: 70px 0; }
-  .problem-grid { grid-template-columns: 1fr; }
-  .how-header { grid-template-columns: 1fr; gap: 32px; }
-  .step { grid-template-columns: 56px 1fr; gap: 20px; margin-bottom: 50px; }
-  .step-detail-card { grid-column: 1 / -1; margin-left: 0; margin-top: 16px; }
-  .step-num { width: 44px; height: 44px; font-size: 18px; }
-  .timeline::before { left: 22px; }
-  .step-title { font-size: 24px; }
-  .proof-grid { grid-template-columns: 1fr; gap: 48px; }
-  .who-grid { grid-template-columns: 1fr; gap: 40px; }
-  .protocol-grid { grid-template-columns: 1fr; }
-  .pricing-grid { grid-template-columns: 1fr; gap: 16px; }
-  .faq-grid { grid-template-columns: 1fr; gap: 32px; }
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-  .cta-form { flex-direction: column; background: transparent; border: none; padding: 0; gap: 10px; }
-  .cta-form input { background: rgba(245, 241, 232, 0.05); border: 0.5px solid rgba(245, 241, 232, 0.2); border-radius: 999px; }
-  .cta-form button { width: 100%; padding: 16px; }
-}
-
-/* Animations */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.reveal {
-  opacity: 0;
-  animation: fadeUp 0.8s ease-out forwards;
-}
-.reveal:nth-child(1) { animation-delay: 0.1s; }
-.reveal:nth-child(2) { animation-delay: 0.2s; }
-.reveal:nth-child(3) { animation-delay: 0.3s; }
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0s !important; transition: none !important; }
-}
-
-/* ─────────── SCIENCE TEASER ─────────── */
-.science-strip {
-  padding: 90px 0;
-  background: var(--paper);
-  border-top: 1px solid var(--rule-soft);
-  border-bottom: 1px solid var(--rule-soft);
-}
-.science-strip-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-  margin-top: 48px;
-}
-.science-strip-left p {
-  font-size: 16px;
-  color: var(--ink-mute);
-  line-height: 1.7;
-  margin-bottom: 28px;
-  max-width: 460px;
-}
-.science-bullets { display: flex; flex-direction: column; gap: 0; }
-.science-bullet {
-  display: grid;
-  grid-template-columns: 72px 1fr;
-  gap: 20px;
-  align-items: start;
-  padding: 18px 0;
-  border-bottom: 0.5px solid var(--rule-soft);
-}
-.science-bullet:first-child { border-top: 0.5px solid var(--rule-soft); }
-.science-bullet-num {
-  font-family: var(--serif);
-  font-size: 22px;
-  font-weight: 500;
-  color: var(--accent);
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  padding-top: 2px;
-}
-.science-bullet-text {
-  font-size: 14px;
-  color: var(--ink-mute);
-  line-height: 1.6;
-}
-.science-bullet-text strong { color: var(--ink); font-weight: 500; }
-.science-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--accent);
-  text-decoration: none;
-  border-bottom: 1px solid var(--accent);
-  padding-bottom: 4px;
-  transition: opacity 0.2s;
-  margin-top: 8px;
-}
-.science-cta:hover { opacity: 0.7; }
-@media (max-width: 900px) {
-  .science-strip-grid { grid-template-columns: 1fr; gap: 40px; }
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tessera.kalman-labs.com/">
+<meta property="og:title" content="Tessera | Measure how your biology responds">
+<meta property="og:description" content="A measured 90-day system connecting biomarkers, training, recovery and lifestyle.">
+<meta property="og:image" content="https://tessera.kalman-labs.com/assets/logo/png/tessera-og-1200x630.png">
 </head>
 <body>
 
-<!-- ═══════ NAV ═══════ -->
-<nav class="nav">
+<nav class="site-nav" aria-label="Primary navigation">
   <div class="container nav-inner">
-    <a href="#" class="logo">
-      <span class="logo-mark"></span>
-      Tessera
-    </a>
-    <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
+    <a class="brand" href="/" aria-label="Tessera home"><span class="brand-mark" aria-hidden="true"></span>Tessera</a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle>
+      <span></span><span></span><span></span>
     </button>
-    <div class="nav-links" id="navLinks">
+    <div class="nav-links" data-nav-links>
+      <a href="/program">Program</a>
       <a href="#how">How it works</a>
-      <a href="/engine">Engine</a>
-      <a href="/packages">Packages</a>
-      <a href="/learn">Learn</a>
-      <a href="https://calendly.com/company-kalman-labs/30min" class="cta-link" target="_blank" rel="noopener noreferrer">Book consultation</a>
+      <a href="#results">Results</a>
+      <a href="/research">Science</a>
+      <a href="/learn">Field Notes</a>
+      <a class="btn nav-cta" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a fit call</a>
     </div>
   </div>
 </nav>
 
-<!-- ═══════ HERO ═══════ -->
-<style>
-/* minimal homepage */
-.mhero { padding:120px 0 110px; }
-.mhero .eyebrow { font-family:var(--mono); font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-bottom:30px; }
-.mhero h1 { font-family:var(--serif); font-size:clamp(40px,6.5vw,76px); font-weight:400; line-height:1.04; letter-spacing:-0.03em; color:var(--ink); margin-bottom:30px; }
-.mhero h1 em { font-style:italic; color:var(--accent); }
-.mhero .lede { font-size:19px; color:var(--ink-mute); line-height:1.6; max-width:560px; margin-bottom:40px; }
-.mhero .cta-row { display:flex; gap:16px; align-items:center; flex-wrap:wrap; }
-.mbtn { display:inline-flex; align-items:center; gap:9px; background:var(--ink); color:var(--cream); padding:15px 28px; border-radius:2px; text-decoration:none; font-size:15px; font-weight:500; transition:background 0.2s; }
-.mbtn:hover { background:var(--accent); }
-.mlink { font-size:15px; color:var(--ink-soft); text-decoration:none; border-bottom:1px solid var(--rule); padding-bottom:2px; transition:color 0.2s; }
-.mlink:hover { color:var(--accent); border-color:var(--accent); }
-.mstats { display:flex; gap:40px; margin-top:64px; flex-wrap:wrap; border-top:1px solid var(--rule-soft); padding-top:28px; }
-.mstat b { font-family:var(--serif); font-size:24px; font-weight:500; color:var(--ink); display:block; }
-.mstat span { font-family:var(--mono); font-size:11px; letter-spacing:0.06em; color:var(--ink-fade); text-transform:uppercase; }
-
-.mstmt { padding:110px 0; border-top:1px solid var(--rule-soft); }
-.mstmt h2 { font-family:var(--serif); font-size:clamp(28px,4vw,44px); font-weight:400; line-height:1.25; letter-spacing:-0.02em; color:var(--ink); max-width:860px; }
-.mstmt h2 em { font-style:italic; color:var(--accent); }
-.mstmt p { font-size:17px; color:var(--ink-mute); line-height:1.65; max-width:620px; margin-top:24px; }
-
-.mrow { padding:90px 0; border-top:1px solid var(--rule-soft); }
-.mrow .lbl { font-family:var(--mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:40px; }
-.three { display:grid; grid-template-columns:repeat(3,1fr); gap:44px; }
-.three .n { font-family:var(--mono); font-size:12px; color:var(--accent); margin-bottom:14px; }
-.three h3 { font-family:var(--serif); font-size:22px; font-weight:500; color:var(--ink); margin-bottom:10px; letter-spacing:-0.01em; }
-.three p { font-size:15px; color:var(--ink-mute); line-height:1.6; }
-.three a { font-family:var(--mono); font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--accent); text-decoration:none; display:inline-block; margin-top:14px; }
-
-.pk { display:flex; justify-content:space-between; align-items:baseline; gap:24px; padding:26px 0; border-top:1px solid var(--rule-soft); }
-.pk:last-of-type { border-bottom:1px solid var(--rule-soft); }
-.pk .pkl { display:flex; gap:20px; align-items:baseline; flex-wrap:wrap; }
-.pk .pkn { font-family:var(--serif); font-size:22px; font-weight:500; color:var(--ink); min-width:150px; }
-.pk .pkd { font-size:14.5px; color:var(--ink-mute); }
-.pk .pkp { font-family:var(--serif); font-size:22px; font-weight:500; color:var(--ink); white-space:nowrap; }
-
-.mproof { padding:90px 0; border-top:1px solid var(--rule-soft); text-align:center; }
-.mproof .big { font-family:var(--serif); font-size:clamp(26px,3.6vw,38px); font-weight:400; color:var(--ink); letter-spacing:-0.02em; line-height:1.3; max-width:780px; margin:0 auto; }
-.mproof .big em { font-style:italic; color:var(--accent); }
-.mproof a { font-family:var(--mono); font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--accent); text-decoration:none; margin-top:24px; display:inline-block; }
-
-.mnl { padding:90px 0; border-top:1px solid var(--rule-soft); }
-.mnl h2 { font-family:var(--serif); font-size:clamp(26px,3.4vw,36px); font-weight:400; color:var(--ink); letter-spacing:-0.02em; margin-bottom:14px; }
-.mnl h2 em { font-style:italic; color:var(--accent); }
-.mnl p { font-size:16px; color:var(--ink-mute); line-height:1.6; max-width:560px; margin-bottom:26px; }
-.sub-form { display:flex; gap:10px; flex-wrap:wrap; max-width:480px; }
-.sub-form input { flex:1; min-width:240px; padding:14px 16px; border:1px solid var(--rule); border-radius:3px; background:var(--paper); color:var(--ink); font-family:var(--sans); font-size:15px; }
-.sub-form input:focus { outline:none; border-color:var(--accent); }
-.sub-form button { padding:14px 26px; background:var(--ink); color:var(--cream); border:none; border-radius:3px; font-family:var(--sans); font-size:15px; font-weight:500; cursor:pointer; transition:background 0.2s; }
-.sub-form button:hover { background:var(--accent); }
-.sub-note { font-family:var(--mono); font-size:11px; color:var(--ink-fade); margin-top:14px; letter-spacing:0.04em; }
-
-.mcta { background:var(--ink); color:var(--cream); padding:100px 0; text-align:center; }
-.mcta h2 { font-family:var(--serif); font-size:clamp(30px,4.5vw,46px); font-weight:400; line-height:1.15; margin-bottom:30px; }
-.mcta h2 em { font-style:italic; color:var(--accent-warm); }
-.mcta .mbtn { background:var(--accent); }
-.mcta .mbtn:hover { background:var(--accent-warm); }
-
-@media (max-width:760px){ .three { grid-template-columns:1fr; gap:32px; } .pk { flex-direction:column; gap:6px; } }
-</style>
-
-<section class="mhero"><div class="narrow">
-  <div class="eyebrow reveal">Longevity intelligence · South Asia</div>
-  <h1 class="reveal">Measure how<br>you're <em>aging.</em><br>Then change it.</h1>
-  <p class="lede reveal">Bloodwork in, a personalized 90-day protocol out, a measured biological-age delta at retest. Calibrated for South Asian bodies.</p>
-  <div class="cta-row reveal">
-    <a href="https://calendly.com/company-kalman-labs/30min" class="mbtn" target="_blank" rel="noopener noreferrer">Book a consultation</a>
-    <a href="/program" class="mlink">How it works</a>
-  </div>
-  <div class="mstats reveal">
-    <div class="mstat"><b>50+</b><span>biomarkers</span></div>
-    <div class="mstat"><b>90 days</b><span>measure → change → re-measure</span></div>
-    <div class="mstat"><b>2 scores</b><span>biological age, before & after</span></div>
-  </div>
-</div></section>
-
-<!-- MISSION -->
-<section class="mstmt"><div class="narrow">
-  <h2>Most people manage their money more carefully than their biology. The data to change that already exists, it's just locked behind expensive checkups and reference ranges built for <em>other populations.</em></h2>
-  <p>Our mission: make precision longevity measurable, affordable, and built for South Asian bodies, as one clear loop anyone can run.</p>
-</div></section>
-
-<!-- HOW -->
-<section class="mrow" id="how"><div class="narrow">
-  <div class="lbl">How it works</div>
-  <div class="three">
-    <div><div class="n">01</div><h3>Measure</h3><p>A home blood draw across 50+ markers, plus a short intake. We compute your biological age.</p></div>
-    <div><div class="n">02</div><h3>Personalize</h3><p>An open, auditable engine builds a 90-day protocol calibrated to your numbers, not generic advice.</p></div>
-    <div><div class="n">03</div><h3>Re-measure</h3><p>Same panel at Day 90. The measured delta, marker by marker. Proof, not vibes.</p></div>
-  </div>
-  <p style="margin-top:36px;"><a href="/program" class="mlink">See the full program →</a></p>
-</div></section>
-
-<!-- WHAT'S DIFFERENT -->
-<section class="mrow"><div class="narrow">
-  <div class="lbl">What makes it different</div>
-  <div class="three">
-    <div><div class="n">OPEN</div><h3>A published rulebook</h3><p>217+ versioned clinical rules, the exact logic behind your protocol. No black box.<a href="/tessera-rulebook">Read it →</a></p></div>
-    <div><div class="n">MULTI-MODAL</div><h3>One record, many inputs</h3><p>Blood today. Genome, DEXA and wearable data plug into the same engine.<a href="/engine">See the engine →</a></p></div>
-    <div><div class="n">COMPOUNDING</div><h3>Sharper with every result</h3><p>Each paired Day-1/Day-90 result improves the engine. The dataset is the moat.<a href="/learn">Read the science →</a></p></div>
-  </div>
-</div></section>
-
-<!-- PACKAGES -->
-<section class="mrow"><div class="narrow">
-  <div class="lbl">Packages</div>
-  <div class="pk"><div class="pkl"><span class="pkn">Essential</span><span class="pkd">Blood + protocol + retest. Available now.</span></div><span class="pkp">₹18,000</span></div>
-  <div class="pk"><div class="pkl"><span class="pkn">Deep</span><span class="pkd">+ genome + wearable. Via partner.</span></div><span class="pkp">₹35,000</span></div>
-  <div class="pk"><div class="pkl"><span class="pkn">Comprehensive</span><span class="pkd">+ DEXA + coronary calcium. By consultation.</span></div><span class="pkp">From ₹75,000</span></div>
-  <p style="margin-top:30px;"><a href="/packages" class="mlink">Compare packages →</a></p>
-</div></section>
-
-<!-- PROOF -->
-<section class="mproof"><div class="narrow">
-  <div class="big">A pilot client: biological age <em>48 → 45</em>, fasting insulin <em>14 → 7</em>, ApoB <em>112 → 84</em>. Ninety days. Same lab.</div>
-  <a href="/sample-report">See a full sample report →</a>
-</div></section>
-
-<!-- NEWSLETTER -->
-<section class="mnl"><div class="narrow">
-  <h2>The <em>field notes.</em></h2>
-  <p>We read the latest longevity and biohacking research, then write the version that tells you what it actually means. Roughly weekly. No hype.</p>
-  <form class="sub-form" method="post" target="popupwindow">
-    <input type="email" name="email" placeholder="you@email.com" aria-label="Email address" required>
-    <button type="submit">Subscribe</button>
-  </form>
-  <div class="sub-note">Free. Unsubscribe anytime. <a href="/learn" style="color:var(--accent);text-decoration:none;">Read the blog →</a></div>
-</div></section>
-
-<!-- CTA -->
-<section class="mcta" id="book"><div class="narrow">
-  <h2>Start with a <em>30-minute consultation.</em></h2>
-  <a href="https://calendly.com/company-kalman-labs/30min" class="mbtn" target="_blank" rel="noopener noreferrer">Book a free consultation</a>
-</div></section>
-
-<!-- ═══════ FOOTER ═══════ -->
-<footer>
-  <div class="container">
-    <div class="footer-grid">
+<main>
+  <header class="hero">
+    <div class="container hero-grid">
       <div>
-        <div class="footer-brand">
-          <span class="logo-mark"></span>
-          Tessera
+        <p class="section-kicker">Biomarker-guided performance</p>
+        <h1>Your training shows what you did. Your biomarkers show how your body responded.</h1>
+        <p class="hero-lede">
+          Tessera connects bloodwork, lifestyle, training and recovery data to build a focused
+          90-day protocol. Human check-ins keep it realistic. A controlled retest shows what
+          changed, what did not, and what to do next.
+        </p>
+        <div class="actions">
+          <a class="btn" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a fit call</a>
+          <a class="btn btn-secondary" href="#how">See how it works</a>
         </div>
-        <p class="footer-tagline">
-          A closed-loop longevity intelligence platform. Built in Hyderabad. Designed for the data-literate.
+        <p class="hero-note">A 30-minute conversation. No diagnosis, pressure, or promise of a predetermined result.</p>
+      </div>
+
+      <aside class="report-preview" aria-label="Illustrative sample report preview">
+        <div class="report-head"><span>Sample baseline</span><span>Illustrative data</span></div>
+        <div class="report-age">
+          <strong>38.7</strong>
+          <span>PhenoAge estimate · chronological age 36</span>
+        </div>
+        <div class="report-row"><span>ApoB</span><span><code>108 mg/dL</code> <i class="tag">Review</i></span></div>
+        <div class="report-row"><span>Fasting insulin</span><span><code>12.4 μIU/mL</code> <i class="tag">Review</i></span></div>
+        <div class="report-row"><span>hs-CRP</span><span><code>0.8 mg/L</code> <i class="tag tag-good">In range</i></span></div>
+        <div class="report-row"><span>Vitamin D</span><span><code>24 ng/mL</code> <i class="tag">Review</i></span></div>
+        <div class="report-foot">This interface demonstrates report structure only. It is not a client result or medical diagnosis.</div>
+      </aside>
+    </div>
+  </header>
+
+  <section class="section section-alt" id="problem">
+    <div class="container signal-layout">
+      <div>
+        <p class="section-kicker">The missing layer</p>
+        <h2 class="section-title">Performance data is useful. It is not the whole picture.</h2>
+        <p class="section-intro">
+          Pace, load, sleep scores and body weight describe outputs. They do not reliably show the
+          metabolic and physiological constraints underneath them.
         </p>
       </div>
-      <div class="footer-col">
-        <h5>Product</h5>
-        <ul>
-          <li><a href="/program">The program</a></li>
-          <li><a href="/packages">Packages</a></li>
-          <li><a href="/engine">The engine</a></li>
-          <li><a href="/tessera-rulebook">Open rulebook</a></li>
-          <li><a href="/blood-test">The panel</a></li>
-          <li><a href="/journey">Your journey</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Learn</h5>
-        <ul>
-          <li><a href="/learn">Field notes (blog)</a></li>
-          <li><a href="/newsletter">Newsletter</a></li>
-          <li><a href="/research">Research</a></li>
-          <li><a href="/learn/reference-ranges">Reference ranges</a></li>
-          <li><a href="/learn/biological-age">Biological age</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Trust &amp; data</h5>
-        <ul>
-          <li><a href="/privacy">Privacy policy</a></li>
-          <li><a href="/privacy#data-ethics">Data ethics</a></li>
-          <li><a href="/research" target="_blank">Research</a></li>
-          <li>
-            <a href="#" id="footerContactBtn">Contact us</a>
-            <div id="footerContactInfo" class="footer-contact-info">
-              <a href="mailto:company@kalman-labs.com">company@kalman-labs.com</a>
-              <a href="tel:+918292098293">+91 82920 98293</a>
-            </div>
-          </li>
-        </ul>
+      <div class="signal-list">
+        <article class="signal-item">
+          <code>01 / METABOLIC</code>
+          <div><h3>Glucose can look fine while insulin is already working too hard.</h3><p>Fasting insulin, HbA1c and triglyceride patterns add context that a single glucose value misses.</p></div>
+        </article>
+        <article class="signal-item">
+          <code>02 / CARDIO</code>
+          <div><h3>Fitness does not automatically remove lipid risk.</h3><p>ApoB, Lp(a) and related markers can reveal risk that training volume or LDL-C alone cannot settle.</p></div>
+        </article>
+        <article class="signal-item">
+          <code>03 / RECOVERY</code>
+          <div><h3>Low energy is not always a motivation problem.</h3><p>Iron status, thyroid context, inflammation and nutrient deficiencies can change how training and recovery feel.</p></div>
+        </article>
       </div>
     </div>
+  </section>
 
+  <section class="section" id="how">
+    <div class="container">
+      <p class="section-kicker">The 90-day system</p>
+      <h2 class="section-title">One baseline. One focused protocol. One comparable retest.</h2>
+      <p class="section-intro">The work is structured as a feedback loop, not a one-off health score.</p>
+      <div class="steps">
+        <article class="step">
+          <div class="step-num">01 / Measure</div>
+          <h3>Build the baseline</h3>
+          <p>Bloodwork is combined with medical history, current medications, family history, diet, training, sleep, stress and relevant wearable context.</p>
+        </article>
+        <article class="step">
+          <div class="step-num">02 / Interpret</div>
+          <h3>Prioritize the signal</h3>
+          <p>Findings are linked to published evidence, checked for interactions and contraindications, and organized around the few constraints most worth addressing first.</p>
+        </article>
+        <article class="step">
+          <div class="step-num">03 / Act</div>
+          <h3>Run a realistic protocol</h3>
+          <p>Nutrition, training, recovery and supplements are translated into specific actions that fit the client’s schedule, preferences and starting capacity.</p>
+        </article>
+        <article class="step">
+          <div class="step-num">04 / Re-measure</div>
+          <h3>Review the response</h3>
+          <p>The relevant panel is repeated under comparable conditions. Marker-level changes, adherence and measurement limitations are reviewed together.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="deliverables">
+    <div class="container deliverables">
+      <div>
+        <p class="section-kicker">What clients receive</p>
+        <h2 class="section-title">Enough detail to act. Enough restraint to stay focused.</h2>
+        <div class="deliverable-list">
+          <article class="deliverable"><code>01</code><h3>Baseline analysis</h3><p>A clear reading of the important markers, patterns, uncertainties and questions that need clinical escalation.</p></article>
+          <article class="deliverable"><code>02</code><h3>Prioritized protocol</h3><p>Concrete actions across nutrition, training, recovery and supplements, sequenced by leverage.</p></article>
+          <article class="deliverable"><code>03</code><h3>Human check-ins</h3><p>Regular reviews of adherence, constraints, wearable trends and changes that need adjustment.</p></article>
+          <article class="deliverable"><code>04</code><h3>Outcome report</h3><p>A comparable before-and-after review that includes what moved, what did not and what remains uncertain.</p></article>
+        </div>
+      </div>
+      <aside class="protocol-preview" aria-label="Sample protocol excerpt">
+        <p class="section-kicker">Illustrative protocol excerpt</p>
+        <h3>Priority: improve glucose disposal without compromising training quality.</h3>
+        <p>A real protocol is built from the client’s full intake and safety screen. This example shows the level of specificity, not a universal recommendation.</p>
+        <div class="protocol-block"><span>Training</span><strong>Place carbohydrate-dense meals around resistance sessions.</strong></div>
+        <div class="protocol-block"><span>Nutrition</span><strong>Set protein and fibre floors before reducing total intake.</strong></div>
+        <div class="protocol-block"><span>Recovery</span><strong>Protect sleep opportunity before increasing weekly intensity.</strong></div>
+        <div class="protocol-block"><span>Review</span><strong>Check tolerance, adherence and relevant markers before progression.</strong></div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section-dark" id="results">
+    <div class="container results-layout">
+      <div>
+        <p class="section-kicker">Results, documented properly</p>
+        <h2 class="section-title">A result without context is marketing, not evidence.</h2>
+        <p class="section-intro">
+          Tessera case studies will only publish consented outcomes with baseline context,
+          intervention dates, comparable test conditions, marker-level changes and limitations.
+        </p>
+      </div>
+      <article class="evidence-card">
+        <p class="section-kicker">Publication standard</p>
+        <h3>Verified case studies are being prepared for publication.</h3>
+        <p>
+          Until the supporting records and publication consent are complete, illustrative report
+          data remains clearly labelled and is never presented as a client outcome.
+        </p>
+        <ul class="evidence-checks">
+          <li>Written consent and anonymization status</li>
+          <li>Baseline and retest dates</li>
+          <li>Comparable collection conditions</li>
+          <li>Intervention and adherence context</li>
+          <li>Limitations and non-responsive markers</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="why-tessera">
+    <div class="container">
+      <p class="section-kicker">Why Tessera</p>
+      <h2 class="section-title">Transparent enough to inspect. Practical enough to follow.</h2>
+      <div class="why-grid">
+        <article class="why-card">
+          <code>CONTEXT</code>
+          <h3>South Asian risk patterns</h3>
+          <p>The interpretation accounts for earlier metabolic and cardiovascular risk patterns commonly seen in South Asian populations without treating ancestry as destiny.</p>
+        </article>
+        <article class="why-card">
+          <code>EVIDENCE</code>
+          <h3>A public reasoning framework</h3>
+          <p>Recommendations link back to a versioned rulebook and evidence tiers so clients and clinicians can inspect the reasoning instead of trusting a score blindly.</p>
+          <p><a class="text-link" href="/tessera-rulebook">Read the rulebook</a></p>
+        </article>
+        <article class="why-card">
+          <code>SAFETY</code>
+          <h3>Screen before recommending</h3>
+          <p>Medication, condition, allergy and other safety context is checked before interventions are included. Findings requiring clinical care are escalated rather than coached around.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="fit">
+    <div class="container">
+      <p class="section-kicker">Fit and exclusions</p>
+      <h2 class="section-title">Built for active people who want a better feedback loop.</h2>
+      <p class="section-intro">The fit call exists partly to identify when Tessera is not the right service.</p>
+      <div class="fit-grid">
+        <article class="fit-card">
+          <h3>A useful fit</h3>
+          <ul>
+            <li>You already train or track recovery and want deeper biological context.</li>
+            <li>You are willing to do bloodwork, follow a structured protocol and retest.</li>
+            <li>You prefer measurable priorities over supplement trends and generic optimization advice.</li>
+            <li>You are generally stable enough for a coached lifestyle program.</li>
+          </ul>
+        </article>
+        <article class="fit-card">
+          <h3>Not what Tessera does</h3>
+          <ul>
+            <li>Emergency care, diagnosis or primary management of active disease.</li>
+            <li>Starting, stopping or adjusting prescription medication.</li>
+            <li>Rapid weight-loss or aesthetic transformation programs.</li>
+            <li>Guaranteed biomarker improvement, lifespan extension or biological-age reversal.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="field-notes">
+    <div class="container field-grid">
+      <a class="featured-post" href="/learn/mitochondrial-aging">
+        <div class="feature-visual">
+          <span class="section-kicker">Featured research note</span>
+          <div class="diagram" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <span>Mutation burden by age · conceptual illustration</span>
+        </div>
+        <div class="post-meta">6 June 2026 · Research · 11 min</div>
+        <h3>Rethinking mitochondrial aging: what 750,000 genomes tell us</h3>
+        <p>What a large genetics study changes, what it does not, and what the findings mean for popular mitochondrial interventions.</p>
+      </a>
+      <div>
+        <p class="section-kicker">Field Notes</p>
+        <h2 class="section-title">Science translated without turning it into a sales pitch.</h2>
+        <div class="post-stack">
+          <a class="post-row" href="/learn/four-levers"><div class="post-meta">Interventions · 9 min</div><h3>The four levers that actually move biomarkers</h3><p>What evidence supports across nutrition, training, sleep and supplements.</p></a>
+          <a class="post-row" href="/learn/biological-age"><div class="post-meta">Biological age · 8 min</div><h3>What PhenoAge can and cannot tell you</h3><p>A practical guide to using a noisy estimate without fooling yourself.</p></a>
+          <a class="post-row" href="/learn/reference-ranges"><div class="post-meta">Reference ranges · 7 min</div><h3>Why “normal” is not the same as optimal</h3><p>How population ranges can hide useful preventive signals.</p></a>
+        </div>
+        <p style="margin-top:24px"><a class="text-link" href="/learn">Browse all Field Notes</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="questions">
+    <div class="reading">
+      <p class="section-kicker">Common questions</p>
+      <h2 class="section-title">Clear boundaries before you book.</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">Is Tessera medical care?</button>
+          <div class="faq-a" hidden>No. Tessera provides health optimization coaching and biomarker interpretation. It does not diagnose, treat or replace a physician. Findings that require clinical management should be taken to an appropriate clinician.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">Can I participate while taking medication?</button>
+          <div class="faq-a" hidden>Possibly, depending on the medication and condition. Prescription changes are never part of the coaching protocol. The fit and safety review determines whether participation is appropriate and where physician input is required.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">How much time does the program require?</button>
+          <div class="faq-a" hidden>In addition to bloodwork and scheduled check-ins, the protocol is designed around actions that fit normal training, eating and recovery routines. The exact commitment depends on the starting point and goals.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">What if my markers do not improve?</button>
+          <div class="faq-a" hidden>That is a valid outcome. The review separates measurement variability, adherence, slow-moving biology and an ineffective intervention. Tessera does not guarantee a positive delta or hide markers that remain unchanged.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">How is health data handled?</button>
+          <div class="faq-a" hidden>Health data is used to deliver the service and is not published as a case study without explicit consent. Read the privacy policy for the current collection, retention and deletion practices.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="container final-cta-grid">
+      <div>
+        <p class="section-kicker">Start with fit</p>
+        <h2>Find out whether Tessera fits your goals.</h2>
+        <p>We will discuss what you already track, what you want to learn and whether a biomarker-guided 90-day process is appropriate. If it is not, we will say so directly.</p>
+      </div>
+      <a class="btn" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a fit call</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span>Tessera</a>
+        <p>Biomarker-guided performance and health optimization, built around transparent reasoning and measured follow-up.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <a href="/program">Program</a>
+        <a href="/journey">Client journey</a>
+        <a href="/tessera-rulebook">Rulebook</a>
+        <a href="/research">Science</a>
+      </div>
+      <div class="footer-col">
+        <h3>Read and contact</h3>
+        <a href="/learn">Field Notes</a>
+        <a href="/newsletter">Newsletter</a>
+        <a href="/privacy">Privacy</a>
+        <a href="mailto:company@kalman-labs.com">company@kalman-labs.com</a>
+      </div>
+    </div>
     <div class="footer-bottom">
-      <div>© 2026 TESSERA HEALTH PVT. LTD.</div>
-      <div>Hyderabad, India</div>
-    </div>
-
-    <div class="footer-disclaimer">
-      Tessera provides health optimization coaching and biomarker interpretation services.
-      We are not a medical clinic. Our services are not intended to diagnose, treat, cure,
-      or prevent any disease. Always consult your physician before making changes to medications
-      or treatment for an existing condition.
+      <span>© 2026 Tessera Health Pvt. Ltd. · Hyderabad, India</span>
+      <span>Health optimization coaching, not medical diagnosis or treatment.</span>
     </div>
   </div>
 </footer>
 
-<script>
-  // Mobile nav toggle
-  const toggle = document.getElementById('mobileToggle');
-  const navLinks = document.getElementById('navLinks');
-  toggle.addEventListener('click', () => {
-    const open = navLinks.classList.toggle('open');
-    toggle.classList.toggle('open', open);
-    toggle.setAttribute('aria-expanded', open);
-  });
-  // Close mobile nav when a link is clicked
-  navLinks.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      toggle.classList.remove('open');
-      toggle.setAttribute('aria-expanded', false);
-    });
-  });
-
-  // FAQ accordion
-  document.querySelectorAll('.faq-item').forEach(item => {
-    const q = item.querySelector('.faq-q');
-    q.addEventListener('click', () => {
-      item.classList.toggle('open');
-    });
-  });
-
-  // Footer contact toggle
-  const footerContactBtn = document.getElementById('footerContactBtn');
-  const footerContactInfo = document.getElementById('footerContactInfo');
-  if (footerContactBtn && footerContactInfo) {
-    footerContactBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      footerContactInfo.classList.toggle('show');
-    });
-  }
-
-  // Form
-  function handleSubmit(e) {
-    e.preventDefault();
-    window.open('https://calendly.com/company-kalman-labs/30min', '_blank', 'noopener,noreferrer');
-  }
-
-  // Smooth scroll for nav links
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-
-  // Reveal on scroll using IntersectionObserver
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('reveal');
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-  document.querySelectorAll('.problem-card, .step, .protocol-card, .price-card, .data-card').forEach(el => {
-    observer.observe(el);
-  });
-</script>
-
+<script src="/assets/site.js" defer></script>
 </body>
 </html>

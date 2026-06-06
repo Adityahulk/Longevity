@@ -3,160 +3,87 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Newsletter, Tessera Field Notes</title>
-<meta name="description" content="Subscribe to Tessera Field Notes: aging and biomarker science translated into what to actually do. New essays and notes from the team building an open longevity engine. Roughly weekly, no spam.">
+<title>Newsletter | Tessera Field Notes</title>
+<meta name="description" content="Subscribe to Tessera Field Notes for careful interpretations of biomarker, performance and aging research.">
 <link rel="icon" type="image/svg+xml" href="/assets/logo/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/png/favicon-32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/png/favicon-180.png">
 <link rel="alternate" type="application/rss+xml" title="Tessera Field Notes" href="/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root {
-  --cream:#F5F1E8; --cream-dark:#EDE7D9; --paper:#FBF8F1;
-  --ink:#0E1B2C; --ink-soft:#1F2D40; --ink-mute:#4A5668; --ink-fade:#7A8497;
-  --rule:#C8BFA8; --rule-soft:#DCD3BC; --accent:#B85426; --accent-warm:#D17244;
-  --leaf:#2F5D3C; --gold:#8B6914;
-  --serif:'Fraunces',Georgia,serif; --sans:'Inter',-apple-system,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
-}
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body { font-family:var(--sans); background:var(--cream); color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
-.container { max-width:1100px; margin:0 auto; padding:0 32px; }
-.narrow { max-width:720px; margin:0 auto; padding:0 32px; }
-.nav { position:sticky; top:0; z-index:100; background:rgba(245,241,232,0.92); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:0.5px solid var(--rule-soft); padding:18px 0; }
-.nav-inner { display:flex; justify-content:space-between; align-items:center; }
-.logo { font-family:var(--serif); font-size:24px; font-weight:500; letter-spacing:-0.02em; color:var(--ink); text-decoration:none; display:flex; align-items:center; gap:10px; }
-.logo-mark { width:22px; height:22px; position:relative; }
-.logo-mark::before,.logo-mark::after { content:''; position:absolute; inset:0; border:1.5px solid var(--ink); border-radius:50%; }
-.logo-mark::after { inset:5px; background:var(--accent); border:none; }
-.nav-links { display:flex; gap:32px; align-items:center; }
-.nav-links a { color:var(--ink-soft); text-decoration:none; font-size:14px; transition:color 0.2s; }
-.nav-links a:hover { color:var(--accent); }
-.cta-link { background:var(--ink); color:var(--cream)!important; padding:10px 20px; border-radius:2px; font-size:13px!important; }
-
-.hero { padding:96px 0 80px; text-align:center; }
-.eyebrow { font-family:var(--mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:22px; }
-.hero h1 { font-family:var(--serif); font-size:clamp(34px,5vw,52px); font-weight:400; line-height:1.1; letter-spacing:-0.025em; margin-bottom:22px; }
-.hero h1 em { font-style:italic; color:var(--accent); }
-.hero-lede { font-size:18px; color:var(--ink-mute); max-width:600px; line-height:1.65; margin:0 auto 40px; }
-
-/* SUBSCRIBE */
-.sub-box { max-width:520px; margin:0 auto; }
-.sub-form { display:flex; gap:10px; flex-wrap:wrap; justify-content:center; }
-.sub-form input { flex:1; min-width:240px; padding:15px 18px; border:1px solid var(--rule); border-radius:3px; background:var(--paper); color:var(--ink); font-family:var(--sans); font-size:15px; }
-.sub-form input:focus { outline:none; border-color:var(--accent); }
-.sub-form button { padding:15px 28px; background:var(--accent); color:var(--cream); border:none; border-radius:3px; font-family:var(--sans); font-size:15px; font-weight:500; cursor:pointer; transition:background 0.2s; }
-.sub-form button:hover { background:var(--accent-warm); }
-.sub-note { font-family:var(--mono); font-size:11.5px; color:var(--ink-fade); margin-top:14px; letter-spacing:0.03em; }
-
-.section { padding:64px 0; border-top:1px solid var(--rule-soft); }
-.section-num { font-family:var(--mono); font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:16px; }
-.section-title { font-family:var(--serif); font-size:clamp(24px,3.2vw,32px); font-weight:500; line-height:1.2; letter-spacing:-0.02em; margin-bottom:24px; }
-.section-title em { font-style:italic; color:var(--accent); }
-
-.get-list { list-style:none; }
-.get-list li { font-size:16px; color:var(--ink-soft); line-height:1.6; padding:14px 0 14px 28px; position:relative; border-bottom:1px solid var(--rule-soft); }
-.get-list li:last-child { border-bottom:none; }
-.get-list li::before { content:'→'; position:absolute; left:0; color:var(--accent); }
-.get-list strong { color:var(--ink); }
-
-.recent { display:flex; flex-direction:column; }
-.recent a { display:block; padding:20px 0; border-top:1px solid var(--rule-soft); text-decoration:none; transition:opacity 0.2s; }
-.recent a:hover { opacity:0.7; }
-.recent .meta { font-family:var(--mono); font-size:11px; color:var(--ink-fade); margin-bottom:6px; letter-spacing:0.05em; }
-.recent h3 { font-family:var(--serif); font-size:20px; font-weight:500; color:var(--ink); line-height:1.25; }
-
-footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); padding:48px 0 32px; margin-top:48px; }
-.footer-links { display:flex; gap:24px; margin-bottom:24px; flex-wrap:wrap; }
-.footer-links a { font-size:13px; color:var(--ink-soft); text-decoration:none; }
-.footer-bottom { display:flex; justify-content:space-between; font-family:var(--mono); font-size:11px; color:var(--ink-fade); flex-wrap:wrap; gap:12px; }
-
-@media (max-width:820px){ .nav-links{ display:none; } }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
-
-<nav class="nav"><div class="container nav-inner">
-  <a href="/" class="logo"><span class="logo-mark"></span>Tessera</a>
-  <div class="nav-links">
-    <a href="/#how">How it works</a>
-    <a href="/engine">Engine</a>
-    <a href="/packages">Packages</a>
-    <a href="/learn">Learn</a>
-    <a href="https://calendly.com/company-kalman-labs/30min" class="cta-link" target="_blank" rel="noopener noreferrer">Book consultation</a>
+<nav class="site-nav" aria-label="Primary navigation">
+  <div class="container nav-inner">
+    <a class="brand" href="/"><span class="brand-mark"></span>Tessera</a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+    <div class="nav-links" data-nav-links>
+      <a href="/program">Program</a><a href="/#how">How it works</a><a href="/#results">Results</a><a href="/research">Science</a><a href="/learn">Field Notes</a>
+      <a class="btn nav-cta" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a fit call</a>
+    </div>
   </div>
-</div></nav>
+</nav>
 
-<section class="hero"><div class="narrow">
-  <div class="eyebrow">Tessera Field Notes</div>
-  <h1>The latest longevity research, <em>decoded. Most weeks.</em></h1>
-  <p class="hero-lede">
-    New studies, biohacking claims, and what's happening at the edge of aging science, read the week they drop
-    and written in plain English: what it means, what's hype, and what to actually do. No selling.
-  </p>
-  <div class="sub-box">
-    <form class="sub-form" method="post" target="popupwindow">
-      <input type="email" name="email" placeholder="you@email.com" aria-label="Email address" required>
-      <button type="submit">Subscribe</button>
-    </form>
-    <div class="sub-note">Roughly weekly. Unsubscribe in one click. We never share your email.</div>
+<main>
+  <section class="section section-dark">
+    <div class="container newsletter-panel" style="padding:0;background:transparent">
+      <div>
+        <p class="section-kicker">Tessera Field Notes</p>
+        <h1 class="section-title">Research translated into decisions you can actually make.</h1>
+        <p class="section-intro">A roughly weekly note on biomarkers, performance and aging science. We separate what is established, plausible and still speculative.</p>
+        <form class="signup-form" method="post" target="popupwindow" data-newsletter-form style="margin-top:30px">
+          <label style="position:absolute;left:-9999px" for="newsletter-email">Email address</label>
+          <input id="newsletter-email" type="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+          <button class="btn" type="submit">Subscribe</button>
+        </form>
+        <p class="form-note" data-form-note>Roughly weekly. No spam, affiliate promotions or shared email lists.</p>
+      </div>
+      <aside>
+        <p class="section-kicker">Recent issues</p>
+        <div class="issue-list">
+          <a class="issue" href="/learn/mitochondrial-aging" style="display:block;text-decoration:none"><code>6 JUN · RESEARCH</code><h3>What 750,000 genomes changed about mitochondrial aging</h3></a>
+          <a class="issue" href="/learn/four-levers" style="display:block;text-decoration:none"><code>2 JUN · INTERVENTIONS</code><h3>The four levers that move biomarkers</h3></a>
+          <a class="issue" href="/learn/biological-age" style="display:block;text-decoration:none"><code>30 MAY · MEASUREMENT</code><h3>How to read a biological-age estimate honestly</h3></a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container signal-layout">
+      <div>
+        <p class="section-kicker">What arrives</p>
+        <h2 class="section-title">Useful even when you never buy anything.</h2>
+        <p class="section-intro">That is the editorial test for every issue.</p>
+      </div>
+      <div class="signal-list">
+        <article class="signal-item"><code>01 / STUDIES</code><div><h3>New research, with its limits attached</h3><p>What was studied, who was studied, what the result means and where headlines overreach.</p></div></article>
+        <article class="signal-item"><code>02 / MARKERS</code><div><h3>One biomarker at a time</h3><p>What it measures, how to interpret it and what can or cannot reasonably change it.</p></div></article>
+        <article class="signal-item"><code>03 / PRACTICE</code><div><h3>Notes from building a transparent system</h3><p>How Tessera handles evidence, safety, measurement and the messy gap between research and real life.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="reading">
+      <p class="section-kicker">Editorial principles</p>
+      <h2 class="section-title">No urgency theatre. No miracle stack. No certainty we have not earned.</h2>
+      <p class="section-intro">We cite the source, label the evidence strength, distinguish population findings from individual advice and correct the record when the evidence changes.</p>
+      <p style="margin-top:26px"><a class="text-link" href="/learn">Read the archive before subscribing</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a class="brand" href="/"><span class="brand-mark"></span>Tessera</a><p>Biomarker-guided performance and health optimization, with transparent reasoning and measured follow-up.</p></div>
+      <div class="footer-col"><h3>Explore</h3><a href="/program">Program</a><a href="/journey">Client journey</a><a href="/tessera-rulebook">Rulebook</a><a href="/research">Science</a></div>
+      <div class="footer-col"><h3>Read and contact</h3><a href="/learn">Field Notes</a><a href="/newsletter">Newsletter</a><a href="/privacy">Privacy</a><a href="mailto:company@kalman-labs.com">company@kalman-labs.com</a></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Tessera Health Pvt. Ltd. · Hyderabad, India</span><span>Health optimization coaching, not medical diagnosis or treatment.</span></div>
   </div>
-</div></section>
-
-<section class="section"><div class="narrow">
-  <span class="section-num">What you'll get</span>
-  <h2 class="section-title">Worth opening, <em>every time.</em></h2>
-  <ul class="get-list">
-    <li><strong>New research, decoded</strong>, the important studies the week they land, in plain English.</li>
-    <li><strong>Biohacking claims, tested</strong>, what the evidence supports and what's oversold.</li>
-    <li><strong>Biomarker explainers</strong>, one marker at a time, with what to do about it.</li>
-    <li><strong>Notes from building Tessera</strong>, the engine, the rulebook, what real data is teaching us.</li>
-  </ul>
-</div></section>
-
-<section class="section"><div class="narrow">
-  <span class="section-num">Recent</span>
-  <h2 class="section-title">Lately on the <em>blog.</em></h2>
-  <div class="recent">
-    <a href="/learn/mitochondrial-aging"><div class="meta">6 June 2026 · Research</div><h3>Rethinking mitochondrial aging: what 750,000 genomes tell us about longevity</h3></a>
-    <a href="/learn/four-levers"><div class="meta">2 June 2026 · Interventions</div><h3>The four levers that actually move your biomarkers in 90 days</h3></a>
-    <a href="/learn/biological-age"><div class="meta">30 May 2026 · Biological age</div><h3>Biological age, honestly: what PhenoAge can and can't tell you</h3></a>
-  </div>
-  <p style="margin-top:24px;"><a href="/learn" style="font-family:var(--mono);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);text-decoration:none;">All posts →</a></p>
-</div></section>
-
-<footer><div class="container">
-  <div class="footer-links">
-    <a href="/">Home</a><a href="/program">Program</a><a href="/packages">Packages</a><a href="/engine">Engine</a><a href="/learn">Blog</a><a href="/research">Research</a><a href="/privacy">Privacy</a>
-  </div>
-  <div class="footer-bottom"><div>© 2026 TESSERA HEALTH PVT. LTD.</div><div>Field notes · Hyderabad, India</div></div>
-</div></footer>
-
-<!-- ════════════════════════════════════════════════════════════════
-     NEWSLETTER WIRING (Buttondown)
-     To go live: set NEWSLETTER_USER below to your Buttondown username.
-     Until then, the form shows a friendly "launching shortly" message
-     instead of submitting. Full setup: content/NEWSLETTER-SETUP.md
-     ════════════════════════════════════════════════════════════════ -->
-<script>
-  window.NEWSLETTER_USER = "BUTTONDOWN_USERNAME"; // <- replace with your Buttondown username
-  document.querySelectorAll('.sub-form').forEach(function(f){
-    f.addEventListener('submit', function(e){
-      var note = (f.parentNode && f.parentNode.querySelector('.sub-note'));
-      var user = window.NEWSLETTER_USER;
-      if(!user || user === "BUTTONDOWN_USERNAME"){
-        e.preventDefault();
-        if(note){ note.textContent = "Newsletter launching shortly, check back very soon."; note.style.color = "var(--accent)"; }
-        return;
-      }
-      f.action = "https://buttondown.com/api/emails/embed-subscribe/" + user;
-      try { window.open('https://buttondown.com/' + user, 'popupwindow'); } catch(_){}
-      // native submit proceeds to Buttondown
-    });
-  });
-</script>
-
+</footer>
+<script src="/assets/site.js" defer></script>
 </body>
 </html>

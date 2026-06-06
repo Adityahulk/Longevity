@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/png/favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --cream:#F5F1E8; --cream-dark:#EDE7D9; --paper:#FBF8F1;
@@ -85,18 +85,14 @@ footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); pa
 
 @media (max-width:820px){ .nav-links{ display:none; } .art-body p,.art-body li{ font-size:16px; } }
 </style>
+<link rel="stylesheet" href="/assets/site.css">
 </head>
-<body>
+<body class="article-shell">
 
-<nav class="nav"><div class="container nav-inner">
-  <a href="/" class="logo"><span class="logo-mark"></span>Tessera</a>
-  <div class="nav-links">
-    <a href="/#how">How it works</a>
-    <a href="/engine">Engine</a>
-    <a href="/tessera-rulebook">Rulebook</a>
-    <a href="/learn">Learn</a>
-    <a href="https://calendly.com/company-kalman-labs/30min" class="cta-link" target="_blank" rel="noopener noreferrer">Book consultation</a>
-  </div>
+<nav class="site-nav" aria-label="Primary navigation"><div class="container nav-inner">
+  <a class="brand" href="/"><span class="brand-mark"></span>Tessera</a>
+  <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+  <div class="nav-links" data-nav-links><a href="/program">Program</a><a href="/#how">How it works</a><a href="/#results">Results</a><a href="/research">Science</a><a href="/learn" aria-current="page">Field Notes</a><a class="btn nav-cta" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a fit call</a></div>
 </div></nav>
 
 <article>
@@ -157,18 +153,18 @@ footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); pa
 
   <p class="pullquote">The number is most useful not as an absolute, but as a baseline you move. The delta is the signal. The single reading is just the starting line.</p>
 
-  <p>This is the part the marketing gets backwards. A creator posting "my biological age is 9 years younger!" is showing you one noisy reading, often from a method they can't reproduce, with no before-and-after under controlled conditions. That's a vanity metric. The useful version is: <em>same panel, same lab, same fasted protocol, ninety days apart</em>, and then you look at whether the inputs that drove your number actually improved.</p>
+  <p>This is the part the marketing gets backwards. A creator posting "my biological age is 9 years younger!" is showing you one noisy reading, often from a method they can't reproduce, with no before-and-after under controlled conditions. That's a vanity metric. The useful version is: <em>the same panel, collected under comparable conditions, ninety days apart</em>, and then you look at whether the inputs that drove your number actually improved.</p>
 
   <h2>The bottom line</h2>
 
-  <p>Biological age is a real, useful idea wrapped in an unusual amount of hype. PhenoAge specifically is a validated, deployable, interpretable estimate, good enough to baseline you and to measure change, honest enough to admit its own error bars. Treat it as a <strong>compass, not a verdict</strong>: it points you at the markers worth fixing, and it lets you prove, ninety days later, that the fixing worked.</p>
+  <p>Biological age is a real, useful idea wrapped in an unusual amount of hype. PhenoAge specifically is a validated, deployable, interpretable estimate, useful for establishing a baseline and measuring change while acknowledging its error bars. Treat it as a <strong>compass, not a verdict</strong>: it points you at the markers worth investigating and helps you evaluate the response at retest.</p>
 
   <p>Anyone selling you a biological age that only goes down, never has error bars, and can't be reproduced on a standard panel is selling you a feeling. The real thing is more modest, and far more useful.</p>
 
   <div class="bridge">
     <span class="mono-tag">How Tessera uses this</span>
-    <h3>We compute PhenoAge Day 1, then again at Day 90, same panel, same lab.</h3>
-    <p>Your biological age is a baseline we move, not a number we sell. You see which markers drove it, what the protocol targets, and exactly how much it shifted at retest. Honest error bars included.</p>
+    <h3>We compute PhenoAge at baseline, then again at Day 90 under comparable conditions.</h3>
+    <p>Your biological age is a baseline we track, not a number we promise to lower. You see which markers drove it, what the protocol targets, and how the estimate changed at retest. Measurement limits included.</p>
     <a class="btn" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Measure your baseline →</a>
   </div>
 
@@ -184,12 +180,13 @@ footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); pa
 </div></div>
 </article>
 
-<footer><div class="container">
+<footer class="site-footer"><div class="container">
   <div class="footer-links">
     <a href="/">Home</a><a href="/engine">Engine</a><a href="/tessera-rulebook">Rulebook</a><a href="/learn">Learn</a><a href="/research">Research</a><a href="/privacy">Privacy</a>
   </div>
   <div class="footer-bottom"><div>© 2026 TESSERA HEALTH PVT. LTD.</div><div>Field notes · Hyderabad, India</div></div>
 </div></footer>
+<script src="/assets/site.js" defer></script>
 
 </body>
 </html>
