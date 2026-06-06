@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rethinking mitochondrial aging: what 750,000 genomes tell us | Tessera Field Notes</title>
+<meta name="description" content="A Nature study of nearly 750,000 people upends the oxidative-damage theory of mitochondrial aging. The mutations look like copy errors amplified by clonal expansion in bone marrow, not wear-and-tear. What it means for antioxidants, mitophagy, and your longevity strategy.">
+<link rel="icon" type="image/svg+xml" href="/assets/logo/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/png/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/png/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:#F5F1E8; --cream-dark:#EDE7D9; --paper:#FBF8F1;
+  --ink:#0E1B2C; --ink-soft:#1F2D40; --ink-mute:#4A5668; --ink-fade:#7A8497;
+  --rule:#C8BFA8; --rule-soft:#DCD3BC; --accent:#B85426; --accent-warm:#D17244;
+  --leaf:#2F5D3C; --gold:#8B6914;
+  --serif:'Fraunces',Georgia,serif; --sans:'Inter',-apple-system,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:var(--sans); background:var(--cream); color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+.container { max-width:1100px; margin:0 auto; padding:0 32px; }
+.article { max-width:720px; margin:0 auto; padding:0 32px; }
+.nav { position:sticky; top:0; z-index:100; background:rgba(245,241,232,0.92); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:0.5px solid var(--rule-soft); padding:18px 0; }
+.nav-inner { display:flex; justify-content:space-between; align-items:center; }
+.logo { font-family:var(--serif); font-size:24px; font-weight:500; letter-spacing:-0.02em; color:var(--ink); text-decoration:none; display:flex; align-items:center; gap:10px; }
+.logo-mark { width:22px; height:22px; position:relative; }
+.logo-mark::before,.logo-mark::after { content:''; position:absolute; inset:0; border:1.5px solid var(--ink); border-radius:50%; }
+.logo-mark::after { inset:5px; background:var(--accent); border:none; }
+.nav-links { display:flex; gap:32px; align-items:center; }
+.nav-links a { color:var(--ink-soft); text-decoration:none; font-size:14px; transition:color 0.2s; }
+.nav-links a:hover { color:var(--accent); }
+.cta-link { background:var(--ink); color:var(--cream)!important; padding:10px 20px; border-radius:2px; font-size:13px!important; }
+
+.art-head { padding:72px 0 36px; border-bottom:1px solid var(--rule-soft); }
+.breadcrumb { font-family:var(--mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); margin-bottom:24px; }
+.breadcrumb a { color:var(--accent); text-decoration:none; }
+.art-head h1 { font-family:var(--serif); font-size:clamp(30px,4.6vw,46px); font-weight:400; line-height:1.12; letter-spacing:-0.025em; margin-bottom:22px; }
+.art-head h1 em { font-style:italic; color:var(--accent); }
+.art-dek { font-size:19px; color:var(--ink-mute); line-height:1.6; margin-bottom:26px; }
+.art-meta { font-family:var(--mono); font-size:11.5px; letter-spacing:0.04em; color:var(--ink-fade); display:flex; gap:18px; flex-wrap:wrap; }
+
+.art-body { padding:44px 0 20px; }
+.art-body p { font-size:17px; color:var(--ink-soft); line-height:1.75; margin-bottom:22px; }
+.art-body h2 { font-family:var(--serif); font-size:28px; font-weight:500; letter-spacing:-0.015em; margin:48px 0 16px; line-height:1.2; }
+.art-body h3 { font-family:var(--serif); font-size:21px; font-weight:500; margin:34px 0 12px; }
+.art-body strong { color:var(--ink); font-weight:600; }
+.art-body em { font-style:italic; }
+.art-body a { color:var(--accent); text-decoration:underline; text-underline-offset:2px; }
+.art-body ul, .art-body ol { margin:0 0 22px 0; padding-left:22px; }
+.art-body li { font-size:17px; color:var(--ink-soft); line-height:1.7; margin-bottom:10px; }
+
+.pullquote { font-family:var(--serif); font-size:24px; font-style:italic; font-weight:400; line-height:1.4; color:var(--ink); border-left:3px solid var(--accent); padding:6px 0 6px 26px; margin:34px 0; }
+.flow { font-family:var(--mono); font-size:14px; color:var(--ink-soft); background:var(--paper); border:1px solid var(--rule-soft); border-radius:6px; padding:18px 22px; margin:26px 0; line-height:1.7; }
+.flow .arrow { color:var(--accent); }
+
+.codeblock { background:#0B1622; border:1px solid #1d2d40; border-radius:6px; padding:20px 22px; margin:26px 0; overflow-x:auto; }
+.codeblock pre { font-family:var(--mono); font-size:12.5px; line-height:1.5; color:#9DB4CC; white-space:pre; }
+.cap { font-family:var(--mono); font-size:11px; color:var(--ink-fade); margin-top:-14px; margin-bottom:26px; }
+
+.datatable { width:100%; border-collapse:collapse; margin:28px 0; background:var(--paper); border:1px solid var(--rule-soft); border-radius:6px; overflow:hidden; }
+.datatable th, .datatable td { padding:14px 16px; text-align:left; border-bottom:1px solid var(--rule-soft); font-size:14.5px; vertical-align:top; }
+.datatable th { background:var(--cream-dark); font-family:var(--mono); font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink); }
+.datatable tr:last-child td { border-bottom:none; }
+.datatable td:first-child { color:var(--ink-soft); }
+
+.note { background:var(--paper); border:1px solid var(--rule-soft); border-left:3px solid var(--leaf); border-radius:6px; padding:20px 24px; margin:30px 0; font-size:15px; color:var(--ink-mute); line-height:1.65; }
+.note strong { color:var(--ink); }
+
+.bridge { background:var(--ink); color:var(--cream); border-radius:8px; padding:40px 38px; margin:48px 0 0; }
+.bridge .mono-tag { font-family:var(--mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent-warm); margin-bottom:14px; display:block; }
+.bridge h3 { font-family:var(--serif); font-size:25px; font-weight:400; line-height:1.3; margin-bottom:14px; }
+.bridge p { color:rgba(245,241,232,0.78); font-size:15.5px; line-height:1.65; margin-bottom:22px; max-width:600px; }
+.bridge a.btn { display:inline-flex; align-items:center; gap:9px; background:var(--accent); color:var(--cream); padding:13px 26px; border-radius:2px; text-decoration:none; font-size:14.5px; font-weight:500; }
+
+.refs { margin-top:44px; padding-top:28px; border-top:1px solid var(--rule-soft); }
+.refs h3 { font-family:var(--mono); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin-bottom:16px; }
+.refs ol { padding-left:20px; }
+.refs li { font-size:13.5px; color:var(--ink-mute); line-height:1.6; margin-bottom:8px; }
+
+.readmore { padding:44px 0 20px; border-top:1px solid var(--rule-soft); margin-top:48px; }
+.readmore .mono-tag { font-family:var(--mono); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin-bottom:18px; display:block; }
+.readmore-links { display:flex; gap:16px; flex-wrap:wrap; }
+.readmore-links a { flex:1; min-width:220px; background:var(--paper); border:1px solid var(--rule-soft); border-radius:6px; padding:20px 22px; text-decoration:none; }
+.readmore-links h4 { font-family:var(--serif); font-size:17px; font-weight:500; color:var(--ink); margin-bottom:6px; }
+.readmore-links p { font-size:13px; color:var(--ink-mute); line-height:1.5; }
+
+footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); padding:48px 0 32px; margin-top:56px; }
+.footer-links { display:flex; gap:24px; margin-bottom:24px; flex-wrap:wrap; }
+.footer-links a { font-size:13px; color:var(--ink-soft); text-decoration:none; }
+.footer-bottom { display:flex; justify-content:space-between; font-family:var(--mono); font-size:11px; color:var(--ink-fade); flex-wrap:wrap; gap:12px; }
+
+@media (max-width:820px){ .nav-links{ display:none; } .art-body p,.art-body li{ font-size:16px; } }
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="container nav-inner">
+  <a href="/" class="logo"><span class="logo-mark"></span>Tessera</a>
+  <div class="nav-links">
+    <a href="/#how">How it works</a>
+    <a href="/engine">Engine</a>
+    <a href="/packages">Packages</a>
+    <a href="/learn">Learn</a>
+    <a href="https://calendly.com/company-kalman-labs/30min" class="cta-link" target="_blank" rel="noopener noreferrer">Book consultation</a>
+  </div>
+</div></nav>
+
+<article>
+<div class="art-head"><div class="article">
+  <div class="breadcrumb"><a href="/learn">← Field Notes</a> · Research</div>
+  <h1>Rethinking mitochondrial aging: what <em>750,000 genomes</em> tell us about longevity.</h1>
+  <p class="art-dek">For decades, the mitochondrial theory of aging said our cells slowly rust from oxidative damage. A new Nature study of nearly 750,000 people says that's not what the data shows. The mutations look like copy errors amplified by a competitive race inside your bone marrow. Here's what actually changed, and what it means for how you age.</p>
+  <div class="art-meta"><span>6 June 2026</span><span>· Tessera Field Notes</span><span>· 11 min read</span></div>
+</div></div>
+
+<div class="art-body"><div class="article">
+
+  <p>For decades, the <strong>mitochondrial theory of aging</strong> has been a foundational pillar of longevity science. It's an intuitive idea: our mitochondria produce the energy that keeps us alive, but that energy production creates volatile byproducts called Reactive Oxygen Species (ROS), essentially cellular exhaust. Over time, this oxidative stress leaks out, damages our fragile mitochondrial DNA (mtDNA), creates mutations, and drives the gradual decay we call aging.</p>
+
+  <p>It's an elegant narrative of simple wear-and-tear. It's also the biological justification behind billions of dollars spent on antioxidant supplements, biohacking stacks, and mitochondrial support therapies.</p>
+
+  <p>A groundbreaking study published in <em>Nature</em> completely upends this classic story. By analyzing the mitochondrial genomes of nearly <strong>750,000 individuals</strong>, an international team discovered that the age-related mitochondrial mutations we see in human blood don't look like oxidative damage at all. Instead, they look like copy-paste errors, the result of a competitive biological race happening inside our own bone marrow.</p>
+
+  <p>If you care about longevity, healthspan, or the future of medicine, this one matters. It doesn't mean mitochondria don't matter. It means <em>how</em> they age is fundamentally different from what we've been taught.</p>
+
+  <h2>The powerhouse and its blueprint</h2>
+
+  <p>Most cellular structures rely on the nucleus, which houses two copies of your primary genome. But mitochondria are unique: they're evolutionary remnants of ancient bacteria trapped inside our cells, and they still carry their own distinct, circular genome called <strong>mitochondrial DNA (mtDNA)</strong>.</p>
+
+  <p>A single cell can hold hundreds to thousands of copies of mtDNA, and these mini-genomes replicate independently of when the cell itself divides. Because of this high-volume, rapid duplication, mtDNA naturally accumulates mutations far faster than the DNA in your nucleus. For generations, scientists pointed to this pile-up as a primary hallmark of aging.</p>
+
+  <h3>The concept of "heteroplasmy"</h3>
+
+  <p>If a cell has 1,000 copies of mtDNA, they aren't all identical. If 995 are healthy and 5 carry a mutation, that cell is in a state of <strong>heteroplasmy</strong>, a mixture of normal and mutated mitochondrial genomes within the same cell. As we age, heteroplasmy increases. Until now, the trillion-dollar question was: what is causing these mutations to build up?</p>
+
+  <h2>The traditional view vs the new reality</h2>
+
+  <p>The classical model followed a direct domino effect:</p>
+
+  <div class="flow">ATP production <span class="arrow">→</span> ROS (oxidative stress) <span class="arrow">→</span> mtDNA damage <span class="arrow">→</span> cellular decay</div>
+
+  <p>This predicted that a steady daily rain of oxidative stress slowly erodes mitochondrial health. And here's the clever part: mutations can be read like a crime scene. Different causes leave specific molecular fingerprints, known as <strong>mutational signatures</strong>, and oxidative damage leaves a very specific chemical footprint.</p>
+
+  <p>When the researchers looked at 750,000 people, they expected a genome riddled with oxidative footprints. <strong>They found the opposite.</strong> The vast majority of mutations didn't look like oxidative wear-and-tear. They matched the signature of <strong>spontaneous replication errors</strong>, the biological equivalent of a typo made by the machinery (like Polymerase Gamma) that copies mtDNA.</p>
+
+  <h2>Two mind-bending discoveries</h2>
+
+  <h3>1. The age-60 cliff</h3>
+
+  <p>If mutations accumulated steadily from daily metabolic wear, we'd expect a smooth, linear rise from age 20 to 40 to 60. Instead, the researchers saw a dramatic threshold effect: mutation burden stays modest through early and middle life, then <strong>shoots up sharply after age 60</strong>.</p>
+
+  <div class="codeblock"><pre>Mutation burden
+  ^
+  |                                 /
+  |                                /
+  |                               /
+  |                              /
+  |                             /
+  |----------------------------+
+  0                           60    Age</pre></div>
+  <p class="cap">Mutation burden stays low, then climbs steeply past 60.</p>
+
+  <p>If these typos happen randomly all the time, why do they suddenly explode right as we hit our senior years?</p>
+
+  <h3>2. Clonal expansion: the hidden cellular race</h3>
+
+  <p>The answer isn't how much damage cells take, but a phenomenon called <strong>clonal hematopoiesis (CH)</strong>. Your blood is continuously replenished by a tiny pool of hematopoietic stem cells in your bone marrow. As we age, these stem cells occasionally acquire random mutations in their nuclear DNA. Most do nothing, or kill the cell. But once in a while, a stem cell hits the genetic lottery: a mutation that makes it hyper-efficient at surviving and dividing.</p>
+
+  <p>That single mutated stem cell starts to out-compete its neighbors, producing a disproportionate army of descendant blood cells. Over time, one "clone" can come to dominate a huge share of your entire blood supply.</p>
+
+  <div class="codeblock"><pre>[Healthy stem cells] --> [Random mutation] --> [Super-clone forms] --> [Dominates blood supply]</pre></div>
+
+  <p>The study found a profound genetic link between a person's mitochondrial mutation burden and nuclear genes that govern clonal hematopoiesis, such as <strong>TERT, TCL1A and SMC4</strong>.</p>
+
+  <p class="pullquote">The mutation didn't suddenly appear from toxic oxidative stress at 65. It became visible because a single cell line won the evolutionary race inside your bone marrow.</p>
+
+  <p>This connects the dots. Low levels of mitochondrial typos happen randomly across your whole life, too rare to show up on standard tests. But if one of those typos sits inside a blood stem cell that then undergoes massive clonal expansion, that specific mutation gets copied millions of times over, and becomes visible.</p>
+
+  <h2>Why blood? The tissue-specific caveat</h2>
+
+  <p>For scientific accuracy, the key nuance: this study looked at <strong>blood samples</strong> via whole-genome sequencing. Different tissues age differently.</p>
+
+  <ul>
+    <li><strong>High-turnover tissues (like blood):</strong> hematopoietic stem cells divide constantly to generate billions of new cells daily. Here, replication errors and clonal expansion are the kings of aging.</li>
+    <li><strong>Post-mitotic tissues (like brain and heart):</strong> neurons and cardiac muscle cells rarely or never divide in adulthood. Because they're long-lived and highly metabolic, the traditional ROS-driven oxidative-damage model may still dominate there.</li>
+  </ul>
+
+  <p>So the mitochondrial theory of aging might not be dead. It just appears to be highly tissue-specific.</p>
+
+  <h2>A paradigm shift: wear-and-tear vs cellular selection</h2>
+
+  <table class="datatable">
+    <thead><tr><th>Old paradigm: accumulative damage</th><th>New paradigm: somatic evolution</th></tr></thead>
+    <tbody>
+      <tr><td>Aging is caused by physical wear-and-tear.</td><td>Aging is driven by cellular competition and selection.</td></tr>
+      <tr><td>Core question: how much damage has accumulated?</td><td>Core question: which cellular clones have expanded?</td></tr>
+      <tr><td>Focuses on metabolic exhaust (ROS).</td><td>Focuses on stem-cell dynamics and clonal dominance.</td></tr>
+    </tbody>
+  </table>
+
+  <p>Aging isn't just passive rust. It's an active, evolutionary process inside our tissues, where certain mutant cell lines outgrow others and shift our systemic biology.</p>
+
+  <h2>Shift your focus: a new longevity strategy</h2>
+
+  <p>If the classic theory is incomplete, how should the approach to healthspan adapt? Evidence tags below: <strong>E1</strong> strong, <strong>E2</strong> moderate, <strong>E3</strong> early or mechanistic.</p>
+
+  <ul>
+    <li><strong>Rethink antioxidant mega-dosing.</strong> If age-related mtDNA mutations in blood aren't primarily ROS-driven, flooding your system with high-dose synthetic antioxidants to "stop mutations" is likely ineffective, and can actually blunt positive exercise adaptations. <span style="color:var(--ink-fade)">[E2]</span></li>
+    <li><strong>Prioritize mitophagy (cellular quality control).</strong> Instead of preventing mutations, clear damaged mitochondria entirely. High-intensity interval training, prolonged fasting, and compounds like Urolithin A trigger mitophagy, forcing cells to recycle old mitochondria and replicate the healthiest copies. <span style="color:var(--ink-fade)">[E2, Urolithin A E2/E3]</span></li>
+    <li><strong>Support replication fidelity.</strong> Since replication errors are the culprit, support the machinery that copies mtDNA: maintain cellular energy states (NAD+ precursors like NMN or NR) and optimize trace-mineral cofactors. <span style="color:var(--ink-fade)">[E3, human outcome data still thin]</span></li>
+    <li><strong>Watch stem-cell biology.</strong> Clonal hematopoiesis is becoming one of the most important biomarkers in longevity medicine, linked not just to blood cancers but to cardiovascular disease and systemic inflammation. Keep the bone-marrow environment healthy with anti-inflammatory basics (omega-3 optimization, a low-glycemic diet). <span style="color:var(--ink-fade)">[E1 for CH as risk marker]</span></li>
+  </ul>
+
+  <div class="note"><strong>The honest caveat.</strong> This is one large, important study in <em>blood</em>. It reframes how mtDNA mutations become visible with age. It does not prove that any specific supplement extends human lifespan, and it doesn't overturn oxidative biology in post-mitotic tissue. Treat the strategy shifts as well-reasoned updates, not settled prescriptions.</div>
+
+  <h2>Frequently asked</h2>
+
+  <h3>Does this mean antioxidant supplements are useless?</h3>
+  <p>Not necessarily, but they don't do what we thought. They won't stop your mtDNA from mutating as you age. They remain useful for an acute inflammatory condition or a specific dietary deficiency, but mega-dosing them for general "anti-aging" lacks mechanistic support in light of this data.</p>
+
+  <h3>How do I know if I have clonal hematopoiesis?</h3>
+  <p>CH is detected through deep next-generation sequencing of blood DNA, often during advanced cancer screening or specific longevity panels. As the field evolves, checking for CH mutations (like DNMT3A, TET2, or ASXL1) will likely become a standard annual biomarker.</p>
+
+  <h3>What causes mitochondrial replication typos if not oxidative stress?</h3>
+  <p>DNA polymerases are incredibly accurate but not perfect. They make random errors at a predictable baseline rate. Across billions of replications over a lifetime, these stochastic typos are mathematically guaranteed to happen.</p>
+
+  <h2>The big picture</h2>
+
+  <p>The most exhilarating part of modern longevity science is watching isolated puzzles snap together. For years, scientists studied mitochondrial mutations, blood stem cells, telomere biology (TERT), and age-related disease as separate fields. This study of 750,000 people bridges those divides, suggesting they're all deeply interconnected parts of a single evolutionary process happening inside us.</p>
+
+  <p>Biology keeps defying our oversimplified theories. As we move away from simple wear-and-tear models, we open the door to far more targeted interventions, and a more honest view of what actually drives how we age.</p>
+
+  <div class="bridge">
+    <span class="mono-tag">Where Tessera fits</span>
+    <h3>This is exactly why we measure, then re-measure.</h3>
+    <p>Findings like this change what's worth tracking, and what's worth ignoring. Tessera's job is to translate the current evidence into a protocol calibrated to your own numbers, then prove it with a Day-90 retest. As clonal-hematopoiesis screening matures, it's the kind of marker our engine is built to fold in.</p>
+    <a class="btn" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Measure your baseline →</a>
+  </div>
+
+  <div class="refs">
+    <h3>References</h3>
+    <ol>
+      <li><strong>Primary study:</strong> Nature (2026). <em>Accumulation of mutant mitochondrial DNA heteroplasmy in approximately 750,000 individuals.</em></li>
+      <li>Wallace, D. C. <em>Mitochondrial DNA variation in human evolution and disease.</em></li>
+      <li>López-Otín, C., et al. <em>The Hallmarks of Aging.</em></li>
+      <li>Jaiswal, S., et al. <em>Clonal Hematopoiesis and Human Aging.</em></li>
+      <li>Kennedy, S. R., et al. <em>Mitochondrial DNA mutations and aging.</em></li>
+    </ol>
+  </div>
+
+  <div class="readmore">
+    <span class="mono-tag">Keep reading</span>
+    <div class="readmore-links">
+      <a href="/learn/biological-age"><h4>Biological age, honestly</h4><p>What PhenoAge can and can't tell you, without the hype.</p></a>
+      <a href="/learn/four-levers"><h4>The four levers</h4><p>What actually moves your biomarkers in 90 days.</p></a>
+      <a href="/research"><h4>Science foundations</h4><p>The hallmarks of aging and the deeper research base.</p></a>
+    </div>
+  </div>
+
+</div></div>
+</article>
+
+<footer><div class="container">
+  <div class="footer-links">
+    <a href="/">Home</a><a href="/engine">Engine</a><a href="/packages">Packages</a><a href="/learn">Blog</a><a href="/newsletter">Newsletter</a><a href="/research">Research</a><a href="/privacy">Privacy</a>
+  </div>
+  <div class="footer-bottom"><div>© 2026 TESSERA HEALTH PVT. LTD.</div><div>Field notes · Hyderabad, India</div></div>
+</div></footer>
+
+</body>
+</html>

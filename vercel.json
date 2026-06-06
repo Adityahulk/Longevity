@@ -76,6 +76,11 @@
       "permanent": true
     },
     {
+      "source": "/learn-mitochondrial-aging.html",
+      "destination": "/learn/mitochondrial-aging",
+      "permanent": true
+    },
+    {
       "source": "/program.html",
       "destination": "/program",
       "permanent": true
@@ -119,6 +124,10 @@
     {
       "source": "/learn/four-levers",
       "destination": "/learn-four-levers.html"
+    },
+    {
+      "source": "/learn/mitochondrial-aging",
+      "destination": "/learn-mitochondrial-aging.html"
     },
     {
       "source": "/program",
