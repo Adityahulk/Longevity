@@ -1,11 +1,11 @@
-# Tessera OS — the multi-modal thesis (internal)
+# Antiaging Labs OS — the multi-modal thesis (internal)
 
 > Working doc for the investor/YC narrative and our own clarity. Not a public page.
 > The public surfaces express only what's deliverable today; this doc states where it goes.
 
 ## One line
 
-Tessera is the **modality-agnostic longevity data + reasoning layer**. Blood is the first ingestion module, the consumer program is the first app on top, and licensing the engine to clinics is the endgame.
+Antiaging Labs is the **modality-agnostic longevity data + reasoning layer**. Blood is the first ingestion module, the consumer program is the first app on top, and licensing the engine to clinics is the endgame.
 
 ## Why this is the real shape of the company
 
@@ -15,14 +15,14 @@ The architecture is already 80% of the way there: the engine consumes typed JSON
 
 ## The spine: one record, many modules
 
-Every data type is an **ingestion module** that normalizes into a single **Tessera Health Record (THR)**. The reasoning engine reads the record, not the source.
+Every data type is an **ingestion module** that normalizes into a single **Antiaging Labs Health Record (THR)**. The reasoning engine reads the record, not the source.
 
 ```
 ingestion modules            unified record           reasoning            output
 ─────────────────            ──────────────           ─────────            ──────
 blood  ───────────┐
 genome ───────────┤
-DEXA   ───────────┼──►   Tessera Health Record  ──►   9-agent engine  ──►  protocol + report
+DEXA   ───────────┼──►   Antiaging Labs Health Record  ──►   9-agent engine  ──►  protocol + report
 wearable / CGM ───┤        (longitudinal,             (rulebook,            (+ retest loop)
 MRI report ───────┤         per-person)                safety gates)
 intake ───────────┘
@@ -52,11 +52,11 @@ Same engine, same THR, same protocol generator. The package is a module toggle s
 
 Sequencing for moat-compounding: blood → wearable → genome (enrichment) → imaging (referral). Imaging is the last thing to add, not the first.
 
-## The endgame: Tessera for Clinics (B2B2B)
+## The endgame: Antiaging Labs for Clinics (B2B2B)
 
 Every longevity clinic, premium gym, and corporate-wellness program has the same gap: they can *collect* data (some own scanners) but have **no reasoning layer and no protocol engine** — they generate PDFs that get filed and forgotten (the exact failure of Apollo/Max executive checkups).
 
-Tessera becomes the **data + reasoning + protocol infrastructure** any longevity space runs its members through. They bring the bodies (and optionally the scans); Tessera is the brain, the longitudinal record, and the branded report. Revenue: per-seat / per-record licensing on top of consumer program fees.
+Antiaging Labs becomes the **data + reasoning + protocol infrastructure** any longevity space runs its members through. They bring the bodies (and optionally the scans); Antiaging Labs is the brain, the longitudinal record, and the branded report. Revenue: per-seat / per-record licensing on top of consumer program fees.
 
 This is the "digital infrastructure for longevity clinics" thesis. White space in India; no serious player owns it.
 
@@ -74,13 +74,13 @@ This is the "digital infrastructure for longevity clinics" thesis. White space i
 | Now → ~200 clients | Blood + intake (+ wearable, near-free) | ~0 |
 | Month 9–12 | Genome add-on (MedGenome / Strand partner) | ~0, partner |
 | Month 12–18 | DEXA / CCTA by referral (partner imaging) | ~0, partner |
-| Series A | "Tessera for Clinics" pilot, 2–3 partners | funded |
+| Series A | "Antiaging Labs for Clinics" pilot, 2–3 partners | funded |
 | Series B | Owned imaging, only if science + economics justify | funded |
 
 ## Where each idea appears on the site
 
 - **Homepage** — one multi-modal line in "what's different" ("One record, many inputs"). No platform label.
 - **/packages** — the three module-tiers + modality matrix + honest availability. Consumer expression.
-- **/engine** — "one record, many modules" architecture + a forward-looking "Tessera for Clinics" note.
+- **/engine** — "one record, many modules" architecture + a forward-looking "Antiaging Labs for Clinics" note.
 - **/strategy** — the full OS + B2B2B thesis (platform language fully earned here).
 - **This doc** — the internal source of truth.

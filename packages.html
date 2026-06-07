@@ -3,230 +3,159 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Packages · choose how much data the engine reasons over | Tessera</title>
-<meta name="description" content="Tessera packages run on one engine and one health record. Essential (blood, available now), Deep (+ genome + wearable, via partner), Comprehensive (+ DEXA and coronary-calcium, by consultation). Add data over time; the protocol gets more precise.">
+<title>Diagnostics | Antiaging Labs</title>
+<meta name="description" content="One engine, one health record, more inputs over time. Essential bloodwork (available now), Deep adds genome + wearable (via partner), Comprehensive adds DEXA and whole-body imaging (by consultation). The protocol gets more precise as you add data.">
 <link rel="icon" type="image/svg+xml" href="/assets/logo/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/png/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/png/favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root {
-  --cream:#F5F1E8; --cream-dark:#EDE7D9; --paper:#FBF8F1;
-  --ink:#0E1B2C; --ink-soft:#1F2D40; --ink-mute:#4A5668; --ink-fade:#7A8497;
-  --rule:#C8BFA8; --rule-soft:#DCD3BC; --accent:#B85426; --accent-warm:#D17244;
-  --leaf:#2F5D3C; --gold:#8B6914;
-  --serif:'Fraunces',Georgia,serif; --sans:'Inter',-apple-system,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
-}
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body { font-family:var(--sans); background:var(--cream); color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
-.container { max-width:1100px; margin:0 auto; padding:0 32px; }
-.narrow { max-width:860px; margin:0 auto; padding:0 32px; }
-.nav { position:sticky; top:0; z-index:100; background:rgba(245,241,232,0.92); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:0.5px solid var(--rule-soft); padding:18px 0; }
-.nav-inner { display:flex; justify-content:space-between; align-items:center; }
-.logo { font-family:var(--serif); font-size:24px; font-weight:500; letter-spacing:-0.02em; color:var(--ink); text-decoration:none; display:flex; align-items:center; gap:10px; }
-.logo-mark { width:22px; height:22px; position:relative; }
-.logo-mark::before,.logo-mark::after { content:''; position:absolute; inset:0; border:1.5px solid var(--ink); border-radius:50%; }
-.logo-mark::after { inset:5px; background:var(--accent); border:none; }
-.nav-links { display:flex; gap:32px; align-items:center; }
-.nav-links a { color:var(--ink-soft); text-decoration:none; font-size:14px; transition:color 0.2s; }
-.nav-links a:hover { color:var(--accent); }
-.cta-link { background:var(--ink); color:var(--cream)!important; padding:10px 20px; border-radius:2px; font-size:13px!important; }
-
-.page-hero { border-bottom:1px solid var(--rule-soft); padding:80px 0 56px; background:var(--paper); }
-.eyebrow { font-family:var(--mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:22px; display:flex; align-items:center; gap:12px; }
-.eyebrow::before { content:''; width:28px; height:1px; background:var(--accent); }
-.page-hero h1 { font-family:var(--serif); font-size:clamp(34px,5vw,52px); font-weight:400; line-height:1.1; letter-spacing:-0.025em; margin-bottom:22px; }
-.page-hero h1 em { font-style:italic; color:var(--accent); }
-.page-lede { font-size:18px; color:var(--ink-mute); max-width:700px; line-height:1.65; }
-
-.section { padding:64px 0; border-top:1px solid var(--rule-soft); }
-.section-num { font-family:var(--mono); font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:16px; }
-.section-title { font-family:var(--serif); font-size:clamp(24px,3.2vw,34px); font-weight:500; line-height:1.18; letter-spacing:-0.02em; margin-bottom:18px; }
-.section-title em { font-style:italic; color:var(--accent); }
-.section-lede { font-size:17px; color:var(--ink-mute); line-height:1.65; max-width:720px; }
-
-/* TIER CARDS */
-.tiers { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:8px; }
-.tier { background:var(--cream); border:1px solid var(--rule-soft); border-radius:10px; padding:32px 28px; display:flex; flex-direction:column; }
-.tier.featured { border-color:var(--accent); border-width:1.5px; box-shadow:0 8px 30px rgba(184,84,38,0.06); }
-.tier-name { font-family:var(--serif); font-size:24px; font-weight:500; color:var(--ink); }
-.tier-avail { font-family:var(--mono); font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; border-radius:999px; display:inline-block; margin-top:12px; }
-.avail-now { background:rgba(47,93,60,0.1); color:var(--leaf); border:0.5px solid rgba(47,93,60,0.3); }
-.avail-partner { background:rgba(184,84,38,0.1); color:var(--accent); border:0.5px solid rgba(184,84,38,0.3); }
-.avail-consult { background:rgba(139,105,20,0.1); color:var(--gold); border:0.5px solid rgba(139,105,20,0.3); }
-.tier-price { font-family:var(--serif); font-size:38px; font-weight:500; color:var(--ink); letter-spacing:-0.02em; margin:20px 0 4px; }
-.tier-price .sub { font-family:var(--sans); font-size:13px; color:var(--ink-fade); font-weight:400; }
-.tier-for { font-size:13.5px; color:var(--ink-fade); margin-bottom:18px; }
-.tier-list { list-style:none; flex:1; }
-.tier-list li { font-size:14px; color:var(--ink-soft); line-height:1.5; padding:9px 0 9px 22px; position:relative; border-bottom:1px solid var(--rule-soft); }
-.tier-list li:last-child { border-bottom:none; }
-.tier-list li::before { content:'+'; position:absolute; left:0; color:var(--accent); font-weight:600; }
-.tier-cta { margin-top:22px; text-align:center; padding:13px; border-radius:3px; text-decoration:none; font-size:14px; font-weight:500; transition:all 0.2s; }
-.tier-cta.solid { background:var(--ink); color:var(--cream); }
-.tier-cta.solid:hover { background:var(--accent); }
-.tier-cta.ghost { border:1px solid var(--rule); color:var(--ink); }
-.tier-cta.ghost:hover { border-color:var(--accent); color:var(--accent); }
-
-/* MATRIX */
-.matrix { width:100%; border-collapse:collapse; margin-top:32px; background:var(--paper); border:1px solid var(--rule-soft); border-radius:8px; overflow:hidden; }
-.matrix th, .matrix td { padding:14px 16px; text-align:center; border-bottom:1px solid var(--rule-soft); font-size:14px; }
-.matrix th { background:var(--cream-dark); font-family:var(--mono); font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink); }
-.matrix td:first-child, .matrix th:first-child { text-align:left; }
-.matrix td.feature { color:var(--ink-soft); font-weight:500; }
-.matrix .yes { color:var(--leaf); font-weight:600; }
-.matrix .no { color:var(--ink-fade); }
-.matrix tr:last-child td { border-bottom:none; }
-
-.note { background:var(--paper); border:1px solid var(--rule-soft); border-left:3px solid var(--leaf); border-radius:6px; padding:20px 24px; margin-top:28px; font-size:14.5px; color:var(--ink-mute); line-height:1.65; }
-.note strong { color:var(--ink); }
-
-.cta-section { background:var(--ink); color:var(--cream); padding:76px 0; text-align:center; }
-.cta-section h2 { font-family:var(--serif); font-size:clamp(26px,4vw,38px); font-weight:400; line-height:1.2; margin-bottom:16px; }
-.cta-section h2 em { font-style:italic; color:var(--accent-warm); }
-.cta-section p { color:rgba(245,241,232,0.72); max-width:540px; margin:0 auto 30px; font-size:16px; }
-.btn-primary { display:inline-flex; align-items:center; gap:10px; background:var(--accent); color:var(--cream); padding:15px 30px; border-radius:2px; text-decoration:none; font-size:15px; font-weight:500; }
-.btn-primary:hover { background:var(--accent-warm); }
-
-footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); padding:48px 0 32px; }
-.footer-links { display:flex; gap:24px; margin-bottom:24px; flex-wrap:wrap; }
-.footer-links a { font-size:13px; color:var(--ink-soft); text-decoration:none; }
-.footer-bottom { display:flex; justify-content:space-between; font-family:var(--mono); font-size:11px; color:var(--ink-fade); flex-wrap:wrap; gap:12px; }
-
-@media (max-width:820px){ .nav-links{ display:none; } .tiers{ grid-template-columns:1fr; } .matrix{ font-size:12px; } .matrix th,.matrix td{ padding:10px 8px; } }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/hli.css">
 </head>
 <body>
 
-<nav class="nav"><div class="container nav-inner">
-  <a href="/" class="logo"><span class="logo-mark"></span>Tessera</a>
-  <div class="nav-links">
-    <a href="/#how">How it works</a>
-    <a href="/engine">Engine</a>
-    <a href="/packages">Packages</a>
-    <a href="/learn">Learn</a>
-    <a href="https://calendly.com/company-kalman-labs/30min" class="cta-link" target="_blank" rel="noopener noreferrer">Book consultation</a>
+<nav class="nav light" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><span class="brand-mark"></span>Antiaging Labs</a>
+    <div class="nav-mid" id="navmid">
+      <a href="/packages">Diagnostics</a><a href="/program">Program</a><a href="/research">Research</a><a href="/learn">Field Notes</a>
+    </div>
+    <div class="nav-right">
+      <a class="pill nav-cta" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a consultation</a>
+      <button class="nav-toggle" id="navtoggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
   </div>
-</div></nav>
+</nav>
 
-<section class="page-hero"><div class="narrow">
-  <div class="eyebrow">Packages</div>
-  <h1>One engine. <em>You choose how much data it reads.</em></h1>
-  <p class="page-lede">
-    Every package runs on the same reasoning engine and writes to the same health record. Blood is the
-    foundation. Genome, wearable and imaging data plug into that record over time, and your protocol gets
-    more precise as you add more. Start where it makes sense; add later without starting over.
-  </p>
-</div></section>
+<!-- HERO -->
+<section class="sec" style="padding-top:64px;">
+  <div class="wrap">
+    <div class="sec-head" style="text-align:left;">
+      <p class="kicker">Diagnostics</p>
+      <h2 class="sec-title">Build the complete picture <span class="muted">of how you're aging.</span></h2>
+      <p class="sec-intro">Four ways to measure your biology, all reading into one health record and one engine. Start with bloodwork and add genome and imaging as it makes sense for you. The more we measure, the more precise your protocol gets.</p>
+    </div>
+    <!-- modality cards -->
+    <div class="frow" style="grid-template-columns:repeat(2,1fr);">
+      <div class="fcard"><div class="fn" style="color:var(--sage,#5E7E6B);">AVAILABLE NOW</div><h3>Advanced blood panel</h3><p>50+ longevity markers most checkups skip, read against South Asian reference ranges, with biological age before and after.</p><a class="textlink" href="/blood-test">See the panel →</a></div>
+      <div class="fcard"><div class="fn">VIA PARTNER LAB</div><h3>Whole-genome sequencing</h3><p>Read once, used forever. Risk, pharmacogenomics and gene-informed protocol changes that sharpen every future cycle.</p><a class="textlink" href="/genomics">Explore genomics →</a></div>
+      <div class="fcard"><div class="fn">SELECT CITIES</div><h3>DEXA body composition</h3><p>Fat, muscle, visceral fat and bone density, the true baseline the scale can't give you.</p><a class="textlink" href="/imaging">Explore imaging →</a></div>
+      <div class="fcard"><div class="fn">WHEN INDICATED</div><h3>Whole-body MRI</h3><p>A radiation-free look inside the body for the silent things that never show up in blood.</p><a class="textlink" href="/imaging">Explore imaging →</a></div>
+    </div>
+  </div>
+</section>
 
 <!-- TIERS -->
-<section class="section"><div class="container">
-  <div class="tiers">
-
-    <div class="tier">
-      <div class="tier-name">Essential</div>
-      <span class="tier-avail avail-now">Available now</span>
-      <div class="tier-price">₹18,000<span class="sub"> / 90-day cycle</span></div>
-      <div class="tier-for">For most people, the right place to start.</div>
-      <ul class="tier-list">
-        <li>50+ blood markers (Day 1 and Day 90)</li>
-        <li>Biological age (PhenoAge), before and after</li>
-        <li>Personalized 4-lever protocol</li>
-        <li>Bi-weekly coaching across 90 days</li>
-        <li>20+ page report, every finding traced to a rule</li>
-      </ul>
-      <a class="tier-cta solid" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Start Essential</a>
+<section class="sec sec-alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Packages</p>
+      <h2 class="sec-title">Three ways to start. <span class="muted">One record that compounds.</span></h2>
+      <p class="sec-intro">Each package switches on more data modules. Same engine, same report, same longitudinal record. Add data over time and nothing gets re-bought.</p>
     </div>
-
-    <div class="tier featured">
-      <div class="tier-name">Deep</div>
-      <span class="tier-avail avail-partner">Available via partner</span>
-      <div class="tier-price">₹35,000<span class="sub"> / cycle + one-time genome</span></div>
-      <div class="tier-for">For serious optimizers who want personalization that compounds.</div>
-      <ul class="tier-list">
-        <li>Everything in Essential</li>
-        <li>One-time genome (partner lab) for protocol personalization</li>
-        <li>Wearable + CGM data integrated</li>
-        <li>Deeper marker panel</li>
-        <li>Genome enriches every future cycle, no re-test needed</li>
-      </ul>
-      <a class="tier-cta solid" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Talk to us about Deep</a>
+    <div class="tiers">
+      <div class="tier">
+        <div class="badge">Available now</div>
+        <h3>Essential</h3>
+        <div class="price">₹18,000</div>
+        <div class="avail">per 90-day cycle</div>
+        <ul>
+          <li>50+ blood markers, Day 1 and Day 90</li>
+          <li>Biological age (PhenoAge), before and after</li>
+          <li>Personalized 4-lever protocol</li>
+          <li>Bi-weekly coaching across 90 days</li>
+          <li>20+ page report, every finding traced to a rule</li>
+        </ul>
+        <a class="pill pill-dark" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Start Essential</a>
+      </div>
+      <div class="tier feature">
+        <div class="badge">Available via partner</div>
+        <h3>Deep</h3>
+        <div class="price">₹35,000</div>
+        <div class="avail">per cycle + one-time genome</div>
+        <ul>
+          <li>Everything in Essential</li>
+          <li>One-time genome (partner lab) for personalization</li>
+          <li>Wearable + CGM data integrated</li>
+          <li>Deeper marker panel</li>
+          <li>Genome enriches every future cycle, no re-test</li>
+        </ul>
+        <a class="pill pill-accent" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Talk to us about Deep</a>
+      </div>
+      <div class="tier">
+        <div class="badge">By consultation</div>
+        <h3>Comprehensive</h3>
+        <div class="price">From ₹75,000</div>
+        <div class="avail">per year · select cities</div>
+        <ul>
+          <li>Everything in Deep</li>
+          <li>DEXA body composition + bone density (referral)</li>
+          <li>Whole-body MRI / coronary-calcium where indicated</li>
+          <li>Quarterly retests and ongoing protocol updates</li>
+          <li>Priority coach access</li>
+        </ul>
+        <a class="pill pill-ghost" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a consultation</a>
+      </div>
     </div>
+  </div>
+</section>
 
-    <div class="tier">
-      <div class="tier-name">Comprehensive</div>
-      <span class="tier-avail avail-consult">By consultation</span>
-      <div class="tier-price">From ₹75,000<span class="sub"> / year</span></div>
-      <div class="tier-for">For a full-body baseline. Select cities.</div>
-      <ul class="tier-list">
-        <li>Everything in Deep</li>
-        <li>DEXA body composition + bone density (referral)</li>
-        <li>Coronary-calcium / CCTA where indicated (referral)</li>
-        <li>Quarterly retests and ongoing protocol updates</li>
-        <li>Priority coach access</li>
-      </ul>
-      <a class="tier-cta ghost" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a consultation</a>
+<!-- MATRIX -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">What's included</p>
+      <h2 class="sec-title">The same record, <span class="muted">more inputs.</span></h2>
+      <p class="sec-intro">Each data type is a module that normalizes into one health record and feeds the same engine.</p>
     </div>
-
+    <div style="overflow-x:auto;">
+    <table class="matrix">
+      <thead><tr><th>Data module</th><th>Essential</th><th>Deep</th><th>Comprehensive</th></tr></thead>
+      <tbody>
+        <tr><td>Blood panel (50+ markers)</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Biological age + retest</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Lifestyle + family-history intake</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Wearable / CGM data</td><td class="n">·</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Genome (one-time)</td><td class="n">·</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>DEXA body composition + bone</td><td class="n">·</td><td class="n">·</td><td class="y">✓ referral</td></tr>
+        <tr><td>Whole-body MRI / coronary calcium</td><td class="n">·</td><td class="n">·</td><td class="y">✓ referral</td></tr>
+        <tr><td>Retest cadence</td><td>Day 90</td><td>Day 90</td><td>Quarterly</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="callout">
+      <strong>Straight about availability.</strong> Essential is live today. Deep runs through a genome partner and integrated wearables, set up during onboarding. Comprehensive's scans are arranged by referral to partner imaging centers in select cities, on clinical indication, never sold as routine. We only recommend a modality when it will change your plan.
+    </div>
   </div>
-</div></section>
+</section>
 
-<!-- MODALITY MATRIX -->
-<section class="section"><div class="narrow">
-  <span class="section-num">What's included</span>
-  <h2 class="section-title">The same record, <em>more inputs.</em></h2>
-  <p class="section-lede">Each data type is a module that normalizes into one Tessera health record and feeds the same engine.</p>
-</div>
-<div class="container">
-  <table class="matrix">
-    <thead><tr><th>Data module</th><th>Essential</th><th>Deep</th><th>Comprehensive</th></tr></thead>
-    <tbody>
-      <tr><td class="feature">Blood panel (50+ markers)</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-      <tr><td class="feature">Biological age + retest</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-      <tr><td class="feature">Lifestyle + family-history intake</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-      <tr><td class="feature">Wearable / CGM data</td><td class="no">·</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-      <tr><td class="feature">Genome (one-time)</td><td class="no">·</td><td class="yes">✓</td><td class="yes">✓</td></tr>
-      <tr><td class="feature">DEXA body composition + bone</td><td class="no">·</td><td class="no">·</td><td class="yes">✓ (referral)</td></tr>
-      <tr><td class="feature">Coronary calcium / CCTA</td><td class="no">·</td><td class="no">·</td><td class="yes">✓ (referral)</td></tr>
-      <tr><td class="feature">Retest cadence</td><td>Day 90</td><td>Day 90</td><td>Quarterly</td></tr>
-    </tbody>
-  </table>
-
-  <div class="note">
-    <strong>Straight about availability.</strong> Essential is live today. Deep runs through a genome
-    partner and integrated wearables, set up during onboarding. Comprehensive's scans are arranged by
-    referral to partner imaging centres in select cities, on clinical indication, not sold as routine
-    screening. We add a module only when it genuinely changes your protocol, never to inflate the bill.
+<!-- END CTA -->
+<section class="sec sec-dark">
+  <div class="wrap">
+    <div class="endcta">
+      <h2>Not sure where to start?</h2>
+      <p>Most people start with Essential. In a 30-minute consultation we'll tell you honestly which modules are worth it for you, and which aren't.</p>
+      <a class="pill pill-accent" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a free consultation →</a>
+    </div>
   </div>
-</div></section>
+</section>
 
-<!-- WHY MODULES -->
-<section class="section"><div class="narrow">
-  <span class="section-num">Why it's built this way</span>
-  <h2 class="section-title">Buy a data type once. It <em>improves every protocol after.</em></h2>
-  <p class="section-lede">
-    Your genome doesn't change, so you read it once and it personalizes every future cycle. Your wearable
-    streams continuously, so each retest is richer than the last. Blood is the moving picture you re-measure
-    every 90 days. Because everything lands in one record, the engine reasons over your full history, not a
-    single snapshot. This is why Tessera is a record and an engine, not just a test.
-  </p>
-  <p style="margin-top:18px;"><a href="/engine" style="font-family:var(--mono);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);text-decoration:none;">See how the engine reads it →</a></p>
-</div></section>
-
-<section class="cta-section"><div class="narrow">
-  <h2>Not sure which fits? <em>Start with a conversation.</em></h2>
-  <p>We'll look at any bloodwork you have, tell you what's worth measuring next, and recommend the smallest package that answers your real questions.</p>
-  <a class="btn-primary" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a free consultation →</a>
-</div></section>
-
-<footer><div class="container">
-  <div class="footer-links">
-    <a href="/">Home</a><a href="/program">Program</a><a href="/packages">Packages</a><a href="/engine">Engine</a><a href="/tessera-rulebook">Rulebook</a><a href="/learn">Learn</a><a href="/research">Research</a><a href="/privacy">Privacy</a>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><div class="foot-brand"><span class="brand-mark"></span>Antiaging Labs</div><p class="foot-tag">Precision longevity for South Asian biology. Advanced diagnostics, an open AI engine, and a protocol that measurably moves how you age.</p></div>
+      <div class="foot-col"><h5>Diagnostics</h5><a href="/blood-test">Bloodwork</a><a href="/genomics">Genomics</a><a href="/imaging">Imaging</a><a href="/packages">Packages</a></div>
+      <div class="foot-col"><h5>Learn</h5><a href="/learn">Field notes</a><a href="/research">Research</a><a href="/engine">The engine</a><a href="/tessera-rulebook">Open rulebook</a></div>
+      <div class="foot-col"><h5>Company</h5><a href="/program">Program</a><a href="/privacy">Privacy</a><a href="mailto:company@kalman-labs.com">Contact</a></div>
+    </div>
+    <div class="foot-bottom"><div>© 2026 Antiaging Labs Pvt. Ltd. · Hyderabad, India</div><div>Diagnostics</div></div>
+    <p class="foot-disc">Pricing is indicative and confirmed at consultation. Genome and imaging are provided through accredited partner labs and centers, recommended only when clinically indicated. This is health-optimization guidance, not a diagnosis, and does not replace your physician.</p>
   </div>
-  <div class="footer-bottom"><div>© 2026 TESSERA HEALTH PVT. LTD.</div><div>Hyderabad, India</div></div>
-</div></footer>
-
+</footer>
+<script>
+  var t=document.getElementById('navtoggle'),m=document.getElementById('navmid');
+  if(t){t.addEventListener('click',function(){m.classList.toggle('open');});}
+</script>
 </body>
 </html>

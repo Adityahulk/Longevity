@@ -28,7 +28,7 @@ Commit + push. That's it — every subscribe form on the site now posts real sig
 So that **subscribers actually receive an email when you publish a blog post**:
 
 1. In Buttondown: **Settings → Automations (or "RSS-to-email")**.
-2. Add your feed URL: **`https://tessera.kalman-labs.com/feed.xml`**
+2. Add your feed URL: **`https://antiaging-labs.com/feed.xml`**
 3. Choose: send automatically, or hold as a draft for you to review then send. (Start with "draft for review" so you control tone.)
 
 Now whenever a new `<item>` appears in `/feed.xml`, Buttondown turns it into an email to your list.

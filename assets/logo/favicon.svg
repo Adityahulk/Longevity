@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Tessera favicon · optimised for tiny sizes (16/32px).
-  Slightly thicker ring + larger inner disc so it survives downsampling.
--->
+<!-- Antiaging Labs favicon — DNA helix, thickened for small sizes -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <circle cx="32" cy="32" r="27" fill="none" stroke="#0E1B2C" stroke-width="6"/>
-  <circle cx="32" cy="32" r="18" fill="#B85426"/>
+  <rect width="64" height="64" rx="14" fill="#0E1B2C"/>
+  <g fill="none" stroke-linecap="round">
+    <g stroke="#D17244" stroke-width="3">
+      <line x1="23" y1="17" x2="41" y2="17"/>
+      <line x1="25" y1="24" x2="39" y2="24"/>
+      <line x1="25" y1="40" x2="39" y2="40"/>
+      <line x1="23" y1="47" x2="41" y2="47"/>
+    </g>
+    <g stroke="#D8743F" stroke-width="4.2">
+      <path d="M32 9 C 50 15, 50 25, 32 31 C 14 37, 14 47, 32 53"/>
+      <path d="M32 9 C 14 15, 14 25, 32 31 C 50 37, 50 47, 32 53"/>
+    </g>
+  </g>
 </svg>

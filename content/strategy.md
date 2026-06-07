@@ -1,6 +1,6 @@
-# Tessera Content Strategy — The Educator Engine
+# Antiaging Labs Content Strategy — The Educator Engine
 
-> **Positioning:** Tessera's founders are the public educators who translate cutting-edge aging & biomarker science into what to actually do. Not influencers. Not lifestyle gurus. The credible translators. Authority is the moat; trust is the conversion mechanism.
+> **Positioning:** Antiaging Labs's founders are the public educators who translate cutting-edge aging & biomarker science into what to actually do. Not influencers. Not lifestyle gurus. The credible translators. Authority is the moat; trust is the conversion mechanism.
 
 > **The one rule:** every piece teaches something genuinely useful even if the reader never buys. If a post only makes sense as marketing, don't publish it.
 

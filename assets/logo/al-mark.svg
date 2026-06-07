@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Antiaging Labs — DNA double-helix mark. Burnt-orange tones read on light or dark. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Antiaging Labs">
+  <title>Antiaging Labs</title>
+  <g fill="none" stroke-linecap="round">
+    <!-- rungs (lighter accent) -->
+    <g stroke="#D17244" stroke-width="2.4">
+      <line x1="22" y1="15" x2="42" y2="15"/>
+      <line x1="24" y1="22" x2="40" y2="22"/>
+      <line x1="24" y1="42" x2="40" y2="42"/>
+      <line x1="22" y1="49" x2="42" y2="49"/>
+    </g>
+    <!-- two strands (burnt orange) -->
+    <g stroke="#B85426" stroke-width="3.4">
+      <path d="M32 6 C 52 13, 52 23, 32 30 C 12 37, 12 47, 32 54"/>
+      <path d="M32 6 C 12 13, 12 23, 32 30 C 52 37, 52 47, 32 54"/>
+    </g>
+  </g>
+</svg>

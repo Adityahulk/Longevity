@@ -94,6 +94,16 @@
       "source": "/newsletter.html",
       "destination": "/newsletter",
       "permanent": true
+    },
+    {
+      "source": "/genomics.html",
+      "destination": "/genomics",
+      "permanent": true
+    },
+    {
+      "source": "/imaging.html",
+      "destination": "/imaging",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -152,6 +162,22 @@
     {
       "source": "/newsletter/",
       "destination": "/newsletter.html"
+    },
+    {
+      "source": "/genomics",
+      "destination": "/genomics.html"
+    },
+    {
+      "source": "/genomics/",
+      "destination": "/genomics.html"
+    },
+    {
+      "source": "/imaging",
+      "destination": "/imaging.html"
+    },
+    {
+      "source": "/imaging/",
+      "destination": "/imaging.html"
     },
     {
       "source": "/strategy",
