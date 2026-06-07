@@ -4,106 +4,138 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Field Notes | Tessera</title>
-<meta name="description" content="Evidence-aware writing on biomarkers, performance, biological age and South Asian health risks, translated into practical decisions.">
+<meta name="description" content="Field Notes from Tessera: the latest longevity and biohacking research, decoded in plain English. What new studies mean, what's hype, and what to do about it.">
 <link rel="icon" type="image/svg+xml" href="/assets/logo/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/png/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/png/favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css">
-<link rel="alternate" type="application/rss+xml" title="Tessera Field Notes" href="/feed.xml">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/hli.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Field Notes | Tessera">
+<meta property="og:description" content="The latest longevity research, decoded.">
+<meta property="og:image" content="https://tessera.kalman-labs.com/assets/logo/png/tessera-og-1200x630.png">
 </head>
 <body>
-<nav class="site-nav" aria-label="Primary navigation">
-  <div class="container nav-inner">
-    <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span>Tessera</a>
-    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
-    <div class="nav-links" data-nav-links>
-      <a href="/program">Program</a><a href="/#how">How it works</a><a href="/#results">Results</a><a href="/research">Science</a>
-      <a href="/learn" aria-current="page">Field Notes</a>
-      <a class="btn nav-cta" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a fit call</a>
+
+<nav class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><span class="brand-mark"></span>Tessera</a>
+    <div class="nav-mid" id="navmid">
+      <a href="/engine">Approach</a>
+      <a href="/program">Program</a>
+      <a href="/research">Research</a>
+      <a href="/learn">Field Notes</a>
+    </div>
+    <div class="nav-right">
+      <a class="pill nav-cta" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a consultation</a>
+      <button class="nav-toggle" id="navtoggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
 
-<main>
-  <header class="page-hero">
-    <div class="container page-hero-grid">
-      <div>
-        <p class="section-kicker">Tessera Field Notes</p>
-        <h1>Research for people who want to use it, not worship it.</h1>
-        <p>Biomarkers, performance and aging science translated into practical decisions, with uncertainty and evidence quality left intact.</p>
-      </div>
-      <nav class="topic-list" aria-label="Field Notes topics">
-        <a href="#latest">Latest</a><a href="/learn/biological-age">Biological age</a><a href="/learn/reference-ranges">Biomarkers</a><a href="/learn/four-levers">Interventions</a><a href="/research">Foundations</a>
-      </nav>
+<!-- EDU HERO -->
+<header class="edu-hero">
+  <div class="wrap">
+    <p class="kicker" style="color:var(--accent-2);">Tessera Field Notes</p>
+    <h1>The latest longevity research, <span class="muted">decoded.</span></h1>
+    <p class="lede">New studies and biohacking claims, read the week they land and written in plain English. What it actually means, what's hype, and what to do with it. No affiliate links, evidence tagged honestly.</p>
+    <div class="filters">
+      <a class="active" href="/learn">All</a>
+      <a href="/learn">Research</a>
+      <a href="/learn">Interventions</a>
+      <a href="/learn">Biomarkers</a>
+      <a href="/learn">Biological age</a>
     </div>
-  </header>
+  </div>
+</header>
 
-  <section class="section" id="latest">
-    <div class="container field-grid">
-      <a class="featured-post" href="/learn/mitochondrial-aging">
-        <div class="feature-visual">
-          <span class="section-kicker">Featured · Research</span>
-          <div class="diagram" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-          <span>Conceptual illustration · mutation burden by age</span>
+<!-- FEATURED -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:40px;">
+      <p class="kicker">Latest</p>
+      <h2 class="sec-title" style="font-size:clamp(26px,3vw,38px);">Worth reading this week.</h2>
+    </div>
+    <div class="feature-posts">
+      <a class="fpost dark" href="/learn/mitochondrial-aging">
+        <div class="fpost-body">
+          <div class="ftag">Research · 11 min</div>
+          <h3>Rethinking mitochondrial aging: what 750,000 genomes tell us</h3>
+          <p>A new Nature study upends the oxidative-damage theory. The mutations look like copy errors amplified by a competitive race in bone marrow, not wear and tear. What it means for antioxidants, mitophagy, and your strategy.</p>
+          <div class="fpost-foot"><span>6 June 2026</span><span>Read →</span></div>
         </div>
-        <div class="post-meta">6 June 2026 · 11 min read</div>
-        <h3>Rethinking mitochondrial aging: what 750,000 genomes tell us about longevity</h3>
-        <p>A large Nature study challenges a familiar oxidative-damage story. Here is what changed, what did not and what the findings mean for popular interventions.</p>
       </a>
-      <div>
-        <p class="section-kicker">Latest notes</p>
-        <div class="post-stack">
-          <a class="post-row" href="/learn/four-levers"><div class="post-meta">2 June 2026 · Interventions · 9 min</div><h3>The four levers that actually move your biomarkers in 90 days</h3><p>Evidence-supported actions across nutrition, training, sleep and supplements.</p></a>
-          <a class="post-row" href="/learn/biological-age"><div class="post-meta">30 May 2026 · Biological age · 8 min</div><h3>Biological age, honestly: what PhenoAge can and cannot tell you</h3><p>How to use a statistical estimate without mistaking it for a verdict.</p></a>
-          <a class="post-row" href="/learn/reference-ranges"><div class="post-meta">28 May 2026 · Biomarkers · 7 min</div><h3>Your blood report uses the wrong reference ranges</h3><p>Why population “normal” and useful preventive targets answer different questions.</p></a>
+      <a class="fpost" href="/learn/four-levers">
+        <div class="fpost-body">
+          <div class="ftag" style="color:var(--accent);">Interventions · 9 min</div>
+          <h3>The four levers that actually move your biomarkers in 90 days</h3>
+          <p>Almost everything you can change runs through four levers: nutrition, training, sleep, and a short list of supplements. What the evidence supports, ranked by how much it moves the needle.</p>
+          <div class="fpost-foot"><span>2 June 2026</span><span>Read →</span></div>
         </div>
-      </div>
+      </a>
     </div>
-  </section>
 
-  <section class="section section-alt">
-    <div class="container">
-      <p class="section-kicker">The archive</p>
-      <h2 class="section-title">Read by question, not by hype cycle.</h2>
-      <div class="posts-grid">
-        <a class="post-card" href="/learn/reference-ranges"><div class="post-meta">Reference ranges</div><h2>Why “normal” can still hide a useful signal</h2><p>How lab intervals are constructed, why they are not treatment targets, and where South Asian context matters.</p></a>
-        <a class="post-card" href="/learn/biological-age"><div class="post-meta">Measurement</div><h2>What a biological-age number is actually measuring</h2><p>PhenoAge, epigenetic clocks, error bars and the difference between a baseline and a marketing claim.</p></a>
-        <a class="post-card" href="/learn/four-levers"><div class="post-meta">Interventions</div><h2>What changes quickly, slowly or barely at all</h2><p>A practical ranking of intervention categories and the markers they can reasonably influence.</p></a>
-        <a class="post-card" href="/research"><div class="post-meta">Science foundations</div><h2>The deeper map of aging research</h2><p>Hallmarks, clocks, senescence, metabolic health and the limits of current human evidence.</p></a>
-      </div>
+    <!-- GRID -->
+    <div class="post-grid" style="grid-template-columns:repeat(3,1fr);">
+      <a class="pcard" href="/learn/biological-age"><div class="pmeta">30 May 2026 · Biological age</div><h4>Biological age, honestly: what PhenoAge can and can't tell you</h4><div class="pby">8 min read</div></a>
+      <a class="pcard" href="/learn/reference-ranges"><div class="pmeta">28 May 2026 · Reference ranges</div><h4>Your blood report uses the wrong reference ranges</h4><div class="pby">7 min read</div></a>
+      <a class="pcard" href="/research"><div class="pmeta">Reference · Foundations</div><h4>The science foundations: hallmarks, clocks, and the evidence base</h4><div class="pby">Standing page</div></a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section">
-    <div class="container newsletter-panel">
+<!-- NEWSLETTER -->
+<section class="sec sec-alt">
+  <div class="wrap">
+    <div class="nlband">
       <div>
-        <p class="section-kicker">Field Notes by email</p>
-        <h2>One careful interpretation at a time.</h2>
-        <p>New essays, useful biomarker explainers and occasional notes from building Tessera. Roughly weekly when there is something worth sending.</p>
+        <h2>Get Field Notes in your inbox.</h2>
+        <p>The important research, decoded, roughly weekly. Plus the occasional note on building an open longevity engine.</p>
       </div>
       <div>
-        <form class="signup-form" method="post" target="popupwindow" data-newsletter-form>
-          <label style="position:absolute;left:-9999px" for="learn-email">Email address</label>
-          <input id="learn-email" type="email" name="email" autocomplete="email" placeholder="you@example.com" required>
-          <button class="btn" type="submit">Subscribe</button>
+        <form class="nlform sub-form" method="post" target="popupwindow">
+          <input type="email" name="email" placeholder="you@email.com" aria-label="Email" required>
+          <button class="pill pill-accent" type="submit">Subscribe</button>
         </form>
-        <p class="form-note" data-form-note>No spam or affiliate promotions. Unsubscribe in one click.</p>
+        <div class="nlnote sub-note">Free. Unsubscribe anytime.</div>
       </div>
     </div>
-  </section>
-</main>
+  </div>
+</section>
 
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand"><a class="brand" href="/"><span class="brand-mark"></span>Tessera</a><p>Biomarker-guided performance and health optimization, with transparent reasoning and measured follow-up.</p></div>
-      <div class="footer-col"><h3>Explore</h3><a href="/program">Program</a><a href="/journey">Client journey</a><a href="/tessera-rulebook">Rulebook</a><a href="/research">Science</a></div>
-      <div class="footer-col"><h3>Read and contact</h3><a href="/learn">Field Notes</a><a href="/newsletter">Newsletter</a><a href="/privacy">Privacy</a><a href="mailto:company@kalman-labs.com">company@kalman-labs.com</a></div>
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><span class="brand-mark"></span>Tessera</div>
+        <p class="foot-tag">Precision longevity for South Asian biology. An open, AI-driven engine that measures how you age and helps you change it.</p>
+      </div>
+      <div class="foot-col"><h5>Product</h5><a href="/program">Program</a><a href="/packages">Packages</a><a href="/engine">The engine</a><a href="/tessera-rulebook">Open rulebook</a><a href="/blood-test">The panel</a></div>
+      <div class="foot-col"><h5>Learn</h5><a href="/learn">Field notes</a><a href="/newsletter">Newsletter</a><a href="/research">Research</a><a href="/sample-report">Sample report</a></div>
+      <div class="foot-col"><h5>Company</h5><a href="/strategy">About</a><a href="/journey">Your journey</a><a href="/privacy">Privacy</a><a href="mailto:company@kalman-labs.com">Contact</a></div>
     </div>
-    <div class="footer-bottom"><span>© 2026 Tessera Health Pvt. Ltd. · Hyderabad, India</span><span>Health optimization coaching, not medical diagnosis or treatment.</span></div>
+    <div class="foot-bottom"><div>© 2026 Tessera Health Pvt. Ltd. · Hyderabad, India</div><div>Field Notes</div></div>
   </div>
 </footer>
-<script src="/assets/site.js" defer></script>
+
+<script>
+  var nav=document.getElementById('nav');
+  function onScroll(){ if(window.scrollY>40){nav.classList.add('solid');}else{nav.classList.remove('solid');} }
+  onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+  var t=document.getElementById('navtoggle'), m=document.getElementById('navmid');
+  if(t){ t.addEventListener('click',function(){ m.classList.toggle('open'); nav.classList.add('solid'); }); }
+  window.NEWSLETTER_USER="BUTTONDOWN_USERNAME";
+  document.querySelectorAll('.sub-form').forEach(function(f){
+    f.addEventListener('submit',function(e){
+      var note=f.parentNode.querySelector('.sub-note'), u=window.NEWSLETTER_USER;
+      if(!u||u==="BUTTONDOWN_USERNAME"){ e.preventDefault(); if(note){note.textContent="Newsletter launching shortly, check back soon.";} return; }
+      f.action="https://buttondown.com/api/emails/embed-subscribe/"+u;
+      try{window.open('https://buttondown.com/'+u,'popupwindow');}catch(_){}
+    });
+  });
+</script>
 </body>
 </html>

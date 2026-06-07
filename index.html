@@ -3,329 +3,247 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tessera | Measure how your biology responds</title>
-<meta name="description" content="Tessera connects biomarkers, training, recovery and lifestyle data to build a focused 90-day protocol, then re-tests under comparable conditions to measure the response.">
+<title>Tessera | Precision longevity for South Asian biology</title>
+<meta name="description" content="Tessera measures how your body is aging from 50+ biomarkers, builds a personalized 90-day protocol from an open clinical engine, and re-tests to show what changed. Built for South Asian biology.">
 <link rel="icon" type="image/svg+xml" href="/assets/logo/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/png/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/png/favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/hli.css">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://tessera.kalman-labs.com/">
-<meta property="og:title" content="Tessera | Measure how your biology responds">
-<meta property="og:description" content="A measured 90-day system connecting biomarkers, training, recovery and lifestyle.">
+<meta property="og:title" content="Tessera | Precision longevity for South Asian biology">
+<meta property="og:description" content="Measure how you're aging. Then change it. An open, AI-driven longevity engine built for South Asian bodies.">
 <meta property="og:image" content="https://tessera.kalman-labs.com/assets/logo/png/tessera-og-1200x630.png">
 </head>
 <body>
 
-<nav class="site-nav" aria-label="Primary navigation">
-  <div class="container nav-inner">
-    <a class="brand" href="/" aria-label="Tessera home"><span class="brand-mark" aria-hidden="true"></span>Tessera</a>
-    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle>
-      <span></span><span></span><span></span>
-    </button>
-    <div class="nav-links" data-nav-links>
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><span class="brand-mark"></span>Tessera</a>
+    <div class="nav-mid" id="navmid">
+      <a href="/engine">Approach</a>
       <a href="/program">Program</a>
-      <a href="#how">How it works</a>
-      <a href="#results">Results</a>
-      <a href="/research">Science</a>
+      <a href="/research">Research</a>
       <a href="/learn">Field Notes</a>
-      <a class="btn nav-cta" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a consultation</a>
+    </div>
+    <div class="nav-right">
+      <a class="pill nav-cta" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a consultation</a>
+      <button class="nav-toggle" id="navtoggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
 
-<main>
-  <header class="hero">
-    <div class="container hero-grid">
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap hero-in">
+    <p class="kicker">Precision longevity · South Asia</p>
+    <h1>Measure how you're aging. <span class="muted">Then change it.</span></h1>
+    <p class="lede">We read your biology from 50+ biomarkers, build a personalized 90-day protocol from an open clinical engine, and re-test to prove what changed. Calibrated for South Asian bodies, not studies that excluded them.</p>
+    <a class="pill pill-accent" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a consultation →</a>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="n">50+</div><div class="l">Biomarkers measured</div></div>
+      <div class="hero-stat"><div class="n">90 days</div><div class="l">Measure → change → re-measure</div></div>
+      <div class="hero-stat"><div class="n">217</div><div class="l">Open clinical rules</div></div>
+      <div class="hero-stat"><div class="n">9</div><div class="l">Reasoning agents</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- PROBLEM -->
+<section class="sec" id="problem">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">The low-hanging fruit</p>
+      <h2 class="sec-title">Most disease shows up in your blood <span class="muted">years before symptoms.</span></h2>
+      <p class="sec-intro">A standard checkup is built to catch illness once it arrives. The signals that predict how you'll age drift quietly long before that, and almost no one is measuring them properly, least of all for South Asian bodies.</p>
+    </div>
+    <div class="frow">
+      <div class="fcard"><div class="fn">01 / METABOLIC</div><h3>The early markers are missed</h3><p>Insulin, ApoB and inflammation move years before glucose or cholesterol flag anything. Standard panels stop too early.</p></div>
+      <div class="fcard"><div class="fn">02 / CALIBRATION</div><h3>Built for other bodies</h3><p>Reference ranges and longevity products were trained on populations that aren't South Asian, who develop metabolic risk earlier, at lower BMI.</p></div>
+      <div class="fcard"><div class="fn">03 / FEEDBACK</div><h3>No before and after</h3><p>Even good advice has no measured loop. You never actually learn what worked for your own biology.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE SYSTEM (split + sample report) -->
+<section class="sec sec-alt">
+  <div class="wrap split">
+    <div>
+      <p class="kicker">A complete longevity system</p>
+      <h2 class="sec-title">One baseline. One protocol. <span class="muted">One comparable retest.</span></h2>
+      <p class="sec-intro">Tessera is a measured 90-day loop, not a one-off health score. We establish where you are, change the few things that matter most, and prove the result on the same panel.</p>
+      <div class="steps" style="grid-template-columns:1fr 1fr;margin-top:40px;">
+        <div class="step"><div class="sn">01 · MEASURE</div><h3>Read your biology</h3><p>A home blood draw across 50+ markers plus a structured intake. We compute your biological age.</p></div>
+        <div class="step"><div class="sn">02 · PERSONALIZE</div><h3>Build the protocol</h3><p>The engine turns your numbers into a focused plan, calibrated to you, not generic advice.</p></div>
+        <div class="step"><div class="sn">03 · ACT</div><h3>Run 90 days</h3><p>Nutrition, training, recovery and supplements, with bi-weekly human check-ins.</p></div>
+        <div class="step"><div class="sn">04 · RE-MEASURE</div><h3>Prove the change</h3><p>The same panel at Day 90. The measured delta, marker by marker.</p></div>
+      </div>
+      <p style="margin-top:34px;"><a class="pill pill-dark" href="/program">See the full program →</a></p>
+    </div>
+    <div>
+      <div class="bigcard">
+        <div class="bigcard-top"><span>Sample report</span><span>Illustrative</span></div>
+        <div class="bigcard-age"><div class="big">42.1</div><div class="m">Biological age<br><strong>Chronological 38</strong> · PhenoAge</div></div>
+        <div class="brow"><span>ApoB</span><span class="v">112 mg/dL</span><span class="tag tag-flag">High</span></div>
+        <div class="brow"><span>Fasting insulin</span><span class="v">14 µIU/mL</span><span class="tag tag-flag">Watch</span></div>
+        <div class="brow"><span>hs-CRP</span><span class="v">2.8 mg/L</span><span class="tag tag-flag">Watch</span></div>
+        <div class="brow"><span>Vitamin D</span><span class="v">21 ng/mL</span><span class="tag tag-flag">Low</span></div>
+        <div class="brow"><span>HbA1c</span><span class="v">5.3 %</span><span class="tag tag-ok">Optimal</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE ENGINE (dark, split) -->
+<section class="sec sec-dark">
+  <div class="wrap split">
+    <div>
+      <div class="bigcard" style="background:var(--dark-2);border-color:var(--line-dark);box-shadow:none;">
+        <div class="bigcard-top" style="background:#0b1828;border-color:var(--line-dark);color:rgba(255,255,255,.5);"><span>Engine · run trace</span><span>auditable</span></div>
+        <div class="brow" style="border-color:var(--line-dark);"><span style="color:rgba(255,255,255,.85)">Normalize labs</span><span class="v" style="color:var(--accent-2)">biomarkers.json</span><span></span></div>
+        <div class="brow" style="border-color:var(--line-dark);"><span style="color:rgba(255,255,255,.85)">Evaluate rules</span><span class="v" style="color:var(--accent-2)">217 rules</span><span></span></div>
+        <div class="brow" style="border-color:var(--line-dark);"><span style="color:rgba(255,255,255,.85)">Phenotype + root cause</span><span class="v" style="color:var(--accent-2)">phenotype.json</span><span></span></div>
+        <div class="brow" style="border-color:var(--line-dark);"><span style="color:rgba(255,255,255,.85)">Safety screen</span><span class="v" style="color:var(--accent-2)">hard gate</span><span></span></div>
+        <div class="brow" style="border-color:transparent;"><span style="color:rgba(255,255,255,.85)">Author protocol</span><span class="v" style="color:var(--accent-2)">protocol.json</span><span></span></div>
+      </div>
+    </div>
+    <div>
+      <p class="kicker">Meet the engine</p>
+      <h2 class="sec-title">Not a black box. <span class="muted">An open reasoning engine.</span></h2>
+      <p class="sec-intro">Most longevity products are an opaque algorithm and a glossy PDF. Tessera is the opposite. Nine deterministic agents run your data against a clinical rulebook we publish in full, so you, or your doctor, can inspect exactly why every recommendation was made.</p>
+      <p style="margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;">
+        <a class="pill pill-light" href="/engine">How it reasons →</a>
+        <a class="pill pill-on-dark" href="/tessera-rulebook">Read the rulebook</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SCIENCE -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Grounded in the science</p>
+      <h2 class="sec-title">We don't invent biology. <span class="muted">We cite it.</span></h2>
+      <p class="sec-intro">Every recommendation traces to published evidence and an explicit tier. The hallmarks of aging, validated biological-age models, and the interventions with real peer-reviewed support.</p>
+    </div>
+    <div class="frow">
+      <div class="fcard"><div class="fn">FRAMEWORK</div><h3>12 hallmarks of aging</h3><p>The protocol maps to the mechanisms the field actually agrees drive aging.</p></div>
+      <div class="fcard"><div class="fn">MEASUREMENT</div><h3>PhenoAge · Levine 2018</h3><p>A validated, blood-based biological-age model, recomputed at Day 90.</p></div>
+      <div class="fcard"><div class="fn">EVIDENCE</div><h3>Tiered and sourced</h3><p>Strong, moderate or early. We tell you which, and never dress up the difference.</p></div>
+    </div>
+    <p style="margin-top:36px;"><a class="pill pill-ghost" href="/research">Read the research →</a></p>
+  </div>
+</section>
+
+<!-- FIELD NOTES PREVIEW -->
+<section class="sec sec-alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Field notes</p>
+      <h2 class="sec-title">The latest longevity research, <span class="muted">decoded.</span></h2>
+      <p class="sec-intro">New studies and biohacking claims, read the week they land and written in plain English: what it means, what's hype, and what to do.</p>
+    </div>
+    <div class="post-grid" style="grid-template-columns:repeat(3,1fr);">
+      <a class="pcard" href="/learn/mitochondrial-aging"><div class="pmeta">6 Jun 2026 · Research</div><h4>Rethinking mitochondrial aging: what 750,000 genomes tell us</h4><div class="pby">11 min read</div></a>
+      <a class="pcard" href="/learn/four-levers"><div class="pmeta">2 Jun 2026 · Interventions</div><h4>The four levers that actually move your biomarkers in 90 days</h4><div class="pby">9 min read</div></a>
+      <a class="pcard" href="/learn/biological-age"><div class="pmeta">30 May 2026 · Biological age</div><h4>Biological age, honestly: what PhenoAge can and can't tell you</h4><div class="pby">8 min read</div></a>
+    </div>
+    <p style="margin-top:34px;"><a class="pill pill-ghost" href="/learn">All field notes →</a></p>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="sec">
+  <div class="wrap">
+    <div class="nlband">
       <div>
-        <p class="section-kicker">Precision longevity · South Asia</p>
-        <h1>Measure how you're aging. <em>Then change it.</em></h1>
-        <p class="hero-lede">
-          Tessera turns your bloodwork into a personalized 90-day protocol, then re-tests to show
-          what actually changed. Calibrated for South Asian bodies, not studies that excluded them.
-        </p>
-        <div class="actions">
-          <a class="btn" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a consultation</a>
-          <a class="btn btn-secondary" href="#how">See how it works</a>
-        </div>
-        <p class="hero-note">A 30-minute conversation. No diagnosis, no pressure, no promise of a predetermined result.</p>
+        <h2>One useful thing about your biology, most weeks.</h2>
+        <p>Research decoded, biomarker explainers, and honest reads on longevity claims. No hype, no selling.</p>
       </div>
-
-      <aside class="report-preview" aria-label="Illustrative sample report preview">
-        <div class="report-head"><span>Sample baseline</span><span>Illustrative data</span></div>
-        <div class="report-age">
-          <strong>38.7</strong>
-          <span>PhenoAge estimate · chronological age 36</span>
-        </div>
-        <div class="report-row"><span>ApoB</span><span><code>108 mg/dL</code> <i class="tag">Review</i></span></div>
-        <div class="report-row"><span>Fasting insulin</span><span><code>12.4 μIU/mL</code> <i class="tag">Review</i></span></div>
-        <div class="report-row"><span>hs-CRP</span><span><code>0.8 mg/L</code> <i class="tag tag-good">In range</i></span></div>
-        <div class="report-row"><span>Vitamin D</span><span><code>24 ng/mL</code> <i class="tag">Review</i></span></div>
-        <div class="report-foot">This interface demonstrates report structure only. It is not a client result or medical diagnosis.</div>
-      </aside>
-    </div>
-  </header>
-
-  <section class="section section-alt" id="problem">
-    <div class="container signal-layout">
       <div>
-        <p class="section-kicker">The missing layer</p>
-        <h2 class="section-title">Performance data is useful. It is not the whole picture.</h2>
-        <p class="section-intro">
-          Pace, load, sleep scores and body weight describe outputs. They do not reliably show the
-          metabolic and physiological constraints underneath them.
-        </p>
-      </div>
-      <div class="signal-list">
-        <article class="signal-item">
-          <code>01 / METABOLIC</code>
-          <div><h3>Glucose can look fine while insulin is already working too hard.</h3><p>Fasting insulin, HbA1c and triglyceride patterns add context that a single glucose value misses.</p></div>
-        </article>
-        <article class="signal-item">
-          <code>02 / CARDIO</code>
-          <div><h3>Fitness does not automatically remove lipid risk.</h3><p>ApoB, Lp(a) and related markers can reveal risk that training volume or LDL-C alone cannot settle.</p></div>
-        </article>
-        <article class="signal-item">
-          <code>03 / RECOVERY</code>
-          <div><h3>Low energy is not always a motivation problem.</h3><p>Iron status, thyroid context, inflammation and nutrient deficiencies can change how training and recovery feel.</p></div>
-        </article>
+        <form class="nlform sub-form" method="post" target="popupwindow">
+          <input type="email" name="email" placeholder="you@email.com" aria-label="Email" required>
+          <button class="pill pill-accent" type="submit">Subscribe</button>
+        </form>
+        <div class="nlnote sub-note">Free. Unsubscribe anytime.</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section" id="how">
-    <div class="container">
-      <p class="section-kicker">The 90-day system</p>
-      <h2 class="section-title">One baseline. One focused protocol. One comparable retest.</h2>
-      <p class="section-intro">The work is structured as a feedback loop, not a one-off health score.</p>
-      <div class="steps">
-        <article class="step">
-          <div class="step-num">01 / Measure</div>
-          <h3>Build the baseline</h3>
-          <p>Bloodwork is combined with medical history, current medications, family history, diet, training, sleep, stress and relevant wearable context.</p>
-        </article>
-        <article class="step">
-          <div class="step-num">02 / Interpret</div>
-          <h3>Prioritize the signal</h3>
-          <p>Findings are linked to published evidence, checked for interactions and contraindications, and organized around the few constraints most worth addressing first.</p>
-        </article>
-        <article class="step">
-          <div class="step-num">03 / Act</div>
-          <h3>Run a realistic protocol</h3>
-          <p>Nutrition, training, recovery and supplements are translated into specific actions that fit the client’s schedule, preferences and starting capacity.</p>
-        </article>
-        <article class="step">
-          <div class="step-num">04 / Re-measure</div>
-          <h3>Review the response</h3>
-          <p>The relevant panel is repeated under comparable conditions. Marker-level changes, adherence and measurement limitations are reviewed together.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+<!-- CLOSING CTA -->
+<section class="endcta">
+  <div class="wrap">
+    <p class="kicker" style="justify-content:center;">Start here</p>
+    <h2>See how you're aging, on the inside.</h2>
+    <p>A 30-minute consultation. No diagnosis, no pressure, no promise of a predetermined result.</p>
+    <a class="pill pill-dark" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a consultation →</a>
+  </div>
+</section>
 
-  <section class="section section-alt" id="deliverables">
-    <div class="container deliverables">
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
       <div>
-        <p class="section-kicker">What clients receive</p>
-        <h2 class="section-title">Enough detail to act. Enough restraint to stay focused.</h2>
-        <div class="deliverable-list">
-          <article class="deliverable"><code>01</code><h3>Baseline analysis</h3><p>A clear reading of the important markers, patterns, uncertainties and questions that need clinical escalation.</p></article>
-          <article class="deliverable"><code>02</code><h3>Prioritized protocol</h3><p>Concrete actions across nutrition, training, recovery and supplements, sequenced by leverage.</p></article>
-          <article class="deliverable"><code>03</code><h3>Human check-ins</h3><p>Regular reviews of adherence, constraints, wearable trends and changes that need adjustment.</p></article>
-          <article class="deliverable"><code>04</code><h3>Outcome report</h3><p>A comparable before-and-after review that includes what moved, what did not and what remains uncertain.</p></article>
-        </div>
+        <div class="foot-brand"><span class="brand-mark"></span>Tessera</div>
+        <p class="foot-tag">Precision longevity for South Asian biology. An open, AI-driven engine that measures how you age and helps you change it.</p>
       </div>
-      <aside class="protocol-preview" aria-label="Sample protocol excerpt">
-        <p class="section-kicker">Illustrative protocol excerpt</p>
-        <h3>Priority: improve glucose disposal without compromising training quality.</h3>
-        <p>A real protocol is built from the client’s full intake and safety screen. This example shows the level of specificity, not a universal recommendation.</p>
-        <div class="protocol-block"><span>Training</span><strong>Place carbohydrate-dense meals around resistance sessions.</strong></div>
-        <div class="protocol-block"><span>Nutrition</span><strong>Set protein and fibre floors before reducing total intake.</strong></div>
-        <div class="protocol-block"><span>Recovery</span><strong>Protect sleep opportunity before increasing weekly intensity.</strong></div>
-        <div class="protocol-block"><span>Review</span><strong>Check tolerance, adherence and relevant markers before progression.</strong></div>
-      </aside>
-    </div>
-  </section>
-
-  <section class="section section-dark" id="results">
-    <div class="container results-layout">
-      <div>
-        <p class="section-kicker">Results, documented properly</p>
-        <h2 class="section-title">A result without context is marketing, not evidence.</h2>
-        <p class="section-intro">
-          Tessera case studies will only publish consented outcomes with baseline context,
-          intervention dates, comparable test conditions, marker-level changes and limitations.
-        </p>
-      </div>
-      <article class="evidence-card">
-        <p class="section-kicker">Publication standard</p>
-        <h3>Verified case studies are being prepared for publication.</h3>
-        <p>
-          Until the supporting records and publication consent are complete, illustrative report
-          data remains clearly labelled and is never presented as a client outcome.
-        </p>
-        <ul class="evidence-checks">
-          <li>Written consent and anonymization status</li>
-          <li>Baseline and retest dates</li>
-          <li>Comparable collection conditions</li>
-          <li>Intervention and adherence context</li>
-          <li>Limitations and non-responsive markers</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section class="section" id="why-tessera">
-    <div class="container">
-      <p class="section-kicker">Why Tessera</p>
-      <h2 class="section-title">Transparent enough to inspect. Practical enough to follow.</h2>
-      <div class="why-grid">
-        <article class="why-card">
-          <code>CONTEXT</code>
-          <h3>South Asian risk patterns</h3>
-          <p>The interpretation accounts for earlier metabolic and cardiovascular risk patterns commonly seen in South Asian populations without treating ancestry as destiny.</p>
-        </article>
-        <article class="why-card">
-          <code>EVIDENCE</code>
-          <h3>A public reasoning framework</h3>
-          <p>Recommendations link back to a versioned rulebook and evidence tiers so clients and clinicians can inspect the reasoning instead of trusting a score blindly.</p>
-          <p><a class="text-link" href="/tessera-rulebook">Read the rulebook</a></p>
-        </article>
-        <article class="why-card">
-          <code>SAFETY</code>
-          <h3>Screen before recommending</h3>
-          <p>Medication, condition, allergy and other safety context is checked before interventions are included. Findings requiring clinical care are escalated rather than coached around.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-alt" id="fit">
-    <div class="container">
-      <p class="section-kicker">Fit and exclusions</p>
-      <h2 class="section-title">Built for active people who want a better feedback loop.</h2>
-      <p class="section-intro">The consultation exists partly to identify when Tessera is not the right service.</p>
-      <div class="fit-grid">
-        <article class="fit-card">
-          <h3>A useful fit</h3>
-          <ul>
-            <li>You already train or track recovery and want deeper biological context.</li>
-            <li>You are willing to do bloodwork, follow a structured protocol and retest.</li>
-            <li>You prefer measurable priorities over supplement trends and generic optimization advice.</li>
-            <li>You are generally stable enough for a coached lifestyle program.</li>
-          </ul>
-        </article>
-        <article class="fit-card">
-          <h3>Not what Tessera does</h3>
-          <ul>
-            <li>Emergency care, diagnosis or primary management of active disease.</li>
-            <li>Starting, stopping or adjusting prescription medication.</li>
-            <li>Rapid weight-loss or aesthetic transformation programs.</li>
-            <li>Guaranteed biomarker improvement, lifespan extension or biological-age reversal.</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="field-notes">
-    <div class="container field-grid">
-      <a class="featured-post" href="/learn/mitochondrial-aging">
-        <div class="feature-visual">
-          <span class="section-kicker">Featured research note</span>
-          <div class="diagram" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-          <span>Mutation burden by age · conceptual illustration</span>
-        </div>
-        <div class="post-meta">6 June 2026 · Research · 11 min</div>
-        <h3>Rethinking mitochondrial aging: what 750,000 genomes tell us</h3>
-        <p>What a large genetics study changes, what it does not, and what the findings mean for popular mitochondrial interventions.</p>
-      </a>
-      <div>
-        <p class="section-kicker">Field Notes</p>
-        <h2 class="section-title">Science translated without turning it into a sales pitch.</h2>
-        <div class="post-stack">
-          <a class="post-row" href="/learn/four-levers"><div class="post-meta">Interventions · 9 min</div><h3>The four levers that actually move biomarkers</h3><p>What evidence supports across nutrition, training, sleep and supplements.</p></a>
-          <a class="post-row" href="/learn/biological-age"><div class="post-meta">Biological age · 8 min</div><h3>What PhenoAge can and cannot tell you</h3><p>A practical guide to using a noisy estimate without fooling yourself.</p></a>
-          <a class="post-row" href="/learn/reference-ranges"><div class="post-meta">Reference ranges · 7 min</div><h3>Why “normal” is not the same as optimal</h3><p>How population ranges can hide useful preventive signals.</p></a>
-        </div>
-        <p style="margin-top:24px"><a class="text-link" href="/learn">Browse all Field Notes</a></p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-alt" id="questions">
-    <div class="reading">
-      <p class="section-kicker">Common questions</p>
-      <h2 class="section-title">Clear boundaries before you book.</h2>
-      <div class="faq">
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false">Is Tessera medical care?</button>
-          <div class="faq-a" hidden>No. Tessera provides health optimization coaching and biomarker interpretation. It does not diagnose, treat or replace a physician. Findings that require clinical management should be taken to an appropriate clinician.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false">Can I participate while taking medication?</button>
-          <div class="faq-a" hidden>Possibly, depending on the medication and condition. Prescription changes are never part of the coaching protocol. The fit and safety review determines whether participation is appropriate and where physician input is required.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false">How much time does the program require?</button>
-          <div class="faq-a" hidden>In addition to bloodwork and scheduled check-ins, the protocol is designed around actions that fit normal training, eating and recovery routines. The exact commitment depends on the starting point and goals.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false">What if my markers do not improve?</button>
-          <div class="faq-a" hidden>That is a valid outcome. The review separates measurement variability, adherence, slow-moving biology and an ineffective intervention. Tessera does not guarantee a positive delta or hide markers that remain unchanged.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" type="button" aria-expanded="false">How is health data handled?</button>
-          <div class="faq-a" hidden>Health data is used to deliver the service and is not published as a case study without explicit consent. Read the privacy policy for the current collection, retention and deletion practices.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="final-cta">
-    <div class="container final-cta-grid">
-      <div>
-        <p class="section-kicker">Start with fit</p>
-        <h2>Find out whether Tessera fits your goals.</h2>
-        <p>We will discuss what you already track, what you want to learn and whether a biomarker-guided 90-day process is appropriate. If it is not, we will say so directly.</p>
-      </div>
-      <a class="btn" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a consultation</a>
-    </div>
-  </section>
-</main>
-
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span>Tessera</a>
-        <p>Biomarker-guided performance and health optimization, built around transparent reasoning and measured follow-up.</p>
-      </div>
-      <div class="footer-col">
-        <h3>Explore</h3>
+      <div class="foot-col">
+        <h5>Product</h5>
         <a href="/program">Program</a>
-        <a href="/journey">Client journey</a>
-        <a href="/tessera-rulebook">Rulebook</a>
-        <a href="/research">Science</a>
+        <a href="/packages">Packages</a>
+        <a href="/engine">The engine</a>
+        <a href="/tessera-rulebook">Open rulebook</a>
+        <a href="/blood-test">The panel</a>
       </div>
-      <div class="footer-col">
-        <h3>Read and contact</h3>
-        <a href="/learn">Field Notes</a>
+      <div class="foot-col">
+        <h5>Learn</h5>
+        <a href="/learn">Field notes</a>
         <a href="/newsletter">Newsletter</a>
+        <a href="/research">Research</a>
+        <a href="/sample-report">Sample report</a>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <a href="/strategy">About</a>
+        <a href="/journey">Your journey</a>
         <a href="/privacy">Privacy</a>
-        <a href="mailto:company@kalman-labs.com">company@kalman-labs.com</a>
+        <a href="mailto:company@kalman-labs.com">Contact</a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Tessera Health Pvt. Ltd. · Hyderabad, India</span>
-      <span>Health optimization coaching, not medical diagnosis or treatment.</span>
+    <div class="foot-bottom">
+      <div>© 2026 Tessera Health Pvt. Ltd. · Hyderabad, India</div>
+      <div>Book a consultation</div>
     </div>
+    <p class="foot-disc">Tessera provides health-optimization coaching and biomarker interpretation. It is not a medical diagnosis or treatment, and does not replace your physician. Findings that need clinical care are escalated, not coached around.</p>
   </div>
 </footer>
 
-<script src="/assets/site.js" defer></script>
+<script>
+  // nav: solid on scroll
+  var nav=document.getElementById('nav');
+  function onScroll(){ if(window.scrollY>40){nav.classList.add('solid');}else{nav.classList.remove('solid');} }
+  onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+  // mobile menu
+  var t=document.getElementById('navtoggle'), m=document.getElementById('navmid');
+  if(t){ t.addEventListener('click',function(){ m.classList.toggle('open'); nav.classList.add('solid'); }); }
+  // newsletter (Buttondown). Set NEWSLETTER_USER to go live. See content/NEWSLETTER-SETUP.md
+  window.NEWSLETTER_USER="BUTTONDOWN_USERNAME";
+  document.querySelectorAll('.sub-form').forEach(function(f){
+    f.addEventListener('submit',function(e){
+      var note=f.parentNode.querySelector('.sub-note'), u=window.NEWSLETTER_USER;
+      if(!u||u==="BUTTONDOWN_USERNAME"){ e.preventDefault(); if(note){note.textContent="Newsletter launching shortly, check back soon.";} return; }
+      f.action="https://buttondown.com/api/emails/embed-subscribe/"+u;
+      try{window.open('https://buttondown.com/'+u,'popupwindow');}catch(_){}
+    });
+  });
+</script>
 </body>
 </html>
