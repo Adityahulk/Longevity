@@ -27,7 +27,12 @@ body {
   font-size: 16px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
+html { overflow-x: hidden; }
+.report-preview, .report-head, .report-row { max-width: 100%; }
+.report-head { grid-template-columns: 1fr auto; gap: 12px; }
+.report-head span, .report-row span { min-width: 0; }
 img { display: block; max-width: 100%; }
 a { color: inherit; }
 button, input { font: inherit; }
@@ -336,8 +341,9 @@ h1 em, h2 em, h3 em, .section-title em, .hero h1 em { font-style: italic; color:
 @media (max-width: 640px) {
   .container, .reading, .article-shell .article { width: min(calc(100% - 32px), var(--max)); }
   .section { padding: 72px 0; }
-  .hero { padding: 62px 0 54px; }
-  .hero h1 { font-size: clamp(43px, 13vw, 62px); }
+  .hero { padding: 56px 0 48px; }
+  .hero h1 { font-size: clamp(33px, 8.5vw, 46px); letter-spacing: -.03em; }
+  .hero-lede { font-size: 17px; }
   .hero-grid { grid-template-columns: minmax(0,1fr); }
   .report-preview { min-width: 0; }
   .signal-item { grid-template-columns: 1fr; gap: 8px; }
