@@ -59,12 +59,7 @@ body {
   letter-spacing: -0.02em; color: var(--ink); text-decoration: none;
   display: flex; align-items: center; gap: 10px;
 }
-.logo-mark { width: 22px; height: 22px; position: relative; }
-.logo-mark::before, .logo-mark::after {
-  content: ''; position: absolute; inset: 0;
-  border: 1.5px solid var(--ink); border-radius: 50%;
-}
-.logo-mark::after { inset: 5px; background: var(--accent); border: none; }
+.logo-mark { width: 22px; height: 26px; flex-shrink: 0; background: url(/assets/logo/al-mark.svg) center/contain no-repeat; }
 .nav-back {
   font-family: var(--mono); font-size: 12px; color: var(--ink-mute);
   text-decoration: none; letter-spacing: 0.05em;
