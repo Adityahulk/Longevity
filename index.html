@@ -186,11 +186,14 @@
         <p>Research decoded, biomarker explainers, and honest reads on longevity claims. No hype, no selling.</p>
       </div>
       <div>
-        <form class="nlform sub-form" method="post" target="popupwindow">
-          <input type="email" name="email" placeholder="you@email.com" aria-label="Email" required>
+        <form class="nlform" method="post" data-brevo-form>
+          <input type="email" name="EMAIL" placeholder="you@email.com" aria-label="Email" autocomplete="email" required>
+          <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+          <input type="hidden" name="locale" value="en">
+          <input type="hidden" name="html_type" value="simple">
           <button class="pill pill-accent" type="submit">Subscribe</button>
         </form>
-        <div class="nlnote sub-note">Free. Unsubscribe anytime.</div>
+        <div class="nlnote" data-brevo-note>Free. Unsubscribe anytime.</div>
       </div>
     </div>
   </div>
@@ -253,16 +256,8 @@
   // mobile menu
   var t=document.getElementById('navtoggle'), m=document.getElementById('navmid');
   if(t){ t.addEventListener('click',function(){ m.classList.toggle('open'); nav.classList.add('solid'); }); }
-  // newsletter (Buttondown). Set NEWSLETTER_USER to go live. See content/NEWSLETTER-SETUP.md
-  window.NEWSLETTER_USER="BUTTONDOWN_USERNAME";
-  document.querySelectorAll('.sub-form').forEach(function(f){
-    f.addEventListener('submit',function(e){
-      var note=f.parentNode.querySelector('.sub-note'), u=window.NEWSLETTER_USER;
-      if(!u||u==="BUTTONDOWN_USERNAME"){ e.preventDefault(); if(note){note.textContent="Newsletter launching shortly, check back soon.";} return; }
-      f.action="https://buttondown.com/api/emails/embed-subscribe/"+u;
-      try{window.open('https://buttondown.com/'+u,'popupwindow');}catch(_){}
-    });
-  });
 </script>
+<script src="/assets/newsletter-config.js"></script>
+<script src="/assets/newsletter.js"></script>
 </body>
 </html>

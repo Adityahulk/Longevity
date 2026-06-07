@@ -27,35 +27,4 @@
     });
   });
 
-  const newsletterUser = "BUTTONDOWN_USERNAME";
-  document.querySelectorAll("[data-newsletter-form]").forEach(function (form) {
-    const note = form.parentElement.querySelector("[data-form-note]");
-    form.addEventListener("submit", function (event) {
-      const email = form.querySelector('input[type="email"]');
-      if (!email || !email.validity.valid) {
-        event.preventDefault();
-        if (note) {
-          note.textContent = "Enter a valid email address.";
-          note.dataset.state = "error";
-        }
-        email && email.focus();
-        return;
-      }
-
-      if (newsletterUser === "BUTTONDOWN_USERNAME") {
-        event.preventDefault();
-        if (note) {
-          note.textContent = "Field Notes subscriptions are opening shortly.";
-          note.dataset.state = "success";
-        }
-        return;
-      }
-
-      form.action = "https://buttondown.com/api/emails/embed-subscribe/" + newsletterUser;
-      if (note) {
-        note.textContent = "Opening subscription confirmation…";
-        note.dataset.state = "success";
-      }
-    });
-  });
 }());

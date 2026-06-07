@@ -31,12 +31,15 @@
         <p class="section-kicker">Antiaging Labs Field Notes</p>
         <h1 class="section-title">Research translated into decisions you can actually make.</h1>
         <p class="section-intro">A roughly weekly note on biomarkers, performance and aging science. We separate what is established, plausible and still speculative.</p>
-        <form class="signup-form" method="post" target="popupwindow" data-newsletter-form style="margin-top:30px">
+        <form class="signup-form" method="post" data-brevo-form style="margin-top:30px">
           <label style="position:absolute;left:-9999px" for="newsletter-email">Email address</label>
-          <input id="newsletter-email" type="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+          <input id="newsletter-email" type="email" name="EMAIL" autocomplete="email" placeholder="you@example.com" required>
+          <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+          <input type="hidden" name="locale" value="en">
+          <input type="hidden" name="html_type" value="simple">
           <button class="btn" type="submit">Subscribe</button>
         </form>
-        <p class="form-note" data-form-note>Roughly weekly. No spam, affiliate promotions or shared email lists.</p>
+        <p class="form-note" data-brevo-note>Roughly weekly. No spam, affiliate promotions or shared email lists.</p>
       </div>
       <aside>
         <p class="section-kicker">Recent issues</p>
@@ -84,6 +87,8 @@
     <div class="footer-bottom"><span>© 2026 Antiaging Labs Pvt. Ltd. · Hyderabad, India</span><span>Health optimization coaching, not medical diagnosis or treatment.</span></div>
   </div>
 </footer>
+<script src="/assets/newsletter-config.js"></script>
+<script src="/assets/newsletter.js"></script>
 <script src="/assets/site.js" defer></script>
 </body>
 </html>

@@ -1,39 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
 <channel>
   <title>Antiaging Labs Field Notes</title>
   <link>https://antiaging-labs.com/learn</link>
   <atom:link href="https://antiaging-labs.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <description>Aging and biomarker science, translated into what to actually do. From the team building Antiaging Labs, an open longevity engine.</description>
+  <description>The latest longevity and biomarker research, decoded in plain English. New posts from Antiaging Labs Field Notes.</description>
   <language>en-us</language>
   <lastBuildDate>Fri, 06 Jun 2026 09:00:00 +0530</lastBuildDate>
+  <image>
+    <url>https://antiaging-labs.com/assets/logo/png/og-1200x630.png</url>
+    <title>Antiaging Labs Field Notes</title>
+    <link>https://antiaging-labs.com/learn</link>
+  </image>
   <item>
     <title>Rethinking mitochondrial aging: what 750,000 genomes tell us about longevity</title>
     <link>https://antiaging-labs.com/learn/mitochondrial-aging</link>
     <guid isPermaLink="true">https://antiaging-labs.com/learn/mitochondrial-aging</guid>
     <pubDate>Fri, 06 Jun 2026 09:00:00 +0530</pubDate>
-    <description>Gupta et al. (Nature 2026) analyzed 736,000 whole-genome sequences and upended the oxidative-damage theory of mitochondrial aging. Blood mtSNV mutations look like replication errors amplified by clonal hematopoiesis, not wear-and-tear. What it means for antioxidants, mitophagy, and your longevity strategy.</description>
+    <category>Research</category>
+    <description><![CDATA[Gupta et al. (Nature 2026) analyzed 736,000 whole-genome sequences and upended the oxidative-damage theory of mitochondrial aging. Blood mtSNV mutations look like replication errors amplified by clonal hematopoiesis, not wear-and-tear.]]></description>
+    <content:encoded><![CDATA[
+      <p>For decades, mitochondrial aging was explained as oxidative rust. A new <em>Nature</em> study of 736,000 people says blood mtDNA mutations look like replication copy-errors amplified by clonal hematopoiesis in bone marrow, not daily wear-and-tear.</p>
+      <p><strong>What changed:</strong> mutations spike around age 60 because hidden stem-cell clones expand, not because cells suddenly start rusting. That reframes antioxidants, mitophagy, and what to track next.</p>
+      <p><a href="https://antiaging-labs.com/learn/mitochondrial-aging">Read the full Field Note →</a></p>
+    ]]></content:encoded>
   </item>
   <item>
     <title>The four levers that actually move your biomarkers in 90 days</title>
     <link>https://antiaging-labs.com/learn/four-levers</link>
     <guid isPermaLink="true">https://antiaging-labs.com/learn/four-levers</guid>
     <pubDate>Tue, 02 Jun 2026 09:00:00 +0530</pubDate>
-    <description>Almost everything you can change runs through four levers: nutrition, training, sleep, and a short list of supplements. What the evidence supports, ranked by how much it moves the needle.</description>
+    <category>Interventions</category>
+    <description><![CDATA[Almost everything you can change runs through four levers: nutrition, training, sleep, and a short list of supplements. What the evidence supports, ranked by how much it moves the needle.]]></description>
+    <content:encoded><![CDATA[
+      <p>Almost everything you can change runs through four levers: nutrition, training, sleep, and a short list of supplements.</p>
+      <p>We rank what the evidence actually supports, and how much each lever moves the needle in a 90-day measured loop.</p>
+      <p><a href="https://antiaging-labs.com/learn/four-levers">Read the full Field Note →</a></p>
+    ]]></content:encoded>
   </item>
   <item>
     <title>Biological age, honestly: what PhenoAge can and can't tell you</title>
     <link>https://antiaging-labs.com/learn/biological-age</link>
     <guid isPermaLink="true">https://antiaging-labs.com/learn/biological-age</guid>
     <pubDate>Sat, 30 May 2026 09:00:00 +0530</pubDate>
-    <description>Biological-age scores are real science and routinely oversold. What PhenoAge measures, what an epigenetic clock is, and how to read your number without fooling yourself.</description>
+    <category>Measurement</category>
+    <description><![CDATA[Biological-age scores are real science and routinely oversold. What PhenoAge measures, what an epigenetic clock is, and how to read your number without fooling yourself.]]></description>
+    <content:encoded><![CDATA[
+      <p>Biological-age scores are real science and routinely oversold.</p>
+      <p>What PhenoAge measures, what an epigenetic clock is, and how to read your number without fooling yourself.</p>
+      <p><a href="https://antiaging-labs.com/learn/biological-age">Read the full Field Note →</a></p>
+    ]]></content:encoded>
   </item>
   <item>
     <title>Your blood report uses the wrong reference ranges</title>
     <link>https://antiaging-labs.com/learn/reference-ranges</link>
     <guid isPermaLink="true">https://antiaging-labs.com/learn/reference-ranges</guid>
     <pubDate>Thu, 28 May 2026 09:00:00 +0530</pubDate>
-    <description>Normal on a lab report is the average of everyone who walked into a lab, the unwell included. Optimal is a different number. Why your report can say fine when you're not.</description>
+    <category>Biomarkers</category>
+    <description><![CDATA[Normal on a lab report is the average of everyone who walked into a lab, the unwell included. Optimal is a different number. Why your report can say fine when you're not.]]></description>
+    <content:encoded><![CDATA[
+      <p>Normal on a lab report is the average of everyone who walked into a lab, the unwell included. Optimal is a different number.</p>
+      <p>Why your report can say fine when you're not, and what to look at instead.</p>
+      <p><a href="https://antiaging-labs.com/learn/reference-ranges">Read the full Field Note →</a></p>
+    ]]></content:encoded>
   </item>
 </channel>
 </rss>

@@ -333,12 +333,15 @@ footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); pa
     <span class="mono-tag">Antiaging Labs Field Notes</span>
     <h3>Get research like this in your inbox.</h3>
     <p>Roughly weekly notes on aging science, decoded without the hype. Free, and you can unsubscribe anytime.</p>
-    <form class="signup-form" method="post" target="popupwindow" data-newsletter-form>
+    <form class="signup-form" method="post" data-brevo-form>
       <label style="position:absolute;left:-9999px" for="post-newsletter-email">Email address</label>
-      <input id="post-newsletter-email" type="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+      <input id="post-newsletter-email" type="email" name="EMAIL" autocomplete="email" placeholder="you@example.com" required>
+      <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+      <input type="hidden" name="locale" value="en">
+      <input type="hidden" name="html_type" value="simple">
       <button class="btn" type="submit">Subscribe</button>
     </form>
-    <p class="form-note" data-form-note>No spam, affiliate promotions, or shared email lists.</p>
+    <p class="form-note" data-brevo-note>No spam, affiliate promotions, or shared email lists.</p>
   </div>
 
   <div class="bridge">
@@ -377,6 +380,8 @@ footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); pa
   </div>
   <div class="footer-bottom"><div>© 2026 ANTIAGING LABS PVT. LTD.</div><div>Field notes · Hyderabad, India</div></div>
 </div></footer>
+<script src="/assets/newsletter-config.js"></script>
+<script src="/assets/newsletter.js"></script>
 <script src="/assets/site.js" defer></script>
 
 </body>
