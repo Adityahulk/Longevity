@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Ayush · Antiaging Labs Longevity Report · 09 Jun 2026</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream:#F5F1E8; --cream-dark:#EDE7D9; --paper:#FBF8F1;
+  --ink:#0E1B2C; --ink-soft:#1F2D40; --ink-mute:#4A5668; --ink-fade:#7A8497;
+  --rule:#C8BFA8; --rule-soft:#DCD3BC;
+  --accent:#B85426; --accent-warm:#D17244; --accent-soft:#F4E5DC;
+  --leaf:#2F5D3C; --leaf-soft:#DCE7DE;
+  --gold:#8B6914; --gold-soft:#EFE6CB;
+  --danger:#9B2C2C; --danger-soft:#F8DDDA;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:var(--sans); background:var(--cream); color:var(--ink); font-weight:400; line-height:1.65; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+body::before { content:''; position:fixed; inset:0; pointer-events:none; background-image:radial-gradient(circle at 20% 30%, rgba(184,84,38,0.025) 0%, transparent 40%),radial-gradient(circle at 80% 70%, rgba(47,93,60,0.02) 0%, transparent 50%); z-index:0; }
+.page { max-width:880px; margin:0 auto; padding:0 40px; position:relative; z-index:1; }
+.eyebrow { font-family:var(--mono); font-size:11px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-fade); }
+h1,h2,h3 { font-family:var(--serif); color:var(--ink); font-weight:500; letter-spacing:-0.01em; }
+h1 { font-size:56px; line-height:1.05; }
+h2 { font-size:34px; line-height:1.15; margin-bottom:10px; }
+h3 { font-size:22px; line-height:1.25; margin-bottom:8px; }
+h4 { font-family:var(--sans); font-size:13px; font-weight:600; letter-spacing:0.02em; color:var(--ink); margin-bottom:8px; text-transform:uppercase; }
+p { color:var(--ink-soft); }
+p + p { margin-top:14px; }
+a { color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-soft); }
+ul, ol { padding-left:22px; color:var(--ink-soft); }
+li { margin-bottom:6px; }
+li::marker { color:var(--accent); }
+strong { color:var(--ink); font-weight:600; }
+em { font-style:italic; color:var(--ink-mute); }
+hr { border:0; border-top:0.5px solid var(--rule); margin:48px 0; }
+code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); padding:1px 6px; border-radius:3px; color:var(--ink); }
+
+/* COVER */
+.cover { padding:100px 0 80px; }
+.cover-eyebrow { font-family:var(--mono); font-size:11px; letter-spacing:0.22em; color:var(--accent); text-transform:uppercase; margin-bottom:20px; }
+.cover h1 { font-size:72px; line-height:1.0; margin-bottom:32px; font-weight:300; }
+.cover h1 .ampersand { color:var(--accent); font-style:italic; }
+.cover-stat { margin-top:30px; padding:24px 0 24px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); display:flex; align-items:baseline; gap:32px; flex-wrap:wrap; }
+.stat-block { display:flex; flex-direction:column; gap:4px; }
+.stat-label { font-family:var(--mono); font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--ink-fade); }
+.stat-value { font-family:var(--serif); font-size:36px; font-weight:500; color:var(--ink); line-height:1; }
+.stat-value.accent { color:var(--accent); }
+.stat-value.leaf { color:var(--leaf); }
+.stat-detail { font-size:13px; color:var(--ink-mute); }
+.phenotype-label { font-family:var(--serif); font-style:italic; font-size:22px; line-height:1.35; color:var(--ink-soft); margin-top:32px; }
+.longevity-baseline { background:var(--leaf-soft); border-left:3px solid var(--leaf); padding:14px 18px; margin-top:24px; font-size:14px; }
+
+/* PROVISIONAL BANNER */
+.provisional { background:var(--gold-soft); border-left:3px solid var(--gold); padding:14px 18px; margin-top:24px; font-size:14px; border-radius:4px; }
+
+/* TIER 1 CALLOUT */
+.tier1-callout { background:var(--danger-soft); border-left:4px solid var(--danger); padding:24px 28px; margin:48px 0; border-radius:4px; }
+.tier1-callout .callout-eyebrow { font-family:var(--mono); font-size:11px; letter-spacing:0.18em; color:var(--danger); text-transform:uppercase; margin-bottom:8px; }
+.tier1-callout h3 { font-size:24px; color:var(--ink); margin-bottom:12px; }
+.tier1-callout p { font-size:15px; color:var(--ink-soft); }
+
+/* CARDS */
+.card { background:var(--paper); border:1px solid var(--rule-soft); border-radius:6px; padding:36px 32px; margin:32px 0; }
+.card .card-eyebrow { font-family:var(--mono); font-size:11px; letter-spacing:0.18em; color:var(--accent); text-transform:uppercase; margin-bottom:10px; }
+.card h2 { font-size:28px; margin-bottom:14px; }
+
+/* PHENOTYPE CARD */
+.phenotype-card .phenotype-features { margin-top:18px; padding-top:14px; border-top:1px dashed var(--rule); }
+.phenotype-card .phenotype-features ul { columns:2; column-gap:32px; }
+.phenotype-card .overlay { background:var(--accent-soft); border-radius:4px; padding:12px 16px; margin:10px 0; font-size:14px; }
+.phenotype-card .downgraded { background:var(--cream-dark); border-radius:4px; padding:10px 14px; margin:10px 0; font-size:13px; color:var(--ink-mute); }
+
+/* ROOT-CAUSE CARD */
+.rootcause-card .root-node { background:var(--cream); border-left:3px solid var(--accent); border-radius:4px; padding:22px 24px; margin:18px 0; }
+.rootcause-card .root-header { display:flex; justify-content:space-between; align-items:baseline; gap:12px; }
+.rootcause-card .confidence-tag { font-size:11px; font-family:var(--mono); color:var(--ink-fade); text-transform:uppercase; letter-spacing:0.1em; }
+.rootcause-card .root-driver { font-size:15px; line-height:1.6; margin:10px 0; }
+.rootcause-card .root-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin:14px 0; }
+.rootcause-card .markers-trace, .rootcause-card .intake-signals { font-size:13px; }
+.rootcause-card .markers-trace li, .rootcause-card .intake-signals li { margin-bottom:4px; line-height:1.5; }
+.rootcause-card .attack-via { margin-top:12px; padding:10px 14px; background:var(--leaf-soft); border-radius:4px; font-size:13px; color:var(--ink); }
+
+/* PANEL COMPLETENESS */
+.completeness-card .tier-block { margin:14px 0; padding:14px 18px; border-radius:4px; }
+.completeness-card .tier-must { background:var(--accent-soft); border-left:3px solid var(--accent); }
+.completeness-card .tier-should { background:var(--gold-soft); border-left:3px solid var(--gold); }
+.completeness-card .tier-nice { background:var(--cream-dark); border-left:3px solid var(--rule); }
+
+/* PHENOAGE */
+.phenoage-section { margin:48px 0; padding:36px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
+.phenoage-headline { display:flex; align-items:baseline; gap:32px; flex-wrap:wrap; margin-bottom:20px; }
+.phenoage-table { font-family:var(--mono); font-size:13px; width:100%; margin-top:18px; }
+.phenoage-table td { padding:6px 12px; border-bottom:0.5px solid var(--rule-soft); }
+.phenoage-table td:first-child { color:var(--ink-mute); }
+.phenoage-table td:last-child { text-align:right; }
+
+/* MARKER ROWS */
+.panel { margin:32px 0; }
+.marker-table { font-family:var(--mono); font-size:13px; margin-top:14px; }
+.marker-row { display:grid; grid-template-columns:1.5fr 1fr 1fr 100px; gap:12px; padding:8px 0; border-bottom:0.5px dashed var(--rule-soft); align-items:center; font-size:13px; }
+.marker-name { font-family:var(--sans); font-weight:500; color:var(--ink); }
+.marker-value .num { font-weight:600; color:var(--ink); }
+.marker-value .unit { color:var(--ink-fade); font-size:11px; }
+.marker-target { color:var(--ink-mute); font-size:12px; }
+.marker-badge { font-family:var(--mono); font-size:10px; padding:3px 8px; border-radius:3px; text-align:center; letter-spacing:0.1em; }
+.badge-optimal { background:var(--leaf-soft); color:var(--leaf); }
+.badge-watch { background:var(--gold-soft); color:var(--gold); }
+.badge-off_target, .badge-off-target { background:var(--accent-soft); color:var(--accent); }
+.badge-refer { background:var(--danger-soft); color:var(--danger); }
+
+/* QUESTIONNAIRE */
+.q-section { margin:36px 0; }
+.q-group { background:var(--paper); border:1px solid var(--rule-soft); border-left:4px solid var(--accent); border-radius:4px; padding:24px 28px; margin:18px 0; }
+.q-group .q-domain { font-family:var(--mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:4px; }
+.q-group h3 { font-size:20px; margin-bottom:6px; }
+.q-group .q-why { font-size:13px; font-style:italic; color:var(--ink-mute); margin-bottom:14px; }
+.q-group ol { font-size:14px; line-height:1.5; }
+.q-group ol li { margin-bottom:9px; }
+
+/* NEXT STEPS */
+.next-card { background:var(--ink); color:var(--cream); border-radius:6px; padding:40px 36px; margin:40px 0; }
+.next-card h2 { color:var(--cream); font-size:28px; }
+.next-card .card-eyebrow { color:var(--accent-warm); font-family:var(--mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:10px; }
+.next-card p { color:#D8DCE2; }
+.next-card ol { color:#D8DCE2; }
+.next-card strong { color:#fff; }
+
+/* DISCLAIMER */
+.disclaimer { margin:60px 0 40px; padding:24px 28px; background:var(--cream-dark); border-radius:4px; font-size:13px; color:var(--ink-mute); line-height:1.6; }
+.disclaimer h4 { color:var(--ink); margin-bottom:10px; }
+
+/* PRINT */
+@media print {
+  body { background:var(--paper); }
+  .page { max-width:none; padding:20px 30px; }
+  .card, .pillar-card, .root-node, .panel, .q-group { break-inside:avoid; }
+  .tier1-callout, .next-card { break-inside:avoid; }
+}
+@page { size:A4; margin:18mm 14mm; }
+
+@media (max-width:640px){
+  .page { padding:0 22px; }
+  .cover { padding:64px 0 48px; }
+  .cover h1 { font-size:44px; }
+  h1 { font-size:40px; } h2 { font-size:26px; }
+  .marker-row { grid-template-columns:1.3fr 0.9fr 78px; }
+  .marker-target { display:none; }
+  .rootcause-card .root-grid { grid-template-columns:1fr; }
+  .phenotype-card .phenotype-features ul { columns:1; }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-eyebrow">Antiaging Labs · Longevity Report · 09 Jun 2026</div>
+  <h1>Ayush, you're <span class="ampersand">3.9 years</span><br>biologically younger than your calendar.</h1>
+
+  <div class="phenotype-label">Metabolically young, cardiovascularly exposed · Iron-depleted · Atopic overlay</div>
+
+  <div class="cover-stat">
+    <div class="stat-block">
+      <div class="stat-label">PhenoAge</div>
+      <div class="stat-value leaf">21.1</div>
+      <div class="stat-detail">vs chronological 25.0 → <strong>3.9 yrs younger</strong></div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-label">Findings flagged</div>
+      <div class="stat-value">3</div>
+      <div class="stat-detail">cardiovascular · iron · early insulin signal</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-label">Markers analyzed</div>
+      <div class="stat-value">74</div>
+      <div class="stat-detail">68 from lab · 6 derived</div>
+    </div>
+  </div>
+
+  <div class="longevity-baseline">
+    <strong>The headline in one line.</strong> Your blood-chemistry engine is running young: glucose, thyroid, kidney, liver, testosterone, inflammation, all strong. But three things are quietly working against your long game, and one of them is genetic. None are urgent. All are addressable, and the best time to act on them is exactly now, at 25, not at 40.
+  </div>
+
+  <div class="provisional">
+    <strong>This is Part 1 of 2.</strong> This report explains your bloodwork and your biological age. The phenotype and root-cause sections below are <strong>working hypotheses</strong> drawn from blood alone. Your personalized 90-day protocol comes next, once you answer the lifestyle questionnaire at the end of this report.
+  </div>
+</section>
+
+<hr>
+
+<!-- MEDICAL-ADVISORY CALLOUT -->
+<div class="tier1-callout">
+  <div class="callout-eyebrow">Discuss with your physician</div>
+  <h3>Lipoprotein(a) is elevated at 49 mg/dL, and it's genetic.</h3>
+  <p>Lp(a) sits at <strong>49.44 mg/dL</strong> against a threshold of 30. Lp(a) is roughly 90% inherited, set for life, and an <strong>independent</strong> driver of heart-attack and stroke risk that standard cholesterol tests miss entirely. It does not respond to diet or exercise. This is not a cause for alarm at 25, it is a reason to take your other lipid numbers (LDL 135, ApoB 96, non-HDL 152) more seriously than someone without it, because the risks stack. South Asians carry elevated Lp(a) at higher rates than most populations.</p>
+  <p style="margin-top:12px;"><strong>What this means practically:</strong> (1) Confirm Lp(a) once with a repeat test, it should be stable for life. (2) Ask your physician whether any first-degree relative had a heart attack or stroke before 55 (men) or 65 (women), Lp(a) clusters in families. (3) The lever you <em>can</em> move is ApoB. Getting your ApoB and LDL down meaningfully offsets the inherited Lp(a) risk. That is what the protocol will target.</p>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+<section class="card">
+  <div class="card-eyebrow">What this report says</div>
+  <h2>Five things worth your attention</h2>
+  <ol style="font-size:15px; line-height:1.7;">
+    <li><strong>Your cardiovascular setup needs work now, not later.</strong> LDL 135, ApoB 96, non-HDL 152, ApoB/ApoA1 1.07, all above optimal, with a low-ish HDL of 43 and an inherited Lp(a) of 49. Individually mild. Together, and at 25, this is the single most important thing to act on. Decades of slightly-high ApoB is how arteries age.</li>
+    <li><strong>You are iron-depleted.</strong> Ferritin 7.5 (very low), iron 44 (low), transferrin saturation 11.5% (low). You are not anemic yet, hemoglobin is a healthy 15, but your iron stores are nearly empty. In a 25-year-old man this is unusual and the <em>cause</em> matters as much as the fix. We need to understand your diet and rule out quiet loss.</li>
+    <li><strong>An early insulin-resistance whisper.</strong> Glucose 87 and HbA1c 5.2% are clean, but HOMA-IR is 1.25 (optimal is under 1.0) and your TG:HDL is 1.95. This is the earliest, most reversible stage. Catching it here is the entire point.</li>
+    <li><strong>An atopic / allergic signal.</strong> Total IgE 247 (high) with monocytes 9.6% (top of range). Consistent with an allergic tendency, hay-fever, dust, skin, or food. Not dangerous, worth noting for the full picture.</li>
+    <li><strong>Everything else is genuinely strong.</strong> Testosterone 801 (excellent), thyroid optimal, kidney (eGFR 101) and liver enzymes clean, glucose and HbA1c tight, vitamin D 63 (good), B12 and folate replete, cortisol normal. Two benign quirks to note, not fix: a mildly raised bilirubin (a Gilbert's-type pattern, harmless) and a raised ALP (likely bone, normal at your age).</li>
+  </ol>
+</section>
+
+<!-- PHENOTYPE -->
+<section class="card phenotype-card">
+  <div class="card-eyebrow">Your phenotype · working read</div>
+  <h2>Metabolically young, cardiovascularly exposed</h2>
+  <p style="font-size:15px; line-height:1.65;"><em>You are in strong metabolic shape for 25, the glucose, hormonal and organ-function chassis is humming. But two systems are quietly under strain: an atherogenic lipid pattern amplified by an inherited Lp(a), and depleted iron stores. The work here is real but early, and the earlier it's done, the more decades it protects.</em></p>
+
+  <div class="phenotype-features">
+    <h4>Why we read it this way</h4>
+    <ul>
+      <li>Glucose 87, HbA1c 5.2%, both optimal</li>
+      <li>Fasting insulin 5.84 µU/mL, in range</li>
+      <li>HOMA-IR 1.25, early insulin-resistance whisper</li>
+      <li>LDL 135, ApoB 96, non-HDL 152, all above optimal</li>
+      <li>HDL 43, low-ish; ApoB/ApoA1 1.07, elevated</li>
+      <li>Lp(a) 49.44, inherited cardiovascular risk</li>
+      <li>TG:HDL 1.95, AIP 0.29, atherogenic ratios</li>
+      <li>Ferritin 7.5, iron 44, TSat 11.5%, iron depletion</li>
+      <li>Testosterone 801 (excellent for age)</li>
+      <li>Thyroid euthyroid (TSH 1.63, FT3/FT4 mid-range)</li>
+      <li>Kidney eGFR 101, liver ALT/AST/GGT all clean</li>
+      <li>hsCRP 0.42, low systemic inflammation</li>
+      <li>Vitamin D 63, B12 + folate replete</li>
+    </ul>
+  </div>
+
+  <h4 style="margin-top:24px;">Overlays</h4>
+  <div class="overlay"><strong>Atopic / Allergic overlay</strong>, Total IgE 247 IU/mL (threshold 158) + monocytes 9.6% (top of range) + eosinophils 2.7% (within range). Suggests an allergic tendency. The lifestyle questionnaire will confirm whether this maps to hay-fever, skin, dust, or food triggers.</div>
+
+  <h4 style="margin-top:20px;">Benign quirks, noted not treated</h4>
+  <div class="downgraded"><strong>Gilbert's-type bilirubin pattern</strong>, Total bilirubin 1.28 with indirect 0.93, while every liver enzyme (ALT 27, AST 27, GGT 14) is normal. This isolated unconjugated-bilirubin pattern is the classic, harmless Gilbert's signature, present in up to 1 in 10 people and, if anything, mildly protective. <strong>Raised ALP 153</strong> with a normal GGT 14 points to bone, not liver, source, physiological at 25.</div>
+</section>
+
+<!-- ROOT-CAUSE GRAPH -->
+<section class="card rootcause-card">
+  <div class="card-eyebrow">What's likely driving this · pending lifestyle confirmation</div>
+  <h2>Two root themes, not five separate problems</h2>
+  <p style="margin-bottom:18px;">Rather than chase each flagged marker on its own, we trace them back to a small set of likely drivers. These are <strong>hypotheses from blood alone</strong>, the lifestyle questionnaire will confirm or revise each. <strong>Attack the roots; the leaves resolve.</strong></p>
+
+  <div class="root-node">
+    <div class="root-header">
+      <h3>Atherogenic lipid load (inherited base + lifestyle amplifier)</h3>
+      <div class="confidence-tag">Confidence: <strong>high (blood) · cause TBD</strong></div>
+    </div>
+    <p class="root-driver"><strong>The driver:</strong> An inherited tendency (Lp(a) 49, likely a family lipid pattern) sets a higher floor, then diet, body composition, and activity decide how far above optimal your ApoB and LDL actually run. The genetic part is fixed; the amplifier is fully in your control.</p>
+    <div class="root-grid">
+      <div class="root-col">
+        <h4>Explains these markers</h4>
+        <ul class="markers-trace">
+          <li><code>lp_a</code> (49.44), inherited, independent risk</li>
+          <li><code>ldl</code> (135) + <code>apo_b</code> (96), particle burden above optimal</li>
+          <li><code>non_hdl</code> (152) + <code>apob_a1</code> (1.07), atherogenic</li>
+          <li><code>hdl</code> (43), low-ish protective fraction</li>
+        </ul>
+      </div>
+      <div class="root-col">
+        <h4>Lifestyle questions will confirm</h4>
+        <ul class="intake-signals">
+          <li>Family history of early heart disease / high cholesterol</li>
+          <li>Refined-carb, fried-food and saturated-fat intake</li>
+          <li>Cardio / Zone-2 minutes per week</li>
+          <li>Body composition (waist, weight)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="attack-via"><strong>Likely attack via:</strong> Nutrition (fiber, swap saturated for unsaturated fat, oily fish), Training (Zone-2 + resistance), and, with your physician, a discussion on whether early ApoB-lowering is warranted given Lp(a).</div>
+  </div>
+
+  <div class="root-node">
+    <div class="root-header">
+      <h3>Iron depletion (intake shortfall vs quiet loss)</h3>
+      <div class="confidence-tag">Confidence: <strong>high (blood) · cause TBD</strong></div>
+    </div>
+    <p class="root-driver"><strong>The driver:</strong> Ferritin 7.5 with transferrin saturation 11.5% means the tank is nearly empty even though you're not anemic yet. In a young man this is either too little absorbable iron coming in (common with vegetarian diets, or tea/coffee blocking absorption at meals) or slow loss somewhere. We need to know which.</p>
+    <div class="root-grid">
+      <div class="root-col">
+        <h4>Explains these markers</h4>
+        <ul class="markers-trace">
+          <li><code>ferritin</code> (7.5), stores nearly empty</li>
+          <li><code>iron_serum</code> (44) + <code>transferrin_sat</code> (11.5%)</li>
+          <li><code>tibc</code> (383), high-normal, the body reaching for iron</li>
+          <li><code>rdw_cv</code> (13.8), early RBC size variation</li>
+        </ul>
+      </div>
+      <div class="root-col">
+        <h4>Lifestyle questions will confirm</h4>
+        <ul class="intake-signals">
+          <li>Vegetarian / vegan / non-veg, and red-meat frequency</li>
+          <li>Tea or coffee with / right after meals</li>
+          <li>Recent blood donation</li>
+          <li>Any black stool, blood, indigestion, NSAID use</li>
+          <li>Fatigue, breathlessness, hair shedding, cold hands</li>
+        </ul>
+      </div>
+    </div>
+    <div class="attack-via"><strong>Likely attack via:</strong> Nutrition (iron timing, vitamin-C pairing, move tea/coffee away from meals), targeted repletion under physician guidance, and ruling out loss if diet doesn't explain it.</div>
+  </div>
+
+  <div style="margin-top:24px; padding:18px 20px; background:var(--accent-soft); border-radius:4px; font-size:14px;">
+    <strong>Smaller leaves (watch, don't chase):</strong>
+    <ul style="margin-top:8px;">
+      <li><code>homa_ir 1.25</code> + <code>tg_hdl 1.95</code>, earliest insulin-resistance signal; likely resolves as body composition and cardio improve. Recheck at Day 90.</li>
+      <li><code>ige 247</code> + <code>monocytes 9.6%</code>, atopic tendency; map triggers via questionnaire, no bloodwork action needed now.</li>
+      <li><code>homocysteine 11.33</code>, upper-half of range; folate is already replete, so watch rather than act.</li>
+      <li><code>bilirubin / alp</code>, benign Gilbert's + bone-source ALP. No action.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- PHENOAGE -->
+<section class="phenoage-section">
+  <div class="card-eyebrow" style="margin-bottom:10px;">Biological age (Levine PhenoAge 2018)</div>
+  <h2>Your biological age is 21.1, about 3.9 years younger than your calendar.</h2>
+  <p style="margin-top:8px;">PhenoAge is a validated 9-marker blood-chemistry estimate of how your body is aging, trained on 11+ years of NHANES mortality data. It is not destiny, it's a snapshot, and it moves with the right inputs. Yours is driven down by excellent glucose, low inflammation (hsCRP 0.42), healthy albumin and a normal white-count, the markers PhenoAge weights most. Note that PhenoAge does not "see" your lipids or Lp(a): a young biological age and a real cardiovascular risk can, and here do, coexist. That is exactly why we read the full panel, not just the age number.</p>
+
+  <table class="phenoage-table">
+    <tr><td colspan="2"><strong>The 10 inputs used:</strong></td></tr>
+    <tr><td>albumin g/L</td><td>47.0</td></tr>
+    <tr><td>creatinine umol/L</td><td>92.82</td></tr>
+    <tr><td>glucose mmol/L</td><td>4.83</td></tr>
+    <tr><td>hs crp mg/L</td><td>0.42</td></tr>
+    <tr><td>lymphocytes pct</td><td>36.9</td></tr>
+    <tr><td>mcv fL</td><td>86.8</td></tr>
+    <tr><td>rdw cv pct</td><td>13.8</td></tr>
+    <tr><td>alp U/L</td><td>153</td></tr>
+    <tr><td>wbc K/uL</td><td>5.06</td></tr>
+    <tr><td>age</td><td>25</td></tr>
+    <tr style="border-top:1px solid var(--rule);"><td><strong>xb (linear combination)</strong></td><td><strong>-10.9398</strong></td></tr>
+    <tr><td><strong>10-yr mortality score</strong></td><td><strong>0.35%</strong></td></tr>
+    <tr><td><strong>Computed bio age</strong></td><td><strong>21.1 years</strong></td></tr>
+  </table>
+</section>
+
+<!-- DERIVED INDICES -->
+<section class="card">
+  <div class="card-eyebrow">Derived indices</div>
+  <h2>What the ratios say</h2>
+  <p style="margin-bottom:16px;">These are computed from your raw markers, they often reveal risk earlier than any single value.</p>
+  <div class="marker-table">
+    <div class="marker-row"><div class="marker-name">HOMA-IR (insulin resistance)</div><div class="marker-value"><span class="num">1.25</span> <span class="unit">index</span></div><div class="marker-target">&lt; 1.0</div><div class="marker-badge badge-watch">WATCH</div></div>
+    <div class="marker-row"><div class="marker-name">TG : HDL ratio</div><div class="marker-value"><span class="num">1.95</span></div><div class="marker-target">&lt; 2.0</div><div class="marker-badge badge-watch">WATCH</div></div>
+    <div class="marker-row"><div class="marker-name">AIP (atherogenic index)</div><div class="marker-value"><span class="num">0.29</span></div><div class="marker-target">&lt; 0.11</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">Castelli I (TC / HDL)</div><div class="marker-value"><span class="num">4.53</span></div><div class="marker-target">&lt; 3.5</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">Castelli II (LDL / HDL)</div><div class="marker-value"><span class="num">3.14</span></div><div class="marker-target">&lt; 2.0</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">ApoB / ApoA1</div><div class="marker-value"><span class="num">1.07</span></div><div class="marker-target">&lt; 0.7</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">Non-HDL cholesterol</div><div class="marker-value"><span class="num">152</span> <span class="unit">mg/dL</span></div><div class="marker-target">&lt; 130</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">Transferrin saturation</div><div class="marker-value"><span class="num">11.5</span> <span class="unit">%</span></div><div class="marker-target">25–45</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">NLR (neutrophil:lymphocyte)</div><div class="marker-value"><span class="num">1.37</span></div><div class="marker-target">&lt; 2.0</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  </div>
+</section>
+
+<!-- BIOMARKER ANALYSIS -->
+<section style="margin:48px 0;">
+  <div class="card-eyebrow" style="margin-bottom:8px;">Full biomarker analysis</div>
+  <h2>68 lab markers, grouped by panel</h2>
+  <p style="margin-bottom:24px;">Status badges: <span class="marker-badge badge-optimal">OPTIMAL</span> within Antiaging Labs-optimal range · <span class="marker-badge badge-watch">WATCH</span> within acceptable but not optimal · <span class="marker-badge badge-off_target">OFF-TARGET</span> outside acceptable · <span class="marker-badge badge-refer">REFER</span> discuss with physician. Targets shown are Antiaging Labs-optimal, often tighter than the lab's reference range.</p>
+
+<section class="panel">
+  <h3>Complete Blood Count</h3>
+  <div class="marker-table">
+    <div class="marker-row"><div class="marker-name">Hemoglobin</div><div class="marker-value"><span class="num">15</span> <span class="unit">g/dL</span></div><div class="marker-target">14–16</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Red Blood Cells</div><div class="marker-value"><span class="num">5.06</span> <span class="unit">10^6/cumm</span></div><div class="marker-target">4.7–5.5</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Hematocrit (HCT)</div><div class="marker-value"><span class="num">44.0</span> <span class="unit">%</span></div><div class="marker-target">42–48</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">MCV</div><div class="marker-value"><span class="num">86.8</span> <span class="unit">fL</span></div><div class="marker-target">85–92</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">MCH</div><div class="marker-value"><span class="num">29.6</span> <span class="unit">pg</span></div><div class="marker-target">27–32</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">MCHC</div><div class="marker-value"><span class="num">34.1</span> <span class="unit">g/dL</span></div><div class="marker-target">33–35</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">RDW-CV</div><div class="marker-value"><span class="num">13.8</span> <span class="unit">%</span></div><div class="marker-target">&le; 13</div><div class="marker-badge badge-watch">WATCH</div></div>
+    <div class="marker-row"><div class="marker-name">Total Leucocyte Count</div><div class="marker-value"><span class="num">5.06</span> <span class="unit">10^3/uL</span></div><div class="marker-target">4.5–6.5</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Neutrophils %</div><div class="marker-value"><span class="num">50.6</span> <span class="unit">%</span></div><div class="marker-target">40–60</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Lymphocytes %</div><div class="marker-value"><span class="num">36.9</span> <span class="unit">%</span></div><div class="marker-target">28–40</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Monocytes %</div><div class="marker-value"><span class="num">9.6</span> <span class="unit">%</span></div><div class="marker-target">3–7</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">Eosinophils %</div><div class="marker-value"><span class="num">2.7</span> <span class="unit">%</span></div><div class="marker-target">1–3</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Basophils %</div><div class="marker-value"><span class="num">0.2</span> <span class="unit">%</span></div><div class="marker-target">0–1</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Absolute Basophil Count</div><div class="marker-value"><span class="num">0.01</span> <span class="unit">10^3/uL</span></div><div class="marker-target">0.02–0.1</div><div class="marker-badge badge-watch">WATCH</div></div>
+    <div class="marker-row"><div class="marker-name">Platelet Count</div><div class="marker-value"><span class="num">225</span> <span class="unit">10^3/uL</span></div><div class="marker-target">150–410</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  </div>
+</section>
+
+<section class="panel">
+  <h3>Inflammatory markers</h3>
+  <div class="marker-table">
+    <div class="marker-row"><div class="marker-name">ESR</div><div class="marker-value"><span class="num">9</span> <span class="unit">mm/hr</span></div><div class="marker-target">&le; 10</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">C-Reactive Protein</div><div class="marker-value"><span class="num">1.30</span> <span class="unit">mg/L</span></div><div class="marker-target">&lt; 3.0</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">hs-CRP</div><div class="marker-value"><span class="num">0.42</span> <span class="unit">mg/L</span></div><div class="marker-target">&lt; 1.0</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  </div>
+</section>
+
+<section class="panel">
+  <h3>Iron studies</h3>
+  <div class="marker-table">
+    <div class="marker-row"><div class="marker-name">Ferritin</div><div class="marker-value"><span class="num">7.50</span> <span class="unit">ng/mL</span></div><div class="marker-target">50–150</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">Iron, Serum</div><div class="marker-value"><span class="num">44</span> <span class="unit">ug/dL</span></div><div class="marker-target">65–175</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">Transferrin saturation</div><div class="marker-value"><span class="num">11.48</span> <span class="unit">%</span></div><div class="marker-target">25–45</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">TIBC</div><div class="marker-value"><span class="num">383.3</span> <span class="unit">ug/dL</span></div><div class="marker-target">250–370</div><div class="marker-badge badge-watch">WATCH</div></div>
+  </div>
+</section>
+
+<section class="panel">
+  <h3>Glucose & insulin</h3>
+  <div class="marker-table">
+    <div class="marker-row"><div class="marker-name">HbA1c</div><div class="marker-value"><span class="num">5.2</span> <span class="unit">%</span></div><div class="marker-target">&lt; 5.3</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Glucose, Fasting</div><div class="marker-value"><span class="num">87</span> <span class="unit">mg/dL</span></div><div class="marker-target">70–90</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Insulin, Fasting</div><div class="marker-value"><span class="num">5.84</span> <span class="unit">uU/mL</span></div><div class="marker-target">&lt; 6</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  </div>
+</section>
+
+<section class="panel">
+  <h3>Lipids & cardiovascular</h3>
+  <div class="marker-table">
+    <div class="marker-row"><div class="marker-name">Total Cholesterol</div><div class="marker-value"><span class="num">195</span> <span class="unit">mg/dL</span></div><div class="marker-target">&lt; 180</div><div class="marker-badge badge-watch">WATCH</div></div>
+    <div class="marker-row"><div class="marker-name">Triglycerides</div><div class="marker-value"><span class="num">84</span> <span class="unit">mg/dL</span></div><div class="marker-target">&lt; 90</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">HDL Cholesterol</div><div class="marker-value"><span class="num">43</span> <span class="unit">mg/dL</span></div><div class="marker-target">&ge; 50</div><div class="marker-badge badge-watch">WATCH</div></div>
+    <div class="marker-row"><div class="marker-name">LDL Cholesterol</div><div class="marker-value"><span class="num">135</span> <span class="unit">mg/dL</span></div><div class="marker-target">&lt; 100</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">Non-HDL Cholesterol</div><div class="marker-value"><span class="num">152</span> <span class="unit">mg/dL</span></div><div class="marker-target">&lt; 130</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">Lipoprotein(a)</div><div class="marker-value"><span class="num">49.44</span> <span class="unit">mg/dL</span></div><div class="marker-target">&lt; 30</div><div class="marker-badge badge-refer">REFER</div></div>
+    <div class="marker-row"><div class="marker-name">Apolipoprotein B</div><div class="marker-value"><span class="num">96</span> <span class="unit">mg/dL</span></div><div class="marker-target">&lt; 80</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">Apolipoprotein A1</div><div class="marker-value"><span class="num">90</span> <span class="unit">mg/dL</span></div><div class="marker-target">&gt; 140</div><div class="marker-badge badge-watch">WATCH</div></div>
+    <div class="marker-row"><div class="marker-name">ApoB / ApoA1 Ratio</div><div class="marker-value"><span class="num">1.07</span></div><div class="marker-target">&lt; 0.7</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">Homocysteine</div><div class="marker-value"><span class="num">11.33</span> <span class="unit">umol/L</span></div><div class="marker-target">&lt; 9</div><div class="marker-badge badge-watch">WATCH</div></div>
+  </div>
+</section>
+
+<section class="panel">
+  <h3>Liver</h3>
+  <div class="marker-table">
+    <div class="marker-row"><div class="marker-name">Bilirubin, Total</div><div class="marker-value"><span class="num">1.28</span> <span class="unit">mg/dL</span></div><div class="marker-target">0.3–1.2</div><div class="marker-badge badge-watch">WATCH</div></div>
+    <div class="marker-row"><div class="marker-name">Bilirubin, Direct</div><div class="marker-value"><span class="num">0.35</span> <span class="unit">mg/dL</span></div><div class="marker-target">0.0–0.3</div><div class="marker-badge badge-watch">WATCH</div></div>
+    <div class="marker-row"><div class="marker-name">Bilirubin, Indirect</div><div class="marker-value"><span class="num">0.93</span> <span class="unit">mg/dL</span></div><div class="marker-target">0.2–0.8</div><div class="marker-badge badge-watch">WATCH</div></div>
+    <div class="marker-row"><div class="marker-name">Total Protein</div><div class="marker-value"><span class="num">7.50</span> <span class="unit">g/dL</span></div><div class="marker-target">6.5–8.0</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Albumin</div><div class="marker-value"><span class="num">4.70</span> <span class="unit">g/dL</span></div><div class="marker-target">4.5–5.0</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">AST (SGOT)</div><div class="marker-value"><span class="num">27</span> <span class="unit">U/L</span></div><div class="marker-target">&lt; 30</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">ALT (SGPT)</div><div class="marker-value"><span class="num">27</span> <span class="unit">U/L</span></div><div class="marker-target">&lt; 30</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Alkaline Phosphatase</div><div class="marker-value"><span class="num">153</span> <span class="unit">U/L</span></div><div class="marker-target">46–116</div><div class="marker-badge badge-watch">WATCH</div></div>
+    <div class="marker-row"><div class="marker-name">GGT</div><div class="marker-value"><span class="num">14</span> <span class="unit">U/L</span></div><div class="marker-target">&lt; 30</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  </div>
+</section>
+
+<section class="panel">
+  <h3>Kidney & electrolytes</h3>
+  <div class="marker-table">
+    <div class="marker-row"><div class="marker-name">Creatinine</div><div class="marker-value"><span class="num">1.05</span> <span class="unit">mg/dL</span></div><div class="marker-target">0.7–1.1</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">eGFR</div><div class="marker-value"><span class="num">101</span> <span class="unit">mL/min</span></div><div class="marker-target">&gt; 90</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Uric Acid</div><div class="marker-value"><span class="num">5.6</span> <span class="unit">mg/dL</span></div><div class="marker-target">3.5–6.0</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Sodium</div><div class="marker-value"><span class="num">140</span> <span class="unit">mmol/L</span></div><div class="marker-target">136–145</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Potassium</div><div class="marker-value"><span class="num">4.61</span> <span class="unit">mmol/L</span></div><div class="marker-target">3.5–5.1</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  </div>
+</section>
+
+<section class="panel">
+  <h3>Thyroid</h3>
+  <div class="marker-table">
+    <div class="marker-row"><div class="marker-name">TSH (ultrasensitive)</div><div class="marker-value"><span class="num">1.634</span> <span class="unit">uIU/mL</span></div><div class="marker-target">1.0–2.0</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Free T3</div><div class="marker-value"><span class="num">3.56</span> <span class="unit">pg/mL</span></div><div class="marker-target">3.0–4.0</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Free T4</div><div class="marker-value"><span class="num">1.41</span> <span class="unit">ng/dL</span></div><div class="marker-target">1.0–1.6</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">T3, Total</div><div class="marker-value"><span class="num">1.10</span> <span class="unit">ng/mL</span></div><div class="marker-target">0.6–1.81</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">T4, Total</div><div class="marker-value"><span class="num">7.0</span> <span class="unit">ug/dL</span></div><div class="marker-target">4.5–12.6</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  </div>
+</section>
+
+<section class="panel">
+  <h3>Hormones</h3>
+  <div class="marker-table">
+    <div class="marker-row"><div class="marker-name">Testosterone, Total</div><div class="marker-value"><span class="num">801.52</span> <span class="unit">ng/dL</span></div><div class="marker-target">600–900</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Cortisol (AM)</div><div class="marker-value"><span class="num">12.2</span> <span class="unit">ug/dL</span></div><div class="marker-target">10–15</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">PSA, Total</div><div class="marker-value"><span class="num">0.362</span> <span class="unit">ng/mL</span></div><div class="marker-target">&lt; 4</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  </div>
+</section>
+
+<section class="panel">
+  <h3>Vitamins, minerals & bone</h3>
+  <div class="marker-table">
+    <div class="marker-row"><div class="marker-name">Vitamin D (25-OH)</div><div class="marker-value"><span class="num">63.0</span> <span class="unit">ng/mL</span></div><div class="marker-target">40–60</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Vitamin B12</div><div class="marker-value"><span class="num">&gt;2000</span> <span class="unit">pg/mL</span></div><div class="marker-target">400–800</div><div class="marker-badge badge-watch">WATCH</div></div>
+    <div class="marker-row"><div class="marker-name">Folate (B9)</div><div class="marker-value"><span class="num">&gt;24</span> <span class="unit">ng/mL</span></div><div class="marker-target">&ge; 5.4</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Magnesium</div><div class="marker-value"><span class="num">1.98</span> <span class="unit">mg/dL</span></div><div class="marker-target">2.0–2.4</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Calcium</div><div class="marker-value"><span class="num">9.3</span> <span class="unit">mg/dL</span></div><div class="marker-target">8.7–10.4</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Phosphorus</div><div class="marker-value"><span class="num">3.00</span> <span class="unit">mg/dL</span></div><div class="marker-target">2.4–5.1</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  </div>
+</section>
+
+<section class="panel">
+  <h3>Immunology, pancreas & other</h3>
+  <div class="marker-table">
+    <div class="marker-row"><div class="marker-name">Immunoglobulin E (Total)</div><div class="marker-value"><span class="num">247</span> <span class="unit">IU/mL</span></div><div class="marker-target">&lt; 158</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">Rheumatoid Factor</div><div class="marker-value"><span class="num">&lt;3.5</span> <span class="unit">IU/mL</span></div><div class="marker-target">&lt; 14</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Lipase</div><div class="marker-value"><span class="num">40.0</span> <span class="unit">U/L</span></div><div class="marker-target">12–53</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Amylase</div><div class="marker-value"><span class="num">81</span> <span class="unit">U/L</span></div><div class="marker-target">30–118</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Urine routine</div><div class="marker-value"><span class="num">Normal</span></div><div class="marker-target">glucose/protein/ketones neg</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  </div>
+</section>
+</section>
+
+<!-- PANEL COMPLETENESS -->
+<section class="card completeness-card">
+  <div class="card-eyebrow">Your panel coverage</div>
+  <h2>Markers we'd add at the Day-90 retest</h2>
+  <p style="margin-bottom:18px;">This was an excellent, broad panel, metabolic, lipid, hormonal, thyroid, liver, kidney and iron all well covered. To interpret your two main findings (cardiovascular + iron) with more confidence, a few targeted add-ons would help. Ranked by leverage.</p>
+
+  <div class="tier-block tier-must">
+    <h4 style="color:var(--accent);">Must-add (sharpens your current findings)</h4>
+    <ul style="font-size:14px;">
+      <li><code>lp_a_repeat</code>, Confirm the elevated Lp(a) once, it should be stable for life, then never repeat.</li>
+      <li><code>ldl_direct</code> + <code>apo_b_recheck</code>, Track the lever you can actually move across the 90 days.</li>
+      <li><code>reticulocyte_hb</code> / <code>soluble_transferrin_receptor</code>, Confirms iron-deficiency stage and response to repletion.</li>
+      <li><code>stool_occult_blood</code>, Cheap, rules out quiet GI iron loss if diet doesn't explain ferritin 7.5.</li>
+    </ul>
+  </div>
+
+  <div class="tier-block tier-should">
+    <h4 style="color:var(--gold);">Should-add (next-layer specificity)</h4>
+    <ul style="font-size:14px;">
+      <li><code>fasting_glucose_insulin_recheck</code>, Re-derive HOMA-IR at Day 90 to confirm the early-IR signal is moving.</li>
+      <li><code> apo_b_particle_or_ldl_p</code>, Particle count if available, finer than LDL-C for someone with Lp(a).</li>
+      <li><code>tsh_serum</code> note, B12 &gt;2000 confirms you're supplementing, tell us the dose so we don't double up.</li>
+    </ul>
+  </div>
+
+  <div class="tier-block tier-nice">
+    <h4>Nice-to-add (research-grade)</h4>
+    <ul style="font-size:14px;">
+      <li><code>omega_3_index</code>, Cellular EPA+DHA, a strong independent CV predictor, useful given your lipid picture.</li>
+      <li><code>glyca</code>, NMR chronic-inflammation marker, finer than hsCRP for monitoring.</li>
+      <li><code>specific_ige_panel</code>, Only if the questionnaire confirms real allergy symptoms.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- LIFESTYLE QUESTIONNAIRE -->
+<section class="q-section">
+  <div class="card-eyebrow" style="margin-bottom:8px;">Part 2 starts here</div>
+  <h2>The lifestyle questionnaire</h2>
+  <p style="margin-bottom:6px;">Your bloodwork tells us <em>what</em> is happening. These questions tell us <em>why</em>, and they decide your protocol. They're grouped by domain and weighted toward your three findings (cardiovascular, iron, early insulin signal). Answer as honestly and specifically as you can, rough numbers are fine. Once you send these back, the personalized 90-day protocol gets built.</p>
+
+  <div class="q-group">
+    <div class="q-domain">01 · Body & baseline</div>
+    <h3>The physical starting point</h3>
+    <p class="q-why">Needed for BMI, waist-to-height and to anchor every lipid and insulin target.</p>
+    <ol>
+      <li>Height and current weight?</li>
+      <li>Waist circumference (at the navel)?</li>
+      <li>Has your weight changed much in the last 6–12 months? Up, down, stable?</li>
+      <li>How would you describe your build, lean, average, carrying some midsection weight?</li>
+    </ol>
+  </div>
+
+  <div class="q-group">
+    <div class="q-domain">02 · Family history</div>
+    <h3>What runs in the family <span style="font-weight:400;color:var(--ink-fade);font-size:13px;">(high priority, given Lp(a))</span></h3>
+    <p class="q-why">Your inherited Lp(a) makes family cardiovascular history the single most informative thing you can tell us.</p>
+    <ol>
+      <li>Any heart attack, stroke, angioplasty/stent or bypass in a parent, grandparent or sibling? At what age?</li>
+      <li>Anyone diagnosed with high cholesterol or on cholesterol medication (statins)?</li>
+      <li>Family history of diabetes or pre-diabetes?</li>
+      <li>Family history of thyroid disease, or any cancers?</li>
+      <li>Are your parents and grandparents alive? If not, age and cause?</li>
+    </ol>
+  </div>
+
+  <div class="q-group">
+    <div class="q-domain">03 · Diet & nutrition</div>
+    <h3>How you actually eat <span style="font-weight:400;color:var(--ink-fade);font-size:13px;">(drives iron + lipids)</span></h3>
+    <p class="q-why">This single section explains both your iron depletion and a large part of your lipid pattern.</p>
+    <ol>
+      <li>Vegetarian, eggetarian, vegan, or non-veg? If non-veg, how many times a week do you eat red meat, chicken, fish?</li>
+      <li>Do you drink tea or coffee with meals or right after? How many cups a day? (this strongly blocks iron absorption)</li>
+      <li>Roughly how many meals a day, and what does a typical day of eating look like, breakfast to dinner?</li>
+      <li>How often fried food, restaurant/takeaway, or sweets per week?</li>
+      <li>What cooking fat at home, refined oil, mustard, ghee, olive? Heavy or light hand?</li>
+      <li>Daily fruit and vegetable intake, honestly?</li>
+      <li>Whole grains vs refined (white rice, maida, white bread), what's the split?</li>
+      <li>Any current supplements or protein powders, and their doses? (your B12 is &gt;2000 and folate &gt;24, so you're clearly taking something, what exactly?)</li>
+      <li>Alcohol, type, how many times a week, how much per sitting?</li>
+      <li>Roughly how much water a day?</li>
+    </ol>
+  </div>
+
+  <div class="q-group">
+    <div class="q-domain">04 · Iron-loss screen</div>
+    <h3>Where the iron might be going</h3>
+    <p class="q-why">In a young man, ferritin 7.5 is unusual, we rule out quiet loss alongside diet.</p>
+    <ol>
+      <li>Have you donated blood in the last 6–12 months? How often do you donate?</li>
+      <li>Ever noticed black, tarry, or bloody stool, or blood when brushing/spitting?</li>
+      <li>Frequent acidity, indigestion, or regular use of painkillers (ibuprofen, aspirin, diclofenac)?</li>
+      <li>Any fatigue, unusual breathlessness on stairs, hair shedding, cold hands/feet, brittle nails, or craving for ice/strange textures?</li>
+      <li>How are your bowel habits, regular, and any recent change?</li>
+    </ol>
+  </div>
+
+  <div class="q-group">
+    <div class="q-domain">05 · Movement & training</div>
+    <h3>How you move</h3>
+    <p class="q-why">The main lever for both ApoB/HDL and the early insulin signal.</p>
+    <ol>
+      <li>Do you train? What type, weights, running, sport, classes, and how many days a week?</li>
+      <li>Any steady cardio (brisk walk, jog, cycle), and how many minutes a week?</li>
+      <li>Rough daily step count, if you track it?</li>
+      <li>How many hours a day are you sitting (desk work, commute)?</li>
+      <li>How would you rate your current fitness, 1 to 10?</li>
+    </ol>
+  </div>
+
+  <div class="q-group">
+    <div class="q-domain">06 · Sleep & recovery</div>
+    <h3>How you recover</h3>
+    <p class="q-why">Sleep quietly drives insulin sensitivity, appetite and recovery.</p>
+    <ol>
+      <li>Typical bedtime and wake time on weekdays?</li>
+      <li>How many hours do you actually sleep, and how long to fall asleep?</li>
+      <li>Do you wake during the night? Refreshed in the morning?</li>
+      <li>Any snoring, or has anyone noticed you stop breathing in your sleep?</li>
+      <li>Do you nap, and do you use screens in bed?</li>
+    </ol>
+  </div>
+
+  <div class="q-group">
+    <div class="q-domain">07 · Stress & mind</div>
+    <h3>The mental load</h3>
+    <p class="q-why">Context for cortisol, appetite and adherence, what you'll realistically sustain.</p>
+    <ol>
+      <li>Stress level over the last month, 1 to 10, and main source (work, studies, money, relationships)?</li>
+      <li>How is your mood and energy through the day, any afternoon crashes or brain fog?</li>
+      <li>Do you have a way you unwind, and does it work?</li>
+      <li>How is your focus and motivation lately?</li>
+    </ol>
+  </div>
+
+  <div class="q-group">
+    <div class="q-domain">08 · Allergy & atopy</div>
+    <h3>The IgE picture</h3>
+    <p class="q-why">Your IgE is 247, this maps it to real-world symptoms (or rules it out).</p>
+    <ol>
+      <li>Any hay-fever, sneezing fits, blocked/runny nose, or itchy eyes, seasonal or year-round?</li>
+      <li>Any eczema, hives, or itchy skin?</li>
+      <li>Any asthma, wheezing, or breathlessness?</li>
+      <li>Any known food or dust/pet/pollen allergies?</li>
+    </ol>
+  </div>
+
+  <div class="q-group">
+    <div class="q-domain">09 · Substances, meds & constraints</div>
+    <h3>The practical frame</h3>
+    <p class="q-why">Safety screen plus what the protocol must work around.</p>
+    <ol>
+      <li>Do you smoke or use tobacco/vape, ever or currently? (this compounds the Lp(a) risk most of all)</li>
+      <li>Any prescription medications, regular or occasional?</li>
+      <li>Any diagnosed conditions or past surgeries we should know about?</li>
+      <li>Any foods you can't or won't eat, allergies, religious, strong dislikes?</li>
+      <li>What does your week realistically allow, how much time can you give to cooking, training and sleep changes? (an honest answer here makes the protocol stick)</li>
+      <li>Your single biggest health goal for the next 90 days, in your words?</li>
+    </ol>
+  </div>
+</section>
+
+<!-- WHAT HAPPENS NEXT -->
+<section class="next-card">
+  <div class="card-eyebrow">What happens next</div>
+  <h2>From here to your protocol</h2>
+  <ol style="font-size:15px; line-height:1.7;">
+    <li><strong>You answer the questionnaire above</strong>, type it back however is easiest, voice notes are fine too.</li>
+    <li><strong>We build your personalized 90-day protocol</strong>, five domains (nutrition, training, recovery, supplements, mind), every action traced to a specific marker. The headline targets: bring ApoB and LDL down, refill iron stores and find the cause, and nudge HOMA-IR back under 1.0.</li>
+    <li><strong>You take two items to a physician first</strong>, the Lp(a)/lipid picture and the iron depletion. We'll prepare exactly what to ask.</li>
+    <li><strong>We retest at Day 90</strong> and recompute your biological age and every flagged marker, so the change is measured, not assumed.</li>
+  </ol>
+</section>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <h4>Important notes</h4>
+  <p>This report is generated from a single blood test (Tata 1mg, collected 07 Jun 2026). It is <strong>not a medical diagnosis</strong>. Every recommendation must be discussed with your physician before starting supplements at therapeutic doses, changing medication, or making changes that affect an existing condition.</p>
+  <p>Two findings here warrant a physician conversation: the elevated <strong>Lipoprotein(a) 49 mg/dL</strong> with the broader lipid pattern, and the <strong>iron depletion (ferritin 7.5)</strong>, whose cause should be understood before high-dose iron is started. Do not begin iron or any cardiovascular medication on the basis of this report alone.</p>
+  <p>Antiaging Labs is a biomarker-moving and healthspan-optimization program. We do not claim to extend lifespan, reverse aging, or cure disease. We work to move biomarkers in directions associated with better long-term health outcomes per current scientific evidence.</p>
+  <p>Privacy: this report and the underlying lab data are private to Ayush and are not shared with employers, insurers, or third parties without explicit consent (DPDP Act 2023 aligned).</p>
+  <p style="margin-top:14px; font-family:var(--mono); font-size:11px; color:var(--ink-fade);">Biological age: Levine PhenoAge (2018), 10-input blood-chemistry estimator · derived indices: HOMA-IR, TG:HDL, AIP, Castelli I/II, transferrin saturation, NLR · part 1 of 2 (protocol pending intake) · generated 09 Jun 2026.</p>
+</div>
+
+</div>
+</body>
+</html>
