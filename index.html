@@ -161,8 +161,64 @@
   </div>
 </section>
 
+<!-- RESEARCH MEMBERS -->
+<section class="sec sec-alt" id="team">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Research network</p>
+      <h2 class="sec-title">Backed by people who have <span class="muted">spent careers in the lab.</span></h2>
+      <p class="sec-intro">Our research members are working scientists and clinicians who contribute domain expertise, review methodology, and keep our protocols grounded in what the evidence actually supports.</p>
+    </div>
+    <div class="member-grid">
+
+      <div class="mcard">
+        <div class="mcard-top">
+          <div class="mavatar">CT</div>
+          <div class="mcard-id">
+            <h3 class="mname">Carlos Trujillo</h3>
+            <p class="mtitle">Cytogenetics &amp; Molecular Geneticist</p>
+            <p class="morg">Medical Genetics Institute</p>
+          </div>
+        </div>
+        <p class="mbio">Physician and molecular geneticist with over 18 years across clinical medicine and research genetics. Directed the Molecular Genetics and Cytogenetics Lab at King Fahd Medical Research Center, King Abdulaziz University, one of the Arabian Peninsula's leading biomedical research institutions, overseeing day-to-day operations, clinical genetics workflows, and genetic counseling. His research interests sit at the intersection of cytogenomics, inherited disease risk, and population-level genetic variation. His work is directly relevant to calibrating longevity protocols for non-European ancestries.</p>
+        <div class="mtags">
+          <span class="mtag">Molecular Genetics</span>
+          <span class="mtag">Cytogenomics</span>
+          <span class="mtag">Genetic Counseling</span>
+          <span class="mtag">Clinical Research</span>
+          <span class="mtag">Cell Culture</span>
+        </div>
+        <div class="mfooter">
+          <span class="mloc">Colombia</span>
+          <span class="minst">King Fahd Medical Research Center · KAU, Saudi Arabia</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.member-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(520px,1fr));gap:32px;margin-top:8px;}
+.mcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px 34px;display:flex;flex-direction:column;gap:22px;}
+.mcard-top{display:flex;align-items:flex-start;gap:22px;}
+.mavatar{width:64px;height:64px;min-width:64px;border-radius:50%;background:var(--dark);color:#fff;font-family:var(--mono);font-size:20px;font-weight:600;display:flex;align-items:center;justify-content:center;letter-spacing:.04em;}
+.mcard-id{display:flex;flex-direction:column;gap:3px;padding-top:4px;}
+.mname{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--ink);line-height:1.2;}
+.mtitle{font-size:14px;font-weight:600;color:var(--accent);margin-top:2px;}
+.morg{font-size:13px;color:var(--ink-2);}
+.mbio{font-size:15px;line-height:1.7;color:var(--ink-2);}
+.mtags{display:flex;flex-wrap:wrap;gap:8px;}
+.mtag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;background:var(--surface-alt);border:1px solid var(--line);border-radius:4px;padding:5px 10px;color:var(--ink-2);}
+.mfooter{display:flex;gap:18px;align-items:center;padding-top:6px;border-top:1px solid var(--line);}
+.mloc{font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.06em;}
+.mloc::before{content:"📍 ";}
+.minst{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.04em;}
+@media(max-width:640px){.member-grid{grid-template-columns:1fr;}.mcard-top{flex-direction:column;gap:14px;}.mfooter{flex-direction:column;align-items:flex-start;gap:6px;}}
+</style>
+
 <!-- FIELD NOTES PREVIEW -->
-<section class="sec sec-alt">
+<section class="sec" id="fieldnotes">
   <div class="wrap">
     <div class="sec-head">
       <p class="kicker">Field notes</p>

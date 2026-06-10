@@ -47,12 +47,22 @@
     },
     {
       "source": "/ayush.html",
-      "destination": "/ayush",
+      "destination": "/client-5",
+      "permanent": true
+    },
+    {
+      "source": "/ayush",
+      "destination": "/client-5",
+      "permanent": true
+    },
+    {
+      "source": "/ayush/",
+      "destination": "/client-5",
       "permanent": true
     },
     {
       "source": "/ayush-report",
-      "destination": "/ayush",
+      "destination": "/client-5",
       "permanent": true
     },
     {
@@ -273,11 +283,11 @@
       "destination": "/gym.html"
     },
     {
-      "source": "/ayush",
+      "source": "/client-5",
       "destination": "/ayush.html"
     },
     {
-      "source": "/ayush/",
+      "source": "/client-5/",
       "destination": "/ayush.html"
     },
     {
