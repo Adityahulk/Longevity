@@ -51,13 +51,8 @@
       "permanent": true
     },
     {
-      "source": "/Ayush-report.html",
-      "destination": "/Ayush-report",
-      "permanent": true
-    },
-    {
       "source": "/ayush-report",
-      "destination": "/Ayush-report",
+      "destination": "/ayush",
       "permanent": true
     },
     {
@@ -287,11 +282,11 @@
     },
     {
       "source": "/Ayush-report",
-      "destination": "/Ayush-report.html"
+      "destination": "/ayush.html"
     },
     {
       "source": "/Ayush-report/",
-      "destination": "/Ayush-report.html"
+      "destination": "/ayush.html"
     }
   ]
 }

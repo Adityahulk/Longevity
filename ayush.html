@@ -1,1070 +1,823 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="robots" content="noindex, nofollow" />
-<title>Ayush, Antiaging Labs Client Record</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Ayush · Antiaging Labs Longevity Report · 09 Jun 2026</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --bg:           #FAFAF7;
-  --paper:        #FFFFFF;
-  --paper-tint:   #F5F3ED;
-  --paper-warm:   #FBF5EC;
-  --ink:          #0F1419;
-  --ink-soft:     #2A3340;
-  --ink-mute:     #4F5868;
-  --ink-fade:     #7A8497;
-  --rule:         #E0DDD3;
-  --rule-soft:    #EDEAE0;
-  --accent:       #B85426;
-  --accent-soft:  #FBF0E8;
-  --teal:         #0D7377;
-  --leaf:         #2F5D3C;
-  --leaf-soft:    #E8F0EA;
-  --gold:         #8B6914;
-  --rose:         #B23A48;
-  --rose-soft:    #F8E8EA;
-  --serif:        'Fraunces', Georgia, serif;
-  --sans:         'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --mono:         'JetBrains Mono', ui-monospace, monospace;
+  --cream:#F5F1E8; --cream-dark:#EDE7D9; --paper:#FBF8F1;
+  --ink:#0E1B2C; --ink-soft:#1F2D40; --ink-mute:#4A5668; --ink-fade:#7A8497;
+  --rule:#C8BFA8; --rule-soft:#DCD3BC;
+  --accent:#B85426; --accent-warm:#D17244; --accent-soft:#F4E5DC;
+  --leaf:#2F5D3C; --leaf-soft:#DCE7DE;
+  --gold:#8B6914; --gold-soft:#EFE6CB;
+  --danger:#9B2C2C; --danger-soft:#F8DDDA;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
 }
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:var(--sans); background:var(--cream); color:var(--ink); font-weight:400; line-height:1.65; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+body::before { content:''; position:fixed; inset:0; pointer-events:none; background-image:radial-gradient(circle at 20% 30%, rgba(184,84,38,0.025) 0%, transparent 40%),radial-gradient(circle at 80% 70%, rgba(47,93,60,0.02) 0%, transparent 50%); z-index:0; }
+.page { max-width:880px; margin:0 auto; padding:0 40px; position:relative; z-index:1; }
+.eyebrow { font-family:var(--mono); font-size:11px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-fade); }
+h1,h2,h3 { font-family:var(--serif); color:var(--ink); font-weight:500; letter-spacing:-0.01em; }
+h1 { font-size:56px; line-height:1.05; }
+h2 { font-size:34px; line-height:1.15; margin-bottom:10px; }
+h3 { font-size:22px; line-height:1.25; margin-bottom:8px; }
+h4 { font-family:var(--sans); font-size:13px; font-weight:600; letter-spacing:0.02em; color:var(--ink); margin-bottom:8px; text-transform:uppercase; }
+p { color:var(--ink-soft); }
+p + p { margin-top:14px; }
+a { color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-soft); }
+ul, ol { padding-left:22px; color:var(--ink-soft); }
+li { margin-bottom:6px; }
+li::marker { color:var(--accent); }
+strong { color:var(--ink); font-weight:600; }
+em { font-style:italic; color:var(--ink-mute); }
+hr { border:0; border-top:0.5px solid var(--rule); margin:48px 0; }
+code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); padding:1px 6px; border-radius:3px; color:var(--ink); }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: var(--sans);
-  background: var(--bg);
-  color: var(--ink);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  font-size: 15px;
-}
-a { color: var(--accent); text-decoration: none; }
+/* COVER */
+.cover { padding:100px 0 80px; }
+.cover-eyebrow { font-family:var(--mono); font-size:11px; letter-spacing:0.22em; color:var(--accent); text-transform:uppercase; margin-bottom:20px; }
+.cover h1 { font-size:72px; line-height:1.0; margin-bottom:32px; font-weight:300; }
+.cover h1 .ampersand { color:var(--accent); font-style:italic; }
+.cover-stat { margin-top:30px; padding:24px 0 24px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); display:flex; align-items:baseline; gap:32px; flex-wrap:wrap; }
+.stat-block { display:flex; flex-direction:column; gap:4px; }
+.stat-label { font-family:var(--mono); font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--ink-fade); }
+.stat-value { font-family:var(--serif); font-size:36px; font-weight:500; color:var(--ink); line-height:1; }
+.stat-value.accent { color:var(--accent); }
+.stat-value.leaf { color:var(--leaf); }
+.stat-detail { font-size:13px; color:var(--ink-mute); }
+.phenotype-label { font-family:var(--serif); font-style:italic; font-size:22px; line-height:1.35; color:var(--ink-soft); margin-top:32px; }
+.longevity-baseline { background:var(--leaf-soft); border-left:3px solid var(--leaf); padding:14px 18px; margin-top:24px; font-size:14px; }
 
-.wrap { max-width: 940px; margin: 0 auto; padding: 0 32px; }
+/* PROVISIONAL BANNER */
+.provisional { background:var(--gold-soft); border-left:3px solid var(--gold); padding:14px 18px; margin-top:24px; font-size:14px; border-radius:4px; }
 
-/* ─────────── HEADER ─────────── */
-.client-header {
-  background: var(--ink);
-  color: #E8EBF0;
-  padding: 48px 0 40px;
-}
-.client-header .wrap { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 24px; }
-.ch-brand {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #E07B47;
-  margin-bottom: 18px;
-  font-weight: 600;
-}
-.ch-name {
-  font-family: var(--serif);
-  font-size: 64px;
-  font-weight: 300;
-  letter-spacing: -0.025em;
-  color: #fff;
-  line-height: 1;
-}
-.ch-sub {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 18px;
-  color: rgba(255,255,255,0.6);
-  margin-top: 10px;
-}
-.ch-status {
-  text-align: right;
-}
-.status-badge {
-  display: inline-block;
-  background: rgba(224,123,71,0.15);
-  border: 1px solid #E07B47;
-  color: #E07B47;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 6px 14px;
-  border-radius: 100px;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-.ch-meta {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.8;
-}
+/* TIER 1 CALLOUT */
+.tier1-callout { background:var(--danger-soft); border-left:4px solid var(--danger); padding:24px 28px; margin:48px 0; border-radius:4px; }
+.tier1-callout .callout-eyebrow { font-family:var(--mono); font-size:11px; letter-spacing:0.18em; color:var(--danger); text-transform:uppercase; margin-bottom:8px; }
+.tier1-callout h3 { font-size:24px; color:var(--ink); margin-bottom:12px; }
+.tier1-callout p { font-size:15px; color:var(--ink-soft); }
 
-/* ─────────── SECTION NAV ─────────── */
-.section-nav {
-  position: sticky; top: 0; z-index: 50;
-  background: rgba(250,250,247,0.94);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--rule);
-}
-.section-nav .wrap {
-  display: flex; gap: 4px; overflow-x: auto;
-  padding-top: 4px; padding-bottom: 4px;
-}
-.section-nav a {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
-  padding: 12px 14px;
-  white-space: nowrap;
-  border-bottom: 2px solid transparent;
-}
-.section-nav a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+/* CARDS */
+.card { background:var(--paper); border:1px solid var(--rule-soft); border-radius:6px; padding:36px 32px; margin:32px 0; }
+.card .card-eyebrow { font-family:var(--mono); font-size:11px; letter-spacing:0.18em; color:var(--accent); text-transform:uppercase; margin-bottom:10px; }
+.card h2 { font-size:28px; margin-bottom:14px; }
 
-/* ─────────── SECTIONS ─────────── */
-section.block { padding: 56px 0; border-bottom: 1px solid var(--rule); }
-.section-label {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--accent);
-  font-weight: 500;
-  margin-bottom: 16px;
-  display: flex; align-items: center; gap: 12px;
-}
-.section-label .num { color: var(--ink-fade); }
-.section-title {
-  font-family: var(--serif);
-  font-size: 34px;
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  margin-bottom: 16px;
-  line-height: 1.15;
-}
-.section-lede {
-  font-size: 16px;
-  color: var(--ink-mute);
-  max-width: 760px;
-  margin-bottom: 32px;
-}
+/* PHENOTYPE CARD */
+.phenotype-card .phenotype-features { margin-top:18px; padding-top:14px; border-top:1px dashed var(--rule); }
+.phenotype-card .phenotype-features ul { columns:2; column-gap:32px; }
+.phenotype-card .overlay { background:var(--accent-soft); border-radius:4px; padding:12px 16px; margin:10px 0; font-size:14px; }
+.phenotype-card .downgraded { background:var(--cream-dark); border-radius:4px; padding:10px 14px; margin:10px 0; font-size:13px; color:var(--ink-mute); }
 
-/* ─────────── PROFILE / INFO CARDS ─────────── */
-.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.info-card {
-  background: var(--paper);
-  border: 1px solid var(--rule);
-  border-radius: 6px;
-  padding: 28px;
-}
-.info-card.alert { border-color: var(--rose); background: var(--rose-soft); }
-.info-card-label {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-fade);
-  margin-bottom: 14px;
-  font-weight: 600;
-}
-.info-card.alert .info-card-label { color: var(--rose); }
-.info-card ul { list-style: none; }
-.info-card ul li {
-  padding: 9px 0 9px 22px;
-  position: relative;
-  font-size: 15px;
-  color: var(--ink-soft);
-  border-bottom: 1px solid var(--rule-soft);
-}
-.info-card ul li:last-child { border-bottom: none; }
-.info-card ul li::before {
-  content: "•"; position: absolute; left: 4px; color: var(--accent); font-weight: 700;
-}
-.info-card.alert ul li::before { color: var(--rose); }
-.info-card ul li strong { color: var(--ink); font-weight: 600; }
-.tag-note {
-  font-size: 13px; color: var(--ink-mute); font-style: italic; margin-top: 14px; line-height: 1.5;
-}
+/* ROOT-CAUSE CARD */
+.rootcause-card .root-node { background:var(--cream); border-left:3px solid var(--accent); border-radius:4px; padding:22px 24px; margin:18px 0; }
+.rootcause-card .root-header { display:flex; justify-content:space-between; align-items:baseline; gap:12px; }
+.rootcause-card .confidence-tag { font-size:11px; font-family:var(--mono); color:var(--ink-fade); text-transform:uppercase; letter-spacing:0.1em; }
+.rootcause-card .root-driver { font-size:15px; line-height:1.6; margin:10px 0; }
+.rootcause-card .root-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin:14px 0; }
+.rootcause-card .markers-trace, .rootcause-card .intake-signals { font-size:13px; }
+.rootcause-card .markers-trace li, .rootcause-card .intake-signals li { margin-bottom:4px; line-height:1.5; }
+.rootcause-card .attack-via { margin-top:12px; padding:10px 14px; background:var(--leaf-soft); border-radius:4px; font-size:13px; color:var(--ink); }
 
-/* ─────────── TEST PANEL ─────────── */
-.test-banner {
-  background: var(--paper-warm);
-  border: 1px solid var(--accent);
-  border-radius: 6px;
-  padding: 28px 30px;
-  margin-bottom: 24px;
-  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;
-}
-.test-banner .tb-left .tb-title {
-  font-family: var(--serif);
-  font-size: 22px;
-  font-weight: 500;
-  margin-bottom: 6px;
-}
-.test-banner .tb-left .tb-detail { font-size: 14px; color: var(--ink-mute); }
-.date-field { display: flex; flex-direction: column; gap: 6px; }
-.date-field label {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-fade);
-  font-weight: 600;
-}
-.date-field input {
-  font-family: var(--mono);
-  font-size: 15px;
-  padding: 10px 14px;
-  border: 1px solid var(--rule);
-  border-radius: 6px;
-  background: var(--paper);
-  color: var(--ink);
-}
-.date-field input:focus { outline: none; border-color: var(--accent); }
+/* PANEL COMPLETENESS */
+.completeness-card .tier-block { margin:14px 0; padding:14px 18px; border-radius:4px; }
+.completeness-card .tier-must { background:var(--accent-soft); border-left:3px solid var(--accent); }
+.completeness-card .tier-should { background:var(--gold-soft); border-left:3px solid var(--gold); }
+.completeness-card .tier-nice { background:var(--cream-dark); border-left:3px solid var(--rule); }
 
-.panel-list { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px 24px; }
-.panel-group { margin-bottom: 6px; }
-.panel-group h4 {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 8px;
-  padding-bottom: 4px;
-  border-bottom: 1px solid var(--rule-soft);
-}
-.panel-group ul { list-style: none; }
-.panel-group ul li {
-  font-size: 13px; color: var(--ink-soft); padding: 3px 0;
-}
-.panel-add {
-  background: var(--leaf-soft);
-  border: 1px solid var(--leaf);
-  border-radius: 6px;
-  padding: 18px 22px;
-  margin-top: 20px;
-  display: flex; align-items: center; gap: 16px;
-}
-.panel-add .add-badge {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  background: var(--leaf);
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 100px;
-  font-weight: 600;
-  white-space: nowrap;
-}
-.panel-add .add-text { font-size: 14px; color: var(--ink-soft); }
-.panel-add .add-text strong { color: var(--ink); }
+/* PHENOAGE */
+.phenoage-section { margin:48px 0; padding:36px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
+.phenoage-headline { display:flex; align-items:baseline; gap:32px; flex-wrap:wrap; margin-bottom:20px; }
+.phenoage-table { font-family:var(--mono); font-size:13px; width:100%; margin-top:18px; }
+.phenoage-table td { padding:6px 12px; border-bottom:0.5px solid var(--rule-soft); }
+.phenoage-table td:first-child { color:var(--ink-mute); }
+.phenoage-table td:last-child { text-align:right; }
 
-/* ─────────── FORM / QUESTIONNAIRE ─────────── */
-.q-group { margin-bottom: 36px; }
-.q-group-title {
-  font-family: var(--serif);
-  font-size: 22px;
-  font-weight: 500;
-  margin-bottom: 4px;
-  letter-spacing: -0.01em;
-}
-.q-group-sub { font-size: 13px; color: var(--ink-fade); margin-bottom: 20px; font-family: var(--mono); letter-spacing: 0.04em; }
-.q-row { margin-bottom: 20px; }
-.q-row label.q-label {
-  display: block;
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--ink-soft);
-  margin-bottom: 8px;
-}
-.q-row .q-hint { font-size: 13px; color: var(--ink-fade); font-weight: 400; }
-.q-row input[type="text"],
-.q-row input[type="number"],
-.q-row select,
-.q-row textarea {
-  width: 100%;
-  font-family: var(--sans);
-  font-size: 15px;
-  padding: 11px 14px;
-  border: 1px solid var(--rule);
-  border-radius: 6px;
-  background: var(--paper);
-  color: var(--ink);
-}
-.q-row textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
-.q-row input:focus, .q-row select:focus, .q-row textarea:focus { outline: none; border-color: var(--accent); }
-.q-inline { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.q-inline-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+/* MARKER ROWS */
+.panel { margin:32px 0; }
+.marker-table { font-family:var(--mono); font-size:13px; margin-top:14px; }
+.marker-row { display:grid; grid-template-columns:1.5fr 1fr 1fr 100px; gap:12px; padding:8px 0; border-bottom:0.5px dashed var(--rule-soft); align-items:center; font-size:13px; }
+.marker-name { font-family:var(--sans); font-weight:500; color:var(--ink); }
+.marker-value .num { font-weight:600; color:var(--ink); }
+.marker-value .unit { color:var(--ink-fade); font-size:11px; }
+.marker-target { color:var(--ink-mute); font-size:12px; }
+.marker-badge { font-family:var(--mono); font-size:10px; padding:3px 8px; border-radius:3px; text-align:center; letter-spacing:0.1em; }
+.badge-optimal { background:var(--leaf-soft); color:var(--leaf); }
+.badge-watch { background:var(--gold-soft); color:var(--gold); }
+.badge-off_target, .badge-off-target { background:var(--accent-soft); color:var(--accent); }
+.badge-refer { background:var(--danger-soft); color:var(--danger); }
 
-.radio-group { display: flex; flex-wrap: wrap; gap: 8px; }
-.radio-group label {
-  font-size: 14px;
-  padding: 8px 16px;
-  border: 1px solid var(--rule);
-  border-radius: 100px;
-  cursor: pointer;
-  background: var(--paper);
-  transition: all 0.12s;
-  user-select: none;
-}
-.radio-group input { display: none; }
-.radio-group input:checked + span { font-weight: 600; }
-.radio-group label:has(input:checked) {
-  border-color: var(--accent);
-  background: var(--accent-soft);
-  color: var(--accent);
-}
+/* QUESTIONNAIRE */
+.q-section { margin:36px 0; }
+.q-group { background:var(--paper); border:1px solid var(--rule-soft); border-left:4px solid var(--accent); border-radius:4px; padding:24px 28px; margin:18px 0; }
+.q-group .q-domain { font-family:var(--mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:4px; }
+.q-group h3 { font-size:20px; margin-bottom:6px; }
+.q-group .q-why { font-size:13px; font-style:italic; color:var(--ink-mute); margin-bottom:14px; }
+.q-group ol { font-size:14px; line-height:1.5; }
+.q-group ol li { margin-bottom:9px; }
 
-.range-wrap { display: flex; align-items: center; gap: 16px; }
-.range-wrap input[type="range"] { flex: 1; accent-color: var(--accent); }
-.range-val {
-  font-family: var(--mono); font-size: 18px; font-weight: 600; color: var(--accent);
-  min-width: 36px; text-align: center;
-}
+/* NEXT STEPS */
+.next-card { background:var(--ink); color:var(--cream); border-radius:6px; padding:40px 36px; margin:40px 0; }
+.next-card h2 { color:var(--cream); font-size:28px; }
+.next-card .card-eyebrow { color:var(--accent-warm); font-family:var(--mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:10px; }
+.next-card p { color:#D8DCE2; }
+.next-card ol { color:#D8DCE2; }
+.next-card strong { color:#fff; }
 
-/* ─────────── SAVE BAR ─────────── */
-.save-bar {
-  position: sticky; bottom: 0;
-  background: var(--ink);
-  color: #fff;
-  border-radius: 8px;
-  padding: 18px 24px;
-  margin-top: 32px;
-  display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
-}
-.save-bar .sb-status { font-family: var(--mono); font-size: 12px; color: rgba(255,255,255,0.6); letter-spacing: 0.04em; }
-.save-bar .sb-status.saved { color: #7FB069; }
-.save-bar .sb-actions { display: flex; gap: 10px; }
-.btn {
-  font-family: var(--sans);
-  font-size: 14px;
-  font-weight: 600;
-  padding: 11px 20px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.12s;
-}
-.btn-primary { background: var(--accent); color: #fff; }
-.btn-primary:hover { background: #A04820; }
-.btn-ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.3); }
-.btn-ghost:hover { border-color: #fff; }
+/* DISCLAIMER */
+.disclaimer { margin:60px 0 40px; padding:24px 28px; background:var(--cream-dark); border-radius:4px; font-size:13px; color:var(--ink-mute); line-height:1.6; }
+.disclaimer h4 { color:var(--ink); margin-bottom:10px; }
 
-/* ─────────── PLACEHOLDER (future) ─────────── */
-.placeholder {
-  background: var(--paper-tint);
-  border: 1px dashed var(--rule);
-  border-radius: 6px;
-  padding: 40px;
-  text-align: center;
+/* PRINT */
+@media print {
+  body { background:var(--paper); }
+  .page { max-width:none; padding:20px 30px; }
+  .card, .pillar-card, .root-node, .panel, .q-group { break-inside:avoid; }
+  .tier1-callout, .next-card { break-inside:avoid; }
 }
-.placeholder .ph-icon {
-  font-family: var(--mono); font-size: 24px; color: var(--ink-fade); margin-bottom: 12px;
-}
-.placeholder .ph-title { font-family: var(--serif); font-size: 20px; font-weight: 500; margin-bottom: 8px; color: var(--ink-mute); }
-.placeholder .ph-detail { font-size: 14px; color: var(--ink-fade); max-width: 480px; margin: 0 auto; }
+@page { size:A4; margin:18mm 14mm; }
 
-/* ─────────── FOOTER ─────────── */
-footer {
-  padding: 48px 0 64px;
-}
-.footer-brand { font-family: var(--serif); font-size: 20px; font-weight: 500; }
-.footer-brand .dot { color: var(--accent); }
-.footer-meta { font-family: var(--mono); font-size: 11px; color: var(--ink-fade); margin-top: 8px; letter-spacing: 0.04em; }
-
-@media (max-width: 760px) {
-  .ch-name { font-size: 44px; }
-  .info-grid { grid-template-columns: 1fr; }
-  .panel-list { grid-template-columns: 1fr; }
-  .q-inline, .q-inline-3 { grid-template-columns: 1fr; }
-  .client-header .wrap { flex-direction: column; align-items: flex-start; }
-  .ch-status { text-align: left; }
+@media (max-width:640px){
+  .page { padding:0 22px; }
+  .cover { padding:64px 0 48px; }
+  .cover h1 { font-size:44px; }
+  h1 { font-size:40px; } h2 { font-size:26px; }
+  .marker-row { grid-template-columns:1.3fr 0.9fr 78px; }
+  .marker-target { display:none; }
+  .rootcause-card .root-grid { grid-template-columns:1fr; }
+  .phenotype-card .phenotype-features ul { columns:1; }
 }
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════ HEADER ═══════════════════════ -->
-<header class="client-header">
-  <div class="wrap">
-    <div>
-      <div class="ch-brand">Antiaging Labs · Client Record</div>
-      <div class="ch-name">Ayush</div>
-      <div class="ch-sub">90-day biological age program · Client 005</div>
+<div class="page">
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-eyebrow">Antiaging Labs · Longevity Report · 09 Jun 2026</div>
+  <h1>Ayush, you're <span class="ampersand">3.9 years</span><br>biologically younger than your calendar.</h1>
+
+  <div class="phenotype-label">Metabolically young, cardiovascularly exposed · Iron-depleted · Atopic overlay</div>
+
+  <div class="cover-stat">
+    <div class="stat-block">
+      <div class="stat-label">PhenoAge</div>
+      <div class="stat-value leaf">21.1</div>
+      <div class="stat-detail">vs chronological 25.0 → <strong>3.9 yrs younger</strong></div>
     </div>
-    <div class="ch-status">
-      <div class="status-badge">Onboarding</div>
-      <div class="ch-meta">
-        Program: 90-day flagship<br/>
-        Record opened: <span id="recordDate"></span><br/>
-        Coach: Aditya
-      </div>
+    <div class="stat-block">
+      <div class="stat-label">Findings flagged</div>
+      <div class="stat-value">3</div>
+      <div class="stat-detail">cardiovascular · iron · early insulin signal</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-label">Markers analyzed</div>
+      <div class="stat-value">74</div>
+      <div class="stat-detail">68 from lab · 6 derived</div>
     </div>
   </div>
-</header>
 
-<!-- ═══════════════════════ SECTION NAV ═══════════════════════ -->
-<nav class="section-nav">
-  <div class="wrap">
-    <a href="#profile">Profile</a>
-    <a href="#tests">Blood tests</a>
-    <a href="#intake">Lifestyle intake</a>
-    <a href="#reports">Reports</a>
-    <a href="#protocol">Protocol</a>
-    <a href="#timeline">Timeline</a>
+  <div class="longevity-baseline">
+    <strong>The headline in one line.</strong> Your blood-chemistry engine is running young: glucose, thyroid, kidney, liver, testosterone, inflammation, all strong. But three things are quietly working against your long game, and one of them is genetic. None are urgent. All are addressable, and the best time to act on them is exactly now, at 25, not at 40.
   </div>
-</nav>
 
-<!-- ═══════════════════════ 01, PROFILE ═══════════════════════ -->
-<section class="block" id="profile">
-  <div class="wrap">
-    <div class="section-label"><span class="num">01</span> Profile &amp; flags</div>
-    <h2 class="section-title">What we know going in.</h2>
-    <p class="section-lede">
-      Recorded at intake. These flags drive both the blood-panel selection and the safety screen
-      when his protocol is authored, especially the allergies.
-    </p>
-
-    <div class="info-grid">
-      <div class="info-card">
-        <div class="info-card-label">Health conditions (minor)</div>
-        <ul>
-          <li><strong>Asthma</strong>, mild</li>
-          <li><strong>Sinus</strong>, recurrent</li>
-          <li><strong>Right knee pain</strong>, localised</li>
-        </ul>
-        <div class="tag-note">Asthma + sinus point to an allergic / atopic picture, this is why Total IgE is added to his panel. Knee is treated as a clinical / imaging item, not a blood item.</div>
-      </div>
-
-      <div class="info-card alert">
-        <div class="info-card-label">⚠ Allergies, protocol guardrails</div>
-        <ul>
-          <li><strong>Shellfish + crustaceans</strong></li>
-          <li><strong>Albiprofin</strong> (NSAID class)</li>
-          <li><strong>Aciloc</strong> (H2 blocker)</li>
-          <li><strong>Panta-D</strong> (PPI)</li>
-          <li><strong>Any gas / antacid medicines</strong></li>
-        </ul>
-        <div class="tag-note">
-          Hard rules for his protocol: no shellfish-derived glucosamine · no krill oil (fish/algae omega-3 OK) · no NSAID-class interventions · careful selection on any GI-support supplement.
-        </div>
-      </div>
-    </div>
+  <div class="provisional">
+    <strong>This is Part 1 of 2.</strong> This report explains your bloodwork and your biological age. The phenotype and root-cause sections below are <strong>working hypotheses</strong> drawn from blood alone. Your personalized 90-day protocol comes next, once you answer the lifestyle questionnaire at the end of this report.
   </div>
 </section>
 
-<!-- ═══════════════════════ 02, TESTS ═══════════════════════ -->
-<section class="block" id="tests">
-  <div class="wrap">
-    <div class="section-label"><span class="num">02</span> Blood tests</div>
-    <h2 class="section-title">The panel for Ayush.</h2>
-    <p class="section-lede">
-      The standard Antiaging Labs 60-marker longevity panel, plus one addition (Total IgE) for the atopic picture.
-      Same draw at Day 1 and Day 90.
-    </p>
+<hr>
 
-    <div class="test-banner">
-      <div class="tb-left">
-        <div class="tb-title">Standard panel + Total IgE</div>
-        <div class="tb-detail">At-home collection · fasting 10–12 hrs · morning slot</div>
-      </div>
-      <div class="date-field">
-        <label for="testDate">Test date</label>
-        <input type="date" id="testDate" />
-      </div>
+<!-- MEDICAL-ADVISORY CALLOUT -->
+<div class="tier1-callout">
+  <div class="callout-eyebrow">Discuss with your physician</div>
+  <h3>Lipoprotein(a) is elevated at 49 mg/dL, and it's genetic.</h3>
+  <p>Lp(a) sits at <strong>49.44 mg/dL</strong> against a threshold of 30. Lp(a) is roughly 90% inherited, set for life, and an <strong>independent</strong> driver of heart-attack and stroke risk that standard cholesterol tests miss entirely. It does not respond to diet or exercise. This is not a cause for alarm at 25, it is a reason to take your other lipid numbers (LDL 135, ApoB 96, non-HDL 152) more seriously than someone without it, because the risks stack. South Asians carry elevated Lp(a) at higher rates than most populations.</p>
+  <p style="margin-top:12px;"><strong>What this means practically:</strong> (1) Confirm Lp(a) once with a repeat test, it should be stable for life. (2) Ask your physician whether any first-degree relative had a heart attack or stroke before 55 (men) or 65 (women), Lp(a) clusters in families. (3) The lever you <em>can</em> move is ApoB. Getting your ApoB and LDL down meaningfully offsets the inherited Lp(a) risk. That is what the protocol will target.</p>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+<section class="card">
+  <div class="card-eyebrow">What this report says</div>
+  <h2>Five things worth your attention</h2>
+  <ol style="font-size:15px; line-height:1.7;">
+    <li><strong>Your cardiovascular setup needs work now, not later.</strong> LDL 135, ApoB 96, non-HDL 152, ApoB/ApoA1 1.07, all above optimal, with a low-ish HDL of 43 and an inherited Lp(a) of 49. Individually mild. Together, and at 25, this is the single most important thing to act on. Decades of slightly-high ApoB is how arteries age.</li>
+    <li><strong>You are iron-depleted.</strong> Ferritin 7.5 (very low), iron 44 (low), transferrin saturation 11.5% (low). You are not anemic yet, hemoglobin is a healthy 15, but your iron stores are nearly empty. In a 25-year-old man this is unusual and the <em>cause</em> matters as much as the fix. We need to understand your diet and rule out quiet loss.</li>
+    <li><strong>An early insulin-resistance whisper.</strong> Glucose 87 and HbA1c 5.2% are clean, but HOMA-IR is 1.25 (optimal is under 1.0) and your TG:HDL is 1.95. This is the earliest, most reversible stage. Catching it here is the entire point.</li>
+    <li><strong>An atopic / allergic signal.</strong> Total IgE 247 (high) with monocytes 9.6% (top of range). Consistent with an allergic tendency, hay-fever, dust, skin, or food. Not dangerous, worth noting for the full picture.</li>
+    <li><strong>Everything else is genuinely strong.</strong> Testosterone 801 (excellent), thyroid optimal, kidney (eGFR 101) and liver enzymes clean, glucose and HbA1c tight, vitamin D 63 (good), B12 and folate replete, cortisol normal. Two benign quirks to note, not fix: a mildly raised bilirubin (a Gilbert's-type pattern, harmless) and a raised ALP (likely bone, normal at your age).</li>
+  </ol>
+</section>
+
+<!-- PHENOTYPE -->
+<section class="card phenotype-card">
+  <div class="card-eyebrow">Your phenotype · working read</div>
+  <h2>Metabolically young, cardiovascularly exposed</h2>
+  <p style="font-size:15px; line-height:1.65;"><em>You are in strong metabolic shape for 25, the glucose, hormonal and organ-function chassis is humming. But two systems are quietly under strain: an atherogenic lipid pattern amplified by an inherited Lp(a), and depleted iron stores. The work here is real but early, and the earlier it's done, the more decades it protects.</em></p>
+
+  <div class="phenotype-features">
+    <h4>Why we read it this way</h4>
+    <ul>
+      <li>Glucose 87, HbA1c 5.2%, both optimal</li>
+      <li>Fasting insulin 5.84 µU/mL, in range</li>
+      <li>HOMA-IR 1.25, early insulin-resistance whisper</li>
+      <li>LDL 135, ApoB 96, non-HDL 152, all above optimal</li>
+      <li>HDL 43, low-ish; ApoB/ApoA1 1.07, elevated</li>
+      <li>Lp(a) 49.44, inherited cardiovascular risk</li>
+      <li>TG:HDL 1.95, AIP 0.29, atherogenic ratios</li>
+      <li>Ferritin 7.5, iron 44, TSat 11.5%, iron depletion</li>
+      <li>Testosterone 801 (excellent for age)</li>
+      <li>Thyroid euthyroid (TSH 1.63, FT3/FT4 mid-range)</li>
+      <li>Kidney eGFR 101, liver ALT/AST/GGT all clean</li>
+      <li>hsCRP 0.42, low systemic inflammation</li>
+      <li>Vitamin D 63, B12 + folate replete</li>
+    </ul>
+  </div>
+
+  <h4 style="margin-top:24px;">Overlays</h4>
+  <div class="overlay"><strong>Atopic / Allergic overlay</strong>, Total IgE 247 IU/mL (threshold 158) + monocytes 9.6% (top of range) + eosinophils 2.7% (within range). Suggests an allergic tendency. The lifestyle questionnaire will confirm whether this maps to hay-fever, skin, dust, or food triggers.</div>
+
+  <h4 style="margin-top:20px;">Benign quirks, noted not treated</h4>
+  <div class="downgraded"><strong>Gilbert's-type bilirubin pattern</strong>, Total bilirubin 1.28 with indirect 0.93, while every liver enzyme (ALT 27, AST 27, GGT 14) is normal. This isolated unconjugated-bilirubin pattern is the classic, harmless Gilbert's signature, present in up to 1 in 10 people and, if anything, mildly protective. <strong>Raised ALP 153</strong> with a normal GGT 14 points to bone, not liver, source, physiological at 25.</div>
+</section>
+
+<!-- ROOT-CAUSE GRAPH -->
+<section class="card rootcause-card">
+  <div class="card-eyebrow">What's likely driving this · pending lifestyle confirmation</div>
+  <h2>Two root themes, not five separate problems</h2>
+  <p style="margin-bottom:18px;">Rather than chase each flagged marker on its own, we trace them back to a small set of likely drivers. These are <strong>hypotheses from blood alone</strong>, the lifestyle questionnaire will confirm or revise each. <strong>Attack the roots; the leaves resolve.</strong></p>
+
+  <div class="root-node">
+    <div class="root-header">
+      <h3>Atherogenic lipid load (inherited base + lifestyle amplifier)</h3>
+      <div class="confidence-tag">Confidence: <strong>high (blood) · cause TBD</strong></div>
     </div>
-
-    <div class="panel-list">
-      <div class="panel-group">
-        <h4>CBC + Differential</h4>
-        <ul>
-          <li>Haemoglobin, RBC, WBC</li>
-          <li>Platelets, Hct, MCV, RDW</li>
-          <li>Neutrophils, Lymphocytes</li>
-          <li>Eosinophils, Monocytes</li>
+    <p class="root-driver"><strong>The driver:</strong> An inherited tendency (Lp(a) 49, likely a family lipid pattern) sets a higher floor, then diet, body composition, and activity decide how far above optimal your ApoB and LDL actually run. The genetic part is fixed; the amplifier is fully in your control.</p>
+    <div class="root-grid">
+      <div class="root-col">
+        <h4>Explains these markers</h4>
+        <ul class="markers-trace">
+          <li><code>lp_a</code> (49.44), inherited, independent risk</li>
+          <li><code>ldl</code> (135) + <code>apo_b</code> (96), particle burden above optimal</li>
+          <li><code>non_hdl</code> (152) + <code>apob_a1</code> (1.07), atherogenic</li>
+          <li><code>hdl</code> (43), low-ish protective fraction</li>
         </ul>
       </div>
-      <div class="panel-group">
-        <h4>Glucose &amp; Insulin</h4>
-        <ul>
-          <li>Fasting glucose</li>
-          <li>HbA1c</li>
-          <li>Fasting insulin</li>
-          <li>HOMA-IR (derived)</li>
-        </ul>
-      </div>
-      <div class="panel-group">
-        <h4>Lipids</h4>
-        <ul>
-          <li>Total / HDL / LDL</li>
-          <li>Triglycerides</li>
-          <li>ApoB, Lp(a)</li>
-          <li>TG:HDL, AIP (derived)</li>
-        </ul>
-      </div>
-      <div class="panel-group">
-        <h4>Liver</h4>
-        <ul>
-          <li>AST, ALT, GGT</li>
-          <li>Bilirubin, ALP</li>
-          <li>Albumin, Protein</li>
-        </ul>
-      </div>
-      <div class="panel-group">
-        <h4>Kidney</h4>
-        <ul>
-          <li>Creatinine, Urea</li>
-          <li>eGFR, Uric acid</li>
-          <li>Electrolytes</li>
-        </ul>
-      </div>
-      <div class="panel-group">
-        <h4>Thyroid</h4>
-        <ul>
-          <li>TSH, Free T3, Free T4</li>
-        </ul>
-      </div>
-      <div class="panel-group">
-        <h4>Vitamins &amp; Minerals</h4>
-        <ul>
-          <li>Vitamin D (25-OH)</li>
-          <li>Vitamin B12, Folate</li>
-          <li>Ferritin, Iron</li>
-          <li>Calcium, Magnesium</li>
-        </ul>
-      </div>
-      <div class="panel-group">
-        <h4>Inflammation</h4>
-        <ul>
-          <li>hs-CRP</li>
-          <li>Derived ratios (NLR)</li>
-        </ul>
-      </div>
-      <div class="panel-group">
-        <h4>Hormones</h4>
-        <ul>
-          <li>Testosterone (total)</li>
-          <li>Cortisol (AM)</li>
+      <div class="root-col">
+        <h4>Lifestyle questions will confirm</h4>
+        <ul class="intake-signals">
+          <li>Family history of early heart disease / high cholesterol</li>
+          <li>Refined-carb, fried-food and saturated-fat intake</li>
+          <li>Cardio / Zone-2 minutes per week</li>
+          <li>Body composition (waist, weight)</li>
         </ul>
       </div>
     </div>
+    <div class="attack-via"><strong>Likely attack via:</strong> Nutrition (fiber, swap saturated for unsaturated fat, oily fish), Training (Zone-2 + resistance), and, with your physician, a discussion on whether early ApoB-lowering is warranted given Lp(a).</div>
+  </div>
 
-    <div class="panel-add">
-      <div class="add-badge">+ Added for Ayush</div>
-      <div class="add-text">
-        <strong>Total IgE</strong>, confirms whether his asthma + sinus are allergy-driven. Pairs with eosinophils (already in CBC) to read his atopic activation. The one marker beyond the standard panel.
+  <div class="root-node">
+    <div class="root-header">
+      <h3>Iron depletion (intake shortfall vs quiet loss)</h3>
+      <div class="confidence-tag">Confidence: <strong>high (blood) · cause TBD</strong></div>
+    </div>
+    <p class="root-driver"><strong>The driver:</strong> Ferritin 7.5 with transferrin saturation 11.5% means the tank is nearly empty even though you're not anemic yet. In a young man this is either too little absorbable iron coming in (common with vegetarian diets, or tea/coffee blocking absorption at meals) or slow loss somewhere. We need to know which.</p>
+    <div class="root-grid">
+      <div class="root-col">
+        <h4>Explains these markers</h4>
+        <ul class="markers-trace">
+          <li><code>ferritin</code> (7.5), stores nearly empty</li>
+          <li><code>iron_serum</code> (44) + <code>transferrin_sat</code> (11.5%)</li>
+          <li><code>tibc</code> (383), high-normal, the body reaching for iron</li>
+          <li><code>rdw_cv</code> (13.8), early RBC size variation</li>
+        </ul>
+      </div>
+      <div class="root-col">
+        <h4>Lifestyle questions will confirm</h4>
+        <ul class="intake-signals">
+          <li>Vegetarian / vegan / non-veg, and red-meat frequency</li>
+          <li>Tea or coffee with / right after meals</li>
+          <li>Recent blood donation</li>
+          <li>Any black stool, blood, indigestion, NSAID use</li>
+          <li>Fatigue, breathlessness, hair shedding, cold hands</li>
+        </ul>
       </div>
     </div>
+    <div class="attack-via"><strong>Likely attack via:</strong> Nutrition (iron timing, vitamin-C pairing, move tea/coffee away from meals), targeted repletion under physician guidance, and ruling out loss if diet doesn't explain it.</div>
+  </div>
+
+  <div style="margin-top:24px; padding:18px 20px; background:var(--accent-soft); border-radius:4px; font-size:14px;">
+    <strong>Smaller leaves (watch, don't chase):</strong>
+    <ul style="margin-top:8px;">
+      <li><code>homa_ir 1.25</code> + <code>tg_hdl 1.95</code>, earliest insulin-resistance signal; likely resolves as body composition and cardio improve. Recheck at Day 90.</li>
+      <li><code>ige 247</code> + <code>monocytes 9.6%</code>, atopic tendency; map triggers via questionnaire, no bloodwork action needed now.</li>
+      <li><code>homocysteine 11.33</code>, upper-half of range; folate is already replete, so watch rather than act.</li>
+      <li><code>bilirubin / alp</code>, benign Gilbert's + bone-source ALP. No action.</li>
+    </ul>
   </div>
 </section>
 
-<!-- ═══════════════════════ 03, INTAKE ═══════════════════════ -->
-<section class="block" id="intake">
-  <div class="wrap">
-    <div class="section-label"><span class="num">03</span> Lifestyle intake</div>
-    <h2 class="section-title">Ayush, please answer these.</h2>
-    <p class="section-lede">
-      Be honest, not aspirational, the protocol is only as good as this. Takes about 10 minutes.
-      Your answers save automatically on this device; tap <strong>Save</strong> and then
-      <strong>Send to coach</strong> when you're done.
-    </p>
+<!-- PHENOAGE -->
+<section class="phenoage-section">
+  <div class="card-eyebrow" style="margin-bottom:10px;">Biological age (Levine PhenoAge 2018)</div>
+  <h2>Your biological age is 21.1, about 3.9 years younger than your calendar.</h2>
+  <p style="margin-top:8px;">PhenoAge is a validated 9-marker blood-chemistry estimate of how your body is aging, trained on 11+ years of NHANES mortality data. It is not destiny, it's a snapshot, and it moves with the right inputs. Yours is driven down by excellent glucose, low inflammation (hsCRP 0.42), healthy albumin and a normal white-count, the markers PhenoAge weights most. Note that PhenoAge does not "see" your lipids or Lp(a): a young biological age and a real cardiovascular risk can, and here do, coexist. That is exactly why we read the full panel, not just the age number.</p>
 
-    <!-- BODY BASICS -->
-    <div class="q-group">
-      <div class="q-group-title">Body basics</div>
-      <div class="q-group-sub">The starting numbers</div>
-      <div class="q-inline-3">
-        <div class="q-row">
-          <label class="q-label" for="q_age">Age</label>
-          <input type="number" id="q_age" placeholder="years" />
-        </div>
-        <div class="q-row">
-          <label class="q-label" for="q_height">Height</label>
-          <input type="number" id="q_height" placeholder="cm" />
-        </div>
-        <div class="q-row">
-          <label class="q-label" for="q_weight">Weight</label>
-          <input type="number" id="q_weight" placeholder="kg" />
-        </div>
-      </div>
-      <div class="q-inline">
-        <div class="q-row">
-          <label class="q-label" for="q_waist">Waist <span class="q-hint">(at the navel, relaxed)</span></label>
-          <input type="number" id="q_waist" placeholder="cm or inches" />
-        </div>
-        <div class="q-row">
-          <label class="q-label">Sex</label>
-          <div class="radio-group">
-            <label><input type="radio" name="q_sex" value="Male" /><span>Male</span></label>
-            <label><input type="radio" name="q_sex" value="Female" /><span>Female</span></label>
-          </div>
-        </div>
-      </div>
-    </div>
+  <table class="phenoage-table">
+    <tr><td colspan="2"><strong>The 10 inputs used:</strong></td></tr>
+    <tr><td>albumin g/L</td><td>47.0</td></tr>
+    <tr><td>creatinine umol/L</td><td>92.82</td></tr>
+    <tr><td>glucose mmol/L</td><td>4.83</td></tr>
+    <tr><td>hs crp mg/L</td><td>0.42</td></tr>
+    <tr><td>lymphocytes pct</td><td>36.9</td></tr>
+    <tr><td>mcv fL</td><td>86.8</td></tr>
+    <tr><td>rdw cv pct</td><td>13.8</td></tr>
+    <tr><td>alp U/L</td><td>153</td></tr>
+    <tr><td>wbc K/uL</td><td>5.06</td></tr>
+    <tr><td>age</td><td>25</td></tr>
+    <tr style="border-top:1px solid var(--rule);"><td><strong>xb (linear combination)</strong></td><td><strong>-10.9398</strong></td></tr>
+    <tr><td><strong>10-yr mortality score</strong></td><td><strong>0.35%</strong></td></tr>
+    <tr><td><strong>Computed bio age</strong></td><td><strong>21.1 years</strong></td></tr>
+  </table>
+</section>
 
-    <!-- CURRENT STATE -->
-    <div class="q-group">
-      <div class="q-group-title">How you feel right now</div>
-      <div class="q-group-sub">Current symptoms &amp; energy</div>
-      <div class="q-row">
-        <label class="q-label" for="q_energy">Daytime energy through a typical day</label>
-        <div class="radio-group">
-          <label><input type="radio" name="q_energy" value="Consistently good" /><span>Consistently good</span></label>
-          <label><input type="radio" name="q_energy" value="Afternoon crash" /><span>Afternoon crash</span></label>
-          <label><input type="radio" name="q_energy" value="Low most of the day" /><span>Low most of the day</span></label>
-          <label><input type="radio" name="q_energy" value="Up and down" /><span>Up and down</span></label>
-        </div>
-      </div>
-      <div class="q-row">
-        <label class="q-label" for="q_asthma">Asthma / sinus, how often does it affect you, and what triggers it?</label>
-        <textarea id="q_asthma" placeholder="e.g. flares in dust / weather change / mornings; using an inhaler X times a week…"></textarea>
-      </div>
-      <div class="q-row">
-        <label class="q-label" for="q_knee">Right knee, when does it hurt, and does it swell or stiffen?</label>
-        <textarea id="q_knee" placeholder="e.g. hurts on stairs / after sitting / during squats; any swelling or morning stiffness…"></textarea>
-      </div>
-      <div class="q-row">
-        <label class="q-label" for="q_meds">Any medicines or supplements you currently take (regular or occasional)</label>
-        <textarea id="q_meds" placeholder="inhaler name, any vitamins, painkillers, anything…"></textarea>
-      </div>
-    </div>
-
-    <!-- DIET -->
-    <div class="q-group">
-      <div class="q-group-title">Food &amp; drink</div>
-      <div class="q-group-sub">A normal week, not your best week</div>
-      <div class="q-row">
-        <label class="q-label">Diet type</label>
-        <div class="radio-group">
-          <label><input type="radio" name="q_diet" value="Vegetarian" /><span>Vegetarian</span></label>
-          <label><input type="radio" name="q_diet" value="Eggetarian" /><span>Eggetarian</span></label>
-          <label><input type="radio" name="q_diet" value="Non-vegetarian" /><span>Non-vegetarian</span></label>
-          <label><input type="radio" name="q_diet" value="Vegan" /><span>Vegan</span></label>
-        </div>
-      </div>
-      <div class="q-row">
-        <label class="q-label" for="q_meals">Walk us through a typical day of eating, morning to night</label>
-        <textarea id="q_meals" placeholder="Breakfast: … Lunch: … Snacks: … Dinner: …"></textarea>
-      </div>
-      <div class="q-inline">
-        <div class="q-row">
-          <label class="q-label" for="q_eatout">Meals eaten out / ordered per week</label>
-          <input type="number" id="q_eatout" placeholder="e.g. 5" />
-        </div>
-        <div class="q-row">
-          <label class="q-label" for="q_water">Water per day <span class="q-hint">(litres, rough)</span></label>
-          <input type="number" id="q_water" step="0.5" placeholder="e.g. 2" />
-        </div>
-      </div>
-      <div class="q-inline">
-        <div class="q-row">
-          <label class="q-label">Caffeine</label>
-          <div class="radio-group">
-            <label><input type="radio" name="q_caffeine" value="None" /><span>None</span></label>
-            <label><input type="radio" name="q_caffeine" value="1-2/day" /><span>1–2/day</span></label>
-            <label><input type="radio" name="q_caffeine" value="3+/day" /><span>3+/day</span></label>
-          </div>
-        </div>
-        <div class="q-row">
-          <label class="q-label">Alcohol</label>
-          <div class="radio-group">
-            <label><input type="radio" name="q_alcohol" value="None" /><span>None</span></label>
-            <label><input type="radio" name="q_alcohol" value="Occasional" /><span>Occasional</span></label>
-            <label><input type="radio" name="q_alcohol" value="Weekly" /><span>Weekly</span></label>
-            <label><input type="radio" name="q_alcohol" value="Most days" /><span>Most days</span></label>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- EXERCISE -->
-    <div class="q-group">
-      <div class="q-group-title">Movement &amp; training</div>
-      <div class="q-group-sub">What you actually do, not what you intend to</div>
-      <div class="q-row">
-        <label class="q-label">How often do you train / exercise?</label>
-        <div class="radio-group">
-          <label><input type="radio" name="q_exfreq" value="Rarely" /><span>Rarely</span></label>
-          <label><input type="radio" name="q_exfreq" value="1-2x/week" /><span>1–2x/week</span></label>
-          <label><input type="radio" name="q_exfreq" value="3-4x/week" /><span>3–4x/week</span></label>
-          <label><input type="radio" name="q_exfreq" value="5+/week" /><span>5+/week</span></label>
-        </div>
-      </div>
-      <div class="q-row">
-        <label class="q-label" for="q_extype">What kind? And do you have gym access / equipment?</label>
-        <textarea id="q_extype" placeholder="e.g. gym 3x (weights), walk daily; or home only, no equipment…"></textarea>
-      </div>
-      <div class="q-row">
-        <label class="q-label" for="q_steps">Rough daily steps, if you track them</label>
-        <input type="number" id="q_steps" placeholder="e.g. 6000" />
-      </div>
-    </div>
-
-    <!-- SLEEP & STRESS -->
-    <div class="q-group">
-      <div class="q-group-title">Sleep &amp; stress</div>
-      <div class="q-group-sub">The two levers that move the most, fastest</div>
-      <div class="q-inline">
-        <div class="q-row">
-          <label class="q-label" for="q_bedtime">Usual bedtime</label>
-          <input type="text" id="q_bedtime" placeholder="e.g. 12:30 am" />
-        </div>
-        <div class="q-row">
-          <label class="q-label" for="q_waketime">Usual wake time</label>
-          <input type="text" id="q_waketime" placeholder="e.g. 7:30 am" />
-        </div>
-      </div>
-      <div class="q-row">
-        <label class="q-label">Sleep quality</label>
-        <div class="radio-group">
-          <label><input type="radio" name="q_sleepqual" value="Deep, wake refreshed" /><span>Deep, wake refreshed</span></label>
-          <label><input type="radio" name="q_sleepqual" value="OK but not enough" /><span>OK but not enough</span></label>
-          <label><input type="radio" name="q_sleepqual" value="Broken / restless" /><span>Broken / restless</span></label>
-        </div>
-      </div>
-      <div class="q-row">
-        <label class="q-label" for="q_stress">Stress level over the last month <span class="q-hint">(0 = none, 10 = constant)</span></label>
-        <div class="range-wrap">
-          <input type="range" id="q_stress" min="0" max="10" value="5" />
-          <span class="range-val" id="q_stress_val">5</span>
-        </div>
-      </div>
-      <div class="q-row">
-        <label class="q-label" for="q_screen">Screen time in the hour before bed</label>
-        <div class="radio-group">
-          <label><input type="radio" name="q_screen" value="None" /><span>None</span></label>
-          <label><input type="radio" name="q_screen" value="A little" /><span>A little</span></label>
-          <label><input type="radio" name="q_screen" value="Right up to sleep" /><span>Right up to sleep</span></label>
-        </div>
-      </div>
-    </div>
-
-    <!-- FAMILY HISTORY -->
-    <div class="q-group">
-      <div class="q-group-title">Family history</div>
-      <div class="q-group-sub">Parents, grandparents, siblings</div>
-      <div class="q-row">
-        <label class="q-label" for="q_family">Any diabetes, heart disease, blood pressure, thyroid, cancer, or autoimmune conditions in the family?</label>
-        <textarea id="q_family" placeholder="e.g. father, diabetes + BP; mother's side, thyroid…"></textarea>
-      </div>
-    </div>
-
-    <!-- CONTEXT -->
-    <div class="q-group">
-      <div class="q-group-title">Life context</div>
-      <div class="q-group-sub">So the plan fits your real life</div>
-      <div class="q-inline">
-        <div class="q-row">
-          <label class="q-label" for="q_city">City</label>
-          <input type="text" id="q_city" placeholder="e.g. Hyderabad" />
-        </div>
-        <div class="q-row">
-          <label class="q-label" for="q_work">Work pattern</label>
-          <input type="text" id="q_work" placeholder="e.g. desk job, 10–7, some travel" />
-        </div>
-      </div>
-      <div class="q-row">
-        <label class="q-label" for="q_cook">Who cooks at home, and how much can you control your food?</label>
-        <textarea id="q_cook" placeholder="e.g. mom cooks; I eat what's made; or I cook for myself…"></textarea>
-      </div>
-      <div class="q-row">
-        <label class="q-label" for="q_goal">In your own words, what do you most want out of these 90 days?</label>
-        <textarea id="q_goal" placeholder="e.g. more energy, fewer asthma flares, lose some weight, just feel younger…"></textarea>
-      </div>
-    </div>
-
-    <!-- MOOD MICRO-SCREEN -->
-    <div class="q-group">
-      <div class="q-group-title">A quick check-in</div>
-      <div class="q-group-sub">Over the last 2 weeks · entirely private</div>
-      <div class="q-row">
-        <label class="q-label">Little interest or pleasure in doing things</label>
-        <div class="radio-group">
-          <label><input type="radio" name="q_phq1" value="Not at all" /><span>Not at all</span></label>
-          <label><input type="radio" name="q_phq1" value="Several days" /><span>Several days</span></label>
-          <label><input type="radio" name="q_phq1" value="More than half the days" /><span>More than half</span></label>
-          <label><input type="radio" name="q_phq1" value="Nearly every day" /><span>Nearly every day</span></label>
-        </div>
-      </div>
-      <div class="q-row">
-        <label class="q-label">Feeling down, anxious, or on edge</label>
-        <div class="radio-group">
-          <label><input type="radio" name="q_phq2" value="Not at all" /><span>Not at all</span></label>
-          <label><input type="radio" name="q_phq2" value="Several days" /><span>Several days</span></label>
-          <label><input type="radio" name="q_phq2" value="More than half the days" /><span>More than half</span></label>
-          <label><input type="radio" name="q_phq2" value="Nearly every day" /><span>Nearly every day</span></label>
-        </div>
-      </div>
-    </div>
-
-    <!-- SAVE BAR -->
-    <div class="save-bar">
-      <div>
-        <div class="sb-status" id="saveStatus">Answers save automatically as you type</div>
-        <div class="sb-status" id="syncStatus" style="margin-top:4px;font-size:11px;opacity:0.55;"></div>
-      </div>
-      <div class="sb-actions">
-        <button class="btn btn-ghost" onclick="downloadAnswers()">Download</button>
-        <button class="btn btn-ghost" onclick="copyAnswers()">Copy</button>
-        <button class="btn btn-primary" onclick="sendToCoach()">Send to coach</button>
-      </div>
-    </div>
+<!-- DERIVED INDICES -->
+<section class="card">
+  <div class="card-eyebrow">Derived indices</div>
+  <h2>What the ratios say</h2>
+  <p style="margin-bottom:16px;">These are computed from your raw markers, they often reveal risk earlier than any single value.</p>
+  <div class="marker-table">
+    <div class="marker-row"><div class="marker-name">HOMA-IR (insulin resistance)</div><div class="marker-value"><span class="num">1.25</span> <span class="unit">index</span></div><div class="marker-target">&lt; 1.0</div><div class="marker-badge badge-watch">WATCH</div></div>
+    <div class="marker-row"><div class="marker-name">TG : HDL ratio</div><div class="marker-value"><span class="num">1.95</span></div><div class="marker-target">&lt; 2.0</div><div class="marker-badge badge-watch">WATCH</div></div>
+    <div class="marker-row"><div class="marker-name">AIP (atherogenic index)</div><div class="marker-value"><span class="num">0.29</span></div><div class="marker-target">&lt; 0.11</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">Castelli I (TC / HDL)</div><div class="marker-value"><span class="num">4.53</span></div><div class="marker-target">&lt; 3.5</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">Castelli II (LDL / HDL)</div><div class="marker-value"><span class="num">3.14</span></div><div class="marker-target">&lt; 2.0</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">ApoB / ApoA1</div><div class="marker-value"><span class="num">1.07</span></div><div class="marker-target">&lt; 0.7</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">Non-HDL cholesterol</div><div class="marker-value"><span class="num">152</span> <span class="unit">mg/dL</span></div><div class="marker-target">&lt; 130</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">Transferrin saturation</div><div class="marker-value"><span class="num">11.5</span> <span class="unit">%</span></div><div class="marker-target">25–45</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">NLR (neutrophil:lymphocyte)</div><div class="marker-value"><span class="num">1.37</span></div><div class="marker-target">&lt; 2.0</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
   </div>
 </section>
 
-<!-- ═══════════════════════ 04, REPORTS ═══════════════════════ -->
-<section class="block" id="reports">
-  <div class="wrap">
-    <div class="section-label"><span class="num">04</span> Test reports</div>
-    <h2 class="section-title">Bloodwork &amp; results.</h2>
-    <div class="placeholder">
-      <div class="ph-icon">,  · , </div>
-      <div class="ph-title">No reports yet</div>
-      <div class="ph-detail">Day-1 panel results will be added here once the blood draw is done. Day-90 retest will sit alongside it for a side-by-side delta.</div>
-    </div>
+<!-- BIOMARKER ANALYSIS -->
+<section style="margin:48px 0;">
+  <div class="card-eyebrow" style="margin-bottom:8px;">Full biomarker analysis</div>
+  <h2>68 lab markers, grouped by panel</h2>
+  <p style="margin-bottom:24px;">Status badges: <span class="marker-badge badge-optimal">OPTIMAL</span> within Antiaging Labs-optimal range · <span class="marker-badge badge-watch">WATCH</span> within acceptable but not optimal · <span class="marker-badge badge-off_target">OFF-TARGET</span> outside acceptable · <span class="marker-badge badge-refer">REFER</span> discuss with physician. Targets shown are Antiaging Labs-optimal, often tighter than the lab's reference range.</p>
+
+<section class="panel">
+  <h3>Complete Blood Count</h3>
+  <div class="marker-table">
+    <div class="marker-row"><div class="marker-name">Hemoglobin</div><div class="marker-value"><span class="num">15</span> <span class="unit">g/dL</span></div><div class="marker-target">14–16</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Red Blood Cells</div><div class="marker-value"><span class="num">5.06</span> <span class="unit">10^6/cumm</span></div><div class="marker-target">4.7–5.5</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Hematocrit (HCT)</div><div class="marker-value"><span class="num">44.0</span> <span class="unit">%</span></div><div class="marker-target">42–48</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">MCV</div><div class="marker-value"><span class="num">86.8</span> <span class="unit">fL</span></div><div class="marker-target">85–92</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">MCH</div><div class="marker-value"><span class="num">29.6</span> <span class="unit">pg</span></div><div class="marker-target">27–32</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">MCHC</div><div class="marker-value"><span class="num">34.1</span> <span class="unit">g/dL</span></div><div class="marker-target">33–35</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">RDW-CV</div><div class="marker-value"><span class="num">13.8</span> <span class="unit">%</span></div><div class="marker-target">&le; 13</div><div class="marker-badge badge-watch">WATCH</div></div>
+    <div class="marker-row"><div class="marker-name">Total Leucocyte Count</div><div class="marker-value"><span class="num">5.06</span> <span class="unit">10^3/uL</span></div><div class="marker-target">4.5–6.5</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Neutrophils %</div><div class="marker-value"><span class="num">50.6</span> <span class="unit">%</span></div><div class="marker-target">40–60</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Lymphocytes %</div><div class="marker-value"><span class="num">36.9</span> <span class="unit">%</span></div><div class="marker-target">28–40</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Monocytes %</div><div class="marker-value"><span class="num">9.6</span> <span class="unit">%</span></div><div class="marker-target">3–7</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">Eosinophils %</div><div class="marker-value"><span class="num">2.7</span> <span class="unit">%</span></div><div class="marker-target">1–3</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Basophils %</div><div class="marker-value"><span class="num">0.2</span> <span class="unit">%</span></div><div class="marker-target">0–1</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Absolute Basophil Count</div><div class="marker-value"><span class="num">0.01</span> <span class="unit">10^3/uL</span></div><div class="marker-target">0.02–0.1</div><div class="marker-badge badge-watch">WATCH</div></div>
+    <div class="marker-row"><div class="marker-name">Platelet Count</div><div class="marker-value"><span class="num">225</span> <span class="unit">10^3/uL</span></div><div class="marker-target">150–410</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
   </div>
 </section>
 
-<!-- ═══════════════════════ 05, PROTOCOL ═══════════════════════ -->
-<section class="block" id="protocol">
-  <div class="wrap">
-    <div class="section-label"><span class="num">05</span> Protocol</div>
-    <h2 class="section-title">The 90-day plan.</h2>
-    <div class="placeholder">
-      <div class="ph-icon">,  · , </div>
-      <div class="ph-title">Protocol not authored yet</div>
-      <div class="ph-detail">Once the Day-1 panel + this intake are in, Ayush's personalised 5-domain protocol and full Antiaging Labs report will be linked here.</div>
-    </div>
+<section class="panel">
+  <h3>Inflammatory markers</h3>
+  <div class="marker-table">
+    <div class="marker-row"><div class="marker-name">ESR</div><div class="marker-value"><span class="num">9</span> <span class="unit">mm/hr</span></div><div class="marker-target">&le; 10</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">C-Reactive Protein</div><div class="marker-value"><span class="num">1.30</span> <span class="unit">mg/L</span></div><div class="marker-target">&lt; 3.0</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">hs-CRP</div><div class="marker-value"><span class="num">0.42</span> <span class="unit">mg/L</span></div><div class="marker-target">&lt; 1.0</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
   </div>
 </section>
 
-<!-- ═══════════════════════ 06, TIMELINE ═══════════════════════ -->
-<section class="block" id="timeline">
-  <div class="wrap">
-    <div class="section-label"><span class="num">06</span> Timeline</div>
-    <h2 class="section-title">The record, as it grows.</h2>
-    <div class="placeholder">
-      <div class="ph-icon">,  · , </div>
-      <div class="ph-title">Day 0, record opened</div>
-      <div class="ph-detail">Coach check-ins, retests, protocol adjustments and notes will be logged here through the 90 days.</div>
-    </div>
+<section class="panel">
+  <h3>Iron studies</h3>
+  <div class="marker-table">
+    <div class="marker-row"><div class="marker-name">Ferritin</div><div class="marker-value"><span class="num">7.50</span> <span class="unit">ng/mL</span></div><div class="marker-target">50–150</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">Iron, Serum</div><div class="marker-value"><span class="num">44</span> <span class="unit">ug/dL</span></div><div class="marker-target">65–175</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">Transferrin saturation</div><div class="marker-value"><span class="num">11.48</span> <span class="unit">%</span></div><div class="marker-target">25–45</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">TIBC</div><div class="marker-value"><span class="num">383.3</span> <span class="unit">ug/dL</span></div><div class="marker-target">250–370</div><div class="marker-badge badge-watch">WATCH</div></div>
   </div>
 </section>
 
-<footer>
-  <div class="wrap">
-    <div class="footer-brand">Antiaging Labs<span class="dot">.</span></div>
-    <div class="footer-meta">Private client record · Ayush · Client 005 · maintained by Aditya</div>
+<section class="panel">
+  <h3>Glucose & insulin</h3>
+  <div class="marker-table">
+    <div class="marker-row"><div class="marker-name">HbA1c</div><div class="marker-value"><span class="num">5.2</span> <span class="unit">%</span></div><div class="marker-target">&lt; 5.3</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Glucose, Fasting</div><div class="marker-value"><span class="num">87</span> <span class="unit">mg/dL</span></div><div class="marker-target">70–90</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Insulin, Fasting</div><div class="marker-value"><span class="num">5.84</span> <span class="unit">uU/mL</span></div><div class="marker-target">&lt; 6</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
   </div>
-</footer>
+</section>
 
-<script>
-// ─────────────────────────────────────────────────────────────────────
-// SUPABASE CONFIG
-// 1. Go to https://supabase.com → new free project
-// 2. SQL editor → run:
-//    create table ayush_intake (
-//      id text primary key default 'ayush',
-//      data jsonb,
-//      updated_at timestamptz default now()
-//    );
-//    alter table ayush_intake enable row level security;
-//    create policy "allow all" on ayush_intake for all using (true) with check (true);
-// 3. Settings → API → copy Project URL + anon public key → paste below
-// ─────────────────────────────────────────────────────────────────────
-const SUPABASE_URL = 'YOUR_SUPABASE_URL';      // e.g. https://abcxyz.supabase.co
-const SUPABASE_KEY = 'YOUR_SUPABASE_ANON_KEY'; // Settings → API → anon public
+<section class="panel">
+  <h3>Lipids & cardiovascular</h3>
+  <div class="marker-table">
+    <div class="marker-row"><div class="marker-name">Total Cholesterol</div><div class="marker-value"><span class="num">195</span> <span class="unit">mg/dL</span></div><div class="marker-target">&lt; 180</div><div class="marker-badge badge-watch">WATCH</div></div>
+    <div class="marker-row"><div class="marker-name">Triglycerides</div><div class="marker-value"><span class="num">84</span> <span class="unit">mg/dL</span></div><div class="marker-target">&lt; 90</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">HDL Cholesterol</div><div class="marker-value"><span class="num">43</span> <span class="unit">mg/dL</span></div><div class="marker-target">&ge; 50</div><div class="marker-badge badge-watch">WATCH</div></div>
+    <div class="marker-row"><div class="marker-name">LDL Cholesterol</div><div class="marker-value"><span class="num">135</span> <span class="unit">mg/dL</span></div><div class="marker-target">&lt; 100</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">Non-HDL Cholesterol</div><div class="marker-value"><span class="num">152</span> <span class="unit">mg/dL</span></div><div class="marker-target">&lt; 130</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">Lipoprotein(a)</div><div class="marker-value"><span class="num">49.44</span> <span class="unit">mg/dL</span></div><div class="marker-target">&lt; 30</div><div class="marker-badge badge-refer">REFER</div></div>
+    <div class="marker-row"><div class="marker-name">Apolipoprotein B</div><div class="marker-value"><span class="num">96</span> <span class="unit">mg/dL</span></div><div class="marker-target">&lt; 80</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">Apolipoprotein A1</div><div class="marker-value"><span class="num">90</span> <span class="unit">mg/dL</span></div><div class="marker-target">&gt; 140</div><div class="marker-badge badge-watch">WATCH</div></div>
+    <div class="marker-row"><div class="marker-name">ApoB / ApoA1 Ratio</div><div class="marker-value"><span class="num">1.07</span></div><div class="marker-target">&lt; 0.7</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">Homocysteine</div><div class="marker-value"><span class="num">11.33</span> <span class="unit">umol/L</span></div><div class="marker-target">&lt; 9</div><div class="marker-badge badge-watch">WATCH</div></div>
+  </div>
+</section>
 
-const COACH_WA = '918292098293'; // Aditya's WhatsApp (91 = India country code)
-const RECORD_KEY = 'tessera_ayush';
-const ROW_ID = 'ayush';
+<section class="panel">
+  <h3>Liver</h3>
+  <div class="marker-table">
+    <div class="marker-row"><div class="marker-name">Bilirubin, Total</div><div class="marker-value"><span class="num">1.28</span> <span class="unit">mg/dL</span></div><div class="marker-target">0.3–1.2</div><div class="marker-badge badge-watch">WATCH</div></div>
+    <div class="marker-row"><div class="marker-name">Bilirubin, Direct</div><div class="marker-value"><span class="num">0.35</span> <span class="unit">mg/dL</span></div><div class="marker-target">0.0–0.3</div><div class="marker-badge badge-watch">WATCH</div></div>
+    <div class="marker-row"><div class="marker-name">Bilirubin, Indirect</div><div class="marker-value"><span class="num">0.93</span> <span class="unit">mg/dL</span></div><div class="marker-target">0.2–0.8</div><div class="marker-badge badge-watch">WATCH</div></div>
+    <div class="marker-row"><div class="marker-name">Total Protein</div><div class="marker-value"><span class="num">7.50</span> <span class="unit">g/dL</span></div><div class="marker-target">6.5–8.0</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Albumin</div><div class="marker-value"><span class="num">4.70</span> <span class="unit">g/dL</span></div><div class="marker-target">4.5–5.0</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">AST (SGOT)</div><div class="marker-value"><span class="num">27</span> <span class="unit">U/L</span></div><div class="marker-target">&lt; 30</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">ALT (SGPT)</div><div class="marker-value"><span class="num">27</span> <span class="unit">U/L</span></div><div class="marker-target">&lt; 30</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Alkaline Phosphatase</div><div class="marker-value"><span class="num">153</span> <span class="unit">U/L</span></div><div class="marker-target">46–116</div><div class="marker-badge badge-watch">WATCH</div></div>
+    <div class="marker-row"><div class="marker-name">GGT</div><div class="marker-value"><span class="num">14</span> <span class="unit">U/L</span></div><div class="marker-target">&lt; 30</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  </div>
+</section>
 
-// init Supabase if configured
-const dbReady = SUPABASE_URL !== 'YOUR_SUPABASE_URL' && SUPABASE_KEY !== 'YOUR_SUPABASE_ANON_KEY';
-const db = dbReady ? supabase.createClient(SUPABASE_URL, SUPABASE_KEY) : null;
+<section class="panel">
+  <h3>Kidney & electrolytes</h3>
+  <div class="marker-table">
+    <div class="marker-row"><div class="marker-name">Creatinine</div><div class="marker-value"><span class="num">1.05</span> <span class="unit">mg/dL</span></div><div class="marker-target">0.7–1.1</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">eGFR</div><div class="marker-value"><span class="num">101</span> <span class="unit">mL/min</span></div><div class="marker-target">&gt; 90</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Uric Acid</div><div class="marker-value"><span class="num">5.6</span> <span class="unit">mg/dL</span></div><div class="marker-target">3.5–6.0</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Sodium</div><div class="marker-value"><span class="num">140</span> <span class="unit">mmol/L</span></div><div class="marker-target">136–145</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Potassium</div><div class="marker-value"><span class="num">4.61</span> <span class="unit">mmol/L</span></div><div class="marker-target">3.5–5.1</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  </div>
+</section>
 
-// ─── record opened date ───
-(function setRecordDate(){
-  let d = localStorage.getItem(RECORD_KEY + '_opened');
-  if (!d) {
-    d = new Date().toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' });
-    localStorage.setItem(RECORD_KEY + '_opened', d);
-  }
-  document.getElementById('recordDate').textContent = d;
-})();
+<section class="panel">
+  <h3>Thyroid</h3>
+  <div class="marker-table">
+    <div class="marker-row"><div class="marker-name">TSH (ultrasensitive)</div><div class="marker-value"><span class="num">1.634</span> <span class="unit">uIU/mL</span></div><div class="marker-target">1.0–2.0</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Free T3</div><div class="marker-value"><span class="num">3.56</span> <span class="unit">pg/mL</span></div><div class="marker-target">3.0–4.0</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Free T4</div><div class="marker-value"><span class="num">1.41</span> <span class="unit">ng/dL</span></div><div class="marker-target">1.0–1.6</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">T3, Total</div><div class="marker-value"><span class="num">1.10</span> <span class="unit">ng/mL</span></div><div class="marker-target">0.6–1.81</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">T4, Total</div><div class="marker-value"><span class="num">7.0</span> <span class="unit">ug/dL</span></div><div class="marker-target">4.5–12.6</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  </div>
+</section>
 
-// ─── stress slider ───
-const stress = document.getElementById('q_stress');
-const stressVal = document.getElementById('q_stress_val');
-stress.addEventListener('input', () => stressVal.textContent = stress.value);
+<section class="panel">
+  <h3>Hormones</h3>
+  <div class="marker-table">
+    <div class="marker-row"><div class="marker-name">Testosterone, Total</div><div class="marker-value"><span class="num">801.52</span> <span class="unit">ng/dL</span></div><div class="marker-target">600–900</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Cortisol (AM)</div><div class="marker-value"><span class="num">12.2</span> <span class="unit">ug/dL</span></div><div class="marker-target">10–15</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">PSA, Total</div><div class="marker-value"><span class="num">0.362</span> <span class="unit">ng/mL</span></div><div class="marker-target">&lt; 4</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  </div>
+</section>
 
-function allInputs() {
-  return document.querySelectorAll('#intake input, #intake textarea, #intake select, #testDate');
-}
+<section class="panel">
+  <h3>Vitamins, minerals & bone</h3>
+  <div class="marker-table">
+    <div class="marker-row"><div class="marker-name">Vitamin D (25-OH)</div><div class="marker-value"><span class="num">63.0</span> <span class="unit">ng/mL</span></div><div class="marker-target">40–60</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Vitamin B12</div><div class="marker-value"><span class="num">&gt;2000</span> <span class="unit">pg/mL</span></div><div class="marker-target">400–800</div><div class="marker-badge badge-watch">WATCH</div></div>
+    <div class="marker-row"><div class="marker-name">Folate (B9)</div><div class="marker-value"><span class="num">&gt;24</span> <span class="unit">ng/mL</span></div><div class="marker-target">&ge; 5.4</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Magnesium</div><div class="marker-value"><span class="num">1.98</span> <span class="unit">mg/dL</span></div><div class="marker-target">2.0–2.4</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Calcium</div><div class="marker-value"><span class="num">9.3</span> <span class="unit">mg/dL</span></div><div class="marker-target">8.7–10.4</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Phosphorus</div><div class="marker-value"><span class="num">3.00</span> <span class="unit">mg/dL</span></div><div class="marker-target">2.4–5.1</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  </div>
+</section>
 
-// ─── collect form → plain object ───
-function collectData() {
-  const data = {};
-  allInputs().forEach(el => {
-    if (el.type === 'radio') {
-      if (el.checked) data[el.name] = el.value;
-    } else {
-      if (el.id) data[el.id] = el.value;
-    }
-  });
-  return data;
-}
+<section class="panel">
+  <h3>Immunology, pancreas & other</h3>
+  <div class="marker-table">
+    <div class="marker-row"><div class="marker-name">Immunoglobulin E (Total)</div><div class="marker-value"><span class="num">247</span> <span class="unit">IU/mL</span></div><div class="marker-target">&lt; 158</div><div class="marker-badge badge-off_target">OFF-TARGET</div></div>
+    <div class="marker-row"><div class="marker-name">Rheumatoid Factor</div><div class="marker-value"><span class="num">&lt;3.5</span> <span class="unit">IU/mL</span></div><div class="marker-target">&lt; 14</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Lipase</div><div class="marker-value"><span class="num">40.0</span> <span class="unit">U/L</span></div><div class="marker-target">12–53</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Amylase</div><div class="marker-value"><span class="num">81</span> <span class="unit">U/L</span></div><div class="marker-target">30–118</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+    <div class="marker-row"><div class="marker-name">Urine routine</div><div class="marker-value"><span class="num">Normal</span></div><div class="marker-target">glucose/protein/ketones neg</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  </div>
+</section>
+</section>
 
-// ─── apply object → form ───
-function applyData(data) {
-  allInputs().forEach(el => {
-    if (el.type === 'radio') {
-      if (data[el.name] === el.value) el.checked = true;
-    } else if (el.id && data[el.id] !== undefined) {
-      el.value = data[el.id];
-    }
-  });
-  if (data['q_stress']) stressVal.textContent = data['q_stress'];
-}
+<!-- PANEL COMPLETENESS -->
+<section class="card completeness-card">
+  <div class="card-eyebrow">Your panel coverage</div>
+  <h2>Markers we'd add at the Day-90 retest</h2>
+  <p style="margin-bottom:18px;">This was an excellent, broad panel, metabolic, lipid, hormonal, thyroid, liver, kidney and iron all well covered. To interpret your two main findings (cardiovascular + iron) with more confidence, a few targeted add-ons would help. Ranked by leverage.</p>
 
-// ─── SAVE ───
-let _syncTimer = null;
-function saveAll() {
-  const data = collectData();
-  // 1. localStorage (instant)
-  localStorage.setItem(RECORD_KEY, JSON.stringify(data));
-  flashSaved();
-  // 2. Supabase (debounced 1.5s so we don't hit DB on every keystroke)
-  if (db) {
-    clearTimeout(_syncTimer);
-    _syncTimer = setTimeout(() => syncToDB(data), 1500);
-  }
-}
+  <div class="tier-block tier-must">
+    <h4 style="color:var(--accent);">Must-add (sharpens your current findings)</h4>
+    <ul style="font-size:14px;">
+      <li><code>lp_a_repeat</code>, Confirm the elevated Lp(a) once, it should be stable for life, then never repeat.</li>
+      <li><code>ldl_direct</code> + <code>apo_b_recheck</code>, Track the lever you can actually move across the 90 days.</li>
+      <li><code>reticulocyte_hb</code> / <code>soluble_transferrin_receptor</code>, Confirms iron-deficiency stage and response to repletion.</li>
+      <li><code>stool_occult_blood</code>, Cheap, rules out quiet GI iron loss if diet doesn't explain ferritin 7.5.</li>
+    </ul>
+  </div>
 
-async function syncToDB(data) {
-  const syncEl = document.getElementById('syncStatus');
-  syncEl.textContent = '↑ syncing…';
-  try {
-    const { error } = await db.from('ayush_intake').upsert({
-      id: ROW_ID,
-      data: data,
-      updated_at: new Date().toISOString()
-    });
-    if (error) throw error;
-    const ts = new Date().toLocaleTimeString('en-IN', { hour:'2-digit', minute:'2-digit' });
-    syncEl.textContent = '✓ synced to cloud · ' + ts;
-  } catch (err) {
-    syncEl.textContent = '⚠ cloud sync failed, saved locally';
-    console.error('Supabase sync error:', err);
-  }
-}
+  <div class="tier-block tier-should">
+    <h4 style="color:var(--gold);">Should-add (next-layer specificity)</h4>
+    <ul style="font-size:14px;">
+      <li><code>fasting_glucose_insulin_recheck</code>, Re-derive HOMA-IR at Day 90 to confirm the early-IR signal is moving.</li>
+      <li><code> apo_b_particle_or_ldl_p</code>, Particle count if available, finer than LDL-C for someone with Lp(a).</li>
+      <li><code>tsh_serum</code> note, B12 &gt;2000 confirms you're supplementing, tell us the dose so we don't double up.</li>
+    </ul>
+  </div>
 
-// ─── RESTORE ───
-async function restoreAll() {
-  // try cloud first if configured
-  if (db) {
-    const syncEl = document.getElementById('syncStatus');
-    syncEl.textContent = '↓ loading from cloud…';
-    try {
-      const { data: row, error } = await db
-        .from('ayush_intake')
-        .select('data, updated_at')
-        .eq('id', ROW_ID)
-        .maybeSingle();
-      if (!error && row && row.data) {
-        applyData(row.data);
-        // also update localStorage so offline works
-        localStorage.setItem(RECORD_KEY, JSON.stringify(row.data));
-        const ts = new Date(row.updated_at).toLocaleString('en-IN', {
-          day:'numeric', month:'short', hour:'2-digit', minute:'2-digit'
-        });
-        syncEl.textContent = '✓ loaded from cloud · last saved ' + ts;
-        return;
-      }
-    } catch(e) { /* fall through to localStorage */ }
-    syncEl.textContent = 'cloud not reachable, loaded local copy';
-  }
-  // fallback: localStorage
-  const raw = localStorage.getItem(RECORD_KEY);
-  if (raw) applyData(JSON.parse(raw));
-}
+  <div class="tier-block tier-nice">
+    <h4>Nice-to-add (research-grade)</h4>
+    <ul style="font-size:14px;">
+      <li><code>omega_3_index</code>, Cellular EPA+DHA, a strong independent CV predictor, useful given your lipid picture.</li>
+      <li><code>glyca</code>, NMR chronic-inflammation marker, finer than hsCRP for monitoring.</li>
+      <li><code>specific_ige_panel</code>, Only if the questionnaire confirms real allergy symptoms.</li>
+    </ul>
+  </div>
+</section>
 
-function flashSaved() {
-  const s = document.getElementById('saveStatus');
-  s.textContent = '✓ Saved';
-  s.classList.add('saved');
-  clearTimeout(window._st);
-  window._st = setTimeout(() => {
-    s.textContent = 'Answers save automatically as you type';
-    s.classList.remove('saved');
-  }, 2000);
-}
+<!-- LIFESTYLE QUESTIONNAIRE -->
+<section class="q-section">
+  <div class="card-eyebrow" style="margin-bottom:8px;">Part 2 starts here</div>
+  <h2>The lifestyle questionnaire</h2>
+  <p style="margin-bottom:6px;">Your bloodwork tells us <em>what</em> is happening. These questions tell us <em>why</em>, and they decide your protocol. They are deliberately thorough, weighted toward your three findings (cardiovascular, iron, early insulin signal), but covering the full picture so nothing is guessed. Answer as honestly and specifically as you can. Rough numbers are completely fine, and "don't know / not sure" is a valid answer to any of them. You don't have to answer in order, voice notes work too.</p>
+  <p style="margin-bottom:6px; font-size:13px; color:var(--ink-mute);"><strong>15 sections.</strong> The starred sections (★) matter most for your specific results, if you're short on time, do those first.</p>
 
-document.addEventListener('input', e => {
-  if (e.target.closest('#intake') || e.target.id === 'testDate') saveAll();
-});
-document.addEventListener('change', e => {
-  if (e.target.closest('#intake') || e.target.id === 'testDate') saveAll();
-});
+  <div class="q-group">
+    <div class="q-domain">01 · Body &amp; baseline</div>
+    <h3>The physical starting point</h3>
+    <p class="q-why">Needed for BMI, waist-to-height and to anchor every lipid and insulin target.</p>
+    <ol>
+      <li>Height and current weight?</li>
+      <li>Waist circumference (measured at the navel, with a tape if you have one)?</li>
+      <li>Hip circumference (so we can get a waist-to-hip ratio)?</li>
+      <li>Has your weight changed in the last 6–12 months? Up, down, or stable, and by how much?</li>
+      <li>What's the most you've ever weighed, and the least as an adult?</li>
+      <li>How do your clothes fit lately, looser, tighter, same?</li>
+      <li>How would you describe your build, lean, average, athletic, carrying some midsection weight?</li>
+      <li>Where do you tend to gain weight first, belly, face, all over?</li>
+    </ol>
+  </div>
 
-restoreAll();
+  <div class="q-group">
+    <div class="q-domain">02 · Family history ★</div>
+    <h3>What runs in the family <span style="font-weight:400;color:var(--ink-fade);font-size:13px;">(top priority, given Lp(a))</span></h3>
+    <p class="q-why">Your inherited Lp(a) makes family cardiovascular history the single most informative thing you can tell us. Be as specific with ages as you can.</p>
+    <ol>
+      <li>Any heart attack, stroke, angioplasty/stent, bypass, or sudden cardiac death in a parent, grandparent, uncle/aunt or sibling? Who, and at what age?</li>
+      <li>Anyone diagnosed with high cholesterol, or on cholesterol medication (statins, etc.)?</li>
+      <li>Anyone with very high Lp(a), or unexplained early heart disease despite being fit/slim?</li>
+      <li>Family history of diabetes or pre-diabetes, and on which side?</li>
+      <li>Family history of high blood pressure?</li>
+      <li>Family history of thyroid disease or autoimmune conditions?</li>
+      <li>Any cancers in the family, and which type/age?</li>
+      <li>Are your parents and grandparents alive? If yes, current age and general health. If not, age and cause of death?</li>
+      <li>Your family's region/community of origin (some lipid and metabolic patterns cluster by ancestry)?</li>
+    </ol>
+  </div>
 
-// ─── SUMMARY ───
-function buildSummary() {
-  const labels = {
-    testDate:'Test date', q_age:'Age', q_height:'Height (cm)', q_weight:'Weight (kg)',
-    q_waist:'Waist', q_sex:'Sex', q_energy:'Daytime energy', q_asthma:'Asthma/sinus',
-    q_knee:'Right knee', q_meds:'Current meds/supplements', q_diet:'Diet type',
-    q_meals:'Typical day of eating', q_eatout:'Meals out/week', q_water:'Water/day (L)',
-    q_caffeine:'Caffeine', q_alcohol:'Alcohol', q_exfreq:'Exercise frequency',
-    q_extype:'Exercise type/equipment', q_steps:'Daily steps', q_bedtime:'Bedtime',
-    q_waketime:'Wake time', q_sleepqual:'Sleep quality', q_stress:'Stress (0-10)',
-    q_screen:'Screen before bed', q_family:'Family history', q_city:'City',
-    q_work:'Work pattern', q_cook:'Cooking/food control', q_goal:'90-day goal',
-    q_phq1:'Interest/pleasure (2wk)', q_phq2:'Mood/anxiety (2wk)'
-  };
-  const raw = localStorage.getItem(RECORD_KEY);
-  const data = raw ? JSON.parse(raw) : {};
-  let out = 'TESSERA, AYUSH, LIFESTYLE INTAKE\n=================================\n\n';
-  for (const key in labels) {
-    const v = data[key];
-    if (v !== undefined && v !== '') out += labels[key] + ': ' + v + '\n';
-  }
-  out += '\nSubmitted: ' + new Date().toLocaleString('en-IN');
-  return out;
-}
+  <div class="q-group">
+    <div class="q-domain">03 · Daily routine &amp; work</div>
+    <h3>The shape of your day</h3>
+    <p class="q-why">Tells us your activity floor, sun exposure, stress load and how realistic any change will be.</p>
+    <ol>
+      <li>What do you do for work/study, and what are your typical hours?</li>
+      <li>Desk-bound, on your feet, or a mix? Roughly how many hours seated per day?</li>
+      <li>Any night shifts, rotating shifts, or irregular schedule?</li>
+      <li>How do you commute, and how long each way?</li>
+      <li>How many hours a day on screens outside of essential work?</li>
+      <li>How much time do you spend outdoors / in daylight on a typical day?</li>
+      <li>Walk me through a normal weekday from waking to sleeping, in a few lines.</li>
+    </ol>
+  </div>
 
-function downloadAnswers() {
-  saveAll();
-  const blob = new Blob([buildSummary()], { type: 'text/plain' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'ayush-intake.txt';
-  a.click();
-}
-function copyAnswers() {
-  saveAll();
-  navigator.clipboard.writeText(buildSummary()).then(() => {
-    const s = document.getElementById('saveStatus');
-    s.textContent = '✓ Copied to clipboard';
-    s.classList.add('saved');
-  });
-}
-function sendToCoach() {
-  saveAll();
-  const text = encodeURIComponent(buildSummary());
-  window.open('https://wa.me/' + COACH_WA + '?text=' + text, '_blank');
-}
-</script>
+  <div class="q-group">
+    <div class="q-domain">04 · Diet, the pattern ★</div>
+    <h3>When and how you eat</h3>
+    <p class="q-why">Meal timing and structure drive your insulin signal and a big part of your lipids.</p>
+    <ol>
+      <li>Vegetarian, eggetarian, vegan, or non-veg?</li>
+      <li>If non-veg, how many times a week, separately, for red meat (mutton/beef/pork), chicken, fish, eggs?</li>
+      <li>How much dairy, and what kind, milk, curd, paneer, cheese, ghee?</li>
+      <li>What time is your first meal, and your last meal of the day?</li>
+      <li>How many meals and how many snacks on a typical day?</li>
+      <li>Do you eat late at night or after dinner? How often?</li>
+      <li>Do you skip meals or do any fasting (intermittent fasting, religious fasts)?</li>
+      <li>Walk me through a typical full day of eating, breakfast, lunch, snacks, dinner, with rough portions.</li>
+      <li>How often do you eat out, order in, or eat packaged/processed food per week?</li>
+      <li>Who cooks at home, and how much control do you have over what's made?</li>
+    </ol>
+  </div>
 
+  <div class="q-group">
+    <div class="q-domain">05 · Diet, the quality ★</div>
+    <h3>What's actually on the plate</h3>
+    <p class="q-why">This is where your iron, ApoB and HDL are won or lost.</p>
+    <ol>
+      <li>Fried food, samosa, pakora, fries, how many times a week?</li>
+      <li>Sweets and desserts (mithai, chocolate, ice cream), how often?</li>
+      <li>Sugary drinks, soda, packaged juice, sweetened coffee/tea, how many a day/week?</li>
+      <li>Grains, what's your split between refined (white rice, maida, white bread) and whole (atta, brown rice, millets, oats)?</li>
+      <li>Servings of vegetables per day, honestly?</li>
+      <li>Fruit per day, and which ones?</li>
+      <li>Dal, beans, legumes, how often (matters for plant iron)?</li>
+      <li>Nuts and seeds, daily or rare?</li>
+      <li>What cooking oils/fats at home, and roughly how heavy-handed (light, medium, generous)?</li>
+      <li>Salt, pickle, papad, processed/packaged snacks, how much in a day?</li>
+      <li>Your main protein sources across the week?</li>
+    </ol>
+  </div>
+
+  <div class="q-group">
+    <div class="q-domain">06 · Drinks, caffeine &amp; alcohol ★</div>
+    <h3>What you drink, and when <span style="font-weight:400;color:var(--ink-fade);font-size:13px;">(directly affects iron)</span></h3>
+    <p class="q-why">Tea/coffee timing is one of the biggest, most fixable blockers of iron absorption.</p>
+    <ol>
+      <li>How many cups of tea and coffee a day?</li>
+      <li>Crucially, do you drink them <em>with</em> meals or in the hour right after eating?</li>
+      <li>Any energy drinks or pre-workout, how often?</li>
+      <li>Alcohol, type, how many times a week, and how much per sitting?</li>
+      <li>Roughly how much plain water a day?</li>
+    </ol>
+  </div>
+
+  <div class="q-group">
+    <div class="q-domain">07 · Iron-loss screen ★</div>
+    <h3>Where the iron might be going</h3>
+    <p class="q-why">In a young man, ferritin 7.5 is unusual. Diet may explain it, but we rule out quiet loss.</p>
+    <ol>
+      <li>Have you donated blood in the last 6–12 months, and how often do you donate generally?</li>
+      <li>Ever noticed black, tarry, or bloody stool, or blood on the tissue?</li>
+      <li>Frequent acidity, heartburn or indigestion?</li>
+      <li>Regular use of painkillers (ibuprofen, aspirin, diclofenac, combiflam)? How often and why?</li>
+      <li>Bleeding gums when brushing, or frequent nosebleeds?</li>
+      <li>Any fatigue, unusual breathlessness on stairs, dizziness, or heart racing?</li>
+      <li>Hair shedding, brittle nails, cold hands/feet, or craving ice / unusual textures?</li>
+      <li>How are your bowel habits, frequency, consistency, any recent change?</li>
+      <li>Ever been dewormed, or had a stool test for parasites?</li>
+    </ol>
+  </div>
+
+  <div class="q-group">
+    <div class="q-domain">08 · Movement &amp; training ★</div>
+    <h3>How you move</h3>
+    <p class="q-why">The main lever for both your lipid ratios and the early insulin signal.</p>
+    <ol>
+      <li>Do you train? If yes, what type, weights, running, sport, classes, and how many days a week?</li>
+      <li>If you lift, what's your split and roughly how long per session?</li>
+      <li>How long have you been training consistently, and are you progressing (heavier/faster) or stuck?</li>
+      <li>Any steady cardio (brisk walk, jog, cycle, swim), and how many minutes a week?</li>
+      <li>Do you play any sport recreationally?</li>
+      <li>Rough daily step count, if you track it?</li>
+      <li>Outside workouts, how active is your day, mostly sitting or moving?</li>
+      <li>Any injuries, pain, or physical limitations we should design around?</li>
+      <li>How would you rate your current fitness, 1 to 10?</li>
+    </ol>
+  </div>
+
+  <div class="q-group">
+    <div class="q-domain">09 · Sleep &amp; recovery ★</div>
+    <h3>How you recover</h3>
+    <p class="q-why">Sleep quietly drives insulin sensitivity, appetite, testosterone and recovery.</p>
+    <ol>
+      <li>Typical bedtime and wake time on weekdays?</li>
+      <li>And on weekends, do they shift a lot?</li>
+      <li>How many hours do you actually sleep, and how long to fall asleep?</li>
+      <li>Do you wake during the night? How often, and can you fall back asleep?</li>
+      <li>Do you wake feeling refreshed, or groggy?</li>
+      <li>Any snoring, or has anyone said you stop breathing / gasp in your sleep?</li>
+      <li>Do you nap? When, and how long?</li>
+      <li>Screens in bed, and is your room properly dark and cool?</li>
+      <li>Any sleep aids, melatonin, or anything to wind down?</li>
+    </ol>
+  </div>
+
+  <div class="q-group">
+    <div class="q-domain">10 · Stress, mood &amp; mind</div>
+    <h3>The mental load</h3>
+    <p class="q-why">Context for cortisol, appetite and, most of all, what you'll realistically sustain.</p>
+    <ol>
+      <li>Stress level over the last month, 1 to 10, and the main source (work, studies, money, relationships, health)?</li>
+      <li>Is the stress steady, or does it come in spikes?</li>
+      <li>How is your mood generally, and have you felt persistently low or anxious lately?</li>
+      <li>How is your energy through the day, any afternoon crash or brain fog?</li>
+      <li>How are your focus, motivation and drive these days?</li>
+      <li>Do you feel burned out or close to it?</li>
+      <li>Do you have a way you unwind (and does it actually work)?</li>
+      <li>Do you meditate, journal, or do any breathwork?</li>
+    </ol>
+  </div>
+
+  <div class="q-group">
+    <div class="q-domain">11 · Energy, drive &amp; men's health</div>
+    <h3>Vitality markers</h3>
+    <p class="q-why">Your testosterone is excellent (801), these confirm it's translating into how you feel.</p>
+    <ol>
+      <li>How is your libido / sex drive overall?</li>
+      <li>Do you usually get morning erections (a useful real-world signal of hormonal health)?</li>
+      <li>How is your overall energy and zest for things, day to day?</li>
+      <li>Are you gaining muscle / strength easily, or feeling flat and under-recovered?</li>
+      <li>How quickly do you bounce back after a hard workout or a late night?</li>
+    </ol>
+  </div>
+
+  <div class="q-group">
+    <div class="q-domain">12 · Allergy, skin &amp; atopy</div>
+    <h3>The IgE picture</h3>
+    <p class="q-why">Your total IgE is 247 (high). This maps it to real symptoms, or rules it out.</p>
+    <ol>
+      <li>Any hay-fever, sneezing fits, blocked or runny nose, itchy eyes, seasonal or year-round?</li>
+      <li>Frequent colds, sinus issues, or post-nasal drip?</li>
+      <li>Any eczema, hives, rashes, or generally itchy skin?</li>
+      <li>Any asthma, wheezing, chest tightness, or breathlessness?</li>
+      <li>Any known allergies, food, dust, pollen, pets, mould, medication?</li>
+      <li>How is your skin generally, breakouts, oiliness, dryness?</li>
+      <li>Any noticeable hair thinning or change in hair/nail quality?</li>
+    </ol>
+  </div>
+
+  <div class="q-group">
+    <div class="q-domain">13 · Digestion &amp; gut</div>
+    <h3>How your gut behaves</h3>
+    <p class="q-why">Absorption matters for iron, and gut symptoms shape the nutrition plan.</p>
+    <ol>
+      <li>Any bloating or gas, and is it tied to particular foods or times?</li>
+      <li>Acidity or reflux, how often?</li>
+      <li>Bowel movements, how many a day/week, and typical consistency?</li>
+      <li>Constipation or loose stools, and which is more common?</li>
+      <li>Any foods that reliably upset you (dairy/lactose, wheat/gluten, spicy, fried)?</li>
+      <li>Do you eat curd/yoghurt or take probiotics?</li>
+    </ol>
+  </div>
+
+  <div class="q-group">
+    <div class="q-domain">14 · Substances, medical &amp; supplements ★</div>
+    <h3>The full medical picture</h3>
+    <p class="q-why">Safety screen, and we need your exact supplements (your B12 is &gt;2000, so something is being taken).</p>
+    <ol>
+      <li>Do you smoke, vape, or use tobacco/gutka/paan, currently or in the past? How much? (this compounds the Lp(a) risk more than anything else)</li>
+      <li>Any recreational substances we should know about, no judgement, it affects the plan?</li>
+      <li>List every supplement and protein powder you take, with brand/dose if you know it, especially anything with B12 or folate.</li>
+      <li>Any prescription medications, regular or occasional?</li>
+      <li>Any over-the-counter medicines you take routinely?</li>
+      <li>Any diagnosed conditions (thyroid, asthma, anxiety, anything), past or present?</li>
+      <li>Any past surgeries or hospitalizations?</li>
+      <li>Any recent illness, infection, or fever in the last month (it can shift several markers)?</li>
+      <li>Any recent travel, especially rural areas or abroad, in the last 6 months?</li>
+    </ol>
+  </div>
+
+  <div class="q-group">
+    <div class="q-domain">15 · Constraints, context &amp; goals ★</div>
+    <h3>What will make this stick</h3>
+    <p class="q-why">An honest answer here is what separates a protocol you follow from one you abandon.</p>
+    <ol>
+      <li>Any foods you can't or won't eat, religious, ethical, allergy, or strong dislike?</li>
+      <li>How is your kitchen setup and cooking ability, can you cook, or mostly rely on others / outside food?</li>
+      <li>What's a realistic budget for supplements and better food per month?</li>
+      <li>Honestly, how much time per week can you give to cooking, training, and fixing sleep?</li>
+      <li>What's the single biggest obstacle that usually derails your health efforts?</li>
+      <li>Have you tried to change your diet/fitness before, what worked, what didn't?</li>
+      <li>Why now, what made you get this test done and take this seriously?</li>
+      <li>Your single biggest health goal for the next 90 days, in your own words?</li>
+    </ol>
+  </div>
+</section>
+
+<!-- WHAT HAPPENS NEXT -->
+<section class="next-card">
+  <div class="card-eyebrow">What happens next</div>
+  <h2>From here to your protocol</h2>
+  <ol style="font-size:15px; line-height:1.7;">
+    <li><strong>You answer the questionnaire above</strong>, type it back however is easiest, voice notes are fine too.</li>
+    <li><strong>We build your personalized 90-day protocol</strong>, five domains (nutrition, training, recovery, supplements, mind), every action traced to a specific marker. The headline targets: bring ApoB and LDL down, refill iron stores and find the cause, and nudge HOMA-IR back under 1.0.</li>
+    <li><strong>You take two items to a physician first</strong>, the Lp(a)/lipid picture and the iron depletion. We'll prepare exactly what to ask.</li>
+    <li><strong>We retest at Day 90</strong> and recompute your biological age and every flagged marker, so the change is measured, not assumed.</li>
+  </ol>
+</section>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <h4>Important notes</h4>
+  <p>This report is generated from a single blood test (Tata 1mg, collected 07 Jun 2026). It is <strong>not a medical diagnosis</strong>. Every recommendation must be discussed with your physician before starting supplements at therapeutic doses, changing medication, or making changes that affect an existing condition.</p>
+  <p>Two findings here warrant a physician conversation: the elevated <strong>Lipoprotein(a) 49 mg/dL</strong> with the broader lipid pattern, and the <strong>iron depletion (ferritin 7.5)</strong>, whose cause should be understood before high-dose iron is started. Do not begin iron or any cardiovascular medication on the basis of this report alone.</p>
+  <p>Antiaging Labs is a biomarker-moving and healthspan-optimization program. We do not claim to extend lifespan, reverse aging, or cure disease. We work to move biomarkers in directions associated with better long-term health outcomes per current scientific evidence.</p>
+  <p>Privacy: this report and the underlying lab data are private to Ayush and are not shared with employers, insurers, or third parties without explicit consent (DPDP Act 2023 aligned).</p>
+  <p style="margin-top:14px; font-family:var(--mono); font-size:11px; color:var(--ink-fade);">Biological age: Levine PhenoAge (2018), 10-input blood-chemistry estimator · derived indices: HOMA-IR, TG:HDL, AIP, Castelli I/II, transferrin saturation, NLR · part 1 of 2 (protocol pending intake) · generated 09 Jun 2026.</p>
+</div>
+
+</div>
 </body>
 </html>
