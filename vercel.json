@@ -96,6 +96,11 @@
       "permanent": true
     },
     {
+      "source": "/learn-longevity-genes.html",
+      "destination": "/learn/longevity-genes",
+      "permanent": true
+    },
+    {
       "source": "/program.html",
       "destination": "/program",
       "permanent": true
@@ -153,6 +158,10 @@
     {
       "source": "/learn/mitochondrial-aging",
       "destination": "/learn-mitochondrial-aging.html"
+    },
+    {
+      "source": "/learn/longevity-genes",
+      "destination": "/learn-longevity-genes.html"
     },
     {
       "source": "/program",
