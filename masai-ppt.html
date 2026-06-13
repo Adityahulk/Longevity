@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Antiaging Labs · Founder Deck</title>
+<link rel="icon" type="image/svg+xml" href="/assets/logo/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBFAF7; --surface:#FFFFFF; --surface-alt:#F2EFE8;
+  --dark:#0E1B2C; --dark-2:#16263c;
+  --ink:#0E1B2C; --ink-2:#46535f; --ink-3:#8a93a0;
+  --line:#E5E1D8; --line-dark:#24344a;
+  --accent:#B85426; --accent-2:#D17244; --sage:#5E7E6B; --gold:#8B6914;
+  --display:"Hanken Grotesk","Inter",-apple-system,sans-serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;}
+body{
+  font-family:var(--sans); background:#0a0f16; color:var(--ink);
+  -webkit-font-smoothing:antialiased; overflow:hidden;
+}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;letter-spacing:-0.03em;line-height:1.02;}
+
+/* ---- STAGE ---- */
+.stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;}
+.deck{
+  position:relative;
+  width:min(100vw, calc(100vh * 16 / 9));
+  height:min(100vh, calc(100vw * 9 / 16));
+  background:var(--bg);
+  overflow:hidden;
+  box-shadow:0 40px 120px rgba(0,0,0,.5);
+}
+
+/* ---- SLIDES ---- */
+.slide{
+  position:absolute; inset:0; overflow:hidden;
+  padding:clamp(36px,5.4vw,86px) clamp(44px,6.6vw,104px);
+  display:flex; flex-direction:column; justify-content:center;
+  opacity:0; visibility:hidden;
+  transform:translateY(14px) scale(.994);
+  transition:opacity .5s ease, transform .5s ease, visibility .5s;
+}
+.slide.active{opacity:1;visibility:visible;transform:none;}
+.slide.dark{background:var(--dark);color:#fff;}
+.slide.dark h1,.slide.dark h2,.slide.dark h3{color:#fff;}
+
+/* persistent brand chrome */
+.brand{position:absolute;top:clamp(26px,3.4vw,46px);left:clamp(44px,6.6vw,104px);
+  display:flex;align-items:center;gap:11px;z-index:5;}
+.brand-mark{width:26px;height:30px;flex-shrink:0;}
+.brand-name{font-family:var(--display);font-weight:700;font-size:clamp(15px,1.5vw,19px);letter-spacing:-0.02em;color:var(--ink);}
+.slide.dark ~ .brand .brand-name{color:#fff;}
+
+.pageno{position:absolute;bottom:clamp(26px,3.2vw,42px);right:clamp(44px,6.6vw,104px);
+  font-family:var(--mono);font-size:clamp(10px,1vw,12.5px);letter-spacing:.14em;color:var(--ink-3);z-index:5;}
+
+/* eyebrow / kicker */
+.kicker{font-family:var(--mono);font-size:clamp(10px,1.05vw,13px);letter-spacing:.22em;
+  text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:13px;margin-bottom:clamp(18px,2.4vw,30px);}
+.kicker::before{content:"";width:30px;height:1px;background:var(--accent);}
+.slide.dark .kicker{color:var(--accent-2);}
+.slide.dark .kicker::before{background:var(--accent-2);}
+
+/* type scale */
+.display{font-family:var(--display);font-weight:800;
+  font-size:clamp(34px,5.6vw,82px);line-height:0.98;letter-spacing:-0.035em;}
+.h-lead{font-family:var(--display);font-weight:700;font-size:clamp(26px,3.8vw,54px);line-height:1.04;letter-spacing:-0.03em;}
+.h-sec{font-family:var(--display);font-weight:700;font-size:clamp(24px,3.2vw,46px);line-height:1.05;letter-spacing:-0.03em;}
+.muted{color:var(--ink-3);}
+.slide.dark .muted{color:rgba(255,255,255,.42);}
+.accent{color:var(--accent);}
+.lede{font-size:clamp(15px,1.7vw,23px);line-height:1.5;color:var(--ink-2);max-width:62ch;}
+.slide.dark .lede{color:rgba(255,255,255,.72);}
+.tiny{font-family:var(--mono);font-size:clamp(9.5px,.95vw,12px);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);}
+
+/* ---- SLIDE 1 : TITLE ---- */
+.cover{align-items:flex-start;}
+.cover-mark{width:clamp(70px,9vw,128px);height:auto;margin-bottom:clamp(28px,4vw,52px);}
+.cover-name{font-family:var(--display);font-weight:800;
+  font-size:clamp(48px,8.4vw,120px);line-height:0.94;letter-spacing:-0.045em;color:#fff;}
+.cover-name .lab{color:var(--accent-2);}
+.cover-sub{margin-top:clamp(20px,2.6vw,34px);font-size:clamp(14px,1.7vw,22px);color:rgba(255,255,255,.6);max-width:48ch;line-height:1.45;}
+.cover-foot{position:absolute;left:clamp(44px,6.6vw,104px);bottom:clamp(34px,4vw,54px);
+  font-family:var(--mono);font-size:clamp(10px,1vw,13px);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.4);}
+.cover-helix{position:absolute;right:-6%;top:50%;transform:translateY(-50%);width:46%;max-width:560px;opacity:.5;pointer-events:none;}
+
+/* ---- definition cards ---- */
+.def-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,34px);margin-top:clamp(20px,2.6vw,38px);}
+.def-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(24px,3vw,42px);}
+.def-card .tag{font-family:var(--mono);font-size:clamp(10px,1.05vw,13px);letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:block;}
+.def-card h3{font-size:clamp(22px,2.7vw,38px);margin-bottom:14px;}
+.def-card p{font-size:clamp(13px,1.4vw,18.5px);line-height:1.5;color:var(--ink-2);}
+.def-card .strong{color:var(--ink);font-weight:600;}
+
+/* ---- problem split ---- */
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,90px);align-items:center;}
+.examples{display:flex;flex-direction:column;gap:14px;margin-top:6px;}
+.ex-row{display:flex;align-items:center;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:clamp(14px,1.7vw,22px) clamp(16px,2vw,26px);}
+.ex-row .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.ex-row .who{font-family:var(--mono);font-size:clamp(10px,1vw,12.5px);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);min-width:96px;}
+.ex-row .what{font-family:var(--display);font-weight:600;font-size:clamp(15px,1.7vw,22px);color:var(--ink);}
+
+/* ---- solution pipeline ---- */
+.pipe{display:flex;align-items:stretch;gap:clamp(8px,1vw,14px);margin-top:clamp(22px,3vw,40px);flex-wrap:nowrap;}
+.pipe-step{flex:1;background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:clamp(14px,1.7vw,22px) clamp(12px,1.3vw,18px);display:flex;flex-direction:column;gap:8px;min-width:0;}
+.pipe-step .n{font-family:var(--mono);font-size:clamp(9px,.9vw,11px);letter-spacing:.12em;color:var(--accent);}
+.pipe-step h4{font-size:clamp(13px,1.4vw,18px);line-height:1.1;}
+.pipe-step p{font-size:clamp(10.5px,1.05vw,13px);line-height:1.4;color:var(--ink-2);}
+.pipe-arrow{display:flex;align-items:center;color:var(--ink-3);font-size:18px;flex-shrink:0;}
+.pipe-engine{background:var(--dark);border-color:var(--dark);}
+.pipe-engine .n{color:var(--accent-2);}
+.pipe-engine h4{color:#fff;}
+.pipe-engine p{color:rgba(255,255,255,.62);}
+.sol-out{margin-top:clamp(18px,2.2vw,30px);display:flex;gap:10px;flex-wrap:wrap;}
+.chip{font-family:var(--mono);font-size:clamp(10px,1.05vw,13px);letter-spacing:.06em;
+  background:var(--surface-alt);border:1px solid var(--line);border-radius:999px;padding:8px 16px;color:var(--ink);}
+.chip.lead{background:var(--accent);border-color:var(--accent);color:#fff;}
+
+/* ---- next-stage / vision rows ---- */
+.feat-list{display:flex;flex-direction:column;gap:clamp(14px,1.8vw,24px);margin-top:clamp(20px,2.6vw,36px);max-width:64ch;}
+.feat{display:flex;gap:clamp(16px,2vw,26px);align-items:flex-start;}
+.feat .idx{font-family:var(--mono);font-size:clamp(11px,1.2vw,15px);color:var(--accent);padding-top:5px;min-width:30px;}
+.slide.dark .feat .idx{color:var(--accent-2);}
+.feat .body h4{font-size:clamp(17px,2vw,27px);margin-bottom:6px;}
+.feat .body p{font-size:clamp(13px,1.4vw,18px);line-height:1.45;color:var(--ink-2);}
+.slide.dark .feat .body p{color:rgba(255,255,255,.62);}
+
+.vision-big{font-family:var(--display);font-weight:800;font-size:clamp(30px,4.6vw,66px);
+  line-height:1.02;letter-spacing:-0.035em;max-width:18ch;}
+.vision-big .accent{color:var(--accent-2);}
+
+/* ---- challenge divider ---- */
+.chl-num{font-family:var(--display);font-weight:800;font-size:clamp(80px,16vw,230px);
+  line-height:0.8;letter-spacing:-0.05em;color:rgba(255,255,255,.07);position:absolute;
+  right:clamp(40px,5vw,90px);bottom:clamp(10px,2vw,30px);pointer-events:none;}
+.chl-tracks{display:flex;gap:14px;margin-top:clamp(22px,3vw,40px);flex-wrap:wrap;}
+.chl-track{font-family:var(--mono);font-size:clamp(10px,1.1vw,13.5px);letter-spacing:.1em;
+  border:1px solid var(--line-dark);border-radius:999px;padding:9px 18px;color:rgba(255,255,255,.78);}
+.chl-track b{color:var(--accent-2);font-weight:500;}
+
+/* ---- track (problem statement) slides ---- */
+.track-head{display:flex;align-items:center;gap:clamp(16px,2vw,26px);margin-bottom:clamp(20px,2.6vw,34px);}
+.track-no{font-family:var(--display);font-weight:800;font-size:clamp(40px,6vw,92px);line-height:.8;color:var(--accent);letter-spacing:-0.04em;}
+.track-persona .role{font-family:var(--mono);font-size:clamp(10px,1.05vw,13px);letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px;}
+.track-persona h2{font-size:clamp(26px,3.6vw,52px);}
+.track-body{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,48px);margin-top:clamp(6px,1vw,14px);}
+.track-block .lbl{font-family:var(--mono);font-size:clamp(10px,1.05vw,13px);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.track-block .lbl::after{content:"";flex:1;height:1px;background:var(--line);}
+.track-block p{font-size:clamp(14px,1.55vw,21px);line-height:1.45;color:var(--ink-2);}
+.track-block.q{background:var(--dark);border-radius:18px;padding:clamp(22px,2.8vw,40px);}
+.track-block.q .lbl{color:var(--accent-2);}
+.track-block.q .lbl::after{background:var(--line-dark);}
+.track-block.q p{color:#fff;font-family:var(--display);font-weight:600;font-size:clamp(15px,1.75vw,24px);line-height:1.25;letter-spacing:-0.02em;}
+
+/* ---- progress + nav ---- */
+.progress{position:fixed;top:0;left:0;height:3px;background:var(--accent);z-index:50;transition:width .45s ease;}
+.dots{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:9px;z-index:50;}
+.dots button{width:8px;height:8px;border-radius:50%;border:none;background:rgba(255,255,255,.28);cursor:pointer;padding:0;transition:background .25s,transform .25s;}
+.dots button.on{background:var(--accent-2);transform:scale(1.35);}
+.nav-hint{position:fixed;bottom:16px;right:20px;z-index:50;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:rgba(255,255,255,.4);}
+.nav-zone{position:fixed;top:0;height:100%;width:18%;z-index:40;cursor:pointer;}
+.nav-zone.prev{left:0;} .nav-zone.next{right:0;}
+
+@media (max-width:680px){
+  .def-grid,.track-body,.split{grid-template-columns:1fr;}
+  .pipe{flex-wrap:wrap;} .pipe-arrow{display:none;}
+  .pipe-step{flex:1 1 42%;}
+  .nav-hint{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<div class="stage">
+  <div class="deck" id="deck">
+
+    <!-- persistent brand + page number live inside each slide via JS-free static placement -->
+
+    <!-- ===== SLIDE 1 · TITLE ===== -->
+    <section class="slide dark cover active">
+      <svg class="cover-helix" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke-linecap="round">
+          <g stroke="#D17244" stroke-width="2.4">
+            <line x1="22" y1="15" x2="42" y2="15"/><line x1="24" y1="22" x2="40" y2="22"/>
+            <line x1="24" y1="42" x2="40" y2="42"/><line x1="22" y1="49" x2="42" y2="49"/>
+          </g>
+          <g stroke="#B85426" stroke-width="3.4">
+            <path d="M32 6 C 52 13, 52 23, 32 30 C 12 37, 12 47, 32 54"/>
+            <path d="M32 6 C 12 13, 12 23, 32 30 C 52 37, 52 47, 32 54"/>
+          </g>
+        </g>
+      </svg>
+      <svg class="cover-mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke-linecap="round">
+          <g stroke="#D17244" stroke-width="2.4">
+            <line x1="22" y1="15" x2="42" y2="15"/><line x1="24" y1="22" x2="40" y2="22"/>
+            <line x1="24" y1="42" x2="40" y2="42"/><line x1="22" y1="49" x2="42" y2="49"/>
+          </g>
+          <g stroke="#B85426" stroke-width="3.4">
+            <path d="M32 6 C 52 13, 52 23, 32 30 C 12 37, 12 47, 32 54"/>
+            <path d="M32 6 C 12 13, 12 23, 32 30 C 52 37, 52 47, 32 54"/>
+          </g>
+        </g>
+      </svg>
+      <div class="cover-name">Antiaging<br><span class="lab">Labs</span></div>
+      <p class="cover-sub">Precision longevity, measured and engineered for South Asian biology.</p>
+      <div class="cover-foot">Founder Briefing · Startup Simulation</div>
+    </section>
+
+    <!-- ===== SLIDE 2 · WHAT IS ===== -->
+    <section class="slide">
+      <p class="kicker">What we are</p>
+      <h1 class="display">A closed-loop<br><span class="accent">precision longevity</span><br>intelligence platform.</h1>
+      <p class="lede" style="margin-top:clamp(22px,2.8vw,38px)">We measure your biology, build a protocol from it, then measure again. The loop never opens.</p>
+    </section>
+
+    <!-- ===== SLIDE 3 · DEFINITIONS ===== -->
+    <section class="slide">
+      <p class="kicker">First principles</p>
+      <h2 class="h-sec">Two words we mean precisely.</h2>
+      <div class="def-grid">
+        <div class="def-card">
+          <span class="tag">Longevity</span>
+          <h3>Living longer, <span class="accent">and better.</span></h3>
+          <p>Extending both your <span class="strong">lifespan</span>, the number of years you live, and your <span class="strong">healthspan</span>, the quality years you live well.</p>
+        </div>
+        <div class="def-card">
+          <span class="tag">Antiaging</span>
+          <h3>Resetting the <span class="accent">clock.</span></h3>
+          <p>Targeted interventions to <span class="strong">stop, delay, or reverse</span> the biological aging clock at the cellular level.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 4 · PROBLEM ===== -->
+    <section class="slide">
+      <p class="kicker">The problem</p>
+      <div class="split">
+        <div>
+          <h2 class="h-lead">Aging is <span class="accent">personal.</span><br>Generic advice<br>can't solve it.</h2>
+          <p class="lede" style="margin-top:clamp(16px,2vw,26px);font-size:clamp(14px,1.5vw,20px)">How you perform, physically and mentally, is governed by your genetics and your lifestyle. Both are different for every single person. The right move for one body is the wrong move for another.</p>
+        </div>
+        <div class="examples">
+          <div class="ex-row"><span class="dot" style="background:var(--accent)"></span><span class="who">Person A</span><span class="what">needs VO2 max training</span></div>
+          <div class="ex-row"><span class="dot" style="background:var(--sage)"></span><span class="who">Person B</span><span class="what">needs magnesium</span></div>
+          <div class="ex-row"><span class="dot" style="background:var(--gold)"></span><span class="who">Person C</span><span class="what">needs deeper sleep</span></div>
+          <p class="tiny" style="margin-top:8px;line-height:1.5">One generic plan for all three fails all three.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 5 · SOLUTION ===== -->
+    <section class="slide">
+      <p class="kicker">The solution</p>
+      <h2 class="h-sec">We turn your raw biology into a protocol.</h2>
+      <div class="pipe">
+        <div class="pipe-step"><span class="n">01</span><h4>Measure</h4><p>80+ genetic &amp; epigenetic biomarkers from at-home blood &amp; urine.</p></div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-step"><span class="n">02</span><h4>Intake</h4><p>Deep lifestyle &amp; family-history questionnaire.</p></div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-step"><span class="n">03</span><h4>Wearables</h4><p>Sleep, recovery, activity and HRV data layered in.</p></div>
+        <div class="pipe-arrow">→</div>
+        <div class="pipe-step pipe-engine"><span class="n">04</span><h4>AI Engine</h4><p>Clinically backed reasoning over every input.</p></div>
+      </div>
+      <div class="sol-out">
+        <span class="chip lead">Your biological age</span>
+        <span class="chip">Nutrition</span>
+        <span class="chip">Training</span>
+        <span class="chip">Supplements</span>
+        <span class="chip">Lifestyle</span>
+        <span class="chip">Closed-loop AI + human support</span>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 6 · NEXT STAGE ===== -->
+    <section class="slide">
+      <p class="kicker">What's next</p>
+      <h2 class="h-sec">From snapshots to <span class="accent">a live signal.</span></h2>
+      <div class="feat-list">
+        <div class="feat">
+          <span class="idx">01</span>
+          <div class="body">
+            <h4>Real-time wearable streaming</h4>
+            <p>Live data flows straight into the engine for continuous feedback, suggestions and alerts, not a check-up every 90 days.</p>
+          </div>
+        </div>
+        <div class="feat">
+          <span class="idx">02</span>
+          <div class="body">
+            <h4>DNA &amp; genomics integration</h4>
+            <p>Full sequencing read once and reused forever, sharpening every future protocol with hard-coded genetic context.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 7 · VISION ===== -->
+    <section class="slide dark">
+      <p class="kicker">The vision</p>
+      <h2 class="vision-big">The first longevity intelligence layer, <span class="accent">built for South Asia.</span></h2>
+      <p class="lede" style="margin-top:clamp(20px,2.6vw,36px)">Build the first biomarker-and-lifestyle intervention dataset for the region, train a longevity AI model on it, and automate precision aging at population scale.</p>
+    </section>
+
+    <!-- ===== SLIDE 8 · CHALLENGE INTRO ===== -->
+    <section class="slide dark" style="padding-top:clamp(30px,4vw,64px);padding-bottom:clamp(30px,4vw,64px)">
+      <p class="kicker" style="margin-bottom:clamp(14px,1.8vw,22px)">Your challenge</p>
+      <h2 class="h-lead" style="max-width:20ch">Take our engine <span class="accent">into the boardroom.</span></h2>
+      <p class="lede" style="margin-top:clamp(14px,1.8vw,24px);max-width:60ch;font-size:clamp(14px,1.55vw,21px)">Our direct-to-consumer model is strong. But executive burnout is at an all-time high. The mission: scale our individual optimization engine into an <b style="color:#fff;font-weight:600">elite B2B partnership for leadership teams</b>, without down-selling it into a cheap, mass-market HR wellness package.</p>
+      <div class="chl-tracks" style="margin-top:clamp(16px,2.2vw,30px)">
+        <span class="chl-track"><b>01</b> &nbsp;The Hunter</span>
+        <span class="chl-track"><b>02</b> &nbsp;The Storyteller</span>
+        <span class="chl-track"><b>03</b> &nbsp;The Architect</span>
+      </div>
+      <p class="tiny" style="margin-top:clamp(14px,1.7vw,22px);color:rgba(255,255,255,.5)">Pick one track. Solve it as a team.</p>
+      <div class="chl-num">3</div>
+    </section>
+
+    <!-- ===== SLIDE 9 · TRACK 1 ===== -->
+    <section class="slide">
+      <p class="kicker">Track 01</p>
+      <div class="track-head">
+        <div class="track-no">01</div>
+        <div class="track-persona">
+          <div class="role">The Hunter</div>
+          <h2>Sales funnel &amp; lead generation</h2>
+        </div>
+      </div>
+      <div class="track-body">
+        <div class="track-block">
+          <div class="lbl">The task</div>
+          <p>Design an elite enterprise sales funnel to secure our first 5 corporate partners, think top-tier VC portfolio firms and high-growth tech companies.</p>
+        </div>
+        <div class="track-block q">
+          <div class="lbl">Key question</div>
+          <p>How do you bypass standard HR channels and pitch a CFO or CEO directly?</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 10 · TRACK 2 ===== -->
+    <section class="slide">
+      <p class="kicker">Track 02</p>
+      <div class="track-head">
+        <div class="track-no">02</div>
+        <div class="track-persona">
+          <div class="role">The Storyteller</div>
+          <h2>Marketing &amp; positioning</h2>
+        </div>
+      </div>
+      <div class="track-body">
+        <div class="track-block">
+          <div class="lbl">The task</div>
+          <p>Create the core narrative that reframes longevity as a high-ROI performance asset, not an HR lifestyle perk.</p>
+        </div>
+        <div class="track-block q">
+          <div class="lbl">Key question</div>
+          <p>What pitch convinces a company to pay premium rates to insure their leadership's weekly cognitive output and prevent executive burnout?</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 11 · TRACK 3 ===== -->
+    <section class="slide">
+      <p class="kicker">Track 03</p>
+      <div class="track-head">
+        <div class="track-no">03</div>
+        <div class="track-persona">
+          <div class="role">The Architect</div>
+          <h2>Tech engine &amp; team dashboard</h2>
+        </div>
+      </div>
+      <div class="track-body">
+        <div class="track-block">
+          <div class="lbl">The task</div>
+          <p>Wireframe the workflow of a Corporate Longevity Dashboard. Health data is deeply private, design for that first.</p>
+        </div>
+        <div class="track-block q">
+          <div class="lbl">Key question</div>
+          <p>How do you guarantee absolute privacy for each person's raw blood markers, while still giving the board aggregated, anonymized ROI, e.g. "leadership's collective biological age dropped 1.8 years this quarter"?</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- persistent chrome -->
+    <div class="brand" id="brand">
+      <svg class="brand-mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke-linecap="round">
+          <g stroke="#D17244" stroke-width="2.4">
+            <line x1="22" y1="15" x2="42" y2="15"/><line x1="24" y1="22" x2="40" y2="22"/>
+            <line x1="24" y1="42" x2="40" y2="42"/><line x1="22" y1="49" x2="42" y2="49"/>
+          </g>
+          <g stroke="#B85426" stroke-width="3.4">
+            <path d="M32 6 C 52 13, 52 23, 32 30 C 12 37, 12 47, 32 54"/>
+            <path d="M32 6 C 12 13, 12 23, 32 30 C 52 37, 52 47, 32 54"/>
+          </g>
+        </g>
+      </svg>
+      <span class="brand-name" id="brandName">Antiaging Labs</span>
+    </div>
+    <div class="pageno" id="pageno">01 / 11</div>
+
+  </div>
+</div>
+
+<div class="nav-zone prev" id="zprev"></div>
+<div class="nav-zone next" id="znext"></div>
+<div class="dots" id="dots"></div>
+<div class="nav-hint">← → or space</div>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var total = slides.length;
+  var i = 0;
+  var progress = document.getElementById('progress');
+  var pageno = document.getElementById('pageno');
+  var brandName = document.getElementById('brandName');
+  var dotsWrap = document.getElementById('dots');
+
+  // build dots
+  slides.forEach(function(s, idx){
+    var b = document.createElement('button');
+    b.addEventListener('click', function(){ go(idx); });
+    dotsWrap.appendChild(b);
+  });
+  var dots = Array.prototype.slice.call(dotsWrap.children);
+
+  function pad(n){ return (n<10?'0':'')+n; }
+
+  function render(){
+    slides.forEach(function(s, idx){ s.classList.toggle('active', idx===i); });
+    dots.forEach(function(d, idx){ d.classList.toggle('on', idx===i); });
+    progress.style.width = ((i+1)/total*100) + '%';
+    pageno.style.color = '';
+    var dark = slides[i].classList.contains('dark');
+    pageno.textContent = pad(i+1) + ' / ' + pad(total);
+    pageno.style.color = dark ? 'rgba(255,255,255,.45)' : '';
+    brandName.style.color = dark ? '#fff' : '';
+    // hide brand chrome on the cover (it has its own big logo)
+    var isCover = slides[i].classList.contains('cover');
+    document.getElementById('brand').style.opacity = isCover ? '0' : '1';
+  }
+
+  function go(n){ i = Math.max(0, Math.min(total-1, n)); render(); }
+  function next(){ go(i+1); }
+  function prev(){ go(i-1); }
+
+  document.addEventListener('keydown', function(e){
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '||e.key==='PageDown'){ e.preventDefault(); next(); }
+    else if(e.key==='ArrowLeft'||e.key==='ArrowUp'||e.key==='PageUp'){ e.preventDefault(); prev(); }
+    else if(e.key==='Home'){ go(0); }
+    else if(e.key==='End'){ go(total-1); }
+    else if(e.key==='f'||e.key==='F'){ toggleFs(); }
+    else if(/^[1-9]$/.test(e.key)){ go(parseInt(e.key,10)-1); }
+  });
+
+  document.getElementById('znext').addEventListener('click', next);
+  document.getElementById('zprev').addEventListener('click', prev);
+
+  // swipe
+  var x0=null;
+  document.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, {passive:true});
+  document.addEventListener('touchend', function(e){
+    if(x0===null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if(Math.abs(dx)>45){ dx<0 ? next() : prev(); }
+    x0=null;
+  }, {passive:true});
+
+  function toggleFs(){
+    if(!document.fullscreenElement){ document.documentElement.requestFullscreen && document.documentElement.requestFullscreen(); }
+    else { document.exitFullscreen && document.exitFullscreen(); }
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>

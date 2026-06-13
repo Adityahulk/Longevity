@@ -101,6 +101,11 @@
       "permanent": true
     },
     {
+      "source": "/masai-ppt.html",
+      "destination": "/masai-ppt",
+      "permanent": true
+    },
+    {
       "source": "/program.html",
       "destination": "/program",
       "permanent": true
@@ -162,6 +167,14 @@
     {
       "source": "/learn/longevity-genes",
       "destination": "/learn-longevity-genes.html"
+    },
+    {
+      "source": "/masai-ppt",
+      "destination": "/masai-ppt.html"
+    },
+    {
+      "source": "/masai-ppt/",
+      "destination": "/masai-ppt.html"
     },
     {
       "source": "/program",
