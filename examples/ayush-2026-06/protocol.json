@@ -1,0 +1,238 @@
+{
+  "authored_at_utc": "2026-06-17T16:52:00Z",
+  "author_version": "0.2.0",
+  "headline": {
+    "phenotype_label": "Metabolically young, cardiovascularly exposed · Iron-depleted · Atopic · Under-recovered",
+    "bio_age": 21.1,
+    "delta_years": -3.9,
+    "voice": "Peer, performance-framed. Aayush is exceptionally disciplined and motivated by capability and how he looks, not by fear. Every lever below is tied to his own stated goal: better cardio, less fatigue, sharper mind. Two items go to a physician first."
+  },
+  "goal_alignment": {
+    "his_words": "Better cardio, less fatigue and higher sharpness.",
+    "how_protocol_serves_it": "His #1 goal (cardio) IS the single biggest lever on his lipids AND his early-insulin signal — so the medicine and the goal are the same thing. 'Less fatigue' maps directly to the iron workup + extending sleep from 6h to 7h. 'Sharper mind' maps to fixing the afternoon crash via sleep, Zone-2, and lowering the 80+ daily stress load."
+  },
+  "biological_age_trajectory": {
+    "day_1": 21.1,
+    "day_30_estimate": 21.0,
+    "day_90_target": 20.6,
+    "adherence_assumed": "85%+ — his discipline is a top-decile asset",
+    "method": "Bio-age is already 3.9y younger than calendar and PhenoAge does not 'see' his lipids/iron, so the headline number moves only modestly. The real wins (ApoB, ferritin, HDL, HOMA-IR, fatigue) live OUTSIDE the PhenoAge inputs — which is exactly why we read the full panel. Day-90 target reflects small RDW + hsCRP gains as iron and recovery improve."
+  },
+  "root_attack_pillars": [
+    {
+      "name": "Pillar 1 — Lower ApoB, raise HDL (offset the inherited Lp(a))",
+      "root_mechanism": "RC-1",
+      "anchor_interventions": [
+        "Zone-2 cardio 150 min/week (his own goal) — the HDL + insulin lever",
+        "Soluble fibre to 30-40g/day via oats, chia, psyllium, dal (not vegetables he won't eat)",
+        "Swap saturated for unsaturated fat: cut ghee, halve egg-yolk volume, switch coffee/shake dairy to lower-fat lactose-free milk",
+        "Switch fish oil to algal omega-3 ≥1.5g EPA+DHA/day",
+        "Eliminate the occasional smoking/vaping entirely",
+        "Physician: discuss whether early ApoB-lowering is warranted given Lp(a) 49"
+      ],
+      "expected_to_shift": ["apo_b 96→<85", "ldl 135→<115", "hdl 43→48+", "non_hdl 152→<135", "tg_hdl", "aip"]
+    },
+    {
+      "name": "Pillar 2 — Refill iron stores AND find the leak",
+      "root_mechanism": "RC-2",
+      "anchor_interventions": [
+        "Physician iron workup BEFORE any high-dose iron (do not self-start)",
+        "Stool occult-blood + parasite/ova test (given rural Bihar + Thailand travel, never tested)",
+        "ENT review of the chronic one-sided block + Otrivin overuse (a likely nasal-bleeding source)",
+        "Reintroduce red meat 1-2x/week (mutton) for heme iron — he has no objection, just hasn't been eating it",
+        "Vitamin C 500mg WITH iron meals; move coffee + calcium (Recalmin) away from those meals by 1-2h"
+      ],
+      "expected_to_shift": ["ferritin 7.5→30+", "transferrin_sat 11.5→25+", "iron_serum 44→70+", "fatigue", "cold_hands", "rdw_cv"]
+    },
+    {
+      "name": "Pillar 3 — Recover as hard as he trains",
+      "root_mechanism": "RC-3",
+      "anchor_interventions": [
+        "Extend sleep from ~6h to 7-7.5h (bed 9:45 latest; protect the 5:45 wake)",
+        "One true rest / active-recovery day per week (no MMA, no HIIT, no lifting)",
+        "Deload every 4th week (reduce volume ~40%)",
+        "10-min daily breathwork for the Bevel 80+ stress score",
+        "Convert ~2 weekly HIIT slots into Zone-2 (serves cardio goal + lowers load)"
+      ],
+      "expected_to_shift": ["homa_ir 1.25→<1.0", "subjective fatigue", "afternoon_crash", "low_mood", "recovery"]
+    }
+  ],
+  "domains": {
+    "training": {
+      "lead": true,
+      "leading_principles": [
+        "His stated goal is 'better cardio' — and steady cardio is ALSO the top lever for his HDL, his ApoB ratios, and his early-insulin signal. One change, three wins.",
+        "He currently does ~20 min of steady cardio a WEEK while training hard daily. That is the single biggest gap in an otherwise excellent regimen.",
+        "He is under-recovered, not under-trained. The goal is to redistribute load, not add to it."
+      ],
+      "weekly_structure": {
+        "zone_2_minutes": 150,
+        "zone_2_detail": "3-4 sessions of 35-45 min at conversational pace (HR ~120-140). Cycle, incline treadmill, or shadow-boxing rounds kept aerobic. During Noida high-AQI months (Oct-Feb) keep these INDOORS / filtered air — relevant to his rhinitis and CV risk.",
+        "vo2max_hiit_sessions": 1,
+        "hiit_note": "Keep ONE true HIIT session/week (Saturday — his Monster-Zero slot). Reduce from current near-daily HIIT; the extra intensity is feeding under-recovery and possibly training hemolysis (iron).",
+        "resistance_sessions": 4,
+        "resistance_note": "Keep his trainer-guided push/pull compound work — it is working (good progress, T 801). Just protect knees: no explosive/plyometric knee loading (his stated weak point).",
+        "mma_sessions": "3-4 (down from daily)",
+        "rest_day": 1,
+        "rest_day_detail": "One full rest or active-recovery day (walk + mobility only). Non-negotiable — this is the recovery pillar.",
+        "mobility": "daily 10 min, knee-focused"
+      },
+      "twelve_week_plan": [
+        {"week": "1-2", "focus": "Insert Zone-2 + claim the rest day", "detail": "Add 2× Zone-2 (35 min). Designate Sunday as full rest. Do NOT add intensity — this block is about redistributing, not adding."},
+        {"week": "3-6", "focus": "Build the aerobic base", "detail": "3× Zone-2/week (40 min). Trim HIIT to 1×/week. Keep 4× resistance + 3× MMA. Notice resting HR + how 'better cardio' starts to feel."},
+        {"week": "7-10", "focus": "Progress + first deload", "detail": "4× Zone-2 (45 min) on lighter weeks. Week 8 = deload (volume −40%). Progressive overload on compounds resumes week 9."},
+        {"week": "11-13", "focus": "Consolidate + retest prep", "detail": "Hold the new structure. In the 48h before Day-90 retest: no heavy training (avoids transient CK/AST/hemolysis skew on the panel)."}
+      ],
+      "equipment_assumption": "Commercial gym + MMA facility + cycle access",
+      "aqi_aware": true,
+      "injury_accommodation": "Knee — avoid deep plyometrics, heavy single-leg under fatigue; prioritise glute/hamstring balance; the daily 10-min mobility is knee-led.",
+      "evidence_tags": ["E1", "E2"]
+    },
+    "recovery_sleep": {
+      "lead": true,
+      "target_bedtime": "21:45",
+      "target_wake": "05:45",
+      "anchored_wake_priority": true,
+      "sleep_target_hours": "7-7.5",
+      "rationale": "He sleeps ~6h, wakes always groggy, snores on his back, and feels perpetually tired and under-recovered while training daily. Short sleep alone can lift HOMA-IR and blunt recovery and mood — it sits under three of his findings. Moving bedtime from 10:30 to 9:45 buys ~45-60 min with zero willpower cost.",
+      "wind_down_protocol": "Screens off by 9:15 (he sometimes uses screens in bed). Magnesium glycinate (already taken) at 9:00. 10-min breathwork or journaling (he already journals — make it nightly). Room already ideal: dark, 19°C.",
+      "snoring_nasal_action": "Side-sleeping (snores on back); and escalate the chronic one-sided nasal block to ENT — nasal obstruction is likely degrading his sleep quality and is a candidate cause of the 'always groggy'. Reduce Otrivin dependence under ENT guidance (rebound congestion risk).",
+      "AM_sunlight_minutes": 10,
+      "AM_sunlight_note": "10 min daylight after waking (he gets only 2-3h daylight/day, mostly indoors) — anchors circadian rhythm, helps the groggy mornings and afternoon crash.",
+      "caffeine_cutoff": "No caffeine after ~1pm; specifically drop the after-lunch coffee (protects 6→7h sleep AND iron absorption).",
+      "afternoon_crash_fix": "The post-lunch crash is partly the heavy rice lunch + short sleep + the habit of relaxing after lunch. A 10-min post-lunch walk (not a recline) blunts the glucose dip and the grogginess.",
+      "evidence_tags": ["E1", "E2"]
+    },
+    "nutrition": {
+      "lead": true,
+      "leading_principles": [
+        "Do NOT overhaul this — his diet is top-decile clean (zero fried, zero sugar, no late eating, minimal processed). Restriction is the wrong tool.",
+        "Two surgical changes only: (1) ADD soluble fibre without relying on vegetables he won't eat, (2) shift fat quality (less saturated) and ADD heme iron via red meat.",
+        "Everything must survive travel — his stated #1 obstacle."
+      ],
+      "daily_targets": {"protein_g": 140, "fibre_g": 35, "soluble_fibre_g": "8-10", "eating_window_hours": 15, "eating_window_note": "6:15am-9pm ≈ 15h; the Tue/Thu IF days are good — consider nudging the first meal slightly later on non-training mornings to tighten the window, but this is optional, not a priority."},
+      "fibre_strategy_no_veg": [
+        "Oats almost daily already — keep, add 1 tbsp chia + 1 tbsp ground flax stirred in (soluble fibre + ALA omega-3)",
+        "1 tsp-1 tbsp psyllium husk (isabgol) in water once daily — the single highest-leverage ApoB/LDL fibre move, no taste of vegetables",
+        "Dal up from 2x to 4-5x/week (also plant iron — pair with vitamin C, keep coffee away)",
+        "Keep banana + add berries (already likes blueberry); guava and apple-with-skin are easy veg-free fibre",
+        "Blended/soup routes for the few vegetables he'll tolerate — palak in dal, tomato/onion in gravies he already eats with chicken"
+      ],
+      "fat_quality_shifts": [
+        "Cut the leftover ghee use (he already reduced it) — use groundnut/mustard/olive oil, light hand",
+        "Halve egg-yolk volume on heavy-egg days (e.g., 2 whole + 3 whites instead of 5 whole) — keeps protein, cuts dietary saturated fat/cholesterol load; whites are unlimited",
+        "Switch the coffee/shake dairy to lower-fat lactose-free milk",
+        "Walnuts (already eats) + algal omega-3 cover the unsaturated side"
+      ],
+      "iron_strategy": [
+        "Reintroduce RED MEAT (mutton/lamb) 1-2x/week — best absorbable heme iron; he simply hasn't been eating it",
+        "Vitamin C 500mg (already owns) WITH the iron meal — or lemon on the meat/dal",
+        "Move coffee and the calcium-containing Recalmin-XT 1-2h away from iron meals (both block absorption)",
+        "This is the DIET arm only — therapeutic iron stays physician-gated until the cause workup is done"
+      ],
+      "weekly_menu_sample": [
+        {"day": "Mon (train)", "first": "Coffee + banana", "am": "Whey isolate + 2 whole/3 white egg bhurji", "lunch": "Chicken + kala namak rice + dal + lemon (vit-C, iron)", "snack": "Banana + walnuts", "pre_eve": "Whey isolate + berries", "dinner": "Chicken + multigrain roti + oats-chia bowl"},
+        {"day": "Tue (IF)", "first": "Black coffee only (fast)", "lunch_2pm": "Mutton 1× (heme iron) + rice + dal + lemon + vit-C", "snack": "Banana", "dinner": "Chole + rice + psyllium in water"},
+        {"day": "Wed (train)", "first": "Coffee + banana", "am": "Oats + chia + flax + whey isolate", "lunch": "Chicken + brown rice + dal", "snack": "Guava/apple", "dinner": "Egg-white-heavy bhurji + multigrain + dal"},
+        {"day": "Thu (IF)", "first": "Black coffee only (fast)", "lunch_2pm": "Chicken + rice + dal + lemon", "snack": "Berries + walnuts", "dinner": "Mutton or chicken + roti"},
+        {"day": "Fri (train)", "first": "Coffee + banana", "am": "Whey isolate + eggs", "lunch": "Chicken + rice + dal + lemon", "snack": "Banana", "dinner": "Chole + rice + psyllium"},
+        {"day": "Sat (HIIT)", "first": "Coffee + banana (Monster Zero pre-HIIT ok)", "am": "Whey isolate + oats-chia", "lunch": "Mutton or chicken + rice + dal", "snack": "Berries", "dinner": "Chicken + multigrain + dal"},
+        {"day": "Sun (REST)", "first": "Coffee + banana", "am": "Big egg-white + 2-yolk bhurji + oats", "lunch": "Chicken + rice + dal + lemon", "snack": "Fruit + walnuts", "dinner": "Light — chole + multigrain + psyllium"}
+      ],
+      "foods_to_emphasize": ["mutton 1-2x/wk (heme iron)", "dal 4-5x/wk", "oats + chia + flax", "psyllium husk daily", "berries/guava/apple", "egg whites", "lemon/vit-C with iron meals", "walnuts"],
+      "foods_to_deprioritize": ["ghee", "heavy whole egg yolks daily", "whole-fat dairy in coffee/shakes", "after-lunch coffee"],
+      "lactose_rule": "Isolate protein only (never concentrate); lactose-free milk only — already compliant.",
+      "alcohol_caffeine_guidance": "Alcohol is already a non-issue (2-3x/year). Caffeine: keep to AM, drop the post-lunch cup. Monster Zero pre-Saturday-HIIT is fine.",
+      "evidence_tags": ["E1", "E2"]
+    },
+    "supplements": {
+      "lead": false,
+      "audit_first": "His current stack is large and has redundancy. The job here is to PRUNE and RETIME more than to add.",
+      "stack_changes": [
+        {"name": "Vitamin D3", "current": "60,000 IU/week", "change": "STEP DOWN to 60,000 IU/MONTH (or 2,000 IU/day)", "reason": "Already at 63 ng/mL (top of optimal); weekly loading risks excess", "evidence_tier": "E1", "safety": "warning"},
+        {"name": "B12/folate sources (Recalmin-XT + NVMe + multivitamin)", "current": "three overlapping sources", "change": "CONSOLIDATE to one; keep multivitamin, drop the redundant B12 duplicators (discuss with physician — Recalmin also gives calcium)", "reason": "B12 >2000 and folate >24 from triple-stacking; pointless", "evidence_tier": "E2", "safety": "cleared_with_note"},
+        {"name": "Omega-3", "current": "fish oil 2 caps/day", "change": "SWITCH to algal omega-3 ≥1.5g EPA+DHA/day", "reason": "Shellfish anaphylaxis + fish dislike → algal removes all doubt; also dose up for the lipid picture", "evidence_tier": "E2", "safety": "warning"},
+        {"name": "Vitamin C 500mg", "current": "standalone AM", "change": "RETIME — take WITH iron-containing meals (mutton/dal)", "reason": "Boosts non-heme iron absorption", "evidence_tier": "E2", "safety": "cleared"},
+        {"name": "Magnesium glycinate", "current": "2 caps/day", "change": "Keep; take in the EVENING for sleep", "reason": "Serum Mg 1.98 (just under optimal) + sleep support", "evidence_tier": "E2", "safety": "cleared"},
+        {"name": "Creatine", "current": "1/day", "change": "Keep — supports training + cognition (his 'sharpness' goal)", "evidence_tier": "E1", "safety": "cleared"},
+        {"name": "Whey ISOLATE", "current": "2/day", "change": "Keep — correct form for his lactose intolerance; never switch to concentrate", "evidence_tier": "E1", "safety": "cleared"},
+        {"name": "Psyllium husk (isabgol)", "current": "none", "change": "ADD 1 tsp-1 tbsp/day in water", "reason": "Highest-leverage veg-free soluble fibre for ApoB/LDL", "evidence_tier": "E1", "safety": "cleared"},
+        {"name": "Iron", "current": "none", "change": "DO NOT self-start — physician-gated until cause workup done", "reason": "Bleeding signals + unscreened GI/parasite risk; masking a leak is dangerous", "evidence_tier": "E1", "safety": "blocked_pending_physician"}
+      ],
+      "monthly_cost_note": "Budget is unlimited per intake; net cost likely DROPS after pruning redundancies. Add only psyllium (~₹200/mo) + algal omega-3 (~₹900-1200/mo).",
+      "evidence_tags_summary": "Most changes are E1-E2; the theme is prune + retime, not pile on."
+    },
+    "mind_wellness": {
+      "lead": false,
+      "daily_practice": "10-min breathwork (physiological sigh or 4-7-8) — he meditates but does NO breathwork, and his Bevel stress sits 80+ daily. Breathwork is the fastest down-regulator for that number.",
+      "weekly_practice": "Keep meditation; make journaling nightly (he journals inconsistently) — useful given persistent low mood the last few months and relationship/money stress.",
+      "relationship_money_stress_note": "These are real, named stressors he can no longer wind down from. Not a supplement problem. The breathwork + protected sleep + one rest day are the levers; if low mood persists past a few more weeks, a check-in with a counsellor is reasonable and not a sign of weakness.",
+      "screen_low_mood": "Sub-clinical — monitor, not a clinical flag. Mind is a SUPPORTING domain here, paired with Recovery.",
+      "evidence_tags": ["E2", "E3"]
+    }
+  },
+  "ninety_day_habit_stack": [
+    {
+      "weeks": "1-2",
+      "habits": ["Bed by 9:45pm, screens off 9:15 (protect the 5:45 wake → 7h)", "Claim Sunday as a full rest day"],
+      "coach_check_in_days": "Day 14",
+      "coach_check_in_focus": "Is the earlier bedtime holding, or is late work/screens pushing it back? Did the Sunday rest day actually happen, or did he sneak in MMA? How groggy are mornings vs baseline?"
+    },
+    {
+      "weeks": "3-6",
+      "habits": ["+ 3× Zone-2 cardio/week (35-40 min, his 'better cardio' goal)", "+ Psyllium daily + Vitamin C with iron meals + drop after-lunch coffee"],
+      "coach_check_in_days": "Day 28 + Day 42",
+      "coach_check_in_focus": "Zone-2 adherence and does 'cardio' feel better yet? Is HIIT actually trimmed to 1×/wk or still creeping daily? Psyllium tolerance. Did he book the physician (iron + lipid) and ENT appointments?"
+    },
+    {
+      "weeks": "7-10",
+      "habits": ["+ Red meat 1-2x/week + halve egg-yolk volume + swap to lower-fat lactose-free milk", "+ 10-min daily breathwork"],
+      "coach_check_in_days": "Day 56 + Day 70",
+      "coach_check_in_focus": "Is mutton actually back in rotation (heme iron)? Fat-quality swaps sticking? Did breathwork move the Bevel stress score? Energy/afternoon-crash trend. Deload week 8 respected?"
+    },
+    {
+      "weeks": "11-13",
+      "habits": ["Maintain all 6; pre-retest prep — no heavy training 48h prior, fast 12h, no caffeine 24h, no alcohol 72h, same lab + same morning slot"],
+      "coach_check_in_days": "Day 84 + Day 90 review",
+      "coach_check_in_focus": "Confirm retest logistics and the physician/ENT outcomes (iron cause found? lipid plan? nasal source?). Lock the same-lab same-slot retest so the deltas are real."
+    }
+  ],
+  "physician_referrals_required": [
+    {"reason": "Lp(a) 49 mg/dL (genetic) + atherogenic ApoB 96 / LDL 135 / non-HDL 152", "specialty": "Primary care → consider Cardiology/Lipidology", "ask": "Confirm Lp(a) once (stable for life); ask about family premature-CVD (his is reassuring); discuss whether early ApoB-lowering is warranted at 25 given the inherited Lp(a)."},
+    {"reason": "Iron depletion (ferritin 7.5) with bleeding signals (gums, nasal mucus) in a heavy meat-eater", "specialty": "Primary care + stool occult-blood/parasite test", "ask": "Work up the CAUSE before high-dose iron. Stool occult blood + ova/parasite (rural Bihar + Thailand travel, never tested). Choose supervised iron repletion + retest ferritin at 8-12 weeks."},
+    {"reason": "Chronic one-sided nasal obstruction + near-daily Otrivin (rebound-congestion risk) + nasal bleeding + always-groggy/snoring", "specialty": "ENT", "ask": "Assess for deviated septum / chronic rhinitis / rhinitis medicamentosa; this links his atopy, his nasal iron-loss source, and his poor sleep quality."}
+  ],
+  "retest_plan": {
+    "day_30": [
+      {"marker": "subjective fatigue + Bevel stress + morning grogginess", "expected": "early improvement as sleep extends + rest day lands"}
+    ],
+    "day_60": [
+      {"marker": "lipid panel (LDL, ApoB, HDL, non-HDL)", "expected": "ApoB drifting down, HDL up as Zone-2 + fibre + fat-quality take hold (lipid turnover ~6 weeks)"},
+      {"marker": "ferritin / iron studies", "expected": "rising IF physician iron repletion started + cause addressed"}
+    ],
+    "day_90": {
+      "core_panel": "full repeat (same lab, same morning slot, 12h fasted)",
+      "priority_remeasures": ["ferritin", "transferrin saturation", "iron", "ApoB", "LDL", "HDL", "non-HDL", "HOMA-IR (glucose+insulin)", "hsCRP", "HbA1c"],
+      "add_ons_recommended": [
+        {"marker": "lp_a_confirm", "tier_priority": 1, "rationale": "one-time confirm of the genetic value", "estimated_cost_inr": 1500},
+        {"marker": "stool_occult_blood", "tier_priority": 1, "rationale": "iron-loss cause", "estimated_cost_inr": 400},
+        {"marker": "reticulocyte_hb / soluble_transferrin_receptor", "tier_priority": 1, "rationale": "confirms iron-deficiency stage + repletion response", "estimated_cost_inr": 1200},
+        {"marker": "ldl_p / apoB_particle", "tier_priority": 2, "rationale": "finer than LDL-C given Lp(a)", "estimated_cost_inr": 2500},
+        {"marker": "omega_3_index", "tier_priority": 3, "rationale": "track the algal-omega-3 switch", "estimated_cost_inr": 3500}
+      ]
+    },
+    "week_12_vit_d_specific": {"marker": "vitamin_d_25oh", "expected": "stays 40-60 ng/mL on the stepped-down maintenance dose"}
+  },
+  "outcome_expectations": [
+    {"area": "Cardio (his goal)", "expectation": "Resting HR down, sessions feel easier within 4-6 weeks of Zone-2; HDL 43→48+ and ApoB 96→<85 by Day 90"},
+    {"area": "Fatigue (his goal)", "expectation": "Improves as sleep goes 6→7h + iron repletes; cold hands ease; afternoon crash softens"},
+    {"area": "Sharpness (his goal)", "expectation": "Better with consistent 7h sleep, Zone-2, and lower stress load; brain fog less likely to recur"},
+    {"area": "Insulin", "expectation": "HOMA-IR 1.25→<1.0 as sleep, cardio and recovery improve"},
+    {"area": "Lp(a)", "expectation": "Will NOT change (genetic) — the win is offsetting it via ApoB; set expectations honestly"}
+  ],
+  "what_not_to_change": [
+    "His diet discipline (zero fried, no sugar, no late eating) — protect it, don't add restriction",
+    "His strength training + MMA progress (T 801, good gains) — just redistribute load and add a rest day",
+    "Creatine, isolate whey, magnesium glycinate, lactose-free milk — all correct already"
+  ]
+}

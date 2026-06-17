@@ -1,0 +1,24 @@
+{
+  "parsed_at_utc": "2026-06-09T00:00:00Z",
+  "parser_version": "0.1.0",
+  "source": "Extracted from Client #5 Part-1 report (ayush.html); original lab panel 68 markers + 6 derived",
+  "lab_vendor": "tata_1mg",
+  "patient": {"first_name": "Aayush", "display_name": "Client #5", "age": 25, "sex_at_birth": "M", "draw_date": "2026-06-07"},
+  "phenoage": {"bio_age": 21.1, "chronological_age": 25.0, "delta_years": -3.9, "xb": -10.9398, "ten_year_mortality_pct": 0.35, "formula": "Levine-2018"},
+  "flagged_findings": [
+    {"theme": "cardiovascular", "markers": {"lp_a": 49.44, "ldl": 135, "apo_b": 96, "non_hdl": 152, "hdl": 43, "apob_a1": 1.07, "total_chol": 195, "triglycerides": 84}, "tier": 1, "note": "Lp(a) genetic + atherogenic ApoB/LDL pattern, low-ish HDL"},
+    {"theme": "iron_depletion", "markers": {"ferritin": 7.5, "iron_serum": 44, "transferrin_sat": 11.48, "tibc": 383.3, "rdw_cv": 13.8, "hemoglobin": 15}, "tier": 2, "note": "Stores nearly empty, not yet anemic"},
+    {"theme": "early_insulin", "markers": {"homa_ir": 1.25, "tg_hdl": 1.95, "glucose_fasting": 87, "hba1c": 5.2, "insulin_fasting": 5.84}, "tier": 3, "note": "Earliest reversible IR whisper"},
+    {"theme": "atopic", "markers": {"ige_total": 247, "monocytes_pct": 9.6, "eosinophils_pct": 2.7}, "tier": 3, "note": "Allergic constitution"},
+    {"theme": "watch", "markers": {"homocysteine": 11.33, "alp": 153, "bilirubin_total": 1.28, "bilirubin_indirect": 0.93}, "tier": 4, "note": "Homocysteine upper-half; benign Gilbert's pattern; bone-source ALP"}
+  ],
+  "strong_systems": {
+    "testosterone_total": 801.52, "cortisol_am": 12.2, "tsh": 1.634, "free_t3": 3.56, "free_t4": 1.41,
+    "egfr": 101, "creatinine": 1.05, "alt": 27, "ast": 27, "ggt": 14, "hs_crp": 0.42, "albumin": 4.70,
+    "vitamin_d": 63, "b12": ">2000", "folate": ">24", "magnesium": 1.98, "uric_acid": 5.6
+  },
+  "derived_indices": {
+    "homa_ir": 1.25, "tg_hdl": 1.95, "aip": 0.29, "castelli_1": 4.53, "castelli_2": 3.14,
+    "apob_a1": 1.07, "non_hdl": 152, "transferrin_sat": 11.5, "nlr": 1.37
+  }
+}

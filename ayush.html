@@ -126,7 +126,59 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
 .q-group h3 { font-size:20px; margin-bottom:6px; }
 .q-group .q-why { font-size:13px; font-style:italic; color:var(--ink-mute); margin-bottom:14px; }
 .q-group ol { font-size:14px; line-height:1.5; }
-.q-group ol li { margin-bottom:9px; }
+.q-group ol li { margin-bottom:13px; }
+.q-ans { display:block; margin-top:5px; font-style:normal; color:var(--ink); background:var(--cream-dark); border-left:2px solid var(--leaf); padding:7px 13px; border-radius:3px; font-size:13.5px; line-height:1.55; }
+.q-ans::before { content:"His answer"; display:block; font-family:var(--mono); font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--leaf); margin-bottom:3px; }
+
+/* PROTOCOL -GOAL BOX */
+.goalbox { background:var(--leaf-soft); border-left:3px solid var(--leaf); padding:16px 20px; margin-top:24px; font-size:14px; border-radius:4px; }
+.goalbox .gq { font-family:var(--serif); font-style:italic; font-size:18px; color:var(--ink); }
+
+/* PROTOCOL -PILLARS */
+.pillar { background:var(--cream); border-left:3px solid var(--accent); border-radius:4px; padding:24px 26px; margin:18px 0; }
+.pillar .pnum { font-family:var(--mono); font-size:11px; letter-spacing:0.14em; color:var(--accent); text-transform:uppercase; }
+.pillar h3 { font-size:21px; margin:6px 0 10px; }
+.pillar .moves { font-size:14px; margin-top:10px; }
+.pillar .shift { margin-top:12px; padding:10px 14px; background:var(--leaf-soft); border-radius:4px; font-size:13px; color:var(--ink); }
+
+/* PROTOCOL -DOMAIN CARDS */
+.domain { background:var(--paper); border:1px solid var(--rule-soft); border-radius:6px; padding:34px 32px; margin:28px 0; }
+.domain.lead { border-left:4px solid var(--accent); }
+.domain .dlabel { font-family:var(--mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:4px; }
+.domain .dlead-tag { display:inline-block; font-family:var(--mono); font-size:9px; letter-spacing:0.12em; text-transform:uppercase; background:var(--accent-soft); color:var(--accent); padding:2px 8px; border-radius:3px; margin-left:8px; vertical-align:middle; }
+.domain h2 { font-size:26px; margin-bottom:12px; }
+.domain h4 { margin-top:20px; }
+.domain ul { font-size:14.5px; }
+.subnote { font-size:13px; font-style:italic; color:var(--ink-mute); }
+
+/* PROTOCOL -MENU TABLE */
+.menu-table { font-family:var(--mono); font-size:11.5px; width:100%; margin-top:14px; border-collapse:collapse; }
+.menu-table td { padding:7px 9px; border-bottom:0.5px solid var(--rule-soft); vertical-align:top; }
+.menu-table td:first-child { color:var(--accent); font-weight:500; white-space:nowrap; }
+.menu-table tr td:not(:first-child){ color:var(--ink-soft); }
+
+/* PROTOCOL -REFERRAL ITEMS */
+.refer-item { padding:14px 0; border-bottom:0.5px dashed var(--rule); }
+.refer-item:last-child { border-bottom:0; }
+.refer-item .rspec { font-family:var(--mono); font-size:11px; color:var(--danger); text-transform:uppercase; letter-spacing:0.1em; }
+
+/* PROTOCOL -HABIT TIMELINE */
+.timeline { margin:22px 0; }
+.tblock { display:grid; grid-template-columns:96px 1fr; gap:18px; padding:18px 0; border-bottom:0.5px dashed var(--rule-soft); }
+.tblock .twk { font-family:var(--mono); font-size:12px; color:var(--accent); font-weight:500; }
+.tblock .thabits { font-size:14px; }
+.tblock .tcoach { font-size:12.5px; color:var(--ink-mute); font-style:italic; margin-top:8px; padding-top:8px; border-top:0.5px dotted var(--rule-soft); }
+.tblock .tcoach strong { font-style:normal; }
+
+/* PROTOCOL -SUPPLEMENT TABLE */
+.suppl-table { width:100%; font-size:13px; margin-top:14px; border-collapse:collapse; }
+.suppl-table td { padding:9px 10px; border-bottom:0.5px solid var(--rule-soft); vertical-align:top; }
+.suppl-table .sname { font-weight:600; color:var(--ink); }
+.chg { font-family:var(--mono); font-size:10px; padding:2px 7px; border-radius:3px; letter-spacing:0.08em; white-space:nowrap; }
+.chg-keep { background:var(--leaf-soft); color:var(--leaf); }
+.chg-change { background:var(--gold-soft); color:var(--gold); }
+.chg-add { background:var(--accent-soft); color:var(--accent); }
+.chg-block { background:var(--danger-soft); color:var(--danger); }
 
 /* NEXT STEPS */
 .next-card { background:var(--ink); color:var(--cream); border-radius:6px; padding:40px 36px; margin:40px 0; }
@@ -195,7 +247,7 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
   </div>
 
   <div class="provisional">
-    <strong>This is Part 1 of 2.</strong> This report explains your bloodwork and your biological age. The phenotype and root-cause sections below are <strong>working hypotheses</strong> drawn from blood alone. Your personalized 90-day protocol comes next, once you answer the lifestyle questionnaire at the end of this report.
+    <strong>This report is now complete, both parts.</strong> Part 1 explains your bloodwork and biological age. Part 2, your answers to the lifestyle questionnaire and your <strong>personalized 90-day protocol</strong>, now follows, built from your blood and your answers read together. The phenotype and root-cause sections were first drawn from blood alone, then confirmed or revised by what you told us.
   </div>
 </section>
 
@@ -550,24 +602,24 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
 
 <!-- LIFESTYLE QUESTIONNAIRE -->
 <section class="q-section">
-  <div class="card-eyebrow" style="margin-bottom:8px;">Part 2 starts here</div>
-  <h2>The lifestyle questionnaire</h2>
-  <p style="margin-bottom:6px;">Your bloodwork tells us <em>what</em> is happening. These questions tell us <em>why</em>, and they decide your protocol. They are deliberately thorough, weighted toward your three findings (cardiovascular, iron, early insulin signal), but covering the full picture so nothing is guessed. Answer as honestly and specifically as you can. Rough numbers are completely fine, and "don't know / not sure" is a valid answer to any of them. You don't have to answer in order, voice notes work too.</p>
-  <p style="margin-bottom:6px; font-size:13px; color:var(--ink-mute);"><strong>15 sections.</strong> The starred sections (★) matter most for your specific results, if you're short on time, do those first.</p>
+  <div class="card-eyebrow" style="margin-bottom:8px;">Part 2 · Your answers</div>
+  <h2>The lifestyle questionnaire, with your answers</h2>
+  <p style="margin-bottom:6px;">Your bloodwork told us <em>what</em> is happening. These answers told us <em>why</em>, and they decided your protocol. Each question below now carries your own response, exactly as you gave it. They changed several of our working hypotheses, your family history turned out reassuring, your iron picture gained real loss-signals, and a new theme appeared: under-recovery. The protocol that follows is built directly on what you see here.</p>
+  <p style="margin-bottom:6px; font-size:13px; color:var(--ink-mute);"><strong>15 sections, all answered.</strong> The starred sections (★) carried the most weight for your specific results.</p>
 
   <div class="q-group">
     <div class="q-domain">01 · Body &amp; baseline</div>
     <h3>The physical starting point</h3>
     <p class="q-why">Needed for BMI, waist-to-height and to anchor every lipid and insulin target.</p>
     <ol>
-      <li>Height and current weight?</li>
-      <li>Waist circumference (measured at the navel, with a tape if you have one)?</li>
-      <li>Hip circumference (so we can get a waist-to-hip ratio)?</li>
-      <li>Has your weight changed in the last 6–12 months? Up, down, or stable, and by how much?</li>
-      <li>What's the most you've ever weighed, and the least as an adult?</li>
-      <li>How do your clothes fit lately, looser, tighter, same?</li>
-      <li>How would you describe your build, lean, average, athletic, carrying some midsection weight?</li>
-      <li>Where do you tend to gain weight first, belly, face, all over?</li>
+      <li>Height and current weight?<span class="q-ans">5'10" (approx 178 cm), around 72 kg.</span></li>
+      <li>Waist circumference (measured at the navel, with a tape if you have one)?<span class="q-ans">85 cm at the navel.</span></li>
+      <li>Hip circumference (so we can get a waist-to-hip ratio)?<span class="q-ans">93 cm.</span></li>
+      <li>Has your weight changed in the last 6–12 months? Up, down, or stable, and by how much?<span class="q-ans">Lowest was 65 kg around the same time last year; highest 73.1 kg last month (May 2026). Trending up over the year.</span></li>
+      <li>What's the most you've ever weighed, and the least as an adult?<span class="q-ans">Most ever around 74 kg; least as an adult about 65 kg.</span></li>
+      <li>How do your clothes fit lately, looser, tighter, same?<span class="q-ans">Tighter.</span></li>
+      <li>How would you describe your build, lean, average, athletic, carrying some midsection weight?<span class="q-ans">Average-athletic, with some weight around the lower belly but not too much to bother.</span></li>
+      <li>Where do you tend to gain weight first, belly, face, all over?<span class="q-ans">Lower belly and love handles.</span></li>
     </ol>
   </div>
 
@@ -576,15 +628,15 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
     <h3>What runs in the family <span style="font-weight:400;color:var(--ink-fade);font-size:13px;">(top priority, given Lp(a))</span></h3>
     <p class="q-why">Your inherited Lp(a) makes family cardiovascular history the single most informative thing you can tell us. Be as specific with ages as you can.</p>
     <ol>
-      <li>Any heart attack, stroke, angioplasty/stent, bypass, or sudden cardiac death in a parent, grandparent, uncle/aunt or sibling? Who, and at what age?</li>
-      <li>Anyone diagnosed with high cholesterol, or on cholesterol medication (statins, etc.)?</li>
-      <li>Anyone with very high Lp(a), or unexplained early heart disease despite being fit/slim?</li>
-      <li>Family history of diabetes or pre-diabetes, and on which side?</li>
-      <li>Family history of high blood pressure?</li>
-      <li>Family history of thyroid disease or autoimmune conditions?</li>
-      <li>Any cancers in the family, and which type/age?</li>
-      <li>Are your parents and grandparents alive? If yes, current age and general health. If not, age and cause of death?</li>
-      <li>Your family's region/community of origin (some lipid and metabolic patterns cluster by ancestry)?</li>
+      <li>Any heart attack, stroke, angioplasty/stent, bypass, or sudden cardiac death in a parent, grandparent, uncle/aunt or sibling? Who, and at what age?<span class="q-ans">Maternal grandfather (80+) had a heart condition, no stroke, but it did bother him; he was barred from red meat and similar. One uncle (father's step-brother, 75+) had a stent last year. No premature events.</span></li>
+      <li>Anyone diagnosed with high cholesterol, or on cholesterol medication (statins, etc.)?<span class="q-ans">No one diagnosed as such.</span></li>
+      <li>Anyone with very high Lp(a), or unexplained early heart disease despite being fit/slim?<span class="q-ans">"I wouldn't know, honestly."</span></li>
+      <li>Family history of diabetes or pre-diabetes, and on which side?<span class="q-ans">No one with diabetes in direct family.</span></li>
+      <li>Family history of high blood pressure?<span class="q-ans">Yes, mother had high-blood-pressure issues, and her mother (maternal grandmother) too.</span></li>
+      <li>Family history of thyroid disease or autoimmune conditions?<span class="q-ans">Asthma in father, grandfather and an aunt. One aunt (father's side) has vitiligo.</span></li>
+      <li>Any cancers in the family, and which type/age?<span class="q-ans">Not in direct family, one uncle's wife had breast cancer.</span></li>
+      <li>Are your parents and grandparents alive? If yes, current age and general health. If not, age and cause of death?<span class="q-ans">No grandparents alive. Maternal grandfather: sudden health collapse after a cold induced by cold juice, 86+. Maternal grandmother: digestive issues and old-age internal-organ failure, 79. Paternal grandfather: asthma complications and cold, 83. Paternal grandmother: old-age organ failure, 84.</span></li>
+      <li>Your family's region/community of origin (some lipid and metabolic patterns cluster by ancestry)?<span class="q-ans">Father born in Bihar (Bettiah district); mother born in Muzaffarpur, Bihar. Maternal grandmother from Kerala (Nair community); maternal grandfather from Bihar.</span></li>
     </ol>
   </div>
 
@@ -593,13 +645,13 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
     <h3>The shape of your day</h3>
     <p class="q-why">Tells us your activity floor, sun exposure, stress load and how realistic any change will be.</p>
     <ol>
-      <li>What do you do for work/study, and what are your typical hours?</li>
-      <li>Desk-bound, on your feet, or a mix? Roughly how many hours seated per day?</li>
-      <li>Any night shifts, rotating shifts, or irregular schedule?</li>
-      <li>How do you commute, and how long each way?</li>
-      <li>How many hours a day on screens outside of essential work?</li>
-      <li>How much time do you spend outdoors / in daylight on a typical day?</li>
-      <li>Walk me through a normal weekday from waking to sleeping, in a few lines.</li>
+      <li>What do you do for work/study, and what are your typical hours?<span class="q-ans">Entrepreneur, owns and operates digital-media businesses, creates content online, invests in startups and hunts for new business ideas. Also studies history, psychology, biology, philosophy and marketing, and is enrolled in a maths course. Typical day: wake 5:45am, MMA at 7, breakfast 9, light work, deep work 11-2, lunch, relax to 4, strength training, a little more work 7-8, dinner 8:30, bed by 10pm.</span></li>
+      <li>Desk-bound, on your feet, or a mix? Roughly how many hours seated per day?<span class="q-ans">Mostly a standing desk so not a lot of sitting, but some days 4+ hours seated.</span></li>
+      <li>Any night shifts, rotating shifts, or irregular schedule?<span class="q-ans">Not anymore, since May. Before May, a lot of night work, often asleep around 2am.</span></li>
+      <li>How do you commute, and how long each way?<span class="q-ans">Car, no more than 5-10 km a day.</span></li>
+      <li>How many hours a day on screens outside of essential work?<span class="q-ans">A lot, 7+ hours.</span></li>
+      <li>How much time do you spend outdoors / in daylight on a typical day?<span class="q-ans">2-3 hours max.</span></li>
+      <li>Walk me through a normal weekday from waking to sleeping, in a few lines.<span class="q-ans">Same shape every day: wake 5:45am, MMA at 7, breakfast 9, light work, deep work 11-2, lunch, relax till 4, strength training, more work 7-8, dinner 8:30, bed 10pm.</span></li>
     </ol>
   </div>
 
@@ -608,16 +660,16 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
     <h3>When and how you eat</h3>
     <p class="q-why">Meal timing and structure drive your insulin signal and a big part of your lipids.</p>
     <ol>
-      <li>Vegetarian, eggetarian, vegan, or non-veg?</li>
-      <li>If non-veg, how many times a week, separately, for red meat (mutton/beef/pork), chicken, fish, eggs?</li>
-      <li>How much dairy, and what kind, milk, curd, paneer, cheese, ghee?</li>
-      <li>What time is your first meal, and your last meal of the day?</li>
-      <li>How many meals and how many snacks on a typical day?</li>
-      <li>Do you eat late at night or after dinner? How often?</li>
-      <li>Do you skip meals or do any fasting (intermittent fasting, religious fasts)?</li>
-      <li>Walk me through a typical full day of eating, breakfast, lunch, snacks, dinner, with rough portions.</li>
-      <li>How often do you eat out, order in, or eat packaged/processed food per week?</li>
-      <li>Who cooks at home, and how much control do you have over what's made?</li>
+      <li>Vegetarian, eggetarian, vegan, or non-veg?<span class="q-ans">Heavy non-veg, mostly chicken.</span></li>
+      <li>If non-veg, how many times a week, separately, for red meat (mutton/beef/pork), chicken, fish, eggs?<span class="q-ans">Non-veg every day except Tuesday and Thursday. No red meat. Heavy pork eater only when abroad. Heavy on eggs too. No fish.</span></li>
+      <li>How much dairy, and what kind, milk, curd, paneer, cheese, ghee?<span class="q-ans">Lactose-free milk only. Substantial dairy in coffee, milkshakes, and oats-with-yogurt. Used to have a lot of ghee. Rarely paneer, no curd, no cheese.</span></li>
+      <li>What time is your first meal, and your last meal of the day?<span class="q-ans">First meal around 6:15am, a banana, coffee, sometimes a blueberry shake. Last meal no later than 9pm, mostly chicken and rice, sometimes vegetarian like chole and rice.</span></li>
+      <li>How many meals and how many snacks on a typical day?<span class="q-ans">4-5 meals, no snacking.</span></li>
+      <li>Do you eat late at night or after dinner? How often?<span class="q-ans">Very rarely these days, never after dinner. Used to do it a lot back in 2025.</span></li>
+      <li>Do you skip meals or do any fasting (intermittent fasting, religious fasts)?<span class="q-ans">Yes, usually fasts on Tuesday and Thursday, skips breakfast and eats first at 2pm.</span></li>
+      <li>Walk me through a typical full day of eating, breakfast, lunch, snacks, dinner, with rough portions.<span class="q-ans">6:15am banana, coffee, sometimes blueberry shake · 9am whey protein, sometimes with eggs or muesli · 11am muesli or eggs (if whey was skipped earlier) · 1:30-2pm lunch, heavy with chicken, sometimes eggs and rice · 4pm banana · 6pm whey with milk and banana · 9pm dinner, heavy chicken or chole or something high-protein with rice.</span></li>
+      <li>How often do you eat out, order in, or eat packaged/processed food per week?<span class="q-ans">Almost never eats out, orders the meals above as plain as possible. Visits cafes maybe once or twice a month.</span></li>
+      <li>Who cooks at home, and how much control do you have over what's made?<span class="q-ans">Girlfriend cooks, full control over ingredients. He cooks eggs himself.</span></li>
     </ol>
   </div>
 
@@ -626,17 +678,17 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
     <h3>What's actually on the plate</h3>
     <p class="q-why">This is where your iron, ApoB and HDL are won or lost.</p>
     <ol>
-      <li>Fried food, samosa, pakora, fries, how many times a week?</li>
-      <li>Sweets and desserts (mithai, chocolate, ice cream), how often?</li>
-      <li>Sugary drinks, soda, packaged juice, sweetened coffee/tea, how many a day/week?</li>
-      <li>Grains, what's your split between refined (white rice, maida, white bread) and whole (atta, brown rice, millets, oats)?</li>
-      <li>Servings of vegetables per day, honestly?</li>
-      <li>Fruit per day, and which ones?</li>
-      <li>Dal, beans, legumes, how often (matters for plant iron)?</li>
-      <li>Nuts and seeds, daily or rare?</li>
-      <li>What cooking oils/fats at home, and roughly how heavy-handed (light, medium, generous)?</li>
-      <li>Salt, pickle, papad, processed/packaged snacks, how much in a day?</li>
-      <li>Your main protein sources across the week?</li>
+      <li>Fried food, samosa, pakora, fries, how many times a week?<span class="q-ans">Never.</span></li>
+      <li>Sweets and desserts (mithai, chocolate, ice cream), how often?<span class="q-ans">Twice or thrice a month.</span></li>
+      <li>Sugary drinks, soda, packaged juice, sweetened coffee/tea, how many a day/week?<span class="q-ans">Doesn't drink soda or sugary drinks, ever. No sugar in coffee as of May.</span></li>
+      <li>Grains, what's your split between refined (white rice, maida, white bread) and whole (atta, brown rice, millets, oats)?<span class="q-ans">Mostly kala namak rice. Rarely any wheat like roti. Multigrain bread is a staple. Brown rice about twice a week. Oats almost every day.</span></li>
+      <li>Servings of vegetables per day, honestly?<span class="q-ans">Very low, almost none.</span></li>
+      <li>Fruit per day, and which ones?<span class="q-ans">Banana, sometimes blueberry.</span></li>
+      <li>Dal, beans, legumes, how often (matters for plant iron)?<span class="q-ans">Dal twice a week, beans maybe once.</span></li>
+      <li>Nuts and seeds, daily or rare?<span class="q-ans">Walnuts twice or thrice a week, chia seeds the same.</span></li>
+      <li>What cooking oils/fats at home, and roughly how heavy-handed (light, medium, generous)?<span class="q-ans">Groundnut oil and ghee, medium to light.</span></li>
+      <li>Salt, pickle, papad, processed/packaged snacks, how much in a day?<span class="q-ans">None. Sometimes pickle or ketchup, but rare.</span></li>
+      <li>Your main protein sources across the week?<span class="q-ans">Whey, eggs, chicken, dal.</span></li>
     </ol>
   </div>
 
@@ -645,11 +697,11 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
     <h3>What you drink, and when <span style="font-weight:400;color:var(--ink-fade);font-size:13px;">(directly affects iron)</span></h3>
     <p class="q-why">Tea/coffee timing is one of the biggest, most fixable blockers of iron absorption.</p>
     <ol>
-      <li>How many cups of tea and coffee a day?</li>
-      <li>Crucially, do you drink them <em>with</em> meals or in the hour right after eating?</li>
-      <li>Any energy drinks or pre-workout, how often?</li>
-      <li>Alcohol, type, how many times a week, and how much per sitting?</li>
-      <li>Roughly how much plain water a day?</li>
+      <li>How many cups of tea and coffee a day?<span class="q-ans">One to two. Coffee only, no tea.</span></li>
+      <li>Crucially, do you drink them <em>with</em> meals or in the hour right after eating?<span class="q-ans">Morning on an empty stomach, and when a second cup, usually after lunch. <strong>(This after-lunch coffee is an iron-absorption blocker, flagged in the protocol.)</strong></span></li>
+      <li>Any energy drinks or pre-workout, how often?<span class="q-ans">Monster Zero sometimes on Saturdays before HIIT sessions.</span></li>
+      <li>Alcohol, type, how many times a week, and how much per sitting?<span class="q-ans">Very low, once a quarter or even six months. But when he does, it's all the way till morning.</span></li>
+      <li>Roughly how much plain water a day?<span class="q-ans">1-2.5 litres on average, sometimes 3.5.</span></li>
     </ol>
   </div>
 
@@ -658,15 +710,15 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
     <h3>Where the iron might be going</h3>
     <p class="q-why">In a young man, ferritin 7.5 is unusual. Diet may explain it, but we rule out quiet loss.</p>
     <ol>
-      <li>Have you donated blood in the last 6–12 months, and how often do you donate generally?</li>
-      <li>Ever noticed black, tarry, or bloody stool, or blood on the tissue?</li>
-      <li>Frequent acidity, heartburn or indigestion?</li>
-      <li>Regular use of painkillers (ibuprofen, aspirin, diclofenac, combiflam)? How often and why?</li>
-      <li>Bleeding gums when brushing, or frequent nosebleeds?</li>
-      <li>Any fatigue, unusual breathlessness on stairs, dizziness, or heart racing?</li>
-      <li>Hair shedding, brittle nails, cold hands/feet, or craving ice / unusual textures?</li>
-      <li>How are your bowel habits, frequency, consistency, any recent change?</li>
-      <li>Ever been dewormed, or had a stool test for parasites?</li>
+      <li>Have you donated blood in the last 6–12 months, and how often do you donate generally?<span class="q-ans">Never.</span></li>
+      <li>Ever noticed black, tarry, or bloody stool, or blood on the tissue?<span class="q-ans">Never paid attention.</span></li>
+      <li>Frequent acidity, heartburn or indigestion?<span class="q-ans">A little acidity if he skips meals, otherwise never.</span></li>
+      <li>Regular use of painkillers (ibuprofen, aspirin, diclofenac, combiflam)? How often and why?<span class="q-ans">Can't take ibuprofen (allergic). Uses Zerodol SP when hurt, super rare.</span></li>
+      <li>Bleeding gums when brushing, or frequent nosebleeds?<span class="q-ans">Yes, gums bleed, also while eating fruits like banana. No nosebleeds, but often blood attached to the nasal mucus. <strong>(A real iron-loss signal, flagged in the protocol.)</strong></span></li>
+      <li>Any fatigue, unusual breathlessness on stairs, dizziness, or heart racing?<span class="q-ans">Perpetually tired. No dizziness. Heart races sometimes under stress.</span></li>
+      <li>Hair shedding, brittle nails, cold hands/feet, or craving ice / unusual textures?<span class="q-ans">Feels hotter these days, lots of foot and palm sweat. No hair shedding, but hair texture has gone harsh compared to two years ago. Nails strong. People always say his hands are cold. <strong>(Cold hands is a classic iron-deficiency sign.)</strong></span></li>
+      <li>How are your bowel habits, frequency, consistency, any recent change?<span class="q-ans">Consistent on timing if eating right, else erratic and irregular. Nothing new recently.</span></li>
+      <li>Ever been dewormed, or had a stool test for parasites?<span class="q-ans">Yes, deworms as a yearly routine using typical over-the-counter tablets. Never had a stool tested. <strong>(Given rural Bihar and Thailand travel, a stool test is recommended in the protocol.)</strong></span></li>
     </ol>
   </div>
 
@@ -675,15 +727,15 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
     <h3>How you move</h3>
     <p class="q-why">The main lever for both your lipid ratios and the early insulin signal.</p>
     <ol>
-      <li>Do you train? If yes, what type, weights, running, sport, classes, and how many days a week?</li>
-      <li>If you lift, what's your split and roughly how long per session?</li>
-      <li>How long have you been training consistently, and are you progressing (heavier/faster) or stuck?</li>
-      <li>Any steady cardio (brisk walk, jog, cycle, swim), and how many minutes a week?</li>
-      <li>Do you play any sport recreationally?</li>
-      <li>Rough daily step count, if you track it?</li>
-      <li>Outside workouts, how active is your day, mostly sitting or moving?</li>
-      <li>Any injuries, pain, or physical limitations we should design around?</li>
-      <li>How would you rate your current fitness, 1 to 10?</li>
+      <li>Do you train? If yes, what type, weights, running, sport, classes, and how many days a week?<span class="q-ans">Yes, MMA, strength and HIIT. Every day.</span></li>
+      <li>If you lift, what's your split and roughly how long per session?<span class="q-ans">One session, trainer-guided, usually one muscle group only (push or pull), mostly compound movements, 45 minutes to 1.5 hours.</span></li>
+      <li>How long have you been training consistently, and are you progressing (heavier/faster) or stuck?<span class="q-ans">On and off for 2 years; super-consistent for the last 4 months. Progress is very good so far.</span></li>
+      <li>Any steady cardio (brisk walk, jog, cycle, swim), and how many minutes a week?<span class="q-ans">Cycle, 20 minutes a week maximum. <strong>(This is the biggest gap, and his stated goal is "better cardio.")</strong></span></li>
+      <li>Do you play any sport recreationally?<span class="q-ans">Badminton sometimes.</span></li>
+      <li>Rough daily step count, if you track it?<span class="q-ans">10,000-15,000, often up to 20,000 when abroad.</span></li>
+      <li>Outside workouts, how active is your day, mostly sitting or moving?<span class="q-ans">Mostly standing and sitting apart from MMA and gym, but almost always on his feet when abroad.</span></li>
+      <li>Any injuries, pain, or physical limitations we should design around?<span class="q-ans">Knee muscles are hurt a bit, a minor issue in the exterior muscles. Doesn't have explosive knees, and they take a toll if pushed.</span></li>
+      <li>How would you rate your current fitness, 1 to 10?<span class="q-ans">5.</span></li>
     </ol>
   </div>
 
@@ -692,15 +744,15 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
     <h3>How you recover</h3>
     <p class="q-why">Sleep quietly drives insulin sensitivity, appetite, testosterone and recovery.</p>
     <ol>
-      <li>Typical bedtime and wake time on weekdays?</li>
-      <li>And on weekends, do they shift a lot?</li>
-      <li>How many hours do you actually sleep, and how long to fall asleep?</li>
-      <li>Do you wake during the night? How often, and can you fall back asleep?</li>
-      <li>Do you wake feeling refreshed, or groggy?</li>
-      <li>Any snoring, or has anyone said you stop breathing / gasp in your sleep?</li>
-      <li>Do you nap? When, and how long?</li>
-      <li>Screens in bed, and is your room properly dark and cool?</li>
-      <li>Any sleep aids, melatonin, or anything to wind down?</li>
+      <li>Typical bedtime and wake time on weekdays?<span class="q-ans">10 to 10:30pm, up at 5:45am.</span></li>
+      <li>And on weekends, do they shift a lot?<span class="q-ans">10 to 11pm, up around 8am.</span></li>
+      <li>How many hours do you actually sleep, and how long to fall asleep?<span class="q-ans">About 6 hours; takes less than 10 minutes to fall asleep. <strong>(6 hours is short for his training load.)</strong></span></li>
+      <li>Do you wake during the night? How often, and can you fall back asleep?<span class="q-ans">Very rare, and yes, can fall back asleep.</span></li>
+      <li>Do you wake feeling refreshed, or groggy?<span class="q-ans">Always groggy.</span></li>
+      <li>Any snoring, or has anyone said you stop breathing / gasp in your sleep?<span class="q-ans">Snores when on his back.</span></li>
+      <li>Do you nap? When, and how long?<span class="q-ans">Never.</span></li>
+      <li>Screens in bed, and is your room properly dark and cool?<span class="q-ans">Sometimes screens, yes. Room is dark and cool at 19°C.</span></li>
+      <li>Any sleep aids, melatonin, or anything to wind down?<span class="q-ans">Just magnesium glycinate.</span></li>
     </ol>
   </div>
 
@@ -709,14 +761,14 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
     <h3>The mental load</h3>
     <p class="q-why">Context for cortisol, appetite and, most of all, what you'll realistically sustain.</p>
     <ol>
-      <li>Stress level over the last month, 1 to 10, and the main source (work, studies, money, relationships, health)?</li>
-      <li>Is the stress steady, or does it come in spikes?</li>
-      <li>How is your mood generally, and have you felt persistently low or anxious lately?</li>
-      <li>How is your energy through the day, any afternoon crash or brain fog?</li>
-      <li>How are your focus, motivation and drive these days?</li>
-      <li>Do you feel burned out or close to it?</li>
-      <li>Do you have a way you unwind (and does it actually work)?</li>
-      <li>Do you meditate, journal, or do any breathwork?</li>
+      <li>Stress level over the last month, 1 to 10, and the main source (work, studies, money, relationships, health)?<span class="q-ans">Per his Bevel app, stress score stays 80+ every day, thanks to MMA and gym. Relationship is adding a lot of stress he never used to have, so he can't just wind down anymore. Money is also a stress factor as a business owner.</span></li>
+      <li>Is the stress steady, or does it come in spikes?<span class="q-ans">Steady.</span></li>
+      <li>How is your mood generally, and have you felt persistently low or anxious lately?<span class="q-ans">Been feeling low the last few months. Never anxious, but yes, sometimes before or while making a decision.</span></li>
+      <li>How is your energy through the day, any afternoon crash or brain fog?<span class="q-ans">Groggy mornings, groggy afternoons, sleepy mid-evenings, this happens often. Otherwise energy comes in spikes. Afternoon crash is always imminent and he has a habit of relaxing after lunch. Brain fog was an issue last quarter.</span></li>
+      <li>How are your focus, motivation and drive these days?<span class="q-ans">Quite good, feels good about his focus, motivation has never been a problem, drive is always at peak.</span></li>
+      <li>Do you feel burned out or close to it?<span class="q-ans">Theoretically thinks he should be, but doesn't see himself close to it. Burning out doesn't make sense to him because he loves everything he does.</span></li>
+      <li>Do you have a way you unwind (and does it actually work)?<span class="q-ans">Not really, but playing games gets him there if there's a need.</span></li>
+      <li>Do you meditate, journal, or do any breathwork?<span class="q-ans">Meditates, journals (not always), no breathwork.</span></li>
     </ol>
   </div>
 
@@ -725,11 +777,11 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
     <h3>Vitality markers</h3>
     <p class="q-why">Your testosterone is excellent (801), these confirm it's translating into how you feel.</p>
     <ol>
-      <li>How is your libido / sex drive overall?</li>
-      <li>Do you usually get morning erections (a useful real-world signal of hormonal health)?</li>
-      <li>How is your overall energy and zest for things, day to day?</li>
-      <li>Are you gaining muscle / strength easily, or feeling flat and under-recovered?</li>
-      <li>How quickly do you bounce back after a hard workout or a late night?</li>
+      <li>How is your libido / sex drive overall?<span class="q-ans">Very high.</span></li>
+      <li>Do you usually get morning erections (a useful real-world signal of hormonal health)?<span class="q-ans">Almost always.</span></li>
+      <li>How is your overall energy and zest for things, day to day?<span class="q-ans">High.</span></li>
+      <li>Are you gaining muscle / strength easily, or feeling flat and under-recovered?<span class="q-ans">Gaining, but feels under-recovered. <strong>(The under-recovery theme, a key part of the protocol.)</strong></span></li>
+      <li>How quickly do you bounce back after a hard workout or a late night?<span class="q-ans">Usually all good after a good meal.</span></li>
     </ol>
   </div>
 
@@ -738,13 +790,13 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
     <h3>The IgE picture</h3>
     <p class="q-why">Your total IgE is 247 (high). This maps it to real symptoms, or rules it out.</p>
     <ol>
-      <li>Any hay-fever, sneezing fits, blocked or runny nose, itchy eyes, seasonal or year-round?</li>
-      <li>Frequent colds, sinus issues, or post-nasal drip?</li>
-      <li>Any eczema, hives, rashes, or generally itchy skin?</li>
-      <li>Any asthma, wheezing, chest tightness, or breathlessness?</li>
-      <li>Any known allergies, food, dust, pollen, pets, mould, medication?</li>
-      <li>How is your skin generally, breakouts, oiliness, dryness?</li>
-      <li>Any noticeable hair thinning or change in hair/nail quality?</li>
+      <li>Any hay-fever, sneezing fits, blocked or runny nose, itchy eyes, seasonal or year-round?<span class="q-ans">Perpetually blocked nose. One side is almost always blocked and won't clear no matter what. Otrivin helps temporarily. Press his nose and he'll sneeze all day. <strong>(One-sided block plus daily Otrivin, an ENT referral in the protocol.)</strong></span></li>
+      <li>Frequent colds, sinus issues, or post-nasal drip?<span class="q-ans">Doesn't really know, but no frequent colds.</span></li>
+      <li>Any eczema, hives, rashes, or generally itchy skin?<span class="q-ans">Nope.</span></li>
+      <li>Any asthma, wheezing, chest tightness, or breathlessness?<span class="q-ans">Had asthma, but no incident since age 14.</span></li>
+      <li>Any known allergies, food, dust, pollen, pets, mould, medication?<span class="q-ans">Crustaceans (anaphylaxis-level), ibuprofen / Combiflam, and pollen allergy.</span></li>
+      <li>How is your skin generally, breakouts, oiliness, dryness?<span class="q-ans">Body is dry, face is super oily, whole body is acne-prone.</span></li>
+      <li>Any noticeable hair thinning or change in hair/nail quality?<span class="q-ans">Hair has thinned after moving to Noida.</span></li>
     </ol>
   </div>
 
@@ -753,12 +805,12 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
     <h3>How your gut behaves</h3>
     <p class="q-why">Absorption matters for iron, and gut symptoms shape the nutrition plan.</p>
     <ol>
-      <li>Any bloating or gas, and is it tied to particular foods or times?</li>
-      <li>Acidity or reflux, how often?</li>
-      <li>Bowel movements, how many a day/week, and typical consistency?</li>
-      <li>Constipation or loose stools, and which is more common?</li>
-      <li>Any foods that reliably upset you (dairy/lactose, wheat/gluten, spicy, fried)?</li>
-      <li>Do you eat curd/yoghurt or take probiotics?</li>
+      <li>Any bloating or gas, and is it tied to particular foods or times?<span class="q-ans">Bloating happens when he skips a meal. Whey concentrate or anything with lactose is very bad. Can't digest peas either. <strong>(Confirms lactose intolerance, isolate-only in the protocol.)</strong></span></li>
+      <li>Acidity or reflux, how often?<span class="q-ans">Rare.</span></li>
+      <li>Bowel movements, how many a day/week, and typical consistency?<span class="q-ans">Twice a day, consistent.</span></li>
+      <li>Constipation or loose stools, and which is more common?<span class="q-ans">If active, loose would be more common; constipation is rare.</span></li>
+      <li>Any foods that reliably upset you (dairy/lactose, wheat/gluten, spicy, fried)?<span class="q-ans">Dairy, lactose, spicy and fried.</span></li>
+      <li>Do you eat curd/yoghurt or take probiotics?<span class="q-ans">Yes, yogurt.</span></li>
     </ol>
   </div>
 
@@ -767,15 +819,15 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
     <h3>The full medical picture</h3>
     <p class="q-why">Safety screen, and we need your exact supplements (your B12 is &gt;2000, so something is being taken).</p>
     <ol>
-      <li>Do you smoke, vape, or use tobacco/gutka/paan, currently or in the past? How much? (this compounds the Lp(a) risk more than anything else)</li>
-      <li>Any recreational substances we should know about, no judgement, it affects the plan?</li>
-      <li>List every supplement and protein powder you take, with brand/dose if you know it, especially anything with B12 or folate.</li>
-      <li>Any prescription medications, regular or occasional?</li>
-      <li>Any over-the-counter medicines you take routinely?</li>
-      <li>Any diagnosed conditions (thyroid, asthma, anxiety, anything), past or present?</li>
-      <li>Any past surgeries or hospitalizations?</li>
-      <li>Any recent illness, infection, or fever in the last month (it can shift several markers)?</li>
-      <li>Any recent travel, especially rural areas or abroad, in the last 6 months?</li>
+      <li>Do you smoke, vape, or use tobacco/gutka/paan, currently or in the past? How much? (this compounds the Lp(a) risk more than anything else)<span class="q-ans">Very rarely smokes or vapes. No gutka or anything. Did the most in 2025; before that once a year or none at all. <strong>(Even occasional smoking compounds the Lp(a) risk, recommended to eliminate fully.)</strong></span></li>
+      <li>Any recreational substances we should know about, no judgement, it affects the plan?<span class="q-ans">No other substance. No addictions whatsoever.</span></li>
+      <li>List every supplement and protein powder you take, with brand/dose if you know it, especially anything with B12 or folate.<span class="q-ans">Recalmin-XT once a day · NVMe OD once a day · Vitamin D3 60K once a week · Omega-3, two, once a day · Multivitamin once a day · MuscleBlaze Biozyme Isolate twice a day · Magnesium Glycinate, two, once a day · Vitamin C 500mg once a day · Creatine once a day. <strong>(This explains B12 &gt;2000 and folate &gt;24, three overlapping sources; the protocol consolidates them.)</strong></span></li>
+      <li>Any prescription medications, regular or occasional?<span class="q-ans">None.</span></li>
+      <li>Any over-the-counter medicines you take routinely?<span class="q-ans">None (Otrivin nasal spray near-daily for the blocked nose; Zerodol SP very rarely).</span></li>
+      <li>Any diagnosed conditions (thyroid, asthma, anxiety, anything), past or present?<span class="q-ans">Asthma, in the past.</span></li>
+      <li>Any past surgeries or hospitalizations?<span class="q-ans">Hospitalized December 2023 in Goa for a shellfish allergy.</span></li>
+      <li>Any recent illness, infection, or fever in the last month (it can shift several markers)?<span class="q-ans">Maybe a little cold last month, but nothing major, no fever.</span></li>
+      <li>Any recent travel, especially rural areas or abroad, in the last 6 months?<span class="q-ans">Goa, mountains/Kasol, New York in Feb, Thailand in Dec 2025, UK and Ireland in Aug 2025.</span></li>
     </ol>
   </div>
 
@@ -784,38 +836,265 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
     <h3>What will make this stick</h3>
     <p class="q-why">An honest answer here is what separates a protocol you follow from one you abandon.</p>
     <ol>
-      <li>Any foods you can't or won't eat, religious, ethical, allergy, or strong dislike?</li>
-      <li>How is your kitchen setup and cooking ability, can you cook, or mostly rely on others / outside food?</li>
-      <li>What's a realistic budget for supplements and better food per month?</li>
-      <li>Honestly, how much time per week can you give to cooking, training, and fixing sleep?</li>
-      <li>What's the single biggest obstacle that usually derails your health efforts?</li>
-      <li>Have you tried to change your diet/fitness before, what worked, what didn't?</li>
-      <li>Why now, what made you get this test done and take this seriously?</li>
-      <li>Your single biggest health goal for the next 90 days, in your own words?</li>
+      <li>Any foods you can't or won't eat, religious, ethical, allergy, or strong dislike?<span class="q-ans">Vegetables (strong dislike), shellfish (allergy), and fish. <strong>(So the protocol builds fibre without vegetables.)</strong></span></li>
+      <li>How is your kitchen setup and cooking ability, can you cook, or mostly rely on others / outside food?<span class="q-ans">Mostly home-cooked (girlfriend cooks), but can cook if needed.</span></li>
+      <li>What's a realistic budget for supplements and better food per month?<span class="q-ans">Unlimited.</span></li>
+      <li>Honestly, how much time per week can you give to cooking, training, and fixing sleep?<span class="q-ans">All his time.</span></li>
+      <li>What's the single biggest obstacle that usually derails your health efforts?<span class="q-ans">Sickness and breaks in routine, hard to maintain when travelling. <strong>(The protocol is designed to survive travel.)</strong></span></li>
+      <li>Have you tried to change your diet/fitness before, what worked, what didn't?<span class="q-ans">When he eats basically high-protein food with variety, he generally feels well. Adding stuff he dislikes doesn't work in the long term.</span></li>
+      <li>Why now, what made you get this test done and take this seriously?<span class="q-ans">His friend inspired him, his blood report earlier this year prompted him, and his dislike of who he saw in the mirror moved him.</span></li>
+      <li>Your single biggest health goal for the next 90 days, in your own words?<span class="q-ans">"Better cardio, less fatigue and higher sharpness."</span></li>
     </ol>
   </div>
 </section>
 
-<!-- WHAT HAPPENS NEXT -->
+<hr>
+
+<!-- ============ PART 2 · THE PROTOCOL ============ -->
+<section class="cover" style="padding:40px 0 20px;">
+  <div class="cover-eyebrow">Part 2 · Your 90-Day Protocol</div>
+  <h1 style="font-size:52px; font-weight:300;">Your plan, built around<br><span style="color:var(--accent); font-style:italic;">your own goal.</span></h1>
+  <div class="goalbox">
+    <div class="gq">"Better cardio, less fatigue and higher sharpness."</div>
+    <p style="margin-top:10px;">That's what you told us you want. Here's the good news: your number-one goal, <strong>better cardio</strong>, is also the single biggest lever on your two real blood findings, your lipids and your early insulin signal. The medicine and the goal are the same thing. <strong>Less fatigue</strong> points straight at your iron and your sleep. <strong>Sharper mind</strong> follows both. We didn't design a plan and bolt your goals on, your goals <em>are</em> the plan.</p>
+  </div>
+</section>
+
+<!-- WHAT YOUR ANSWERS CHANGED -->
+<section class="card">
+  <div class="card-eyebrow">What your answers changed</div>
+  <h2>Your bloodwork told us what. Your answers told us why.</h2>
+  <p style="font-size:15px;">Part 1 flagged three things from blood alone and marked the causes "to be confirmed." Your questionnaire confirmed or revised every one. The headlines:</p>
+  <ul style="font-size:15px; line-height:1.7; margin-top:12px;">
+    <li><strong>Your family history is reassuring.</strong> The heart issues in your family appeared at 75 to 86, no early heart attacks or strokes. Your inherited Lp(a) is real, but it is <em>not</em> amplified by a pattern of premature heart disease in the family. That meaningfully softens the worry, it does not remove the work.</li>
+    <li><strong>Your iron puzzle got clearer, and more interesting.</strong> You're a heavy meat-eater, so "not enough iron" was never the full story. But you eat <em>zero red meat</em>, take coffee right after lunch, have bleeding gums and blood in your nasal mucus, train hard every single day, and have travelled rural Bihar and Thailand without ever testing a stool. That's a real list. The cause is almost certainly more than one thing, and it needs a doctor's eye before any high-dose iron.</li>
+    <li><strong>A new theme appeared: you are under-recovered.</strong> Daily MMA, strength and HIIT, on roughly six hours of sleep, with a stress score above 80 every day, and your own words: "feel under-recovered," "perpetually tired." This sits underneath your fatigue, your afternoon crash, and part of your early insulin signal. It is the most fixable thing in this entire report.</li>
+    <li><strong>Your atopy is confirmed.</strong> The high IgE maps cleanly onto a perpetually blocked nose, pollen allergy, childhood asthma and a shellfish anaphylaxis. A real allergic constitution worth managing.</li>
+  </ul>
+  <p style="font-size:15px; margin-top:14px;">And one thing we will <strong>not</strong> touch: your diet discipline. Zero fried food, no sugar, no sugary drinks, no late-night eating, almost nothing processed. That is top-decile. Piling restriction on top of it would be the wrong move. We make two surgical changes, not an overhaul.</p>
+</section>
+
+<!-- THREE PILLARS -->
+<section class="card">
+  <div class="card-eyebrow">The strategy</div>
+  <h2>Three pillars, not a checklist of fifteen fixes</h2>
+  <p style="margin-bottom:6px;">Attack the roots and the leaves resolve. Everything in your plan ladders up to one of these three.</p>
+
+  <div class="pillar">
+    <div class="pnum">Pillar 1 · Cardiovascular</div>
+    <h3>Lower ApoB, lift HDL, to offset the inherited Lp(a)</h3>
+    <p style="font-size:14.5px;">You can't change Lp(a), it's genetic and set for life. What you <em>can</em> move is ApoB, the particle count that actually does the damage. Get it down meaningfully and you offset the inherited risk. Your diet is already clean, so the levers that remain are the ones you're not yet pulling.</p>
+    <div class="moves"><strong>The moves:</strong> Zone-2 cardio (your own goal) · soluble fibre to 30-40g via oats, chia, psyllium and dal, not vegetables you won't eat · swap saturated for unsaturated fat (less ghee, fewer yolks, lower-fat milk) · algal omega-3 · cut the occasional smoking/vaping entirely · physician chat on early ApoB-lowering.</div>
+    <div class="shift"><strong>Target by Day 90:</strong> ApoB 96 → under 85 · LDL 135 → under 115 · HDL 43 → 48+ · non-HDL 152 → under 135</div>
+  </div>
+
+  <div class="pillar">
+    <div class="pnum">Pillar 2 · Iron</div>
+    <h3>Refill the stores, and find the leak</h3>
+    <p style="font-size:14.5px;">Ferritin 7.5 in a man who eats meat daily is a puzzle worth solving properly, not papering over with a supplement. The plan has two arms: a diet/absorption arm you start now, and a physician arm that finds the cause before any therapeutic iron.</p>
+    <div class="moves"><strong>The moves:</strong> reintroduce red meat (mutton) 1-2x/week for heme iron · vitamin C with iron meals · move coffee and your calcium supplement away from those meals · <strong>physician:</strong> iron workup + stool occult-blood + parasite test before high-dose iron · ENT for the nasal bleeding source.</div>
+    <div class="shift"><strong>Target by Day 90:</strong> ferritin 7.5 → 30+ · transferrin saturation 11.5% → 25%+ · the "perpetually tired" and cold hands easing</div>
+  </div>
+
+  <div class="pillar">
+    <div class="pnum">Pillar 3 · Recovery</div>
+    <h3>Recover as hard as you train</h3>
+    <p style="font-size:14.5px;">You are not under-trained, you are under-recovered. Training every day on six hours of sleep with no rest day is leaving performance, and biology, on the table. This pillar costs nothing and pays back the fastest.</p>
+    <div class="moves"><strong>The moves:</strong> sleep 6h → 7-7.5h (bed by 9:45) · one true rest day a week · deload every 4th week · 10-min daily breathwork for the 80+ stress score · convert two weekly HIIT slots into Zone-2 (also serves the cardio goal).</div>
+    <div class="shift"><strong>Target by Day 90:</strong> HOMA-IR 1.25 → under 1.0 · afternoon crash softened · genuine "less fatigue"</div>
+  </div>
+</section>
+
+<!-- DOMAIN: TRAINING -->
+<section class="domain lead">
+  <div class="dlabel">Domain 01 · Training <span class="dlead-tag">Lead</span></div>
+  <h2>Move the way your goal needs</h2>
+  <p style="font-size:15px;">Right now you do roughly <strong>20 minutes of steady cardio a week</strong> while training hard every day. That single gap is why "better cardio" is your goal and why your HDL is low-ish. Fixing it serves your goal, your lipids and your insulin signal at once. The plan is to <em>redistribute</em> your load, not add to it.</p>
+  <h4>Weekly structure</h4>
+  <ul>
+    <li><strong>Zone-2 cardio: 150 min/week</strong>, in 3-4 sessions of 35-45 min at a conversational pace (heart rate roughly 120-140). Cycle, incline treadmill, or aerobic shadow-boxing rounds. <span class="subnote">During Noida's high-AQI months (Oct-Feb), keep these indoors with filtered air, it matters for your nose and your heart.</span></li>
+    <li><strong>HIIT: 1 session/week</strong> (your Saturday Monster-Zero slot). Down from near-daily, the extra intensity is feeding under-recovery and possibly worsening iron loss through training.</li>
+    <li><strong>Resistance: 4 sessions/week.</strong> Keep your trainer-guided push/pull compound work, it's clearly working. Protect the knees: no explosive or plyometric knee loading.</li>
+    <li><strong>MMA: 3-4 sessions/week</strong> (down from daily).</li>
+    <li><strong>One full rest or active-recovery day.</strong> Walk and mobility only. Non-negotiable, this is the recovery pillar in action.</li>
+    <li><strong>Daily 10-min mobility,</strong> knee-led.</li>
+  </ul>
+  <h4>The 12-week progression</h4>
+  <ul>
+    <li><strong>Weeks 1-2, redistribute:</strong> add 2 Zone-2 sessions, claim Sunday as full rest. Add no intensity.</li>
+    <li><strong>Weeks 3-6, build the base:</strong> 3 Zone-2/week, trim HIIT to one. Watch your resting heart rate start to drop and "cardio" start to feel different.</li>
+    <li><strong>Weeks 7-10, progress + first deload:</strong> 4 Zone-2 on lighter weeks. Week 8 is a deload (volume down ~40%). Overload resumes week 9.</li>
+    <li><strong>Weeks 11-13, consolidate:</strong> hold the structure. No heavy training in the 48 hours before your Day-90 retest, hard sessions can skew the blood panel.</li>
+  </ul>
+  <p class="subnote" style="margin-top:14px;">Evidence: Zone-2 for metabolic and lipid health [E1]; resistance training maintenance [E1]; deload for recovery [E2].</p>
+</section>
+
+<!-- DOMAIN: RECOVERY -->
+<section class="domain lead">
+  <div class="dlabel">Domain 02 · Recovery &amp; Sleep <span class="dlead-tag">Lead</span></div>
+  <h2>The cheapest win in this whole report</h2>
+  <p style="font-size:15px;">You sleep about six hours, wake "always groggy," snore on your back, and feel perpetually tired while training daily. Short sleep alone lifts insulin resistance, blunts recovery and flattens mood, it sits under three of your findings. Moving bedtime from 10:30 to <strong>9:45</strong> buys you 45-60 minutes for free, while protecting your 5:45 wake.</p>
+  <ul>
+    <li><strong>Bed by 9:45, screens off by 9:15.</strong> You sometimes use screens in bed, this is the one to break. Magnesium glycinate (you already take it) at 9:00. Your room is already perfect: dark, 19&deg;C.</li>
+    <li><strong>Side-sleep, and see an ENT.</strong> You snore on your back and one side of your nose is always blocked. That nasal obstruction is very likely degrading your sleep quality, the real reason behind "always groggy." The ENT referral below ties your nose, your iron and your sleep together.</li>
+    <li><strong>10 minutes of daylight after waking.</strong> You get only 2-3 hours of daylight a day, mostly indoors. Morning light anchors your rhythm and softens both the groggy mornings and the afternoon crash.</li>
+    <li><strong>No caffeine after 1pm.</strong> Specifically drop the after-lunch coffee, it protects your already-short sleep <em>and</em> your iron absorption in one move.</li>
+    <li><strong>Beat the afternoon crash with a 10-min walk after lunch,</strong> not a recline. It blunts the post-rice glucose dip that's half the reason you crash.</li>
+  </ul>
+  <p class="subnote" style="margin-top:14px;">Evidence: sleep extension for insulin sensitivity and recovery [E1]; morning light for circadian alignment [E2].</p>
+</section>
+
+<!-- DOMAIN: NUTRITION -->
+<section class="domain">
+  <div class="dlabel">Domain 03 · Nutrition</div>
+  <h2>Two surgical changes, not an overhaul</h2>
+  <p style="font-size:15px;">Your diet is genuinely excellent and we're protecting it. We change exactly two things: <strong>add soluble fibre without using vegetables you won't eat</strong>, and <strong>shift fat quality while adding heme iron</strong>. Everything is built to survive travel, your stated biggest obstacle.</p>
+  <h4>Daily targets</h4>
+  <ul><li>Protein ~140g (you're already there) · fibre 35g, of which 8-10g soluble · keep the Tue/Thu fasts, they're a good habit.</li></ul>
+  <h4>Fibre, the no-vegetable way</h4>
+  <ul>
+    <li><strong>Psyllium husk (isabgol), 1 tsp to 1 tbsp in water daily.</strong> The single highest-leverage move for ApoB and LDL, and it tastes of nothing.</li>
+    <li><strong>Oats (already daily) + 1 tbsp chia + 1 tbsp ground flax</strong> stirred in, soluble fibre plus plant omega-3.</li>
+    <li><strong>Dal up from 2x to 4-5x/week,</strong> plant iron too, paired with vitamin C and kept away from coffee.</li>
+    <li>Berries (you like blueberry), guava, apple-with-skin, easy fibre with zero vegetables.</li>
+  </ul>
+  <h4>Fat quality + iron</h4>
+  <ul>
+    <li>Cut the leftover ghee, use groundnut/mustard/olive oil with a light hand.</li>
+    <li>On heavy-egg days, go 2 whole + 3 whites instead of 5 whole, same protein, less saturated load. Whites are unlimited.</li>
+    <li>Switch coffee/shake dairy to lower-fat lactose-free milk.</li>
+    <li><strong>Reintroduce red meat (mutton) 1-2x/week</strong>, your best absorbable iron, you simply weren't eating it.</li>
+    <li>Vitamin C 500mg (you already own it) <em>with</em> the iron meal; move coffee and the calcium supplement 1-2 hours away.</li>
+  </ul>
+  <h4>A sample week (using only foods you already eat)</h4>
+  <table class="menu-table">
+    <tr><td>Mon · train</td><td>Whey isolate + 2-yolk egg bhurji AM · chicken, kala namak rice, dal + lemon · oats-chia bowl PM</td></tr>
+    <tr><td>Tue · fast</td><td>Black coffee only → 2pm: mutton, rice, dal + lemon + vitamin C · chole + rice dinner + psyllium</td></tr>
+    <tr><td>Wed · train</td><td>Oats + chia + flax + whey · chicken + brown rice + dal · egg-white bhurji + multigrain dinner</td></tr>
+    <tr><td>Thu · fast</td><td>Black coffee only → 2pm: chicken, rice, dal + lemon · mutton or chicken + roti dinner</td></tr>
+    <tr><td>Fri · train</td><td>Whey + eggs · chicken + rice + dal + lemon · chole + rice + psyllium</td></tr>
+    <tr><td>Sat · HIIT</td><td>Whey + oats-chia (Monster Zero pre-HIIT fine) · mutton/chicken + rice + dal · chicken + multigrain dinner</td></tr>
+    <tr><td>Sun · rest</td><td>Big egg-white + 2-yolk bhurji + oats · chicken + rice + dal + lemon · light chole + multigrain + psyllium</td></tr>
+  </table>
+  <p class="subnote" style="margin-top:14px;">Lactose rule: isolate protein only, never concentrate (you've felt the difference); lactose-free milk only. Evidence: soluble fibre for LDL/ApoB [E1]; heme iron + vitamin C co-timing [E1]; saturated-to-unsaturated fat swap [E1].</p>
+</section>
+
+<!-- DOMAIN: SUPPLEMENTS -->
+<section class="domain">
+  <div class="dlabel">Domain 04 · Supplements</div>
+  <h2>Prune and re-time, don't pile on</h2>
+  <p style="font-size:15px;">Your stack is large and has real redundancy, your B12 over 2000 and folate over 24 come from <strong>three overlapping sources</strong>. The job here is mostly to tidy and re-time, not to add. Net cost likely drops.</p>
+  <table class="suppl-table">
+    <tr><td class="sname">Vitamin D3</td><td>60k/week is a loading dose and you're already at 63 ng/mL (top of optimal). Step down to <strong>60k/month</strong> or 2,000 IU/day.</td><td><span class="chg chg-change">CHANGE</span></td></tr>
+    <tr><td class="sname">B12 / folate trio<br>(Recalmin-XT, NVMe, multivit)</td><td>Three sources stacking. Consolidate to one (keep the multivitamin). Note: Recalmin also has calcium, don't co-time with iron meals.</td><td><span class="chg chg-change">CONSOLIDATE</span></td></tr>
+    <tr><td class="sname">Omega-3</td><td>Switch fish oil → <strong>algal omega-3, 1.5g+ EPA+DHA/day</strong>. Removes any shellfish-allergy doubt and doses up for your lipids.</td><td><span class="chg chg-change">SWITCH</span></td></tr>
+    <tr><td class="sname">Vitamin C 500mg</td><td>Re-time: take <strong>with iron meals</strong> (mutton/dal), not as a standalone morning dose.</td><td><span class="chg chg-keep">RE-TIME</span></td></tr>
+    <tr><td class="sname">Magnesium glycinate</td><td>Keep, take in the <strong>evening</strong> for sleep (serum Mg 1.98, just under optimal).</td><td><span class="chg chg-keep">KEEP</span></td></tr>
+    <tr><td class="sname">Creatine</td><td>Keep, supports training and the "sharpness" goal.</td><td><span class="chg chg-keep">KEEP</span></td></tr>
+    <tr><td class="sname">Whey isolate</td><td>Keep, correct form for your lactose intolerance. Never switch to concentrate.</td><td><span class="chg chg-keep">KEEP</span></td></tr>
+    <tr><td class="sname">Psyllium husk</td><td>Add 1 tsp-1 tbsp/day, highest-leverage veg-free fibre for ApoB.</td><td><span class="chg chg-add">ADD</span></td></tr>
+    <tr><td class="sname">Iron</td><td><strong>Do not self-start.</strong> Physician-gated until the cause workup is done, masking a bleeding source is dangerous.</td><td><span class="chg chg-block">PHYSICIAN</span></td></tr>
+  </table>
+  <p class="subnote" style="margin-top:14px;">No NSAID-based recovery aids, ever (your Combiflam/ibuprofen allergy). For soreness: ice, load management, and your physician-approved Zerodol SP sparingly.</p>
+</section>
+
+<!-- DOMAIN: MIND -->
+<section class="domain">
+  <div class="dlabel">Domain 05 · Mind &amp; Wellness</div>
+  <h2>Down-regulate a genuinely high stress load</h2>
+  <p style="font-size:15px;">Your stress score sits above 80 every day, and you named the new sources honestly: a relationship you can't wind down from the way you used to, and money pressure as a business owner. You meditate, but do no breathwork, and that's the fastest lever on that number.</p>
+  <ul>
+    <li><strong>10 minutes of breathwork daily</strong> (physiological sigh, or 4-7-8). The quickest down-regulator for an 80+ stress score.</li>
+    <li><strong>Make journaling nightly</strong> (you do it inconsistently), useful given the low mood of the last few months.</li>
+    <li>The relationship and money stress are real and not a supplement problem. The levers are the breathwork, the protected sleep, and the one rest day. <strong>If the low mood persists past a few more weeks, a check-in with a counsellor is a reasonable, sensible move</strong>, not a sign of weakness.</li>
+  </ul>
+  <p class="subnote" style="margin-top:14px;">This is a supporting domain, paired with Recovery. Evidence: breathwork for acute stress and HRV [E2]; expressive writing for mood [E3].</p>
+</section>
+
+<!-- HABIT STACK -->
+<section class="card">
+  <div class="card-eyebrow">The 12-week plan</div>
+  <h2>Six habits, phased so they actually stick</h2>
+  <p style="margin-bottom:6px;">More than six new habits at once and adherence collapses, even for someone as disciplined as you. We add them in pairs, with a coach check-in at each step.</p>
+  <div class="timeline">
+    <div class="tblock">
+      <div class="twk">Weeks 1-2<br>Foundation</div>
+      <div class="thabits"><strong>1.</strong> Bed by 9:45, screens off 9:15 (protect the 5:45 wake → 7h) &nbsp; <strong>2.</strong> Claim Sunday as a full rest day
+        <div class="tcoach"><strong>Day-14 check-in:</strong> Is the earlier bedtime holding, or is work pushing it back? Did the rest day actually happen, or did MMA sneak in? How are the mornings vs baseline?</div>
+      </div>
+    </div>
+    <div class="tblock">
+      <div class="twk">Weeks 3-6<br>Build</div>
+      <div class="thabits"><strong>3.</strong> 3&times; Zone-2 cardio/week (your "better cardio" goal) &nbsp; <strong>4.</strong> Psyllium daily + vitamin C with iron meals + drop the after-lunch coffee
+        <div class="tcoach"><strong>Day-28 + 42 check-in:</strong> Zone-2 adherence, does cardio feel better yet? Is HIIT actually trimmed to one a week? Psyllium tolerance. And critically: are the physician (iron + lipid) and ENT appointments booked?</div>
+      </div>
+    </div>
+    <div class="tblock">
+      <div class="twk">Weeks 7-10<br>Deepen</div>
+      <div class="thabits"><strong>5.</strong> Red meat 1-2x/week + halve egg-yolk volume + lower-fat lactose-free milk &nbsp; <strong>6.</strong> 10-min daily breathwork
+        <div class="tcoach"><strong>Day-56 + 70 check-in:</strong> Is mutton back in rotation? Fat swaps sticking? Did breathwork move the stress score? Energy and afternoon-crash trend. Was the week-8 deload respected?</div>
+      </div>
+    </div>
+    <div class="tblock">
+      <div class="twk">Weeks 11-13<br>Retest prep</div>
+      <div class="thabits">Maintain all six. Pre-retest: no heavy training 48h prior, fast 12h, no caffeine 24h, no alcohol 72h, <strong>same lab, same morning slot as Day 1.</strong>
+        <div class="tcoach"><strong>Day-84 + 90 review:</strong> Confirm retest logistics and the physician/ENT outcomes, did we find the iron cause? Lock the same-lab, same-slot retest so the deltas are real, not noise.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHYSICIAN REFERRALS -->
+<div class="tier1-callout">
+  <div class="callout-eyebrow">Take these three to a physician first</div>
+  <h3>Three conversations to have before, or alongside, the protocol</h3>
+  <div class="refer-item">
+    <div class="rspec">Primary care → Cardiology / Lipidology</div>
+    <p><strong>Lp(a) 49 with ApoB 96 / LDL 135 / non-HDL 152.</strong> Confirm Lp(a) once (it's stable for life). Your family history is reassuring, share it. Ask whether early ApoB-lowering is worth it at 25 given the inherited Lp(a). The protocol is already targeting ApoB hard regardless.</p>
+  </div>
+  <div class="refer-item">
+    <div class="rspec">Primary care + stool tests</div>
+    <p><strong>Ferritin 7.5 with bleeding signals, in a heavy meat-eater.</strong> This needs a cause, not just a pill. Ask for a stool occult-blood and a parasite/ova test (rural Bihar + Thailand travel, never tested). Let the physician choose and supervise iron repletion, then retest ferritin at 8-12 weeks. <strong>Do not start high-dose iron on your own.</strong></p>
+  </div>
+  <div class="refer-item">
+    <div class="rspec">ENT</div>
+    <p><strong>One-sided nose always blocked + near-daily Otrivin + nasal bleeding + snoring + always groggy.</strong> One referral that ties three threads together: your atopy, a likely iron-loss source, and your poor sleep quality. Ask specifically about a deviated septum and about rebound congestion from chronic Otrivin use.</p>
+  </div>
+</div>
+
+<!-- RETEST -->
+<section class="card">
+  <div class="card-eyebrow">How we'll measure it</div>
+  <h2>The retest plan, so change is measured not assumed</h2>
+  <ul style="font-size:15px; line-height:1.7;">
+    <li><strong>Day 30:</strong> subjective, fatigue, morning grogginess and the Bevel stress score should already be moving as sleep extends and the rest day lands.</li>
+    <li><strong>Day 60:</strong> a lipid recheck (ApoB, LDL, HDL, non-HDL), lipids turn over in about six weeks, plus iron studies if the physician has started repletion.</li>
+    <li><strong>Day 90, full panel</strong> (same lab, same morning slot, 12h fasted). Priority remeasures: ferritin, transferrin saturation, ApoB, LDL, HDL, HOMA-IR, hsCRP, HbA1c. Add-ons worth doing: a one-time Lp(a) confirm, stool occult-blood, and a reticulocyte-Hb or soluble transferrin receptor to confirm the iron response.</li>
+    <li><strong>Week 12:</strong> a Vitamin D recheck to confirm the stepped-down dose holds you at 40-60.</li>
+  </ul>
+  <p style="margin-top:14px; font-size:14px;"><strong>One honest expectation to set:</strong> your Lp(a) will not change, it's genetic. The win there is offsetting it through ApoB, not lowering the Lp(a) number itself. Everything else on this list should move.</p>
+</section>
+
+<!-- WHAT NOT TO CHANGE -->
 <section class="next-card">
-  <div class="card-eyebrow">What happens next</div>
-  <h2>From here to your protocol</h2>
+  <div class="card-eyebrow">Protect what's working</div>
+  <h2>Three things we're deliberately not touching</h2>
   <ol style="font-size:15px; line-height:1.7;">
-    <li><strong>You answer the questionnaire above</strong>, type it back however is easiest, voice notes are fine too.</li>
-    <li><strong>We build your personalized 90-day protocol</strong>, five domains (nutrition, training, recovery, supplements, mind), every action traced to a specific marker. The headline targets: bring ApoB and LDL down, refill iron stores and find the cause, and nudge HOMA-IR back under 1.0.</li>
-    <li><strong>You take two items to a physician first</strong>, the Lp(a)/lipid picture and the iron depletion. We'll prepare exactly what to ask.</li>
-    <li><strong>We retest at Day 90</strong> and recompute your biological age and every flagged marker, so the change is measured, not assumed.</li>
+    <li><strong>Your diet discipline.</strong> Zero fried, no sugar, no late eating, top-decile. We add fibre and shift fat quality, we do not restrict.</li>
+    <li><strong>Your strength training and MMA progress.</strong> Testosterone 801, good gains, it's working. We redistribute load and add a rest day, nothing more.</li>
+    <li><strong>Creatine, isolate whey, magnesium glycinate, lactose-free milk.</strong> All already correct. Keep them exactly as they are.</li>
   </ol>
+  <p style="margin-top:16px;">You came in disciplined and motivated, that's the rarest ingredient and you already have it. This plan just points it at the three things your blood and your answers agree on. Better cardio, less fatigue, sharper mind, by Day 90, measured not assumed.</p>
 </section>
 
 <!-- DISCLAIMER -->
 <div class="disclaimer">
   <h4>Important notes</h4>
   <p>This report is generated from a single blood test. It is <strong>not a medical diagnosis</strong>. Every recommendation must be discussed with your physician before starting supplements at therapeutic doses, changing medication, or making changes that affect an existing condition.</p>
-  <p>Two findings here warrant a physician conversation: the elevated <strong>Lipoprotein(a) 49 mg/dL</strong> with the broader lipid pattern, and the <strong>iron depletion (ferritin 7.5)</strong>, whose cause should be understood before high-dose iron is started. Do not begin iron or any cardiovascular medication on the basis of this report alone.</p>
+  <p>Three items here warrant a physician or specialist conversation before you act: the elevated <strong>Lipoprotein(a) 49 mg/dL</strong> with the broader lipid pattern, the <strong>iron depletion (ferritin 7.5)</strong>, whose cause should be understood before high-dose iron is started, and the <strong>chronic one-sided nasal obstruction</strong> with near-daily Otrivin use (ENT). Do not begin iron or any cardiovascular medication on the basis of this report alone.</p>
   <p>Antiaging Labs is a biomarker-moving and healthspan-optimization program. We do not claim to extend lifespan, reverse aging, or cure disease. We work to move biomarkers in directions associated with better long-term health outcomes per current scientific evidence.</p>
   <p>Privacy: this report and the underlying lab data are private to the client and are not shared with employers, insurers, or third parties without explicit consent (DPDP Act 2023 aligned).</p>
-  <p style="margin-top:14px; font-family:var(--mono); font-size:11px; color:var(--ink-fade);">Biological age: Levine PhenoAge (2018), 10-input blood-chemistry estimator · derived indices: HOMA-IR, TG:HDL, AIP, Castelli I/II, transferrin saturation, NLR · part 1 of 2 (protocol pending intake) · generated 09 Jun 2026.</p>
+  <p style="margin-top:14px; font-family:var(--mono); font-size:11px; color:var(--ink-fade);">Biological age: Levine PhenoAge (2018), 10-input blood-chemistry estimator · derived indices: HOMA-IR, TG:HDL, AIP, Castelli I/II, transferrin saturation, NLR · complete report: Part 1 (bloodwork + biological age, 09 Jun 2026) + Part 2 (15-section intake + personalized 90-day protocol, 3 root pillars, 6-habit 12-week stack, evidence-tagged E1-E3, 17 Jun 2026).</p>
 </div>
 
 </div>

@@ -1,0 +1,73 @@
+{
+  "screened_at_utc": "2026-06-17T16:51:00Z",
+  "safety_matrix_version": "0.1.0",
+  "client_flags": {
+    "allergies": ["crustaceans/shellfish (anaphylaxis)", "ibuprofen/NSAIDs", "pollen", "lactose"],
+    "conditions": ["asthma (past)"],
+    "medications": ["Otrivin PRN", "Zerodol SP rare"],
+    "pregnancy_status": null,
+    "weight_kg": 72
+  },
+  "items": [
+    {
+      "name": "Iron repletion (oral, therapeutic dose)",
+      "verdict": "blocked_pending_physician",
+      "checks_blockers": ["Ferritin 7.5 with documented bleeding signals (gums, nasal mucus) + unscreened GI/parasitic risk (rural Bihar/Thailand travel, never stool-tested). High-dose iron must NOT be self-started before the CAUSE is worked up — masking a bleeding source is dangerous. Physician + stool occult blood + parasite screen FIRST."],
+      "alternative_if_blocked": "Until physician clearance: maximise dietary/absorption levers only (reintroduce red meat 1-2x/week, vitamin C with iron meals, move coffee away from meals). Then physician-chosen iron (often ferrous bisglycinate, gentler) at a supervised dose, retest ferritin at 8-12 weeks."
+    },
+    {
+      "name": "Omega-3 (fish oil, 2 caps/day — current)",
+      "verdict": "warning",
+      "checks_warnings": ["Fish oil is not shellfish, so usually tolerated by shellfish-allergic people — BUT given documented ANAPHYLAXIS to crustaceans and his dislike of fish, switch to ALGAL omega-3 (EPA+DHA) to remove all doubt. Verify current product's EPA+DHA content; for his lipid picture target ≥1.5-2 g combined EPA+DHA/day."],
+      "alternative_if_blocked": "Algal omega-3, ~1g+ DHA + EPA/day (e.g., Unived/Bryté algal omega-3)"
+    },
+    {
+      "name": "Whey protein — ISOLATE only (MuscleBlaze Biozyme Isolate, current)",
+      "verdict": "cleared_with_note",
+      "checks_passed": ["Lactose intolerance: ISOLATE is correct (concentrate is blocked for him — he confirms concentrate causes severe bloating). Continue isolate; never switch to concentrate/blend."],
+      "checks_warnings": ["Confirm the SKU is a true isolate, not a concentrate blend."]
+    },
+    {
+      "name": "Vitamin D3 60,000 IU/week (current, continuing)",
+      "verdict": "warning",
+      "checks_warnings": ["He is ALREADY at 63 ng/mL (top of optimal 40-60). Continuing a weekly LOADING dose indefinitely risks pushing into excess (>100). Step DOWN to maintenance: 60,000 IU once a MONTH, or ~2,000 IU/day. Recheck 25-OH at week 12."],
+      "alternative_if_blocked": null
+    },
+    {
+      "name": "Creatine monohydrate (current)",
+      "verdict": "cleared",
+      "checks_passed": ["No renal disease (eGFR 101). No drug interaction. Dose ~3-5g/day standard. Continue — supports his training + cognition goal."]
+    },
+    {
+      "name": "Magnesium glycinate (current, 2 caps)",
+      "verdict": "cleared",
+      "checks_passed": ["Serum Mg 1.98 (just below optimal). Glycinate is the right form for sleep. No interaction. Continue, take in the evening."]
+    },
+    {
+      "name": "Vitamin C 500mg (current — REPURPOSE)",
+      "verdict": "cleared",
+      "checks_passed": ["No oxalate/renal contraindication. Reposition timing: take WITH iron-containing meals to boost non-heme absorption rather than as a standalone AM dose."]
+    },
+    {
+      "name": "B12 / folate sources (Recalmin-XT + NVMe + multivitamin — current)",
+      "verdict": "cleared_with_note",
+      "checks_warnings": ["Not unsafe, but THREE overlapping B12/folate sources explain B12 >2000 and folate >24. Consolidate to a single source to avoid pointless stacking. Note: high B12 can mask interpretation; not harmful. Also note Recalmin-XT contains calcium — do NOT co-time with iron meals (calcium competes)."]
+    },
+    {
+      "name": "Soluble-fibre / psyllium (proposed for lipids)",
+      "verdict": "cleared",
+      "checks_passed": ["No GI obstruction. Start low, take with adequate water. Supports ApoB/LDL lowering and gut regularity."]
+    },
+    {
+      "name": "Any NSAID-based recovery supplement",
+      "verdict": "blocked",
+      "checks_blockers": ["NSAID allergy (ibuprofen/Combiflam). Avoid all NSAID-containing recovery aids. For soreness use his physician-approved Zerodol SP sparingly, ice, and load management instead."]
+    },
+    {
+      "name": "Caffeine / pre-workout (Monster Zero, occasional)",
+      "verdict": "cleared_with_note",
+      "checks_warnings": ["Fine occasionally. Keep caffeine away from iron meals and >8-10h before his 10pm bedtime (he wakes 5:45 — protect the already-short 6h sleep). Avoid the after-lunch coffee specifically (iron + sleep)."]
+    }
+  ],
+  "summary": {"cleared_count": 5, "warning_count": 4, "blocked_count": 2, "physician_gated": 1}
+}

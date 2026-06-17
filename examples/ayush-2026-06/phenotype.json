@@ -1,0 +1,12 @@
+{
+  "classified_at_utc": "2026-06-17T16:50:00Z",
+  "phenotype_primary": "Metabolically young, cardiovascularly exposed",
+  "phenotype_label_full": "Metabolically young, cardiovascularly exposed · Iron-depleted · Atopic overlay · Under-recovered",
+  "overlays": ["iron_depletion", "atopic_allergic", "under_recovery_high_training_load"],
+  "benign_quirks": ["Gilbert's-type bilirubin", "bone-source ALP"],
+  "protocol_voice": "peer, confident, performance-framed; this client is exceptionally disciplined and motivated by performance + aesthetics, not fear. Lead with the levers that also serve his stated goal (cardio, energy, sharpness). Honest about the two physician items.",
+  "lead_domains": ["training", "recovery_sleep", "nutrition"],
+  "secondary_domains": ["supplements", "mind_wellness"],
+  "deprioritize": ["aggressive dietary overhaul — his diet is already top-decile clean; do not pile on restriction"],
+  "intake_refinements": "Family history is REASSURING (no premature CVD <55M/<65F; cardiac events only at 75-86) — softens Lp(a) urgency. Iron picture gains real loss-signals (bleeding gums, nasal mucus blood, near-zero red meat, after-meal coffee, very high training load, unscreened tropical/rural travel). Under-recovery is a NEW theme from intake (6h sleep, daily training, no rest day, always groggy, feels under-recovered). Atopy fully confirmed."
+}

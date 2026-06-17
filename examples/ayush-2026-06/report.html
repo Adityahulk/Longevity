@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Client #5 · Your 90-Day Protocol · Antiaging Labs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:#F5F1E8; --cream-dark:#EDE7D9; --paper:#FBF8F1;
+  --ink:#0E1B2C; --ink-soft:#1F2D40; --ink-mute:#4A5668; --ink-fade:#7A8497;
+  --rule:#C8BFA8; --rule-soft:#DCD3BC;
+  --accent:#B85426; --accent-warm:#D17244; --accent-soft:#F4E5DC;
+  --leaf:#2F5D3C; --leaf-soft:#DCE7DE;
+  --gold:#8B6914; --gold-soft:#EFE6CB;
+  --danger:#9B2C2C; --danger-soft:#F8DDDA;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:var(--sans); background:var(--cream); color:var(--ink); font-weight:400; line-height:1.65; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+body::before { content:''; position:fixed; inset:0; pointer-events:none; background-image:radial-gradient(circle at 20% 30%, rgba(184,84,38,0.025) 0%, transparent 40%),radial-gradient(circle at 80% 70%, rgba(47,93,60,0.02) 0%, transparent 50%); z-index:0; }
+.page { max-width:880px; margin:0 auto; padding:0 40px; position:relative; z-index:1; }
+.eyebrow { font-family:var(--mono); font-size:11px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-fade); }
+h1,h2,h3 { font-family:var(--serif); color:var(--ink); font-weight:500; letter-spacing:-0.01em; }
+h1 { font-size:56px; line-height:1.05; }
+h2 { font-size:34px; line-height:1.15; margin-bottom:10px; }
+h3 { font-size:22px; line-height:1.25; margin-bottom:8px; }
+h4 { font-family:var(--sans); font-size:13px; font-weight:600; letter-spacing:0.02em; color:var(--ink); margin-bottom:8px; text-transform:uppercase; }
+p { color:var(--ink-soft); }
+p + p { margin-top:14px; }
+a { color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-soft); }
+ul, ol { padding-left:22px; color:var(--ink-soft); }
+li { margin-bottom:6px; }
+li::marker { color:var(--accent); }
+strong { color:var(--ink); font-weight:600; }
+em { font-style:italic; color:var(--ink-mute); }
+hr { border:0; border-top:0.5px solid var(--rule); margin:48px 0; }
+code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); padding:1px 6px; border-radius:3px; color:var(--ink); }
+
+.cover { padding:100px 0 60px; }
+.cover-eyebrow { font-family:var(--mono); font-size:11px; letter-spacing:0.22em; color:var(--accent); text-transform:uppercase; margin-bottom:20px; }
+.cover h1 { font-size:66px; line-height:1.0; margin-bottom:28px; font-weight:300; }
+.cover h1 .accentword { color:var(--accent); font-style:italic; }
+.cover-stat { margin-top:30px; padding:24px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); display:flex; align-items:baseline; gap:32px; flex-wrap:wrap; }
+.stat-block { display:flex; flex-direction:column; gap:4px; }
+.stat-label { font-family:var(--mono); font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--ink-fade); }
+.stat-value { font-family:var(--serif); font-size:34px; font-weight:500; color:var(--ink); line-height:1; }
+.stat-value.accent { color:var(--accent); }
+.stat-value.leaf { color:var(--leaf); }
+.stat-detail { font-size:13px; color:var(--ink-mute); }
+.phenotype-label { font-family:var(--serif); font-style:italic; font-size:21px; line-height:1.35; color:var(--ink-soft); margin-top:28px; }
+.goalbox { background:var(--leaf-soft); border-left:3px solid var(--leaf); padding:16px 20px; margin-top:24px; font-size:14px; border-radius:4px; }
+.goalbox .gq { font-family:var(--serif); font-style:italic; font-size:18px; color:var(--ink); }
+
+.card { background:var(--paper); border:1px solid var(--rule-soft); border-radius:6px; padding:36px 32px; margin:32px 0; }
+.card .card-eyebrow { font-family:var(--mono); font-size:11px; letter-spacing:0.18em; color:var(--accent); text-transform:uppercase; margin-bottom:10px; }
+.card h2 { font-size:28px; margin-bottom:14px; }
+
+.pillar { background:var(--cream); border-left:3px solid var(--accent); border-radius:4px; padding:24px 26px; margin:18px 0; }
+.pillar .pnum { font-family:var(--mono); font-size:11px; letter-spacing:0.14em; color:var(--accent); text-transform:uppercase; }
+.pillar h3 { font-size:21px; margin:6px 0 10px; }
+.pillar .moves { font-size:14px; margin-top:10px; }
+.pillar .shift { margin-top:12px; padding:10px 14px; background:var(--leaf-soft); border-radius:4px; font-size:13px; color:var(--ink); }
+
+.domain { background:var(--paper); border:1px solid var(--rule-soft); border-radius:6px; padding:34px 32px; margin:28px 0; }
+.domain.lead { border-left:4px solid var(--accent); }
+.domain .dlabel { font-family:var(--mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:4px; }
+.domain .dlead-tag { display:inline-block; font-family:var(--mono); font-size:9px; letter-spacing:0.12em; text-transform:uppercase; background:var(--accent-soft); color:var(--accent); padding:2px 8px; border-radius:3px; margin-left:8px; vertical-align:middle; }
+.domain h2 { font-size:26px; margin-bottom:12px; }
+.domain h4 { margin-top:20px; }
+.domain ul { font-size:14.5px; }
+.subnote { font-size:13px; font-style:italic; color:var(--ink-mute); }
+
+.menu-table { font-family:var(--mono); font-size:11.5px; width:100%; margin-top:14px; border-collapse:collapse; }
+.menu-table td { padding:7px 9px; border-bottom:0.5px solid var(--rule-soft); vertical-align:top; }
+.menu-table td:first-child { color:var(--accent); font-weight:500; white-space:nowrap; }
+.menu-table tr td:not(:first-child){ color:var(--ink-soft); }
+
+.tier1-callout { background:var(--danger-soft); border-left:4px solid var(--danger); padding:24px 28px; margin:40px 0; border-radius:4px; }
+.tier1-callout .callout-eyebrow { font-family:var(--mono); font-size:11px; letter-spacing:0.18em; color:var(--danger); text-transform:uppercase; margin-bottom:8px; }
+.tier1-callout h3 { font-size:22px; color:var(--ink); margin-bottom:12px; }
+.tier1-callout p { font-size:14.5px; color:var(--ink-soft); }
+.refer-item { padding:14px 0; border-bottom:0.5px dashed var(--rule); }
+.refer-item:last-child { border-bottom:0; }
+.refer-item .rspec { font-family:var(--mono); font-size:11px; color:var(--danger); text-transform:uppercase; letter-spacing:0.1em; }
+
+.timeline { margin:22px 0; }
+.tblock { display:grid; grid-template-columns:90px 1fr; gap:18px; padding:18px 0; border-bottom:0.5px dashed var(--rule-soft); }
+.tblock .twk { font-family:var(--mono); font-size:12px; color:var(--accent); font-weight:500; }
+.tblock .thabits { font-size:14px; }
+.tblock .tcoach { font-size:12.5px; color:var(--ink-mute); font-style:italic; margin-top:8px; padding-top:8px; border-top:0.5px dotted var(--rule-soft); }
+.tblock .tcoach strong { font-style:normal; }
+
+.suppl-table { width:100%; font-size:13px; margin-top:14px; border-collapse:collapse; }
+.suppl-table td { padding:9px 10px; border-bottom:0.5px solid var(--rule-soft); vertical-align:top; }
+.suppl-table .sname { font-weight:600; color:var(--ink); }
+.chg { font-family:var(--mono); font-size:10px; padding:2px 7px; border-radius:3px; letter-spacing:0.08em; white-space:nowrap; }
+.chg-keep { background:var(--leaf-soft); color:var(--leaf); }
+.chg-change { background:var(--gold-soft); color:var(--gold); }
+.chg-add { background:var(--accent-soft); color:var(--accent); }
+.chg-block { background:var(--danger-soft); color:var(--danger); }
+
+.next-card { background:var(--ink); color:var(--cream); border-radius:6px; padding:40px 36px; margin:40px 0; }
+.next-card h2 { color:var(--cream); font-size:28px; }
+.next-card .card-eyebrow { color:var(--accent-warm); font-family:var(--mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:10px; }
+.next-card p, .next-card ol, .next-card li { color:#D8DCE2; }
+.next-card strong { color:#fff; }
+
+.disclaimer { margin:56px 0 40px; padding:24px 28px; background:var(--cream-dark); border-radius:4px; font-size:13px; color:var(--ink-mute); line-height:1.6; }
+.disclaimer h4 { color:var(--ink); margin-bottom:10px; }
+
+@media print {
+  body { background:var(--paper); }
+  .page { max-width:none; padding:20px 30px; }
+  .card, .pillar, .domain, .tier1-callout, .next-card, .tblock { break-inside:avoid; }
+}
+@page { size:A4; margin:18mm 14mm; }
+@media (max-width:640px){
+  .page { padding:0 22px; }
+  .cover { padding:64px 0 48px; }
+  .cover h1 { font-size:42px; }
+  h1 { font-size:38px; } h2 { font-size:25px; }
+  .tblock { grid-template-columns:1fr; gap:6px; }
+  .menu-table { font-size:10.5px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-eyebrow">Antiaging Labs · 90-Day Protocol · Part 2 of 2 · 17 Jun 2026</div>
+  <h1>Client #5, here's your<br><span class="accentword">90-day plan</span>, built around your own goal.</h1>
+
+  <div class="phenotype-label">Metabolically young, cardiovascularly exposed · Iron-depleted · Atopic · Under-recovered</div>
+
+  <div class="cover-stat">
+    <div class="stat-block">
+      <div class="stat-label">Biological age</div>
+      <div class="stat-value leaf">21.1</div>
+      <div class="stat-detail">3.9 yrs younger than calendar</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-label">Three pillars</div>
+      <div class="stat-value">3</div>
+      <div class="stat-detail">lipids · iron · recovery</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-label">Habits, total</div>
+      <div class="stat-value">6</div>
+      <div class="stat-detail">phased over 12 weeks</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-label">Physician items</div>
+      <div class="stat-value accent">3</div>
+      <div class="stat-detail">lipids · iron · ENT</div>
+    </div>
+  </div>
+
+  <div class="goalbox">
+    <div class="gq">"Better cardio, less fatigue and higher sharpness."</div>
+    <p style="margin-top:10px;">That's what you told us you want. Here's the good news: your number-one goal, <strong>better cardio</strong>, is also the single biggest lever on your two real blood findings, your lipids and your early insulin signal. The medicine and the goal are the same thing. <strong>Less fatigue</strong> points straight at your iron and your sleep. <strong>Sharper mind</strong> follows both. We didn't design a plan and bolt your goals on, your goals <em>are</em> the plan.</p>
+  </div>
+</section>
+
+<hr>
+
+<!-- WHAT CHANGED FROM PART 1 -->
+<section class="card">
+  <div class="card-eyebrow">What your answers changed</div>
+  <h2>Your bloodwork told us what. Your answers told us why.</h2>
+  <p style="font-size:15px;">Part 1 flagged three things from blood alone and marked the causes "to be confirmed." Your questionnaire confirmed or revised every one of them. The headlines:</p>
+  <ul style="font-size:15px; line-height:1.7; margin-top:12px;">
+    <li><strong>Your family history is reassuring.</strong> The heart issues in your family appeared at 75 to 86, no early heart attacks or strokes. Your inherited Lp(a) is real, but it is <em>not</em> amplified by a pattern of premature heart disease in the family. That meaningfully softens the worry, it does not remove the work.</li>
+    <li><strong>Your iron puzzle got clearer, and more interesting.</strong> You're a heavy meat-eater, so "not enough iron" was never the full story. But you eat <em>zero red meat</em>, take coffee right after lunch, have bleeding gums and blood in your nasal mucus, train hard every single day, and have travelled rural Bihar and Thailand without ever testing a stool. That's a real list. The cause is almost certainly more than one thing, and it needs a doctor's eye before any high-dose iron.</li>
+    <li><strong>A new theme appeared: you are under-recovered.</strong> Daily MMA, strength and HIIT, on roughly six hours of sleep, with a stress score that sits above 80 every day, and your own words: "feel under-recovered," "perpetually tired." This sits underneath your fatigue, your afternoon crash, and part of your early insulin signal. It is the most fixable thing in this entire report.</li>
+    <li><strong>Your atopy is confirmed.</strong> The high IgE maps cleanly onto a perpetually blocked nose, pollen allergy, childhood asthma and a shellfish anaphylaxis. Not incidental, a real allergic constitution worth managing.</li>
+  </ul>
+  <p style="font-size:15px; margin-top:14px;">And one thing we will <strong>not</strong> touch: your diet discipline. Zero fried food, no sugar, no sugary drinks, no late-night eating, almost nothing processed. That is top-decile. Piling restriction on top of it would be the wrong move. We make two surgical changes, not an overhaul.</p>
+</section>
+
+<!-- THE THREE PILLARS -->
+<section class="card">
+  <div class="card-eyebrow">The strategy</div>
+  <h2>Three pillars, not a checklist of fifteen fixes</h2>
+  <p style="margin-bottom:6px;">Attack the roots and the leaves resolve. Everything in your plan ladders up to one of these three.</p>
+
+  <div class="pillar">
+    <div class="pnum">Pillar 1 · Cardiovascular</div>
+    <h3>Lower ApoB, lift HDL, to offset the inherited Lp(a)</h3>
+    <p style="font-size:14.5px;">You can't change Lp(a), it's genetic and set for life. What you <em>can</em> move is ApoB, the particle count that actually does the damage. Get it down meaningfully and you offset the inherited risk. Your diet is already clean, so the levers that remain are the ones you're not yet pulling.</p>
+    <div class="moves"><strong>The moves:</strong> Zone-2 cardio (your own goal) · soluble fibre to 30-40g via oats, chia, psyllium and dal, not vegetables you won't eat · swap saturated fat for unsaturated (less ghee, fewer yolks, lower-fat milk) · algal omega-3 · cut the occasional smoking/vaping entirely · physician chat on early ApoB-lowering.</div>
+    <div class="shift"><strong>Target by Day 90:</strong> ApoB 96 → under 85 · LDL 135 → under 115 · HDL 43 → 48+ · non-HDL 152 → under 135</div>
+  </div>
+
+  <div class="pillar">
+    <div class="pnum">Pillar 2 · Iron</div>
+    <h3>Refill the stores, and find the leak</h3>
+    <p style="font-size:14.5px;">Ferritin 7.5 in a man who eats meat daily is a puzzle worth solving properly, not papering over with a supplement. The plan has two arms: a diet/absorption arm you start now, and a physician arm that finds the cause before any therapeutic iron.</p>
+    <div class="moves"><strong>The moves:</strong> reintroduce red meat (mutton) 1-2x/week for heme iron · vitamin C with iron meals · move coffee and your calcium supplement away from those meals · <strong>physician:</strong> iron workup + stool occult-blood + parasite test before high-dose iron · ENT for the nasal bleeding source.</div>
+    <div class="shift"><strong>Target by Day 90:</strong> ferritin 7.5 → 30+ · transferrin saturation 11.5% → 25%+ · the "perpetually tired" and cold hands easing</div>
+  </div>
+
+  <div class="pillar">
+    <div class="pnum">Pillar 3 · Recovery</div>
+    <h3>Recover as hard as you train</h3>
+    <p style="font-size:14.5px;">You are not under-trained, you are under-recovered. Training every day on six hours of sleep with no rest day is leaving performance, and biology, on the table. This pillar costs nothing and pays back the fastest.</p>
+    <div class="moves"><strong>The moves:</strong> sleep 6h → 7-7.5h (bed by 9:45) · one true rest day a week · deload every 4th week · 10-min daily breathwork for the 80+ stress score · convert two weekly HIIT slots into Zone-2 (also serves the cardio goal).</div>
+    <div class="shift"><strong>Target by Day 90:</strong> HOMA-IR 1.25 → under 1.0 · afternoon crash softened · genuine "less fatigue"</div>
+  </div>
+</section>
+
+<!-- DOMAIN: TRAINING -->
+<section class="domain lead">
+  <div class="dlabel">Domain 01 · Training <span class="dlead-tag">Lead</span></div>
+  <h2>Move the way your goal needs</h2>
+  <p style="font-size:15px;">Right now you do roughly <strong>20 minutes of steady cardio a week</strong> while training hard every day. That single gap is why "better cardio" is your goal and why your HDL is low-ish. Fixing it serves your goal, your lipids and your insulin signal at once. The plan is to <em>redistribute</em> your load, not add to it.</p>
+
+  <h4>Weekly structure</h4>
+  <ul>
+    <li><strong>Zone-2 cardio: 150 min/week</strong>, in 3-4 sessions of 35-45 min at a conversational pace (heart rate roughly 120-140). Cycle, incline treadmill, or aerobic shadow-boxing rounds. <span class="subnote">During Noida's high-AQI months (Oct-Feb), keep these indoors with filtered air, it matters for your nose and your heart.</span></li>
+    <li><strong>HIIT: 1 session/week</strong> (your Saturday Monster-Zero slot). Down from near-daily, the extra intensity is feeding under-recovery and possibly worsening iron loss through training.</li>
+    <li><strong>Resistance: 4 sessions/week.</strong> Keep your trainer-guided push/pull compound work, it's clearly working. Protect the knees: no explosive or plyometric knee loading.</li>
+    <li><strong>MMA: 3-4 sessions/week</strong> (down from daily).</li>
+    <li><strong>One full rest or active-recovery day.</strong> Walk and mobility only. Non-negotiable, this is the recovery pillar in action.</li>
+    <li><strong>Daily 10-min mobility,</strong> knee-led.</li>
+  </ul>
+
+  <h4>The 12-week progression</h4>
+  <ul>
+    <li><strong>Weeks 1-2, redistribute:</strong> add 2 Zone-2 sessions, claim Sunday as full rest. Add no intensity.</li>
+    <li><strong>Weeks 3-6, build the base:</strong> 3 Zone-2/week, trim HIIT to one. Watch your resting heart rate start to drop and "cardio" start to feel different.</li>
+    <li><strong>Weeks 7-10, progress + first deload:</strong> 4 Zone-2 on lighter weeks. Week 8 is a deload (volume down ~40%). Overload resumes week 9.</li>
+    <li><strong>Weeks 11-13, consolidate:</strong> hold the structure. No heavy training in the 48 hours before your Day-90 retest, hard sessions can skew the blood panel.</li>
+  </ul>
+  <p class="subnote" style="margin-top:14px;">Evidence: Zone-2 for metabolic and lipid health [E1]; resistance training maintenance [E1]; deload for recovery [E2].</p>
+</section>
+
+<!-- DOMAIN: RECOVERY -->
+<section class="domain lead">
+  <div class="dlabel">Domain 02 · Recovery &amp; Sleep <span class="dlead-tag">Lead</span></div>
+  <h2>The cheapest win in this whole report</h2>
+  <p style="font-size:15px;">You sleep about six hours, wake "always groggy," snore on your back, and feel perpetually tired while training daily. Short sleep alone lifts insulin resistance, blunts recovery and flattens mood, it sits under three of your findings. Moving bedtime from 10:30 to <strong>9:45</strong> buys you 45-60 minutes for free, while protecting your 5:45 wake.</p>
+  <ul>
+    <li><strong>Bed by 9:45, screens off by 9:15.</strong> You sometimes use screens in bed, this is the one to break. Magnesium glycinate (you already take it) at 9:00. Your room is already perfect: dark, 19&deg;C.</li>
+    <li><strong>Side-sleep, and see an ENT.</strong> You snore on your back and one side of your nose is always blocked. That nasal obstruction is very likely degrading your sleep quality, the real reason behind "always groggy." The ENT referral below ties your nose, your iron and your sleep together.</li>
+    <li><strong>10 minutes of daylight after waking.</strong> You get only 2-3 hours of daylight a day, mostly indoors. Morning light anchors your rhythm and softens both the groggy mornings and the afternoon crash.</li>
+    <li><strong>No caffeine after 1pm.</strong> Specifically drop the after-lunch coffee, it protects your already-short sleep <em>and</em> your iron absorption in one move.</li>
+    <li><strong>Beat the afternoon crash with a 10-min walk after lunch,</strong> not a recline. It blunts the post-rice glucose dip that's half the reason you crash.</li>
+  </ul>
+  <p class="subnote" style="margin-top:14px;">Evidence: sleep extension for insulin sensitivity and recovery [E1]; morning light for circadian alignment [E2].</p>
+</section>
+
+<!-- DOMAIN: NUTRITION -->
+<section class="domain">
+  <div class="dlabel">Domain 03 · Nutrition</div>
+  <h2>Two surgical changes, not an overhaul</h2>
+  <p style="font-size:15px;">Your diet is genuinely excellent and we're protecting it. We change exactly two things: <strong>add soluble fibre without using vegetables you won't eat</strong>, and <strong>shift fat quality while adding heme iron</strong>. Everything is built to survive travel, your stated biggest obstacle.</p>
+
+  <h4>Daily targets</h4>
+  <ul>
+    <li>Protein ~140g (you're already there) · fibre 35g, of which 8-10g soluble · keep the Tue/Thu fasts, they're a good habit.</li>
+  </ul>
+
+  <h4>Fibre, the no-vegetable way</h4>
+  <ul>
+    <li><strong>Psyllium husk (isabgol), 1 tsp to 1 tbsp in water daily.</strong> The single highest-leverage move for ApoB and LDL, and it tastes of nothing.</li>
+    <li><strong>Oats (already daily) + 1 tbsp chia + 1 tbsp ground flax</strong> stirred in, soluble fibre plus plant omega-3.</li>
+    <li><strong>Dal up from 2x to 4-5x/week,</strong> plant iron too, paired with vitamin C and kept away from coffee.</li>
+    <li>Berries (you like blueberry), guava, apple-with-skin, easy fibre with zero vegetables.</li>
+  </ul>
+
+  <h4>Fat quality + iron</h4>
+  <ul>
+    <li>Cut the leftover ghee, use groundnut/mustard/olive oil with a light hand.</li>
+    <li>On heavy-egg days, go 2 whole + 3 whites instead of 5 whole, same protein, less saturated load. Whites are unlimited.</li>
+    <li>Switch coffee/shake dairy to lower-fat lactose-free milk.</li>
+    <li><strong>Reintroduce red meat (mutton) 1-2x/week</strong>, your best absorbable iron, you simply weren't eating it.</li>
+    <li>Vitamin C 500mg (you already own it) <em>with</em> the iron meal; move coffee and the calcium supplement 1-2 hours away.</li>
+  </ul>
+
+  <h4>A sample week (using only foods you already eat)</h4>
+  <table class="menu-table">
+    <tr><td>Mon · train</td><td>Whey isolate + 2-yolk egg bhurji AM · chicken, kala namak rice, dal + lemon · oats-chia bowl PM</td></tr>
+    <tr><td>Tue · fast</td><td>Black coffee only → 2pm: mutton, rice, dal + lemon + vitamin C · chole + rice dinner + psyllium</td></tr>
+    <tr><td>Wed · train</td><td>Oats + chia + flax + whey · chicken + brown rice + dal · egg-white bhurji + multigrain dinner</td></tr>
+    <tr><td>Thu · fast</td><td>Black coffee only → 2pm: chicken, rice, dal + lemon · mutton or chicken + roti dinner</td></tr>
+    <tr><td>Fri · train</td><td>Whey + eggs · chicken + rice + dal + lemon · chole + rice + psyllium</td></tr>
+    <tr><td>Sat · HIIT</td><td>Whey + oats-chia (Monster Zero pre-HIIT fine) · mutton/chicken + rice + dal · chicken + multigrain dinner</td></tr>
+    <tr><td>Sun · rest</td><td>Big egg-white + 2-yolk bhurji + oats · chicken + rice + dal + lemon · light chole + multigrain + psyllium</td></tr>
+  </table>
+  <p class="subnote" style="margin-top:14px;">Lactose rule: isolate protein only, never concentrate (you've felt the difference); lactose-free milk only. Evidence: soluble fibre for LDL/ApoB [E1]; heme iron + vitamin C co-timing [E1]; saturated-to-unsaturated fat swap [E1].</p>
+</section>
+
+<!-- DOMAIN: SUPPLEMENTS -->
+<section class="domain">
+  <div class="dlabel">Domain 04 · Supplements</div>
+  <h2>Prune and re-time, don't pile on</h2>
+  <p style="font-size:15px;">Your stack is large and has real redundancy, your B12 over 2000 and folate over 24 come from <strong>three overlapping sources</strong>. The job here is mostly to tidy and re-time, not to add. Net cost likely drops.</p>
+  <table class="suppl-table">
+    <tr><td class="sname">Vitamin D3</td><td>60k/week is a loading dose and you're already at 63 ng/mL (top of optimal). Step down to <strong>60k/month</strong> or 2,000 IU/day.</td><td><span class="chg chg-change">CHANGE</span></td></tr>
+    <tr><td class="sname">B12 / folate trio<br>(Recalmin-XT, NVMe, multivit)</td><td>Three sources stacking. Consolidate to one (keep the multivitamin). Note: Recalmin also has calcium, don't co-time with iron meals.</td><td><span class="chg chg-change">CONSOLIDATE</span></td></tr>
+    <tr><td class="sname">Omega-3</td><td>Switch fish oil → <strong>algal omega-3, 1.5g+ EPA+DHA/day</strong>. Removes any shellfish-allergy doubt and doses up for your lipids.</td><td><span class="chg chg-change">SWITCH</span></td></tr>
+    <tr><td class="sname">Vitamin C 500mg</td><td>Re-time: take <strong>with iron meals</strong> (mutton/dal), not as a standalone morning dose.</td><td><span class="chg chg-keep">RE-TIME</span></td></tr>
+    <tr><td class="sname">Magnesium glycinate</td><td>Keep, take in the <strong>evening</strong> for sleep (serum Mg 1.98, just under optimal).</td><td><span class="chg chg-keep">KEEP</span></td></tr>
+    <tr><td class="sname">Creatine</td><td>Keep, supports training and the "sharpness" goal.</td><td><span class="chg chg-keep">KEEP</span></td></tr>
+    <tr><td class="sname">Whey isolate</td><td>Keep, correct form for your lactose intolerance. Never switch to concentrate.</td><td><span class="chg chg-keep">KEEP</span></td></tr>
+    <tr><td class="sname">Psyllium husk</td><td>Add 1 tsp-1 tbsp/day, highest-leverage veg-free fibre for ApoB.</td><td><span class="chg chg-add">ADD</span></td></tr>
+    <tr><td class="sname">Iron</td><td><strong>Do not self-start.</strong> Physician-gated until the cause workup is done, masking a bleeding source is dangerous.</td><td><span class="chg chg-block">PHYSICIAN</span></td></tr>
+  </table>
+  <p class="subnote" style="margin-top:14px;">No NSAID-based recovery aids, ever (your Combiflam/ibuprofen allergy). For soreness: ice, load management, and your physician-approved Zerodol SP sparingly.</p>
+</section>
+
+<!-- DOMAIN: MIND -->
+<section class="domain">
+  <div class="dlabel">Domain 05 · Mind &amp; Wellness</div>
+  <h2>Down-regulate a genuinely high stress load</h2>
+  <p style="font-size:15px;">Your stress score sits above 80 every day, and you named the new sources honestly: a relationship you can't wind down from the way you used to, and money pressure as a business owner. You meditate, but do no breathwork, and that's the fastest lever on that number.</p>
+  <ul>
+    <li><strong>10 minutes of breathwork daily</strong> (physiological sigh, or 4-7-8). The quickest down-regulator for an 80+ stress score.</li>
+    <li><strong>Make journaling nightly</strong> (you do it inconsistently), useful given the low mood of the last few months.</li>
+    <li>The relationship and money stress are real and not a supplement problem. The levers are the breathwork, the protected sleep, and the one rest day. <strong>If the low mood persists past a few more weeks, a check-in with a counsellor is a reasonable, sensible move</strong>, not a sign of weakness.</li>
+  </ul>
+  <p class="subnote" style="margin-top:14px;">This is a supporting domain, paired with Recovery. Evidence: breathwork for acute stress and HRV [E2]; expressive writing for mood [E3].</p>
+</section>
+
+<!-- HABIT STACK -->
+<section class="card">
+  <div class="card-eyebrow">The 12-week plan</div>
+  <h2>Six habits, phased so they actually stick</h2>
+  <p style="margin-bottom:6px;">More than six new habits at once and adherence collapses, even for someone as disciplined as you. We add them in pairs, with a coach check-in at each step.</p>
+  <div class="timeline">
+    <div class="tblock">
+      <div class="twk">Weeks 1-2<br>Foundation</div>
+      <div class="thabits">
+        <strong>1.</strong> Bed by 9:45, screens off 9:15 (protect the 5:45 wake → 7h) &nbsp; <strong>2.</strong> Claim Sunday as a full rest day
+        <div class="tcoach"><strong>Day-14 check-in:</strong> Is the earlier bedtime holding, or is work pushing it back? Did the rest day actually happen, or did MMA sneak in? How are the mornings vs baseline?</div>
+      </div>
+    </div>
+    <div class="tblock">
+      <div class="twk">Weeks 3-6<br>Build</div>
+      <div class="thabits">
+        <strong>3.</strong> 3&times; Zone-2 cardio/week (your "better cardio" goal) &nbsp; <strong>4.</strong> Psyllium daily + vitamin C with iron meals + drop the after-lunch coffee
+        <div class="tcoach"><strong>Day-28 + 42 check-in:</strong> Zone-2 adherence, does cardio feel better yet? Is HIIT actually trimmed to one a week? Psyllium tolerance. And critically: are the physician (iron + lipid) and ENT appointments booked?</div>
+      </div>
+    </div>
+    <div class="tblock">
+      <div class="twk">Weeks 7-10<br>Deepen</div>
+      <div class="thabits">
+        <strong>5.</strong> Red meat 1-2x/week + halve egg-yolk volume + lower-fat lactose-free milk &nbsp; <strong>6.</strong> 10-min daily breathwork
+        <div class="tcoach"><strong>Day-56 + 70 check-in:</strong> Is mutton back in rotation? Fat swaps sticking? Did breathwork move the stress score? Energy and afternoon-crash trend. Was the week-8 deload respected?</div>
+      </div>
+    </div>
+    <div class="tblock">
+      <div class="twk">Weeks 11-13<br>Retest prep</div>
+      <div class="thabits">
+        Maintain all six. Pre-retest: no heavy training 48h prior, fast 12h, no caffeine 24h, no alcohol 72h, <strong>same lab, same morning slot as Day 1.</strong>
+        <div class="tcoach"><strong>Day-84 + 90 review:</strong> Confirm retest logistics and the physician/ENT outcomes, did we find the iron cause? Lock the same-lab, same-slot retest so the deltas are real, not noise.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHYSICIAN REFERRALS -->
+<div class="tier1-callout">
+  <div class="callout-eyebrow">Take these three to a physician first</div>
+  <h3>Three conversations to have before, or alongside, the protocol</h3>
+  <div class="refer-item">
+    <div class="rspec">Primary care → Cardiology / Lipidology</div>
+    <p><strong>Lp(a) 49 with ApoB 96 / LDL 135 / non-HDL 152.</strong> Confirm Lp(a) once (it's stable for life). Your family history is reassuring, share it. Ask whether early ApoB-lowering is worth it at 25 given the inherited Lp(a). The protocol is already targeting ApoB hard regardless.</p>
+  </div>
+  <div class="refer-item">
+    <div class="rspec">Primary care + stool tests</div>
+    <p><strong>Ferritin 7.5 with bleeding signals, in a heavy meat-eater.</strong> This needs a cause, not just a pill. Ask for a stool occult-blood and a parasite/ova test (rural Bihar + Thailand travel, never tested). Let the physician choose and supervise iron repletion, then retest ferritin at 8-12 weeks. <strong>Do not start high-dose iron on your own.</strong></p>
+  </div>
+  <div class="refer-item">
+    <div class="rspec">ENT</div>
+    <p><strong>One-sided nose always blocked + near-daily Otrivin + nasal bleeding + snoring + always groggy.</strong> One referral that ties three threads together: your atopy, a likely iron-loss source, and your poor sleep quality. Ask specifically about a deviated septum and about rebound congestion from chronic Otrivin use.</p>
+  </div>
+</div>
+
+<!-- RETEST -->
+<section class="card">
+  <div class="card-eyebrow">How we'll measure it</div>
+  <h2>The retest plan, so change is measured not assumed</h2>
+  <ul style="font-size:15px; line-height:1.7;">
+    <li><strong>Day 30:</strong> subjective, fatigue, morning grogginess and the Bevel stress score should already be moving as sleep extends and the rest day lands.</li>
+    <li><strong>Day 60:</strong> a lipid recheck (ApoB, LDL, HDL, non-HDL), lipids turn over in about six weeks, plus iron studies if the physician has started repletion.</li>
+    <li><strong>Day 90, full panel</strong> (same lab, same morning slot, 12h fasted). Priority remeasures: ferritin, transferrin saturation, ApoB, LDL, HDL, HOMA-IR, hsCRP, HbA1c. Add-ons worth doing: a one-time Lp(a) confirm, stool occult-blood, and a reticulocyte-Hb or soluble transferrin receptor to confirm the iron response.</li>
+    <li><strong>Week 12:</strong> a Vitamin D recheck to confirm the stepped-down dose holds you at 40-60.</li>
+  </ul>
+  <p style="margin-top:14px; font-size:14px;"><strong>One honest expectation to set:</strong> your Lp(a) will not change, it's genetic. The win there is offsetting it through ApoB, not lowering the Lp(a) number itself. Everything else on this list should move.</p>
+</section>
+
+<!-- WHAT NOT TO CHANGE -->
+<section class="next-card">
+  <div class="card-eyebrow">Protect what's working</div>
+  <h2>Three things we're deliberately not touching</h2>
+  <ol style="font-size:15px; line-height:1.7;">
+    <li><strong>Your diet discipline.</strong> Zero fried, no sugar, no late eating, top-decile. We add fibre and shift fat quality, we do not restrict.</li>
+    <li><strong>Your strength training and MMA progress.</strong> Testosterone 801, good gains, it's working. We redistribute load and add a rest day, nothing more.</li>
+    <li><strong>Creatine, isolate whey, magnesium glycinate, lactose-free milk.</strong> All already correct. Keep them exactly as they are.</li>
+  </ol>
+  <p style="margin-top:16px;">You came in disciplined and motivated, that's the rarest ingredient and you already have it. This plan just points it at the three things your blood and your answers agree on. Better cardio, less fatigue, sharper mind, by Day 90, measured not assumed.</p>
+</section>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <h4>Important notes</h4>
+  <p>This protocol is generated from a single blood test and your lifestyle questionnaire. It is <strong>not a medical diagnosis or a prescription</strong>. Every supplement at a therapeutic dose, every medication change, and anything affecting an existing condition must be discussed with your physician first.</p>
+  <p>Three items here specifically require a physician or specialist before you act: the <strong>Lp(a)/lipid</strong> picture, the <strong>iron depletion</strong> (whose cause must be understood before high-dose iron), and the <strong>chronic nasal obstruction</strong> (ENT). Do not begin iron or any cardiovascular medication on the basis of this report alone.</p>
+  <p>Antiaging Labs is a biomarker-moving and healthspan-optimization program. We do not claim to extend lifespan, reverse aging, or cure disease. We work to move biomarkers in directions associated with better long-term health outcomes per current scientific evidence.</p>
+  <p>Privacy: this report and the underlying data are private to the client and are not shared with employers, insurers, or third parties without explicit consent (DPDP Act 2023 aligned).</p>
+  <p style="margin-top:14px; font-family:var(--mono); font-size:11px; color:var(--ink-fade);">Protocol authored from biomarkers + 15-section intake · 3 root pillars · 6-habit 12-week stack · evidence-tagged E1-E3 · part 2 of 2 · generated 17 Jun 2026.</p>
+</div>
+
+</div>
+</body>
+</html>

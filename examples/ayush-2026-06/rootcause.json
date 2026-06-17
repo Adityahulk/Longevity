@@ -1,0 +1,36 @@
+{
+  "authored_at_utc": "2026-06-17T16:50:00Z",
+  "note": "Part-1 root hypotheses were 'cause TBD'. Intake now resolves them.",
+  "root_nodes": [
+    {
+      "id": "RC-1",
+      "name": "Atherogenic lipid load (inherited Lp(a) floor + modifiable ApoB)",
+      "confidence": "high",
+      "intake_resolution": "Diet is NOT the amplifier here — fried food zero, sugar zero, processed near-zero. The amplifiers that REMAIN are: (a) low-ish HDL driven by near-absent steady cardio (only ~20 min/week), (b) saturated-fat load from heavy ghee history + heavy eggs + whole-fat dairy in coffee/shakes + pork abroad, (c) near-zero soluble-fibre vegetables, (d) occasional smoking/vaping. Family history is REASSURING — no premature CVD, so Lp(a) is a real but non-amplified risk.",
+      "explains": ["lp_a", "ldl", "apo_b", "non_hdl", "hdl", "apob_a1"],
+      "attack_via": ["Zone-2 cardio (also his #1 goal)", "soluble fibre", "swap saturated for unsaturated fat", "algal omega-3", "eliminate smoking/vaping", "physician discussion on early ApoB-lowering given Lp(a)"]
+    },
+    {
+      "id": "RC-2",
+      "name": "Iron depletion — multifactorial (low intake + blocked absorption + likely micro-loss)",
+      "confidence": "high",
+      "intake_resolution": "He is a HEAVY meat-eater, so simple dietary lack is NOT the whole story. Contributors: (1) ZERO red meat = low absorbable heme; (2) after-lunch coffee blunts non-heme absorption; (3) chronic low-grade mucosal bleeding — bleeding gums + blood in nasal mucus (Otrivin-irritated, one-sided-blocked nose); (4) very high daily training load (MMA+HIIT+strength, sweat + possible foot-strike hemolysis); (5) UNSCREENED GI/parasitic loss — rural Bihar + Thailand travel, never stool-tested despite routine deworming. Calcium in Recalmin-XT may also compete if co-timed.",
+      "explains": ["ferritin", "iron_serum", "transferrin_sat", "tibc", "rdw_cv", "cold_hands", "fatigue"],
+      "attack_via": ["physician iron workup BEFORE high-dose iron", "stool occult blood + parasite test", "ENT for nasal source", "red-meat reintroduction or supervised repletion", "vitamin C with iron meals", "move coffee away from meals", "address bleeding sources"]
+    },
+    {
+      "id": "RC-3",
+      "name": "Under-recovery (training load > recovery capacity)",
+      "confidence": "high",
+      "intake_resolution": "NEW from intake. Daily MMA + strength + HIIT, no rest day, on ~6h groggy sleep, Bevel stress 80+ daily, relationship + money stress, 'feels under-recovered', 'perpetually tired', afternoon crash daily. This sits UNDER the early-insulin whisper (sleep debt + stress raise HOMA-IR), the fatigue, and partly the iron picture (training hemolysis/sweat). Fixing recovery moves several leaves at once.",
+      "explains": ["homa_ir", "fatigue", "groggy_mornings", "afternoon_crash", "low_mood", "under_recovery"],
+      "attack_via": ["extend sleep to 7-7.5h", "one true rest/active-recovery day per week", "deload every 4th week", "breathwork for the 80+ stress score", "Zone-2 replaces some HIIT (also helps lipids)"]
+    }
+  ],
+  "leaves_watch_not_chase": [
+    {"marker": "homa_ir 1.25 + tg_hdl 1.95", "note": "resolves as cardio + sleep + recovery improve; recheck Day 90"},
+    {"marker": "ige 247 + monocytes 9.6%", "note": "atopy confirmed; manage rhinitis + AQI, ENT referral; no bloodwork action"},
+    {"marker": "homocysteine 11.33", "note": "folate already replete; watch"},
+    {"marker": "bilirubin / alp", "note": "benign Gilbert's + bone ALP; no action"}
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "client_first_name": "Aayush",
+  "client_display_name": "Client #5",
+  "report_part": "Part 2 of 2 — Personalized 90-Day Protocol",
+  "report_date": "2026-06-17",
+  "blood_draw_date": "2026-06-07",
+  "part1_report": "ayush.html (/client-5)",
+  "pipeline_version": "0.2.0-phase-A-B",
+  "phenoage_formula_version": "Levine-2018",
+  "phenotype": "Metabolically young, cardiovascularly exposed · Iron-depleted · Atopic · Under-recovered",
+  "bio_age": 21.1,
+  "delta_years": -3.9,
+  "skills_used": [
+    "tessera-pipeline (orchestrator)",
+    "tessera-lab-parse (reused Part-1 biomarkers)",
+    "tessera-intake-v2 (15-section questionnaire)",
+    "tessera-rootcause-phenotype (refined with intake)",
+    "tessera-safety-screen",
+    "tessera-protocol-author",
+    "tessera-report-compose"
+  ],
+  "root_pillars": ["Lower ApoB / lift HDL (offset Lp(a))", "Refill iron + find the leak", "Recover as hard as he trains"],
+  "habit_stack_count": 6,
+  "physician_referrals": ["Lipidology (Lp(a)/ApoB)", "Primary care + stool tests (iron cause)", "ENT (nasal obstruction/Otrivin)"],
+  "outputs": {
+    "intake_json": "/Users/serverport/Longevity/examples/ayush-2026-06/intake.json",
+    "biomarkers_json": "/Users/serverport/Longevity/examples/ayush-2026-06/biomarkers.json",
+    "phenotype_json": "/Users/serverport/Longevity/examples/ayush-2026-06/phenotype.json",
+    "rootcause_json": "/Users/serverport/Longevity/examples/ayush-2026-06/rootcause.json",
+    "safety_json": "/Users/serverport/Longevity/examples/ayush-2026-06/safety.json",
+    "protocol_json": "/Users/serverport/Longevity/examples/ayush-2026-06/protocol.json",
+    "report_html": "/Users/serverport/Longevity/examples/ayush-2026-06/report.html",
+    "report_pdf": "/Users/serverport/Longevity/examples/ayush-2026-06/report.pdf"
+  },
+  "constraints_honored": {
+    "no_em_dashes": true,
+    "no_fabricated_results": true,
+    "no_reverse_age_overclaims": true,
+    "honest_lp_a_expectation": true,
+    "iron_physician_gated": true
+  },
+  "generated_at_utc": "2026-06-17T16:55:00Z"
+}
