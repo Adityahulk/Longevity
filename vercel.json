@@ -101,6 +101,11 @@
       "permanent": true
     },
     {
+      "source": "/learn-vo2-max.html",
+      "destination": "/learn/vo2-max",
+      "permanent": true
+    },
+    {
       "source": "/masai-ppt.html",
       "destination": "/masai-ppt",
       "permanent": true
@@ -167,6 +172,14 @@
     {
       "source": "/learn/longevity-genes",
       "destination": "/learn-longevity-genes.html"
+    },
+    {
+      "source": "/learn/vo2-max",
+      "destination": "/learn-vo2-max.html"
+    },
+    {
+      "source": "/learn/vo2-max/",
+      "destination": "/learn-vo2-max.html"
     },
     {
       "source": "/masai-ppt",
