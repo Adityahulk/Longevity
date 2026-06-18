@@ -173,7 +173,7 @@
 
       <div class="mcard">
         <div class="mcard-top">
-          <div class="mavatar">CT</div>
+          <img class="mavatar" src="/assets/carlos-trujillo.jpg" alt="Carlos Trujillo">
           <div class="mcard-id">
             <h3 class="mname">Carlos Trujillo</h3>
             <p class="mtitle">Cytogenetics &amp; Molecular Geneticist</p>
@@ -191,6 +191,7 @@
         <div class="mfooter">
           <span class="mloc">Colombia</span>
           <span class="minst">King Fahd Medical Research Center · KAU, Saudi Arabia</span>
+          <a class="mlinkedin" href="https://www.linkedin.com/in/carlos-trujillo-42509311/" target="_blank" rel="noopener noreferrer">LinkedIn →</a>
         </div>
       </div>
 
@@ -203,6 +204,9 @@
 .mcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px 34px;display:flex;flex-direction:column;gap:22px;}
 .mcard-top{display:flex;align-items:flex-start;gap:22px;}
 .mavatar{width:64px;height:64px;min-width:64px;border-radius:50%;background:var(--dark);color:#fff;font-family:var(--mono);font-size:20px;font-weight:600;display:flex;align-items:center;justify-content:center;letter-spacing:.04em;}
+img.mavatar{object-fit:cover;object-position:top center;}
+.mlinkedin{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--accent);text-decoration:none;margin-left:auto;}
+.mlinkedin:hover{text-decoration:underline;}
 .mcard-id{display:flex;flex-direction:column;gap:3px;padding-top:4px;}
 .mname{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--ink);line-height:1.2;}
 .mtitle{font-size:14px;font-weight:600;color:var(--accent);margin-top:2px;}
