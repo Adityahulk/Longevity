@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  YouTube Channel Banner — Antiaging Labs
+  Total canvas  : 2560 × 1440 px  (TV / max)
+  Desktop crop  : 2560 × 423 px   (center strip)
+  Safe zone     :  ~1546 × 423 px  centered at x=507..2053, y=509..932
+  All key text fits within x=640..1920, y=550..890
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2560 1440"
+     width="2560" height="1440" role="img" aria-label="Antiaging Labs YouTube Banner">
+  <title>Antiaging Labs — Latest Research, Decoded</title>
+  <defs>
+    <!-- Background gradient: deep navy left → slightly lighter right -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#080F19"/>
+      <stop offset="55%" stop-color="#0E1B2C"/>
+      <stop offset="100%" stop-color="#142438"/>
+    </linearGradient>
+    <!-- Accent glow behind mark -->
+    <radialGradient id="glow" cx="72%" cy="50%" r="28%">
+      <stop offset="0%" stop-color="#B85426" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#B85426" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Subtle left warm glow -->
+    <radialGradient id="glow2" cx="18%" cy="50%" r="22%">
+      <stop offset="0%" stop-color="#2F5D3C" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#2F5D3C" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Grid line fade -->
+    <linearGradient id="gridfade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C8BFA8" stop-opacity="0"/>
+      <stop offset="40%" stop-color="#C8BFA8" stop-opacity="0.07"/>
+      <stop offset="60%" stop-color="#C8BFA8" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#C8BFA8" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="safe">
+      <rect x="507" y="509" width="1546" height="423"/>
+    </clipPath>
+  </defs>
+
+  <!-- ── BACKGROUND ── -->
+  <rect width="2560" height="1440" fill="url(#bg)"/>
+  <rect width="2560" height="1440" fill="url(#glow)"/>
+  <rect width="2560" height="1440" fill="url(#glow2)"/>
+
+  <!-- ── GRID LINES (technical feel) ── -->
+  <!-- Vertical lines, very subtle -->
+  <g stroke="url(#gridfade)" stroke-width="0.6" opacity="0.6">
+    <line x1="320"  y1="0" x2="320"  y2="1440"/>
+    <line x1="640"  y1="0" x2="640"  y2="1440"/>
+    <line x1="960"  y1="0" x2="960"  y2="1440"/>
+    <line x1="1280" y1="0" x2="1280" y2="1440"/>
+    <line x1="1600" y1="0" x2="1600" y2="1440"/>
+    <line x1="1920" y1="0" x2="1920" y2="1440"/>
+    <line x1="2240" y1="0" x2="2240" y2="1440"/>
+  </g>
+  <!-- Horizontal lines -->
+  <g stroke="url(#gridfade)" stroke-width="0.6" opacity="0.6">
+    <line x1="0" y1="360"  x2="2560" y2="360"/>
+    <line x1="0" y1="509"  x2="2560" y2="509"/>
+    <line x1="0" y1="720"  x2="2560" y2="720"/>
+    <line x1="0" y1="931"  x2="2560" y2="931"/>
+    <line x1="0" y1="1080" x2="2560" y2="1080"/>
+  </g>
+  <!-- Safe-zone border hint (very faint, just for design alignment) -->
+  <rect x="507" y="509" width="1546" height="422" fill="none"
+        stroke="#C8BFA8" stroke-width="0.5" stroke-opacity="0.06"/>
+
+  <!-- ── LARGE DNA WATERMARK (right side, decorative) ── -->
+  <g transform="translate(1780, 200) scale(7.5)" opacity="0.07">
+    <g fill="none" stroke-linecap="round">
+      <g stroke="#D17244" stroke-width="2.4">
+        <line x1="22" y1="15" x2="42" y2="15"/>
+        <line x1="24" y1="22" x2="40" y2="22"/>
+        <line x1="24" y1="42" x2="40" y2="42"/>
+        <line x1="22" y1="49" x2="42" y2="49"/>
+      </g>
+      <g stroke="#B85426" stroke-width="3.4">
+        <path d="M32 6 C 52 13, 52 23, 32 30 C 12 37, 12 47, 32 54"/>
+        <path d="M32 6 C 12 13, 12 23, 32 30 C 52 37, 52 47, 32 54"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- ── SECOND DNA WATERMARK (left edge, partial) ── -->
+  <g transform="translate(-80, 300) scale(5.5)" opacity="0.05">
+    <g fill="none" stroke-linecap="round">
+      <g stroke="#D17244" stroke-width="2.4">
+        <line x1="22" y1="15" x2="42" y2="15"/>
+        <line x1="24" y1="22" x2="40" y2="22"/>
+        <line x1="24" y1="42" x2="40" y2="42"/>
+        <line x1="22" y1="49" x2="42" y2="49"/>
+      </g>
+      <g stroke="#2F5D3C" stroke-width="3.4">
+        <path d="M32 6 C 52 13, 52 23, 32 30 C 12 37, 12 47, 32 54"/>
+        <path d="M32 6 C 12 13, 12 23, 32 30 C 52 37, 52 47, 32 54"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- ── HORIZONTAL ACCENT LINE ── -->
+  <line x1="640" y1="720" x2="1920" y2="720"
+        stroke="#B85426" stroke-width="1" stroke-opacity="0.25"/>
+
+  <!-- ── DNA MARK (main, inline, at left of safe zone) ── -->
+  <g transform="translate(680, 590) scale(2.8)">
+    <g fill="none" stroke-linecap="round">
+      <g stroke="#D17244" stroke-width="2.4">
+        <line x1="22" y1="15" x2="42" y2="15"/>
+        <line x1="24" y1="22" x2="40" y2="22"/>
+        <line x1="24" y1="42" x2="40" y2="42"/>
+        <line x1="22" y1="49" x2="42" y2="49"/>
+      </g>
+      <g stroke="#B85426" stroke-width="3.4">
+        <path d="M32 6 C 52 13, 52 23, 32 30 C 12 37, 12 47, 32 54"/>
+        <path d="M32 6 C 12 13, 12 23, 32 30 C 52 37, 52 47, 32 54"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- ── WORDMARK: ANTIAGING LABS ── -->
+  <!-- Eyebrow mono label -->
+  <text x="868" y="636"
+        font-family="'JetBrains Mono', 'Courier New', monospace"
+        font-size="22" font-weight="500"
+        letter-spacing="8"
+        fill="#B85426" opacity="0.9"
+        text-anchor="start">ANTIAGING LABS</text>
+
+  <!-- Main heading: large serif-weight -->
+  <text x="868" y="718"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="88" font-weight="300"
+        letter-spacing="-2"
+        fill="#F5F1E8"
+        text-anchor="start">Latest Research,</text>
+
+  <text x="868" y="814"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="88" font-weight="300"
+        letter-spacing="-2"
+        fill="#F5F1E8"
+        text-anchor="start">
+    <tspan fill="#F5F1E8">Decoded.</tspan>
+  </text>
+
+  <!-- Tagline below headline -->
+  <text x="870" y="858"
+        font-family="'Inter', 'Helvetica Neue', Arial, sans-serif"
+        font-size="22" font-weight="400"
+        letter-spacing="0.5"
+        fill="#7A8497"
+        text-anchor="start">Peer-reviewed longevity science  ·  New studies every week  ·  Plain English</text>
+
+  <!-- ── PILL TAGS — left-aligned row below tagline, no overlap ── -->
+  <g transform="translate(868, 882)">
+    <!-- Tag 1 -->
+    <rect x="0" y="0" width="148" height="34" rx="17"
+          fill="none" stroke="#2F5D3C" stroke-width="1.4" stroke-opacity="0.85"/>
+    <text x="74" y="22"
+          font-family="'JetBrains Mono','Courier New',monospace"
+          font-size="13" font-weight="500" letter-spacing="2"
+          fill="#4A9B6A" text-anchor="middle">BIOHACKING</text>
+    <!-- Tag 2 -->
+    <rect x="162" y="0" width="138" height="34" rx="17"
+          fill="none" stroke="#8B6914" stroke-width="1.4" stroke-opacity="0.85"/>
+    <text x="231" y="22"
+          font-family="'JetBrains Mono','Courier New',monospace"
+          font-size="13" font-weight="500" letter-spacing="2"
+          fill="#C4A535" text-anchor="middle">LONGEVITY</text>
+    <!-- Tag 3 -->
+    <rect x="314" y="0" width="118" height="34" rx="17"
+          fill="none" stroke="#B85426" stroke-width="1.4" stroke-opacity="0.85"/>
+    <text x="373" y="22"
+          font-family="'JetBrains Mono','Courier New',monospace"
+          font-size="13" font-weight="500" letter-spacing="2"
+          fill="#D17244" text-anchor="middle">SCIENCE</text>
+  </g>
+
+  <!-- ── THIN BOTTOM ACCENT STRIP ── -->
+  <rect x="0" y="1430" width="2560" height="10" fill="#B85426" opacity="0.6"/>
+  <!-- Tiny top strip -->
+  <rect x="0" y="0" width="2560" height="6" fill="#B85426" opacity="0.4"/>
+
+</svg>

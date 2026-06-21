@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+<title>YouTube Banner Preview</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#111; font-family:sans-serif; color:#fff; }
+  .label { padding:10px 20px; font-size:12px; letter-spacing:.1em; text-transform:uppercase;
+           color:#888; border-bottom:1px solid #333; }
+
+  /* TV / full canvas */
+  .tv   { width:100%; max-width:1280px; margin:20px auto; display:block; }
+
+  /* Desktop strip: center 423px of the 1440px image */
+  .desktop-wrap {
+    width:100%; max-width:1280px; margin:20px auto;
+    overflow:hidden; height:212px; /* half-scale: 423/2 */
+    position:relative;
+  }
+  .desktop-wrap img {
+    width:100%;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+  }
+
+  /* Mobile strip: center 135px */
+  .mobile-wrap {
+    width:360px; margin:20px auto;
+    overflow:hidden; height:67px;
+    position:relative;
+  }
+  .mobile-wrap img {
+    width:100%;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+  }
+
+  .section { margin-bottom:40px; }
+</style>
+</head>
+<body>
+  <div class="label">Full canvas (TV) — 2560x1440</div>
+  <div class="section">
+    <img class="tv" src="yt-banner.svg" alt="Full banner">
+  </div>
+
+  <div class="label">Desktop strip — 2560×423 centered crop</div>
+  <div class="section">
+    <div class="desktop-wrap">
+      <img src="yt-banner.svg" alt="Desktop crop">
+    </div>
+  </div>
+
+  <div class="label">Mobile strip — 1546×423 safe-zone crop</div>
+  <div class="section">
+    <div class="mobile-wrap">
+      <img src="yt-banner.svg" alt="Mobile crop">
+    </div>
+  </div>
+</body>
+</html>
