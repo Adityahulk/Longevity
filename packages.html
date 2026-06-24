@@ -47,51 +47,104 @@
   </div>
 </section>
 
-<!-- TIERS -->
+<!-- PACKAGES -->
+<style>
+.pkgs{display:flex;flex-direction:column;gap:26px;margin-top:44px;}
+.pkg{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:38px 36px;}
+.pkg.flag{border-color:var(--accent);box-shadow:0 24px 60px rgba(184,84,38,.09);}
+.pkg-top{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;flex-wrap:wrap;padding-bottom:26px;border-bottom:1px solid var(--line);margin-bottom:28px;}
+.pkg-id{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.pkg-flag-tag{background:var(--accent);color:#fff;padding:3px 9px;border-radius:999px;font-size:9.5px;letter-spacing:.1em;}
+.pkg-name{font-size:25px;margin-bottom:11px;line-height:1.12;}
+.pkg-name .sub{color:var(--ink-3);font-weight:500;}
+.pkg-lede{font-size:15.5px;color:var(--ink-2);max-width:600px;line-height:1.6;margin:0;}
+.pkg-buy{flex-shrink:0;text-align:right;min-width:178px;}
+.pkg-amt{font-family:var(--display);font-size:38px;font-weight:600;letter-spacing:-0.03em;color:var(--ink);line-height:1;}
+.pkg-avail{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:9px 0 16px;}
+.pkg-buy .pill{justify-content:center;width:100%;}
+.pkg-feats{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+.pkg-feat h4{font-size:16px;font-weight:600;color:var(--ink);margin:0 0 9px;}
+.pkg-feat p{font-size:14px;color:var(--ink-2);line-height:1.62;margin:0;}
+.pkg-hood{margin-top:28px;padding-top:20px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-2);line-height:1.6;}
+.pkg-hood strong{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-right:10px;}
+@media(max-width:820px){.pkg{padding:30px 22px;}.pkg-feats{grid-template-columns:1fr;gap:24px;}.pkg-buy{text-align:left;min-width:0;width:100%;}.pkg-buy .pill{width:auto;}.pkg-amt{font-size:32px;}}
+</style>
 <section class="sec sec-alt">
   <div class="wrap">
     <div class="sec-head">
       <p class="kicker">Packages</p>
-      <h2 class="sec-title">Three ways to start. <span class="muted">One record that compounds.</span></h2>
-      <p class="sec-intro">Each package switches on more data modules. Same engine, same report, same longitudinal record. Add data over time and nothing gets re-bought.</p>
+      <h2 class="sec-title">Three products. <span class="muted">One record that compounds.</span></h2>
+      <p class="sec-intro">Each tier switches on more of the engine, from a static insights portal to a live twin to a predictive cockpit. Same health record underneath, so everything you add carries forward and nothing gets re-bought.</p>
     </div>
-    <div class="tiers">
-      <div class="tier">
-        <div class="badge">Available now</div>
-        <h3>Essential</h3>
-        <ul>
-          <li>50+ blood markers, Day 1 and Day 90</li>
-          <li>Biological age (PhenoAge), before and after</li>
-          <li>Personalized 4-lever protocol</li>
-          <li>Bi-weekly coaching across 90 days</li>
-          <li>20+ page report, every finding traced to a rule</li>
-        </ul>
-        <a class="pill pill-dark" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Start Essential</a>
+
+    <div class="pkgs">
+
+      <!-- Essential -->
+      <div class="pkg">
+        <div class="pkg-top">
+          <div>
+            <div class="pkg-id">Tier 1 · Available now</div>
+            <h3 class="pkg-name">Essential <span class="sub">/ The Insights Portal</span></h3>
+            <p class="pkg-lede">Your biology, translated. A clean portal that turns one deep diagnostic round into a clear picture of how you are aging and exactly what to do about it.</p>
+          </div>
+          <div class="pkg-buy">
+            <div class="pkg-amt">₹28,000</div>
+            <div class="pkg-avail">per cycle</div>
+            <a class="pill pill-dark" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Start Essential</a>
+          </div>
+        </div>
+        <div class="pkg-feats">
+          <div class="pkg-feat"><h4>The PhenoAge Tracker</h4><p>Your biological age set against your chronological age, measured at the start and end of each cycle so you can watch the gap close.</p></div>
+          <div class="pkg-feat"><h4>The Traceability Engine</h4><p>An interactive 20+ page report. Tap any finding, like elevated ApoB, and see the exact rule and data that triggered it. No black box.</p></div>
+          <div class="pkg-feat"><h4>The 4-Lever Checklist</h4><p>A daily protocol manager laying out your nutrition, supplements, sleep and training for the phase, in plain, do-this steps.</p></div>
+        </div>
+        <p class="pkg-hood"><strong>Under the hood</strong>Deterministic scripts convert your structured lab data into a clean, actionable dashboard.</p>
       </div>
-      <div class="tier feature">
-        <div class="badge">Available via partner</div>
-        <h3>Deep</h3>
-        <ul>
-          <li>Everything in Essential</li>
-          <li>One-time genome (partner lab) for personalization</li>
-          <li>Wearable + CGM data integrated</li>
-          <li>Deeper marker panel</li>
-          <li>Genome enriches every future cycle, no re-test</li>
-        </ul>
-        <a class="pill pill-accent" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Talk to us about Deep</a>
+
+      <!-- Deep -->
+      <div class="pkg flag">
+        <div class="pkg-top">
+          <div>
+            <div class="pkg-id">Tier 2 · Wearables + partner genome <span class="pkg-flag-tag">FLAGSHIP</span></div>
+            <h3 class="pkg-name">Deep <span class="sub">/ The Live Biological Twin</span></h3>
+            <p class="pkg-lede">The product you open every morning, not once a month. Your twin reads live telemetry from your wearable and adjusts your day in real time.</p>
+          </div>
+          <div class="pkg-buy">
+            <div class="pkg-amt">₹65,000</div>
+            <div class="pkg-avail">per cycle</div>
+            <a class="pill pill-accent" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Talk to us about Deep</a>
+          </div>
+        </div>
+        <div class="pkg-feats">
+          <div class="pkg-feat"><h4>The Live Biological Twin</h4><p>A real-time model of your body. As your Apple Watch, Whoop or Oura streams recovery data, the visual model shifts with you.</p></div>
+          <div class="pkg-feat"><h4>Autopilot Protocol Sync</h4><p>A live feed that adjusts your day to your telemetry. If your HRV dips and your panel flags high cortisol, the app intercepts at 7 AM: swap caffeine for 300mg L-Theanine to protect focus today.</p></div>
+          <div class="pkg-feat"><h4>The Genomic Filter</h4><p>A permanent portal to your whole-genome results, showing how your DNA shapes the speed you process nutrients, drugs and stress.</p></div>
+        </div>
+        <p class="pkg-hood"><strong>Under the hood</strong>An asynchronous multi-omic orchestrator processes live webhook streams from wearable APIs (Terra, Vital) and computes your biological age drift in real time.</p>
       </div>
-      <div class="tier">
-        <div class="badge">By consultation</div>
-        <h3>Comprehensive</h3>
-        <ul>
-          <li>Everything in Deep</li>
-          <li>DEXA body composition + bone density (referral)</li>
-          <li>Whole-body MRI / coronary-calcium where indicated</li>
-          <li>Quarterly retests and ongoing protocol updates</li>
-          <li>Priority coach access</li>
-        </ul>
-        <a class="pill pill-ghost" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a consultation</a>
+
+      <!-- Comprehensive -->
+      <div class="pkg">
+        <div class="pkg-top">
+          <div>
+            <div class="pkg-id">Tier 3 · By consultation</div>
+            <h3 class="pkg-name">Comprehensive <span class="sub">/ The Simulation Cockpit</span></h3>
+            <p class="pkg-lede">A high-fidelity command interface for people who run their body like an enterprise system. Model the future before you live it.</p>
+          </div>
+          <div class="pkg-buy">
+            <div class="pkg-amt">₹1,50,000</div>
+            <div class="pkg-avail">per cycle</div>
+            <a class="pill pill-ghost" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a consultation</a>
+          </div>
+        </div>
+        <div class="pkg-feats">
+          <div class="pkg-feat"><h4>The What-If Simulator</h4><p>Interactive sliders to simulate a decision before you make it. "If I hold a 3x weekly REHIT protocol and drop fasting glucose 6%, where does my biological age go over 12 months?" The model runs it instantly.</p></div>
+          <div class="pkg-feat"><h4>The Spatial Structural Map</h4><p>A 3D visualization layer that brings your DEXA body composition and structural MRI data directly into your profile.</p></div>
+          <div class="pkg-feat"><h4>The Executive Privacy Wall</h4><p>A zero-knowledge interface that lets you sync performance telemetry into corporate or team pools without ever exposing your private medical records.</p></div>
+        </div>
+        <p class="pkg-hood"><strong>Under the hood</strong>Heavy computational models synthesize deep spatial imaging with your multi-omic arrays to run forward-looking, longitudinal simulations.</p>
       </div>
+
     </div>
   </div>
 </section>
@@ -101,26 +154,29 @@
   <div class="wrap">
     <div class="sec-head">
       <p class="kicker">What's included</p>
-      <h2 class="sec-title">The same record, <span class="muted">more inputs.</span></h2>
-      <p class="sec-intro">Each data type is a module that normalizes into one health record and feeds the same engine.</p>
+      <h2 class="sec-title">Every capability, <span class="muted">side by side.</span></h2>
+      <p class="sec-intro">Each tier unlocks more of the same engine and the same health record. Everything below Essential carries forward as you move up.</p>
     </div>
     <div style="overflow-x:auto;">
     <table class="matrix">
-      <thead><tr><th>Data module</th><th>Essential</th><th>Deep</th><th>Comprehensive</th></tr></thead>
+      <thead><tr><th>Capability</th><th>Essential</th><th>Deep</th><th>Comprehensive</th></tr></thead>
       <tbody>
-        <tr><td>Blood panel (50+ markers)</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
-        <tr><td>Biological age + retest</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
-        <tr><td>Lifestyle + family-history intake</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
-        <tr><td>Wearable / CGM data</td><td class="n">·</td><td class="y">✓</td><td class="y">✓</td></tr>
-        <tr><td>Genome (one-time)</td><td class="n">·</td><td class="y">✓</td><td class="y">✓</td></tr>
-        <tr><td>DEXA body composition + bone</td><td class="n">·</td><td class="n">·</td><td class="y">✓ referral</td></tr>
-        <tr><td>Whole-body MRI / coronary calcium</td><td class="n">·</td><td class="n">·</td><td class="y">✓ referral</td></tr>
-        <tr><td>Retest cadence</td><td>Day 90</td><td>Day 90</td><td>Quarterly</td></tr>
+        <tr><td>PhenoAge tracker (bio age, before and after)</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Traceability engine (rule-traced report)</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>4-lever daily protocol</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Live Biological Twin (real-time avatar)</td><td class="n">·</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Wearable telemetry sync (Watch, Whoop, Oura)</td><td class="n">·</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Autopilot protocol updates</td><td class="n">·</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Whole-genome portal</td><td class="n">·</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>What-if trajectory simulator</td><td class="n">·</td><td class="n">·</td><td class="y">✓</td></tr>
+        <tr><td>DEXA + MRI spatial map (3D)</td><td class="n">·</td><td class="n">·</td><td class="y">✓ referral</td></tr>
+        <tr><td>Zero-knowledge executive privacy wall</td><td class="n">·</td><td class="n">·</td><td class="y">✓</td></tr>
+        <tr><td>Data refresh</td><td>90-day cycle</td><td>Continuous</td><td>Continuous + simulation</td></tr>
       </tbody>
     </table>
     </div>
     <div class="callout">
-      <strong>Straight about availability.</strong> Essential is live today. Deep runs through a genome partner and integrated wearables, set up during onboarding. Comprehensive's scans are arranged by referral to partner imaging centers in select cities, on clinical indication, never sold as routine. We only recommend a modality when it will change your plan.
+      <strong>Straight about availability.</strong> Essential is live today. Deep runs through a genome partner and integrated wearables, set up during onboarding. Comprehensive's scans are arranged by referral to partner imaging centers in select cities, on clinical indication, never sold as routine. We only switch on a module when it will change your plan.
     </div>
   </div>
 </section>
