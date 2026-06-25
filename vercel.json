@@ -134,6 +134,11 @@
       "source": "/imaging.html",
       "destination": "/imaging",
       "permanent": true
+    },
+    {
+      "source": "/whitepaper.html",
+      "destination": "/whitepaper",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -228,6 +233,14 @@
     {
       "source": "/imaging/",
       "destination": "/imaging.html"
+    },
+    {
+      "source": "/whitepaper",
+      "destination": "/whitepaper.html"
+    },
+    {
+      "source": "/whitepaper/",
+      "destination": "/whitepaper.html"
     },
     {
       "source": "/strategy",
