@@ -99,6 +99,26 @@ body {
   padding: 14px 18px; border-left: 2px solid var(--rule); background: var(--paper);
 }
 
+/* ─── WHITEPAPER CTA ─── */
+.wp-cta {
+  display: inline-flex; align-items: center; gap: 14px;
+  text-decoration: none; margin-bottom: 36px;
+  padding: 16px 22px; border: 1px solid var(--rule);
+  border-radius: 12px; background: var(--paper);
+  transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+.wp-cta:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 14px 34px rgba(184,84,38,0.10); }
+.wp-cta-icon {
+  width: 40px; height: 40px; flex-shrink: 0; border-radius: 9px;
+  background: var(--ink); display: flex; align-items: center; justify-content: center;
+}
+.wp-cta-icon svg { width: 18px; height: 18px; }
+.wp-cta-tx { display: flex; flex-direction: column; gap: 2px; }
+.wp-cta-tx .k { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+.wp-cta-tx .t { font-family: var(--serif); font-size: 17px; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; }
+.wp-cta-arrow { font-family: var(--mono); font-size: 18px; color: var(--accent); margin-left: 6px; transition: transform 0.2s; }
+.wp-cta:hover .wp-cta-arrow { transform: translateX(4px); }
+
 /* ─── SECTION SHELL ─── */
 .rs { padding: 90px 0; }
 .rs.bg-paper { background: var(--paper); border-top: 1px solid var(--rule-soft); border-bottom: 1px solid var(--rule-soft); }
@@ -447,6 +467,11 @@ body {
     <p class="page-hero-lede">
       A decade ago, "anti-aging" was the domain of supplement marketing and wishful thinking. Today it's Nobel Prize-winning biology, $3 billion venture rounds, and the first FDA-accepted clinical trial targeting aging as a disease. This is what the research actually shows, and what it doesn't.
     </p>
+    <a class="wp-cta" href="/whitepaper">
+      <span class="wp-cta-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#F5F1E8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13a0 0 0 0 1 0 0H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></span>
+      <span class="wp-cta-tx"><span class="k">Engineering Whitepaper</span><span class="t">Read the Technical Whitepaper</span></span>
+      <span class="wp-cta-arrow">&rarr;</span>
+    </a>
     <div class="hero-disclaimer">
       DISCLAIMER, This page summarizes published peer-reviewed research. Antiaging Labs does not administer drugs or hormones. Our protocols are lifestyle-based: nutrition, training, recovery, and evidence-based supplements. Some research below involves pharmaceutical interventions not used in our program.
     </div>
@@ -1039,371 +1064,54 @@ body {
     <span class="our-research-pill">Our Research</span>
   </div>
   <p class="our-research-sub">
-    Beyond running the Antiaging Labs program, we are building the deep technology to make epigenetic age testing 10× cheaper and accessible to any clinical panel. Below is our full research blueprint.
+    Beyond running the Antiaging Labs program, we are building the computational core that models the body as a single high-dimensional dynamical system. Below is a summary of that architecture. The full derivations, tables and equations live in our <a href="/whitepaper" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule);">Technical Whitepaper</a>.
   </p>
 </div>
 
 <div class="blueprint wrap-narrow" style="padding-top: 0;">
 
-  <h1>Full Research Blueprint: Tabular Foundation Models as Surrogate Epigenetic Clocks</h1>
+  <h1>High-Dimensional Physiological Phase-Space Engineering</h1>
+  <p style="color: var(--ink-mute);">A multi-omic neural architecture for real-time biological age decoupling and closed-loop optimization. This is the engineering thesis behind the Antiaging Labs engine. What follows is a summary; the full derivations, coefficient tables and equations are in the <a href="/whitepaper" style="color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--rule);">Technical Whitepaper</a>.</p>
   <hr>
 
-  <h2>The Problem, Precisely Stated</h2>
-  <p><strong>Gold standard:</strong> Epigenetic clocks (GrimAge, DunedinPACE, Horvath, PhenoAge-DNAm) require Illumina EPIC 850K methylation arrays. $300–500/sample. 3–6 week lab processing. Specialized bioinformatics pipeline.</p>
-  <p><strong>Current blood-based alternative:</strong> PhenoAge (Levine et al., 2018, <em>Nature Medicine</em>), linear regression on 9 blood markers trained to predict chronological age, not methylation clock outputs. Linear. 2018. Never updated. Not actually trained to approximate GrimAge or DunedinPACE.</p>
-  <p><strong>The gap we fill:</strong> Train a deep tabular model directly on the 30–60 blood chemistry markers available in a standard clinical panel, with methylation clock scores as the prediction target. Multi-task across 4 clocks simultaneously. Calibrated uncertainty. Graceful missingness. Deployable for $30/sample.</p>
-  <p><strong>Our unique edge:</strong> Antiaging Labs is operationally running PhenoAge on real clients. We understand what 50-marker panels look like in practice, what's missable, and what "clinical deployment" requires. No competing researcher has that grounding.</p>
+  <h2>The Core Paradigm: the body as a dynamical system</h2>
+  <p>Traditional diagnostics rely on isolated, static reference ranges and episodic panels that treat the body as a set of compartmentalized organs. That model misses the multi-system feedback loops that actually drive aging. We instead model the human organism as a highly integrated, non-linear dynamical system. At any moment, a person's complete physiological state is a single point, a Dynamic State Vector, navigating a high-dimensional Physiological State Space.</p>
+  <p>The trajectory of that vector over time is the true biological velocity of aging. In a resilient state, the system sits in a deep basin of attraction, the Healthy Optimization Attractor, and snaps back after stress. As allostatic load accumulates, those basins flatten, the state vector drifts into high-entropy regions, and in extreme strain the system crosses a separatrix into a self-degrading limit-cycle associated with chronic disease.</p>
 
-  <hr>
-
-  <h2>Section 1, Dataset Selection</h2>
-
-  <h3>Primary Dataset: UK Biobank (UKB)</h3>
-  <p>This is the only dataset that gives you scale, breadth, and both methylation + blood chemistry simultaneously.</p>
-  <p><strong>What it has:</strong></p>
+  <h2>Five Multi-Omic Vector Tiers</h2>
+  <p>The engine constructs the state vector by compiling data across five biological layers, each at a different temporal resolution:</p>
   <ul>
-    <li>~500K participants total</li>
-    <li>~45,000 participants with EPIC 850K methylation arrays</li>
-    <li>Blood biochemistry: 34 markers, Albumin, ALP, ALT, ApoA, ApoB, AST, Calcium, Cholesterol, CRP, Creatinine, Cystatin C, Direct bilirubin, eGFR, GGT, Glucose, HbA1c, HDL, IGF-1, LDL, Lipoprotein-A, Phosphate, SHBG, Testosterone, Total bilirubin, Total protein, Triglycerides, Urate, Urea, Vitamin D</li>
-    <li>Full CBC: WBC, RBC, Haemoglobin, MCV, Platelets, Neutrophils, Lymphocytes, Monocytes, Eosinophils, Basophils</li>
-    <li>~42 blood markers total in the methylation subset</li>
+    <li><strong>Tier 1, the invariant genome.</strong> High-leverage SNPs (MTHFR, APOE, SOD2, CAT, TCF7L2, COMT, FOXO3, CETP, TERT, LPA) extracted from VCF sequences, defining the boundaries and clearance rates of the regulatory system.</li>
+    <li><strong>Tier 2, the episodic hardware.</strong> An 87-marker quantitative blood and urine matrix on a 90-day cycle, structured into functional domains rather than single-marker values.</li>
+    <li><strong>Tier 3, the spatial phenotype.</strong> DEXA body composition (VAT, ALMI, A/G ratio, BMD) and whole-body MRI (white-matter hyperintensities, BrainAge gap, vascular and oncologic screening).</li>
+    <li><strong>Tier 4, streaming telemetry.</strong> High-frequency wearable data (RMSSD, SDNN, sleep architecture, VO<sub>2</sub> max) ingested through secure cloud APIs.</li>
+    <li><strong>Tier 5, qualitative context.</strong> Self-reported fatigue, nutrition, and circadian and travel constraints that sensors cannot resolve.</li>
   </ul>
 
-  <p><strong>How to calculate your targets from this data:</strong></p>
+  <h2>The Multi-Omic Computational Core</h2>
+  <p>Simply concatenating these tiers obscures cross-modal interactions and overfits, and real users always have gaps, the "Missing Modality Problem." The core resolves this with a dual-engine design:</p>
   <ul>
-    <li><strong>Horvath clock</strong>, from methylation CpGs using the <code>methylclock</code> R package</li>
-    <li><strong>GrimAge</strong>, from methylation using <code>grimage</code> R package (Lu et al., 2019)</li>
-    <li><strong>DunedinPACE</strong>, from methylation using <code>DunedinPACE</code> R package (Belsky et al., 2020)</li>
-    <li><strong>PhenoAge-DNAm</strong>, the methylation-based version (distinct from the blood-based PhenoAge)</li>
+    <li><strong>Cross-Modal Variational Autoencoders (MM-VAEs).</strong> Each modality has its own encoder mapping into a shared latent space, aggregated through Mixture-of-Experts and Product-of-Experts posteriors, trained over a powerset of modality subsets so the latent stays coherent even when inputs are missing.</li>
+    <li><strong>Contrastive latent alignment.</strong> A symmetric InfoNCE objective aligns high-frequency wearable streams with slower blood biochemistry, so a drop in sleeping HRV can project into latent blood pathways and flag sub-clinical inflammation before a blood draw.</li>
+    <li><strong>Low-rank tensor factorization.</strong> On complete cohort datasets, CP decomposition, MULTIFAC and the M-product (TCAM) method surface deep multi-omic features without overfitting.</li>
   </ul>
 
-  <p>Training data becomes: <code>[blood chemistry vector] → [4 clock output scores]</code></p>
-
-  <p><strong>How to apply:</strong></p>
+  <h2>The Hybrid Biological Age Core</h2>
+  <p>Open-source linear clocks (Levine PhenoAge, KDM-BA) are trained on population mortality and offer no proprietary moat. We calculate them as transparent industry benchmarks, then route true optimization through a non-linear Deep Multi-Modal Clock built in three stages:</p>
   <ol>
-    <li>Register at <code>ukbiobank.ac.uk</code>, the process takes 2–4 months. Start today.</li>
-    <li>Complete mandatory GDPR and data handling training</li>
-    <li>Submit a project application with your research question (below)</li>
-    <li>Data delivered to a Tier 2 secure compute environment</li>
+    <li><strong>Transfer learning.</strong> Pre-trained MLP and gradient-boosted architectures on UK Biobank (500,000+) and NHANES capture non-linear marker interactions linear formulas miss.</li>
+    <li><strong>Synthetic augmentation.</strong> CVAEs and GANs generate virtual patient cohorts to stress-test the pipeline before a single real user is onboarded.</li>
+    <li><strong>The data flywheel.</strong> At a cohort milestone, parameter-efficient fine-tuning (LoRA) re-optimizes the clock against a Healthy Aging Index from elite, disease-free trajectories, turning the data pipeline into a defensive technical moat.</li>
   </ol>
 
-  <p><strong>Application pitch:</strong></p>
-  <blockquote>
-    "We aim to develop deep learning surrogate models for epigenetic biological age clocks using standard clinical blood biochemistry. Using paired methylation array and blood biochemistry data, we will train tabular transformer architectures to predict established clock outputs (GrimAge, DunedinPACE, Horvath's DNAmAge, PhenoAge-DNAm) from routine blood markers alone. This work aims to enable scalable, low-cost population-level biological age monitoring without requiring DNA methylation arrays."
-  </blockquote>
+  <h2>The Closed-Loop Intervention Engine</h2>
+  <p>The daily protocol compiler is a Closed-Loop Reinforcement Learning system (Contextual Bandits with Proximal Policy Optimization). The aligned latent state is the context; the action space is exact dosing of co-factors, macros, fasting windows and training load; the reward minimizes the displacement from the Healthy Optimization Attractor while maximizing biological-age reversal. If an intervention moves the trajectory the right way, the policy reinforces it for that physiological archetype, for example deploying methylfolate against an MTHFR vascular-inflammation profile, or PQQ and ubiquinol against a SOD2 mitochondrial-decay profile.</p>
 
-  <p><strong>Start this application this week. It is the long pole in the tent.</strong></p>
-
-  <hr>
-
-  <h3>Secondary Datasets (external validation, critical for Nature-tier papers)</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Dataset</th>
-        <th>N (methylation)</th>
-        <th>Blood chemistry</th>
-        <th>Access</th>
-        <th>Use</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Generation Scotland (GS)</strong></td>
-        <td>~18,000</td>
-        <td>Yes, clinical biochemistry</td>
-        <td>Application to GS DataSafe Haven</td>
-        <td>Primary external validation</td>
-      </tr>
-      <tr>
-        <td><strong>MESA</strong></td>
-        <td>~1,200</td>
-        <td>Yes, extensive</td>
-        <td>dbGaP application (free)</td>
-        <td>Cross-ethnic validation</td>
-      </tr>
-      <tr>
-        <td><strong>Framingham Heart Study</strong></td>
-        <td>~2,500</td>
-        <td>Yes</td>
-        <td>dbGaP application (free)</td>
-        <td>Longitudinal validation</td>
-      </tr>
-      <tr>
-        <td><strong>Lothian Birth Cohorts (LBC1936)</strong></td>
-        <td>~1,000</td>
-        <td>Yes</td>
-        <td>Collaboration with Edinburgh</td>
-        <td>Age-specific validation</td>
-      </tr>
-      <tr>
-        <td><strong>KORA cohort</strong></td>
-        <td>~1,800</td>
-        <td>Yes, German clinical</td>
-        <td>Collaboration with Helmholtz</td>
-        <td>European replication</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <p><strong>The Indian cohort angle (our unique contribution):</strong><br>
-  Antiaging Labs clients, even a small cohort of 30–50, give us something no competing lab has: Indian urban professional blood chemistry paired with biological age calculation. After the main model, we validate on this cohort. Cross-ancestry generalizability writes itself as a finding. Most epigenetic clock validation is 95% European-ancestry cohorts.</p>
+  <h2>Clinical Safety and Human-in-the-Loop</h2>
+  <p>The platform operates as an Explainable Expert Co-Pilot, not an unsupervised diagnostic engine. Every automated recommendation passes a four-stage pipeline, algorithmic synthesis, a hard-coded clinical safety filter, an explainable summary for the physician dashboard, and final clinical authorization. Protein and metabolic guardrails are aligned to KDIGO guidelines using the race-free 2021 CKD-EPI Creatinine-Cystatin C equation, with explicit overrides for frail, sarcopenic and pediatric populations.</p>
 
   <hr>
-
-  <h2>Section 2, Architecture Design</h2>
-
-  <h3>Baselines (we must beat all of these)</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Model</th>
-        <th>Purpose</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>PhenoAge (Levine 2018)</td><td>Existing clinical standard, 9 markers, linear</td></tr>
-      <tr><td>Ridge/ElasticNet on all features</td><td>Shows linear benefit of more features</td></tr>
-      <tr><td>Random Forest</td><td>Tree ensemble baseline</td></tr>
-      <tr><td>XGBoost / LightGBM</td><td>Strong GBDT baseline, hardest to beat</td></tr>
-      <tr><td>MLP (vanilla deep net)</td><td>Shows basic DL doesn't automatically win</td></tr>
-      <tr><td>FT-Transformer (Gorishniy 2021)</td><td>Best off-the-shelf tabular transformer</td></tr>
-      <tr><td>TabNet (Arik &amp; Pfister 2019)</td><td>Interpretable attention baseline</td></tr>
-    </tbody>
-  </table>
-
-  <h3>Our novel architecture: BioAge-Transformer</h3>
-  <p><strong>Core design principles:</strong></p>
-  <ol>
-    <li>Feature tokenization (each biomarker becomes a vector, not a raw float)</li>
-    <li>Biological pathway-aware attention (metabolic markers attend to each other, etc.)</li>
-    <li>Learned missing value tokens (not imputation, critical for clinical use)</li>
-    <li>Multi-task heads (one per clock, shared encoder, separate decoders)</li>
-    <li>Calibrated uncertainty (Gaussian NLL outputs mean + variance per clock)</li>
-  </ol>
-
-  <p><strong>Architecture in full:</strong></p>
-<pre><code>class BioAgeTransformer(nn.Module):
-    """
-    Multi-task tabular transformer for surrogate epigenetic clock prediction.
-    Predicts GrimAge, DunedinPACE, Horvath, and PhenoAge-DNAm
-    from standard clinical blood chemistry panels.
-    """
-    def __init__(
-        self,
-        n_features: int,          # ~42 blood markers
-        d_model: int = 192,
-        n_heads: int = 8,
-        n_layers: int = 6,
-        n_clocks: int = 4,
-        n_pathways: int = 6,      # metabolic, lipid, inflammation,
-                                   # hormonal, CBC, nutrients
-        dropout: float = 0.1,
-    ):
-        super().__init__()
-
-        # ── Feature tokenization ──────────────────────────────────────
-        self.feature_embedding = nn.Embedding(n_features, d_model)
-        self.value_projector   = nn.Linear(1, d_model)
-
-        # Learnable missing-value token (one per feature, not global)
-        self.missing_tokens = nn.Parameter(torch.randn(n_features, d_model))
-
-        # ── Biological pathway embeddings ────────────────────────────
-        self.pathway_embedding = nn.Embedding(n_pathways, d_model)
-
-        # ── [CLS] token ───────────────────────────────────────────────
-        self.cls_token = nn.Parameter(torch.randn(1, 1, d_model))
-
-        # ── Transformer encoder ───────────────────────────────────────
-        encoder_layer = nn.TransformerEncoderLayer(
-            d_model=d_model, nhead=n_heads,
-            dim_feedforward=4 * d_model, dropout=dropout,
-            activation='gelu', batch_first=True, norm_first=True,
-        )
-        self.transformer = nn.TransformerEncoder(encoder_layer, n_layers)
-
-        # ── Shared projection head ─────────────────────────────────────
-        self.shared_head = nn.Sequential(
-            nn.LayerNorm(d_model), nn.Linear(d_model, 128),
-            nn.GELU(), nn.Dropout(dropout),
-        )
-
-        # ── Per-clock output heads (mean + log_variance) ──────────────
-        self.clock_heads = nn.ModuleList([
-            nn.Sequential(nn.Linear(128, 64), nn.GELU(), nn.Linear(64, 2))
-            for _ in range(n_clocks)
-        ])
-
-        # ── Auxiliary head: chronological age ────────────────────────
-        self.age_head = nn.Linear(128, 1)
-
-    def forward(self, x: Tensor, mask: Tensor = None):
-        B = x.shape[0]
-        feat_ids = torch.arange(x.shape[1], device=x.device)
-        feat_emb = self.feature_embedding(feat_ids)
-        val_emb  = self.value_projector(x.unsqueeze(-1))
-        tokens   = feat_emb.unsqueeze(0) + val_emb
-
-        if mask is not None:
-            missing_emb = self.missing_tokens.unsqueeze(0)
-            tokens = torch.where(mask.unsqueeze(-1).expand_as(tokens),
-                                 missing_emb.expand(B, -1, -1), tokens)
-
-        pathway_emb = self.pathway_embedding(self.feature_to_pathway)
-        tokens = tokens + pathway_emb.unsqueeze(0)
-
-        cls    = self.cls_token.expand(B, -1, -1)
-        tokens = torch.cat([cls, tokens], dim=1)
-        out    = self.transformer(tokens)
-        shared = self.shared_head(out[:, 0])
-
-        clock_preds = [head(shared) for head in self.clock_heads]
-        age_pred    = self.age_head(shared).squeeze(-1)
-        return clock_preds, age_pred
-</code></pre>
-
-  <p><strong>Training loss:</strong></p>
-<pre><code>def gaussian_nll(pred, target):
-    mean, log_var = pred[:, 0], pred[:, 1].clamp(-6, 6)
-    return (0.5 * (log_var + (target - mean)**2 / log_var.exp())).mean()
-
-def total_loss(clock_preds, clock_targets, age_pred, age_target,
-               clock_weights=(1.0, 1.0, 0.8, 0.8), lambda_age=0.1):
-    clock_loss = sum(w * gaussian_nll(p, t)
-                     for w, p, t in zip(clock_weights, clock_preds, clock_targets))
-    return clock_loss + lambda_age * F.mse_loss(age_pred, age_target)
-</code></pre>
-
-  <hr>
-
-  <h2>Section 3, The Full Experiment Suite</h2>
-
-  <h3>Experiment 1: Main comparison table</h3>
-  <p>Run all models on same train/val/test split (80/10/10, stratified by age decade and sex). Metrics: MAE, R², Pearson r, Spearman ρ per model × clock. Target for GrimAge: r > 0.80 (prior blood-based approaches achieve ~0.65–0.75).</p>
-
-  <h3>Experiment 2: Feature minimization curve</h3>
-  <p>Start with all 42 features. Remove in reverse order of SHAP importance. Plot MAE vs. panel size. Key finding to demonstrate: "A 20-marker panel achieves 95% of full-panel performance. The 9-marker PhenoAge panel achieves only 78%." This is the clinical deployment argument.</p>
-
-  <h3>Experiment 3: Missing data robustness</h3>
-  <p>Introduce missingness at 5%, 10%, 20%, 30%, 50%, 70% under MCAR, MAR, and MNAR mechanisms. Compare learned token approach vs. mean imputation, iterative imputation, KNN, and GAIN. Expected result: learned token outperforms all imputation strategies at all missingness levels.</p>
-
-  <h3>Experiment 4: Multi-task vs. single-task</h3>
-  <p>Train 4 single-task models vs. BioAge-Transformer. Expected result: multi-task model outperforms all single-task models, especially on DunedinPACE (hardest clock to predict from blood alone).</p>
-
-  <h3>Experiment 5: Calibration analysis</h3>
-  <p>Reliability diagram: for each 10th-percentile prediction interval, what fraction of true values fall inside? Report Expected Calibration Error (ECE) per model. Clinical framing: our model's 90% intervals should contain the true value 90% of the time.</p>
-
-  <h3>Experiment 6: External validation</h3>
-  <p>Train on UK Biobank (~40K). Validate on Generation Scotland (~3K), MESA (~1.2K), Framingham (~2K). Expect 5–15% MAE increase on external cohorts. Show it's not catastrophic.</p>
-
-  <h3>Experiment 7: Longitudinal tracking</h3>
-  <p>Apply model to participants with repeat blood draws (Framingham, LBC). Does predicted biological age increase at the expected rate? Does it rise faster in people who develop disease?</p>
-
-  <h3>Experiment 8: Interpretability</h3>
-  <p>Attention weight heatmap per head. SHAP values per feature per clock. Expected biological story: GrimAge dominated by albumin, inflammation, ApoA; DunedinPACE dominated by metabolic markers. This section should read like biology, not ML.</p>
-
-  <h3>Experiment 9: Subgroup analysis</h3>
-  <p>All metrics stratified by sex, age decade, BMI, smoking status, ancestry. Check for heterogeneous performance. Investigate and fix, or disclose clearly.</p>
-
-  <h3>Experiment 10: Comparison to existing DL papers</h3>
-  <p>Directly compare against Lee et al. 2023 (<em>Aging</em>), Bae et al. 2021 (<em>npj Digital Medicine</em>), Putin et al. 2016 (<em>Aging</em>). Run their models on our test set. Show superiority directly.</p>
-
-  <hr>
-
-  <h2>Section 4, Figures Strategy</h2>
-  <p><strong>Figure 1, Architecture:</strong> Clean schematic of the full BioAge-Transformer. Pathway-color-coded. Should be readable by a non-ML clinician.</p>
-  <p><strong>Figure 2, Main results:</strong> Grouped bar charts, MAE per model per clock, 95% bootstrap CIs.</p>
-  <p><strong>Figure 3, Feature minimization curve:</strong> x = panel size, y = normalized MAE. Mark the "20-marker elbow." Add cost axis on right.</p>
-  <p><strong>Figure 4, Calibration:</strong> Reliability diagram. Our model follows the diagonal; others don't.</p>
-  <p><strong>Figure 5, Interpretability:</strong> (A) Attention heatmap by pathway. (B) SHAP dot plot, top 15 features per clock.</p>
-  <p><strong>Figure 6, External validation:</strong> Performance on UKB test set vs. each external cohort, with error bars.</p>
-
-  <hr>
-
-  <h2>Section 5, Week-by-Week Timeline</h2>
-
-  <p><strong>Weeks 1–2:</strong> Apply for UK Biobank access (critical, 2–4 month wait). Apply MESA via dbGaP. Download NHANES (free, immediate). Set up GPU compute.</p>
-  <p><strong>Weeks 3–6:</strong> Build full data pipeline on NHANES + GEO data while waiting for UKB. Implement all baseline models.</p>
-  <p><strong>Weeks 7–12:</strong> UK Biobank access arrives. Calculate clock targets from methylation data in R. Extract and join blood chemistry features. Run baselines.</p>
-  <p><strong>Weeks 13–18:</strong> Implement BioAge-Transformer in PyTorch. Optuna hyperparameter sweep (200 trials). Run all 10 experiments. Log everything in W&amp;B.</p>
-  <p><strong>Weeks 19–24:</strong> External validation. Interpretability analysis. Statistical analysis (bootstrap CIs). Supplementary material.</p>
-  <p><strong>Weeks 25–30:</strong> Paper writing in LaTeX. Figure production (publication-quality matplotlib/seaborn). Submit to npj Digital Medicine.</p>
-
-  <h3>Compute requirements</h3>
-  <table>
-    <thead>
-      <tr><th>Task</th><th>Hardware</th><th>Time estimate</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Baseline models</td><td>CPU, 16GB RAM</td><td>2–4 hours</td></tr>
-      <tr><td>BioAge-Transformer training</td><td>1× A100 (40GB)</td><td>6–12 hours per run</td></tr>
-      <tr><td>Hyperparameter sweep (200 trials)</td><td>4× A100 parallel</td><td>2–3 days</td></tr>
-      <tr><td>Interpretability (SHAP on 40K)</td><td>GPU recommended</td><td>4–8 hours</td></tr>
-    </tbody>
-  </table>
-  <p>GCP <code>a2-highgpu-1g</code> (1× A100) = ~$3.67/hr. Full project: budget ~$500–800 compute.</p>
-
-  <hr>
-
-  <h2>Section 6, The 5 Novelty Claims</h2>
-  <ol>
-    <li><strong>First deep tabular model trained to directly approximate methylation-derived epigenetic clocks from blood chemistry</strong>, PhenoAge approximates mortality risk, not GrimAge/DunedinPACE/Horvath. These are different targets.</li>
-    <li><strong>Multi-task learning across 4 biological age clocks</strong>, joint training exploits shared variance and improves performance on harder clocks like DunedinPACE.</li>
-    <li><strong>Principled missingness handling via learned tokens</strong>, all prior work uses imputation. Our model handles arbitrary missingness patterns without separate imputation.</li>
-    <li><strong>Calibrated uncertainty quantification</strong>, clinical deployment requires confidence intervals. We provide per-sample prediction intervals that are demonstrably well-calibrated.</li>
-    <li><strong>Feature minimization analysis establishing minimum effective panels</strong>, what is the minimum blood panel for each level of clock prediction performance?</li>
-  </ol>
-
-  <hr>
-
-  <h2>Section 7, Journal Selection</h2>
-  <p><strong>Primary target: <em>npj Digital Medicine</em> (Nature Portfolio)</strong>, IF ~15, scope exactly this, open access, 4–8 weeks to first decision.</p>
-  <p><strong>Secondary: <em>Nature Communications</em></strong>, broader scope, slightly harder.</p>
-  <p><strong>Tertiary: <em>Aging (Albany NY)</em></strong>, home journal of most clock papers, IF ~4–6, more likely if external validation is limited.</p>
-  <p>Do not target Nature Medicine, Cell, or Lancet Digital Health on first submission.</p>
-
-  <hr>
-
-  <h2>Section 8, The Antiaging Labs Data Angle</h2>
-  <blockquote>
-    "To demonstrate real-world clinical utility, we apply BioAge-Transformer to a prospectively collected cohort of n=X urban Indian professionals enrolled in the Antiaging Labs longevity program (Hyderabad, India). This cohort differs from UK Biobank in ancestry, diet, and metabolic risk profile. Despite these differences, BioAge-Transformer [maintains performance / shows X% performance drop], suggesting [generalizability beyond European-ancestry populations / the need for fine-tuning in South Asian populations]. Notably, n=Y clients had repeat blood draws at 90-day intervals following a structured lifestyle intervention, the first demonstration of surrogate clock tracking over a short-term intervention period."
-  </blockquote>
-  <p>Even n=20 paired before/after samples is a publishable finding if the surrogate clock moves with the intervention. Apply to an Indian IRB before collecting data for research purposes.</p>
-
-  <hr>
-
-  <h2>The 8 Papers to Read This Week</h2>
-  <ol>
-    <li><strong>Levine et al., 2018</strong>, PhenoAge, <em>Nature Medicine</em>. Your benchmark.</li>
-    <li><strong>Lu et al., 2019</strong>, GrimAge, <em>Aging</em>. Primary prediction target.</li>
-    <li><strong>Belsky et al., 2022</strong>, DunedinPACE, <em>eLife</em>. Hardest prediction target.</li>
-    <li><strong>Horvath, 2013</strong>, Original epigenetic clock, <em>Genome Biology</em>.</li>
-    <li><strong>Gorishniy et al., 2021</strong>, FT-Transformer, <em>NeurIPS</em>. Primary architecture baseline.</li>
-    <li><strong>Hollmann et al., 2022</strong>, TabPFN, <em>NeurIPS</em>. Second architecture baseline.</li>
-    <li><strong>Lee et al., 2023</strong>, Deep learning for biological age from blood. Closest existing work.</li>
-    <li><strong>Bae et al., 2021</strong>, DL biological age from CBC, <em>npj Digital Medicine</em>. Primary "we improve upon" citation.</li>
-  </ol>
-
-  <hr>
-
-  <h2>Immediate Action Items</h2>
-  <table>
-    <thead>
-      <tr><th>Priority</th><th>Task</th><th>Time</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>🔴 Critical</td><td>Apply for UK Biobank access</td><td>3 hours</td></tr>
-      <tr><td>🔴 Critical</td><td>Download NHANES data, start feature pipeline</td><td>4 hours</td></tr>
-      <tr><td>🟠 High</td><td>Apply for MESA via dbGaP</td><td>1 hour</td></tr>
-      <tr><td>🟠 High</td><td>Set up GPU compute environment (GCP/AWS)</td><td>2 hours</td></tr>
-      <tr><td>🟠 High</td><td>Read the 8 papers above</td><td>This week</td></tr>
-      <tr><td>🟡 Medium</td><td>Set up GitHub repo (public, MIT license)</td><td>1 hour</td></tr>
-      <tr><td>🟡 Medium</td><td>Apply to Indian IRB for Antiaging Labs data</td><td>2 hours</td></tr>
-      <tr><td>🟢 Later</td><td>Generation Scotland collaboration email</td><td>1 hour</td></tr>
-    </tbody>
-  </table>
-  <p><strong>The UK Biobank application is the hardest blocker. Start today.</strong></p>
+  <p style="margin-top: 8px;"><a href="/whitepaper" style="color: var(--accent); text-decoration: none; font-weight: 500; border-bottom: 1px solid var(--rule);">Read the full Technical Whitepaper &rarr;</a> for the complete state-space formulation, the genomic and biomarker tables, the PhenoAge and Klemera-Doubal proofs, and every equation.</p>
 
 </div>
 
