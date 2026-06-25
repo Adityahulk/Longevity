@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Engineering Whitepaper: Systemic Longevity Architecture | Antiaging Labs</title>
-<meta name="description" content="The Antiaging Labs closed-loop multi-omic engine. A high-density genomic array, an 87-marker biochemical panel and quantitative imaging, fused by Levine PhenoAge and the Klemera-Doubal method into an automated protocol compiler.">
+<title>High-Dimensional Physiological Phase-Space Engineering | Antiaging Labs</title>
+<meta name="description" content="A multi-omic neural architecture for real-time biological age decoupling and closed-loop optimization. The body modeled as a non-linear dynamical system across five vector tiers, fused by MM-VAEs, Levine PhenoAge and the Klemera-Doubal method.">
 <link rel="canonical" href="https://antiaging-labs.com/whitepaper">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://antiaging-labs.com/whitepaper">
 <meta property="og:site_name" content="Antiaging Labs">
-<meta property="og:title" content="Engineering Whitepaper: Systemic Longevity Architecture">
-<meta property="og:description" content="The closed-loop multi-omic engine: invariant genomics, episodic biochemical and imaging checkpoints, and continuous telemetry, fused into an automated protocol compiler.">
+<meta property="og:title" content="High-Dimensional Physiological Phase-Space Engineering">
+<meta property="og:description" content="A multi-omic neural architecture for real-time biological age decoupling and closed-loop optimization.">
 <meta property="og:image" content="https://antiaging-labs.com/assets/logo/png/og-1200x630.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="/assets/logo/favicon.svg">
@@ -141,6 +141,17 @@ window.MathJax = {
   .isect .lab{width:auto;}
 }
 @media(max-width:520px){.gcols{grid-template-columns:1fr;}}
+
+/* data tables */
+.wptable-wrap{overflow-x:auto;margin:26px 0;}
+.wptable{width:100%;border-collapse:collapse;font-size:14px;min-width:640px;}
+.wptable th,.wptable td{border:1px solid var(--line);padding:12px 15px;text-align:left;vertical-align:top;line-height:1.55;color:var(--ink-2);}
+.wptable thead th{background:var(--surface-alt);font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);font-weight:500;white-space:nowrap;}
+.wptable td.k{font-family:var(--mono);font-size:12.5px;color:var(--ink);white-space:nowrap;}
+.wptable td.k .snp{display:block;font-size:11px;color:var(--ink-3);margin-top:4px;}
+.wptable td.dom{font-size:13px;color:var(--ink);}
+.eqn.center{text-align:center;}
+.note{font-size:14px;color:var(--ink-3);font-style:italic;margin:6px 0 18px;}
 </style>
 </head>
 <body>
@@ -164,306 +175,318 @@ window.MathJax = {
   <div class="wrap">
     <div class="wp">
       <div class="breadcrumb"><a href="/engine">Engine</a> / Whitepaper</div>
-      <h1>Systemic Longevity Architecture <span class="muted">and the closed-loop multi-omic engine.</span></h1>
-      <p class="dek">How Antiaging Labs fuses invariant genomics, episodic biochemical and imaging checkpoints, and continuous telemetry into a single automated protocol compiler, engineered to systematically reverse biological age.</p>
+      <h1>High-Dimensional Physiological Phase-Space Engineering <span class="muted">a multi-omic neural architecture for real-time biological age decoupling and closed-loop optimization.</span></h1>
+      <p class="dek">How Antiaging Labs models the body as a non-linear dynamical system, fuses invariant genomics, episodic biochemistry, spatial imaging and continuous telemetry into a single physiological state vector, and routes it through a closed-loop intervention engine.</p>
       <div class="meta"><span>Engineering Whitepaper</span><span>v1.0</span><span>Antiaging Labs Research</span></div>
     </div>
   </div>
 </header>
 
-<!-- 1. EXECUTIVE SUMMARY -->
+<!-- 1. STATE SPACE -->
 <section class="wp-sec">
   <div class="wrap"><div class="wp">
-    <div class="wp-eyebrow">01 · Core paradigm</div>
-    <h2>Executive summary and the core engineering paradigm</h2>
-    <p class="lead">Traditional longevity medicine operates on an episodic diagnostic paradigm, relying on isolated, static biological checkpoints.</p>
-    <p>While clinically useful for detecting advanced macro-structural disease, these lag metrics completely miss the high-frequency autonomic and transient metabolic stressors that directly drive cellular degradation on a daily basis.</p>
-    <p>Antiaging Labs is developing a <strong>Continuous Biological Governance System</strong>. This infrastructure models human physiology not as a static anatomical snapshot, but as a dynamic, high-dimensional state machine prone to runtime errors, systemic latency and allostatic decay.</p>
-
-    <div class="fig">
-      <div class="arch">
-        <div class="arch-layer">
-          <div class="ly-tag">Invariant layer</div>
-          <h4>Full-Spectrum Genotype Array (DNA)</h4>
-          <div class="ly-out">&rArr; <b>5 operational genetic sub-systems</b></div>
-        </div>
-        <div class="arch-arrow"><svg viewBox="0 0 16 22"><path d="M8 0v18M2 13l6 7 6-7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></div>
-        <div class="arch-layer">
-          <div class="ly-tag">Episodic hardware layer</div>
-          <h4>87-Marker Bio-Chemical Panomic</h4>
-          <div class="ly-out">&rArr; <b>7 discrete organ &amp; system age buckets</b></div>
-        </div>
-        <div class="arch-arrow"><svg viewBox="0 0 16 22"><path d="M8 0v18M2 13l6 7 6-7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></div>
-        <div class="arch-layer">
-          <div class="ly-tag">Continuous telemetry layer</div>
-          <h4>Real-Time Wearable Stream (API)</h4>
-          <div class="ly-out">&rArr; <b>active allostatic load &amp; stress flux</b></div>
-        </div>
-        <div class="arch-arrow"><svg viewBox="0 0 16 22"><path d="M8 0v18M2 13l6 7 6-7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></div>
-        <div class="arch-layer core">
-          <div class="ly-tag">Computational core (IP)</div>
-          <h4>Levine Proportional Hazards <span style="color:var(--accent);">+</span> Klemera-Doubal Multi-Omic Fuser</h4>
-          <div class="ly-out">&rArr; <b>automated protocol compiler</b></div>
-        </div>
-        <div class="arch-arrow"><svg viewBox="0 0 16 22"><path d="M8 0v18M2 13l6 7 6-7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></div>
-        <div class="arch-layer">
-          <div class="ly-tag">Dynamic executive protocol</div>
-          <h4>Targeted Daily Code Patches</h4>
-          <div class="ly-out">&rArr; <b>cell-level age reversal &amp; optimization</b></div>
-        </div>
-      </div>
-      <div class="fig-cap">Figure 1 · The five-layer governance stack, from invariant source code to dynamic intervention.</div>
-    </div>
-
-    <p>By fusing invariant source code (genomics) with episodic hardware checkpoints (87-marker biochemical panels and spatial composition scans) and stream-processing continuous telemetry (wearable time-series APIs), the engine generates a real-time, trace-to-rule algorithmic execution layer. The end product is an automated, closed-loop intervention system engineered to systematically reverse biological age and optimize executive cognitive performance.</p>
+    <div class="wp-eyebrow">01 · State-space formulation</div>
+    <h2>The high-dimensional physiological state-space formulation</h2>
+    <p class="lead">The traditional paradigm of clinical diagnostics relies on isolated, static reference ranges and episodic health panels that treat the human body as a collection of compartmentalized organ systems.</p>
+    <p>This obsolete model fails to capture the intricate, multi-system homeodynamic feedback loops that dictate human aging and disease pathogenesis. To overcome these clinical limitations, the human organism is modeled as a highly integrated, non-linear dynamical system. At any given chronological epoch, an individual operator's complete physiological state is mapped as a single point, a Dynamic State Vector $z(t)$, navigating a high-dimensional, multi-modal phase space defined as the Physiological State Space $\mathcal{S} \subset \mathbb{R}^N$.</p>
+    <div class="eqn center"><div class="step">Dynamic state vector</div>$$z(t) = \big[\, z_{inv},\; z_{epi}(t),\; z_{spat}(t),\; z_{flux}(t),\; z_{qual}(t) \,\big]^{T}$$</div>
+    <p>Here, the total dimension $N$ represents the mathematical sum of all quantitative metrics ingested across all five layers of the biological hierarchy:</p>
+    <div class="eqn center">$$N = n_1 + n_2 + n_3 + n_4 + n_5$$</div>
+    <p>The trajectory of this state vector through phase space over time represents the true biological velocity of aging. Its directional movement is governed by a system of non-linear differential equations parameterized by the operator's permanent genetic framework and continuously shifted by external stressors:</p>
+    <div class="eqn center"><div class="step">Governing dynamics</div>$$\frac{dz(t)}{dt} = F\big(z(t);\, z_{inv}\big) + \eta(t)$$</div>
+    <p>Within this system of equations, $F$ represents the internal regulatory vector field. This field is the mathematical formulation of the body's intrinsic homeodynamic feedback networks, including autonomic regulation, cell-repair pathways, genomic repair, and enzymatic clearance kinetics. Conversely, $\eta(t)$ is a stochastic vector of allostatic perturbations, encapsulating environmental, psychological, nutritional, and lifestyle forces that pull the state vector away from homeodynamic equilibrium.</p>
+    <p>This state-space formulation can be mapped directly to Conrad Waddington's epigenetic landscape metaphor. The genotype $z_{inv}$ establishes the underlying three-dimensional topography of the landscape, defining the depth and slope of homeodynamic valleys, which represent stable biological phenotypes. Within this topology, the biological state vector behaves like a rolling ball guided by the vector field $F$. In a resilient, youthful state, the landscape features steep, well-defined basins of attraction, known as chreods, which exert strong pull forces that rapidly return the state vector to a stable base, designated as the Healthy Optimization Attractor $\mathcal{A}_0$, following any allostatic perturbation.</p>
+    <p>As aging and allostatic load progress, chronic inflammation and cellular damage flatten the walls of these protective valleys. This topographical dissipation weakens the restorative pull forces of the vector field $F$, rendering the biological system highly vulnerable to minor environmental perturbations $\eta(t)$. Consequently, the state vector drifts out of the optimal basin $\mathcal{A}_0$ into unstable, high-entropy regions of the state space, a trajectory termed the Accelerated Senescence Drift. In extreme cases of systemic strain, the system can cross critical thresholds called separatrices. These boundaries separate distinct basins of attraction, and crossing them triggers a Hopf bifurcation. At this point, the stable point attractor of youthful homeodynamics collapses, and the system transitions into a persistent, self-degrading limit-cycle attractor associated with chronic disease states, clinical frailty, or accelerated organ failure.</p>
   </div></div>
 </section>
 
-<!-- 2. INGESTION SCHEMA -->
+<!-- 2. VECTOR TIERS -->
 <section class="wp-sec">
   <div class="wrap"><div class="wp">
-    <div class="wp-eyebrow">02 · Ingestion schema</div>
-    <h2>Exhaustive multi-modal ingestion schema</h2>
+    <div class="wp-eyebrow">02 · Multi-omic vector tiers</div>
+    <h2>Comprehensive multi-omic vector tier structure</h2>
+    <p>The engine constructs the physiological state vector by compiling data across five distinct biological layers. Each tier represents a different temporal and physiological resolution, ranging from invariant genetic blueprints to high-frequency streaming biometrics.</p>
 
-    <h3>A. The invariant layer <span class="sub">/ high-density genomic sub-systems</span></h3>
-    <p>The platform ingests raw Next-Generation Sequencing (NGS) data, mapping single-nucleotide polymorphisms (SNPs) across five foundational physiological pipelines. Rather than evaluating isolated genes, the engine processes complex polygenic variations.</p>
+    <h3>Tier 1 · The invariant genome vector <span class="sub">$z_{inv} \in \mathbb{R}^{n_1}$</span></h3>
+    <p>The invariant genome layer acts as the foundational operating system of the phase-space model. It does not change in response to lifestyle modifications, but it dictates the boundaries, clearance rates, and adaptive capacities of the operator's regulatory vector field. The processing pipeline extracts high-leverage single-nucleotide polymorphisms (SNPs) from Variant Call Format (VCF) sequences. The clinical relevance and molecular mechanisms of these genomic markers are detailed in Table 1.</p>
+    <div class="fig-cap" style="text-align:left;margin-bottom:8px;">Table 1 · High-leverage genomic markers</div>
+    <div class="wptable-wrap"><table class="wptable">
+      <thead><tr><th>Gene locus</th><th>Risk allele</th><th>Targeted system</th><th>Pathophysiological mechanism and systemic relevance</th></tr></thead>
+      <tbody>
+        <tr><td class="k">MTHFR<span class="snp">rs1801133 (C677T)</span></td><td class="dom">Methylation &amp; homocysteine</td><td class="dom">One-carbon metabolism</td><td>Reduces methyltetrahydrofolate reductase activity by 70% in homozygotes. This impairs the conversion of 5,10-methylenetetrahydrofolate to 5-methyltetrahydrofolate (5-MTHF), causing hyperhomocysteinemia, systemic vascular endothelial damage, and reduced DNA methylation capacity.</td></tr>
+        <tr><td class="k">MTHFR<span class="snp">rs1801131 (A1298C)</span></td><td class="dom">One-carbon metabolism</td><td class="dom">Cofactor recycling</td><td>Reduces MTHFR enzymatic activity by approximately 30% to 40% in heterozygotes. Compound heterozygotes (677T/1298C) exhibit a severe 40% to 50% reduction in tetrahydrobiopterin recycling, limiting nitric oxide synthesis and neurotransmitter production.</td></tr>
+        <tr><td class="k">APOE<span class="snp">rs429358 / rs7412</span></td><td class="dom">&epsilon;4 isoform</td><td class="dom">Lipid metabolism &amp; neurovascular</td><td>The &epsilon;4 isoform alters the tertiary structure of apolipoprotein E, reducing its affinity for hepatic lipoprotein receptors and impairing amyloid-beta clearance in the brain. This elevates ApoB, low-density lipoprotein cholesterol, and neurovascular inflammatory risk.</td></tr>
+        <tr><td class="k">SOD2<span class="snp">rs4880 (Ala variant)</span></td><td class="dom">Ala variant</td><td class="dom">Mitochondrial defense</td><td>Alters the mitochondrial targeting sequence of manganese superoxide dismutase (MnSOD), reducing import efficiency into the mitochondrial matrix. Carriers are vulnerable to mitochondrial membrane degradation and oxidative damage during heavy physical exertion.</td></tr>
+        <tr><td class="k">CAT<span class="snp">rs1001179</span></td><td class="dom">T allele</td><td class="dom">Antioxidant kinetics</td><td>The T-allele in the promoter region reduces catalase transcription, lowering the enzyme's capacity to convert hydrogen peroxide into water and oxygen, which exacerbates intracellular oxidative stress.</td></tr>
+        <tr><td class="k">TCF7L2<span class="snp">rs7903146</span></td><td class="dom">Risk allele</td><td class="dom">Glycemic &amp; insulin</td><td>The risk allele alters transcription factor 7-like 2 expression, reducing pancreatic beta-cell sensitivity to glucose-dependent insulinotropic polypeptide (GIP) and glucagon-like peptide-1 (GLP-1), which accelerates insulin resistance.</td></tr>
+        <tr><td class="k">COMT<span class="snp">rs4680 (Met variant)</span></td><td class="dom">Met variant</td><td class="dom">Neurotransmitter clearance</td><td>The Met-allele (rs4680 A) reduces catechol-O-methyltransferase activity up to four-fold due to thermal instability of the enzyme. This slows the clearance of prefrontal dopamine and epinephrine, predisposing carriers to high-stress anxiety loops ("Worrier" phenotype) but enhancing executive function under low-stress conditions.</td></tr>
+        <tr><td class="k">FOXO3<span class="snp">rs2802292</span></td><td class="dom">G allele</td><td class="dom">Cellular resilience &amp; longevity</td><td>The G-allele creates a binding site for Heat Shock Factor 1 (HSF1), upregulating FOXO3 transcription under cellular stress. This enhances downstream expression of mitochondrial antioxidants (SOD2), DNA repair machinery (GADD45A), and autophagy effectors (BNIP3L).</td></tr>
+        <tr><td class="k">CETP<span class="snp">rs1800775</span></td><td class="dom">A promoter variant</td><td class="dom">Reverse cholesterol transport</td><td>The A promoter variant reduces cholesteryl ester transfer protein expression, which raises large-particle HDL-C. This process alters lipoprotein subfraction distributions, reducing cardiovascular and memory-decline risk.</td></tr>
+        <tr><td class="k">TERT<span class="snp">rs2736098</span></td><td class="dom">T variant</td><td class="dom">Telomerase integrity</td><td>The T variant correlates with reduced telomerase reverse transcriptase expression, accelerating telomere attrition rates in highly proliferative somatic tissues and lowering the threshold for replicative senescence.</td></tr>
+        <tr><td class="k">LPA<span class="snp">rs10455872</span></td><td class="dom">Risk allele</td><td class="dom">Vascular atherogenesis</td><td>This genomic variant is strongly associated with elevated plasma concentrations of Lipoprotein(a). This elevation drives early ApoB deposition, inflammatory calcification of the arterial wall, and high long-term cardiovascular risk.</td></tr>
+      </tbody>
+    </table></div>
 
-    <div class="fig">
-      <div class="gtree">
-        <div class="gtree-root">High-density genomic infrastructure</div>
-        <div class="gtree-stem"></div>
-        <div class="gcols">
-          <div class="gcol"><h5>Methylation pathway</h5><div class="genes"><span>MTHFR</span><span>MTR</span><span>MTRR</span><span>BHMT</span><span>CBS</span></div></div>
-          <div class="gcol"><h5>Cardio lipid transport</h5><div class="genes"><span>ApoE</span><span>LDLR</span><span>PCSK9</span><span>LPA</span><span>NOS3</span></div></div>
-          <div class="gcol"><h5>Glycemic regulation</h5><div class="genes"><span>TCF7L2</span><span>FTO</span><span>PPARG</span><span>IRS1</span><span>MC4R</span></div></div>
-          <div class="gcol"><h5>Detox &amp; oxidative defense</h5><div class="genes"><span>SOD2</span><span>CAT</span><span>GSTP1</span><span>GPX1</span><span>CYP1A2</span></div></div>
-          <div class="gcol"><h5>Neuro &amp; sleep architecture</h5><div class="genes"><span>COMT</span><span>MAOA</span><span>BDNF</span><span>CLOCK</span><span>PER3</span></div></div>
-        </div>
-      </div>
-      <div class="fig-cap">Figure 2 · Polygenic pipelines: each sub-system is scored as a set, not as isolated genes.</div>
-    </div>
+    <h3>Tier 2 · The episodic hardware vector <span class="sub">$z_{epi}(t) \in \mathbb{R}^{n_2}$</span></h3>
+    <p>The episodic hardware vector represents a detailed clinical profile of the operator's physical organs and biochemical pathways, evaluated through an 87-marker quantitative blood and urine matrix every 90 days. Rather than relying on simple, single-marker values, this matrix is structured into targeted functional domains as shown in Table 2.</p>
+    <div class="fig-cap" style="text-align:left;margin-bottom:8px;">Table 2 · Representative episodic biomarkers</div>
+    <div class="wptable-wrap"><table class="wptable">
+      <thead><tr><th>Biomarker</th><th>Functional domain</th><th>Role in PhenoAge &amp; KDM-BA frameworks</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Serum Albumin</td><td class="dom">Hepatic protein synthesis &amp; vascular oncotic volume</td><td>High levels indicate robust protein synthesis, pulling PhenoAge lower. Weighted as $-0.0336$ in the PhenoAge linear predictor.</td></tr>
+        <tr><td class="k">Serum Creatinine</td><td class="dom">Renal glomerular filtration &amp; muscle turnover</td><td>Elevated levels indicate declining filtration, pushing PhenoAge higher. Weighted as $+0.0095$ in the PhenoAge linear predictor.</td></tr>
+        <tr><td class="k">Fasting Glucose</td><td class="dom">Glycemic homeostasis &amp; metabolic health</td><td>Elevated levels indicate insulin resistance, pushing PhenoAge higher. Weighted as $+0.1953$ in the PhenoAge linear predictor.</td></tr>
+        <tr><td class="k">hs-CRP</td><td class="dom">Systemic inflammation &amp; endothelial activation</td><td>Log-transformed in calculations. Elevated levels indicate chronic inflammation, pushing PhenoAge higher. Weighted as $+0.0954$ in the PhenoAge linear predictor.</td></tr>
+        <tr><td class="k">Lymphocyte %</td><td class="dom">Adaptive immunity &amp; immunosenescence</td><td>Low values indicate immunosenescence, pushing PhenoAge higher. Weighted as $-0.0120$ in the PhenoAge linear predictor.</td></tr>
+        <tr><td class="k">Mean Cell Volume</td><td class="dom">Erythrocyte morphology &amp; hematopoiesis</td><td>Elevated levels indicate cellular aging or methylation deficits, pushing PhenoAge higher. Weighted as $+0.0268$ in the PhenoAge linear predictor.</td></tr>
+        <tr><td class="k">RDW</td><td class="dom">Hematopoietic integrity &amp; inflammation</td><td>High variation indicates systemic stress and aging, pushing PhenoAge higher. Weighted as $+0.3306$ in the PhenoAge linear predictor.</td></tr>
+        <tr><td class="k">Alkaline Phosphatase</td><td class="dom">Hepatobiliary secretion &amp; bone turnover</td><td>Elevated levels indicate liver stress or vascular calcification, pushing PhenoAge higher. Weighted as $+0.00188$ in the PhenoAge linear predictor.</td></tr>
+        <tr><td class="k">White Blood Cells</td><td class="dom">Innate immune activation</td><td>Elevated levels indicate active inflammation or infection, pushing PhenoAge higher. Weighted as $+0.0554$ in the PhenoAge linear predictor.</td></tr>
+        <tr><td class="k">HbA1c</td><td class="dom">Long-term glycation &amp; metabolic damage</td><td>High values indicate glycemic stress. Used as a key metabolic biomarker in the baseline KDM-BA engine.</td></tr>
+        <tr><td class="k">Apolipoprotein B</td><td class="dom">Lipoprotein particle number &amp; atherogenic load</td><td>Evaluates subclinical plaque risk; used in cardiorespiratory allostatic load models.</td></tr>
+        <tr><td class="k">GlycA</td><td class="dom">Systemic glycoprotein acetylation &amp; inflammation</td><td>Measures acute-phase reactant glycosylation, serving as a stable, long-term marker of vascular inflammation.</td></tr>
+        <tr><td class="k">Urine 8-OHdG</td><td class="dom">Intracellular oxidative DNA damage</td><td>Evaluates systemic oxidative stress. High levels indicate active nuclear and mitochondrial DNA damage.</td></tr>
+        <tr><td class="k">Urine Lipid Peroxides</td><td class="dom">Cell membrane damage</td><td>Measures malondialdehyde and lipid peroxidation, evaluating oxidative damage to cellular lipid bilayers.</td></tr>
+      </tbody>
+    </table></div>
 
-    <p><strong>1. Methylation and one-carbon dynamics.</strong> Maps the efficiency of DNA synthesis and epigenetic silencing by profiling variations in MTHFR (C677T, A1298C), MTR, MTRR, BHMT and CBS. This determines baseline vulnerabilities to DNA methylation drift and cellular hyperhomocysteinemia.</p>
-    <p><strong>2. Cardiovascular lipid transport and endothelial dynamics.</strong> Maps systemic atherogenic susceptibility by screening variants in ApoE (E2, E3, E4 isoforms), LDLR, PCSK9, LPA and NOS3 (endothelial nitric oxide synthase).</p>
-    <p><strong>3. Glycemic regulation and metabolic plasticity.</strong> Quantifies baseline insulin sensitivity limits and adipocyte signaling efficiency via TCF7L2, FTO, PPARG, IRS1 and MC4R.</p>
-    <p><strong>4. Detoxification, Phase I/II biotransformation and oxidative defense.</strong> Codes the clearance velocity of cellular metabolic waste and environmental toxins via SOD2 (superoxide dismutase), CAT (catalase), GSTP1, GPX1 and the cytochrome P450 pathway (CYP1A2 for caffeine and stimulant clearance, CYP2C19).</p>
-    <p><strong>5. Neurotransmitter kinetics and sleep architecture.</strong> Evaluates baseline cognitive endurance, stress resilience and circadian phase locks by analyzing COMT (catechol-O-methyltransferase), MAOA, BDNF, CLOCK, PER3 and CACNA1C.</p>
+    <h3>Tier 3 · The spatial phenotype vector <span class="sub">$z_{spat}(t) \in \mathbb{R}^{n_3}$</span></h3>
+    <p>The spatial phenotype vector provides structural and morphological anchors that blood biomarkers cannot resolve. This layer evaluates body composition, tissue distribution, and structural integrity across organs. Dual-Energy X-ray Absorptiometry (DEXA) core metrics are acquired on a biannual cycle to evaluate physical composition and metabolic risks:</p>
+    <p><strong>Visceral Adipose Tissue (VAT) Mass and Volume.</strong> This measurement captures the highly metabolically active fat surrounding internal organs. Elevated VAT volume triggers chronic inflammatory pathways, particularly through the release of interleukin-6 (IL-6) and tumor necrosis factor-alpha (TNF-&alpha;). Low risk is classified as $&lt; 100\ \text{cm}^3$ representing normative metabolic function. Elevated risk spans $100\ \text{cm}^3 - 160\ \text{cm}^3$ indicating early metabolic dysfunction. High risk exceeds $160\ \text{cm}^3$, strongly correlating with insulin resistance and coronary heart disease.</p>
+    <p><strong>Appendicular Lean Mass Index (ALMI).</strong> This metric evaluates skeletal muscle mass in the limbs relative to height, serving as a primary clinical marker for sarcopenia and physical frailty:</p>
+    <div class="eqn center">$$\text{ALMI} = \frac{\text{Lean Mass in Arms (kg)} + \text{Lean Mass in Legs (kg)}}{\text{Height (m)}^2}$$</div>
+    <p>Sarcopenic risk thresholds are set at $\text{ALMI} &lt; 5.45\ \text{kg/m}^2$ for females and $\text{ALMI} &lt; 7.0\ \text{kg/m}^2$ for males.</p>
+    <p><strong>Android-to-Gynoid (A/G) Fat Ratio.</strong> This metric compares central trunk-concentrated fat against gluteofemoral hip-concentrated fat. Ratios exceeding 0.8 for females and 1.0 for males indicate an android "apple" shape, which correlates with elevated visceral fat deposition and metabolic stress.</p>
+    <p><strong>Bone Mineral Density (BMD).</strong> This measurement evaluates skeletal density at the lumbar spine and bilateral femoral necks to screen for bone loss. Normal values represent a T-score $\geq -1.0$, osteopenia is classified as a T-score between $-1.0$ and $-2.5$, and osteoporosis is defined as a T-score $\leq -2.5$.</p>
+    <p>Whole-Body Magnetic Resonance Imaging (MRI) metrics screen for structural, vascular, and tissue abnormalities:</p>
+    <p><strong>Cerebral Small Vessel Disease (CSVD) &amp; White Matter Hyperintensities (WMH).</strong> Automating the segmentation of fluid-attenuated inversion recovery (FLAIR) brain MRI scans allows the engine to calculate total WMH volume. Every $1.0\ \text{mm}^3$ increase in WMH volume indicates progressive small vessel disease and cerebrovascular hypoperfusion, which correlates with executive cognitive decline and accelerated brain aging.</p>
+    <p><strong>BrainAge Gap Estimation (BrainAGE).</strong> This index uses deep convolutional neural networks to estimate biological brain age from regional gray and white matter volumes:</p>
+    <div class="eqn center">$$\text{BrainAge Gap} = \text{Predicted Brain Age} - \text{Chronological Age}$$</div>
+    <p>A positive BrainAge Gap indicates premature cerebral atrophy and is associated with elevated neurofilament light chain (NfL) levels, early amyloid-beta deposition, and increased cognitive decline.</p>
+    <p><strong>Vascular and Oncologic Screening.</strong> Multi-parametric sequencing scans for structural abnormalities, including thoracic or abdominal aortic aneurysms, early oncologic lesions, hepatic steatosis, and ectopic fat deposition in the pancreas or myocardium.</p>
 
-    <h3>B. The episodic hardware layer <span class="sub">/ the 87-marker bio-chemical panomic</span></h3>
-    <p>Every 90 days, the platform processes an 87-marker laboratory array. The engine automatically handles data normalization across seven discrete biological organ and system age buckets.</p>
+    <h3>Tier 4 · The streaming telemetry vector <span class="sub">$z_{flux}(t) \in \mathbb{R}^{n_4}$</span></h3>
+    <p>Continuous biometric streams are captured via secure cloud APIs (including Terra and Vital integrations) from consumer wearables. These time-series datasets capture high-frequency autonomic and physical metrics:</p>
+    <p><strong>Autonomic and Cardiovascular Metrics.</strong> The system collects microsecond-resolution beat-to-beat intervals during sleep cycles, tracking the Root Mean Square of Successive Differences (RMSSD) and the Standard Deviation of NN intervals (SDNN). Drops in RMSSD relative to the operator's rolling baseline indicate sympathetic nervous system strain and incomplete recovery. Overnight heart rate dynamics are evaluated by monitoring the time to reach the sleeping heart rate minimum, where a delayed stabilization curve suggests active metabolic or physiological stress. Additionally, the system monitors nightly breath-rate variance to screen for autonomic instability or early-stage pulmonary strain.</p>
+    <p><strong>Sleep Architecture.</strong> The platform analyzes sleep stages, tracking slow-wave sleep (SWS) latency, REM sleep fragmentation, and micro-arousals. This architecture evaluates glymphatic system efficiency and neural recovery.</p>
+    <p><strong>Cardiorespiratory Fitness (CRF) and Functional Capacity.</strong> The platform estimates maximal oxygen consumption ($\text{VO}_2\text{max}$) during structured exercise sessions. $\text{VO}_2\text{max}$ is a strong clinical predictor of healthspan and all-cause mortality, where every 1-MET ($3.5\ \text{mL/kg/min}$) improvement in cardiorespiratory fitness correlates with a 10% to 15% reduction in all-cause mortality risk. Poor cardiorespiratory fitness is associated with accelerated biological aging and a greater susceptibility to metabolic dysfunction.</p>
 
-    <div class="fig">
-      <div class="panels">
-        <div class="panelc">
-          <div class="pn">Bucket 01</div>
-          <h4>Cardiovascular &amp; advanced lipoprotein particle metrics</h4>
-          <p class="pd">Direct particle concentrations measure precise arterial-wall deposition risk, bypassing the limits of calculated lipid panels.</p>
-          <div class="chips"><span class="chip">ApoB</span><span class="chip">ApoA1</span><span class="chip">ApoB/ApoA1</span><span class="chip">Lp(a)</span><span class="chip">LDL-P</span><span class="chip">sdLDL</span><span class="chip">Total-C</span><span class="chip">HDL-C</span><span class="chip">LDL-C</span><span class="chip">Triglycerides</span><span class="chip">VLDL-C</span></div>
-        </div>
-        <div class="panelc">
-          <div class="pn">Bucket 02</div>
-          <h4>Metabolic, glycemic &amp; mitochondrial flux panels</h4>
-          <p class="pd">Measures baseline systemic fuel utilization and early cellular insulin blockades.</p>
-          <div class="chips"><span class="chip">Fasting Insulin</span><span class="chip">Fasting Glucose</span><span class="chip">HOMA-IR</span><span class="chip">HbA1c</span><span class="chip">Fructosamine</span><span class="chip">Uric Acid</span><span class="chip">LDH</span><span class="chip">Pyruvate</span></div>
-        </div>
-        <div class="panelc">
-          <div class="pn">Bucket 03</div>
-          <h4>Inflammaging, senescence &amp; immune competence</h4>
-          <p class="pd">Monitors the systemic, low-grade sterile inflammation that accelerates cellular replication decay.</p>
-          <div class="chips"><span class="chip">hs-CRP</span><span class="chip">IL-6</span><span class="chip">TNF-&alpha;</span><span class="chip">Leukocytes</span><span class="chip">Lymphocytes</span><span class="chip">Monocytes</span><span class="chip">Neutrophils</span><span class="chip">Eosinophils</span><span class="chip">Basophils</span><span class="chip">NLR</span></div>
-        </div>
-        <div class="panelc">
-          <div class="pn">Bucket 04</div>
-          <h4>Hepatic, biliary &amp; detoxification indexes</h4>
-          <p class="pd">Tracks liver tissue integrity, bile-acid metabolism and enzymatic biotransformation capacity.</p>
-          <div class="chips"><span class="chip">ALT</span><span class="chip">AST</span><span class="chip">ALP</span><span class="chip">GGT</span><span class="chip">Total Bilirubin</span><span class="chip">Direct Bilirubin</span><span class="chip">Indirect Bilirubin</span><span class="chip">Albumin</span><span class="chip">Total Protein</span></div>
-        </div>
-        <div class="panelc">
-          <div class="pn">Bucket 05</div>
-          <h4>Renal, electrolyte &amp; fluid-volume homeostasis</h4>
-          <p class="pd">Monitors glomerular filtration capacity and systemic mineral regulation.</p>
-          <div class="chips"><span class="chip">Creatinine</span><span class="chip">BUN</span><span class="chip">BUN/Creatinine</span><span class="chip">eGFR</span><span class="chip">Cystatin C</span><span class="chip">Sodium</span><span class="chip">Potassium</span><span class="chip">Chloride</span><span class="chip">Bicarbonate</span><span class="chip">Calcium</span><span class="chip">Magnesium</span><span class="chip">Phosphate</span></div>
-        </div>
-        <div class="panelc">
-          <div class="pn">Bucket 06</div>
-          <h4>Endocrine, hormone &amp; longevity signaling axes</h4>
-          <p class="pd">Maps the signaling molecules that direct cellular maintenance versus growth pathways.</p>
-          <div class="chips"><span class="chip">Total Testosterone</span><span class="chip">Free Testosterone</span><span class="chip">SHBG</span><span class="chip">DHEA-S</span><span class="chip">Cortisol (4-point)</span><span class="chip">TSH</span><span class="chip">Free T3</span><span class="chip">Free T4</span><span class="chip">IGF-1</span><span class="chip">IGFBP-3</span></div>
-        </div>
-        <div class="panelc">
-          <div class="pn">Bucket 07</div>
-          <h4>Hematology, oxygen transport &amp; micronutrient co-factors</h4>
-          <p class="pd">Measures oxygen distribution dynamics and the co-factors required for cellular enzyme execution.</p>
-          <div class="chips"><span class="chip">Hemoglobin</span><span class="chip">Hematocrit</span><span class="chip">RBC</span><span class="chip">MCV</span><span class="chip">RDW</span><span class="chip">Ferritin</span><span class="chip">Serum Iron</span><span class="chip">TIBC</span><span class="chip">Vitamin D3</span><span class="chip">Active B12</span><span class="chip">Folate</span><span class="chip">Zinc</span><span class="chip">CoQ10</span></div>
-        </div>
-      </div>
-      <div class="fig-cap">Figure 3 · The 87-marker panel, normalized into seven organ-and-system age buckets.</div>
-    </div>
-
-    <h3>C. Advanced quantitative spatial imaging array</h3>
-    <p>To anchor the biochemical metrics to macro-anatomical reality, the hardware layer incorporates two deep imaging protocols.</p>
-
-    <div class="fig">
-      <div class="scan2">
-        <div class="scanc">
-          <div class="scanc-h">Quantitative DEXA composition</div>
-          <ul>
-            <li>Visceral Adipose Tissue (VAT) mass, isolated in grams</li>
-            <li>Android-to-Gynoid fat distribution ratio</li>
-            <li>Appendicular Lean Mass Index (ALMI)</li>
-            <li>Bone Mineral Density (BMD)</li>
-          </ul>
-        </div>
-        <div class="scanc">
-          <div class="scanc-h">Multi-parametric whole-body MRI</div>
-          <ul>
-            <li>Brain volume tracking for early hippocampal and cortical atrophy</li>
-            <li>Liver Proton Density Fat Fraction (PDFF)</li>
-            <li>Coronary Artery Calcium (CAC) scoring</li>
-            <li>Subclinical structural lesion screening</li>
-          </ul>
-        </div>
-      </div>
-      <div class="fig-cap">Figure 4 · Spatial imaging anchors the biochemical signal to macro-anatomical structure.</div>
-    </div>
-
-    <p><strong>Quantitative DEXA scan.</strong> Directly isolates and measures Visceral Adipose Tissue mass in grams. The software monitors the android-to-gynoid fat ratio and the Appendicular Lean Mass Index to track and prevent subclinical sarcopenia while optimizing cellular metabolic mass.</p>
-    <p><strong>Multi-parametric whole-body MRI.</strong> Ingests structural metadata to track changes in organ health over time. This includes brain volume tracking (screening for early hippocampal or cortical atrophy profiles), Liver Proton Density Fat Fraction (quantifying hepatic steatosis) and Coronary Artery Calcium scoring, monitoring structural arterial degradation long before it registers as a clinical event.</p>
+    <h3>Tier 5 · The qualitative context vector <span class="sub">$z_{qual}(t) \in \mathbb{R}^{n_5}$</span></h3>
+    <p>Subjective inputs provide contextual constraints that sensors cannot resolve:</p>
+    <p><strong>Systemic Fatigue and Injury.</strong> Weekly self-reported levels of cognitive burnout, emotional strain, and localized musculoskeletal soreness. <strong>Nutritional Dynamics.</strong> Tracking of macronutrient ratios, fasting schedules, and alcohol intake. <strong>Circadian &amp; Spatial Constraints.</strong> Geographic flight coordinates and travel plans are used to anticipate jet lag, shift circadian targets, and adjust autonomic biometric baselines.</p>
   </div></div>
 </section>
 
-<!-- 3. MATH -->
+<!-- 3. COMPUTATIONAL CORE -->
 <section class="wp-sec">
   <div class="wrap"><div class="wp">
-    <div class="wp-eyebrow">03 · The computational core</div>
-    <h2>Rigorous mathematical formulations</h2>
-    <p>To convert raw multi-modal inputs into an actionable software moat, Antiaging Labs implements two core mathematical engines to compute biological age and integrate high-dimensional omic streams.</p>
+    <div class="wp-eyebrow">03 · Computational core</div>
+    <h2>The multi-omic computational core and dimensionality reduction</h2>
+    <p>In systems biology, integrating structurally heterogeneous, high-dimensional datasets without losing clinical interpretability remains a core challenge. Simply concatenating multi-omic vectors obscures cross-modal interactions and introduces severe overfitting. Furthermore, in real-world clinical and consumer settings, dense tensor architectures face the "Missing Modality Problem". If a user has not performed a biannual DEXA scan or has a gap in their wearable streaming data, standard dense tensor models break or rely too heavily on statistical imputation loops that dilute actual physiological signal. To resolve these clinical realities, the multi-omic computational core utilizes a dual-engine architecture: Cross-Modal Variational Autoencoders (MM-VAEs) and Contrastive Latent Alignment handle daily asynchronous data streams, while low-rank tensor factorization is reserved for deep cohort exploratory discoveries.</p>
 
-    <h3>Engine A <span class="sub">/ the Levine proportional hazards and PhenoAge transformation</span></h3>
-    <p>To measure systemic phenotypic aging from the clinical hardware layer, the platform implements the framework published by Dr. Morgan Levine, trained via a multivariate Cox proportional hazards model on NHANES datasets.</p>
+    <h3>Cross-modal variational autoencoders (MM-VAEs)</h3>
+    <p>To establish an operationally robust data pipeline, each modality vector ($x_{inv}$, $x_{epi}(t)$, $x_{spat}(t)$, $x_{flux}(t)$, $x_{qual}(t)$) has an independent, modality-specific neural encoder mapping into a shared low-dimensional latent space $\mathcal{Z} \subset \mathbb{R}^d$. This architecture inherently handles missing data: if a user lacks a specific MRI coordinate, the shared latent space is still resolved by the active blood, wearable, and genomic encoders without requiring tensor restructuring.</p>
+    <p>To aggregate information from different active modalities, the system utilizes a Mixture-of-Experts (MoE) posterior aggregation function, which balances the contributions of available data sources:</p>
+    <div class="eqn center"><div class="step">Mixture-of-Experts posterior</div>$$q_{\text{MoE}}(z \mid x_{1:M}) = \frac{1}{M} \sum_{m=1}^{M} q_{\phi_m}(z \mid x_m)$$</div>
+    <p>When tighter joint representations are required, the model switches to a Product-of-Experts (PoE) formulation to fuse information from active encoders:</p>
+    <div class="eqn center"><div class="step">Product-of-Experts posterior</div>$$q_{\text{PoE}}(z \mid x_{1:M}) \propto p(z) \prod_{m=1}^{M} q_{\phi_m}(z \mid x_m)$$</div>
+    <p>To train the model across varying subsets of observed modalities, a powerset training strategy is deployed. For $M$ active modalities, the loss is evaluated over the powerset $\mathcal{P}(x_1, \dots, x_M)$, optimizing the Evidence Lower Bound (ELBO) for every combination of inputs:</p>
+    <div class="eqn center"><div class="step">Evidence lower bound</div>$$\mathcal{L}_{\text{MM-VAE}}(X) = \mathbb{E}_{z \sim q_\phi(z \mid X)}\!\left[ \sum_{x_m \in X} \ln p_{\theta_m}(x_m \mid z) \right] - D_{\text{KL}}\!\big( q_\phi(z \mid X) \,\big\|\, p(z) \big)$$</div>
+    <p>This objective forces the latent space to remain coherent and modality-invariant, ensuring that the coordinate $z$ can be successfully decoded into any missing modality even when only a subset of inputs is active.</p>
 
-    <div class="eqn">
-      <div class="step">Step 1 · linear predictor (xb)</div>
-      $$ \begin{aligned} xb = -19.907 \;&- 0.0336\,\text{Alb} + 0.0095\,\text{Creat} + 0.1953\,\text{Glucose} + 0.0954\ln(\text{hsCRP}) \\ &- 0.0120\,\text{Lymph}\% + 0.0268\,\text{MCV} + 0.3306\,\text{RDW} + 0.00188\,\text{ALP} \\ &+ 0.0554\,\text{WBC} + 0.0804\,CA \end{aligned} $$
-    </div>
-    <p>The software ingests nine core clinical biomarkers and chronological age ($CA$) into a deterministic linear combination.</p>
+    <h3>Cross-modal contrastive latent alignment</h3>
+    <p>To capture acute daily shifts before physical blood draws occur, high-frequency wearable streaming vectors $x_{flux}(t)$ and periodic clinical blood matrices $x_{epi}(t)$ are mapped into a synchronized latent phase-space using a bilateral contrastive alignment objective. This architecture aligns the temporal dynamics of autonomic metrics with the slower transitions of blood biochemistry. Let $z_{flux}^{(i)} = f_{\theta_{flux}}(x_{flux}^{(i)})$ and $z_{epi}^{(i)} = g_{\theta_{epi}}(x_{epi}^{(i)})$ be the latent projections of wearable telemetry and blood biochemistry for a given operator interval $i$. The model optimizes a symmetric InfoNCE loss over a batch size $B$ to bring positive pairs close together while pushing non-matching pairs apart:</p>
+    <div class="eqn center"><div class="step">Symmetric InfoNCE loss</div>$$\mathcal{L}_{\text{contrast}} = -\frac{1}{2B} \sum_{i=1}^{B} \left[ \ln \frac{\exp\!\big( s(z_{flux}^{(i)}, z_{epi}^{(i)}) / \tau \big)}{\sum_{j=1}^{B} \exp\!\big( s(z_{flux}^{(i)}, z_{epi}^{(j)}) / \tau \big)} + \ln \frac{\exp\!\big( s(z_{epi}^{(i)}, z_{flux}^{(i)}) / \tau \big)}{\sum_{j=1}^{B} \exp\!\big( s(z_{epi}^{(i)}, z_{flux}^{(j)}) / \tau \big)} \right]$$</div>
+    <p>where $s(u,v) = \dfrac{u^{T} v}{\lVert u \rVert_2 \lVert v \rVert_2}$ denotes the cosine similarity, and $\tau$ is a learnable temperature parameter controlling the scale of the distribution. This contrastive alignment allows high-frequency wearable fluctuations, such as a drop in sleeping HRV, to directly project into the latent blood pathways. This mapping enables the compiler to infer sub-clinical shifts in systemic inflammation or metabolic strain before the patient even undergoes a blood draw.</p>
 
-    <div class="eqn">
-      <div class="step">Step 2 · composite 10-year mortality score (M)</div>
-      $$ M = 1 - \exp\!\left( \frac{-\exp(xb)\,\bigl(\exp(120\gamma) - 1\bigr)}{\gamma} \right) $$
-    </div>
-    <p>Utilizing a Gompertz proportional-hazards parameterization, the linear predictor is converted into an explicit probability-risk curve, where the scaling constant is fixed by geroscience consensus at <span class="const">&gamma; = 0.0076927</span>.</p>
+    <h3>Low-rank tensor decomposition foundations</h3>
+    <p>While MM-VAEs handle real-world missing data, the engine retains low-rank tensor factorization on complete datasets for discovery of deep clinical features across cohorts. Under this framework, the interaction tensor $\mathcal{X}$ is formulated via Kronecker outer products:</p>
+    <div class="eqn center">$$\mathcal{X} = M_{genetic} \otimes V_{metabolic} \otimes \Gamma_{spatial}$$</div>
+    <p>For two vectors $a \in \mathbb{R}^{I}$ and $b \in \mathbb{R}^{J}$, the Kronecker product $a \otimes b$ yields a matrix in $\mathbb{R}^{I \cdot J}$ representing every pairwise interaction:</p>
+    <div class="eqn center">$$a \otimes b = \begin{bmatrix} a_1 b \\ \vdots \\ a_I b \end{bmatrix}$$</div>
+    <p>To prevent overfitting and maintain tractability across high dimensions, Canonical Polyadic (CP) decomposition approximates the third-order tensor $\mathcal{X}$ as a sum of $R$ rank-one tensors:</p>
+    <div class="eqn center"><div class="step">Canonical polyadic decomposition</div>$$\mathcal{X} \approx \sum_{r=1}^{R} \lambda_r \cdot u_r^{(1)} \circ u_r^{(2)} \circ u_r^{(3)}$$</div>
+    <p>where $u_r^{(1)} \in \mathbb{R}^{d_1}$, $u_r^{(2)} \in \mathbb{R}^{d_2}$, and $u_r^{(3)} \in \mathbb{R}^{d_3}$ represent the latent factor vectors for each biological tier, and $\circ$ denotes the vector outer product. The matrix-unfolded representation of the tensor, stacked along the third mode (spatial), is expressed using the Khatri-Rao product $(\odot)$:</p>
+    <div class="eqn center">$$X_{(3)} \approx U^{(3)} \Lambda \big( U^{(2)} \odot U^{(1)} \big)^{T}$$</div>
+    <p>where the factor matrices $U^{(i)}$ contain the latent factor vectors as columns, and the Khatri-Rao product represents a column-wise Kronecker product:</p>
+    <div class="eqn center">$$U^{(2)} \odot U^{(1)} = \big[\, u_1^{(2)} \otimes u_1^{(1)} \quad u_2^{(2)} \otimes u_2^{(1)} \quad \cdots \quad u_R^{(2)} \otimes u_R^{(1)} \,\big]$$</div>
+    <p>To discover features across linked multi-omic sets, the Multiple Linked Tensors Factorization (MULTIFAC) framework applies $L_2$ penalties to the factor matrices, promoting rank sparsity:</p>
+    <div class="eqn center"><div class="step">MULTIFAC objective</div>$$\mathcal{L}_{\text{MULTIFAC}} = \left\lVert \mathcal{X} - \sum_{r=1}^{R} \lambda_r \cdot u_r^{(1)} \circ u_r^{(2)} \circ u_r^{(3)} \right\rVert_F^2 + \sum_{m=1}^{3} \lambda_{reg}^{(m)} \big\lVert U^{(m)} \big\rVert_2^2$$</div>
+    <p>where $\lambda_{reg}^{(m)}$ are regularization hyperparameters. The MULTIFAC engine incorporates an Expectation-Maximization (EM) loop to preserve statistical power by imputing missing values against shared cohort trends. To eliminate sensitivity to target-rank selection and avoid local minima from alternating least squares (ALS) estimation, the core integrates the Tensor Component Analysis via M-Product (TCAM) method. TCAM leverages the M-product operator to generalize singular value decomposition (SVD) to higher-order tensors, ensuring optimal approximation of variance without a prior choice of target rank:</p>
+    <div class="eqn center">$$\mathcal{Y} = \mathcal{U} *_M \Lambda *_M \mathcal{V}^{T}$$</div>
+  </div></div>
+</section>
 
-    <div class="eqn">
-      <div class="step">Step 3 · phenotypic biological age</div>
-      $$ \text{PhenoAge} = 141.50225 + \frac{\ln\!\bigl(-0.00553\,\ln(1 - M)\bigr)}{0.090165} $$
-    </div>
-    <p>The mortality score is transformed back into an intuitive age metric via a reverse Gompertz distribution. A positive delta ($\text{PhenoAge} - CA > 0$) signals <strong>accelerated biological aging</strong>, serving as the baseline metric that triggers corrective protocol overrides.</p>
+<!-- 4. HYBRID BIO-AGE CORE -->
+<section class="wp-sec">
+  <div class="wrap"><div class="wp">
+    <div class="wp-eyebrow">04 · Hybrid biological age core</div>
+    <h2>The hybrid biological age core and data flywheel</h2>
+    <p>Relying purely on standard linear biological age formulas like the 2018 Levine PhenoAge or the 2006 KDM-BA limits a clinical platform's proprietary value and protective moat. Both equations are open-source, widely implemented in public R packages (such as BioAge), and trained on general NHANES population data optimized specifically to predict 10-year all-cause mortality. In a healthspan-optimization environment, users are not merely seeking to avoid mortality; they are pursuing the optimization of vital physiological functions.</p>
+    <p>To overcome this, this platform implements a hybrid biological age engine. It calculates standard implementations of PhenoAge and KDM-BA as industry-standard baseline benchmarks for clinical transparency, while routing true trajectory optimization through a proprietary, non-linear Deep Multi-Modal Clock. To solve the classic "Cold Start" problem during the initial deployment phase, the platform implements an evolving three-stage biological age architecture.</p>
+    <h3>Phase 1 · The transfer learning &amp; public weights layer</h3>
+    <p>Instead of implementing simple linear equations, the platform imports pre-trained model architectures and open-weights trained on massive public datasets such as the UK Biobank (500,000+ participants) and NHANES. Rather than basic 9-marker linear regressions, Phase 1 utilizes deep multi-layer perceptrons (MLPs) and gradient-boosted tree architectures (XGBoost) to map standard blood panels. This allows the platform to capture complex, non-linear combinations, such as how the intersection of low cardiorespiratory fitness and elevated GlycA non-linearly accelerates biological aging, which standard linear formulas fail to detect.</p>
+    <h3>Phase 2 · Synthetic data augmentation</h3>
+    <p>To test and refine the Multi-Modal VAEs and low-rank tensor embeddings before real users are onboarded, the engineering pipeline utilizes Conditional Variational Autoencoders (CVAEs) and Generative Adversarial Networks (GANs) trained on open-access clinical biobanks. This generates thousands of highly detailed virtual patient profiles. This synthetic population allows clinical engineers to debug the closed-loop protocol compiler, stress-test streaming pipelines, and map baseline phase-space trajectories without needing a single real-world clinical patient on day one.</p>
+    <h3>Phase 3 · The data flywheel &amp; continuous training loop</h3>
+    <p>From the date of launch, every operator onboarding onto the platform generates deep, longitudinal, multi-omic datasets. At baseline, their biological age is calculated using the Phase 1 pre-trained model. As they progress, daily telemetry ($z_{flux}$) and quarterly blood/spatial updates are securely stored in a proprietary clinical data lake. Upon reaching a cohort milestone (highly tracked users), the engine shifts from generalized public baselines to fine-tuning the proprietary clock. Using Parameter-Efficient Fine-Tuning (such as Low-Rank Adaptation, or LoRA), the top layers of the deep neural network are fine-tuned specifically on the longitudinal trajectories of this high-performance cohort. Instead of training the model on mortality, the proprietary clock is optimized to predict a "Healthy Aging Index" (HAI) derived from elite, disease-free individuals showing optimal DEXA profiles and superior cardiorespiratory metrics. This continuous fine-tuning loop turns the startup's data pipeline into a defensive technical moat.</p>
+  </div></div>
+</section>
 
-    <h3>Engine B <span class="sub">/ the Klemera-Doubal method for multi-omic integration</span></h3>
-    <p>When the system integrates non-blood layers, such as MRI structural densities, proteomic panels and metabolomic arrays, the standard PhenoAge linear equation faces collinearity and error-propagation limits. The platform deploys the Klemera-Doubal algorithm, which minimizes the sum of squared distances between individual biomarker regression lines in a multi-dimensional space, anchored by chronological age.</p>
+<!-- 5. PHENOAGE PROOF -->
+<section class="wp-sec">
+  <div class="wrap"><div class="wp">
+    <div class="wp-eyebrow">05 · Baseline · Levine PhenoAge</div>
+    <h2>Mathematical proof of the baseline Levine PhenoAge engine</h2>
+    <p>To provide clinical comparative benchmarks, the platform calculates the standard Levine PhenoAge. The linear predictor $xb$ represents the log-hazard of mortality relative to the baseline hazard of the population:</p>
+    <div class="eqn"><div class="step">Step 1 · Linear predictor</div>$$\begin{aligned} xb = \beta_0 \;&+ \beta_1\,\text{Albumin} + \beta_2\,\text{Creatinine} + \beta_3\,\text{Glucose} + \beta_4 \ln(\text{CRP}) \\ &+ \beta_5\,\text{Lymphocyte}\,\% + \beta_6\,\text{MCV} + \beta_7\,\text{RDW} \\ &+ \beta_8\,\text{ALP} + \beta_9\,\text{WBC} + \beta_{10}\,\text{CA} \end{aligned}$$</div>
+    <p>The exact, empirically validated Cox regression coefficients and constants are mathematically defined as:</p>
+    <div class="eqn"><div class="step">Step 1b · Validated coefficients</div>$$\begin{aligned} xb = -19.9067 \;&- 0.0336\,\text{Albumin} + 0.0095\,\text{Creatinine} + 0.1953\,\text{Glucose} \\ &+ 0.0954 \ln(\text{CRP}) - 0.0120\,\text{Lymphocyte}\,\% + 0.0268\,\text{MCV} \\ &+ 0.3306\,\text{RDW} + 0.00188\,\text{ALP} + 0.0554\,\text{WBC} + 0.0804\,\text{CA} \end{aligned}$$</div>
+    <p>Using the cumulative hazard model under the Gompertz distribution, we calculate the 10-year cumulative mortality risk ($M$):</p>
+    <div class="eqn center"><div class="step">Step 2 · Gompertz mortality risk</div>$$M = 1 - \exp\!\left( \frac{-\exp(xb)\,\big( \exp(120\gamma) - 1 \big)}{\gamma} \right)$$</div>
+    <p>where $\gamma = 0.0076927$ represents the Gompertz growth rate across the cohort, and $120$ denotes the 10-year tracking window in months. The mortality risk is then mapped to its biological age equivalent using the inverse Gompertz hazard function:</p>
+    <div class="eqn center"><div class="step">Step 3 · Inverse hazard mapping</div>$$\text{PhenoAge} = 141.50225 + \frac{\ln\!\big( -0.00553 \ln(1 - M) \big)}{0.090165}$$</div>
+  </div></div>
+</section>
 
-    <div class="eqn">
-      <div class="step">KDM biological age across m biomarkers</div>
-      $$ BA_{KDM} = \frac{\displaystyle\sum_{j=1}^{m} \left( \frac{x_j - q_j}{k_j} \right)\!\left( \frac{k_j^2}{s_j^2} \right) + \frac{CA}{s_{CA}^2}}{\displaystyle\sum_{j=1}^{m} \left( \frac{k_j^2}{s_j^2} \right) + \frac{1}{s_{CA}^2}} $$
-    </div>
+<!-- 6. KDM PROOF -->
+<section class="wp-sec">
+  <div class="wrap"><div class="wp">
+    <div class="wp-eyebrow">06 · Baseline · Klemera-Doubal</div>
+    <h2>Mathematical proof of the baseline Klemera-Doubal method (KDM-BA)</h2>
+    <p>To capture multi-system physiological dysregulation without relying on mortality-weight transformations, the platform calculates the KDM-BA baseline. For each biomarker, the linear relationship with chronological age is defined as:</p>
+    <div class="eqn center">$$x_j = k_j \cdot CA + q_j + \epsilon_j$$</div>
+    <p>where $k_j$ represents the slope, $q_j$ is the intercept, and $\epsilon_j$ is the residual error with variance $s_j^2$. To minimize error propagation and control for biological noise, the KDM Estimated Biological Age ($BA_{EC}$) is calculated by weighting each biomarker's deviation from its age-normative value:</p>
+    <div class="eqn center"><div class="step">KDM estimated biological age</div>$$BA_{EC} = \frac{\displaystyle\sum_{j=1}^{m} (x_j - q_j)\frac{k_j}{s_j^2} + \frac{CA}{s_{BA}^2}}{\displaystyle\sum_{j=1}^{m} \left( \frac{k_j}{s_j} \right)^{2} + \frac{1}{s_{BA}^2}}$$</div>
+    <p>where $s_{BA}$ is the standard deviation of biological age residuals in the reference population, serving as a mathematical anchor to balance clinical biomarkers against chronological age and prevent extreme fluctuations.</p>
+  </div></div>
+</section>
+
+<!-- 7. CLOSED-LOOP RL -->
+<section class="wp-sec">
+  <div class="wrap"><div class="wp">
+    <div class="wp-eyebrow">07 · Closed-loop intervention</div>
+    <h2>Closed-loop reinforcement learning and the dynamic intervention engine</h2>
+    <p>Traditional clinical decision systems rely on static, hard-coded rules (e.g., if a user has high homocysteine, deploy 5-MTHF). While highly interpretable and safe, these expert architectures behave like static decision trees. They do not learn dynamically, and they fail to adapt to how specific user archetypes respond to therapies over time.</p>
+    <p>To build an evolving system, the compiler is upgraded to a Closed-Loop Reinforcement Learning (RL) framework powered by Contextual Bandits and Proximal Policy Optimization (PPO). Under this framework, the aligned latent physiological state vector generated by the MM-VAE acts as the context, and the system dynamically learns to adjust protocol interventions to maximize clinical outcomes.</p>
+    <h3>Mathematical formulation of the RL optimization loop</h3>
+    <p>Every morning, the compiler evaluates the state context to generate an updated, personalized daily protocol patch $P_{daily}$:</p>
+    <div class="eqn center">$$P_{daily} = \mathcal{K}\big( \mathcal{D}_{sys}, x_{qual}(t) \big)$$</div>
+    <p>The Systemic Deficit Function ($\mathcal{D}_{sys}$) measures the displacement of the operator's physiological state vector from the Healthy Optimization Attractor ($\mathcal{A}_0$):</p>
+    <div class="eqn center"><div class="step">Systemic deficit function</div>$$\mathcal{D}_{sys}(t) = \big\lVert \Psi\big( X_{aligned}(t) \big) - \mathcal{A}_0 \big\rVert_2^2$$</div>
+    <p>where $\Psi(X_{aligned}(t))$ is the projection of the current multi-modal latent vector $z(t)$ into the aligned state-space and $\mathcal{A}_0$ represents the origin of the Healthy Optimization Attractor. The RL agent optimizes a policy $\pi_\theta(a \mid s)$ where:</p>
     <ul class="vardefs">
-      <li><strong>$x_j$</strong> · the real-time observed value of biomarker $j$ (e.g. direct proteomic volume or visceral fat mass from a DEXA scan).</li>
-      <li><strong>$k_j$</strong> · the slope of biomarker $j$ regressed on chronological age in a healthy reference population.</li>
-      <li><strong>$q_j$</strong> · the intercept of biomarker $j$ regressed on chronological age.</li>
-      <li><strong>$s_j$</strong> · the standard deviation of the residuals for biomarker $j$ from the population regression.</li>
-      <li><strong>$s_{CA}$</strong> · the variance of chronological age in the reference population, acting as an intentional mathematical stabilizer.</li>
+      <li><strong>State Space ($s$):</strong> Defined by the current aligned latent physiological state $z \in \mathcal{Z}$ generated by the Multi-Modal VAE and Contrastive engines.</li>
+      <li><strong>Action Space ($a$):</strong> The specific formulations of $P_{daily}$, consisting of exact dosage modulations of molecular co-factors, dietary macros, fasting windows, and exercise parameters.</li>
+      <li><strong>Reward Function ($R$):</strong> Formulated to reward the minimization of the Systemic Deficit Function and the maximum reversal of biological age acceleration over time.</li>
     </ul>
-  </div></div>
-</section>
+    <div class="eqn center"><div class="step">Reward function</div>$$R_t = -\mathcal{D}_{sys}(t) + \alpha\,\big( \text{Age}_{chronological}(t) - \text{Age}_{biological}(t) \big)$$</div>
+    <p>where $\alpha$ is a scaling parameter balancing short-term physiological recovery with long-term biological age reversal. To ensure stable policy updates, the agent maximizes the clipped surrogate objective of Proximal Policy Optimization (PPO):</p>
+    <div class="eqn center"><div class="step">PPO clipped surrogate objective</div>$$\mathcal{L}^{\text{CLIP}}(\theta) = \hat{\mathbb{E}}_t \!\left[ \min\!\big( r_t(\theta)\hat{A}_t,\; \text{clip}(r_t(\theta), 1-\epsilon, 1+\epsilon)\hat{A}_t \big) \right]$$</div>
+    <p>where $r_t(\theta) = \dfrac{\pi_\theta(a_t \mid s_t)}{\pi_{\theta_{old}}(a_t \mid s_t)}$ represents the probability ratio, and $\hat{A}_t$ represents the generalized advantage estimator at time step $t$. Over months of tracking, if the system deploys an action and the operator's physiological trajectory moves toward the Healthy Optimization Attractor $\mathcal{A}_0$, the network updates its policy weights $\theta$.</p>
 
-<!-- 4. CLOSED LOOP -->
-<section class="wp-sec">
-  <div class="wrap"><div class="wp">
-    <div class="wp-eyebrow">04 · Closed-loop execution</div>
-    <h2>Closed-loop interventions and algorithmic routing</h2>
-    <p>The core technical capability of the platform is its <strong>Asynchronous Multi-Omic Orchestrator</strong>. The software operates as an automated compilation layer that ingests raw data matrices, isolates intersecting systemic vulnerabilities and pushes targeted code patches straight to the user.</p>
-
-    <div class="fig">
-      <div class="flow">
-        <div class="flow-node fire">
-          <div class="fl-t">Recovery deficit detected</div>
-          <div class="fl-s">continuous wearable telemetry</div>
-        </div>
-        <div class="flow-arrow"><svg viewBox="0 0 14 20"><path d="M7 0v16M2 11l5 7 5-7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></div>
-        <div class="flow-node">
-          <div class="fl-t">Intersect with metabolic state</div>
-          <div class="fl-s">episodic blood biomarkers</div>
-        </div>
-        <div class="flow-arrow"><svg viewBox="0 0 14 20"><path d="M7 0v16M2 11l5 7 5-7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></div>
-        <div class="flow-node">
-          <div class="fl-t">Cross-reference genomic molecules</div>
-          <div class="fl-s">invariant DNA source</div>
-        </div>
-        <div class="flow-arrow"><svg viewBox="0 0 14 20"><path d="M7 0v16M2 11l5 7 5-7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></div>
-        <div class="flow-node deploy">
-          <div class="fl-t">Deploy automated calendar override</div>
-        </div>
-      </div>
-      <div class="fig-cap">Figure 5 · The routing loop: a telemetry trigger is resolved against blood and DNA before any patch is deployed.</div>
-    </div>
-
-    <h3>Advanced execution logic case studies</h3>
+    <h3>Clinical pathological interaction profiles</h3>
+    <p>The RL policy maps high-risk combinations across layers to deploy targeted molecular co-factors and lifestyle constraints.</p>
 
     <div class="case">
-      <div class="case-h">Implementation 1</div>
-      <h4>Reversing mitochondrial decay and insulin resistance</h4>
-      <div class="isect"><div class="lab">Genomics</div><div class="val">Homozygous variant in <b>PPARGC1A</b>, indicating inherently low baseline mitochondrial biogenesis.</div></div>
-      <div class="isect"><div class="lab">Biomarkers</div><div class="val"><b>HOMA-IR &gt; 2.5</b> paired with elevated fasting glucose and dropping Vitamin D3 / CoQ10 co-factors.</div></div>
-      <div class="isect"><div class="lab">Wearables</div><div class="val">Sleep stream detects a <b>35% reduction in deep NREM</b> duration alongside an elevated resting heart rate.</div></div>
-      <div class="patch">
-        <div class="pt">Automated protocol patch</div>
-        <p>The system intercepts the morning schedule and executes a targeted mitigation loop: it restricts high-glycemic carbohydrates to protect insulin-receptor sensitivity, schedules a high-efficiency <b>Zone 2 cardiovascular block</b> to up-regulate GLUT4 transporter translocation, and introduces a timed stack of <b>ubiquinol (CoQ10) and alpha-lipoic acid</b> to drive mitochondrial ATP electron-transport efficiency, restoring the overnight baseline.</p>
-      </div>
+      <div class="case-h">Vascular inflammation core</div>
+      <div class="isect"><div class="lab">State context</div><div class="val">Homozygous risk variant on the MTHFR C677T (rs1801133) locus. Metabolic parameters reveal elevated fasting homocysteine and systemic high-sensitivity C-reactive protein. Spatial metrics indicate elevated Visceral Adipose Tissue (VAT), which continuously releases Interleukin-6 (IL-6), downregulating endothelial nitric oxide synthase (eNOS) and promoting vascular calcification. Wearable telemetry registers a 3-day drop in overnight heart rate variability (RMSSD) exceeding 1.5 standard deviations.</div></div>
+      <div class="isect"><div class="lab">Compiler action</div><div class="val">The RL agent deploys active methylfolate (5-MTHF) to bypass the MTHFR enzymatic block. It caps physical training intensity to prevent shear stress on vulnerable arterial walls, and automatically schedules a 15-minute, post-meal low-intensity walking protocol to clear glucose through GLUT4 pathways without demanding large insulin spikes. Over time, the policy evaluates the trajectory; if homocysteine declines and RMSSD recovers, the policy assigns a high reward, reinforcing this treatment pattern for this specific physiological archetype.</div></div>
     </div>
 
     <div class="case">
-      <div class="case-h">Implementation 2</div>
-      <h4>Intercepting high-stress cardiovascular methylation drift</h4>
-      <div class="isect"><div class="lab">Genomics</div><div class="val">Homozygous <b>MTHFR C677T</b> mutation, indicating a highly restricted, sluggish methylation cycle.</div></div>
-      <div class="isect"><div class="lab">Biomarkers</div><div class="val">Homocysteine flags at <b>14.2 &micro;mol/L</b> with an ApoB count <b>&gt; 100 mg/dL</b> and an elevated Neutrophil-to-Lymphocyte Ratio.</div></div>
-      <div class="isect"><div class="lab">Wearables</div><div class="val">Real-time RMSSD (HRV) drops <b>40% below the rolling 21-day median</b>, indicating critical sympathetic exhaustion.</div></div>
-      <div class="patch">
-        <div class="pt">Automated protocol patch</div>
-        <p>Chronic sympathetic stress drives cortisol spikes, which further accelerate methylation drift in an already broken MTHFR pathway, rapidly degrading vascular integrity. The software deploys an immediate override: it injects an evening methylation stack of <b>high-bioavailability L-methylfolate (5-MTHF) and methylcobalamin</b> to clear circulating homocysteine via the remethylation pathway, eliminates saturated-fat inputs from the nutrition layer to lower ApoB burden, and forces an end-of-day cognitive pacing block to restore parasympathetic vagal tone.</p>
-      </div>
+      <div class="case-h">Mitochondrial decay matrix</div>
+      <div class="isect"><div class="lab">State context</div><div class="val">Homozygous risk mutation on the mitochondrial targeting sequence of SOD2 Val16Ala (rs4880). Metabolic labs confirm elevated urinary 8-hydroxy-2'-deoxyguanosine (8-OHdG), validating active systemic oxidative DNA damage. Telemetry registers a high subjective weekly cognitive burnout rating combined with low sleep latency.</div></div>
+      <div class="isect"><div class="lab">Compiler action</div><div class="val">The engine identifies that the cell's energy centers are running out of adaptive capital and are vulnerable to oxidative damage. It deploys Pyrroloquinoline Quinone (PQQ) and Ubiquinol to support mitochondrial membrane integrity and bolster antioxidant capacity. The compiler restricts fasting windows to avoid energetic stress and enforces a strict 10:00 AM caffeine lock to protect adenosine-receptor homeodynamics.</div></div>
+    </div>
+
+    <div class="case">
+      <div class="case-h">Metabolic boundary ceilings</div>
+      <div class="isect"><div class="lab">State context</div><div class="val">High-risk TCF7L2 (rs7903146) variant. Metabolic parameters indicate elevated fasting blood insulin and HbA1c.</div></div>
+      <div class="isect"><div class="lab">Compiler action</div><div class="val">The compiler imposes an absolute daily limit of low-glycemic, fiber-bound carbohydrates. If real-time CGM data registers a post-prandial glucose spike, the system coordinates with wearable trackers to deploy a moderate-intensity exercise prompt. This utilizes non-insulin-dependent GLUT4 translocation to clear circulating glucose directly into skeletal muscle tissue.</div></div>
+    </div>
+
+    <div class="case">
+      <div class="case-h">Circadian pacing overrides</div>
+      <div class="isect"><div class="lab">State context</div><div class="val">Slow-clearance COMT Met/Met (rs4680) "Worrier" genotype. Telemetry reveals rolling 7-day sleep recovery scores dropping below baseline.</div></div>
+      <div class="isect"><div class="lab">Compiler action</div><div class="val">The slow dopamine and norepinephrine clearance rates of the Met/Met genotype increase vulnerability to catecholaminergic overload and prefrontal burnout. The system enforces an absolute 10:00 AM caffeine lockout to prevent sleep architecture disruption. It introduces calming amino acid co-factors (L-Theanine) to modulate glutamatergic signaling and protect the prefrontal cortex from sensory overstimulation.</div></div>
     </div>
   </div></div>
 </section>
 
-<!-- 5. REFERENCES -->
+<!-- 8. SAFETY PIPELINE -->
 <section class="wp-sec">
   <div class="wrap"><div class="wp">
-    <div class="wp-eyebrow">05 · References</div>
-    <h2>References</h2>
+    <div class="wp-eyebrow">08 · Clinical safety</div>
+    <h2>The clinical co-pilot and human-in-the-loop safety pipeline</h2>
+    <p>To ensure absolute safety, clinical trust, and regulatory compliance, the platform operates as an Explainable Expert Co-Pilot System rather than an unsupervised diagnostic engine. All automated recommendations of the daily compiler must pass through a clinical safety and validation interface managed by qualified physicians. This "Physician-in-the-Loop" framework is a critical safety feature and business asset, proving to regulators and investors that the product can safely scale in the real world.</p>
+    <h3>The human-in-the-loop pipeline</h3>
+    <ul class="vardefs">
+      <li><strong>Algorithmic Synthesis.</strong> The system aggregates raw genomic sequences, blood biochemistry panels, urine biomarkers, and DEXA/MRI imaging data to calculate the operator's biological age and state vector drift.</li>
+      <li><strong>Clinical Safety Filter.</strong> The system evaluates all recommendations against hard-coded clinical parameters. For example, if liver transaminases (AST/ALT) exceed the upper limit of normal, or if kidney filtration parameters decline, the compiler places an immediate hold on specific high-protein or metabolically demanding recommendations and issues an alert to the medical dashboard.</li>
+      <li><strong>Explainable AI Interface.</strong> A secure, local Large Language Model reads the quantitative calculations and qualitative context (such as upcoming international travel or subjective fatigue) to generate a concise, explainable clinical summary for the physician's dashboard.</li>
+      <li><strong>Clinical Authorization.</strong> The physician reviews the clinical brief and the underlying data trace, modifies the automated daily protocol patch if clinically indicated, and signs off on the final recommendation.</li>
+    </ul>
+    <h3>Renal clearance guardrails</h3>
+    <p>To prevent injury and manage metabolic strain, all protein recommendations are constrained by renal clearance parameters aligned with KDIGO clinical guidelines. The platform uses both serum creatinine and cystatin C to calculate the estimated glomerular filtration rate ($eGFR_{cr\text{-}cys}$). This dual-marker approach ensures accuracy in individuals with high muscle mass, unusual diets, or sarcopenia, where creatinine-only equations introduce significant error. The GFR is calculated using the race-free 2021 CKD-EPI Creatinine-Cystatin C equation:</p>
+    <div class="eqn center"><div class="step">2021 CKD-EPI creatinine-cystatin C</div>$$eGFR_{cr\text{-}cys} = 135 \times \min\!\Big(\tfrac{S_{cr}}{\kappa}, 1\Big)^{\alpha} \times \max\!\Big(\tfrac{S_{cr}}{\kappa}, 1\Big)^{-0.544} \times \min\!\Big(\tfrac{S_{cys}}{0.8}, 1\Big)^{-0.323} \times \max\!\Big(\tfrac{S_{cys}}{0.8}, 1\Big)^{-0.778} \times 0.9961^{\text{Age}} \times 1.012\,[\text{if female}]$$</div>
+    <p>where $S_{cr}$ is standardized serum creatinine (mg/dL), $S_{cys}$ is standardized serum cystatin C (mg/L), $\kappa = 0.7$ for females and $0.9$ for males, $\alpha = -0.219$ for females and $-0.144$ for males, $\min$ indicates the minimum of $S_{cr}/\kappa$ or 1, and $\max$ indicates the maximum of $S_{cr}/\kappa$ or 1. The exact piecewise formulations are detailed in Table 3.</p>
+    <div class="fig-cap" style="text-align:left;margin-bottom:8px;">Table 3 · Piecewise CKD-EPI Creatinine-Cystatin C (Age &ge; 18)</div>
+    <div class="wptable-wrap"><table class="wptable">
+      <thead><tr><th>Sex</th><th>$S_{cr}$</th><th>$S_{cys}$</th><th>GFR calculation equation</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Female</td><td>$\leq 0.7$</td><td>$\leq 0.8$</td><td>$135 \times (S_{cr}/0.7)^{-0.219} \times (S_{cys}/0.8)^{-0.323} \times 0.9961^{\text{Age}} \times 1.012$</td></tr>
+        <tr><td class="k">Female</td><td>$\leq 0.7$</td><td>$&gt; 0.8$</td><td>$135 \times (S_{cr}/0.7)^{-0.219} \times (S_{cys}/0.8)^{-0.778} \times 0.9961^{\text{Age}} \times 1.012$</td></tr>
+        <tr><td class="k">Female</td><td>$&gt; 0.7$</td><td>$\leq 0.8$</td><td>$135 \times (S_{cr}/0.7)^{-0.544} \times (S_{cys}/0.8)^{-0.323} \times 0.9961^{\text{Age}} \times 1.012$</td></tr>
+        <tr><td class="k">Female</td><td>$&gt; 0.7$</td><td>$&gt; 0.8$</td><td>$135 \times (S_{cr}/0.7)^{-0.544} \times (S_{cys}/0.8)^{-0.778} \times 0.9961^{\text{Age}} \times 1.012$</td></tr>
+        <tr><td class="k">Male</td><td>$\leq 0.9$</td><td>$\leq 0.8$</td><td>$135 \times (S_{cr}/0.9)^{-0.144} \times (S_{cys}/0.8)^{-0.323} \times 0.9961^{\text{Age}}$</td></tr>
+        <tr><td class="k">Male</td><td>$\leq 0.9$</td><td>$&gt; 0.8$</td><td>$135 \times (S_{cr}/0.9)^{-0.144} \times (S_{cys}/0.8)^{-0.778} \times 0.9961^{\text{Age}}$</td></tr>
+        <tr><td class="k">Male</td><td>$&gt; 0.9$</td><td>$\leq 0.8$</td><td>$135 \times (S_{cr}/0.9)^{-0.544} \times (S_{cys}/0.8)^{-0.323} \times 0.9961^{\text{Age}}$</td></tr>
+        <tr><td class="k">Male</td><td>$&gt; 0.9$</td><td>$&gt; 0.8$</td><td>$135 \times (S_{cr}/0.9)^{-0.544} \times (S_{cys}/0.8)^{-0.778} \times 0.9961^{\text{Age}}$</td></tr>
+      </tbody>
+    </table></div>
+    <p>The compiler applies strict metabolic boundaries based on these filtration values. For $eGFR \geq 60$ (KDIGO Stages G1-G2), the standard dietary protein allocation is maintained, prioritizing protein diversity and metabolic health. For $eGFR$ between $30$ and $59$ (KDIGO Stages G3a-G5), to reduce glomerular hyperfiltration and manage renal workload, the system restricts dietary protein recommendations, and daily sodium intake is capped to control blood pressure. For $eGFR &lt; 30$ (KDIGO Stages G4-G5), for patients at high risk of progressing to kidney failure, the physician's dashboard evaluates a very low-protein diet supplemented with ketoacid analogs to preserve residual kidney function while maintaining nitrogen balance.</p>
+    <h3>Clinical exceptions and special populations</h3>
+    <p>The clinical co-pilot adjusts these safety guardrails for specific patient populations to prevent adverse outcomes. <strong>Frail and sarcopenic older adults.</strong> In elderly operators with low muscle mass and reduced filtration, strict protein restriction can accelerate muscle wasting and physical vulnerability. For these individuals, the clinical co-pilot prioritizes maintaining muscle mass over renal restriction. The target protein intake is set to a higher threshold, focusing on high-quality, plant-based proteins, and is paired with progressive resistance training under clinical supervision. <strong>Pediatric chronic kidney disease.</strong> For children and adolescents with chronic kidney disease, protein restriction is contraindicated because it can cause growth failure. The compiler overrides standard restriction rules for pediatric users, targeting protein and energy intake at the upper end of the normal range for healthy children to sustain optimal developmental growth.</p>
+  </div></div>
+</section>
+
+<!-- 9. CONCLUSION -->
+<section class="wp-sec">
+  <div class="wrap"><div class="wp">
+    <div class="wp-eyebrow">09 · Outlook</div>
+    <h2>Nuanced conclusions and outlook</h2>
+    <p>The systems biology framework detailed in this whitepaper represents a comprehensive paradigm shift in longevity medicine. By modeling the human body as a non-linear dynamical system navigating a high-dimensional state space, the platform replaces static reference ranges with a dynamic, multi-omic approach. The architecture integrates genetic variations, clinical biomarkers, body composition, and real-time biometrics into a unified physiological vector.</p>
+    <p>Through Multi-Modal Variational Autoencoders and Contrastive Latent Alignment, the computational core resolves the "Missing Modality Problem" that limits traditional tensor methods in clinical and consumer environments. This ensures that high-frequency wearable data directly maps to sub-clinical shifts in latent blood pathways before physical blood draws occur. Baseline clinical clocks, including Levine PhenoAge and KDM-BA, are calculated as comparative industry benchmarks, while true optimization is driven by a non-linear Deep Multi-Modal Clock. To eliminate initial dataset dependencies during startup, the three-tier hybrid evolving architecture leverages transfer learning from public cohorts and synthetic data augmentation, establishing a continuous learning loop that transforms user data into a defensive proprietary technical moat.</p>
+    <p>By upgrading the daily protocol compiler to a closed-loop Reinforcement Learning framework using Contextual Bandits and Proximal Policy Optimization, the platform dynamically learns and self-corrects based on real-world clinical outcomes. Finally, by pairing these automated calculations with hard-coded clinical safety filters, KDIGO-aligned renal clearance guardrails, and expert physician-in-the-loop validation, the platform guarantees absolute clinical safety and regulatory compliance. This integrated, systems-level approach provides the essential framework needed to decode, monitor, and optimize the human aging trajectory.</p>
+    <div class="disc"><strong>Scope and status.</strong> This document describes a forward-looking research architecture under active development. Modules are delivered in stages through accredited partner laboratories and imaging centers, recommended only when clinically indicated. Biological age is a research signal, not a diagnosis, and does not replace your physician. See <a href="/packages" style="color:var(--accent);">Diagnostics</a> for what is available today.</div>
+  </div></div>
+</section>
+
+<!-- REFERENCES -->
+<section class="wp-sec">
+  <div class="wrap"><div class="wp">
+    <div class="wp-eyebrow">References</div>
+    <h2>Works cited</h2>
     <ol class="refs">
-      <li>Levine, M. E., Lu, A. T., Quach, A., Chen, B. H., Assimes, T. L., Bandinelli, S., et al. (2018). An epigenetic biomarker of aging for lifespan and healthspan. <em>Aging (Albany NY)</em>, 10(3), 573.</li>
-      <li>Klemera, P., &amp; Doubal, S. (2006). A new approach to the concept and computation of biological age. <em>Mechanisms of Ageing and Development</em>, 127(3), 240-248.</li>
-      <li>McEwen, B. S. (1998). Protective and damaging effects of stress mediators. <em>New England Journal of Medicine</em>, 338(3), 171-179.</li>
-      <li>Belsky, D. W., Caspi, A., Corcoran, D. L., Sugden, K., Poulton, R., &amp; Moffitt, T. E. (2022). DunedinPACE, a DNA methylation biomarker of the pace of aging. <em>eLife</em>, 11, e73420.</li>
-      <li>Lu, A. T., Quach, A., Wilson, J. G., Reiner, A. P., Aviv, A., Raj, K., et al. (2019). DNA methylation GrimAge strongly predicts lifespan and healthspan. <em>Aging (Albany NY)</em>, 11(2), 303.</li>
+      <li>Internal whitepaper specification, Antiaging Labs Research.</li>
+      <li>Hopf Bifurcation of a Two Delay Mathematical Model of Glucose and Insulin during Physical Activity, SCIRP.</li>
+      <li>Multimodal Variational Autoencoder: A Barycentric View, PMC, NIH.</li>
+      <li>Mixture-of-Experts Multimodal VAE, Emergent Mind.</li>
+      <li>Closing the gap in multimodal medical representation alignment, arXiv.</li>
+      <li>Unity by Diversity: Improved Representation Learning for Multimodal VAEs, arXiv.</li>
+      <li>Generative Multimodal Learning for Reconstructing Missing Modality, Nishant Mishra.</li>
+      <li>BiCLUM: Bilateral contrastive learning for unpaired single-cell multi-omics integration, PMC.</li>
+      <li>mmContext: an open framework for multimodal contrastive learning of omics and text data, bioRxiv.</li>
+      <li>A Systematic Review of Contrastive Learning in Medical AI: Foundations, Biomedical Modalities, and Future Directions, PMC.</li>
+      <li>A toolkit for quantification of biological age from blood chemistry and organ function test data: BioAge, PMC.</li>
+      <li>Contextual Bandits In The Healthcare Field, Meegle.</li>
+      <li>A Contextual-Bandit-Based Approach for Informed Decision-Making in Clinical Trials, PMC.</li>
+      <li>Optimal Regret for Policy Optimization in Contextual Bandits, arXiv.</li>
+      <li>eGFR Equations for Adults, NIDDK.</li>
+      <li>Implementation of a new CKD-EPI Creatinine equation for eGFR Refit without race variable and cystatin C, Stanford Anatomic Pathology &amp; Clinical Laboratories.</li>
     </ol>
-
-    <div class="disc">
-      <strong>On scope.</strong> This is an engineering architecture document describing the Antiaging Labs system design and its computational core. Diagnostic modules are delivered in stages through accredited partner labs and imaging centers, on clinical indication. See <a href="/packages" style="color:var(--accent);">Diagnostics</a> for current availability. Biological-age outputs are health-optimization signals, not a diagnosis, and do not replace your physician.
-    </div>
   </div></div>
-</section>
-
-<!-- CTA -->
-<section class="sec sec-dark">
-  <div class="wrap">
-    <div class="endcta">
-      <h2>See the engine read a real panel.</h2>
-      <p>The architecture above is what turns your diagnostics into a protocol. Start with a consultation and we will show you exactly how your data flows through it.</p>
-      <a class="pill pill-accent" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a consultation &rarr;</a>
-    </div>
-  </div>
 </section>
 
 <footer class="foot">
