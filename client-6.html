@@ -77,21 +77,23 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
 .vcol p { font-size:13.5px; color:var(--ink-mute); line-height:1.55; }
 
 /* LIVING BIOLOGICAL TWIN */
-.twin-wrap { background:var(--paper); border:1px solid var(--rule-soft); border-radius:10px; padding:28px; margin:24px 0; display:grid; grid-template-columns:1.25fr 0.75fr; gap:24px; align-items:center; }
+.twin-wrap { background:var(--paper); border:1px solid var(--rule-soft); border-radius:10px; padding:30px; margin:24px 0; display:grid; grid-template-columns:0.92fr 1.08fr; gap:30px; align-items:center; }
 .twin-viz { position:relative; }
-.twin-svg { width:100%; height:auto; display:block; }
-.tv-ring { fill:none; stroke:var(--rule-soft); stroke-width:1; }
-.tv-spoke { stroke:var(--rule-soft); stroke-width:1; }
-.tv-sweep { transform-origin:380px 260px; animation:tvspin 14s linear infinite; }
-@keyframes tvspin { to { transform:rotate(360deg); } }
-.tv-core { fill:var(--ink); }
-.tv-core-age { font-family:var(--serif); font-weight:500; fill:var(--cream); }
-.tv-core-lbl { font-family:var(--mono); fill:var(--accent-warm); letter-spacing:0.12em; }
-.tv-node-g .tv-node { stroke:#fff; stroke-width:2; }
-.tv-node-g .tv-pulse { fill:none; opacity:0; transform-origin:center; animation:tvpulse 3.2s ease-out infinite; }
-@keyframes tvpulse { 0%{ opacity:0.5; r:30px; } 100%{ opacity:0; r:46px; } }
-.tv-node-lbl { font-family:var(--mono); font-size:11px; fill:var(--ink); letter-spacing:0.04em; text-anchor:middle; }
-.tv-node-state { font-family:var(--mono); font-size:9px; letter-spacing:0.1em; text-anchor:middle; text-transform:uppercase; }
+.twin-svg { width:100%; height:auto; display:block; max-width:360px; margin:0 auto; }
+.tv-body { fill:url(#bodyGrad); stroke:var(--accent); stroke-opacity:0.28; stroke-width:1; }
+.tv-halo { fill:url(#haloGrad); }
+.tv-scan { fill:url(#scanGrad); animation:tvscan 5.6s cubic-bezier(.45,0,.4,1) infinite; }
+@keyframes tvscan { 0%{ transform:translateY(-30px); opacity:0; } 14%{ opacity:1; } 86%{ opacity:1; } 100%{ transform:translateY(516px); opacity:0; } }
+.tv-lead { stroke:var(--rule); stroke-width:1; opacity:0.65; }
+.tv-node { stroke:#fff; stroke-width:2.5; }
+.tv-pulse { fill:none; opacity:0; animation:tvpulse 3s ease-out infinite; }
+@keyframes tvpulse { 0%{ opacity:0.5; r:8px; } 100%{ opacity:0; r:22px; } }
+.tv-lbl { font-family:var(--mono); font-size:11px; fill:var(--ink); letter-spacing:0.02em; }
+.tv-lbl-state { font-family:var(--mono); font-size:8px; letter-spacing:0.13em; text-transform:uppercase; }
+.tv-bioage { display:flex; align-items:baseline; gap:12px; margin:2px 0 18px; padding-bottom:16px; border-bottom:0.5px solid var(--rule-soft); }
+.tv-bioage .ba-num { font-family:var(--serif); font-size:48px; line-height:0.9; color:var(--accent); font-weight:400; }
+.tv-bioage .ba-meta { font-size:12px; color:var(--ink-mute); line-height:1.4; }
+.tv-bioage .ba-meta b { color:var(--ink); }
 .twin-side h4 { text-transform:none; font-size:16px; margin-bottom:10px; }
 .twin-tele { font-family:var(--mono); font-size:12px; }
 .tele-row { display:flex; justify-content:space-between; align-items:baseline; padding:9px 0; border-bottom:0.5px dashed var(--rule-soft); }
@@ -123,13 +125,13 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
 .gf-note { background:var(--accent-soft); border-radius:4px; padding:12px 16px; font-size:13px; margin-top:10px; }
 
 /* AUTOPILOT */
-.ap-wrap { display:grid; grid-template-columns:300px 1fr; gap:28px; align-items:start; margin:24px 0; }
-.ap-phone { background:var(--ink); border-radius:26px; padding:16px 14px 22px; box-shadow:0 14px 40px rgba(14,27,44,0.22); }
+.ap-wrap { display:grid; grid-template-columns:312px 1fr; gap:34px; align-items:center; margin:24px 0; }
+.ap-phone { background:var(--ink); border-radius:26px; padding:16px 14px 20px; box-shadow:0 14px 40px rgba(14,27,44,0.22); }
 .ap-notch { width:96px; height:6px; border-radius:6px; background:#2a3a4f; margin:4px auto 14px; }
 .ap-phone-h { display:flex; justify-content:space-between; align-items:center; padding:0 6px 12px; }
 .ap-phone-h .apt { font-family:var(--mono); font-size:11px; color:var(--accent-warm); letter-spacing:0.1em; }
 .ap-phone-h .apd { font-family:var(--mono); font-size:10px; color:#7f8da0; }
-.ap-card { background:#16273b; border:1px solid #25384e; border-radius:12px; padding:14px 14px; margin:10px 4px; opacity:0.4; transform:translateY(4px); transition:opacity .5s ease, transform .5s ease, border-color .5s ease; }
+.ap-card { background:#16273b; border:1px solid #25384e; border-radius:12px; padding:12px 13px; margin:8px 4px; opacity:0.4; transform:translateY(4px); transition:opacity .5s ease, transform .5s ease, border-color .5s ease; }
 .ap-card.active { opacity:1; transform:translateY(0); border-color:var(--accent); }
 .ap-time { font-family:var(--mono); font-size:10px; color:var(--accent-warm); letter-spacing:0.08em; margin-bottom:7px; }
 .ap-tele { font-family:var(--mono); font-size:11px; color:#cfd6df; line-height:1.5; margin-bottom:8px; }
@@ -141,6 +143,11 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
 .ap-loop { display:flex; gap:6px; margin-top:14px; }
 .ap-loop .step { font-family:var(--mono); font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-mute); background:var(--cream-dark); padding:5px 10px; border-radius:3px; }
 .ap-loop .step.on { background:var(--accent-soft); color:var(--accent); }
+.ap-caught { margin-top:20px; border-top:0.5px solid var(--rule-soft); padding-top:16px; }
+.ap-caught-h { font-family:var(--mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-fade); margin-bottom:8px; }
+.ap-c-row { display:grid; grid-template-columns:78px 1fr; gap:12px; align-items:baseline; padding:8px 0; border-bottom:0.5px dashed var(--rule-soft); font-size:13px; }
+.ap-c-row .ap-c-n { font-family:var(--mono); font-size:12px; color:var(--accent); font-weight:500; }
+.ap-c-row .ap-c-t { color:var(--ink-soft); line-height:1.45; }
 
 /* PHENOAGE */
 .phenoage-section { margin:30px 0; padding:30px; border:1px solid var(--rule); border-radius:8px; background:var(--paper); }
@@ -193,6 +200,64 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
 .domain .dlead-tag { display:inline-block; font-family:var(--mono); font-size:9px; letter-spacing:0.12em; text-transform:uppercase; background:var(--accent-soft); color:var(--accent); padding:2px 8px; border-radius:3px; margin-left:8px; vertical-align:middle; }
 .domain h3 { font-size:23px; margin-bottom:10px; }
 .domain ul { font-size:14px; }
+.domain h4 { margin-top:20px; }
+.domain .dintro { font-size:15px; margin-bottom:6px; }
+.domain li { margin-bottom:7px; }
+.subnote { font-size:13px; font-style:italic; color:var(--ink-mute); }
+.gtag { display:inline-block; font-family:var(--mono); font-size:9px; letter-spacing:0.1em; text-transform:uppercase; background:var(--leaf-soft); color:var(--leaf); padding:2px 7px; border-radius:3px; margin-left:4px; vertical-align:middle; }
+
+/* KV GRID */
+.kv-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin:10px 0 4px; }
+.kv-item { border-left:2px solid var(--rule-soft); padding-left:12px; }
+.kv-key { font-family:var(--mono); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-fade); margin-bottom:3px; }
+.kv-val { font-size:15px; color:var(--ink); font-weight:500; }
+
+/* MENU + SUPPLEMENT TABLES */
+.menu-table { font-family:var(--sans); font-size:13px; width:100%; margin-top:12px; border-collapse:collapse; }
+.menu-table td { padding:9px 10px; border-bottom:0.5px solid var(--rule-soft); vertical-align:top; }
+.menu-table td:first-child { font-family:var(--mono); font-size:11.5px; color:var(--accent); font-weight:500; white-space:nowrap; width:96px; }
+.menu-table td:not(:first-child){ color:var(--ink-soft); line-height:1.5; }
+.suppl-table { width:100%; font-size:13px; margin-top:12px; border-collapse:collapse; }
+.suppl-table td { padding:10px 10px; border-bottom:0.5px solid var(--rule-soft); vertical-align:top; color:var(--ink-soft); line-height:1.5; }
+.suppl-table .sname { font-weight:600; color:var(--ink); white-space:nowrap; }
+.suppl-table .sdose { font-family:var(--mono); font-size:12px; color:var(--ink); white-space:nowrap; }
+.chg { font-family:var(--mono); font-size:10px; padding:2px 8px; border-radius:3px; letter-spacing:0.06em; white-space:nowrap; }
+.chg-add { background:var(--accent-soft); color:var(--accent); }
+.chg-keep { background:var(--leaf-soft); color:var(--leaf); }
+.chg-block { background:var(--danger-soft); color:var(--danger); }
+
+/* RATIOS */
+.ratio-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px; }
+.ratio { background:var(--paper); border:1px solid var(--rule-soft); border-radius:6px; padding:14px 16px; }
+.ratio .rk { display:flex; align-items:baseline; justify-content:space-between; gap:10px; }
+.ratio .rname { font-family:var(--sans); font-weight:600; font-size:14px; color:var(--ink); }
+.ratio .rval { font-family:var(--mono); font-size:15px; font-weight:500; }
+.ratio .rval.off { color:var(--accent); } .ratio .rval.ok { color:var(--leaf); } .ratio .rval.watch { color:var(--gold); }
+.ratio .rdesc { font-size:12.5px; color:var(--ink-mute); margin-top:6px; line-height:1.5; }
+
+/* INTAKE */
+.q-group { background:var(--paper); border:1px solid var(--rule-soft); border-left:4px solid var(--accent); border-radius:4px; padding:18px 22px; margin:14px 0; }
+.q-domain { font-family:var(--mono); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; }
+.q-row { padding:7px 0; border-bottom:0.5px dashed var(--rule-soft); font-size:13.5px; }
+.q-row:last-child { border-bottom:0; }
+.q-row .qq { color:var(--ink-mute); }
+.q-row .qa { display:block; margin-top:3px; color:var(--ink); background:var(--cream-dark); border-left:2px solid var(--leaf); padding:6px 12px; border-radius:3px; line-height:1.5; }
+
+/* PROTECT / NOT-TOUCHING */
+.next-card { background:var(--ink); color:var(--cream); border-radius:8px; padding:36px 34px; margin:24px 0; }
+.next-card .s-eyebrow { color:var(--accent-warm); }
+.next-card h2 { color:var(--cream); }
+.next-card p, .next-card li { color:#D8DCE2; }
+.next-card strong { color:#fff; }
+.next-card ol { font-size:15px; }
+.next-card li { margin-bottom:12px; }
+
+/* RETEST */
+.retest-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:8px; }
+.retest-card2 { background:var(--paper); border:1px solid var(--rule-soft); border-radius:6px; padding:20px 22px; }
+.retest-card2 .rt-when { font-family:var(--mono); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; }
+.retest-card2 ul { font-size:13.5px; margin:0; padding-left:18px; }
+.retest-card2 li { margin-bottom:5px; }
 
 /* HABIT TIMELINE */
 .tblock { display:grid; grid-template-columns:96px 1fr; gap:18px; padding:18px 0; border-bottom:0.5px dashed var(--rule-soft); }
@@ -303,68 +368,88 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
 </div>
 <div class="twin-wrap">
   <div class="twin-viz">
-    <svg class="twin-svg" viewBox="0 0 760 540" role="img" aria-label="Living Biological Twin: six body systems around a central biological age, reacting to live telemetry">
-      <circle class="tv-ring" cx="380" cy="260" r="190"/>
-      <circle class="tv-ring" cx="380" cy="260" r="120"/>
-      <!-- rotating sweep -->
-      <g class="tv-sweep">
-        <defs>
-          <linearGradient id="sweepg" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#B85426" stop-opacity="0.20"/>
-            <stop offset="100%" stop-color="#B85426" stop-opacity="0"/>
-          </linearGradient>
-        </defs>
-        <path d="M380 260 L380 70 A190 190 0 0 1 545 165 Z" fill="url(#sweepg)"/>
-      </g>
-      <!-- spokes -->
-      <line class="tv-spoke" x1="380" y1="260" x2="380" y2="70"/>
-      <line class="tv-spoke" x1="380" y1="260" x2="544" y2="165"/>
-      <line class="tv-spoke" x1="380" y1="260" x2="544" y2="355"/>
-      <line class="tv-spoke" x1="380" y1="260" x2="380" y2="450"/>
-      <line class="tv-spoke" x1="380" y1="260" x2="216" y2="355"/>
-      <line class="tv-spoke" x1="380" y1="260" x2="216" y2="165"/>
-      <!-- nodes -->
+    <svg class="twin-svg" viewBox="0 0 380 560" role="img" aria-label="Living Biological Twin: a body model with six systems, each showing its aging speed, scanned by live wearable telemetry">
+      <defs>
+        <linearGradient id="bodyGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#FCFAF4"/>
+          <stop offset="100%" stop-color="#ECE3D2"/>
+        </linearGradient>
+        <linearGradient id="scanGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#B85426" stop-opacity="0"/>
+          <stop offset="50%" stop-color="#B85426" stop-opacity="0.28"/>
+          <stop offset="100%" stop-color="#B85426" stop-opacity="0"/>
+        </linearGradient>
+        <radialGradient id="haloGrad" cx="50%" cy="40%" r="58%">
+          <stop offset="0%" stop-color="#B85426" stop-opacity="0.05"/>
+          <stop offset="100%" stop-color="#B85426" stop-opacity="0"/>
+        </radialGradient>
+        <path id="bodysil" d="M175,90 Q150,100 130,122 Q112,142 110,176 Q108,214 116,252 Q123,286 132,312 Q137,330 139,360 Q142,402 142,440 Q141,492 136,540 L121,540 Q118,496 121,452 Q123,410 127,374 Q150,352 184,348 L196,348 Q230,352 253,374 Q257,410 259,452 Q262,496 259,540 L244,540 Q239,492 238,440 Q238,402 241,360 Q243,330 248,312 Q257,286 264,252 Q272,214 270,176 Q268,142 250,122 Q230,100 205,90 Q190,86 175,90 Z"/>
+        <ellipse id="headsil" cx="190" cy="60" rx="30" ry="33"/>
+        <clipPath id="bodyClip"><use href="#headsil"/><use href="#bodysil"/></clipPath>
+      </defs>
+
+      <rect class="tv-halo" x="40" y="18" width="300" height="524" rx="150"/>
+      <ellipse cx="190" cy="548" rx="74" ry="9" fill="#0E1B2C" opacity="0.05"/>
+
+      <!-- body silhouette -->
+      <use href="#headsil" class="tv-body"/>
+      <use href="#bodysil" class="tv-body"/>
+
+      <!-- live scan sweeping the body -->
+      <g clip-path="url(#bodyClip)"><rect class="tv-scan" x="100" y="0" width="180" height="44"/></g>
+
+      <!-- system nodes, leaders and side labels -->
       <g class="tv-node-g">
-        <!-- Brain (top) -->
-        <circle class="tv-pulse" cx="380" cy="70" r="30" stroke="#8B6914"/>
-        <circle class="tv-node" cx="380" cy="70" r="26" fill="#EFE6CB"/>
-        <text class="tv-node-state" x="380" y="74" fill="#8B6914">watch</text>
-        <text class="tv-node-lbl" x="380" y="34">Brain</text>
-        <!-- Vascular (upper right) -->
-        <circle class="tv-pulse" cx="544" cy="165" r="30" stroke="#B85426"/>
-        <circle class="tv-node" cx="544" cy="165" r="26" fill="#F4E5DC"/>
-        <text class="tv-node-state" x="544" y="169" fill="#B85426">fast</text>
-        <text class="tv-node-lbl" x="600" y="160">Vascular</text>
-        <!-- Metabolic (lower right) -->
-        <circle class="tv-pulse" cx="544" cy="355" r="30" stroke="#B85426"/>
-        <circle class="tv-node" cx="544" cy="355" r="26" fill="#F4E5DC"/>
-        <text class="tv-node-state" x="544" y="359" fill="#B85426">fast</text>
-        <text class="tv-node-lbl" x="601" y="362">Metabolic</text>
-        <!-- Liver (bottom) -->
-        <circle class="tv-pulse" cx="380" cy="450" r="30" stroke="#8B6914"/>
-        <circle class="tv-node" cx="380" cy="450" r="26" fill="#EFE6CB"/>
-        <text class="tv-node-state" x="380" y="454" fill="#8B6914">watch</text>
-        <text class="tv-node-lbl" x="380" y="496">Liver</text>
-        <!-- Hormonal (lower left) -->
-        <circle class="tv-pulse" cx="216" cy="355" r="30" stroke="#8B6914"/>
-        <circle class="tv-node" cx="216" cy="355" r="26" fill="#EFE6CB"/>
-        <text class="tv-node-state" x="216" y="359" fill="#8B6914">watch</text>
-        <text class="tv-node-lbl" x="160" y="362">Hormonal</text>
-        <!-- Autonomic (upper left) -->
-        <circle class="tv-pulse" cx="216" cy="165" r="30" stroke="#B85426"/>
-        <circle class="tv-node" cx="216" cy="165" r="26" fill="#F4E5DC"/>
-        <text class="tv-node-state" x="216" y="169" fill="#B85426">strain</text>
-        <text class="tv-node-lbl" x="160" y="160">Autonomic</text>
+        <!-- Brain (right) -->
+        <line class="tv-lead" x1="190" y1="58" x2="286" y2="50"/>
+        <circle class="tv-pulse" cx="190" cy="58" r="8" stroke="#8B6914" style="animation-delay:.2s"/>
+        <circle class="tv-node" cx="190" cy="58" r="8" fill="#EFE6CB"/><circle cx="190" cy="58" r="3" fill="#8B6914"/>
+        <text class="tv-lbl" x="290" y="48">Brain</text>
+        <text class="tv-lbl-state" x="290" y="61" fill="#8B6914">watch</text>
+
+        <!-- Vascular (right) -->
+        <line class="tv-lead" x1="208" y1="196" x2="286" y2="186"/>
+        <circle class="tv-pulse" cx="208" cy="196" r="8" stroke="#B85426" style="animation-delay:0s"/>
+        <circle class="tv-node" cx="208" cy="196" r="8" fill="#F4E5DC"/><circle cx="208" cy="196" r="3" fill="#B85426"/>
+        <text class="tv-lbl" x="290" y="184">Vascular</text>
+        <text class="tv-lbl-state" x="290" y="197" fill="#B85426">aging fast</text>
+
+        <!-- Metabolic (right) -->
+        <line class="tv-lead" x1="206" y1="252" x2="286" y2="266"/>
+        <circle class="tv-pulse" cx="206" cy="252" r="8" stroke="#B85426" style="animation-delay:.6s"/>
+        <circle class="tv-node" cx="206" cy="252" r="8" fill="#F4E5DC"/><circle cx="206" cy="252" r="3" fill="#B85426"/>
+        <text class="tv-lbl" x="290" y="264">Metabolic</text>
+        <text class="tv-lbl-state" x="290" y="277" fill="#B85426">aging fast</text>
+
+        <!-- Autonomic (left) -->
+        <line class="tv-lead" x1="172" y1="170" x2="94" y2="150"/>
+        <circle class="tv-pulse" cx="172" cy="170" r="8" stroke="#B85426" style="animation-delay:.9s"/>
+        <circle class="tv-node" cx="172" cy="170" r="8" fill="#F4E5DC"/><circle cx="172" cy="170" r="3" fill="#B85426"/>
+        <text class="tv-lbl" x="90" y="148" text-anchor="end">Autonomic</text>
+        <text class="tv-lbl-state" x="90" y="161" text-anchor="end" fill="#B85426">under strain</text>
+
+        <!-- Liver (left) -->
+        <line class="tv-lead" x1="164" y1="234" x2="94" y2="238"/>
+        <circle class="tv-pulse" cx="164" cy="234" r="8" stroke="#8B6914" style="animation-delay:.4s"/>
+        <circle class="tv-node" cx="164" cy="234" r="8" fill="#EFE6CB"/><circle cx="164" cy="234" r="3" fill="#8B6914"/>
+        <text class="tv-lbl" x="90" y="232" text-anchor="end">Liver</text>
+        <text class="tv-lbl-state" x="90" y="245" text-anchor="end" fill="#8B6914">watch</text>
+
+        <!-- Hormonal (left) -->
+        <line class="tv-lead" x1="190" y1="312" x2="94" y2="322"/>
+        <circle class="tv-pulse" cx="190" cy="312" r="8" stroke="#8B6914" style="animation-delay:1.1s"/>
+        <circle class="tv-node" cx="190" cy="312" r="8" fill="#EFE6CB"/><circle cx="190" cy="312" r="3" fill="#8B6914"/>
+        <text class="tv-lbl" x="90" y="320" text-anchor="end">Hormonal</text>
+        <text class="tv-lbl-state" x="90" y="333" text-anchor="end" fill="#8B6914">watch</text>
       </g>
-      <!-- core -->
-      <circle class="tv-core" cx="380" cy="260" r="66"/>
-      <text class="tv-core-lbl" x="380" y="238" font-size="10" text-anchor="middle">BIO AGE</text>
-      <text class="tv-core-age" x="380" y="276" font-size="44" text-anchor="middle">42.9</text>
-      <text class="tv-core-lbl" x="380" y="298" font-size="9" text-anchor="middle">CHRONO 40</text>
     </svg>
   </div>
   <div class="twin-side">
     <span class="live-pill"><span class="live-dot"></span> Live from Whoop</span>
+    <div class="tv-bioage">
+      <div class="ba-num">42.9</div>
+      <div class="ba-meta">biological age<br><b>2.9 yrs over</b> chronological 40</div>
+    </div>
     <h4>Streaming now</h4>
     <div class="twin-tele">
       <div class="tele-row"><span class="tk">HRV (RMSSD)</span><span class="tval warn" id="t-hrv">32 ms</span></div>
@@ -373,7 +458,7 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
       <div class="tele-row"><span class="tk">VO2max est.</span><span class="tval" id="t-vo2">38</span></div>
       <div class="tele-row"><span class="tk">Load (ACWR)</span><span class="tval" id="t-acwr">0.58</span></div>
     </div>
-    <p class="twin-cap">Vascular and metabolic systems are aging fastest. The autonomic node is under strain. None of it is fixed: every system here has a lever in the protocol below.</p>
+    <p class="twin-cap">Each marker maps to a system on the body. Vascular and metabolic are aging fastest, the autonomic system is under strain. None of it is fixed: every system here has a lever in the protocol below.</p>
   </div>
 </div>
 
@@ -514,7 +599,13 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
       <span class="step" id="lp1">Reason</span>
       <span class="step" id="lp2">Patch</span>
     </div>
-    <p style="margin-top:16px;font-size:13px;color:var(--ink-mute);">Over a quarter, the HRV crashes cluster on the same nights: late caffeine, alcohol, travel. The loop turns that into fewer bad mornings.</p>
+    <div class="ap-caught">
+      <div class="ap-caught-h">What it caught this quarter</div>
+      <div class="ap-c-row"><span class="ap-c-n">x7</span><span class="ap-c-t">HRV crashes traced to a post-3pm coffee, your slow-caffeine genotype made visible</span></div>
+      <div class="ap-c-row"><span class="ap-c-n">x4</span><span class="ap-c-t">Travel nights flagged early, training pulled back before the body forced it</span></div>
+      <div class="ap-c-row"><span class="ap-c-n">x3</span><span class="ap-c-t">Alcohol-suppressed REM caught, next-day load adjusted down</span></div>
+    </div>
+    <p style="margin-top:14px;font-size:13px;color:var(--ink-mute);">The crashes cluster on the same nights: late caffeine, alcohol, travel. The loop turns that into fewer bad mornings, and the trend back into the Twin above.</p>
   </div>
 </div>
 
@@ -555,38 +646,87 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
 
 <div class="panel">
   <div class="ptitle"><h3>Cardiovascular</h3><span class="pcount">the lead system</span></div>
-  <p class="psum">An atherogenic lipid load, amplified by three genetic risk factors and a strong family history.</p>
-  <div class="marker-row"><div class="marker-name">ApoB<span class="mx">primary atherogenic particle count</span></div><div class="marker-value"><span class="num">105</span> <span class="unit">mg/dL</span></div><div class="marker-target">optimal &lt;70 (e4-set)</div><div class="marker-badge badge-off">OFF-TARGET</div></div>
+  <p class="psum">An atherogenic lipid load, amplified by three genetic risk factors and a strong family history. Every number here points the same way, and it is the system the whole protocol leads with.</p>
+  <div class="marker-row"><div class="marker-name">ApoB<span class="mx">the particle count that actually drives plaque</span></div><div class="marker-value"><span class="num">105</span> <span class="unit">mg/dL</span></div><div class="marker-target">optimal &lt;70 (e4-set)</div><div class="marker-badge badge-off">OFF-TARGET</div></div>
   <div class="marker-row"><div class="marker-name">LDL cholesterol</div><div class="marker-value"><span class="num">142</span> <span class="unit">mg/dL</span></div><div class="marker-target">optimal &lt;100</div><div class="marker-badge badge-off">OFF-TARGET</div></div>
   <div class="marker-row"><div class="marker-name">HDL cholesterol</div><div class="marker-value"><span class="num">38</span> <span class="unit">mg/dL</span></div><div class="marker-target">optimal &gt;45</div><div class="marker-badge badge-off">OFF-TARGET</div></div>
-  <div class="marker-row"><div class="marker-name">Lp(a)<span class="mx">genetic, lifelong</span></div><div class="marker-value"><span class="num">145</span> <span class="unit">nmol/L</span></div><div class="marker-target">optimal &lt;75</div><div class="marker-badge badge-refer">REFER</div></div>
+  <div class="marker-row"><div class="marker-name">Non-HDL cholesterol</div><div class="marker-value"><span class="num">161</span> <span class="unit">mg/dL</span></div><div class="marker-target">optimal &lt;130</div><div class="marker-badge badge-off">OFF-TARGET</div></div>
+  <div class="marker-row"><div class="marker-name">Total cholesterol</div><div class="marker-value"><span class="num">199</span> <span class="unit">mg/dL</span></div><div class="marker-target">context only</div><div class="marker-badge badge-watch">WATCH</div></div>
   <div class="marker-row"><div class="marker-name">Triglycerides</div><div class="marker-value"><span class="num">165</span> <span class="unit">mg/dL</span></div><div class="marker-target">optimal &lt;100</div><div class="marker-badge badge-off">OFF-TARGET</div></div>
-  <div class="xref"><b>Genome + family.</b> APOE e4 (R-GEN-APOE-01) tightens your ApoB target to under 70. Genetically high Lp(a) plus the 9p21 locus stack on top, and your father's heart attack at 58 makes it concrete. This is the system the whole protocol leads with.</div>
+  <div class="marker-row"><div class="marker-name">Lp(a)<span class="mx">genetic, lifelong, lifestyle-fixed</span></div><div class="marker-value"><span class="num">145</span> <span class="unit">nmol/L</span></div><div class="marker-target">optimal &lt;75</div><div class="marker-badge badge-refer">REFER</div></div>
+  <div class="marker-row"><div class="marker-name">ApoA1<span class="mx">protective particle</span></div><div class="marker-value"><span class="num">120</span> <span class="unit">mg/dL</span></div><div class="marker-target">optimal &gt;140</div><div class="marker-badge badge-watch">WATCH</div></div>
+  <div class="xref"><b>Genome + family.</b> APOE e4 (R-GEN-APOE-01) tightens your ApoB target to under 70 and makes the saturated-fat swap genuinely worth it for you. Genetically high Lp(a) (R-GEN-LPA-01) plus the 9p21 CAD locus stack on top, and your father's heart attack at 58 makes it concrete rather than abstract. Lp(a) itself will not move, so the strategy is to crush every other particle hard.</div>
 </div>
 
 <div class="panel">
   <div class="ptitle"><h3>Insulin &amp; metabolic</h3><span class="pcount">reversible now</span></div>
-  <p class="psum">Early, reversible insulin resistance on a genetic diabetes background.</p>
+  <p class="psum">Early, reversible insulin resistance with impaired fasting glucose, on a genetic diabetes background. The most fixable thing in the report.</p>
   <div class="marker-row"><div class="marker-name">HOMA-IR<span class="mx">insulin resistance index</span></div><div class="marker-value"><span class="num">2.91</span></div><div class="marker-target">optimal &lt;1.5</div><div class="marker-badge badge-off">OFF-TARGET</div></div>
   <div class="marker-row"><div class="marker-name">Fasting insulin</div><div class="marker-value"><span class="num">11.8</span> <span class="unit">uIU/mL</span></div><div class="marker-target">optimal &lt;7</div><div class="marker-badge badge-off">OFF-TARGET</div></div>
   <div class="marker-row"><div class="marker-name">Fasting glucose</div><div class="marker-value"><span class="num">100</span> <span class="unit">mg/dL</span></div><div class="marker-target">optimal 75-90</div><div class="marker-badge badge-watch">WATCH</div></div>
-  <div class="marker-row"><div class="marker-name">HbA1c</div><div class="marker-value"><span class="num">5.6</span> <span class="unit">%</span></div><div class="marker-target">optimal &lt;5.4</div><div class="marker-badge badge-watch">WATCH</div></div>
-  <div class="xref"><b>Genome + wearable.</b> The TCF7L2 variant (R-GEN-TCF7L2-01) lowers your secretory reserve, so this matters more for you. The Whoop confirms the driver: almost no Zone-2 (ACWR 0.58) and 5,000 steps a day.</div>
+  <div class="marker-row"><div class="marker-name">HbA1c<span class="mx">3-month average glucose</span></div><div class="marker-value"><span class="num">5.6</span> <span class="unit">%</span></div><div class="marker-target">optimal &lt;5.4</div><div class="marker-badge badge-watch">WATCH</div></div>
+  <div class="marker-row"><div class="marker-name">Uric acid</div><div class="marker-value"><span class="num">6.9</span> <span class="unit">mg/dL</span></div><div class="marker-target">optimal &lt;6.0</div><div class="marker-badge badge-watch">WATCH</div></div>
+  <div class="xref"><b>Genome + wearable.</b> The TCF7L2 variant (R-GEN-TCF7L2-01) lowers your insulin-secretion reserve, so this matters more for you than for the average 40-year-old. The Whoop confirms the driver: almost no Zone-2 (ACWR 0.58), VO2max drifting, ~5,000 steps a day. Muscle is your glucose sink, and you are not using it.</div>
 </div>
 
 <div class="panel">
   <div class="ptitle"><h3>Inflammation &amp; methylation</h3></div>
-  <div class="marker-row"><div class="marker-name">hsCRP</div><div class="marker-value"><span class="num">2.6</span> <span class="unit">mg/L</span></div><div class="marker-target">optimal &lt;1.0</div><div class="marker-badge badge-off">OFF-TARGET</div></div>
+  <div class="marker-row"><div class="marker-name">hsCRP<span class="mx">systemic inflammation, cardiovascular-weighted</span></div><div class="marker-value"><span class="num">2.6</span> <span class="unit">mg/L</span></div><div class="marker-target">optimal &lt;1.0</div><div class="marker-badge badge-off">OFF-TARGET</div></div>
   <div class="marker-row"><div class="marker-name">Homocysteine</div><div class="marker-value"><span class="num">12.5</span> <span class="unit">umol/L</span></div><div class="marker-target">optimal &lt;9</div><div class="marker-badge badge-watch">WATCH</div></div>
-  <div class="xref"><b>Genome.</b> MTHFR C677T (R-GEN-MTHFR-01) with this homocysteine switches your B-vitamin to methylfolate plus methyl-B12, not folic acid.</div>
+  <div class="xref"><b>Genome.</b> hsCRP at 2.6 sits in the intermediate cardiovascular-risk band and adds to the lipid story. Your MTHFR C677T (R-GEN-MTHFR-01) with this homocysteine switches your B-vitamin to methylfolate plus methyl-B12, not folic acid, a small targeted switch gated on the measured value, not the gene alone.</div>
 </div>
 
 <div class="panel">
-  <div class="ptitle"><h3>Liver, vitamin &amp; hormonal</h3></div>
-  <div class="marker-row"><div class="marker-name">ALT / GGT<span class="mx">early NAFLD pattern</span></div><div class="marker-value"><span class="num">48 / 62</span> <span class="unit">U/L</span></div><div class="marker-target">FIB-4 0.69, no fibrosis</div><div class="marker-badge badge-watch">WATCH</div></div>
-  <div class="marker-row"><div class="marker-name">Vitamin D</div><div class="marker-value"><span class="num">24</span> <span class="unit">ng/mL</span></div><div class="marker-target">optimal 40-60</div><div class="marker-badge badge-watch">WATCH</div></div>
+  <div class="ptitle"><h3>Liver</h3><span class="pcount">early NAFLD, no fibrosis</span></div>
+  <div class="marker-row"><div class="marker-name">ALT</div><div class="marker-value"><span class="num">48</span> <span class="unit">U/L</span></div><div class="marker-target">optimal &lt;30</div><div class="marker-badge badge-watch">WATCH</div></div>
+  <div class="marker-row"><div class="marker-name">GGT</div><div class="marker-value"><span class="num">62</span> <span class="unit">U/L</span></div><div class="marker-target">optimal &lt;30</div><div class="marker-badge badge-watch">WATCH</div></div>
+  <div class="marker-row"><div class="marker-name">AST</div><div class="marker-value"><span class="num">30</span> <span class="unit">U/L</span></div><div class="marker-target">optimal &lt;30</div><div class="marker-badge badge-watch">WATCH</div></div>
+  <div class="marker-row"><div class="marker-name">FIB-4<span class="mx">fibrosis screen</span></div><div class="marker-value"><span class="num">0.69</span></div><div class="marker-target">&lt;1.30 reassuring</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  <div class="xref"><b>Read together.</b> ALT and GGT up with a normal FIB-4 is early fatty liver (steatosis), not fibrosis, driven by visceral fat, insulin resistance and weekly alcohol. It moves with the same levers as the metabolic panel, no separate workup needed now.</div>
+</div>
+
+<div class="panel">
+  <div class="ptitle"><h3>Vitamins &amp; minerals</h3></div>
+  <div class="marker-row"><div class="marker-name">Vitamin D (25-OH)</div><div class="marker-value"><span class="num">24</span> <span class="unit">ng/mL</span></div><div class="marker-target">optimal 40-60</div><div class="marker-badge badge-watch">WATCH</div></div>
+  <div class="marker-row"><div class="marker-name">Vitamin B12</div><div class="marker-value"><span class="num">410</span> <span class="unit">pg/mL</span></div><div class="marker-target">optimal &gt;400</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  <div class="marker-row"><div class="marker-name">Folate</div><div class="marker-value"><span class="num">8.0</span> <span class="unit">ng/mL</span></div><div class="marker-target">optimal &gt;7</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  <div class="marker-row"><div class="marker-name">Ferritin<span class="mx">high-normal, tracks inflammation here</span></div><div class="marker-value"><span class="num">165</span> <span class="unit">ng/mL</span></div><div class="marker-target">30-300</div><div class="marker-badge badge-optimal">IN RANGE</div></div>
+  <div class="marker-row"><div class="marker-name">Magnesium</div><div class="marker-value"><span class="num">2.0</span> <span class="unit">mg/dL</span></div><div class="marker-target">optimal &gt;2.0</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  <div class="xref"><b>One clear gap.</b> Vitamin D is insufficient and worth correcting (it supports metabolic health, mood and the immune system). Folate and B12 are fine, but with MTHFR we still use the methylated forms so the homocysteine actually moves.</div>
+</div>
+
+<div class="panel">
+  <div class="ptitle"><h3>Hormonal &amp; thyroid</h3></div>
   <div class="marker-row"><div class="marker-name">Testosterone (total)</div><div class="marker-value"><span class="num">420</span> <span class="unit">ng/dL</span></div><div class="marker-target">optimal &gt;600</div><div class="marker-badge badge-watch">WATCH</div></div>
-  <div class="xref"><b>Read together.</b> The liver enzymes, low-ish testosterone and the metabolic picture are all downstream of visceral fat and under-recovery. We fix the roots rather than chase each leaf, and we do not jump to testosterone therapy.</div>
+  <div class="marker-row"><div class="marker-name">AM cortisol</div><div class="marker-value"><span class="num">18</span> <span class="unit">ug/dL</span></div><div class="marker-target">upper-normal</div><div class="marker-badge badge-watch">WATCH</div></div>
+  <div class="marker-row"><div class="marker-name">TSH</div><div class="marker-value"><span class="num">2.1</span> <span class="unit">mIU/L</span></div><div class="marker-target">optimal 0.5-2.5</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  <div class="marker-row"><div class="marker-name">Free T3 / Free T4</div><div class="marker-value"><span class="num">3.1 / 1.3</span></div><div class="marker-target">in range</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  <div class="xref"><b>Don't chase this directly.</b> Testosterone below optimal with upper-normal cortisol is the signature of under-recovery and central fat, not a primary endocrine problem. Fix sleep, stress and visceral fat and it follows. We do not jump to testosterone therapy, and thyroid is genuinely fine.</div>
+</div>
+
+<div class="panel">
+  <div class="ptitle"><h3>Kidney, blood &amp; what is already strong</h3><span class="pcount">protect these</span></div>
+  <div class="marker-row"><div class="marker-name">eGFR</div><div class="marker-value"><span class="num">95</span> <span class="unit">mL/min</span></div><div class="marker-target">&gt;90</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  <div class="marker-row"><div class="marker-name">Creatinine</div><div class="marker-value"><span class="num">1.0</span> <span class="unit">mg/dL</span></div><div class="marker-target">in range</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  <div class="marker-row"><div class="marker-name">Hemoglobin</div><div class="marker-value"><span class="num">15.2</span> <span class="unit">g/dL</span></div><div class="marker-target">13-17</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  <div class="marker-row"><div class="marker-name">MCV / RDW</div><div class="marker-value"><span class="num">89 / 13.9</span></div><div class="marker-target">in range</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  <div class="marker-row"><div class="marker-name">WBC / Platelets</div><div class="marker-value"><span class="num">6.9 / 250</span></div><div class="marker-target">in range</div><div class="marker-badge badge-optimal">OPTIMAL</div></div>
+  <div class="xref"><b>Good foundations.</b> Kidneys, red cells, white cells and thyroid are all healthy. That matters, it means the work can focus entirely on the cardiometabolic and recovery story without a competing problem to manage.</div>
+</div>
+
+<div class="panel">
+  <div class="ptitle"><h3>What the ratios say</h3><span class="pcount">the derived picture</span></div>
+  <p class="psum">Single markers can mislead. The ratios below are often the earliest and clearest signal, especially for South-Asian cardiometabolic risk.</p>
+  <div class="ratio-grid">
+    <div class="ratio"><div class="rk"><span class="rname">HOMA-IR</span><span class="rval off">2.91</span></div><div class="rdesc">Insulin resistance. Above 1.5 means your body is working harder to keep glucose normal. The hinge between the genome and the heart risk.</div></div>
+    <div class="ratio"><div class="rk"><span class="rname">TG : HDL</span><span class="rval off">4.34</span></div><div class="rdesc">A strong insulin-resistance and small-dense-LDL proxy. Optimal is under 2. Yours is more than double.</div></div>
+    <div class="ratio"><div class="rk"><span class="rname">AIP</span><span class="rval off">0.64</span></div><div class="rdesc">Atherogenic Index of Plasma, a powerful cardiovascular-event predictor in Indian cohorts. Above 0.21 is high risk.</div></div>
+    <div class="ratio"><div class="rk"><span class="rname">ApoB : ApoA1</span><span class="rval off">0.88</span></div><div class="rdesc">The cleanest single ratio of harmful to protective particles. Optimal is under 0.5. The core of the lipid problem.</div></div>
+    <div class="ratio"><div class="rk"><span class="rname">Castelli I (TC/HDL)</span><span class="rval off">5.24</span></div><div class="rdesc">Cardiac risk index. Optimal is under 3.5. Driven by the low HDL as much as the high LDL.</div></div>
+    <div class="ratio"><div class="rk"><span class="rname">Castelli II (LDL/HDL)</span><span class="rval off">3.74</span></div><div class="rdesc">Optimal is under 3. Confirms the same atherogenic pattern from a second angle.</div></div>
+    <div class="ratio"><div class="rk"><span class="rname">NLR</span><span class="rval ok">2.07</span></div><div class="rdesc">Neutrophil-to-lymphocyte ratio, an inflammation and stress proxy. Under 3 is fine, so this part is reassuring.</div></div>
+    <div class="ratio"><div class="rk"><span class="rname">FIB-4</span><span class="rval ok">0.69</span></div><div class="rdesc">Liver-fibrosis screen. Under 1.30 is reassuring, so the fatty-liver enzymes are early-stage, not scarring.</div></div>
+  </div>
 </div>
 
 <!-- ROOT CAUSE -->
@@ -617,11 +757,63 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
   <div class="attack-via"><strong>Attack via:</strong> Zone-2 plus resistance training, protein and soluble fiber, fewer late dinners and drinks. Visceral-fat loss lowers ApoB, TG and liver enzymes and raises HDL and testosterone at once.</div>
 </div>
 
+<!-- INTAKE -->
+<div class="s-head">
+  <div class="s-eyebrow">08 · The intake, in his words</div>
+  <h2>Your blood said <em>what</em>. Your answers said <em>why</em>.</h2>
+  <p class="s-intro">We do not personalize from blood and DNA alone. A fifteen-section intake is why this plan looks like yours, built around travel and a fundraise, and not a template. The starred sections are the ones that changed the protocol most.</p>
+</div>
+<div class="q-group">
+  <div class="q-domain">01 · Identity &amp; goals</div>
+  <div class="q-row"><span class="qq">Occupation</span><span class="qa">Founder and CEO, B2B SaaS, ~70 people, currently mid-fundraise.</span></div>
+  <div class="q-row"><span class="qq">What do you want from this?</span><span class="qa">"I want my energy and focus back, and I don't want my dad's heart disease."</span></div>
+</div>
+<div class="q-group">
+  <div class="q-domain">02 · Family history ★</div>
+  <div class="q-row"><span class="qq">Cardiovascular</span><span class="qa">Father had a heart attack at 58, now on a statin. Paternal uncle had a bypass in his 60s.</span></div>
+  <div class="q-row"><span class="qq">Diabetes</span><span class="qa">Mother, type 2, diagnosed at 55. Maternal grandmother lived to 92.</span></div>
+</div>
+<div class="q-group">
+  <div class="q-domain">03 · Body &amp; medical</div>
+  <div class="q-row"><span class="qq">Build</span><span class="qa">84 kg, 178 cm, BMI 26.5, waist 96 cm, the central, lower-BMI pattern common in South Asians.</span></div>
+  <div class="q-row"><span class="qq">Medications / conditions</span><span class="qa">None regular. Blood pressure flagged at the last visit (138/86, untreated). No known allergies.</span></div>
+</div>
+<div class="q-group">
+  <div class="q-domain">04 · Diet, the pattern ★</div>
+  <div class="q-row"><span class="qq">How do you eat?</span><span class="qa">Eats out or orders in ~6x/week on the founder schedule. Red meat 2x, chicken 4x, 1-2 veg servings/day, fried food ~3x/week, dinner often after 9pm.</span></div>
+</div>
+<div class="q-group">
+  <div class="q-domain">05 · Drinks, caffeine &amp; alcohol ★</div>
+  <div class="q-row"><span class="qq">Caffeine</span><span class="qa">4 coffees a day, two of them after 3pm in crunch weeks, on a slow-caffeine genotype.</span></div>
+  <div class="q-row"><span class="qq">Alcohol</span><span class="qa">3-4 drinks a week, clustered at investor and team dinners.</span></div>
+</div>
+<div class="q-group">
+  <div class="q-domain">06 · Movement &amp; training ★</div>
+  <div class="q-row"><span class="qq">What do you do?</span><span class="qa">Gym about once a week when travel allows, occasional weekend badminton. Essentially no steady cardio. "It's the first thing that gets dropped when work spikes."</span></div>
+</div>
+<div class="q-group">
+  <div class="q-domain">07 · Sleep &amp; recovery ★</div>
+  <div class="q-row"><span class="qq">Your nights</span><span class="qa">In bed 00:30-01:00, up at 06:45, ~6 hours. Phone in bed, mind racing about work. "I'm tired all day and wired all night."</span></div>
+</div>
+<div class="q-group">
+  <div class="q-domain">08 · Stress, mood &amp; mind ★</div>
+  <div class="q-row"><span class="qq">Stress load</span><span class="qa">8 out of 10. "Always-on. The company is in a fundraise. I can't switch off." Tried meditation apps, nothing stuck, no breathwork.</span></div>
+</div>
+<div class="q-group">
+  <div class="q-domain">09 · Energy &amp; drive</div>
+  <div class="q-row"><span class="qq">Through the day</span><span class="qa">Daily ~3pm crash, usually fixed with another coffee. Poor morning energy without caffeine, libido lower than a few years ago.</span></div>
+</div>
+<div class="q-group">
+  <div class="q-domain">10 · Environment, data &amp; constraints ★</div>
+  <div class="q-row"><span class="qq">Travel</span><span class="qa">Bangalore-based, 2-3 trips a month, frequent red-eyes to Delhi and South-East Asia.</span></div>
+  <div class="q-row"><span class="qq">Data shared</span><span class="qa">Whole-genome sequencing and 14 months of Whoop data. Biggest obstacle: anything that needs a fixed daily slot tends to fail.</span></div>
+</div>
+
 <!-- PROTOCOL -->
 <div class="s-head">
-  <div class="s-eyebrow">08 · The protocol</div>
+  <div class="s-eyebrow">09 · The protocol</div>
   <h2>Five levers, <em>tuned to you</em>.</h2>
-  <p class="s-intro">Genome-informed and wearable-driven. The goal of 90 days is not to do everything, it is to install six habits deeply enough that they do not need willpower.</p>
+  <p class="s-intro">Genome-informed and wearable-driven, built around a founder's travel and a fundraise. The goal of 90 days is not to do everything, it is to install six habits deeply enough that they stop needing willpower. Three pillars sit underneath the five levers.</p>
 </div>
 
 <div class="pillar">
@@ -644,56 +836,136 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
 </div>
 
 <div class="domain lead">
-  <div class="dlabel">Lever 01 · Recovery &amp; Sleep <span class="dlead-tag">Lead</span></div>
-  <h3>The cheapest win he is not taking</h3>
+  <div class="dlabel">Lever 01 · Training <span class="dlead-tag">Lead</span></div>
+  <h3>Build the aerobic base you never had</h3>
+  <p class="dintro">Right now you do under 30 minutes of structured aerobic work a week while sitting most of the day (ACWR 0.58, VO2max drifting down, ~5,000 steps). That single gap is why your HDL is low, your insulin is creeping, and your energy is gone. Zone-2 is the top lever for all three at once, and for an APOE e4 carrier it is a brain lever too. You are exercise-poor, not over-trained, so the job is to <strong>add a base</strong>, built so it survives constant travel.</p>
+  <h4>Weekly structure</h4>
   <ul>
-    <li>Lights-out 23:00, phone charges outside the bedroom (he reads in bed now). Wake fixed at 06:45. Target 7 to 7.5 hours.</li>
-    <li>Caffeine cutoff 10:00, two cups maximum, because he clears it slowly. Replace the 3pm coffee with a 10-min daylight walk.</li>
-    <li>One true recovery day a week, chosen by the Whoop trend. Magnesium glycinate in the evening.</li>
-    <li>Travel rule: on red-eye nights, hydrate, keep caffeine before 10:00 local, daylight on landing, no training next day.</li>
+    <li><strong>Zone-2 cardio: 150 min/week</strong>, in 3-4 sessions of 35-45 min at a conversational pace (heart rate ~120-135, your Whoop confirms the zone). Incline treadmill, cycle, brisk walk, or any hotel-gym cardio. <span class="subnote">On Bangalore or Delhi high-AQI days, keep it indoors with filtered air.</span></li>
+    <li><strong>Resistance: 2 full-body sessions/week</strong> (squat, hinge, push, pull, carry). Muscle is your largest glucose sink, this is half the insulin fix. Dumbbell or bodyweight versions travel with you.</li>
+    <li><strong>Steps to 8,000/day</strong>, up from ~5,000. Walking meetings and calls taken on foot do most of the work.</li>
+    <li><strong>One short VO2max session/week</strong>, added only once the base is in (from week 7): 4-6 x 1 min hard with full recoveries.</li>
+    <li><strong>One true recovery day</strong>, picked by the Whoop trend, walk and mobility only.</li>
   </ul>
+  <h4>A sample week</h4>
+  <table class="menu-table">
+    <tr><td>Mon</td><td>Full-body strength 40 min (squat, hinge, push, pull, carry) + hit 8k steps</td></tr>
+    <tr><td>Tue</td><td>Zone-2 40 min, incline treadmill or cycle (HR 120-135), able to hold a conversation</td></tr>
+    <tr><td>Wed · travel</td><td>30-min brisk walk + 10-min mobility; bank steps in the airport, no formal session</td></tr>
+    <tr><td>Thu</td><td>Full-body strength 40 min + 15-min Zone-2 finisher</td></tr>
+    <tr><td>Fri</td><td>Zone-2 45 min; from week 7, add one short VO2max block (4-6 x 1 min hard)</td></tr>
+    <tr><td>Sat</td><td>Long easy Zone-2 60 min outdoors in a low-AQI window, or badminton</td></tr>
+    <tr><td>Sun</td><td>Recovery day (Whoop-guided): walk + mobility only, no training</td></tr>
+  </table>
+  <h4>The 12-week progression</h4>
+  <ul>
+    <li><strong>Weeks 1-2, install the base:</strong> 2 Zone-2 (30 min) + 2 strength + hit 8k steps. No intensity, just consistency and the sleep and caffeine rules.</li>
+    <li><strong>Weeks 3-6, build:</strong> 3 Zone-2 (40 min) + 2 strength. Watch resting HR start to fall and energy return. Book the lipid appointment.</li>
+    <li><strong>Weeks 7-10, progress:</strong> 3-4 Zone-2 + the first VO2max blocks once recovery is solid. Week 8 lighter (travel-heavy). Resistance loads progress.</li>
+    <li><strong>Weeks 11-13, consolidate:</strong> hold the structure. No heavy training in the 48 hours before the Day-90 retest, it can skew the panel.</li>
+  </ul>
+  <p class="subnote" style="margin-top:14px;">Your ACTN3 is a mixed power/endurance profile, a tie-breaker only, the Zone-2 priority stands. Your BDNF Met variant means aerobic work and sleep are doubly worthwhile for the brain. Evidence: Zone-2 for VO2max, HDL and insulin sensitivity [E1]; resistance for glucose disposal [E1]; aerobic fitness and cognition [E2].</p>
 </div>
+
 <div class="domain lead">
-  <div class="dlabel">Lever 02 · Nutrition <span class="dlead-tag">Lead</span></div>
-  <h3>Two structural moves, built for travel</h3>
+  <div class="dlabel">Lever 02 · Recovery &amp; Sleep <span class="dlead-tag">Lead</span></div>
+  <h3>The cheapest win in this whole report</h3>
+  <p class="dintro">You sleep about six hours with only 11% deep sleep, your HRV is falling and your resting HR is rising. Short, shallow sleep sits underneath your insulin resistance, your testosterone, your HRV and your focus all at once. Moving lights-out from ~00:45 to <strong>23:00</strong> buys roughly 1.5 hours at almost zero willpower cost, and it is the keystone the rest of the plan leans on.</p>
+  <h4>The wind-down</h4>
   <ul>
-    <li>Shift fat quality (Mediterranean, per APOE e4): olive and mustard oil over ghee, cut the fried orders, halve the after-dinner dessert.</li>
-    <li>Add 1 tbsp psyllium daily plus oats and chia. The veg-light, travel-proof ApoB fiber move.</li>
-    <li>Protein at every meal (eggs, dahi, chicken, fish, paneer, dal) for satiety and glucose control.</li>
-    <li>Order smarter: grilled over fried, double the dal and sabzi, less rice, skip the naan-and-dessert combo. Drinks to two a week.</li>
+    <li><strong>Lights-out 23:00, phone charges outside the bedroom.</strong> You read in bed now, this is the one habit to break. Fixed wake at 06:45 anchors the rhythm.</li>
+    <li><strong>No laptop after 22:15</strong>, dim the lights, magnesium glycinate at 22:30. Keep the room cool and dark.</li>
   </ul>
+  <h4>Caffeine, by your genotype</h4>
+  <ul>
+    <li><strong>Cutoff 10:00, two cups maximum.</strong> You are a CYP1A2 slow metabolizer, so an afternoon coffee is still in your system at bedtime, the Autopilot above shows your HRV crashing on exactly those nights.</li>
+    <li>Replace the 3pm coffee with a <strong>10-minute daylight walk</strong>, it lifts afternoon energy without costing you the night.</li>
+  </ul>
+  <h4>Recovery and travel</h4>
+  <ul>
+    <li><strong>One true recovery day a week</strong>, chosen by the Whoop 7-day trend rather than the calendar.</li>
+    <li><strong>Red-eye protocol:</strong> hydrate before noon, caffeine before 10:00 local only, 15 minutes of daylight on landing, and no training the next day.</li>
+  </ul>
+  <p class="subnote" style="margin-top:14px;">Evidence: sleep extension for insulin sensitivity, testosterone and recovery [E1]; morning light for circadian alignment [E2]; caffeine timing and sleep architecture [E1].</p>
 </div>
+
 <div class="domain lead">
-  <div class="dlabel">Lever 03 · Training <span class="dlead-tag">Lead</span></div>
-  <h3>Build the aerobic base he is missing</h3>
+  <div class="dlabel">Lever 03 · Nutrition <span class="dlead-tag">Lead</span></div>
+  <h3>Two structural moves, built for a founder who eats out</h3>
+  <p class="dintro">You order in or eat out about six times a week and you travel constantly, so severity is the wrong tool, it will not survive a single hard week. We change exactly two things: <strong>shift fat quality</strong> (Mediterranean-leaning, which your APOE e4 makes genuinely worth it), and <strong>add soluble fibre and protein</strong>. Both lower ApoB and improve insulin sensitivity at the same time.</p>
+  <h4>Daily targets</h4>
+  <div class="kv-grid">
+    <div class="kv-item"><div class="kv-key">Protein</div><div class="kv-val">~140 g</div></div>
+    <div class="kv-item"><div class="kv-key">Fibre</div><div class="kv-val">35 g (10 g soluble)</div></div>
+    <div class="kv-item"><div class="kv-key">Added sugar</div><div class="kv-val">minimal</div></div>
+    <div class="kv-item"><div class="kv-key">Alcohol</div><div class="kv-val">&le; 2 drinks/week</div></div>
+    <div class="kv-item"><div class="kv-key">Dinner</div><div class="kv-val">earlier when home</div></div>
+    <div class="kv-item"><div class="kv-key">Fat profile</div><div class="kv-val">Mediterranean</div></div>
+  </div>
+  <h4>Fat quality, per your APOE <span class="gtag">e4</span></h4>
   <ul>
-    <li>Zone-2: 3 to 4 sessions of 35 to 45 min a week (HR ~120 to 135), confirmed by the Whoop. This is the top lever for HDL, ApoB, insulin and his energy.</li>
-    <li>Resistance: 2 full-body sessions a week, portable versions for travel. Muscle is his glucose sink.</li>
-    <li>Steps to 8,000 a day with walking meetings. One short VO2max session added once the base is in.</li>
+    <li>Swap ghee and butter for <strong>olive and mustard oil</strong>, used with a light hand. Cut the fried restaurant orders.</li>
+    <li><strong>Fatty fish twice a week</strong>, plus a handful of walnuts or almonds daily for the unsaturated side.</li>
+    <li>Halve the after-dinner dessert, it is the easiest saturated-fat and sugar cut you have.</li>
   </ul>
+  <h4>Fibre and protein</h4>
+  <ul>
+    <li><strong>1 tbsp psyllium husk in water daily</strong>, the single highest-leverage, veg-light move for ApoB and LDL.</li>
+    <li><strong>Oats + 1 tbsp chia + 1 tbsp ground flax</strong> at breakfast, soluble fibre plus plant omega-3. Dal up to 5x/week.</li>
+    <li><strong>Protein at every meal</strong> (eggs, dahi, chicken, fish, paneer, dal). Your FTO variant nudges appetite up, and protein is the simplest brake.</li>
+  </ul>
+  <h4>Ordering rules for the road</h4>
+  <ul>
+    <li>Grilled over fried, <strong>double the dal and sabzi</strong>, brown or less rice, skip the naan-and-dessert combo.</li>
+    <li>At investor dinners: grilled mains, two drinks maximum, no dessert. The rule that protects the most numbers for the least effort.</li>
+  </ul>
+  <h4>A sample week (foods you already eat)</h4>
+  <table class="menu-table">
+    <tr><td>Mon · office</td><td>B: oats + chia + flax + dahi, 2 eggs · L: grilled chicken + small brown rice + double dal + salad · S: apple + walnuts, psyllium · D: paneer or fish curry (mustard oil) + 1 multigrain roti + sabzi</td></tr>
+    <tr><td>Tue · gym AM</td><td>B: 3-egg omelette + sautéed greens (olive oil) + dahi · L: rajma + small brown rice + cucumber-tomato + lemon · S: roasted chana + green tea (before 10:00) · D: grilled fish + sabzi + dal, berries</td></tr>
+    <tr><td>Wed · travel</td><td>B: hotel omelette + fruit + black coffee (before 10:00) · L: grilled chicken bowl, extra veg, no naan · S: nuts + psyllium · D: dal + 1 roti + sabzi, skip dessert and alcohol</td></tr>
+    <tr><td>Thu · office</td><td>B: oats + chia + whey + dahi · L: fish curry + small brown rice + dal + salad · S: guava + green tea · D: grilled chicken tikka + sabzi + dal, psyllium</td></tr>
+    <tr><td>Fri · gym AM</td><td>B: 3-egg bhurji + greens + dahi · L: chole + small brown rice + salad + lemon · S: apple + almonds · D: grilled paneer or fish + sabzi + 1 roti</td></tr>
+    <tr><td>Sat · long walk</td><td>B: oats + berries + chia + whey · L: home thali, dal + sabzi + 1-2 roti + dahi + salad · S: fruit + walnuts · D: investor dinner, grilled mains, 2 drinks max, skip dessert</td></tr>
+    <tr><td>Sun · rest</td><td>B: eggs + avocado or greens + dahi · L: fish or chicken + brown rice + dal + big salad · S: berries + nuts, psyllium · D: light, soup + dal + sabzi, early</td></tr>
+  </table>
+  <p class="subnote" style="margin-top:12px;"><strong>Emphasize:</strong> olive and mustard oil, fatty fish, dal, oats and chia, psyllium, eggs and dahi, berries and guava, leafy greens (folate). <strong>Deprioritize:</strong> ghee and butter, fried orders, rice and naan in volume, dessert, sugary drinks, alcohol beyond two a week. Evidence: soluble fibre for ApoB and LDL [E1]; saturated-to-unsaturated fat swap, sharper for e4 [E1]; protein for satiety and glycemic control [E1].</p>
 </div>
+
 <div class="domain">
   <div class="dlabel">Lever 04 · Supplements</div>
-  <h3>Six targeted items, not a stack</h3>
-  <ul>
-    <li>Omega-3 2g EPA+DHA, psyllium 1 tbsp, vitamin D3 2000 IU with K2, magnesium glycinate PM, creatine 3 to 5g.</li>
-    <li>Methylfolate plus methyl-B12 (not folic acid), chosen by the MTHFR result and the measured homocysteine.</li>
-    <li>A statin stays a physician decision, with the SLCO1B1 advisory attached.</li>
-  </ul>
+  <h3>Six targeted items, not a twenty-bottle stack</h3>
+  <p class="dintro">You currently take almost nothing consistently, so this is about adding a small, evidence-led set, each tied to a finding, not building a shelf. The one big lever, a statin, stays a physician decision.</p>
+  <table class="suppl-table">
+    <tr><td class="sname">Omega-3</td><td class="sdose">2 g EPA+DHA<br>with a meal</td><td>Lowers triglycerides and supports ApoB, and is a brain lever for your e4. Algal version if you want to avoid fish entirely.</td><td><span class="chg chg-add">ADD</span></td></tr>
+    <tr><td class="sname">Psyllium husk</td><td class="sdose">1 tbsp<br>before a meal</td><td>The highest-leverage, vegetable-light soluble fibre for ApoB and LDL. Take with a full glass of water.</td><td><span class="chg chg-add">ADD</span></td></tr>
+    <tr><td class="sname">Methylfolate +<br>methyl-B12</td><td class="sdose">400-800 mcg<br>morning</td><td>Chosen by your MTHFR C677T result and the measured homocysteine of 12.5. Active forms, not folic acid.</td><td><span class="chg chg-add">ADD</span></td></tr>
+    <tr><td class="sname">Vitamin D3 + K2</td><td class="sdose">2,000 IU + 100 mcg<br>with breakfast</td><td>Your 25-OH-D is 24 ng/mL. Repletes toward 40-60; K2 directs calcium to bone, not arteries. Retest at week 12.</td><td><span class="chg chg-add">ADD</span></td></tr>
+    <tr><td class="sname">Magnesium glycinate</td><td class="sdose">300 mg<br>evening</td><td>Supports sleep depth and recovery, the glycinate form is gentle and well absorbed.</td><td><span class="chg chg-add">ADD</span></td></tr>
+    <tr><td class="sname">Creatine monohydrate</td><td class="sdose">3-5 g<br>any time</td><td>Supports training output and cognition, your stated focus goal. Among the most evidence-backed supplements there is.</td><td><span class="chg chg-add">ADD</span></td></tr>
+    <tr><td class="sname">Statin / lipid therapy</td><td class="sdose">physician<br>decision</td><td>Likely warranted given ApoB 105 + Lp(a) 145 + APOE e4 + family history. Not ours to start.</td><td><span class="chg chg-block">PHYSICIAN</span></td></tr>
+  </table>
+  <p class="subnote" style="margin-top:14px;"><strong>Pharmacogenomic note (SLCO1B1, TC):</strong> if your physician does start a statin, this variant favors a non-simvastatin agent or a lower dose to reduce muscle-side-effect risk. Carry that note to the prescriber. The engine never prescribes or doses a medication.</p>
 </div>
+
 <div class="domain">
   <div class="dlabel">Lever 05 · Mind &amp; Wellness</div>
   <h3>Down-regulate a real, situational stress load</h3>
+  <p class="dintro">Your stress sits at 8 out of 10 in the middle of a fundraise, and you do no breathwork. This is situational and honest, not a supplement problem, and your COMT Val/Met profile responds best to steady, low-stimulant down-regulation rather than more intensity.</p>
   <ul>
-    <li>10 min of breathwork daily (physiological sigh or box breathing), matched to his COMT profile.</li>
-    <li>A genuine offline block on the recovery day, walking meetings to fold movement into work.</li>
+    <li><strong>10 minutes of breathwork daily</strong> (physiological sigh, or box breathing 4-4-4-4), the fastest lever on an 8/10 stress load and on next-day HRV.</li>
+    <li><strong>A genuine offline block on the recovery day</strong>, and walking meetings to fold movement and headspace into the workday.</li>
+    <li><strong>Caffeine moderation is itself an anxiety lever for you</strong>, a slow metabolizer holds the jitter for hours. The 10:00 cutoff does double duty.</li>
+    <li>If the low mood or stress does not ease as sleep and training land over the next few weeks, a check-in with a counsellor is a sensible, ordinary move.</li>
   </ul>
+  <p class="subnote" style="margin-top:14px;">A supporting domain, paired with Recovery. Evidence: slow breathing for acute stress and HRV [E2]; behavioural activation through exercise for mood [E2].</p>
 </div>
 
 <!-- HABIT STACK -->
 <div class="s-head">
-  <div class="s-eyebrow">09 · The 90-day plan</div>
+  <div class="s-eyebrow">10 · The 90-day plan</div>
   <h2>A cadence, <em>not a sprint</em>.</h2>
+  <p class="s-intro">More than six new habits at once and adherence collapses, even for a disciplined operator. They come in pairs, with a coach check-in at each step and the Whoop giving live feedback between calls.</p>
 </div>
 <div class="timeline">
   <div class="tblock"><div class="twk">Weeks 1-2</div><div class="thabits"><strong>Foundation.</strong> Lights-out 23:00 with the phone out of the bedroom. Caffeine cutoff 10:00.<div class="tcoach"><strong>Coach, Day 14:</strong> Is the bedtime holding against late work? Is the late coffee gone, and is the Whoop HRV responding? Book the lipid appointment.</div></div></div>
@@ -702,9 +974,50 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
   <div class="tblock"><div class="twk">Weeks 11-13</div><div class="thabits"><strong>Retest prep.</strong> Hold all six habits. No heavy training 48 hours before the Day-90 draw, same lab, same morning slot.<div class="tcoach"><strong>Coach, Day 84 + 90:</strong> Lock the retest so the ApoB, HOMA-IR and HRV deltas are real. Confirm physician outcomes.</div></div></div>
 </div>
 
+<!-- RETEST -->
+<div class="s-head">
+  <div class="s-eyebrow">11 · The retest plan</div>
+  <h2>Measured, <em>not assumed</em>.</h2>
+  <p class="s-intro">Adherence is the only variable we cannot control for you. The deltas below are realistic at 80%+ on the six-habit stack. The Day-90 draw uses the same lab, the same morning slot and a 12-hour fast, so the change is real and not noise.</p>
+</div>
+<div class="retest-grid">
+  <div class="retest-card2">
+    <div class="rt-when">Day 30 · subjective + wearable</div>
+    <ul>
+      <li>Energy and the afternoon crash easing</li>
+      <li>Whoop HRV trend turning up, resting HR starting to fall</li>
+      <li>Deep sleep climbing as the caffeine cutoff and bedtime land</li>
+    </ul>
+  </div>
+  <div class="retest-card2">
+    <div class="rt-when">Day 60 · the first blood look</div>
+    <ul>
+      <li>Lipid panel: ApoB falling, faster if a statin started; HDL beginning to rise</li>
+      <li>Fasting glucose + insulin: HOMA-IR drifting down</li>
+      <li>A checkpoint, not the verdict, to confirm direction</li>
+    </ul>
+  </div>
+  <div class="retest-card2">
+    <div class="rt-when">Day 90 · the full panel</div>
+    <ul>
+      <li>Priority remeasures: ApoB, LDL, HDL, non-HDL, TG, HOMA-IR, glucose, HbA1c, hsCRP, homocysteine, ALT, GGT, testosterone, vitamin D</li>
+      <li>Targets: ApoB 105 &rarr; under 85 (toward 70 on a statin), HOMA-IR 2.9 &rarr; under 2.0, TG 165 &rarr; under 120, HDL 38 &rarr; 44+</li>
+      <li>Add-ons worth it now: ApoB particle / LDL-P, omega-3 index</li>
+    </ul>
+  </div>
+  <div class="retest-card2">
+    <div class="rt-when">Week 12 · targeted</div>
+    <ul>
+      <li>Vitamin D recheck, expected into the 40-60 ng/mL range on 2,000 IU/day</li>
+      <li>Homocysteine, to confirm the methylated B forms moved it under 9</li>
+      <li>Lp(a) and APOE do not change, they are genetic, set once</li>
+    </ul>
+  </div>
+</div>
+
 <!-- REFERRALS -->
-<div class="card" style="border-left:4px solid var(--danger);">
-  <div class="s-eyebrow" style="color:var(--danger);">10 · Take these to a physician</div>
+<div class="card" style="border-left:4px solid var(--danger);margin-top:28px;">
+  <div class="s-eyebrow" style="color:var(--danger);">12 · Take these to a physician</div>
   <h3 style="font-size:24px;">Three conversations to have with a doctor</h3>
   <div class="refer-item">
     <div class="rspec">Primary care to Lipidology / Cardiology</div>
@@ -718,6 +1031,18 @@ code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); pa
     <div class="rspec">Primary care</div>
     <p style="font-size:14px;">Untreated blood pressure (138/86), early NAFLD enzymes and impaired fasting glucose. Confirm BP with home readings, baseline review. FIB-4 of 0.69 means no fibrosis workup is needed now.</p>
   </div>
+</div>
+
+<!-- NOT TOUCHING -->
+<div class="next-card">
+  <div class="s-eyebrow">13 · Deliberately not touching</div>
+  <h2>Three things we are leaving alone.</h2>
+  <p style="margin-bottom:14px;">A good protocol is as much about restraint as action. These are the easy mistakes we are choosing not to make.</p>
+  <ol>
+    <li><strong>No testosterone therapy.</strong> Your 420 is downstream of six-hour sleep, an 8/10 stress load and central fat. Fix those roots and it recovers on its own. Starting hormones now would mask the real cause.</li>
+    <li><strong>No crash diet.</strong> You travel constantly and eat out six times a week. A rigid plan would collapse on the first hard trip. Portability and two structural swaps beat severity that does not last.</li>
+    <li><strong>No twenty-bottle supplement stack.</strong> Six targeted items, each tied to a finding, plus a physician-decided statin. More bottles is not more health, it is just more to abandon.</li>
+  </ol>
 </div>
 
 <!-- DISCLAIMER -->

@@ -88,7 +88,7 @@
         "Two structural moves: shift fat quality (less saturated) and add soluble fiber + protein; both lower ApoB AND improve insulin sensitivity.",
         "ApoE ε4 makes the saturated-fat swap genuinely worth it for him specifically."
       ],
-      "daily_targets": {"protein_g": 140, "fibre_g": 35, "soluble_fibre_g": "10", "added_sugar": "minimal", "alcohol": "≤2 drinks/week"},
+      "daily_targets": {"protein_g": 140, "fibre_g": 35, "soluble_fibre_g": "10", "added_sugar": "minimal", "alcohol": "≤2 drinks/week", "eating_window": "earlier dinner when not travelling"},
       "structural_changes": [
         "Swap ghee + restaurant fried items for olive/mustard oil; halve the after-dinner dessert",
         "Add 1 tbsp psyllium daily + oats/chia at breakfast — the veg-light, travel-proof ApoB fiber move",
@@ -97,6 +97,17 @@
         "Earlier dinners when not traveling; cut the weekly investor-dinner drinks to ≤2"
       ],
       "fat_quality_note": "Mediterranean-leaning per ApoE ε4: olive oil, nuts, fatty fish; minimise saturated fat.",
+      "foods_to_emphasize": ["olive + mustard oil", "fatty fish 2x/wk", "dal 5x/wk", "oats + chia + flax", "psyllium daily", "eggs + dahi + paneer", "berries / guava / apple", "walnuts + almonds", "leafy greens (folate, MTHFR)"],
+      "foods_to_deprioritize": ["ghee + butter", "fried restaurant orders", "white rice + naan in volume", "after-dinner dessert", "sugary drinks", "alcohol beyond 2/wk"],
+      "weekly_menu_sample": [
+        {"day": "Mon (office)", "breakfast": "Oats + chia + flax + dahi; 2 eggs", "lunch": "Grilled chicken + brown rice (small) + double dal + salad", "snack": "Apple + 6 walnuts; psyllium in water", "dinner": "Paneer/fish curry (mustard oil) + 1 multigrain roti + sabzi"},
+        {"day": "Tue (gym AM)", "breakfast": "3-egg omelette + sautéed greens (olive oil) + dahi", "lunch": "Rajma + brown rice (small) + cucumber-tomato + lemon", "snack": "Roasted chana + green tea (before 10:00)", "dinner": "Grilled fish + sabzi + dal; berries"},
+        {"day": "Wed (travel)", "breakfast": "Hotel: omelette + fruit + black coffee (before 10:00)", "lunch": "Airport/meeting: grilled chicken bowl, extra veg, no naan", "snack": "Nuts pack + psyllium", "dinner": "Dal + 1 roti + sabzi; skip dessert + alcohol"},
+        {"day": "Thu (office)", "breakfast": "Oats + chia + whey + dahi", "lunch": "Fish curry + brown rice (small) + dal + salad", "snack": "Guava + green tea", "dinner": "Chicken tikka (grilled) + sabzi + dal; psyllium"},
+        {"day": "Fri (gym AM)", "breakfast": "3-egg bhurji + greens + dahi", "lunch": "Chole + brown rice (small) + salad + lemon", "snack": "Apple + almonds", "dinner": "Grilled paneer/fish + sabzi + 1 roti"},
+        {"day": "Sat (long walk)", "breakfast": "Oats + berries + chia + whey", "lunch": "Home thali: dal + sabzi + 1-2 roti + dahi + salad", "snack": "Fruit + walnuts", "dinner": "Investor dinner: grilled mains, 2 drinks max, skip dessert"},
+        {"day": "Sun (rest)", "breakfast": "Eggs + avocado/greens + dahi", "lunch": "Fish/chicken + brown rice + dal + big salad", "snack": "Berries + nuts; psyllium", "dinner": "Light: soup + dal + sabzi; early"}
+      ],
       "evidence_tags": ["E1", "E2"]
     },
     "training": {
@@ -120,6 +131,15 @@
         {"week": "3-6", "focus": "Build aerobic base", "detail": "3× Zone-2 (40 min) + 2× strength. Notice resting HR + how 'energy' starts to return. Book the physician (lipid) visit."},
         {"week": "7-10", "focus": "Progress + first VO2max", "detail": "3-4× Zone-2 + add 1 short interval session once recovery is solid. Week 8 lighter (travel-heavy). Resistance progresses."},
         {"week": "11-13", "focus": "Consolidate + retest prep", "detail": "Hold the structure. No heavy training 48h before the Day-90 retest."}
+      ],
+      "sample_week": [
+        {"day": "Mon", "session": "Full-body strength 40 min (squat, hinge, push, pull, carry) + 8k steps"},
+        {"day": "Tue", "session": "Zone-2 40 min (incline treadmill or cycle, HR 120-135), conversational"},
+        {"day": "Wed", "session": "Travel day: 30-min brisk walk + mobility; hit steps in the airport"},
+        {"day": "Thu", "session": "Full-body strength 40 min + 15-min Zone-2 finisher"},
+        {"day": "Fri", "session": "Zone-2 45 min; from week 7 add 1 short VO2max block (4-6 x 1 min hard)"},
+        {"day": "Sat", "session": "Long easy Zone-2 60 min outdoors (low-AQI window) or badminton"},
+        {"day": "Sun", "session": "Recovery day (Whoop-guided): walk + mobility only, no training"}
       ],
       "aqi_aware": true,
       "evidence_tags": ["E1", "E2"]

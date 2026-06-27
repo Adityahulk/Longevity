@@ -352,6 +352,14 @@
       "destination": "/client-6.html"
     },
     {
+      "source": "/sample-report",
+      "destination": "/client-6.html"
+    },
+    {
+      "source": "/sample-report/",
+      "destination": "/client-6.html"
+    },
+    {
       "source": "/Ayush-report",
       "destination": "/ayush.html"
     },

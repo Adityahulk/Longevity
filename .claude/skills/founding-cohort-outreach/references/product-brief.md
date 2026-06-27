@@ -29,7 +29,7 @@ Strong signals someone is a fit:
 - Has had bloodwork and been told "everything's normal" but doesn't feel optimized.
 - Optimizes other parts of life by the numbers (training PRs, business metrics).
 - Curious about biological age, healthspan, VO2 max, ApoB, longevity science (Attia/Huberman-adjacent).
-- Can comfortably spend ₹28K-65K on their health and wants rigor, not a wellness vibe.
+- Can comfortably spend ₹28K-75K on their health and wants rigor, not a wellness vibe.
 
 Not a fit (and worth disqualifying early, to protect consult quality):
 - Wants fast weight loss or aesthetics in 30 days.
@@ -46,7 +46,7 @@ consult**, not a tier — the tier gets chosen on the call.
   one-time) + PhenoAge & 90-day rules dashboard (₹16,000/yr). **Year 1 ≈ ₹28,000.** This is the
   one anyone can start with right now.
 - **Deep — The Live Biological Twin · flagship.** Whole-genome kit + advanced blood panels
-  (₹30,000 setup) + live-twin streaming with wearable autopilot (₹35,000/yr). **Year 1 ≈ ₹65,000.**
+  (₹35,000 setup) + live-twin streaming with wearable autopilot (₹40,000/yr). **Year 1 ≈ ₹75,000.**
   Runs through a genome partner + integrated wearables, set up during onboarding.
 - **Comprehensive — The Simulation Cockpit · by consultation.** Full-body MRI + DEXA (₹80,000
   setup) + predictive simulation engine (₹1,00,000/yr). **Year 1 ≈ ₹1,80,000.** Scans by referral
