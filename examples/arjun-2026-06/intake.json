@@ -1,0 +1,84 @@
+{
+  "collected_at_utc": "2026-06-19T00:00:00Z",
+  "intake_version": "2.0",
+  "source": "15-section Deep intake questionnaire",
+  "identity": {
+    "display_name": "Client #6",
+    "age": 40, "sex_at_birth": "M",
+    "city": "Bengaluru",
+    "occupation": "Founder / CEO, B2B SaaS (~70 employees)",
+    "goals_in_their_words": "I want my energy and focus back, and I don't want my dad's heart disease.",
+    "primary_goals": ["sustained energy + focus", "lower cardiovascular risk", "lose the belly", "sleep better"],
+    "motivation": "Father had a heart attack at 58; reads everything; wears a Whoop daily; wants the data to tell him exactly what to do."
+  },
+  "body_medical": {
+    "weight_kg": 84, "height_cm": 178, "bmi": 26.5, "waist_cm": 96,
+    "current_medications": [],
+    "known_conditions": ["none diagnosed; borderline BP noted at last GP visit (138/86, untreated)"],
+    "allergies_intolerances": ["none known"],
+    "pregnancy_status": "not_applicable"
+  },
+  "family_history": {
+    "cardiovascular": "Father — myocardial infarction at 58, now on a statin. Paternal uncle — bypass in his 60s.",
+    "diabetes": "Mother — type 2 diabetes diagnosed at 55.",
+    "dementia": "None reported.",
+    "longevity_outliers": "Maternal grandmother lived to 92.",
+    "note": "Strong first-degree cardiometabolic history — directly relevant to the genome findings."
+  },
+  "diet": {
+    "pattern": "Omnivore, eats out / orders in ~6x/week (founder schedule)",
+    "red_meat_per_week": 2, "chicken_per_week": 4,
+    "vegetables_per_day": "1-2 servings", "fruit_per_day": "1",
+    "legumes_per_week": 3, "whole_grains": "some; lots of white rice + naan when ordering in",
+    "fried_food_per_week": 3, "sweets": "2-3x/week (dessert after dinners)",
+    "cooking_oils": ["ghee at home", "restaurant seed oils"],
+    "processed_food_score": 4,
+    "eating_window_hours": 13, "late_dinner_after_9pm": "often (work)"
+  },
+  "drinks": {
+    "coffee_cups_per_day": 4, "coffee_timing": "2 before noon, often 1-2 after 3pm during crunch",
+    "alcohol_pattern": "3-4 drinks/week, clustered at investor/team dinners",
+    "water_litres_per_day": 1.5
+  },
+  "exercise": {
+    "trains": true,
+    "modalities": ["gym ~1x/week when travel allows", "occasional weekend badminton"],
+    "structured_cardio_zone2": "essentially none — <30 min/week of steady aerobic work",
+    "strength_sessions_per_week": 1,
+    "steps_self_estimate": "~5,000/day, desk-bound",
+    "self_described": "Was fit in my 20s. Now it's the first thing that gets dropped when work spikes.",
+    "zone2_flag": "MAJOR GAP"
+  },
+  "sleep_recovery": {
+    "weekday_bedtime": "00:30-01:00", "wake": "06:45", "total_hours": "~6",
+    "sleep_quality": "wakes unrefreshed; phone in bed; mind racing about work",
+    "snoring": "occasional", "screens_in_bed": "always",
+    "self_described": "I'm tired all day and wired all night."
+  },
+  "stress_mood_mind": {
+    "stress_level_0_10": 8,
+    "pss4_band": "high",
+    "phq2_gad2": "GAD-2 mildly elevated (work anxiety); PHQ-2 negative",
+    "practices": "none consistent; tried meditation apps, didn't stick; no breathwork",
+    "self_described": "Always-on. The company is in a fundraise. I can't switch off."
+  },
+  "energy_hormonal": {
+    "afternoon_crash": "daily, ~3pm — usually fixes it with another coffee",
+    "libido": "lower than a few years ago",
+    "morning_energy": "poor without caffeine"
+  },
+  "environment_substances": {
+    "city_aqi": "Bengaluru — moderate; frequent travel to Delhi (high AQI) and SE Asia",
+    "travel": "2-3 trips/month, frequent red-eyes",
+    "smoking_vaping": "never",
+    "recreational": "none"
+  },
+  "wearable_owned": "Whoop 4.0 (worn daily ~14 months)",
+  "dna_provided": "Whole-genome sequencing via partner lab",
+  "current_supplements": ["a generic multivitamin, irregularly", "whey protein post-gym"],
+  "constraints": {
+    "budget": "unlimited",
+    "biggest_obstacle": "time and travel — anything that needs a fixed daily slot tends to fail",
+    "kitchen_access": "cook/help at home; orders in on workdays"
+  }
+}

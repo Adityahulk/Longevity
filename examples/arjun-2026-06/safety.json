@@ -1,0 +1,20 @@
+{
+  "screened_at_utc": "2026-06-22T00:00:00Z",
+  "safety_matrix_version": "0.2.0",
+  "client_flags": {"allergies": ["none known"], "conditions": ["borderline BP 138/86 untreated"], "medications": [], "pregnancy": "not_applicable", "weight_kg": 84},
+  "items": [
+    {"name": "Omega-3 (algal or fish, 2g EPA+DHA/day)", "verdict": "cleared", "checks_passed": ["no anticoagulants", "no allergy (algal option if fish/shellfish concern)", "dose appropriate"], "note": "For ApoB/TG + brain (ApoE ε4). If BP work later involves antiplatelets, revisit dose."},
+    {"name": "Soluble fiber / psyllium (5-10g/day)", "verdict": "cleared", "checks_passed": ["no GI contraindication", "no drug interaction at this timing"], "note": "Take with water, away from any future meds by 2h."},
+    {"name": "Methylfolate 400-800µg + methyl-B12", "verdict": "cleared", "checks_passed": ["MTHFR CT + homocysteine 12.5 supports it", "no interaction"], "note": "Methylated forms chosen per R-GEN-MTHFR-01."},
+    {"name": "Vitamin D3 2000 IU/day + K2", "verdict": "cleared", "checks_passed": ["25-OH-D 24 supports repletion", "no hypercalcemia risk flagged"], "note": "Retest at 12 weeks."},
+    {"name": "Magnesium glycinate 300mg PM", "verdict": "cleared", "checks_passed": ["normal eGFR 95", "supports sleep"], "note": "Evening, for sleep + recovery."},
+    {"name": "Creatine 3-5g/day", "verdict": "cleared", "checks_passed": ["normal renal function", "no contraindication"], "note": "Supports training + cognition."},
+    {"name": "Statin / lipid-lowering therapy", "verdict": "physician_gated", "checks_passed": [], "blockers": ["prescription-only; engine does not prescribe"], "note": "Likely warranted given ApoB 105 + Lp(a) 145 + ApoE ε4 + family MI — but this is a physician decision. SLCO1B1 TC advisory attached (favor non-simvastatin / lower dose)."}
+  ],
+  "pharmacogenomic_advisories": [
+    {"variant": "slco1b1", "genotype": "TC", "rule": "R-GEN-SLCO1B1-01", "advisory": "If a statin is started for the lipid/Lp(a)/ApoE picture, favor a non-simvastatin agent or a lower starting dose — intermediate SLCO1B1 raises statin-myopathy risk. Carry this note to the prescriber."},
+    {"variant": "cyp2c19", "genotype": "GA", "rule": "R-GEN-CYP2C19-01", "advisory": "Dormant. Relevant only if clopidogrel or a PPI is later prescribed (intermediate metabolizer)."}
+  ],
+  "summary": {"cleared_count": 6, "warning_count": 0, "blocked_count": 0, "physician_gated": 1, "pharmacogenomic_advisories": 2},
+  "physician_note": "No supplement blockers. The headline medical action is a planned lipidology/primary-care conversation about aggressive ApoB lowering (statin decision, SLCO1B1-informed) given the genetic + family cardiovascular load, plus a BP recheck (138/86 untreated)."
+}

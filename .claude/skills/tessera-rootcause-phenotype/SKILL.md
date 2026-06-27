@@ -154,6 +154,19 @@ Output `rootcause.json`:
 }
 ```
 
+### Step 2c — Multi-omic mechanism mapping (Deep tier)
+
+When `genetics.available` / `wearable.available` are true:
+
+- **Genetic mechanisms.** Map fired `R-GEN-*` rules to mechanisms: `R-GEN-APOE-01` + `R-GEN-LPA-01` +
+  `R-GEN-9P21-01` (± `R-GEN-TCF7L2-01`) collapse into a single root node **M-12 (cardiometabolic genetic
+  load)**; `R-GEN-MTHFR-01`/`R-GEN-COMT-01` → **M-19**; the brain arm of `R-GEN-APOE-01` → **M-20**.
+  Record these as `genetic_overlays` on the phenotype so the report can carry "APOE ε4 carrier" etc.
+- **Wearable confirmation.** Apply `R-WBL-*` fires as **confidence boosts** on already-scored mechanisms
+  per the "Wearable confirmation edges" section of `lib/rootcause-graph.md` (HRV↓→M-01/M-03, RHR↑→M-01/
+  M-04, deep↓→M-03, low VO₂max→M-04/M-12). Only assert "blood + DNA + wearable all point here" when all
+  three actually corroborate the node; otherwise note which layers agree.
+
 ### Step 3 — Reply
 
 One-line summary: "Phenotype: [X] with [overlay] overlay. Root causes: 1) [M-XX name], 2) [M-YY name]. Leaf findings reduced from N to 2 attack points."

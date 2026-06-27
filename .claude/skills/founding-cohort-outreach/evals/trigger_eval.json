@@ -1,0 +1,22 @@
+[
+  {"query": "ok i need to actually get my first 10 users this month for antiaging labs, give me a real plan not fluff", "should_trigger": true},
+  {"query": "i have like 25 people in my whatsapp who might be into the longevity thing — write each of them a short message to get them on a call", "should_trigger": true},
+  {"query": "draft a linkedin DM to this guy, he's a VP eng at a fintech in bangalore and posts about marathon training, i want him on a founding cohort call", "should_trigger": true},
+  {"query": "write a build-in-public linkedin post about why i started antiaging labs — the whole 'your bloodwork isn't even read against south asian ranges' thing", "should_trigger": true},
+  {"query": "who should i even be reaching out to for the founding cohort, help me build a target list", "should_trigger": true},
+  {"query": "someone replied to my DM saying 'interesting, what's the pricing' — how do i answer without scaring them off, i want them to book the consult", "should_trigger": true},
+  {"query": "nobody's booking consults man, i've sent like 30 messages. what am i doing wrong", "should_trigger": true},
+  {"query": "give me a cold-ish message i can drop in a couple indian fitness subreddits without getting insta-banned", "should_trigger": true},
+  {"query": "i posted the launch thing and 6 people commented 'in' — what do i reply to each to get them to actually book", "should_trigger": true},
+  {"query": "write a follow-up for the people who didn't reply to my first whatsapp", "should_trigger": true},
+  {"query": "make me a week of outreach i can do in about an hour a day, i keep losing track of who i messaged", "should_trigger": true},
+  {"query": "parse this thyrocare pdf in my downloads and tell me which markers are out of range against south asian baselines", "should_trigger": false},
+  {"query": "the deep tier price changed to 70k, update it on the packages page and the comparison table", "should_trigger": false},
+  {"query": "write the actual 90-day protocol for a client with ApoB 130 and low HRV, nutrition and training levers", "should_trigger": false},
+  {"query": "the homepage hero still looks cluttered, redesign it to be cleaner and more minimal", "should_trigger": false},
+  {"query": "explain how the klemera-doubal biological age clock actually works vs levine phenoage", "should_trigger": false},
+  {"query": "help me write a job post to hire a growth marketer for antiaging labs", "should_trigger": false},
+  {"query": "i have an investor call next week, help me build the pitch deck and the fundraising narrative", "should_trigger": false},
+  {"query": "a customer is upset their report came back 3 days late, draft a calm apology reply", "should_trigger": false},
+  {"query": "summarize the latest research on VO2 max and mortality for a /learn blog article", "should_trigger": false}
+]

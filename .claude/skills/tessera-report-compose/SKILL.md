@@ -23,14 +23,31 @@ In Phase A+B this produces a **single** client `report.html` + `report.pdf`. Pha
 
 ### Step 1 — Load the template
 
-Read `.claude/skills/tessera-report/templates/report-template.html`. This contains the structural skeleton + Tessera design system (cream/paper backgrounds, Fraunces serif headlines, Inter body, JetBrains Mono data, burnt-orange accent #B85426). DO NOT rewrite the CSS.
+For a **Tier-1 (blood + intake)** run, read `.claude/skills/tessera-report/templates/report-template.html`.
+For a **Deep (Tier-2)** run — when `genetics.available` / `wearable.available` are true — read
+`.claude/skills/tessera-report/templates/report-template-deep.html`, which adds the three interactive
+Deep modules below on top of the same Antiaging Labs design system (cream/paper, Fraunces serif, Inter
+body, JetBrains Mono data, burnt-orange accent #B85426). Use **Antiaging Labs** branding throughout.
+DO NOT rewrite the CSS.
 
-The template has placeholder slots `{{...}}` for content. Phase A+B extends the template with new cards:
+The template has placeholder slots `{{...}}` for content. The base report cards:
 
 - **Phenotype card** — primary phenotype + overlays + voice statement
 - **Root-cause graph card** — 2-3 root nodes with "covers fired rules + markers" trace
 - **Panel-completeness card** — missing markers tiered by clinical leverage + recommended Day-90 add-ons
 - **Safety-cleared supplements card** — per-supplement verdict + checks-passed list
+
+**Deep modules (Tier-2 only):**
+
+- **The Living Biological Twin** — an interactive per-system model (vascular, metabolic, brain,
+  autonomic/recovery, liver, hormonal) showing each system's "aging speed" with the bio-age at center,
+  reacting to a looping simulated telemetry stream (HRV/RHR/sleep). Self-contained SVG + CSS + JS.
+- **The Genomic Filter** — tappable variant cards grouped Risk / Pharmacogenomics / Methylation /
+  Nutrition-Training (from `genetics.json.groupings`), each revealing the `genomic_filter[]`
+  "how your DNA changed this protocol" line. APOE ε4 disclosed sensitively with a counseling offer; SA
+  context shown where flagged.
+- **Autopilot Protocol Sync** — an auto-playing morning-intercept feed from `protocol.autopilot_feed[]`
+  (telemetry → reason → patch), framed as advisory daily adaptation, never medical instruction.
 
 ### Step 2 — Fill the cover
 

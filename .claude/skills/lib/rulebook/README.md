@@ -15,6 +15,11 @@ The rulebook is split across organ-system files. Each rule has a stable code in 
 - [thyroid.md](thyroid.md) — `R-THY-*` (TSH, anti-TPO, Free T3/T4)
 - [allergic-atopic.md](allergic-atopic.md) — `R-ATO-*` (eosinophils, IgE, basophils, monocytes; HPI-correlated)
 
+Multi-omic (Deep tier — read alongside the organ files):
+
+- [genomics.md](genomics.md) — `R-GEN-*` (APOE, Lp(a)/9p21/TCF7L2 CAD-T2D risk, CYP1A2/SLCO1B1/CYP2C19 pharmacogenomics, MTHFR methylation, FTO/ACTN3/COMT). Catalog: [../genomics-canonical.md](../genomics-canonical.md). Rules are dual-purpose: standalone findings AND **modifiers** of biomarker rules (e.g. ApoE ε4 tightens the `R-LIP-01` ApoB target).
+- [wearables.md](wearables.md) — `R-WBL-*` (HRV/RHR trends, deep/short sleep, detraining, HRV-anomaly Autopilot trigger). Catalog: [../wearable-metrics.md](../wearable-metrics.md). Mostly Tier 3; confirm mechanisms + feed the Autopilot, never diagnose.
+
 Cross-cutting (NOT in the per-organ files):
 
 - Sleep/recovery, training, nutrition overlays are kept in the `tessera-protocol-author` skill (they're shaped by intake, not biomarkers).

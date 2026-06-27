@@ -82,6 +82,23 @@ For each fired rule, surface the `retest_signal` (verbatim) so the client knows 
 
 From `panel-completeness.json`, surface the Day-90 retest add-on panel. Tier the additions: **must-add** (changes interpretation of current findings), **should-add** (next-layer specificity), **nice-to-add** (research-grade optimization).
 
+### Step 7b — Multi-omic authoring (Deep tier — when genetics/wearable available)
+
+- **Genome into the levers.** Read `rule-evaluation.json`'s `modifiers_applied[]` and the fired
+  `R-GEN-*` rules. Bake the genomic targets into the concrete protocol: ApoB target `<70` (ApoE ε4),
+  methylfolate + methyl-B12 instead of folic acid (MTHFR + homocysteine), caffeine cutoff 10:00
+  (CYP1A2 slow), Zone-2 as the lead training stimulus (heart + brain for ε4). For each, write a short
+  **`genomic_filter[]`** entry: `{variant, finding, how_it_changed_the_protocol}` — this is the
+  "how your DNA changed this protocol" content the report's Genomic Filter renders. Keep the SLCO1B1 /
+  CYP2C19 items as physician-facing advisories (they belong in `safety.json` / referrals, not the
+  client supplement list).
+- **Wearable into the Autopilot.** From the `R-WBL-05` anomalies (joined with the genomic/biomarker
+  reason), author an **`autopilot_feed[]`**: each entry `{time, telemetry, reason, patch}` — a
+  next-morning protocol patch tied to a real telemetry event (e.g. HRV crash after late espresso in a
+  CYP1A2 slow metabolizer → skip AM espresso, Zone-2 walk, hold the hard session). Use the wearable
+  `trend`s to set the training/recovery levers (e.g. low ACWR + declining VO₂max → build Zone-2 base).
+  Every patch is advisory and adaptive, never a medical instruction.
+
 ### Step 8 — Write `protocol.json`
 
 ### Step 9 — Reply

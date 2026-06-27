@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Client #6 · Antiaging Labs Deep Report</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream:#F5F1E8; --cream-dark:#EDE7D9; --paper:#FBF8F1;
+  --ink:#0E1B2C; --ink-soft:#1F2D40; --ink-mute:#4A5668; --ink-fade:#7A8497;
+  --rule:#C8BFA8; --rule-soft:#DCD3BC;
+  --accent:#B85426; --accent-warm:#D17244; --accent-soft:#F4E5DC;
+  --leaf:#2F5D3C; --leaf-soft:#DCE7DE;
+  --gold:#8B6914; --gold-soft:#EFE6CB;
+  --danger:#9B2C2C; --danger-soft:#F8DDDA;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:var(--sans); background:var(--cream); color:var(--ink); font-weight:400; line-height:1.65; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+body::before { content:''; position:fixed; inset:0; pointer-events:none; background-image:radial-gradient(circle at 20% 30%, rgba(184,84,38,0.025) 0%, transparent 40%),radial-gradient(circle at 80% 70%, rgba(47,93,60,0.02) 0%, transparent 50%); z-index:0; }
+.page { max-width:880px; margin:0 auto; padding:0 40px; position:relative; z-index:1; }
+.eyebrow { font-family:var(--mono); font-size:11px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-fade); }
+h1,h2,h3 { font-family:var(--serif); color:var(--ink); font-weight:500; letter-spacing:-0.01em; }
+h1 { font-size:56px; line-height:1.05; }
+h2 { font-size:34px; line-height:1.15; margin-bottom:10px; }
+h3 { font-size:22px; line-height:1.25; margin-bottom:8px; }
+h4 { font-family:var(--sans); font-size:13px; font-weight:600; letter-spacing:0.02em; color:var(--ink); margin-bottom:8px; text-transform:uppercase; }
+p { color:var(--ink-soft); }
+p + p { margin-top:14px; }
+a { color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-soft); }
+ul, ol { padding-left:22px; color:var(--ink-soft); }
+li { margin-bottom:6px; }
+li::marker { color:var(--accent); }
+strong { color:var(--ink); font-weight:600; }
+em { font-style:italic; color:var(--ink-mute); }
+hr { border:0; border-top:0.5px solid var(--rule); margin:48px 0; }
+code { font-family:var(--mono); font-size:12px; background:var(--cream-dark); padding:1px 6px; border-radius:3px; color:var(--ink); }
+
+/* COVER */
+.cover { padding:96px 0 60px; }
+.cover-eyebrow { font-family:var(--mono); font-size:11px; letter-spacing:0.22em; color:var(--accent); text-transform:uppercase; margin-bottom:20px; }
+.cover h1 { font-size:66px; line-height:1.0; margin-bottom:28px; font-weight:300; }
+.cover h1 .hl { color:var(--accent); font-style:italic; }
+.cover-stat { margin-top:28px; padding:24px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); display:flex; align-items:baseline; gap:30px; flex-wrap:wrap; }
+.stat-block { display:flex; flex-direction:column; gap:4px; }
+.stat-label { font-family:var(--mono); font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--ink-fade); }
+.stat-value { font-family:var(--serif); font-size:36px; font-weight:500; color:var(--ink); line-height:1; }
+.stat-value.accent { color:var(--accent); }
+.stat-value.leaf { color:var(--leaf); }
+.stat-detail { font-size:13px; color:var(--ink-mute); }
+.phenotype-label { font-family:var(--serif); font-style:italic; font-size:21px; line-height:1.35; color:var(--ink-soft); margin-top:30px; }
+.goalquote { background:var(--leaf-soft); border-left:3px solid var(--leaf); padding:14px 18px; margin-top:24px; font-size:14px; border-radius:4px; }
+.goalquote .gq { font-family:var(--serif); font-style:italic; font-size:18px; color:var(--ink); }
+.tier-chip { display:inline-block; font-family:var(--mono); font-size:10px; letter-spacing:0.12em; text-transform:uppercase; background:var(--ink); color:var(--cream); padding:4px 10px; border-radius:3px; margin-bottom:18px; }
+
+/* SECTION HEAD */
+.s-head { margin:64px 0 8px; }
+.s-eyebrow { font-family:var(--mono); font-size:11px; letter-spacing:0.18em; color:var(--accent); text-transform:uppercase; margin-bottom:12px; }
+.s-head h2 { font-size:34px; }
+.s-intro { font-family:var(--serif); font-size:19px; font-weight:300; line-height:1.5; color:var(--ink-soft); max-width:640px; margin-top:10px; }
+
+/* THREE-LAYER VERDICT */
+.verdict { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:28px 0; }
+.vcol { background:var(--paper); border:1px solid var(--rule-soft); border-top:3px solid var(--accent); border-radius:6px; padding:20px 20px; }
+.vcol .vk { font-family:var(--mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; }
+.vcol h4 { text-transform:none; font-size:15px; margin-bottom:8px; }
+.vcol p { font-size:13.5px; color:var(--ink-mute); line-height:1.55; }
+
+/* LIVING BIOLOGICAL TWIN */
+.twin-wrap { background:var(--paper); border:1px solid var(--rule-soft); border-radius:10px; padding:28px; margin:24px 0; display:grid; grid-template-columns:1.25fr 0.75fr; gap:24px; align-items:center; }
+.twin-viz { position:relative; }
+.twin-svg { width:100%; height:auto; display:block; }
+.tv-ring { fill:none; stroke:var(--rule-soft); stroke-width:1; }
+.tv-spoke { stroke:var(--rule-soft); stroke-width:1; }
+.tv-sweep { transform-origin:380px 260px; animation:tvspin 14s linear infinite; }
+@keyframes tvspin { to { transform:rotate(360deg); } }
+.tv-core { fill:var(--ink); }
+.tv-core-age { font-family:var(--serif); font-weight:500; fill:var(--cream); }
+.tv-core-lbl { font-family:var(--mono); fill:var(--accent-warm); letter-spacing:0.12em; }
+.tv-node-g .tv-node { stroke:#fff; stroke-width:2; }
+.tv-node-g .tv-pulse { fill:none; opacity:0; transform-origin:center; animation:tvpulse 3.2s ease-out infinite; }
+@keyframes tvpulse { 0%{ opacity:0.5; r:30px; } 100%{ opacity:0; r:46px; } }
+.tv-node-lbl { font-family:var(--mono); font-size:11px; fill:var(--ink); letter-spacing:0.04em; text-anchor:middle; }
+.tv-node-state { font-family:var(--mono); font-size:9px; letter-spacing:0.1em; text-anchor:middle; text-transform:uppercase; }
+.twin-side h4 { text-transform:none; font-size:16px; margin-bottom:10px; }
+.twin-tele { font-family:var(--mono); font-size:12px; }
+.tele-row { display:flex; justify-content:space-between; align-items:baseline; padding:9px 0; border-bottom:0.5px dashed var(--rule-soft); }
+.tele-row .tk { color:var(--ink-mute); }
+.tele-row .tval { font-weight:500; color:var(--ink); font-size:14px; }
+.tele-row .tval.warn { color:var(--accent); }
+.live-pill { display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--leaf); margin-bottom:10px; }
+.live-dot { width:7px; height:7px; border-radius:50%; background:var(--leaf); animation:blink 1.6s ease-in-out infinite; }
+@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.25;} }
+.twin-cap { font-size:12.5px; color:var(--ink-mute); margin-top:16px; font-style:italic; }
+
+/* GENOMIC FILTER */
+.gf-groups { margin:22px 0; }
+.gf-group { margin:22px 0; }
+.gf-group .gf-gtitle { font-family:var(--mono); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; padding-bottom:6px; border-bottom:0.5px solid var(--rule-soft); }
+.gf-card { background:var(--paper); border:1px solid var(--rule-soft); border-radius:6px; margin:10px 0; overflow:hidden; }
+.gf-card.sensitive { border-left:3px solid var(--accent); }
+.gf-card > summary { list-style:none; cursor:pointer; padding:16px 20px; display:flex; align-items:center; justify-content:space-between; gap:14px; }
+.gf-card > summary::-webkit-details-marker { display:none; }
+.gf-gene { font-family:var(--mono); font-size:13px; font-weight:500; color:var(--ink); }
+.gf-geno { font-family:var(--mono); font-size:12px; color:var(--accent); background:var(--accent-soft); padding:2px 9px; border-radius:3px; margin-left:10px; }
+.gf-sa { font-family:var(--mono); font-size:9px; letter-spacing:0.08em; text-transform:uppercase; color:var(--leaf); background:var(--leaf-soft); padding:2px 7px; border-radius:3px; }
+.gf-chev { font-family:var(--mono); font-size:12px; color:var(--ink-fade); }
+.gf-card[open] .gf-chev { transform:rotate(90deg); }
+.gf-body { padding:0 20px 18px; border-top:0.5px dashed var(--rule-soft); }
+.gf-body .gf-find { font-size:14px; margin:12px 0; }
+.gf-body .gf-change { background:var(--cream-dark); border-left:2px solid var(--leaf); border-radius:4px; padding:11px 15px; font-size:13.5px; }
+.gf-body .gf-change::before { content:"How your DNA changed this protocol"; display:block; font-family:var(--mono); font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:var(--leaf); margin-bottom:5px; }
+.gf-note { background:var(--accent-soft); border-radius:4px; padding:12px 16px; font-size:13px; margin-top:10px; }
+
+/* AUTOPILOT */
+.ap-wrap { display:grid; grid-template-columns:300px 1fr; gap:28px; align-items:start; margin:24px 0; }
+.ap-phone { background:var(--ink); border-radius:26px; padding:16px 14px 22px; box-shadow:0 14px 40px rgba(14,27,44,0.22); }
+.ap-notch { width:96px; height:6px; border-radius:6px; background:#2a3a4f; margin:4px auto 14px; }
+.ap-phone-h { display:flex; justify-content:space-between; align-items:center; padding:0 6px 12px; }
+.ap-phone-h .apt { font-family:var(--mono); font-size:11px; color:var(--accent-warm); letter-spacing:0.1em; }
+.ap-phone-h .apd { font-family:var(--mono); font-size:10px; color:#7f8da0; }
+.ap-card { background:#16273b; border:1px solid #25384e; border-radius:12px; padding:14px 14px; margin:10px 4px; opacity:0.4; transform:translateY(4px); transition:opacity .5s ease, transform .5s ease, border-color .5s ease; }
+.ap-card.active { opacity:1; transform:translateY(0); border-color:var(--accent); }
+.ap-time { font-family:var(--mono); font-size:10px; color:var(--accent-warm); letter-spacing:0.08em; margin-bottom:7px; }
+.ap-tele { font-family:var(--mono); font-size:11px; color:#cfd6df; line-height:1.5; margin-bottom:8px; }
+.ap-reason { font-size:12px; color:#9fb0c2; line-height:1.5; margin-bottom:9px; }
+.ap-patch { font-size:12.5px; color:#fff; line-height:1.5; border-top:0.5px solid #25384e; padding-top:9px; }
+.ap-patch::before { content:"Autopilot"; display:block; font-family:var(--mono); font-size:8px; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent-warm); margin-bottom:4px; }
+.ap-side h4 { text-transform:none; font-size:16px; margin-bottom:10px; }
+.ap-side p { font-size:14px; }
+.ap-loop { display:flex; gap:6px; margin-top:14px; }
+.ap-loop .step { font-family:var(--mono); font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-mute); background:var(--cream-dark); padding:5px 10px; border-radius:3px; }
+.ap-loop .step.on { background:var(--accent-soft); color:var(--accent); }
+
+/* PHENOAGE */
+.phenoage-section { margin:30px 0; padding:30px; border:1px solid var(--rule); border-radius:8px; background:var(--paper); }
+.phenoage-headline { display:flex; align-items:baseline; gap:30px; flex-wrap:wrap; margin-bottom:16px; }
+.pa-big { font-family:var(--serif); font-size:84px; font-weight:300; color:var(--accent); line-height:0.9; }
+.phenoage-table { font-family:var(--mono); font-size:13px; width:100%; margin-top:14px; }
+.phenoage-table td { padding:6px 12px; border-bottom:0.5px solid var(--rule-soft); }
+.phenoage-table td:first-child { color:var(--ink-mute); }
+.phenoage-table td:last-child { text-align:right; }
+
+/* MARKER ROWS */
+.panel { margin:26px 0; }
+.panel .ptitle { display:flex; align-items:baseline; gap:14px; margin-bottom:6px; }
+.panel .ptitle h3 { margin-bottom:0; }
+.panel .pcount { font-family:var(--mono); font-size:11px; color:var(--ink-fade); text-transform:uppercase; letter-spacing:0.08em; }
+.psum { font-size:13.5px; color:var(--ink-mute); margin-bottom:8px; }
+.marker-row { display:grid; grid-template-columns:1.5fr 1fr 1.2fr 110px; gap:12px; padding:10px 0; border-bottom:0.5px dashed var(--rule-soft); align-items:center; font-size:13px; }
+.marker-name { font-family:var(--sans); font-weight:500; color:var(--ink); }
+.marker-name .mx { display:block; font-weight:400; font-size:11px; color:var(--ink-fade); }
+.marker-value { font-family:var(--mono); }
+.marker-value .num { font-weight:600; color:var(--ink); font-size:15px; }
+.marker-value .unit { color:var(--ink-fade); font-size:11px; }
+.marker-target { font-family:var(--mono); color:var(--ink-mute); font-size:12px; }
+.marker-badge { font-family:var(--mono); font-size:10px; padding:3px 8px; border-radius:3px; text-align:center; letter-spacing:0.08em; }
+.badge-optimal { background:var(--leaf-soft); color:var(--leaf); }
+.badge-watch { background:var(--gold-soft); color:var(--gold); }
+.badge-off { background:var(--accent-soft); color:var(--accent); }
+.badge-refer { background:var(--danger-soft); color:var(--danger); }
+.xref { grid-column:1 / -1; font-size:12.5px; color:var(--ink-soft); background:var(--cream-dark); border-radius:4px; padding:8px 12px; margin-top:4px; line-height:1.5; }
+.xref b { color:var(--ink); }
+
+/* ROOT-CAUSE */
+.root-node { background:var(--cream); border-left:3px solid var(--accent); border-radius:4px; padding:22px 24px; margin:16px 0; }
+.root-header { display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; }
+.root-header h3 { margin-bottom:0; font-size:20px; }
+.confidence-tag { font-size:10px; font-family:var(--mono); color:var(--leaf); background:var(--leaf-soft); padding:3px 8px; border-radius:3px; text-transform:uppercase; letter-spacing:0.1em; }
+.root-driver { font-size:14px; line-height:1.6; margin:10px 0; }
+.root-explains { font-family:var(--mono); font-size:12px; color:var(--ink-mute); margin:8px 0; }
+.attack-via { margin-top:10px; padding:10px 14px; background:var(--leaf-soft); border-radius:4px; font-size:13px; color:var(--ink); }
+.attack-via ul { margin:4px 0 0; }
+
+/* PROTOCOL */
+.pillar { background:var(--cream); border-left:3px solid var(--accent); border-radius:4px; padding:22px 24px; margin:16px 0; }
+.pillar .pnum { font-family:var(--mono); font-size:11px; letter-spacing:0.14em; color:var(--accent); text-transform:uppercase; }
+.pillar h3 { font-size:20px; margin:6px 0 10px; }
+.pillar .shift { margin-top:12px; padding:10px 14px; background:var(--leaf-soft); border-radius:4px; font-size:13px; color:var(--ink); }
+.domain { background:var(--paper); border:1px solid var(--rule-soft); border-radius:6px; padding:28px 28px; margin:18px 0; }
+.domain.lead { border-left:4px solid var(--accent); }
+.domain .dlabel { font-family:var(--mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:4px; }
+.domain .dlead-tag { display:inline-block; font-family:var(--mono); font-size:9px; letter-spacing:0.12em; text-transform:uppercase; background:var(--accent-soft); color:var(--accent); padding:2px 8px; border-radius:3px; margin-left:8px; vertical-align:middle; }
+.domain h3 { font-size:23px; margin-bottom:10px; }
+.domain ul { font-size:14px; }
+
+/* HABIT TIMELINE */
+.tblock { display:grid; grid-template-columns:96px 1fr; gap:18px; padding:18px 0; border-bottom:0.5px dashed var(--rule-soft); }
+.tblock .twk { font-family:var(--mono); font-size:12px; color:var(--accent); font-weight:500; }
+.tblock .thabits { font-size:14px; }
+.tblock .tcoach { font-size:12.5px; color:var(--ink-mute); font-style:italic; margin-top:8px; padding-top:8px; border-top:0.5px dotted var(--rule-soft); }
+.tblock .tcoach strong { font-style:normal; }
+
+/* REFERRALS */
+.refer-item { padding:14px 0; border-bottom:0.5px dashed var(--rule); }
+.refer-item:last-child { border-bottom:0; }
+.refer-item .rspec { font-family:var(--mono); font-size:11px; color:var(--danger); text-transform:uppercase; letter-spacing:0.1em; }
+
+/* NEXT / DISCLAIMER */
+.card { background:var(--paper); border:1px solid var(--rule-soft); border-radius:6px; padding:32px 30px; margin:24px 0; }
+.disclaimer { margin:50px 0 30px; padding:24px 28px; background:var(--cream-dark); border-radius:4px; font-size:13px; color:var(--ink-mute); line-height:1.6; }
+.disclaimer h4 { color:var(--ink); margin-bottom:10px; }
+.disclaimer p + p { margin-top:9px; }
+.foot { padding:40px 0 70px; border-top:0.5px solid var(--rule); display:flex; justify-content:space-between; align-items:end; gap:20px; flex-wrap:wrap; }
+.foot .logo { font-family:var(--serif); font-size:22px; color:var(--ink); }
+.foot .logo .dot { color:var(--accent); }
+.foot .fmeta { font-family:var(--mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-fade); text-align:right; }
+
+@media (max-width:760px){
+  .page { padding:0 22px; }
+  .cover { padding:60px 0 40px; }
+  .cover h1 { font-size:40px; }
+  h2, .s-head h2 { font-size:26px; }
+  .verdict { grid-template-columns:1fr; }
+  .twin-wrap { grid-template-columns:1fr; }
+  .ap-wrap { grid-template-columns:1fr; }
+  .ap-phone { max-width:320px; margin:0 auto; }
+  .marker-row { grid-template-columns:1.3fr 0.9fr 80px; }
+  .marker-target { display:none; }
+}
+@media print { body{background:var(--paper);} .ap-card{opacity:1;} }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- COVER -->
+<section class="cover">
+  <div class="tier-chip">Deep · Tier 2 · Genome + Wearable</div>
+  <div class="cover-eyebrow">Antiaging Labs · Deep Report · Sample · 22 Jun 2026</div>
+  <h1>Client #6, your DNA loaded the dice.<br><span class="hl">Your blood and your wearable</span> show them rolling.</h1>
+
+  <div class="phenotype-label">Genetically cardiometabolic, behaviourally under-recovered · APOE e4 carrier · Early insulin resistance · Central adiposity</div>
+
+  <div class="cover-stat">
+    <div class="stat-block">
+      <div class="stat-label">Chronological</div>
+      <div class="stat-value">40</div>
+      <div class="stat-detail">years</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-label">Biological (PhenoAge)</div>
+      <div class="stat-value accent">42.9</div>
+      <div class="stat-detail">2.9 years older, and movable</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-label">Data layers read</div>
+      <div class="stat-value">3</div>
+      <div class="stat-detail">genome · blood · wearable</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-label">Findings reconciled</div>
+      <div class="stat-value">29</div>
+      <div class="stat-detail">into 3 root causes</div>
+    </div>
+  </div>
+
+  <div class="goalquote">
+    <div class="gq">"I want my energy and focus back, and I don't want my dad's heart disease."</div>
+    <p style="margin-top:8px;font-size:13px;">His two goals are one problem. The same Zone-2, sleep and fat-quality work that lifts the energy also drives down the cardiovascular risk his genome and his father both flagged.</p>
+  </div>
+</section>
+
+<!-- THREE-LAYER VERDICT -->
+<div class="s-head">
+  <div class="s-eyebrow">01 · The convergence</div>
+  <h2>Three layers, <em>one verdict</em>.</h2>
+  <p class="s-intro">A single panel can be reassuring. Three panels that agree are a direction. Here the genome, the bloodwork and the wearable all point at the same place.</p>
+</div>
+<div class="verdict">
+  <div class="vcol">
+    <div class="vk">Genome predicts it</div>
+    <h4>The dice are loaded</h4>
+    <p>APOE e4, genetically high Lp(a), the 9p21 CAD locus and a TCF7L2 diabetes variant. A family of cardiometabolic risk written before he was born.</p>
+  </div>
+  <div class="vcol">
+    <div class="vk">Blood confirms it</div>
+    <h4>Already surfacing</h4>
+    <p>ApoB 105, Lp(a) 145, HDL 38, hsCRP 2.6, HOMA-IR 2.9, and early NAFLD enzymes. The predisposition is no longer theoretical.</p>
+  </div>
+  <div class="vcol">
+    <div class="vk">Wearable shows the driver</div>
+    <h4>Why it is rolling</h4>
+    <p>HRV down 22%, resting HR up 4 bpm, 11% deep sleep on 6 hours, almost no Zone-2. Stress-rich and exercise-poor, every day.</p>
+  </div>
+</div>
+
+<!-- LIVING BIOLOGICAL TWIN -->
+<div class="s-head">
+  <div class="s-eyebrow">02 · The Living Biological Twin</div>
+  <h2>A live model of <em>how each system is aging</em>.</h2>
+  <p class="s-intro">Not a single number. Six systems, each with its own aging speed, updating as your wearable streams in. This is the model you open every morning.</p>
+</div>
+<div class="twin-wrap">
+  <div class="twin-viz">
+    <svg class="twin-svg" viewBox="0 0 760 540" role="img" aria-label="Living Biological Twin: six body systems around a central biological age, reacting to live telemetry">
+      <circle class="tv-ring" cx="380" cy="260" r="190"/>
+      <circle class="tv-ring" cx="380" cy="260" r="120"/>
+      <!-- rotating sweep -->
+      <g class="tv-sweep">
+        <defs>
+          <linearGradient id="sweepg" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#B85426" stop-opacity="0.20"/>
+            <stop offset="100%" stop-color="#B85426" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <path d="M380 260 L380 70 A190 190 0 0 1 545 165 Z" fill="url(#sweepg)"/>
+      </g>
+      <!-- spokes -->
+      <line class="tv-spoke" x1="380" y1="260" x2="380" y2="70"/>
+      <line class="tv-spoke" x1="380" y1="260" x2="544" y2="165"/>
+      <line class="tv-spoke" x1="380" y1="260" x2="544" y2="355"/>
+      <line class="tv-spoke" x1="380" y1="260" x2="380" y2="450"/>
+      <line class="tv-spoke" x1="380" y1="260" x2="216" y2="355"/>
+      <line class="tv-spoke" x1="380" y1="260" x2="216" y2="165"/>
+      <!-- nodes -->
+      <g class="tv-node-g">
+        <!-- Brain (top) -->
+        <circle class="tv-pulse" cx="380" cy="70" r="30" stroke="#8B6914"/>
+        <circle class="tv-node" cx="380" cy="70" r="26" fill="#EFE6CB"/>
+        <text class="tv-node-state" x="380" y="74" fill="#8B6914">watch</text>
+        <text class="tv-node-lbl" x="380" y="34">Brain</text>
+        <!-- Vascular (upper right) -->
+        <circle class="tv-pulse" cx="544" cy="165" r="30" stroke="#B85426"/>
+        <circle class="tv-node" cx="544" cy="165" r="26" fill="#F4E5DC"/>
+        <text class="tv-node-state" x="544" y="169" fill="#B85426">fast</text>
+        <text class="tv-node-lbl" x="600" y="160">Vascular</text>
+        <!-- Metabolic (lower right) -->
+        <circle class="tv-pulse" cx="544" cy="355" r="30" stroke="#B85426"/>
+        <circle class="tv-node" cx="544" cy="355" r="26" fill="#F4E5DC"/>
+        <text class="tv-node-state" x="544" y="359" fill="#B85426">fast</text>
+        <text class="tv-node-lbl" x="601" y="362">Metabolic</text>
+        <!-- Liver (bottom) -->
+        <circle class="tv-pulse" cx="380" cy="450" r="30" stroke="#8B6914"/>
+        <circle class="tv-node" cx="380" cy="450" r="26" fill="#EFE6CB"/>
+        <text class="tv-node-state" x="380" y="454" fill="#8B6914">watch</text>
+        <text class="tv-node-lbl" x="380" y="496">Liver</text>
+        <!-- Hormonal (lower left) -->
+        <circle class="tv-pulse" cx="216" cy="355" r="30" stroke="#8B6914"/>
+        <circle class="tv-node" cx="216" cy="355" r="26" fill="#EFE6CB"/>
+        <text class="tv-node-state" x="216" y="359" fill="#8B6914">watch</text>
+        <text class="tv-node-lbl" x="160" y="362">Hormonal</text>
+        <!-- Autonomic (upper left) -->
+        <circle class="tv-pulse" cx="216" cy="165" r="30" stroke="#B85426"/>
+        <circle class="tv-node" cx="216" cy="165" r="26" fill="#F4E5DC"/>
+        <text class="tv-node-state" x="216" y="169" fill="#B85426">strain</text>
+        <text class="tv-node-lbl" x="160" y="160">Autonomic</text>
+      </g>
+      <!-- core -->
+      <circle class="tv-core" cx="380" cy="260" r="66"/>
+      <text class="tv-core-lbl" x="380" y="238" font-size="10" text-anchor="middle">BIO AGE</text>
+      <text class="tv-core-age" x="380" y="276" font-size="44" text-anchor="middle">42.9</text>
+      <text class="tv-core-lbl" x="380" y="298" font-size="9" text-anchor="middle">CHRONO 40</text>
+    </svg>
+  </div>
+  <div class="twin-side">
+    <span class="live-pill"><span class="live-dot"></span> Live from Whoop</span>
+    <h4>Streaming now</h4>
+    <div class="twin-tele">
+      <div class="tele-row"><span class="tk">HRV (RMSSD)</span><span class="tval warn" id="t-hrv">32 ms</span></div>
+      <div class="tele-row"><span class="tk">Resting HR</span><span class="tval warn" id="t-rhr">62 bpm</span></div>
+      <div class="tele-row"><span class="tk">Deep sleep</span><span class="tval warn" id="t-deep">11%</span></div>
+      <div class="tele-row"><span class="tk">VO2max est.</span><span class="tval" id="t-vo2">38</span></div>
+      <div class="tele-row"><span class="tk">Load (ACWR)</span><span class="tval" id="t-acwr">0.58</span></div>
+    </div>
+    <p class="twin-cap">Vascular and metabolic systems are aging fastest. The autonomic node is under strain. None of it is fixed: every system here has a lever in the protocol below.</p>
+  </div>
+</div>
+
+<!-- GENOMIC FILTER -->
+<div class="s-head">
+  <div class="s-eyebrow">03 · The Genomic Filter</div>
+  <h2>Your DNA, <em>turned into instructions</em>.</h2>
+  <p class="s-intro">Sequenced once, read into every protocol we ever build for you. Tap any variant to see exactly how it changed your plan.</p>
+</div>
+<div class="gf-groups">
+
+  <div class="gf-group">
+    <div class="gf-gtitle">Risk · lifetime predisposition</div>
+
+    <details class="gf-card sensitive" open>
+      <summary><span><span class="gf-gene">APOE</span><span class="gf-geno">e3/e4</span></span><span class="gf-chev">&rsaquo;</span></summary>
+      <div class="gf-body">
+        <p class="gf-find">One e4 copy raises lifetime cardiovascular and Alzheimer's risk, and makes your LDL and ApoB respond more strongly to saturated fat. It is also one of the most lifestyle-responsive risk genes there is.</p>
+        <div class="gf-change">Your ApoB target is set to under 70 (not the usual 80 to 100), the fat profile goes Mediterranean, and Zone-2 plus deep sleep become brain-health levers, not just heart.</div>
+        <div class="gf-note"><strong>A note on this result.</strong> e4 is a probability shift, not a diagnosis or a destiny. We are happy to set up a genetic-counseling conversation if you would like one. It is entirely your choice.</div>
+      </div>
+    </details>
+
+    <details class="gf-card">
+      <summary><span><span class="gf-gene">LPA</span><span class="gf-geno">elevated · 145 nmol/L</span> <span class="gf-sa">SA context</span></span><span class="gf-chev">&rsaquo;</span></summary>
+      <div class="gf-body">
+        <p class="gf-find">Genetically elevated Lp(a), confirmed in your blood. A lifelong cardiovascular amplifier that lifestyle cannot move. Common and under-tested in South Asians, and a frequent hidden driver of early heart disease.</p>
+        <div class="gf-change">Because Lp(a) itself will not move, we drive down every other ApoB-mediated risk instead, and flag first-degree family Lp(a) screening, since it is inherited.</div>
+      </div>
+    </details>
+
+    <details class="gf-card">
+      <summary><span><span class="gf-gene">9p21 (CDKN2B-AS1)</span><span class="gf-geno">CC</span></span><span class="gf-chev">&rsaquo;</span></summary>
+      <div class="gf-body">
+        <p class="gf-find">Two copies at the most-replicated coronary-artery-disease locus, acting independent of your lipids.</p>
+        <div class="gf-change">Adds weight to early, aggressive ApoB control and an earlier clinician conversation. Stacked with APOE and Lp(a), the cardiovascular lever leads the whole plan.</div>
+      </div>
+    </details>
+
+    <details class="gf-card">
+      <summary><span><span class="gf-gene">TCF7L2</span><span class="gf-geno">CT</span> <span class="gf-sa">SA context</span></span><span class="gf-chev">&rsaquo;</span></summary>
+      <div class="gf-body">
+        <p class="gf-find">One copy of the strongest common type-2-diabetes variant, which lowers your insulin-secretion reserve.</p>
+        <div class="gf-change">Your early insulin resistance (HOMA-IR 2.9) matters more for you than for the average 40-year-old, so the metabolic lever is raised and we retest glucose and insulin earlier.</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="gf-group">
+    <div class="gf-gtitle">Pharmacogenomics · how you handle drugs and stimulants</div>
+
+    <details class="gf-card">
+      <summary><span><span class="gf-gene">CYP1A2</span><span class="gf-geno">CC · slow</span></span><span class="gf-chev">&rsaquo;</span></summary>
+      <div class="gf-body">
+        <p class="gf-find">You clear caffeine slowly, so an afternoon coffee measurably hurts that night's sleep and the next day's HRV.</p>
+        <div class="gf-change">Caffeine cutoff is 10:00 and two cups maximum. Your own Whoop proves it: HRV crashes on the nights you have a late espresso (see Autopilot).</div>
+      </div>
+    </details>
+
+    <details class="gf-card">
+      <summary><span><span class="gf-gene">SLCO1B1</span><span class="gf-geno">TC</span></span><span class="gf-chev">&rsaquo;</span></summary>
+      <div class="gf-body">
+        <p class="gf-find">Intermediate statin-transporter function, which modestly raises statin-myopathy risk.</p>
+        <div class="gf-change">If your physician starts a statin for the lipid picture, this note favors a non-simvastatin choice or a lower dose. We never prescribe. We hand the prescriber the data.</div>
+      </div>
+    </details>
+
+    <details class="gf-card">
+      <summary><span><span class="gf-gene">CYP2C19</span><span class="gf-geno">GA · intermediate</span> <span class="gf-sa">SA context</span></span><span class="gf-chev">&rsaquo;</span></summary>
+      <div class="gf-body">
+        <p class="gf-find">Intermediate metabolizer. Dormant for now, relevant only if clopidogrel or a PPI is ever prescribed.</p>
+        <div class="gf-change">No action today. The note sits in your record so a future prescriber gets it automatically.</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="gf-group">
+    <div class="gf-gtitle">Methylation &amp; lifestyle</div>
+
+    <details class="gf-card">
+      <summary><span><span class="gf-gene">MTHFR C677T</span><span class="gf-geno">CT</span></span><span class="gf-chev">&rsaquo;</span></summary>
+      <div class="gf-body">
+        <p class="gf-find">About 65% enzyme activity. With your homocysteine at 12.5, the active B-vitamin forms are the right choice.</p>
+        <div class="gf-change">Your B-vitamin is methylfolate plus methyl-B12, not folic acid. A small, targeted switch, not a stack. Gated on the measured homocysteine, never on the gene alone.</div>
+      </div>
+    </details>
+
+    <details class="gf-card">
+      <summary><span><span class="gf-gene">COMT + BDNF</span><span class="gf-geno">Val/Met · Met</span></span><span class="gf-chev">&rsaquo;</span></summary>
+      <div class="gf-body">
+        <p class="gf-find">Dopamine-clearance and BDNF traits that favor steady aerobic down-regulation over high-stimulant strategies.</p>
+        <div class="gf-change">Your stress lever leans on breathwork and Zone-2 (which you need anyway), and aerobic exercise plus sleep are doubly worthwhile for you.</div>
+      </div>
+    </details>
+  </div>
+</div>
+
+<!-- AUTOPILOT -->
+<div class="s-head">
+  <div class="s-eyebrow">04 · Autopilot Protocol Sync</div>
+  <h2>From telemetry flux <em>to protocol patch</em>.</h2>
+  <p class="s-intro">The plan is not a PDF you forget. It reads your wearable every morning and adjusts the day, with your genome and bloodwork as context.</p>
+</div>
+<div class="ap-wrap">
+  <div class="ap-phone" aria-label="Autopilot morning feed">
+    <div class="ap-notch"></div>
+    <div class="ap-phone-h"><span class="apt">Antiaging Labs</span><span class="apd">Autopilot</span></div>
+    <div class="ap-card" data-i="0">
+      <div class="ap-time">Tue · 07:08</div>
+      <div class="ap-tele">HRV 24 ms (down 41% vs baseline) · deep sleep 38 min</div>
+      <div class="ap-reason">Espresso logged 16:10. You clear caffeine slowly (CYP1A2), so it was still active at bedtime. Sleep onset ran 47 min late.</div>
+      <div class="ap-patch">Skip the morning espresso, it will deepen the debt. 20-min Zone-2 walk in daylight to lift HRV. Hold today's heavy session to tomorrow.</div>
+    </div>
+    <div class="ap-card" data-i="1">
+      <div class="ap-time">Sun · 07:30</div>
+      <div class="ap-tele">7-day HRV trend down 18% · resting HR up 4 bpm</div>
+      <div class="ap-reason">Strain has outrun recovery this week, travel plus two late dinners.</div>
+      <div class="ap-patch">Today is a true recovery day, no training. Protect 7.5 hours tonight. Magnesium at 21:30, phone out of the bedroom.</div>
+    </div>
+    <div class="ap-card" data-i="2">
+      <div class="ap-time">Mon · 06:55</div>
+      <div class="ap-tele">HRV 47 ms (up 15%) · deep sleep 1h12m</div>
+      <div class="ap-reason">Caffeine cutoff held at 10:00 yesterday and you were in bed by 23:15. It shows.</div>
+      <div class="ap-patch">Green light. This is your day for the Zone-2 plus lower-body strength session. Same caffeine rule today.</div>
+    </div>
+    <div class="ap-card" data-i="3">
+      <div class="ap-time">Thu · 07:20</div>
+      <div class="ap-tele">Resting HR 69 (up 11) · sleep 4h35m</div>
+      <div class="ap-reason">Red-eye to Singapore, sleep debt plus dehydration.</div>
+      <div class="ap-patch">No training today. Two extra glasses of water before noon, 15-min daylight on landing, caffeine before 10:00 local only.</div>
+    </div>
+  </div>
+  <div class="ap-side">
+    <h4>A closed loop, not a checklist</h4>
+    <p>Every intercept is the join of three things: a real telemetry event from your wearable, the genomic or biochemical reason behind it, and a specific patch for the day. It is advisory, never a medical instruction, and it learns which behaviours move your numbers.</p>
+    <div class="ap-loop">
+      <span class="step on" id="lp0">Telemetry</span>
+      <span class="step" id="lp1">Reason</span>
+      <span class="step" id="lp2">Patch</span>
+    </div>
+    <p style="margin-top:16px;font-size:13px;color:var(--ink-mute);">Over a quarter, the HRV crashes cluster on the same nights: late caffeine, alcohol, travel. The loop turns that into fewer bad mornings.</p>
+  </div>
+</div>
+
+<!-- BIOLOGICAL AGE -->
+<div class="s-head">
+  <div class="s-eyebrow">05 · Biological age</div>
+  <h2>How fast you are aging, <em>by the blood</em>.</h2>
+  <p class="s-intro">PhenoAge is a validated estimate from nine blood markers plus your age, trained on long-term mortality data (Levine 2018). Not a diagnosis. A snapshot, and a movable one.</p>
+</div>
+<div class="phenoage-section">
+  <div class="phenoage-headline">
+    <div class="pa-big">42.9</div>
+    <div>
+      <div class="phenotype-label" style="margin-top:0;font-size:18px;">2.9 years older than your calendar age. The opportunity, not a sentence.</div>
+      <div style="font-family:var(--mono);font-size:12px;color:var(--ink-fade);margin-top:10px;">Day 1: <strong style="color:var(--ink);">42.9</strong> &nbsp;·&nbsp; Day 30 est: <strong style="color:var(--ink);">42.6</strong> &nbsp;·&nbsp; Day 90 target: <strong style="color:var(--leaf);">41.8</strong></div>
+    </div>
+  </div>
+  <p style="font-size:13.5px;color:var(--ink-mute);">PhenoAge moves only modestly here, because its nine inputs capture just part of your risk. The big wins (ApoB, HOMA-IR, HDL, HRV, VO2max, liver enzymes) sit outside the PhenoAge markers, which is exactly why the Deep panel, the genome and the wearable matter.</p>
+  <table class="phenoage-table">
+    <tr><td>Albumin</td><td style="text-align:right;color:var(--ink);">4.4 g/dL</td></tr>
+    <tr><td>Creatinine</td><td style="text-align:right;color:var(--ink);">1.0 mg/dL</td></tr>
+    <tr><td>Glucose (fasting)</td><td style="text-align:right;color:var(--accent);">100 mg/dL</td></tr>
+    <tr><td>hsCRP</td><td style="text-align:right;color:var(--accent);">2.6 mg/L</td></tr>
+    <tr><td>Lymphocyte %</td><td style="text-align:right;color:var(--ink);">28%</td></tr>
+    <tr><td>MCV</td><td style="text-align:right;color:var(--ink);">89 fL</td></tr>
+    <tr><td>RDW</td><td style="text-align:right;color:var(--ink);">13.9%</td></tr>
+    <tr><td>Alkaline phosphatase</td><td style="text-align:right;color:var(--ink);">82 U/L</td></tr>
+    <tr><td>White cell count</td><td style="text-align:right;color:var(--ink);">6.9 K/uL</td></tr>
+  </table>
+</div>
+
+<!-- BIOMARKERS -->
+<div class="s-head">
+  <div class="s-eyebrow">06 · Biomarker analysis</div>
+  <h2>The advanced panel, <em>read against your genome</em>.</h2>
+  <p class="s-intro">The markers that matter most, grouped by system, each cross-referenced to the DNA and telemetry that explain it.</p>
+</div>
+
+<div class="panel">
+  <div class="ptitle"><h3>Cardiovascular</h3><span class="pcount">the lead system</span></div>
+  <p class="psum">An atherogenic lipid load, amplified by three genetic risk factors and a strong family history.</p>
+  <div class="marker-row"><div class="marker-name">ApoB<span class="mx">primary atherogenic particle count</span></div><div class="marker-value"><span class="num">105</span> <span class="unit">mg/dL</span></div><div class="marker-target">optimal &lt;70 (e4-set)</div><div class="marker-badge badge-off">OFF-TARGET</div></div>
+  <div class="marker-row"><div class="marker-name">LDL cholesterol</div><div class="marker-value"><span class="num">142</span> <span class="unit">mg/dL</span></div><div class="marker-target">optimal &lt;100</div><div class="marker-badge badge-off">OFF-TARGET</div></div>
+  <div class="marker-row"><div class="marker-name">HDL cholesterol</div><div class="marker-value"><span class="num">38</span> <span class="unit">mg/dL</span></div><div class="marker-target">optimal &gt;45</div><div class="marker-badge badge-off">OFF-TARGET</div></div>
+  <div class="marker-row"><div class="marker-name">Lp(a)<span class="mx">genetic, lifelong</span></div><div class="marker-value"><span class="num">145</span> <span class="unit">nmol/L</span></div><div class="marker-target">optimal &lt;75</div><div class="marker-badge badge-refer">REFER</div></div>
+  <div class="marker-row"><div class="marker-name">Triglycerides</div><div class="marker-value"><span class="num">165</span> <span class="unit">mg/dL</span></div><div class="marker-target">optimal &lt;100</div><div class="marker-badge badge-off">OFF-TARGET</div></div>
+  <div class="xref"><b>Genome + family.</b> APOE e4 (R-GEN-APOE-01) tightens your ApoB target to under 70. Genetically high Lp(a) plus the 9p21 locus stack on top, and your father's heart attack at 58 makes it concrete. This is the system the whole protocol leads with.</div>
+</div>
+
+<div class="panel">
+  <div class="ptitle"><h3>Insulin &amp; metabolic</h3><span class="pcount">reversible now</span></div>
+  <p class="psum">Early, reversible insulin resistance on a genetic diabetes background.</p>
+  <div class="marker-row"><div class="marker-name">HOMA-IR<span class="mx">insulin resistance index</span></div><div class="marker-value"><span class="num">2.91</span></div><div class="marker-target">optimal &lt;1.5</div><div class="marker-badge badge-off">OFF-TARGET</div></div>
+  <div class="marker-row"><div class="marker-name">Fasting insulin</div><div class="marker-value"><span class="num">11.8</span> <span class="unit">uIU/mL</span></div><div class="marker-target">optimal &lt;7</div><div class="marker-badge badge-off">OFF-TARGET</div></div>
+  <div class="marker-row"><div class="marker-name">Fasting glucose</div><div class="marker-value"><span class="num">100</span> <span class="unit">mg/dL</span></div><div class="marker-target">optimal 75-90</div><div class="marker-badge badge-watch">WATCH</div></div>
+  <div class="marker-row"><div class="marker-name">HbA1c</div><div class="marker-value"><span class="num">5.6</span> <span class="unit">%</span></div><div class="marker-target">optimal &lt;5.4</div><div class="marker-badge badge-watch">WATCH</div></div>
+  <div class="xref"><b>Genome + wearable.</b> The TCF7L2 variant (R-GEN-TCF7L2-01) lowers your secretory reserve, so this matters more for you. The Whoop confirms the driver: almost no Zone-2 (ACWR 0.58) and 5,000 steps a day.</div>
+</div>
+
+<div class="panel">
+  <div class="ptitle"><h3>Inflammation &amp; methylation</h3></div>
+  <div class="marker-row"><div class="marker-name">hsCRP</div><div class="marker-value"><span class="num">2.6</span> <span class="unit">mg/L</span></div><div class="marker-target">optimal &lt;1.0</div><div class="marker-badge badge-off">OFF-TARGET</div></div>
+  <div class="marker-row"><div class="marker-name">Homocysteine</div><div class="marker-value"><span class="num">12.5</span> <span class="unit">umol/L</span></div><div class="marker-target">optimal &lt;9</div><div class="marker-badge badge-watch">WATCH</div></div>
+  <div class="xref"><b>Genome.</b> MTHFR C677T (R-GEN-MTHFR-01) with this homocysteine switches your B-vitamin to methylfolate plus methyl-B12, not folic acid.</div>
+</div>
+
+<div class="panel">
+  <div class="ptitle"><h3>Liver, vitamin &amp; hormonal</h3></div>
+  <div class="marker-row"><div class="marker-name">ALT / GGT<span class="mx">early NAFLD pattern</span></div><div class="marker-value"><span class="num">48 / 62</span> <span class="unit">U/L</span></div><div class="marker-target">FIB-4 0.69, no fibrosis</div><div class="marker-badge badge-watch">WATCH</div></div>
+  <div class="marker-row"><div class="marker-name">Vitamin D</div><div class="marker-value"><span class="num">24</span> <span class="unit">ng/mL</span></div><div class="marker-target">optimal 40-60</div><div class="marker-badge badge-watch">WATCH</div></div>
+  <div class="marker-row"><div class="marker-name">Testosterone (total)</div><div class="marker-value"><span class="num">420</span> <span class="unit">ng/dL</span></div><div class="marker-target">optimal &gt;600</div><div class="marker-badge badge-watch">WATCH</div></div>
+  <div class="xref"><b>Read together.</b> The liver enzymes, low-ish testosterone and the metabolic picture are all downstream of visceral fat and under-recovery. We fix the roots rather than chase each leaf, and we do not jump to testosterone therapy.</div>
+</div>
+
+<!-- ROOT CAUSE -->
+<div class="s-head">
+  <div class="s-eyebrow">07 · Root causes</div>
+  <h2>Twenty-nine findings, <em>three root causes</em>.</h2>
+  <p class="s-intro">We do not hand you a checklist of fifteen fixes. We trace the findings back to the few drivers that explain them, and attack there.</p>
+</div>
+
+<div class="root-node">
+  <div class="root-header"><h3>RC-1 · Cardiometabolic genetic load</h3><span class="confidence-tag">genome + blood + family agree</span></div>
+  <p class="root-driver">APOE e4, genetically high Lp(a), the 9p21 CAD locus and TCF7L2, made real by a father's heart attack at 58. The genome cannot be changed. Its expression, ApoB, can be driven down hard.</p>
+  <div class="root-explains">explains: Lp(a) 145 · ApoB 105 · LDL 142 · HDL 38 · AIP 0.64 · CAD/T2D predisposition</div>
+  <div class="attack-via"><strong>Attack via:</strong> ApoB under 70 through Zone-2, soluble fiber, fat-quality swaps and omega-3, plus a lipidology conversation about a statin (SLCO1B1-informed) and family Lp(a) screening.</div>
+</div>
+
+<div class="root-node">
+  <div class="root-header"><h3>RC-2 · Chronic under-recovery</h3><span class="confidence-tag">blood + wearable + intake agree</span></div>
+  <p class="root-driver">A founder in a fundraise: 6 hours of sleep, phone in bed, four coffees (two late) on a slow-caffeine background, no Zone-2, frequent red-eyes. The Whoop shows the autonomic cost in real time.</p>
+  <div class="root-explains">explains: cortisol 18 · HRV 41 to 32 · RHR 58 to 62 · testosterone 420 · hsCRP 2.6 · deep sleep 11%</div>
+  <div class="attack-via"><strong>Attack via:</strong> protect sleep, caffeine cutoff at 10:00, a Zone-2 base, one true recovery day and daily breathwork.</div>
+</div>
+
+<div class="root-node">
+  <div class="root-header"><h3>RC-3 · Early insulin resistance and ectopic fat</h3><span class="confidence-tag">blood + wearable + intake agree</span></div>
+  <p class="root-driver">Sedentary, refined-carb-heavy ordered-in meals, late dinners and weekly alcohol, on a TCF7L2 background that lowers his reserve. The modifiable hinge between the genome and the heart risk.</p>
+  <div class="root-explains">explains: HOMA-IR 2.91 · glucose 100 · TG 165 · ALT 48 / GGT 62 · waist 96 cm</div>
+  <div class="attack-via"><strong>Attack via:</strong> Zone-2 plus resistance training, protein and soluble fiber, fewer late dinners and drinks. Visceral-fat loss lowers ApoB, TG and liver enzymes and raises HDL and testosterone at once.</div>
+</div>
+
+<!-- PROTOCOL -->
+<div class="s-head">
+  <div class="s-eyebrow">08 · The protocol</div>
+  <h2>Five levers, <em>tuned to you</em>.</h2>
+  <p class="s-intro">Genome-informed and wearable-driven. The goal of 90 days is not to do everything, it is to install six habits deeply enough that they do not need willpower.</p>
+</div>
+
+<div class="pillar">
+  <div class="pnum">Pillar 1</div>
+  <h3>Drive ApoB under 70</h3>
+  <p style="font-size:14px;">Zone-2 cardio 150 min a week, soluble fiber 10g a day, saturated to unsaturated fat swap, omega-3, and the physician conversation about a statin. One change set, your biggest genetic risk.</p>
+  <div class="shift"><strong>Targets by Day 90:</strong> ApoB 105 to under 85 (toward under 70 with pharmacotherapy) · LDL 142 to under 115 · HDL 38 to 44+ · AIP 0.64 to 0.4</div>
+</div>
+<div class="pillar">
+  <div class="pnum">Pillar 2</div>
+  <h3>Recover as hard as he works</h3>
+  <p style="font-size:14px;">Sleep 6 to 7.5 hours, caffeine cutoff 10:00 (slow metabolizer), one true recovery day, daily breathwork. The lever behind the energy and focus he came in for.</p>
+  <div class="shift"><strong>Targets by Day 90:</strong> HRV 32 back toward 41 · RHR 62 to 58 · cortisol 18 to 14 · deep sleep 11% to 16% · testosterone 420 to 480+</div>
+</div>
+<div class="pillar">
+  <div class="pnum">Pillar 3</div>
+  <h3>Reverse the early insulin resistance</h3>
+  <p style="font-size:14px;">Zone-2 plus two resistance sessions, protein-forward lower-glycemic meals that survive travel, fewer late dinners and drinks. Visceral fat is the common denominator.</p>
+  <div class="shift"><strong>Targets by Day 90:</strong> HOMA-IR 2.91 to under 2.0 · glucose 100 to under 95 · TG 165 to under 120 · ALT 48 to under 35 · waist 96 to under 92</div>
+</div>
+
+<div class="domain lead">
+  <div class="dlabel">Lever 01 · Recovery &amp; Sleep <span class="dlead-tag">Lead</span></div>
+  <h3>The cheapest win he is not taking</h3>
+  <ul>
+    <li>Lights-out 23:00, phone charges outside the bedroom (he reads in bed now). Wake fixed at 06:45. Target 7 to 7.5 hours.</li>
+    <li>Caffeine cutoff 10:00, two cups maximum, because he clears it slowly. Replace the 3pm coffee with a 10-min daylight walk.</li>
+    <li>One true recovery day a week, chosen by the Whoop trend. Magnesium glycinate in the evening.</li>
+    <li>Travel rule: on red-eye nights, hydrate, keep caffeine before 10:00 local, daylight on landing, no training next day.</li>
+  </ul>
+</div>
+<div class="domain lead">
+  <div class="dlabel">Lever 02 · Nutrition <span class="dlead-tag">Lead</span></div>
+  <h3>Two structural moves, built for travel</h3>
+  <ul>
+    <li>Shift fat quality (Mediterranean, per APOE e4): olive and mustard oil over ghee, cut the fried orders, halve the after-dinner dessert.</li>
+    <li>Add 1 tbsp psyllium daily plus oats and chia. The veg-light, travel-proof ApoB fiber move.</li>
+    <li>Protein at every meal (eggs, dahi, chicken, fish, paneer, dal) for satiety and glucose control.</li>
+    <li>Order smarter: grilled over fried, double the dal and sabzi, less rice, skip the naan-and-dessert combo. Drinks to two a week.</li>
+  </ul>
+</div>
+<div class="domain lead">
+  <div class="dlabel">Lever 03 · Training <span class="dlead-tag">Lead</span></div>
+  <h3>Build the aerobic base he is missing</h3>
+  <ul>
+    <li>Zone-2: 3 to 4 sessions of 35 to 45 min a week (HR ~120 to 135), confirmed by the Whoop. This is the top lever for HDL, ApoB, insulin and his energy.</li>
+    <li>Resistance: 2 full-body sessions a week, portable versions for travel. Muscle is his glucose sink.</li>
+    <li>Steps to 8,000 a day with walking meetings. One short VO2max session added once the base is in.</li>
+  </ul>
+</div>
+<div class="domain">
+  <div class="dlabel">Lever 04 · Supplements</div>
+  <h3>Six targeted items, not a stack</h3>
+  <ul>
+    <li>Omega-3 2g EPA+DHA, psyllium 1 tbsp, vitamin D3 2000 IU with K2, magnesium glycinate PM, creatine 3 to 5g.</li>
+    <li>Methylfolate plus methyl-B12 (not folic acid), chosen by the MTHFR result and the measured homocysteine.</li>
+    <li>A statin stays a physician decision, with the SLCO1B1 advisory attached.</li>
+  </ul>
+</div>
+<div class="domain">
+  <div class="dlabel">Lever 05 · Mind &amp; Wellness</div>
+  <h3>Down-regulate a real, situational stress load</h3>
+  <ul>
+    <li>10 min of breathwork daily (physiological sigh or box breathing), matched to his COMT profile.</li>
+    <li>A genuine offline block on the recovery day, walking meetings to fold movement into work.</li>
+  </ul>
+</div>
+
+<!-- HABIT STACK -->
+<div class="s-head">
+  <div class="s-eyebrow">09 · The 90-day plan</div>
+  <h2>A cadence, <em>not a sprint</em>.</h2>
+</div>
+<div class="timeline">
+  <div class="tblock"><div class="twk">Weeks 1-2</div><div class="thabits"><strong>Foundation.</strong> Lights-out 23:00 with the phone out of the bedroom. Caffeine cutoff 10:00.<div class="tcoach"><strong>Coach, Day 14:</strong> Is the bedtime holding against late work? Is the late coffee gone, and is the Whoop HRV responding? Book the lipid appointment.</div></div></div>
+  <div class="tblock"><div class="twk">Weeks 3-6</div><div class="thabits"><strong>Build.</strong> 3 Zone-2 sessions a week plus 8k steps. Psyllium and omega-3 daily, smarter ordering.<div class="tcoach"><strong>Coach, Day 28 + 42:</strong> Is energy returning? Did the statin conversation happen (SLCO1B1 note carried)? Are the food swaps surviving travel?</div></div></div>
+  <div class="tblock"><div class="twk">Weeks 7-10</div><div class="thabits"><strong>Deepen.</strong> Add 2 resistance sessions and the first VO2max intervals. 10 min daily breathwork, drinks to two a week.<div class="tcoach"><strong>Coach, Day 56 + 70:</strong> Is the afternoon crash gone? VO2max trend on the Whoop? Statin started and tolerated?</div></div></div>
+  <div class="tblock"><div class="twk">Weeks 11-13</div><div class="thabits"><strong>Retest prep.</strong> Hold all six habits. No heavy training 48 hours before the Day-90 draw, same lab, same morning slot.<div class="tcoach"><strong>Coach, Day 84 + 90:</strong> Lock the retest so the ApoB, HOMA-IR and HRV deltas are real. Confirm physician outcomes.</div></div></div>
+</div>
+
+<!-- REFERRALS -->
+<div class="card" style="border-left:4px solid var(--danger);">
+  <div class="s-eyebrow" style="color:var(--danger);">10 · Take these to a physician</div>
+  <h3 style="font-size:24px;">Three conversations to have with a doctor</h3>
+  <div class="refer-item">
+    <div class="rspec">Primary care to Lipidology / Cardiology</div>
+    <p style="font-size:14px;">ApoB 105, LDL 142, Lp(a) 145, APOE e4 and 9p21, with a father's MI at 58. Discuss aggressive ApoB lowering, likely a statin. SLCO1B1 (TC) favors a non-simvastatin agent or lower dose. First-degree family Lp(a) screening.</p>
+  </div>
+  <div class="refer-item">
+    <div class="rspec">Genetic counseling (offered, optional)</div>
+    <p style="font-size:14px;">A conversation about what APOE e4 does and does not mean. It is a modifiable probability shift, not a diagnosis. Entirely his choice.</p>
+  </div>
+  <div class="refer-item">
+    <div class="rspec">Primary care</div>
+    <p style="font-size:14px;">Untreated blood pressure (138/86), early NAFLD enzymes and impaired fasting glucose. Confirm BP with home readings, baseline review. FIB-4 of 0.69 means no fibrosis workup is needed now.</p>
+  </div>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <h4>Important notes</h4>
+  <p><strong>This is an illustrative sample.</strong> Client #6 is a composite Deep-tier profile, anonymized and built to show what the genome and wearable layers add to a report. It is not a real named customer and contains no before-and-after outcome claims. It is a Day-0 baseline and plan.</p>
+  <p><strong>This report is not a medical diagnosis.</strong> It is an evidence-based interpretation of a blood panel, a DNA export, wearable telemetry and lifestyle inputs, designed to inform a 90-day program. It does not replace a licensed physician.</p>
+  <p><strong>Genomics here is research-grade, not diagnostic.</strong> Single common variants carry modest effect sizes. A genotype is a probability shift, never a destiny, and never overrides an observed biomarker trend. APOE e4 is disclosed factually with the offer of genetic counseling. Polygenic estimates are largely European-trained and interpreted with South-Asian context where it applies.</p>
+  <p><strong>Antiaging Labs is a biomarker-moving and healthspan-optimization program.</strong> We do not claim to extend lifespan, reverse aging, or cure disease. We work to move biomarkers in directions associated with better long-term health outcomes per current scientific evidence, and we re-test to show what actually moved.</p>
+  <p><strong>Data and privacy.</strong> Blood results, genome, wearable data and this report are personal health data covered by the Digital Personal Data Protection Act, 2023 (India). The raw genome file is never stored in the report. We do not share identified health data with employers, insurers or advertisers.</p>
+</div>
+
+<!-- FOOTER -->
+<div class="foot">
+  <div class="logo">Antiaging Labs<span class="dot">.</span></div>
+  <div class="fmeta">
+    Deep sample · generated 22 Jun 2026<br>
+    Rulebook v0.3.0-deep · PhenoAge v2018<br>
+    Genome + blood + wearable · Bengaluru, India
+  </div>
+</div>
+
+</div>
+
+<script>
+(function(){
+  // Autopilot feed: cycle the active card + the loop steps
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.ap-card'));
+  var steps = ['lp0','lp1','lp2'].map(function(id){return document.getElementById(id);});
+  var ci = 0, si = 0;
+  function tick(){
+    cards.forEach(function(c,i){ c.classList.toggle('active', i===ci); });
+    ci = (ci+1) % cards.length;
+  }
+  function stepTick(){
+    steps.forEach(function(s,i){ if(s) s.classList.toggle('on', i===si); });
+    si = (si+1) % steps.length;
+  }
+  if(cards.length){ tick(); setInterval(tick, 2600); }
+  if(steps[0]){ stepTick(); setInterval(stepTick, 900); }
+
+  // Twin telemetry: gentle live flicker around the baseline values
+  function jitter(base, spread, dp){
+    var v = base + (Math.random()*2-1)*spread;
+    return dp ? v.toFixed(dp) : Math.round(v);
+  }
+  var hrv = document.getElementById('t-hrv'), rhr = document.getElementById('t-rhr'),
+      deep = document.getElementById('t-deep'), vo2 = document.getElementById('t-vo2');
+  setInterval(function(){
+    if(hrv) hrv.textContent = jitter(32,3) + ' ms';
+    if(rhr) rhr.textContent = jitter(62,2) + ' bpm';
+    if(deep) deep.textContent = jitter(11,1) + '%';
+    if(vo2) vo2.textContent = jitter(38,0.4,0);
+  }, 2200);
+})();
+</script>
+</body>
+</html>

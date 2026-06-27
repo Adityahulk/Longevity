@@ -29,6 +29,19 @@ For each candidate supplement / intervention:
 4. **Pregnancy / lactation** — if `intake.body_medical.pregnancy_status` in `pregnant | trying | breastfeeding`, apply pregnancy rules.
 5. **Dose-by-weight sanity** — for dose-scalable items (protein, creatine, caffeine, Mg, Vit D maintenance, iron), compute the recommended dose against `intake.body_medical.weight_kg`.
 
+### Step 2b — Pharmacogenomic advisories (Deep tier — when genetics available)
+
+Read the pharmacogenomic variants from `genetics.json` and emit physician-facing advisories (these are
+NOT supplement verdicts — they ride along with referrals, and the engine never prescribes):
+
+- **SLCO1B1** intermediate/reduced (`R-GEN-SLCO1B1-01`): if a lipid referral is active (ApoB/LDL/Lp(a)
+  firing) and a statin may be considered, add an advisory favoring a non-simvastatin choice / lower dose
+  for the prescribing physician.
+- **CYP2C19** intermediate/poor (`R-GEN-CYP2C19-01`): dormant; surface only if clopidogrel or a PPI is on
+  the medication list, then add the metabolism advisory.
+
+Record these under a `pharmacogenomic_advisories[]` array in `safety.json`.
+
 ### Step 3 — Verdict per item
 
 For each item, the worst verdict across all 5 checks wins:

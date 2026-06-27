@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<title>{{display_name}} · Antiaging Labs Deep Report</title>
+<!--
+  DEEP (TIER-2) REPORT TEMPLATE.
+  Extends the base report-template.html design system with three interactive modules:
+    1. The Living Biological Twin   (SVG + CSS + JS)        -> slot {{twin_*}}
+    2. The Genomic Filter           (tappable <details>)     -> loop {{genomic_filter}}
+    3. Autopilot Protocol Sync       (auto-playing JS feed)   -> loop {{autopilot_feed}}
+  The full, filled reference render is /client-6.html (run folder examples/arjun-2026-06).
+  Branding is "Antiaging Labs" (not "Tessera"). House style: NO em-dash characters anywhere.
+  Reuse the base report-template.html <style> tokens (--cream/--ink/--accent/...) PLUS the
+  Deep-module CSS in /client-6.html (.twin-*, .gf-*, .ap-*, .tv-*). Keep CSS inline; do not
+  rewrite the design system.
+-->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>/* Paste base tokens + base report CSS from report-template.html, then the Deep-module
+   CSS block from client-6.html (.twin-wrap/.tv-*/.gf-*/.ap-*). Omitted here for brevity;
+   the canonical, complete CSS lives in /client-6.html. */</style>
+</head>
+<body>
+<div class="page">
+
+<!-- COVER -->
+<section class="cover">
+  <div class="tier-chip">Deep · Tier 2 · Genome + Wearable</div>
+  <div class="cover-eyebrow">Antiaging Labs · Deep Report · {{report_kind}} · {{report_date}}</div>
+  <h1>{{cover_headline}}</h1>
+  <div class="phenotype-label">{{phenotype_label}}</div>
+  <div class="cover-stat">
+    <div class="stat-block"><div class="stat-label">Chronological</div><div class="stat-value">{{chronological_age}}</div><div class="stat-detail">years</div></div>
+    <div class="stat-block"><div class="stat-label">Biological (PhenoAge)</div><div class="stat-value accent">{{bio_age}}</div><div class="stat-detail">{{bio_age_delta_sentence}}</div></div>
+    <div class="stat-block"><div class="stat-label">Data layers read</div><div class="stat-value">{{data_layer_count}}</div><div class="stat-detail">genome · blood · wearable</div></div>
+    <div class="stat-block"><div class="stat-label">Findings reconciled</div><div class="stat-value">{{fired_rule_total}}</div><div class="stat-detail">into {{root_pillar_count}} root causes</div></div>
+  </div>
+  <div class="goalquote"><div class="gq">"{{goal_in_their_words}}"</div><p style="margin-top:8px;font-size:13px;">{{goal_alignment}}</p></div>
+</section>
+
+<!-- 01 · THREE-LAYER VERDICT -->
+<div class="s-head"><div class="s-eyebrow">01 · The convergence</div><h2>Three layers, <em>one verdict</em>.</h2><p class="s-intro">{{verdict_intro}}</p></div>
+<div class="verdict">
+  <div class="vcol"><div class="vk">Genome predicts it</div><h4>{{verdict_genome_title}}</h4><p>{{verdict_genome_body}}</p></div>
+  <div class="vcol"><div class="vk">Blood confirms it</div><h4>{{verdict_blood_title}}</h4><p>{{verdict_blood_body}}</p></div>
+  <div class="vcol"><div class="vk">Wearable shows the driver</div><h4>{{verdict_wearable_title}}</h4><p>{{verdict_wearable_body}}</p></div>
+</div>
+
+<!-- 02 · LIVING BIOLOGICAL TWIN -->
+<div class="s-head"><div class="s-eyebrow">02 · The Living Biological Twin</div><h2>A live model of <em>how each system is aging</em>.</h2><p class="s-intro">{{twin_intro}}</p></div>
+<div class="twin-wrap">
+  <div class="twin-viz">{{twin_svg}}
+    <!-- Six system nodes (vascular, metabolic, brain, autonomic, liver, hormonal) around a
+         central bio-age core; each node colored by aging speed (accent=fast, gold=watch,
+         leaf=optimal); rotating .tv-sweep; .tv-pulse per node. See /client-6.html. -->
+  </div>
+  <div class="twin-side">
+    <span class="live-pill"><span class="live-dot"></span> Live from {{wearable_source}}</span>
+    <h4>Streaming now</h4>
+    <div class="twin-tele">{{twin_telemetry_rows}}
+      <!-- <div class="tele-row"><span class="tk">HRV (RMSSD)</span><span class="tval warn" id="t-hrv">{{hrv}} ms</span></div> ... -->
+    </div>
+    <p class="twin-cap">{{twin_caption}}</p>
+  </div>
+</div>
+
+<!-- 03 · THE GENOMIC FILTER -->
+<div class="s-head"><div class="s-eyebrow">03 · The Genomic Filter</div><h2>Your DNA, <em>turned into instructions</em>.</h2><p class="s-intro">Sequenced once, read into every protocol we ever build for you. Tap any variant to see exactly how it changed your plan.</p></div>
+<div class="gf-groups">
+  {{genomic_filter_groups}}
+  <!-- For each grouping (risk / pharmacogenomic / methylation / nutrition_training) from
+       genetics.json.groupings, render a .gf-group; for each variant a <details class="gf-card">:
+       summary = gene + genotype (+ SA-context chip); body = finding + .gf-change
+       (protocol.genomic_filter[].how_it_changed_the_protocol). APOE adds class "sensitive" +
+       the counseling .gf-note. -->
+</div>
+
+<!-- 04 · AUTOPILOT PROTOCOL SYNC -->
+<div class="s-head"><div class="s-eyebrow">04 · Autopilot Protocol Sync</div><h2>From telemetry flux <em>to protocol patch</em>.</h2><p class="s-intro">The plan reads your wearable every morning and adjusts the day, with your genome and bloodwork as context.</p></div>
+<div class="ap-wrap">
+  <div class="ap-phone">
+    <div class="ap-notch"></div>
+    <div class="ap-phone-h"><span class="apt">Antiaging Labs</span><span class="apd">Autopilot</span></div>
+    {{autopilot_cards}}
+    <!-- For each protocol.autopilot_feed[]: <div class="ap-card" data-i="N">
+         .ap-time {{time}} · .ap-tele {{telemetry}} · .ap-reason {{reason}} · .ap-patch {{patch}} -->
+  </div>
+  <div class="ap-side">
+    <h4>A closed loop, not a checklist</h4>
+    <p>{{autopilot_explainer}}</p>
+    <div class="ap-loop"><span class="step on" id="lp0">Telemetry</span><span class="step" id="lp1">Reason</span><span class="step" id="lp2">Patch</span></div>
+  </div>
+</div>
+
+<!-- 05 · BIOLOGICAL AGE / PHENOAGE -->
+<div class="s-head"><div class="s-eyebrow">05 · Biological age</div><h2>How fast you are aging, <em>by the blood</em>.</h2><p class="s-intro">PhenoAge is a validated estimate from nine blood markers plus your age (Levine 2018). Not a diagnosis. A movable snapshot.</p></div>
+<div class="phenoage-section">
+  <div class="phenoage-headline"><div class="pa-big">{{bio_age}}</div><div>{{bio_age_caption}}<div style="font-family:var(--mono);font-size:12px;color:var(--ink-fade);margin-top:10px;">Day 1: {{bio_age_day1}} · Day 30 est: {{bio_age_day30}} · Day 90 target: {{bio_age_day90}}</div></div></div>
+  <p style="font-size:13.5px;color:var(--ink-mute);">{{phenoage_context}}</p>
+  <table class="phenoage-table">{{phenoage_rows}}</table>
+</div>
+
+<!-- 06 · BIOMARKERS -->
+<div class="s-head"><div class="s-eyebrow">06 · Biomarker analysis</div><h2>The advanced panel, <em>read against your genome</em>.</h2></div>
+{{biomarker_panels}}
+<!-- Per system: .panel with .marker-row rows (name/value/target/badge) and a .xref block
+     linking the system to the genome/wearable finding that explains it. -->
+
+<!-- 07 · ROOT CAUSE -->
+<div class="s-head"><div class="s-eyebrow">07 · Root causes</div><h2>{{fired_rule_total}} findings, <em>{{root_pillar_count}} root causes</em>.</h2></div>
+{{root_nodes}}
+<!-- Per rootcause.root_nodes[]: .root-node with header + confidence-tag (layers_agreeing),
+     root-driver, root-explains, .attack-via. -->
+
+<!-- 08 · PROTOCOL -->
+<div class="s-head"><div class="s-eyebrow">08 · The protocol</div><h2>Five levers, <em>tuned to you</em>.</h2></div>
+{{protocol_pillars}}
+{{protocol_domains}}
+
+<!-- 09 · 90-DAY PLAN -->
+<div class="s-head"><div class="s-eyebrow">09 · The 90-day plan</div><h2>A cadence, <em>not a sprint</em>.</h2></div>
+<div class="timeline">{{habit_stack}}</div>
+
+<!-- 10 · PHYSICIAN REFERRALS -->
+<div class="card" style="border-left:4px solid var(--danger);">
+  <div class="s-eyebrow" style="color:var(--danger);">10 · Take these to a physician</div>
+  <h3 style="font-size:24px;">Conversations to have with a doctor</h3>
+  {{physician_referrals}}
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <h4>Important notes</h4>
+  {{disclaimer_sample_note}}
+  <p><strong>This report is not a medical diagnosis.</strong> It is an evidence-based interpretation of a blood panel, a DNA export, wearable telemetry and lifestyle inputs. It does not replace a licensed physician.</p>
+  <p><strong>Genomics here is research-grade, not diagnostic.</strong> Single common variants carry modest effect sizes. A genotype is a probability shift, never a destiny, and never overrides an observed biomarker trend. APOE e4 is disclosed factually with the offer of genetic counseling. Polygenic estimates are largely European-trained and interpreted with South-Asian context where it applies.</p>
+  <p><strong>Antiaging Labs is a biomarker-moving and healthspan-optimization program.</strong> We do not claim to extend lifespan, reverse aging, or cure disease. We move biomarkers and re-test to show what actually moved.</p>
+  <p><strong>Data and privacy.</strong> Personal health data covered by the Digital Personal Data Protection Act, 2023 (India). The raw genome file is never stored in the report.</p>
+</div>
+
+<!-- FOOTER -->
+<div class="foot">
+  <div class="logo">Antiaging Labs<span class="dot">.</span></div>
+  <div class="fmeta">Deep report · generated {{report_date}}<br>Rulebook {{rulebook_version}} · PhenoAge v2018<br>Genome + blood + wearable</div>
+</div>
+
+</div>
+<script>/* Autopilot card cycling + loop-step cycling + twin telemetry jitter. See /client-6.html. */</script>
+</body>
+</html>

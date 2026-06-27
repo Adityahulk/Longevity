@@ -1,27 +1,58 @@
 ---
 name: tessera-wearable-ingest
-description: Stub for wearable data ingestion. Phase D will fully implement Apple Health XML / Google Fit CSV / Oura CSV / Whoop CSV / Garmin TCX parsing into normalized 7/30/90-day rolling means for HRV, RHR, sleep stages, steps, VO2max estimate. In Phase A+B, this skill is a no-op that emits wearable.json with null and the pipeline proceeds gracefully without it.
+description: Ingest a wearable export (Whoop / Oura / Apple Health / Garmin / Fitbit / Google Fit) into normalized 7/30/90-day rolling means for HRV (RMSSD), resting heart rate, sleep duration/efficiency/deep%/REM%, steps, VO2max estimate, and training-load ACWR — plus behaviour-correlated anomalies. Classifies each metric (optimal/watch/off) and its trend (improving/stable/declining) per lib/wearable-metrics.md, and emits wearable.json. Powers the Autopilot Protocol Sync feed in the Deep (Tier-2) pipeline.
 ---
 
-# Tessera Wearable Ingest (Phase D — STUB)
+# Tessera Wearable Ingest
 
-## Phase A+B behavior
+Reads a wearable export and produces `wearable.json` — the rolling metrics, trends, and anomalies the
+Deep-tier pipeline consumes (rule-evaluate fires `R-WBL-*`; protocol-author authors the Autopilot feed).
+Ranges, trend logic, and anomaly detection all live in **`lib/wearable-metrics.md`** — this skill never
+invents telemetry; if a device lacks a metric, it omits it rather than estimating.
 
-This skill is a **no-op** in Phase A+B. The `tessera-pipeline` orchestrator calls it; this skill writes `wearable.json` with `available: false` and returns.
+## Inputs
+
+- A device export: Whoop CSV (`recovery.csv`, `sleep.csv`, `workouts.csv`), Oura CSV (`daily.csv`,
+  `sleep.csv`), Apple Health `export.xml`, Garmin TCX + Connect CSV, Fitbit JSON, or Google Fit CSV.
+- Optional same-day context (food/caffeine/alcohol log, travel) to tag anomalies.
+
+## Workflow
+
+### Step 1 — Parse the export to a per-day table
+Use `python3`. Normalize device-specific fields to the canonical metrics: HRV RMSSD (ms), RHR (bpm),
+sleep hours / efficiency % / deep % / REM %, steps, VO₂max estimate, and a training-load series for ACWR.
+(Whoop "recovery" already exposes RMSSD + RHR; Apple Health uses `HKQuantityTypeIdentifier…SDNN` etc.)
+
+### Step 2 — Compute rolling means + trends
+For each metric compute `last_7d_mean`, `last_30d_mean`, `last_90d_mean`, then label the `trend`
+(`improving | stable | declining`) per the polarity-aware ±5% logic in `lib/wearable-metrics.md`
+(falling RHR = improving; falling HRV = declining). Classify each metric optimal/watch/off against the
+orientation ranges there, while noting the person's own baseline is the real reference.
+
+### Step 3 — Detect anomalies (Autopilot fuel)
+Flag single days where a metric deviates ≥2 SD from the rolling baseline (z ≤ −2 for higher-is-better,
+≥ +2 for RHR) and tag a probable behavioural cause from the same-day context. These rows are what
+`R-WBL-05` turns into next-morning protocol patches.
+
+### Step 4 — Compute ACWR
+`training_load_acwr` = acute (7-day) load ÷ chronic (28-day) load; flag the band (detrained <0.6,
+sweet-spot 0.8–1.3, overreach >1.5).
+
+### Step 5 — Write `wearable.json` (`available: true`) and reply
+Reply with the headline trends ("HRV declining −18% vs 90d, RHR +4bpm, deep sleep 12%, ACWR 0.6") and
+the count of behaviour-correlated anomalies.
+
+## Phase A+B fallback
+
+If no wearable export is provided, this skill is a no-op writing `available: false`; downstream skills
+fall back to self-reported intake (no `R-WBL-*` rules fire, no Autopilot feed):
 
 ```json
-{
-  "ingested_at_utc": "<timestamp>",
-  "available": false,
-  "reason": "Phase A+B stub — full wearable ingestion deferred to Phase D",
-  "source": null,
-  "rolling_metrics": null
-}
+{ "ingested_at_utc": "<ts>", "available": false,
+  "reason": "no wearable export provided", "source": null, "rolling_metrics": null }
 ```
 
-The downstream skills (`tessera-rule-evaluate`, `tessera-rootcause-phenotype`) handle `available: false` gracefully — they only use wearable signals when `available: true`.
-
-## Phase D — planned `wearable.json` shape (design contract preserved)
+## `wearable.json` shape
 
 ```json
 {
@@ -70,7 +101,7 @@ The downstream skills (`tessera-rule-evaluate`, `tessera-rootcause-phenotype`) h
 }
 ```
 
-## Phase D — planned source parsers
+## Source parsers
 
 - **Apple Health XML** — extract HKQuantityTypeIdentifierHeartRateVariabilitySDNN, HKQuantityTypeIdentifierRestingHeartRate, HKCategoryTypeIdentifierSleepAnalysis, HKQuantityTypeIdentifierStepCount, HKQuantityTypeIdentifierVO2Max
 - **Oura CSV** — `daily.csv` and `sleep.csv` exports
@@ -79,12 +110,20 @@ The downstream skills (`tessera-rule-evaluate`, `tessera-rootcause-phenotype`) h
 - **Fitbit JSON** — Fitbit data export request format
 - **Google Fit CSV** — `Daily Aggregations.csv`
 
-## How downstream skills handle the stub today
+## How downstream skills consume `wearable.json` (live)
 
-- `tessera-rule-evaluate`: rules that *only* trigger on wearable (`R-SLP-02` low HRV) don't fire if `wearable.available = false`.
-- `tessera-rootcause-phenotype`: mechanism scoring uses biomarker + intake signals only when no wearable; "wearable confirmation" is just absent rather than misleading.
-- `tessera-protocol-author`: training prescriptions use self-reported intake fields (cardio_min_per_week, current_exercise_types, max_hr_known) instead of wearable-driven personalization.
+- `tessera-rule-evaluate`: fires `lib/rulebook/wearables.md` (`R-WBL-*`) from the rolling metrics +
+  anomalies; rules that only trigger on wearable simply don't fire when `available: false`.
+- `tessera-rootcause-phenotype`: applies wearable signals as **confirmation edges** that raise the
+  confidence of mechanisms already scored from blood + intake (HRV↓→M-01/M-03, RHR↑→M-01/M-04,
+  deep↓→M-03, low VO₂max→M-04/M-12) — never as a standalone root. Absent wearable = absent confirmation,
+  not a misleading claim.
+- `tessera-protocol-author`: reads trends to set the training/recovery levers and reads `R-WBL-05`
+  anomalies (joined with genomic/biomarker context) to author the **Autopilot Protocol Sync** feed. When
+  `available: false`, training prescriptions fall back to self-reported intake fields.
 
-## Why stub now and not later?
+## Forward compatibility
 
-Designing the schema contract now (and committing it) means the TS port in `packages/schema` can plan `WearableMetric` types alongside the rest, and future native-app (HealthKit / Health Connect) integration emits the same JSON shape — no rework needed.
+The `wearable.json` shape is the same one the future TS `packages/schema` `WearableMetric` types and the
+native-app (HealthKit / Health Connect) integration emit — file ingestion now, API/webhook streaming
+(Terra / Vital) later, no schema rework.

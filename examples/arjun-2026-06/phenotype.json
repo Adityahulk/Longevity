@@ -1,0 +1,28 @@
+{
+  "classified_at_utc": "2026-06-22T00:00:00Z",
+  "phenotype_primary": "Stress-dominant, cardiometabolically loaded",
+  "phenotype_code": "P-04 + M-12 overlay",
+  "phenotype_label_full": "Genetically cardiometabolic, behaviourally under-recovered · APOE ε4 carrier · Early insulin resistance · Central adiposity",
+  "overlays": [
+    {"code": "apoe_e4_carrier", "note": "ε3/ε4 — raises lifetime cardiovascular + Alzheimer's risk; the genome amplifies an already-active lipid problem."},
+    {"code": "cardiometabolic_genetic_load", "note": "APOE ε4 + Lp(a) + 9p21 + TCF7L2 — the dice are loaded; the blood already shows it."},
+    {"code": "early_insulin_resistance", "note": "HOMA-IR 2.9, IFG 100, central fat — reversible now."},
+    {"code": "under_recovered", "note": "6h sleep, declining HRV, rising RHR, exercise-poor — confirmed by wearable."}
+  ],
+  "benign_quirks": [],
+  "protocol_voice": "Peer-to-peer, systems-framed, data-forward. Client #6 is a founder who runs on dashboards — give him the causal chain, the leverage point, and the smallest set of changes that move the most. Lead with the cardiovascular story (it is both his stated fear and his biggest genetic + biochemical risk), be honest that the genome is fixed but its expression is not, and tie the daily Autopilot to his Whoop so adherence has a feedback loop. Two things go to a physician first.",
+  "lead_domains": ["recovery_sleep", "nutrition", "training"],
+  "secondary_domains": ["supplements", "mind_wellness"],
+  "deprioritize": ["aggressive caloric restriction (he travels and eats out; sustainability beats severity)", "piling on supplements (prune + target, don't stack)"],
+  "genetic_overlays": {
+    "M-12": ["R-GEN-APOE-01", "R-GEN-LPA-01", "R-GEN-9P21-01", "R-GEN-TCF7L2-01"],
+    "M-19": ["R-GEN-MTHFR-01", "R-GEN-COMT-01"],
+    "M-20": ["R-GEN-APOE-01"]
+  },
+  "wearable_confirmation": {
+    "M-01_HPA_activation": ["R-WBL-01 (HRV declining)", "R-WBL-02 (RHR rising)"],
+    "M-03_sleep_debt": ["R-WBL-01", "R-WBL-03 (deep 11%)"],
+    "M-04_insulin_resistance": ["R-WBL-02", "R-WBL-04 (ACWR 0.58, VO2max declining)"]
+  },
+  "intake_refinements": "Strong first-degree cardiac history (father MI at 58) makes the APOE/Lp(a)/9p21 stack personally urgent, not abstract. Travel + founder schedule is the #1 adherence constraint, so the protocol is built around portability and the Whoop feedback loop rather than fixed daily rituals."
+}

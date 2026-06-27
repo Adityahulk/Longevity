@@ -1,0 +1,53 @@
+{
+  "run_id": "client6-arjun-2026-06",
+  "client_first_name": "Arjun",
+  "display_name": "Client #6",
+  "tier": "deep",
+  "report_kind": "Deep (Tier-2) sample — illustrative",
+  "report_date": "2026-06-22",
+  "blood_draw_date": "2026-06-20",
+  "interactive_report": "/client-6",
+  "pipeline_version": "0.3.0-deep",
+  "phenoage_formula_version": "Levine-2018",
+  "rulebook_version": "0.3.0-deep",
+  "rulebook_hash": "574075dca171ae1c66779de8c55a75da0671c697e17b41d16ca26e11446b5e67",
+  "phenotype_label": "Genetically cardiometabolic, behaviourally under-recovered · APOE ε4 carrier · Early insulin resistance",
+  "bio_age": 42.9,
+  "delta_years": 2.9,
+  "data_layers": {"bloodwork": true, "genome": true, "wearable": true, "intake": true, "imaging": false},
+  "skills_used": [
+    "tessera-lab-parse",
+    "tessera-intake-v2",
+    "tessera-genetics-ingest",
+    "tessera-wearable-ingest",
+    "tessera-rule-evaluate",
+    "tessera-rootcause-phenotype",
+    "tessera-safety-screen",
+    "tessera-protocol-author",
+    "tessera-report-compose"
+  ],
+  "fired_rule_counts": {"biomarker": 14, "genomic": 10, "wearable": 5, "total": 29},
+  "root_pillars": 3,
+  "habit_stack_count": 6,
+  "physician_referrals": 3,
+  "outputs": {
+    "biomarkers": "biomarkers.json",
+    "genetics": "genetics.json",
+    "wearable": "wearable.json",
+    "intake": "intake.json",
+    "rule_evaluation": "rule-evaluation.json",
+    "phenotype": "phenotype.json",
+    "rootcause": "rootcause.json",
+    "safety": "safety.json",
+    "protocol": "protocol.json",
+    "report_html": "../../client-6.html"
+  },
+  "constraints_honored": [
+    "Illustrative sample, anonymized as Client #6 (no fabricated named-customer testimonial).",
+    "Day-0 baseline + plan — no fabricated before/after outcomes.",
+    "Genomics framed research-grade, not diagnostic; APOE ε4 disclosed with a counseling offer.",
+    "South-Asian context flagged on Lp(a), TCF7L2, 9p21, MTHFR.",
+    "Engine does not prescribe; statin is physician-gated with the SLCO1B1 advisory attached."
+  ],
+  "generated_at_utc": "2026-06-22T00:00:00Z"
+}

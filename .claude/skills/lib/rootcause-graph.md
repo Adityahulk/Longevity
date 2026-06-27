@@ -173,15 +173,27 @@ notes: <brief mechanism explanation>
 - **intake_signals**: cold intolerance, fatigue, weight gain without diet change, hair thinning, family hx thyroid
 - **intervention_class**: Medical (endocrinology if overt), Supplements (Vit D, selenium, iodine if deficient)
 
-## M-12 — Cardiometabolic genetic load (Lp(a), ApoE, family hx CV)
+## M-12 — Cardiometabolic genetic load (Lp(a), ApoE ε4, 9p21, TCF7L2, family hx CV)
 
-- **root_driver**: genetic — Lp(a) elevation, ApoE4 carriage, family history premature CV
+- **root_driver**: genetic — Lp(a) elevation, ApoE ε4 carriage, 9p21 CAD locus, TCF7L2 T2D variant,
+  family history of premature CV disease. Read from `genetics.json` (catalog `genomics-canonical.md`).
+- **genetic_inputs** (when `genetics.available = true`):
+  - `apoe.genotype ∈ {ε3/ε4, ε4/ε4}` → fires `R-GEN-APOE-01`; tightens ApoB target to <70 and raises sat-fat sensitivity.
+  - `lpa_genetic.carrier` + measured `lp_a` elevated → fires `R-GEN-LPA-01`; lifelong fixed amplifier.
+  - `cad_9p21.genotype ∈ {CG, CC}` → fires `R-GEN-9P21-01`; lipid-independent CAD weight.
+  - `t2d_tcf7l2.genotype ∈ {CT, TT}` → fires `R-GEN-TCF7L2-01` when early-IR markers convergent.
 - **downstream_effects**:
   - lp_a ↑ (definitional if elevated)
-  - lifelong ApoB-mediated CV risk ↑
+  - apo_b-mediated lifelong CV risk ↑ (strong) — ApoE ε4 amplifies the response to saturated fat
+  - insulin-secretion reserve ↓ (moderate, via TCF7L2) → converges with M-04
 - **intake_signals**: family_history_cardio positive, especially first-degree <55 (M) / <65 (F)
-- **intervention_class**: Medical (cardiologist), aggressive control of EVERY OTHER lipid (LDL <70 if Lp(a) elevated)
-- **notes**: Can't move lifestyle-wise. Strategy is to crush every other risk factor.
+- **wearable_confirmation**: low VO₂max / declining aerobic fitness (`R-WBL-04`) marks the modifiable
+  gap — the genome loaded the dice, low fitness is letting them roll.
+- **intervention_class**: Medical (lipidology — pairs with the SLCO1B1 statin advisory `R-GEN-SLCO1B1-01`
+  if a statin is weighed), plus aggressive control of EVERY OTHER ApoB-mediated lever (ApoB/LDL <70).
+- **notes**: The genome itself can't be moved. When `R-GEN-APOE-01` + `R-GEN-LPA-01` + `R-GEN-9P21-01`
+  co-fire they collapse into this single root: "the cardiometabolic dice are genetically loaded." The
+  whole protocol attacks it through the one lever the genome amplifies — ApoB, driven down hard.
 
 ## M-13 — Environmental toxin / pollution load
 
@@ -243,16 +255,54 @@ notes: <brief mechanism explanation>
 
 ## M-19 — Methylation polymorphism (MTHFR / COMT — research-grade)
 
-- **root_driver**: genetic
-- **downstream_effects**: homocysteine ↑, B-vitamin metabolism altered, neurotransmitter clearance affected (COMT)
-- **intake_signals**: genetics.json (if available)
-- **intervention_class**: Supplements (methylated B forms)
+- **root_driver**: genetic — reduced MTHFR enzyme activity (C677T / A1298C) impairs folate→methylfolate
+  conversion; COMT Val158Met sets dopamine-clearance tone.
+- **genetic_inputs** (when `genetics.available = true`):
+  - `mthfr_c677t.genotype ∈ {CT, TT}` (± A1298C compound-het) AND measured `homocysteine > 10` →
+    fires `R-GEN-MTHFR-01`; switches B-vitamin form from folic acid to methylfolate + methyl-B12.
+  - `comt.genotype` (Met/Met "worrier") → fires `R-GEN-COMT-01`; tunes the stress-modality choice.
+- **downstream_effects**:
+  - homocysteine ↑ (moderate — *only* when folate/B12 intake is inadequate; genotype alone is silent)
+  - rdw_cv ↑ (weak, mixed-cell-size signal)
+  - neurotransmitter clearance altered (COMT) → stress-reactivity trait, not a disorder
+  - cognitive fog / mood (weak)
+- **intake_signals**: vegetarian/vegan without B-supplementation, alcohol, low leafy-green intake;
+  `genetics.json` confirms the genotype.
+- **intervention_class**: Supplements (methylated B forms — *gated on measured homocysteine*, never on
+  genotype alone), Nutrition (folate-rich foods), Mind (COMT-matched stress modality).
+- **notes**: The genotype matters only in combination with the measured homocysteine/folate picture. A
+  TT carrier with normal homocysteine and good intake needs no special action — this guards against
+  over-supplementing on a gene result alone.
 
-## M-20 — APOE ε4 carriage (research-grade)
+## M-20 — APOE ε4 carriage (research-grade, sensitive disclosure)
 
-- **root_driver**: genetic
-- **downstream_effects**: Alzheimer's risk ↑, ApoB sensitivity to saturated fat ↑
-- **intervention_class**: Lifestyle (Mediterranean / lower sat-fat diet), aggressive ApoB control, cardiovascular training, sleep priority for glymphatic clearance
+- **root_driver**: genetic — ε4 carriage (one or two copies) from `genetics.json`.
+- **genetic_inputs**: `apoe.genotype ∈ {ε3/ε4, ε4/ε4}` → fires `R-GEN-APOE-01` (tier 2; ε4/ε4 escalates).
+- **downstream_effects**:
+  - lifetime Alzheimer's risk ↑ (strong association — but among the *most lifestyle-modifiable* risk genes)
+  - apo_b / ldl response to saturated fat ↑ (moderate) → modifies `R-LIP-01`, target ApoB <70
+  - cerebro/cardiovascular risk ↑ (moderate)
+- **wearable_confirmation**: low deep-sleep % (`R-WBL-03`) is doubly relevant here — glymphatic amyloid
+  clearance is deep-sleep-dependent, so the recovery lever is also a brain-health lever.
+- **intervention_class**: Lifestyle (Mediterranean / lower-saturated-fat diet), aggressive ApoB control,
+  Zone-2 cardiovascular training, deep-sleep priority (glymphatic clearance), metabolic-health
+  protection. **Medical**: lipid/risk review + an *offered genetic-counseling conversation*.
+- **notes**: Disclose factually and non-deterministically — pair ε4 with the large modifiable upside,
+  never frame it as fate. Cardiovascular risk-factor control is the evidence-backed dementia-risk-
+  reduction route; the protocol leads with what the carrier can actually change.
+
+## Wearable confirmation edges (Deep tier — when `wearable.available = true`)
+
+Wearable telemetry does not create new root nodes; it **raises the confidence** of mechanisms already
+scored from blood + intake. The `tessera-rootcause-phenotype` skill applies these as confidence boosts:
+
+- HRV ↓ trend (`R-WBL-01`) → confirms **M-01** (HPA activation), **M-03** (sleep debt).
+- RHR ↑ trend (`R-WBL-02`) → confirms **M-01**, **M-04** (under-recovery / metabolic load).
+- Low deep / short sleep (`R-WBL-03`) → confirms **M-03**, and via it **M-04**, low-T, hsCRP.
+- Low VO₂max / detrained (`R-WBL-04`) → confirms **M-04** and the cardiovascular levers under **M-12**.
+
+This lets the root-cause card say, honestly, "blood + DNA + wearable all point to the same root" only
+when all three actually do.
 
 ## M-21 through M-30 (placeholders — extended in Phase D)
 

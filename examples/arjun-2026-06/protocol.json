@@ -1,0 +1,177 @@
+{
+  "authored_at_utc": "2026-06-22T00:00:00Z",
+  "author_version": "0.3.0",
+  "headline": {
+    "phenotype_label": "Genetically cardiometabolic, behaviourally under-recovered · APOE ε4 carrier · Early insulin resistance",
+    "bio_age": 42.9,
+    "delta_years": 2.9,
+    "voice": "Peer, systems-framed. Client #6 runs on dashboards — give him the causal chain and the smallest set of changes that move the most. The cardiovascular story is both his stated fear and his biggest genetic + biochemical risk, so it leads. The genome is fixed; its expression is not. Two items go to a physician first."
+  },
+  "goal_alignment": {
+    "his_words": "I want my energy and focus back, and I don't want my dad's heart disease.",
+    "how_protocol_serves_it": "His 'energy and focus' is the under-recovery root (RC-2): fix sleep, caffeine timing and Zone-2 and the afternoon crash lifts. 'My dad's heart disease' is the genetic load (RC-1): the genome (ApoE ε4, Lp(a), 9p21) plus the blood (ApoB 105) say drive ApoB down hard — and the same Zone-2 + fat-quality work does both. One protocol, his two goals."
+  },
+  "biological_age_trajectory": {
+    "day_1": 42.9,
+    "day_30_estimate": 42.6,
+    "day_90_target": 41.8,
+    "adherence_assumed": "80%+ on a 6-habit stack",
+    "method": "PhenoAge moves modestly because its inputs (glucose, hsCRP, RDW, WBC) only partly capture his risk — the big wins (ApoB, HOMA-IR, HDL, HRV, VO2max, NAFLD) live OUTSIDE the nine PhenoAge markers, which is exactly why the Deep panel + genome + wearable matter. Day-90 target reflects realistic hsCRP + glucose gains as inflammation and insulin sensitivity improve."
+  },
+  "root_attack_pillars": [
+    {
+      "name": "Pillar 1 — Drive ApoB under 70 (offset the loaded genome)",
+      "root_mechanism": "RC-1 / M-12",
+      "anchor_interventions": [
+        "Zone-2 cardio 150 min/week — the HDL + ApoB + insulin lever, and his 'energy' goal",
+        "Soluble fiber 10g/day (psyllium, oats, legumes) — veg-light, travel-proof",
+        "Saturated→unsaturated fat swap: cut ghee + fried orders, olive/mustard oil, halve dessert",
+        "Omega-3 2g EPA+DHA/day (algal or fish)",
+        "Physician: aggressive-lipid + (SLCO1B1-informed) statin discussion; Lp(a) family screening"
+      ],
+      "expected_to_shift": ["apo_b 105→<85 (toward <70 with pharmacotherapy)", "ldl 142→<115", "hdl 38→44+", "non_hdl 161→<130", "aip 0.64→0.4"]
+    },
+    {
+      "name": "Pillar 2 — Recover as hard as he works",
+      "root_mechanism": "RC-2 / M-01 + M-03",
+      "anchor_interventions": [
+        "Sleep 6→7.5h: fixed wake, phone out of the bedroom, 30-min wind-down",
+        "Caffeine cutoff 10:00 (CYP1A2 slow) — protects deep sleep + next-day HRV",
+        "One true recovery day/week; 10-min daily breathwork (COMT-matched)",
+        "Magnesium glycinate PM"
+      ],
+      "expected_to_shift": ["HRV 32→back toward 41", "RHR 62→58", "cortisol_am 18→14", "testosterone 420→480+", "deep sleep 11→16%", "afternoon crash"]
+    },
+    {
+      "name": "Pillar 3 — Reverse the early insulin resistance",
+      "root_mechanism": "RC-3 / M-04",
+      "anchor_interventions": [
+        "Zone-2 + 2× resistance/week (muscle = glucose sink); raise VO2max off 38",
+        "Protein-forward, lower-glycemic, soluble-fiber meals that survive travel",
+        "Cut late dessert + weekly alcohol; earlier dinners",
+        "Visceral-fat loss — the common denominator across ApoB, TG, NAFLD, HDL, T"
+      ],
+      "expected_to_shift": ["homa_ir 2.91→<2.0", "glucose 100→<95", "triglycerides 165→<120", "alt 48→<35", "ggt 62→<45", "waist 96→<92"]
+    }
+  ],
+  "genomic_filter": [
+    {"variant": "APOE ε3/ε4", "category": "risk", "finding": "One ε4 copy — higher lifetime cardiovascular and Alzheimer's risk, and LDL/ApoB that respond more strongly to saturated fat.", "how_it_changed_the_protocol": "Your ApoB target is set to <70 (not the usual <80–100), the fat profile goes Mediterranean, and Zone-2 + deep sleep are prioritized as brain-health levers, not just heart. We also offer a genetic-counseling conversation — this is a probability shift you can act on, not a verdict.", "sensitive": true},
+    {"variant": "Lp(a) genetic + measured 145 nmol/L", "category": "risk", "finding": "Genetically elevated Lp(a), confirmed in your blood — a lifelong, lifestyle-fixed cardiovascular amplifier.", "how_it_changed_the_protocol": "Because Lp(a) itself won't move, we crush every other ApoB-mediated risk instead, and flag first-degree family Lp(a) screening (it's heritable). Common and under-tested in South Asians."},
+    {"variant": "9p21 (CC)", "category": "risk", "finding": "Two copies at the most-replicated coronary-artery-disease locus, acting independent of lipids.", "how_it_changed_the_protocol": "Adds weight to early, aggressive ApoB control and an earlier clinician conversation — stacked with ApoE and Lp(a), the cardiovascular lever leads the whole plan."},
+    {"variant": "TCF7L2 (CT)", "category": "risk", "finding": "One copy of the strongest common type-2-diabetes variant — lower insulin-secretion reserve.", "how_it_changed_the_protocol": "Your early insulin resistance (HOMA-IR 2.9) matters more for you than for the average 40-year-old, so the metabolic lever is raised and we retest glucose/insulin earlier."},
+    {"variant": "CYP1A2 (CC, slow)", "category": "pharmacogenomic", "finding": "You clear caffeine slowly — afternoon coffee measurably hurts that night's sleep and next-day HRV.", "how_it_changed_the_protocol": "Caffeine cutoff is 10:00 and ≤2 cups. Your own Whoop proves it: HRV crashes on the nights you have a late espresso (see Autopilot)."},
+    {"variant": "SLCO1B1 (TC)", "category": "pharmacogenomic", "finding": "Intermediate statin-transporter function — modestly higher statin-myopathy risk.", "how_it_changed_the_protocol": "If your physician starts a statin for the lipid picture, this note favors a non-simvastatin choice or a lower dose. We don't prescribe — we hand the prescriber the data."},
+    {"variant": "MTHFR C677T (CT)", "category": "methylation", "finding": "About 65% enzyme activity; with your homocysteine at 12.5, the active B-vitamin forms are preferred.", "how_it_changed_the_protocol": "Your B-vitamin is methylfolate + methyl-B12, not folic acid — a small, targeted switch, not a stack."},
+    {"variant": "COMT (Val/Met) + BDNF (Met)", "category": "methylation_training", "finding": "Dopamine-clearance and BDNF traits that favor steady aerobic down-regulation.", "how_it_changed_the_protocol": "Your stress lever leans on breathwork + Zone-2 (which you need anyway) rather than high-stimulant strategies — and aerobic exercise + sleep are doubly worthwhile for you."}
+  ],
+  "autopilot_feed": [
+    {"time": "Tue 07:08", "telemetry": "HRV 24ms (−41% vs baseline) · deep sleep 38 min", "reason": "Espresso logged 16:10 — you're a CYP1A2 slow metabolizer, so it was still clearing at bedtime; sleep onset ran 47 min late.", "patch": "Skip the morning espresso (it'll deepen the debt). 20-min Zone-2 walk in daylight to lift HRV. Hold today's heavy session to tomorrow; keep it to mobility + a walk."},
+    {"time": "Sun 07:30", "telemetry": "7-day HRV trend −18% · RHR +4 bpm", "reason": "Strain has outrun recovery this week (travel + two late dinners).", "patch": "Today is a true recovery day — no training. Protect a 7.5h sleep tonight; magnesium at 21:30; screens out of the bedroom."},
+    {"time": "Mon 06:55", "telemetry": "HRV 47ms (+15%) · deep sleep 1h12m", "reason": "Caffeine cutoff held at 10:00 yesterday and you were in bed by 23:15 — it shows.", "patch": "Green light: this is your day for the Zone-2 + lower-body strength session. Same caffeine rule today."},
+    {"time": "Thu 07:20", "telemetry": "RHR 69 (+11) · sleep 4h35m", "reason": "Red-eye to Singapore — sleep debt + dehydration.", "patch": "No training today. 2 extra glasses of water before noon, 15-min daylight on landing, caffeine before 10:00 local only. Reset tonight."}
+  ],
+  "domains": {
+    "recovery_sleep": {
+      "lead": true,
+      "target_bedtime": "23:00", "target_wake": "06:45", "sleep_target_hours": "7-7.5",
+      "rationale": "Sleep is the single highest-leverage lever he isn't pulling. ~6h with 11% deep sleep sits under his low HRV, his cortisol, his testosterone, his insulin resistance and his focus. Moving lights-out from ~00:45 to 23:00 buys ~1.5h at almost zero willpower cost.",
+      "wind_down_protocol": "Phone charges outside the bedroom (he reads in bed now). 30-min wind-down: no laptop after 22:15, dim lights, magnesium glycinate at 22:30. Bedroom cool + dark.",
+      "caffeine_rule": "Cutoff 10:00, ≤2 cups (CYP1A2 slow). Replace the 3pm coffee with a 10-min daylight walk — the Autopilot will reinforce this every time a late coffee tanks his HRV.",
+      "recovery_day": "One true recovery day/week (Whoop-guided — when the 7-day HRV trend dips, that's the day).",
+      "travel_protocol": "On red-eye nights: hydration + caffeine-before-10:00-local + 15-min daylight on landing; no training the next day.",
+      "evidence_tags": ["E1", "E2"]
+    },
+    "nutrition": {
+      "lead": true,
+      "leading_principles": [
+        "Sustainable + portable beats severe — he eats out 6x/week and travels constantly.",
+        "Two structural moves: shift fat quality (less saturated) and add soluble fiber + protein; both lower ApoB AND improve insulin sensitivity.",
+        "ApoE ε4 makes the saturated-fat swap genuinely worth it for him specifically."
+      ],
+      "daily_targets": {"protein_g": 140, "fibre_g": 35, "soluble_fibre_g": "10", "added_sugar": "minimal", "alcohol": "≤2 drinks/week"},
+      "structural_changes": [
+        "Swap ghee + restaurant fried items for olive/mustard oil; halve the after-dinner dessert",
+        "Add 1 tbsp psyllium daily + oats/chia at breakfast — the veg-light, travel-proof ApoB fiber move",
+        "Protein-forward every meal (eggs, dahi, chicken, fish, paneer, dal) to blunt glucose + satiety (FTO)",
+        "Order smarter: grilled over fried, double the dal/sabzi, brown/less rice, skip the naan-and-dessert combo",
+        "Earlier dinners when not traveling; cut the weekly investor-dinner drinks to ≤2"
+      ],
+      "fat_quality_note": "Mediterranean-leaning per ApoE ε4: olive oil, nuts, fatty fish; minimise saturated fat.",
+      "evidence_tags": ["E1", "E2"]
+    },
+    "training": {
+      "lead": true,
+      "leading_principles": [
+        "His biggest gap is steady aerobic work (<30 min/week). Zone-2 is the top lever for HDL, ApoB, insulin sensitivity AND his 'energy' goal — and protects the ε4 brain.",
+        "He's exercise-poor, not over-trained (ACWR 0.58) — the job is to ADD a base, not redistribute.",
+        "Built around travel: most sessions need only shoes or a hotel gym."
+      ],
+      "weekly_structure": {
+        "zone_2_minutes": 150,
+        "zone_2_detail": "3-4× 35-45 min at conversational pace (HR ~120-135) — incline treadmill, cycle, brisk walk, or hotel-gym cardio. Whoop confirms the zone.",
+        "resistance_sessions": 2,
+        "resistance_detail": "2× full-body (squat, hinge, push, pull, carry) — muscle is his glucose sink; portable dumbbell/bodyweight versions for travel.",
+        "vo2max_sessions": "1 (optional, once the base is in — short intervals)",
+        "steps_target": "8,000/day (from ~5,000) — walking meetings, calls on foot",
+        "recovery_day": "1 full rest/active-recovery day"
+      },
+      "twelve_week_plan": [
+        {"week": "1-2", "focus": "Install the base", "detail": "2× Zone-2 (30 min) + 2× full-body strength + hit 8k steps. No intensity — just consistency and the caffeine/sleep rules."},
+        {"week": "3-6", "focus": "Build aerobic base", "detail": "3× Zone-2 (40 min) + 2× strength. Notice resting HR + how 'energy' starts to return. Book the physician (lipid) visit."},
+        {"week": "7-10", "focus": "Progress + first VO2max", "detail": "3-4× Zone-2 + add 1 short interval session once recovery is solid. Week 8 lighter (travel-heavy). Resistance progresses."},
+        {"week": "11-13", "focus": "Consolidate + retest prep", "detail": "Hold the structure. No heavy training 48h before the Day-90 retest."}
+      ],
+      "aqi_aware": true,
+      "evidence_tags": ["E1", "E2"]
+    },
+    "supplements": {
+      "lead": false,
+      "audit_first": "He takes almost nothing consistently. Add a small, targeted set — don't build a stack.",
+      "stack": [
+        {"name": "Omega-3 (algal or fish)", "dose": "2g EPA+DHA/day", "timing": "with a meal", "reason": "ApoB/TG + brain (ApoE ε4)", "safety": "cleared", "evidence_tier": "E1"},
+        {"name": "Psyllium husk", "dose": "1 tbsp/day in water", "timing": "before a meal", "reason": "highest-leverage veg-light soluble fiber for ApoB", "safety": "cleared", "evidence_tier": "E1"},
+        {"name": "Methylfolate + methyl-B12", "dose": "400-800µg + B12", "timing": "AM", "reason": "MTHFR CT + homocysteine 12.5 → methylated forms (R-GEN-MTHFR-01)", "safety": "cleared", "evidence_tier": "E2"},
+        {"name": "Vitamin D3 + K2", "dose": "2000 IU + 100µg K2", "timing": "with breakfast", "reason": "25-OH-D 24 → repletion; retest week 12", "safety": "cleared", "evidence_tier": "E1"},
+        {"name": "Magnesium glycinate", "dose": "300mg", "timing": "evening", "reason": "sleep + recovery", "safety": "cleared", "evidence_tier": "E2"},
+        {"name": "Creatine", "dose": "3-5g/day", "timing": "any", "reason": "training + cognition (his 'focus' goal)", "safety": "cleared", "evidence_tier": "E1"},
+        {"name": "Statin / lipid therapy", "dose": "physician decision", "timing": "—", "reason": "likely warranted (ApoB+Lp(a)+ApoE+family) — SLCO1B1 TC advisory attached", "safety": "physician_gated", "evidence_tier": "E1"}
+      ],
+      "evidence_tags": ["E1", "E2"]
+    },
+    "mind_wellness": {
+      "lead": false,
+      "daily_practice": "10-min breathwork (physiological sigh or box breathing) — he does none, and his stress sits 8/10 in a fundraise. COMT Val/Met favors this steady down-regulation over more stimulants.",
+      "weekly_practice": "A genuine offline block on the recovery day; walking meetings to fold movement into work.",
+      "stress_note": "The fundraise stress is real and situational. The levers are sleep + breathwork + Zone-2, not a supplement. Caffeine moderation is itself an anxiety lever for a slow metabolizer.",
+      "evidence_tags": ["E2", "E3"]
+    }
+  },
+  "ninety_day_habit_stack": [
+    {"weeks": "1-2", "habits": ["Lights-out 23:00, phone out of the bedroom (protect a 7h floor)", "Caffeine cutoff 10:00 (CYP1A2 slow)"], "coach_check_in_days": "Day 14", "coach_check_in_focus": "Is the earlier bedtime holding against late work? Is the late coffee actually gone — and is the Whoop HRV responding? Book the physician (lipid) appointment."},
+    {"weeks": "3-6", "habits": ["+ 3× Zone-2/week (his 'energy' lever) + 8k steps", "+ Psyllium + omega-3 daily; smarter ordering (grilled, more dal, less rice/dessert)"], "coach_check_in_days": "Day 28 + Day 42", "coach_check_in_focus": "Zone-2 adherence; is energy returning? Did the lipid/statin conversation happen (SLCO1B1 note carried)? Fiber + fat-quality swaps sticking on the road?"},
+    {"weeks": "7-10", "habits": ["+ 2× resistance/week + first VO2max intervals", "+ 10-min daily breathwork; ≤2 drinks/week"], "coach_check_in_days": "Day 56 + Day 70", "coach_check_in_focus": "Is the afternoon crash gone? VO2max trend on the Whoop? Deload respected in the travel-heavy week? Statin started — tolerating it?"},
+    {"weeks": "11-13", "habits": ["Maintain all 6; pre-retest prep (no heavy training 48h prior, 12h fasted, same lab + morning slot)"], "coach_check_in_days": "Day 84 + Day 90 review", "coach_check_in_focus": "Lock the same-lab same-slot retest so the ApoB/HOMA-IR/HRV deltas are real. Confirm physician outcomes."}
+  ],
+  "physician_referrals_required": [
+    {"reason": "ApoB 105 + LDL 142 + Lp(a) 145 nmol/L + ApoE ε4 + 9p21 + father MI at 58", "specialty": "Primary care → Lipidology/Cardiology", "ask": "Discuss aggressive ApoB lowering (likely statin) given the genetic + family load. SLCO1B1 TC → favor a non-simvastatin agent / lower dose. First-degree family Lp(a) screening."},
+    {"reason": "APOE ε4 carriage (sensitive result)", "specialty": "Genetic counseling (offered, optional)", "ask": "A conversation about what ε4 does and doesn't mean — it's a modifiable probability shift, not a diagnosis. Entirely his choice."},
+    {"reason": "Untreated BP 138/86 + early NAFLD (ALT 48/GGT 62) + IFG 100 / HOMA-IR 2.9", "specialty": "Primary care", "ask": "Confirm BP with home readings; baseline metabolic + liver review. FIB-4 0.69 = no fibrosis workup needed now."}
+  ],
+  "retest_plan": {
+    "day_30": [{"marker": "subjective energy + Whoop HRV/RHR/deep-sleep trend", "expected": "HRV trend turning up, afternoon crash easing as sleep + caffeine timing land"}],
+    "day_60": [{"marker": "lipid panel (ApoB, LDL, HDL, non-HDL, TG)", "expected": "ApoB falling (faster if a statin started); HDL up as Zone-2 takes hold"}, {"marker": "fasting glucose + insulin", "expected": "HOMA-IR drifting down"}],
+    "day_90": {"core_panel": "full repeat (same lab, same morning slot, 12h fasted)", "priority_remeasures": ["apo_b", "ldl", "hdl", "non_hdl", "triglycerides", "homa_ir", "glucose_fasting", "hba1c", "hs_crp", "homocysteine", "alt", "ggt", "testosterone_total", "vitamin_d_25oh"], "add_ons_recommended": [{"marker": "apoB_particle / LDL-P", "tier_priority": 2, "rationale": "finer than LDL-C given Lp(a)"}, {"marker": "omega_3_index", "tier_priority": 3, "rationale": "track the omega-3 dose"}]},
+    "week_12_vit_d": {"marker": "vitamin_d_25oh", "expected": "into the 40-60 ng/mL range on 2000 IU/day"}
+  },
+  "outcome_expectations": [
+    {"area": "Energy + focus (his goal)", "expectation": "Afternoon crash eases within 3-4 weeks of fixed sleep + caffeine timing + Zone-2; HRV trend up on the Whoop"},
+    {"area": "Heart risk (his goal)", "expectation": "ApoB 105→<85 by Day 90 on lifestyle alone, toward <70 with the physician-decided statin; HDL up, TG down"},
+    {"area": "Insulin", "expectation": "HOMA-IR 2.9→<2.0; glucose under 95; NAFLD enzymes (ALT/GGT) trending down with visceral-fat loss"},
+    {"area": "Lp(a) + APOE", "expectation": "Neither changes — they're genetic. The win is everything they amplify, driven down hard, and a clear plan instead of his father's surprise."}
+  ],
+  "what_not_to_change": [
+    "Don't jump to TRT for the testosterone 420 — it's downstream of sleep, stress and visceral fat; fix the roots and it follows.",
+    "Don't over-restrict food — he travels and eats out; portability + protein + fiber beats a rigid diet he'll abandon.",
+    "Don't add a supplement stack — six targeted items, not twenty."
+  ]
+}

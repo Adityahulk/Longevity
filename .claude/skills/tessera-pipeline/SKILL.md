@@ -68,9 +68,15 @@ Invoke the **tessera-intake-v2** workflow. Read `.claude/skills/tessera-intake-v
 
 Output: `intake.json`. Required modules: base identity, body & medical, diet, exercise, sleep & stress, HPI, family, constraints. Environment + mental-health screen recommended; can be skipped if user opts out.
 
-### Step 4 — Wearable + genetics (optional, Phase D stubs)
+### Step 4 — Wearable + genetics (live; Deep tier)
 
-If the user has wearable / genetics data, invoke `tessera-wearable-ingest` / `tessera-genetics-ingest`. Otherwise set `wearable: null` and `genetics: null` and proceed.
+If the user provides a DNA export and/or a wearable export, invoke `tessera-genetics-ingest` and
+`tessera-wearable-ingest` — these are now real ingestion skills that emit `genetics.json` /
+`wearable.json` with `available: true` (catalogs: `lib/genomics-canonical.md`, `lib/wearable-metrics.md`).
+This is what makes a run a **Deep (Tier-2)** report: the genome adds the Genomic Filter and modifies
+biomarker targets (e.g. ApoE ε4 → ApoB <70), and the wearable adds the Autopilot Protocol Sync feed.
+If either is absent, the skill writes `available: false` and the pipeline runs as a Tier-1 (blood +
+intake) report with no `R-GEN-*` / `R-WBL-*` fires — gracefully.
 
 ### Step 5 — Evaluate rules
 

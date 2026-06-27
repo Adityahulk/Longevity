@@ -1,0 +1,7 @@
+name,reach_via,segment,hook,email_if_known
+# Fill one row per person. segment = warm | referral | linkedin | community
+# reach_via = phone/whatsapp, a LinkedIn URL, an X/Reddit handle, etc.
+# hook = the one detail that proves you're talking to THEM (a post, a race, a mutual, a milestone)
+# email_if_known = only if you want me to draft a Gmail draft for them. Leave blank otherwise.
+# Delete these comment lines and the example row before handing it back.
+"Example: Rohan Mehta","whatsapp",warm,"does Hyrox, always posting recovery scores","rohan@example.com"

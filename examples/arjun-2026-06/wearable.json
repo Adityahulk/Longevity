@@ -1,0 +1,23 @@
+{
+  "ingested_at_utc": "2026-06-22T00:00:00Z",
+  "available": true,
+  "source": "whoop",
+  "device_model": "Whoop 4.0",
+  "catalog": "lib/wearable-metrics.md",
+  "date_range": {"start": "2026-03-22", "end": "2026-06-20"},
+  "rolling_metrics": {
+    "hrv_rmssd_ms": {"last_7d_mean": 32, "last_30d_mean": 36, "last_90d_mean": 41, "trend": "declining", "classification": "watch"},
+    "rhr_bpm": {"last_7d_mean": 62, "last_30d_mean": 60, "last_90d_mean": 58, "trend": "declining", "classification": "watch", "note": "RHR rising over the quarter (higher is worse)."},
+    "sleep": {"last_7d_avg_hours": 6.1, "last_7d_efficiency_pct": 83, "last_7d_deep_pct": 11, "last_7d_rem_pct": 16, "last_30d_avg_hours": 6.3, "last_90d_avg_hours": 6.4, "trend": "declining", "classification": "off"},
+    "steps": {"last_7d_mean": 5200, "last_30d_mean": 5600, "last_90d_mean": 5900, "classification": "watch"},
+    "vo2max_estimate": {"latest": 38, "last_90d": 41, "trend": "declining", "classification": "watch"},
+    "training_load_acwr": 0.58
+  },
+  "anomalies": [
+    {"date": "2026-06-17", "metric": "hrv_rmssd", "value": 24, "z_score": -2.3, "context": "espresso logged 16:10; CYP1A2 slow metabolizer; sleep onset delayed 47 min"},
+    {"date": "2026-06-14", "metric": "hrv_rmssd", "value": 21, "z_score": -2.6, "context": "3 drinks logged with investor dinner; REM suppressed"},
+    {"date": "2026-06-09", "metric": "rhr_bpm", "value": 69, "z_score": 2.2, "context": "red-eye to Singapore; 4.5h sleep; travel + dehydration"},
+    {"date": "2026-06-02", "metric": "hrv_rmssd", "value": 26, "z_score": -2.1, "context": "two espressos after 15:00; late laptop work to 01:10"}
+  ],
+  "summary": "HRV declining ~22% vs the 90-day baseline, resting HR up 4 bpm, deep sleep just 11% on ~6.1h, VO2max drifting down, and ACWR 0.58 — the signature of someone stress-rich and exercise-poor. The HRV crashes cluster on nights after late caffeine (slow metabolizer), alcohol, or travel."
+}

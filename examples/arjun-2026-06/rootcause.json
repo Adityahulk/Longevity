@@ -1,0 +1,59 @@
+{
+  "authored_at_utc": "2026-06-22T00:00:00Z",
+  "note": "Twenty-three fired rules reduce to three root nodes. The genome loaded the cardiometabolic dice (RC-1); chronic under-recovery is pulling the trigger (RC-2); early insulin resistance / ectopic fat is the modifiable hinge between them (RC-3). Blood, DNA, and wearable corroborate each other at every node.",
+  "root_nodes": [
+    {
+      "id": "RC-1",
+      "name": "Cardiometabolic genetic load (APOE ε4 + Lp(a) + 9p21 + TCF7L2)",
+      "mechanism": "M-12 / M-20",
+      "confidence": "high",
+      "layers_agreeing": ["genome", "blood", "family history"],
+      "explains": ["lp_a (genetic)", "apo_b 105", "ldl 142", "non_hdl 161", "hdl 38", "aip 0.64", "elevated CAD/T2D predisposition"],
+      "intake_resolution": "Father's MI at 58 + maternal T2D make this concrete, not theoretical. The genome can't be changed; its expression — ApoB — can be driven down hard.",
+      "attack_via": [
+        "ApoB target <70 (tightened by ApoE ε4): Zone-2 cardio, soluble fiber, saturated→unsaturated fat swap, omega-3",
+        "Physician/lipidology referral: aggressive-lipid discussion + (SLCO1B1-informed) statin decision + first-degree Lp(a) family screening",
+        "Offer a genetic-counseling conversation for the APOE result"
+      ]
+    },
+    {
+      "id": "RC-2",
+      "name": "Chronic under-recovery / HPA activation",
+      "mechanism": "M-01 + M-03",
+      "confidence": "high",
+      "layers_agreeing": ["blood", "wearable", "intake"],
+      "explains": ["cortisol_am 18 (upper-normal + stress)", "HRV declining 41→32", "RHR rising 58→62", "testosterone 420 (low)", "hs_crp 2.6", "afternoon crash", "deep sleep 11%"],
+      "intake_resolution": "Founder in a fundraise: ~6h sleep, phone in bed, 4 coffees (2 late) on a CYP1A2 slow background, no Zone-2, frequent red-eyes. The Whoop shows the autonomic cost in real time.",
+      "attack_via": [
+        "Protect sleep (fixed wake, screens out of bed, wind-down) → the single highest-leverage lever",
+        "Caffeine cutoff 10:00 (CYP1A2 slow) — protects deep sleep + next-day HRV",
+        "Zone-2 base + one true recovery day; daily breathwork (COMT-matched down-regulation)"
+      ]
+    },
+    {
+      "id": "RC-3",
+      "name": "Early insulin resistance / ectopic (visceral + hepatic) fat",
+      "mechanism": "M-04",
+      "confidence": "high",
+      "layers_agreeing": ["blood", "wearable", "intake"],
+      "explains": ["homa_ir 2.91", "insulin 11.8", "glucose 100 (IFG)", "triglycerides 165", "hdl 38", "alt 48 / ggt 62 (NAFLD)", "uric_acid 6.9", "waist 96cm"],
+      "intake_resolution": "Sedentary (ACWR 0.58, ~5k steps), refined-carb-heavy ordered-in meals, late dinners, weekly alcohol. The TCF7L2 variant lowers his secretory reserve, so this matters more for him than for the average 40-year-old.",
+      "attack_via": [
+        "Zone-2 + resistance training (muscle = glucose sink); raise VO2max off the floor",
+        "Protein-forward, soluble-fiber, lower-glycemic meals that survive travel; cut the late dessert/alcohol",
+        "Visceral-fat loss is the common denominator that also lowers ApoB, TG, NAFLD, and raises HDL + T"
+      ]
+    }
+  ],
+  "methylation_overlay": {
+    "id": "M-19",
+    "name": "MTHFR C677T + elevated homocysteine",
+    "note": "Not a root node — a targeted supplement switch. Homocysteine 12.5 on a CT background → methylfolate + methyl-B12 instead of folic acid.",
+    "attack_via": ["methylfolate 400-800µg + methyl-B12", "folate-rich foods", "retest homocysteine at Day 90"]
+  },
+  "leaves_watch_not_chase": [
+    "uric_acid 6.9 — follows the metabolic work; no urate drug unless gout/clinical",
+    "vitamin_d 24 — correct to sufficiency, simple",
+    "testosterone 420 — downstream of RC-2/RC-3; do NOT jump to TRT, fix the roots first"
+  ]
+}

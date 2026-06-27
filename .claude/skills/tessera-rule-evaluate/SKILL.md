@@ -41,6 +41,31 @@ For each rule (`R-XXX-NN`):
    - `evidence_tier` (E1-E5 from the rule)
 4. Skip rules tagged `deprecated: true`.
 
+The rulebook glob now includes `lib/rulebook/genomics.md` (`R-GEN-*`) and `lib/rulebook/wearables.md`
+(`R-WBL-*`), so they are iterated here automatically when `genetics.json` / `wearable.json` have
+`available: true`. When either is `available: false`, its rules simply don't fire — no error, no
+misleading "confirmed by wearable" language downstream.
+
+### Step 2b — Apply genomic modifiers + convergence gates
+
+Genomic rules are dual-purpose (see `lib/rulebook/genomics.md`). After the standalone fires:
+
+1. **Convergence gating** — a rule with a `confirm_with_biomarker` (e.g. `lpa_genetic` needs measured
+   `lp_a` elevated; `R-GEN-TCF7L2-01` needs an early-IR marker) only fires when both the genotype AND
+   the biomarker condition hold. A genotype with clean corresponding biomarkers stays informational and
+   does not fire an action rule.
+2. **Modifier application** — for each fired genomic rule with a `modifier_of`, adjust the named
+   biomarker rule in place rather than adding a duplicate finding:
+   - `R-GEN-APOE-01` → on the fired `R-LIP-01`, set `apo_b_target = "<70"` and raise its protocol
+     priority (record `modified_by: ["R-GEN-APOE-01"]` on that fired rule).
+   - `R-GEN-MTHFR-01` → on the fired homocysteine rule, set `b_vitamin_form = "methylated"`.
+   - `R-GEN-CYP1A2-01` → set `caffeine_cutoff = "10:00"` on the recovery overlay.
+   Emit a `modifiers_applied[]` array so the report can show "your DNA changed this target."
+
+`R-WBL-*` fires are tagged with their `confirms` link (mechanism / biomarker rule) for the root-cause
+step to use as a confidence boost. Both new rulebook files are already part of `rulebook_hash` (Step 6
+hashes all of `lib/rulebook/*.md`).
+
 ### Step 3 — Compute per-marker tier classifications
 
 For every marker in `biomarkers.json` (raw + derived), classify into Tier 1/2/3/4 per `lib/reference-ranges.md` using the patient's sex. This generates the **per-marker status badges** that the report shows next to each value.

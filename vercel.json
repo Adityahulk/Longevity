@@ -66,6 +66,11 @@
       "permanent": true
     },
     {
+      "source": "/client-6.html",
+      "destination": "/client-6",
+      "permanent": true
+    },
+    {
       "source": "/engine.html",
       "destination": "/engine",
       "permanent": true
@@ -337,6 +342,14 @@
     {
       "source": "/client-5/",
       "destination": "/ayush.html"
+    },
+    {
+      "source": "/client-6",
+      "destination": "/client-6.html"
+    },
+    {
+      "source": "/client-6/",
+      "destination": "/client-6.html"
     },
     {
       "source": "/Ayush-report",
