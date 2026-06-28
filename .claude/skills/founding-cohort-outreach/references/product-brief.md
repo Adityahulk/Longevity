@@ -9,7 +9,7 @@ that on contact.
 
 Antiaging Labs is **the integration layer for your biology**: it pulls genome, bloodwork, and
 wearable data into one live "Biological Twin" and an engine that estimates your biological age
-and compiles a daily protocol to slow how fast you're aging. Built and calibrated for South Asian
+and compiles a daily protocol to slow how fast you're aging. Built and calibrated for your
 biology. Site: **antiaging-labs.com**.
 
 **Naming it in a message — keep the genome in the frame.** The differentiator is the multi-omic
@@ -65,15 +65,18 @@ outreach sells *the call*, and the call sells the program.
 
 Booking link: `https://calendly.com/company-kalman-labs/30min` · Contact: `company@kalman-labs.com`
 
-## The wedge: built for South Asian biology
+## The wedge: ancestry-aware reference ranges
 
-This is the sharpest differentiator for the Indian audience and should anchor most messaging.
-Most labs and longevity tools read your results against Western reference ranges. South Asians
-have meaningfully different baselines (e.g. higher visceral fat and cardiometabolic risk at lower
-BMI, different lipid and diabetes risk patterns). "Your numbers are normal" is often measured
-against the wrong population. Antiaging Labs reads markers against South Asian reference ranges
-and calibrates protocols accordingly. For an Indian professional who's been told they're fine,
-this reframes the whole thing — and it's true, which is why it works.
+This is a sharp differentiator and can anchor messaging. Most labs and longevity tools read your
+results against ranges built largely on European-ancestry populations. Baselines genuinely differ
+by ancestry (e.g. higher visceral fat and cardiometabolic risk at lower BMI, different lipid and
+diabetes risk patterns), so "your numbers are normal" is often measured against the wrong
+population. Antiaging Labs reads markers against ancestry-aware reference ranges and calibrates
+protocols accordingly. For someone who's been told they're fine but still feels off, this reframes
+the whole thing — and it's true, which is why it works.
+
+(Note: the explicit "South Asian" framing is paused for now; keep the wedge ancestry-aware/general
+in outreach until told otherwise.)
 
 ## What's genuinely true — safe to say
 
@@ -81,7 +84,7 @@ Use these freely; they're on the site and defensible:
 - One health record that unifies bloodwork, genome, wearables, and imaging into a single engine.
 - Biological age via **validated clocks**: Levine PhenoAge (2018) and Klemera-Doubal (KDM-BA),
   computed as transparent benchmarks and tracked before/after each cycle.
-- A **50+ / 87-marker** panel read against **South Asian reference ranges**.
+- A **50+ / 87-marker** panel read against **ancestry-aware reference ranges**.
 - A **traceable, rule-based report** — tap any finding (e.g. elevated ApoB) and see the exact
   rule and data that triggered it. No black box.
 - A **4-lever daily protocol**: nutrition, training, recovery, supplements/co-factors.
