@@ -192,6 +192,14 @@
       "destination": "/learn-vo2-max.html"
     },
     {
+      "source": "/learn/longevity-escape-velocity",
+      "destination": "/learn-longevity-escape-velocity.html"
+    },
+    {
+      "source": "/learn/longevity-escape-velocity/",
+      "destination": "/learn-longevity-escape-velocity.html"
+    },
+    {
       "source": "/masai-ppt",
       "destination": "/masai-ppt.html"
     },
