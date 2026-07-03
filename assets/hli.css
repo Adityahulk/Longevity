@@ -288,7 +288,8 @@ p{margin:0;}
 
 /* big closing CTA */
 .endcta{text-align:center;padding:130px 0;background:var(--surface-alt);}
-.endcta h2{font-size:clamp(34px,5vw,62px);max-width:18ch;margin:0 auto 18px;}
+.endcta h2{font-size:clamp(34px,5vw,62px);max-width:18ch;margin:0 auto 18px;color:var(--ink);}
+.sec-dark .endcta h2{color:var(--ink);}
 .endcta p{color:var(--ink-2);max-width:520px;margin:0 auto 34px;font-size:18px;}
 
 /* ---------- FOOTER ---------- */
