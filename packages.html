@@ -57,7 +57,7 @@
 .pkg-flag-tag{background:var(--accent);color:#fff;padding:3px 9px;border-radius:999px;font-size:9.5px;letter-spacing:.1em;}
 .pkg-name{font-size:25px;margin-bottom:11px;line-height:1.12;}
 .pkg-name .sub{color:var(--ink-3);font-weight:500;}
-.pkg-lede{font-size:15.5px;color:var(--ink-2);max-width:600px;line-height:1.6;margin:0;}
+.pkg-lede{font-size:15.5px;color:var(--ink-2);max-width:600px;line-height:1.55;margin:0;}
 .pkg-buy{flex-shrink:0;width:300px;}
 .pkg-prices{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:14px;background:#fff;}
 .ppl{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:12px 15px;border-bottom:1px solid var(--line);}
@@ -72,7 +72,10 @@
 .pkg-buy .pill{justify-content:center;width:100%;}
 .pkg-feats{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
 .pkg-feat h4{font-size:16px;font-weight:600;color:var(--ink);margin:0 0 9px;}
-.pkg-feat p{font-size:14px;color:var(--ink-2);line-height:1.62;margin:0;}
+.pkg-feat p{font-size:14px;color:var(--ink-2);line-height:1.52;margin:0;}
+.pkg-points{list-style:none;margin:0;padding:0;display:grid;gap:10px;}
+.pkg-points li{position:relative;padding-left:18px;font-size:14px;color:var(--ink-2);line-height:1.45;}
+.pkg-points li::before{content:"";position:absolute;left:0;top:.68em;width:6px;height:6px;border-radius:50%;background:var(--accent);}
 .pkg-hood{margin-top:28px;padding-top:20px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-2);line-height:1.6;}
 .pkg-hood strong{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-right:10px;}
 /* two-ways-to-pay price block */
@@ -101,7 +104,7 @@
     <div class="sec-head">
       <p class="kicker">Packages</p>
       <h2 class="sec-title">Three products. <span class="muted">One record that compounds.</span></h2>
-      <p class="sec-intro">Each tier is one setup-and-protocol round plus ongoing engine membership. All three integrate your wearable live and intervene daily — Deep adds DNA and a biological twin, Comprehensive adds clinical imaging and an AI concierge. Two ways to pay: an annual plan (setup + 12 months), or setup today plus a monthly plan. Same health record underneath, so everything you add carries forward and nothing gets re-bought.</p>
+      <p class="sec-intro">Start with bloodwork and live wearable coaching. Add DNA with Deep. Add imaging and concierge support when clinically useful. Every tier feeds the same health record, so your data carries forward.</p>
       <div class="cur-toggle" id="curToggle" role="group" aria-label="Currency">
         <button type="button" class="cur-btn" data-cur="INR">₹ INR</button>
         <button type="button" class="cur-btn" data-cur="USD">$ USD</button>
@@ -116,7 +119,7 @@
           <div>
             <div class="pkg-id">Tier 1 · Available now</div>
             <h3 class="pkg-name">Essential <span class="sub">/ The Living Protocol</span></h3>
-            <p class="pkg-lede">70+ blood and urine biomarkers, a 50–60 question lifestyle intake and your past wearable data, compiled into a deep personalized protocol across diet, training, nutrition, supplements and lifestyle. Then your wearable streams in live, and the engine — with your baseline protocol and data always in memory — gives you daily health updates and interventions.</p>
+            <p class="pkg-lede">The core program: 70+ biomarkers, lifestyle intake, wearable history, a personalized protocol, and daily guidance as your wearable data changes.</p>
           </div>
           <div class="pkg-buy">
             <div class="pkg-price">
@@ -128,11 +131,11 @@
           </div>
         </div>
         <div class="pkg-feats">
-          <div class="pkg-feat"><h4>The Deep Protocol</h4><p>Your 70+ biomarkers and 50–60 lifestyle answers compiled into a personalized protocol across diet, training, nutrition, supplements and lifestyle — plus PhenoAge, so you watch the gap between biological and chronological age close.</p></div>
-          <div class="pkg-feat"><h4>Live Wearable Interventions</h4><p>Your Watch, Whoop or Oura streams in continuously. The engine holds your baseline protocol and data in memory and sends daily health summaries and interventions as your telemetry shifts.</p></div>
-          <div class="pkg-feat"><h4>The Traceability Engine</h4><p>An interactive report. Tap any finding, like elevated ApoB, and see the exact rule and data that triggered it. No black box.</p></div>
+          <div class="pkg-feat"><h4>What we measure</h4><ul class="pkg-points"><li>70+ blood and urine markers</li><li>50–60 question lifestyle intake</li><li>Wearable history and live stream</li></ul></div>
+          <div class="pkg-feat"><h4>What you get</h4><ul class="pkg-points"><li>Diet, training, recovery and supplement protocol</li><li>PhenoAge baseline and retest</li><li>Daily wearable-based nudges</li></ul></div>
+          <div class="pkg-feat"><h4>How it stays clear</h4><ul class="pkg-points"><li>Rule-traced report</li><li>Finding-by-finding rationale</li><li>No hidden supplement agenda</li></ul></div>
         </div>
-        <p class="pkg-hood"><strong>Under the hood</strong>A rules engine compiles your labs and intake into a protocol, then ingests live wearable streams to update your daily guidance against a baseline held in memory.</p>
+        <p class="pkg-hood"><strong>Best for</strong>Your first serious baseline and a 90-day plan you can actually follow.</p>
       </div>
 
       <!-- Deep -->
@@ -141,7 +144,7 @@
           <div>
             <div class="pkg-id">Tier 2 · DNA + Biological Twin <span class="pkg-flag-tag">FLAGSHIP</span></div>
             <h3 class="pkg-name">Deep <span class="sub">/ The Live Biological Twin</span></h3>
-            <p class="pkg-lede">Everything in Essential, plus deep DNA analysis integrated with your biomarkers and lifestyle. It flags what you're genetically prone to — future disease, risk, physical and mental predispositions — and grades the real level of that risk against your actual blood and behaviour. Your live wearable then drives a biological twin that shows, cycle over cycle, what's improving and how your biological age is moving.</p>
+            <p class="pkg-lede">Everything in Essential, plus DNA. We separate genetic risk from measured risk, then use your wearable stream to track how your biology is moving over time.</p>
           </div>
           <div class="pkg-buy">
             <div class="pkg-price">
@@ -155,11 +158,11 @@
           </div>
         </div>
         <div class="pkg-feats">
-          <div class="pkg-feat"><h4>Genetic Risk Analysis</h4><p>Deep DNA analysis (dense genotyping array + ancestry-calibrated interpretation) fused with your biomarkers and lifestyle. It flags future-disease and predisposition risk and grades each one — low, watch, act — by whether your blood and behaviour are amplifying or offsetting it.</p></div>
-          <div class="pkg-feat"><h4>The Live Biological Twin</h4><p>A real-time model of your body. As your Watch, Whoop or Oura streams in, the twin shifts with you and tracks how your biological age is changing as the protocol runs.</p></div>
-          <div class="pkg-feat"><h4>Autopilot Interventions</h4><p>A daily feed that adjusts your day to your telemetry, now DNA-informed. If your HRV dips and you carry a slow-caffeine variant, the app intercepts at 7 AM: swap the espresso for 300mg L-Theanine to protect focus today.</p></div>
+          <div class="pkg-feat"><h4>What Deep adds</h4><ul class="pkg-points"><li>DNA risk and predisposition analysis</li><li>Ancestry-aware interpretation</li><li>Optional DNAm epigenetic clock</li></ul></div>
+          <div class="pkg-feat"><h4>What changes</h4><ul class="pkg-points"><li>Risk is graded against your actual labs</li><li>Recommendations become gene-informed</li><li>Your biological-age trajectory is tracked cycle to cycle</li></ul></div>
+          <div class="pkg-feat"><h4>Daily use</h4><ul class="pkg-points"><li>Wearable-based recovery calls</li><li>DNA-aware nutrition and stimulant guidance</li><li>One live record for future retests</li></ul></div>
         </div>
-        <p class="pkg-hood"><strong>Under the hood</strong>A multi-omic orchestrator fuses your genome, biomarkers and live wearable streams, grades genetic risk against measured data, and computes your biological-age trajectory in real time.</p>
+        <p class="pkg-hood"><strong>Best for</strong>People who want to know which risks are inherited, which are showing up now, and what to do first.</p>
       </div>
 
       <!-- Comprehensive -->
@@ -168,7 +171,7 @@
           <div>
             <div class="pkg-id">Tier 3 · Upcoming</div>
             <h3 class="pkg-name">Comprehensive <span class="sub">/ The AI Health Concierge</span></h3>
-            <p class="pkg-lede">The ultimate tier — a private AI health concierge. We connect you to partner labs for a DEXA scan and full-body MRI, combine that with whole-genome sequencing and your biomarkers into the deepest report we produce, and give you a clinically-backed AI agent that holds all of it — labs, DNA, imaging and your biological twin — that you can chat with any time.</p>
+            <p class="pkg-lede">Our upcoming concierge tier: Deep plus DEXA, full-body MRI, clinical sequencing and an AI assistant grounded in your full record.</p>
           </div>
           <div class="pkg-buy">
             <div class="pkg-upcoming">
@@ -179,11 +182,11 @@
           </div>
         </div>
         <div class="pkg-feats">
-          <div class="pkg-feat"><h4>Clinical Imaging + Sequencing</h4><p>Lab connections for a full-body MRI and DEXA scan, plus whole-genome sequencing — the structural and genetic layers that blood alone can't see, folded into your record.</p></div>
-          <div class="pkg-feat"><h4>The Clinical AI Concierge</h4><p>A clinically-backed AI agent with private access to everything — your labs, DNA, imaging and biological twin. Ask it anything about your body and get answers grounded in your own data, any time.</p></div>
-          <div class="pkg-feat"><h4>The Deepest Report</h4><p>Every layer — biomarkers, genome, imaging and the live twin — synthesized into the most detailed analysis we produce, carried forward from your Deep record.</p></div>
+          <div class="pkg-feat"><h4>What it adds</h4><ul class="pkg-points"><li>DEXA body composition</li><li>Full-body MRI through partner centers</li><li>Clinical sequencing when appropriate</li></ul></div>
+          <div class="pkg-feat"><h4>What you get</h4><ul class="pkg-points"><li>Deepest multi-layer report</li><li>AI concierge for your own record</li><li>Physician-in-the-loop interpretation</li></ul></div>
+          <div class="pkg-feat"><h4>Status</h4><ul class="pkg-points"><li>Upcoming, not open for booking</li><li>Interest list only</li><li>Modules switched on when useful</li></ul></div>
         </div>
-        <p class="pkg-hood"><strong>Under the hood</strong>A retrieval-grounded clinical agent reasons over your full multi-omic record — imaging, sequencing, biomarkers and live twin — with a physician in the loop.</p>
+        <p class="pkg-hood"><strong>Best for</strong>Clients who want the most complete baseline and are comfortable adding clinical imaging.</p>
       </div>
 
     </div>
@@ -196,7 +199,7 @@
     <div class="sec-head">
       <p class="kicker">What's included</p>
       <h2 class="sec-title">Every capability, <span class="muted">side by side.</span></h2>
-      <p class="sec-intro">Each tier unlocks more of the same engine and the same health record. Everything below Essential carries forward as you move up.</p>
+      <p class="sec-intro">The record is the same. Higher tiers add more inputs and support.</p>
     </div>
     <div style="overflow-x:auto;">
     <table class="matrix">
@@ -219,7 +222,7 @@
     </table>
     </div>
     <div class="callout">
-      <strong>Straight about availability.</strong> Essential is live today, wearable integration and daily interventions included. Deep adds DNA through a genome partner and the biological twin, set up during onboarding. Comprehensive is upcoming — its full-body MRI, DEXA, sequencing and AI concierge are not open for booking yet; register your interest and we'll reach out as slots open. We only switch on a module when it will change your plan.
+      <strong>Straight about availability.</strong> Essential is live. Deep adds partner DNA during onboarding. Comprehensive is upcoming; imaging, sequencing and AI concierge slots are not open yet. We only add modules that can change the plan.
     </div>
   </div>
 </section>
