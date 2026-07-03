@@ -75,6 +75,25 @@
 .pkg-feat p{font-size:14px;color:var(--ink-2);line-height:1.62;margin:0;}
 .pkg-hood{margin-top:28px;padding-top:20px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-2);line-height:1.6;}
 .pkg-hood strong{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-right:10px;}
+/* two-ways-to-pay price block */
+.pkg-price{border:1px solid var(--line);border-radius:12px;padding:16px 16px 15px;margin-bottom:14px;background:#fff;}
+.pkg-price-hero{display:flex;align-items:baseline;gap:4px;}
+.pph-amt{font-family:var(--display);font-size:30px;font-weight:600;letter-spacing:-0.02em;color:var(--ink);}
+.pph-per{font-size:12px;color:var(--ink-3);font-weight:500;}
+.pph-sub{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-top:5px;}
+.pkg-price-alt{font-size:13px;color:var(--ink-2);line-height:1.5;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);}
+.pkg-price-alt b{color:var(--ink);font-weight:600;}
+.ppa-min{color:var(--ink-3);}
+.pkg-price-addon{font-size:12.5px;color:var(--ink-2);line-height:1.5;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);}
+.pkg-price-addon b{color:var(--ink);font-weight:600;}
+/* Tier-3 upcoming block */
+.pkg-upcoming{border:1px dashed var(--line);border-radius:12px;padding:18px 16px;margin-bottom:14px;background:var(--surface-alt);}
+.pku-badge{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:4px 11px;}
+.pku-note{font-size:13px;color:var(--ink-2);line-height:1.55;margin:11px 0 0;}
+/* currency toggle */
+.cur-toggle{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;margin-top:18px;background:#fff;}
+.cur-btn{font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:7px 15px;border:none;background:transparent;color:var(--ink-2);cursor:pointer;transition:background .15s,color .15s;}
+.cur-btn[aria-pressed="true"]{background:var(--ink);color:#fff;}
 @media(max-width:820px){.pkg{padding:30px 22px;}.pkg-feats{grid-template-columns:1fr;gap:24px;}.pkg-buy{width:100%;}.ppl-sub{max-width:none;}}
 </style>
 <section class="sec sec-alt">
@@ -82,7 +101,11 @@
     <div class="sec-head">
       <p class="kicker">Packages</p>
       <h2 class="sec-title">Three products. <span class="muted">One record that compounds.</span></h2>
-      <p class="sec-intro">Each tier is a one-time diagnostics setup plus an annual membership for the engine, from a static insights portal to a live twin to a predictive cockpit. Same health record underneath, so everything you add carries forward and nothing gets re-bought.</p>
+      <p class="sec-intro">Each tier is one setup-and-protocol round plus ongoing engine membership, from a static insights portal to a live twin to a predictive cockpit. Two ways to pay: an annual plan (setup + 12 months), or setup today plus a monthly plan. Same health record underneath, so everything you add carries forward and nothing gets re-bought.</p>
+      <div class="cur-toggle" id="curToggle" role="group" aria-label="Currency">
+        <button type="button" class="cur-btn" data-cur="INR">₹ INR</button>
+        <button type="button" class="cur-btn" data-cur="USD">$ USD</button>
+      </div>
     </div>
 
     <div class="pkgs">
@@ -96,10 +119,10 @@
             <p class="pkg-lede">Your biology, translated. A clean portal that turns one deep diagnostic round into a clear picture of how you are aging and exactly what to do about it.</p>
           </div>
           <div class="pkg-buy">
-            <div class="pkg-prices">
-              <div class="ppl"><div class="ppl-label">One-time setup<span class="ppl-sub">At-home 50+ marker blood draw</span></div><div class="ppl-amt">₹12,000</div></div>
-              <div class="ppl"><div class="ppl-label">Membership<span class="ppl-sub">PhenoAge &amp; 90-day rules dashboard</span></div><div class="ppl-amt">₹16,000<span class="per">/yr</span></div></div>
-              <div class="ppl total"><div class="ppl-label">Year 1 total</div><div class="ppl-amt">₹28,000</div></div>
+            <div class="pkg-price">
+              <div class="pkg-price-hero"><span class="pph-amt" data-inr="₹45,000" data-usd="$599"></span><span class="pph-per">/year</span></div>
+              <div class="pph-sub">Setup + 12 months · protocol + membership · 1 retest/yr</div>
+              <div class="pkg-price-alt">or <b><span data-inr="₹28,000" data-usd="$299"></span></b> today + <b><span data-inr="₹1,999" data-usd="$29"></span>/mo</b> <span class="ppa-min">· 12-month minimum</span></div>
             </div>
             <a class="pill pill-dark" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Start Essential</a>
           </div>
@@ -121,10 +144,11 @@
             <p class="pkg-lede">The product you open every morning, not once a month. Your twin reads live telemetry from your wearable and adjusts your day in real time.</p>
           </div>
           <div class="pkg-buy">
-            <div class="pkg-prices">
-              <div class="ppl"><div class="ppl-label">One-time setup<span class="ppl-sub">Whole-genome DNA kit + advanced blood panels</span></div><div class="ppl-amt">₹35,000</div></div>
-              <div class="ppl"><div class="ppl-label">Membership<span class="ppl-sub">Live-Twin streaming + real-time wearable autopilot</span></div><div class="ppl-amt">₹40,000<span class="per">/yr</span></div></div>
-              <div class="ppl total"><div class="ppl-label">Year 1 total</div><div class="ppl-amt">₹75,000</div></div>
+            <div class="pkg-price">
+              <div class="pkg-price-hero"><span class="pph-amt" data-inr="₹1,10,000" data-usd="$1,199"></span><span class="pph-per">/year</span></div>
+              <div class="pph-sub">Setup + 12 months · DNA + Live Twin + wearable autopilot · 1–2 retests/yr</div>
+              <div class="pkg-price-alt">or <b><span data-inr="₹75,000" data-usd="$699"></span></b> today + <b><span data-inr="₹2,999" data-usd="$49"></span>/mo</b> <span class="ppa-min">· 12-month minimum</span></div>
+              <div class="pkg-price-addon">Bio-age runs on PhenoAge (from blood). Add the gold-standard DNAm epigenetic clock for <b>+<span data-inr="₹18,000" data-usd="$249"></span></b> · optional.</div>
             </div>
             <a class="pill pill-accent" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Talk to us about Deep</a>
             <a href="/client-6" style="display:block;margin-top:12px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--accent);">See a sample Deep report →</a>
@@ -142,17 +166,16 @@
       <div class="pkg">
         <div class="pkg-top">
           <div>
-            <div class="pkg-id">Tier 3 · By consultation</div>
+            <div class="pkg-id">Tier 3 · Upcoming</div>
             <h3 class="pkg-name">Comprehensive <span class="sub">/ The Simulation Cockpit</span></h3>
             <p class="pkg-lede">A high-fidelity command interface for people who run their body like an enterprise system. Model the future before you live it.</p>
           </div>
           <div class="pkg-buy">
-            <div class="pkg-prices">
-              <div class="ppl"><div class="ppl-label">One-time setup<span class="ppl-sub">Full-body MRI, DEXA scan + advanced imaging</span></div><div class="ppl-amt">₹80,000</div></div>
-              <div class="ppl"><div class="ppl-label">Membership<span class="ppl-sub">Predictive Health Cockpit simulation engine</span></div><div class="ppl-amt">₹1,00,000<span class="per">/yr</span></div></div>
-              <div class="ppl total"><div class="ppl-label">Year 1 total</div><div class="ppl-amt">₹1,80,000</div></div>
+            <div class="pkg-upcoming">
+              <span class="pku-badge">Upcoming</span>
+              <p class="pku-note">A private AI health concierge with full-body MRI, DEXA and clinical sequencing. Slots are not open yet — register your interest and we'll reach out as they do.</p>
             </div>
-            <a class="pill pill-ghost" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a consultation</a>
+            <a class="pill pill-ghost" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Register your interest</a>
           </div>
         </div>
         <div class="pkg-feats">
@@ -177,7 +200,7 @@
     </div>
     <div style="overflow-x:auto;">
     <table class="matrix">
-      <thead><tr><th>Capability</th><th>Essential</th><th>Deep</th><th>Comprehensive</th></tr></thead>
+      <thead><tr><th>Capability</th><th>Essential</th><th>Deep</th><th>Comprehensive · Upcoming</th></tr></thead>
       <tbody>
         <tr><td>PhenoAge tracker (bio age, before and after)</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
         <tr><td>Traceability engine (rule-traced report)</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
@@ -194,7 +217,7 @@
     </table>
     </div>
     <div class="callout">
-      <strong>Straight about availability.</strong> Essential is live today. Deep runs through a genome partner and integrated wearables, set up during onboarding. Comprehensive's scans are arranged by referral to partner imaging centers in select cities, on clinical indication, never sold as routine. We only switch on a module when it will change your plan.
+      <strong>Straight about availability.</strong> Essential is live today. Deep runs through a genome partner and integrated wearables, set up during onboarding. Comprehensive is upcoming — its full-body MRI, DEXA and clinical sequencing are not open for booking yet; register your interest and we'll reach out as slots open. We only switch on a module when it will change your plan.
     </div>
   </div>
 </section>
@@ -230,6 +253,35 @@
 <script>
   var t=document.getElementById('navtoggle'),m=document.getElementById('navmid');
   if(t){t.addEventListener('click',function(){m.classList.toggle('open');});}
+
+  // Currency: auto-detect India (₹) vs elsewhere ($), with a persistent manual toggle.
+  (function(){
+    function detect(){
+      try{
+        var saved=localStorage.getItem('currency');
+        if(saved==='INR'||saved==='USD')return saved;
+        var tz=(Intl.DateTimeFormat().resolvedOptions().timeZone||'');
+        if(/Asia\/(Kolkata|Calcutta)/.test(tz))return 'INR';
+      }catch(e){}
+      return 'USD';
+    }
+    var toggle=document.getElementById('curToggle');
+    var btns=toggle?toggle.querySelectorAll('.cur-btn'):[];
+    function apply(cur){
+      document.querySelectorAll('[data-inr][data-usd]').forEach(function(el){
+        el.textContent=(cur==='INR')?el.getAttribute('data-inr'):el.getAttribute('data-usd');
+      });
+      btns.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-cur')===cur?'true':'false');});
+    }
+    btns.forEach(function(b){
+      b.addEventListener('click',function(){
+        var cur=b.getAttribute('data-cur');
+        try{localStorage.setItem('currency',cur);}catch(e){}
+        apply(cur);
+      });
+    });
+    apply(detect());
+  })();
 </script>
 </body>
 </html>
