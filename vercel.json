@@ -149,6 +149,11 @@
       "source": "/us-operations.html",
       "destination": "/us-operations",
       "permanent": true
+    },
+    {
+      "source": "/yc-application.html",
+      "destination": "/yc-application",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -267,6 +272,14 @@
     {
       "source": "/us-operations/",
       "destination": "/us-operations.html"
+    },
+    {
+      "source": "/yc-application",
+      "destination": "/yc-application.html"
+    },
+    {
+      "source": "/yc-application/",
+      "destination": "/yc-application.html"
     },
     {
       "source": "/strategy",
