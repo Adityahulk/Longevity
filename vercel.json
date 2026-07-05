@@ -144,6 +144,11 @@
       "source": "/whitepaper.html",
       "destination": "/whitepaper",
       "permanent": true
+    },
+    {
+      "source": "/us-operations.html",
+      "destination": "/us-operations",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -254,6 +259,14 @@
     {
       "source": "/whitepaper/",
       "destination": "/whitepaper.html"
+    },
+    {
+      "source": "/us-operations",
+      "destination": "/us-operations.html"
+    },
+    {
+      "source": "/us-operations/",
+      "destination": "/us-operations.html"
     },
     {
       "source": "/strategy",

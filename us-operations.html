@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>US Operations Playbook | Antiaging Labs</title>
+<meta name="description" content="Step-by-step operational playbook for running Antiaging Labs for US users: the asset-light vendor stack, sample-collection logistics for blood, genome, wearables and intake, the engine run, review, daily execution, retest, cost and compliance.">
+<link rel="icon" type="image/svg+xml" href="/assets/logo/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/png/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/png/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:#F5F1E8; --cream-dark:#EDE7D9; --paper:#FBF8F1;
+  --ink:#0E1B2C; --ink-soft:#1F2D40; --ink-mute:#4A5668; --ink-fade:#7A8497;
+  --rule:#C8BFA8; --rule-soft:#DCD3BC; --accent:#B85426; --accent-warm:#D17244;
+  --leaf:#2F5D3C; --gold:#8B6914;
+  --serif:'Fraunces',Georgia,serif; --sans:'Inter',-apple-system,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:var(--sans); background:var(--cream); color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+.container { max-width:1100px; margin:0 auto; padding:0 32px; }
+.narrow { max-width:880px; margin:0 auto; padding:0 32px; }
+
+/* NAV */
+.nav { position:sticky; top:0; z-index:100; background:rgba(245,241,232,0.92); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:0.5px solid var(--rule-soft); padding:18px 0; }
+.nav-inner { display:flex; justify-content:space-between; align-items:center; }
+.logo { font-family:var(--serif); font-size:24px; font-weight:500; letter-spacing:-0.02em; color:var(--ink); text-decoration:none; display:flex; align-items:center; gap:10px; }
+.logo-mark { width:22px; height:22px; position:relative; }
+.logo-mark::before,.logo-mark::after { content:''; position:absolute; inset:0; border:1.5px solid var(--ink); border-radius:50%; }
+.logo-mark::after { inset:5px; background:var(--accent); border:none; }
+.nav-links { display:flex; gap:32px; align-items:center; }
+.nav-links a { color:var(--ink-soft); text-decoration:none; font-size:14px; transition:color 0.2s; }
+.nav-links a:hover { color:var(--accent); }
+.cta-link { background:var(--ink); color:var(--cream)!important; padding:10px 20px; border-radius:2px; font-size:13px!important; }
+.cta-link:hover { background:var(--accent); }
+
+/* HERO */
+.page-hero { border-bottom:1px solid var(--rule-soft); padding:80px 0 60px; background:var(--paper); }
+.eyebrow { font-family:var(--mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:22px; display:flex; align-items:center; gap:12px; }
+.eyebrow::before { content:''; width:28px; height:1px; background:var(--accent); }
+.page-hero h1 { font-family:var(--serif); font-size:clamp(34px,5vw,54px); font-weight:400; line-height:1.08; letter-spacing:-0.025em; margin-bottom:22px; }
+.page-hero h1 em { font-style:italic; color:var(--accent); }
+.page-lede { font-size:18px; color:var(--ink-mute); max-width:720px; line-height:1.65; }
+.internal-badge { display:inline-block; font-family:var(--mono); font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); border:1px solid var(--rule); border-radius:3px; padding:5px 10px; margin-top:26px; }
+
+/* TOC */
+.toc { background:var(--paper); border-bottom:1px solid var(--rule-soft); padding:26px 0; }
+.toc-list { display:flex; flex-wrap:wrap; gap:8px 22px; }
+.toc-list a { font-family:var(--mono); font-size:12px; color:var(--ink-mute); text-decoration:none; }
+.toc-list a:hover { color:var(--accent); }
+.toc-list a b { color:var(--accent); font-weight:500; }
+
+/* SECTIONS */
+.section { padding:64px 0; border-top:1px solid var(--rule-soft); }
+.section-num { font-family:var(--mono); font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:16px; }
+.section-title { font-family:var(--serif); font-size:clamp(25px,3.4vw,36px); font-weight:500; line-height:1.15; letter-spacing:-0.02em; margin-bottom:20px; }
+.section-title em { font-style:italic; color:var(--accent); }
+.section-lede { font-size:17px; color:var(--ink-mute); line-height:1.65; max-width:760px; margin-bottom:8px; }
+p.body { font-size:15.5px; color:var(--ink-soft); line-height:1.7; max-width:780px; margin-bottom:16px; }
+p.body strong { color:var(--ink); font-weight:600; }
+h3.sub { font-family:var(--serif); font-size:21px; font-weight:500; margin:34px 0 12px; color:var(--ink); }
+
+/* STEP LIST */
+.steps { list-style:none; counter-reset:step; margin:28px 0 8px; }
+.steps > li { counter-increment:step; position:relative; padding:0 0 24px 56px; border-left:1.5px solid var(--rule-soft); margin-left:14px; }
+.steps > li:last-child { border-left:1.5px solid transparent; padding-bottom:0; }
+.steps > li::before { content:counter(step); position:absolute; left:-15px; top:-4px; width:30px; height:30px; background:var(--ink); color:var(--cream); font-family:var(--mono); font-size:13px; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+.steps h4 { font-family:var(--serif); font-size:18px; font-weight:500; margin-bottom:6px; }
+.steps p { font-size:14.5px; color:var(--ink-mute); line-height:1.6; max-width:720px; }
+.steps p + p { margin-top:8px; }
+.steps .who { font-family:var(--mono); font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--leaf); margin-top:8px; display:inline-block; }
+
+/* TABLE */
+.optable-wrap { overflow-x:auto; margin:26px 0; border:1px solid var(--rule-soft); border-radius:6px; }
+table.optable { width:100%; border-collapse:collapse; font-size:13.5px; min-width:640px; }
+table.optable th { background:var(--paper); text-align:left; font-family:var(--mono); font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); padding:13px 16px; border-bottom:1px solid var(--rule-soft); }
+table.optable td { padding:13px 16px; border-bottom:1px solid var(--rule-soft); color:var(--ink-soft); vertical-align:top; line-height:1.55; }
+table.optable tr:last-child td { border-bottom:none; }
+table.optable tr:nth-child(even) td { background:rgba(251,248,241,0.6); }
+table.optable td strong { color:var(--ink); font-weight:600; }
+table.optable code { font-family:var(--mono); font-size:12px; color:var(--leaf); }
+
+/* PHASE / GATE cards */
+.gate-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--rule-soft); border:1px solid var(--rule-soft); border-radius:6px; overflow:hidden; margin-top:26px; }
+.gate { background:var(--cream); padding:22px 24px; }
+.gate h4 { font-family:var(--mono); font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; }
+.gate p { font-size:13.5px; color:var(--ink-mute); line-height:1.6; }
+
+/* CALLOUT */
+.callout { background:var(--ink); color:var(--cream); border-radius:8px; padding:34px 32px; margin:34px 0; }
+.callout .mono-tag { font-family:var(--mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent-warm); margin-bottom:14px; display:block; }
+.callout h3 { font-family:var(--serif); font-size:23px; font-weight:400; line-height:1.3; color:var(--cream); margin-bottom:12px; }
+.callout p { font-size:14.5px; color:rgba(245,241,232,0.80); line-height:1.65; max-width:730px; }
+.callout p + p { margin-top:12px; }
+.callout code { font-family:var(--mono); font-size:13px; color:var(--accent-warm); }
+
+/* TIMELINE bar */
+.tl { display:flex; flex-direction:column; gap:0; margin:30px 0 8px; border:1px solid var(--rule-soft); border-radius:6px; overflow:hidden; }
+.tl-row { display:grid; grid-template-columns:120px 1fr; background:var(--cream); border-bottom:1px solid var(--rule-soft); }
+.tl-row:last-child { border-bottom:none; }
+.tl-row:nth-child(even) { background:var(--paper); }
+.tl-when { font-family:var(--mono); font-size:12px; color:var(--accent); padding:16px 18px; border-right:1px solid var(--rule-soft); }
+.tl-what { padding:15px 20px; }
+.tl-what h4 { font-family:var(--serif); font-size:16px; font-weight:500; margin-bottom:3px; }
+.tl-what p { font-size:13px; color:var(--ink-mute); line-height:1.5; }
+
+/* PILLS */
+.pillrow { display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 4px; }
+.pill { font-family:var(--mono); font-size:11px; letter-spacing:0.04em; padding:5px 11px; border-radius:3px; background:rgba(47,93,60,0.09); color:var(--leaf); }
+.pill.warn { background:rgba(184,84,38,0.10); color:var(--accent); }
+.pill.neutral { background:var(--cream-dark); color:var(--ink-mute); }
+
+/* PRINCIPLE */
+.principle-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:34px; }
+.principle { border-top:2px solid var(--accent); padding-top:18px; }
+.principle h4 { font-family:var(--serif); font-size:18px; font-weight:500; margin-bottom:10px; }
+.principle p { font-size:14px; color:var(--ink-mute); line-height:1.6; }
+
+/* CTA + FOOTER */
+.cta-section { background:var(--ink); color:var(--cream); padding:74px 0; text-align:center; margin-top:8px; }
+.cta-section h2 { font-family:var(--serif); font-size:clamp(26px,4vw,38px); font-weight:400; line-height:1.2; margin-bottom:18px; }
+.cta-section h2 em { font-style:italic; color:var(--accent-warm); }
+.cta-section p { color:rgba(245,241,232,0.72); max-width:600px; margin:0 auto 32px; font-size:16px; }
+.crosslinks { display:flex; gap:20px; justify-content:center; margin-top:8px; flex-wrap:wrap; }
+.crosslinks a { font-family:var(--mono); font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--accent-warm); text-decoration:none; border-bottom:1px solid transparent; }
+.crosslinks a:hover { border-bottom-color:var(--accent-warm); }
+footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); padding:52px 0 30px; }
+.footer-bottom { display:flex; justify-content:space-between; font-family:var(--mono); font-size:11px; color:var(--ink-fade); letter-spacing:0.05em; flex-wrap:wrap; gap:12px; }
+.footer-links { display:flex; gap:24px; margin-bottom:26px; flex-wrap:wrap; }
+.footer-links a { font-size:13px; color:var(--ink-soft); text-decoration:none; }
+.footer-links a:hover { color:var(--accent); }
+.note { font-size:13px; color:var(--ink-fade); font-style:italic; max-width:760px; margin:20px 0 0; line-height:1.6; }
+
+@media (max-width:820px) {
+  .nav-links { display:none; }
+  .gate-grid, .principle-grid { grid-template-columns:1fr; }
+  .tl-row { grid-template-columns:92px 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="container nav-inner">
+  <a href="/" class="logo"><span class="logo-mark"></span>Antiaging Labs</a>
+  <div class="nav-links">
+    <a href="/engine">Engine</a>
+    <a href="/packages">Packages</a>
+    <a href="/journey">Journey</a>
+    <a href="/genomics">Genomics</a>
+    <a href="https://calendly.com/company-kalman-labs/30min" class="cta-link" target="_blank" rel="noopener noreferrer">Book consultation</a>
+  </div>
+</div></nav>
+
+<section class="page-hero"><div class="narrow">
+  <div class="eyebrow">US operations · end-to-end playbook</div>
+  <h1>How we run a US member, <em>step by step</em>, from consult to retest.</h1>
+  <p class="page-lede">
+    In India we collect samples at home cheaply. In the US the economics invert, so the model inverts with it:
+    we rent every physical rail — the lab network, the ordering physician, the phlebotomist, the genome lab, the
+    wearable API — and keep only the record and the reasoning. This page is the exact operating procedure: the
+    one-time stack you stand up once, then every step a single member moves through.
+  </p>
+  <span class="internal-badge">Internal operations document · not indexed</span>
+</div></section>
+
+<div class="toc"><div class="narrow"><div class="toc-list">
+  <a href="#principle"><b>00</b> Operating principle</a>
+  <a href="#stack"><b>01</b> One-time vendor stack</a>
+  <a href="#flow"><b>02</b> Member flow end-to-end</a>
+  <a href="#blood"><b>03</b> Blood logistics</a>
+  <a href="#genome"><b>04</b> Genome logistics</a>
+  <a href="#wearable"><b>05</b> Wearables &amp; intake</a>
+  <a href="#engine"><b>06</b> Engine, review, delivery</a>
+  <a href="#daily"><b>07</b> Daily execution &amp; retest</a>
+  <a href="#cost"><b>08</b> Cost &amp; turnaround</a>
+  <a href="#compliance"><b>09</b> Compliance &amp; safety</a>
+</div></div></div>
+
+<!-- 00 PRINCIPLE -->
+<section class="section" id="principle"><div class="narrow">
+  <span class="section-num">00 · The operating principle</span>
+  <h2 class="section-title">Rent every rail. Own the <em>record and the reasoning.</em></h2>
+  <p class="body">
+    A US blood draw carries real labour and regulatory cost that a home draw in India does not: a phlebotomist's
+    time, a physician's order, and CLIA-lab processing. The instinct is to build a collection operation. That is the
+    wrong instinct. Every physical step in the US already exists as a rentable service, and each one has driven its
+    price to near-cost fighting for the same customers.
+  </p>
+  <p class="body">
+    So Antiaging Labs stays <strong>asset-light</strong>: we never touch a sample, never own a lab, never employ a
+    phlebotomist. We integrate the existing rails and keep the two things that compound — the <strong>longitudinal
+    record</strong> and the <strong>reasoning engine</strong>. The one hard layer to collect (blood) is also the one
+    carrying our differentiated value; the two easy layers (genome, wearables) are where the member already has data
+    to pull in.
+  </p>
+  <div class="gate-grid">
+    <div class="gate"><h4>India model</h4><p>Home phlebotomy is cheap and ubiquitous → collect at the member's door. No dense walk-in network exists.</p></div>
+    <div class="gate"><h4>US model</h4><p>Home phlebotomy is a $90–120 premium → default to the 2,000+ walk-in lab network; offer concierge draw as an upgrade.</p></div>
+    <div class="gate"><h4>What we never build</h4><p>A lab, a phlebotomy fleet, an in-house ordering physician team, or a genome sequencer. All rented.</p></div>
+    <div class="gate"><h4>What we always own</h4><p>The member record, the rulebook + engine, the protocol, the report, and the outcome dataset.</p></div>
+  </div>
+  <div class="callout">
+    <span class="mono-tag">Positioning guardrail</span>
+    <h3>The blood test is table stakes, not the product.</h3>
+    <p>
+      US direct-to-consumer panels have collapsed to <code>$199–365/yr</code> (Superpower $199, Function $365, 200k+
+      members). We do not compete on the panel — it rides along at cost like everyone else's. We price the
+      <em>program</em>: the four-layer fusion, the root-cause reasoning, the daily agent and the retest loop. If a
+      member is comparing us on "biomarkers per dollar," the fit call has failed.
+    </p>
+  </div>
+</div></section>
+
+<!-- 01 STACK -->
+<section class="section" id="stack"><div class="narrow">
+  <span class="section-num">01 · Stand this up once</span>
+  <h2 class="section-title">The one-time vendor &amp; compliance stack.</h2>
+  <p class="section-lede">
+    Before the first US member, six rails are contracted. After that, onboarding a member is configuration, not
+    construction. Prices are mid-2026 estimates — verify at contract time.
+  </p>
+  <div class="optable-wrap"><table class="optable">
+    <thead><tr><th>Rail</th><th>Vendor options</th><th>What it does</th><th>Cost shape</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Lab ordering</strong></td><td>Rupa Health (→ migrating into Fullscript through 2026), or Vital (tryvital.io) API</td><td>Wholesale access to Quest / LabCorp / specialty panels + the walk-in network, without a direct lab contract</td><td>Free to set up; patient pays wholesale <strong>+ ~7%</strong> service fee</td></tr>
+      <tr><td><strong>Physician order</strong></td><td>SteadyMD or Wheel (network clinicians) + your own Medical Director</td><td>The legally required lab order, signed via telehealth review; standing-order coverage</td><td>Per-order or retainer</td></tr>
+      <tr><td><strong>Mobile draw</strong></td><td>Getlabs (partners Quest + LabCorp)</td><td>Concierge home/office phlebotomy for the premium option</td><td><strong>~$35 base, ~$90–120 typical</strong> per visit</td></tr>
+      <tr><td><strong>Genome</strong></td><td>BYO upload (23andMe / Ancestry), or white-label saliva kit (GeneMetrics own CLIA lab, Nutrition Genome, Toolbox, Dante B2B)</td><td>Genotyping array (Deep) or WGS (Comprehensive) → raw file into the pipeline</td><td>BYO <strong>$0</strong> to us; branded kit <strong>~$50–150</strong> COGS</td></tr>
+      <tr><td><strong>Wearables</strong></td><td>Vital or Terra unified API; Apple Health export fallback</td><td>Pulls HRV / RHR / sleep / steps / VO₂max into wearable.json</td><td>Per-connected-user API fee</td></tr>
+      <tr><td><strong>Data &amp; privacy</strong></td><td>HIPAA-compliant hosting + BAA with every vendor above</td><td>Stores the record; scoped, revocable consent; deletion path</td><td>Infra + legal</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">
+    Rupa is the fastest practitioner-model start; Vital is the better fit once we build an app (labs + wearables in
+    one API). Plan for the Rupa→Fullscript migration in any 2026 contract.
+  </p>
+</div></section>
+
+<!-- 02 MEMBER FLOW -->
+<section class="section" id="flow"><div class="narrow">
+  <span class="section-num">02 · One member, end to end</span>
+  <h2 class="section-title">The nine operational steps.</h2>
+  <p class="section-lede">
+    Every US member moves through the same nine steps. Steps 3a–3d run <em>in parallel</em> — the slow genome layer
+    never blocks the fast ones. The role that owns each step is tagged.
+  </p>
+  <ol class="steps">
+    <li>
+      <h4>Consultation &amp; fit</h4>
+      <p>Member books the 30-minute consult (Calendly). We confirm they are a real fit — prevention-minded, willing to
+        test, adhere and retest — and turn away poor fits honestly. Goal is set: reverse-aging or peak-performance
+        (this only re-weights the protocol objective later; the pipeline is identical).</p>
+      <span class="who">Owner · Founder / Coach</span>
+    </li>
+    <li>
+      <h4>Tier selection &amp; consent</h4>
+      <p>Member picks Essential (blood + intake + wearables), Deep (+ genome), or Comprehensive (+ imaging / clinical
+        sequencing). Scoped, revocable consent is captured per data type: lab sharing, wearable import, genetic
+        processing, research use, communication.</p>
+      <span class="who">Owner · Founder / Ops</span>
+    </li>
+    <li>
+      <h4>Kick off all four data layers at once</h4>
+      <p>The member portal fires four parallel tracks the same day: schedule blood, ship/collect genome, connect
+        wearable, complete intake. Genome (3–6 wk) starts first precisely because it is slowest.</p>
+      <span class="who">Owner · Ops (automated)</span>
+    </li>
+    <li>
+      <h4>Blood drawn &amp; results returned</h4>
+      <p>Physician order is generated via the telehealth rail, then the member either walks into a Quest/LabCorp
+        (free, 15 min) or books a Getlabs home draw. CLIA lab returns values in ~2–3 business days; our normalizer
+        parses them into <code>biomarkers.json</code>. (Detail in §03.)</p>
+      <span class="who">Owner · Lab Ops + engine</span>
+    </li>
+    <li>
+      <h4>Genome ingested</h4>
+      <p>BYO upload parses immediately; a branded kit returns a raw genotype file in 3–6 weeks. Either way it becomes
+        <code>genetics.json</code> and upgrades the member from Essential to Deep when it lands. (Detail in §04.)</p>
+      <span class="who">Owner · engine</span>
+    </li>
+    <li>
+      <h4>Engine run</h4>
+      <p>The nine-agent pipeline runs: normalize → panel-completeness → intake → rule-evaluate → phenotype →
+        root-cause → <strong>safety screen (hard gate)</strong> → protocol author → report. Every finding traces to a
+        fired rule and a rulebook hash. (Detail in §06.)</p>
+      <span class="who">Owner · engine (deterministic)</span>
+    </li>
+    <li>
+      <h4>Human review</h4>
+      <p>A practitioner reviews the drafted protocol; a physician reviews any Tier-1 finding, pharmacogenomic
+        advisory, or rare/actionable variant. Nothing reaches the member unreviewed.</p>
+      <span class="who">Owner · Practitioner + Medical Advisor</span>
+    </li>
+    <li>
+      <h4>Delivery &amp; daily execution</h4>
+      <p>Member receives the report + protocol and begins the daily loop: the agent joins last night's wearable delta
+        to its cause and the protocol's authorized response, emitting one honest summary + one doable action. (Detail
+        in §07.)</p>
+      <span class="who">Owner · Coach + daily agent</span>
+    </li>
+    <li>
+      <h4>Retest &amp; next cycle</h4>
+      <p>At the protocol's marker-specific interval (typically 10–12 weeks) the member retests the markers that were
+        targeted. The engine computes deltas, attributes what moved, and authors the next cycle. This closes the loop
+        and produces the outcome dataset.</p>
+      <span class="who">Owner · Lab Ops + engine + Coach</span>
+    </li>
+  </ol>
+</div></section>
+
+<!-- 03 BLOOD -->
+<section class="section" id="blood"><div class="narrow">
+  <span class="section-num">03 · The one hard layer</span>
+  <h2 class="section-title">Blood: default walk-in, upsell concierge.</h2>
+  <p class="section-lede">
+    Blood is the only layer with labour, a physician order, and CLIA processing. Two collection paths; the member
+    chooses by whether their time or their money is scarcer.</p>
+
+  <h3 class="sub">The two draw paths</h3>
+  <div class="gate-grid">
+    <div class="gate"><h4>Path A · Walk-in (default, free draw)</h4><p>Member picks one of 2,000+ Quest or LabCorp sites, schedules online, 15-minute visit, 2–5 minute draw. Draw fee is bundled into the lab contract — no separate labour charge. Proven at scale: Function's 200k+ members use exactly this.</p></div>
+    <div class="gate"><h4>Path B · Concierge home draw (premium)</h4><p>Getlabs sends a phlebotomist to home/office, ~$90–120. For the founder/HNI ICP whose time &gt; $120, we <em>bundle or discount this into Deep/Comprehensive</em> and make it the norm — a differentiator Function/Superpower treat only as a paid add-on.</p></div>
+  </div>
+
+  <h3 class="sub">Operational sequence</h3>
+  <ol class="steps">
+    <li><h4>Generate the order</h4><p>Member's intake + goal produces the panel list (the 70+ longevity markers: ApoB, Lp(a), fasting insulin, hsCRP, homocysteine, etc.). The telehealth clinician reviews and signs the lab order. This is legally required in most states — never skipped.</p></li>
+    <li><h4>Route to a draw path</h4><p>Portal offers walk-in scheduling (Path A) or a Getlabs booking (Path B). Fasting guidance attached: 10–12 h fast, book an early-morning slot — the fast is the real friction, not the drive.</p></li>
+    <li><h4>Draw &amp; lab processing</h4><p>Sample goes to Quest/LabCorp. Results return in ~2–3 business days to our portal via the Rupa/Vital rail.</p></li>
+    <li><h4>Normalize</h4><p>Our normalizer parses the values, converts units, reconciles lab-platform differences, computes derived indices (HOMA-IR, TG:HDL, ApoB:ApoA1, eGFR…) → <code>biomarkers.json</code>, with a panel-completeness flag for anything missing.</p></li>
+  </ol>
+
+  <div class="callout">
+    <span class="mono-tag">B2B unlock</span>
+    <h3>Onsite draw days for tech companies.</h3>
+    <p>
+      For corporate cohorts, one phlebotomist draws 15–20 employees in a morning, amortizing the mobile fee to near
+      zero per person. This is both a cheaper collection mode and a natural executive-health / corporate-wellness
+      wedge — the same rail, batched.
+    </p>
+  </div>
+  <p class="note">Startup blood COGS via wholesale ≈ $100–250 per comprehensive panel, falling as volume earns better lab rates. We price the membership to absorb it.</p>
+</div></section>
+
+<!-- 04 GENOME -->
+<section class="section" id="genome"><div class="narrow">
+  <span class="section-num">04 · The easy layer</span>
+  <h2 class="section-title">Genome: a saliva kit in the mail, or a free upload.</h2>
+  <p class="section-lede">
+    No phlebotomist, no physician order — consumer genomics rides the informational/wellness lane. The only real
+    cost is turnaround, which we design off the critical path.</p>
+
+  <div class="gate-grid">
+    <div class="gate"><h4>Path A · BYO upload ($0 to us)</h4><p>~30–50% of the ICP already own a 23andMe/Ancestry raw file (both still downloadable in 2026 post-TTAM). They upload; <code>tessera-genetics-ingest</code> parses 23andMe/Ancestry/MyHeritage/Tellmegen formats instantly. Zero logistics, instant day-one "wow."</p></div>
+    <div class="gate"><h4>Path B · Branded saliva kit (Deep default)</h4><p>We dropship a white-labeled genotyping kit (GeneMetrics / Nutrition Genome / Toolbox / Dante). Member spits, mails prepaid, CLIA lab runs the array in 2–4 wk, raw file returns to us. COGS ~$50–150, bundled into Deep.</p></div>
+  </div>
+
+  <h3 class="sub">Branded-kit sequence</h3>
+  <ol class="steps">
+    <li><h4>Ship</h4><p>Partner CLIA lab mails the branded saliva kit to the member's home.</p></li>
+    <li><h4>Collect &amp; return</h4><p>Member provides a saliva sample, seals it, drops it in any mailbox with the prepaid return label. Total member effort: one spit.</p></li>
+    <li><h4>Lab runs the array</h4><p>Genotyping array (650k–1M SNPs — the same tech as consumer DNA, exactly what Deep needs). ~2–4 weeks.</p></li>
+    <li><h4>Ingest</h4><p>Raw genotype file → <code>tessera-genetics-ingest</code> → imputation (to ~10–40M variants) + PRS → <code>genetics.json</code>: risk, pharmacogenomic, methylation and nutrition/training groupings.</p></li>
+  </ol>
+
+  <div class="pillrow">
+    <span class="pill">Array for Deep — cheap, sufficient</span>
+    <span class="pill warn">WGS ($249–500) only for Comprehensive</span>
+    <span class="pill neutral">Turnaround 3–6 wk — kept off critical path</span>
+  </div>
+  <p class="body" style="margin-top:20px;">
+    <strong>Sequencing matters more than speed.</strong> The genome is the slow layer, so onboarding never waits on
+    it. We generate the Essential protocol from blood + wearables + intake immediately, then fold the genome in when
+    it arrives to upgrade the member to Deep. And post-23andMe-bankruptcy, running <em>our own</em> kit with a clear
+    "your genome, your control, deletable, never sold" policy is a trust differentiator, not just logistics.
+  </p>
+</div></section>
+
+<!-- 05 WEARABLE + INTAKE -->
+<section class="section" id="wearable"><div class="narrow">
+  <span class="section-num">05 · The zero-logistics layers</span>
+  <h2 class="section-title">Wearables and intake: pure software.</h2>
+  <p class="section-lede">
+    Neither requires shipping anything. The ICP is the most wearable-saturated population on earth (~60–80% own one),
+    so this is an API call and a form, not a collection problem.</p>
+
+  <h3 class="sub">Wearables</h3>
+  <ol class="steps">
+    <li><h4>Connect</h4><p>Member authorizes Vital or Terra (unified API across Oura / Whoop / Apple Watch / Garmin / Fitbit / Eight Sleep). Apple Health XML export is the manual fallback.</p></li>
+    <li><h4>Normalize</h4><p><code>tessera-wearable-ingest</code> builds 7/30/90-day rolling means for HRV (RMSSD), RHR, sleep duration/efficiency/deep%/REM%, steps, VO₂max, training-load ACWR, and flags behaviour-correlated anomalies (z-score deviations tagged with same-day context).</p></li>
+    <li><h4>Feed the loop</h4><p>Trends label each metric optimal/watch/off and become confirmation edges for root-cause (HRV↓ confirms HPA activation, etc.) and the daily agent's live sensor stream.</p></li>
+  </ol>
+
+  <h3 class="sub">Intake</h3>
+  <p class="body">
+    <code>tessera-intake-v2</code> runs the deep intake in the portal: identity/goals, body/medical, diet, exercise,
+    sleep/stress, plus HPI/current-symptoms, family-history depth, constraints (budget, kitchen, cuisine, religious,
+    schedule), environmental exposures (US AQI/occupation), and a mental-health micro-screen (PHQ-2/GAD-2/PSS-4). This
+    is the context layer that stops biomarkers from being misread and makes the protocol buildable from constraints,
+    not ideals. Emits <code>intake.json</code>.
+  </p>
+</div></section>
+
+<!-- 06 ENGINE -->
+<section class="section" id="engine"><div class="narrow">
+  <span class="section-num">06 · Reasoning, review, delivery</span>
+  <h2 class="section-title">Four layers in, one reviewed protocol out.</h2>
+  <p class="section-lede">
+    Once the four artifacts exist, the deterministic engine runs and humans review before anything ships. This is the
+    same pipeline documented on <a href="/engine" style="color:var(--accent);">/engine</a>; the US specifics are the
+    review gates.</p>
+  <div class="tl">
+    <div class="tl-row"><div class="tl-when">Engine</div><div class="tl-what"><h4>Nine-agent run</h4><p>normalize → panel-completeness → intake → rule-evaluate → phenotype → root-cause → safety-screen (hard gate) → protocol-author → report. Same inputs + rulebook version = same protocol, with a hashed run-manifest.</p></div></div>
+    <div class="tl-row"><div class="tl-when">Fusion</div><div class="tl-what"><h4>Convergence scoring</h4><p>A finding escalates only when independent layers agree: 1 layer = watch, 2 = act, 3 = root cause. Genome modifies thresholds/weights, never fires an action alone.</p></div></div>
+    <div class="tl-row"><div class="tl-when">Review 1</div><div class="tl-what"><h4>Practitioner</h4><p>Reviews the drafted 5-domain protocol against the member's constraints and adherence capacity; edits for realism.</p></div></div>
+    <div class="tl-row"><div class="tl-when">Review 2</div><div class="tl-what"><h4>Medical Advisor (when triggered)</h4><p>Signs off Tier-1 findings, pharmacogenomic advisories (e.g. SLCO1B1 statin), and routes rare/actionable variants + positive mental-health screens to counseling/professional support.</p></div></div>
+    <div class="tl-row"><div class="tl-when">Deliver</div><div class="tl-what"><h4>Report + protocol</h4><p>Member receives the rule-traced report and the personalized protocol across Nutrition, Training, Recovery, Supplements, Mind — every recommendation safety-screened and sourced.</p></div></div>
+  </div>
+</div></section>
+
+<!-- 07 DAILY + RETEST -->
+<section class="section" id="daily"><div class="narrow">
+  <span class="section-num">07 · The living loop</span>
+  <h2 class="section-title">Daily execution, then recalibration.</h2>
+  <p class="section-lede">
+    Two clocks run after delivery. The heavy engine only re-runs on new blood (every 8–12 weeks). Between draws, a
+    bounded daily agent keeps the protocol alive without re-deriving it.</p>
+
+  <h3 class="sub">Clock 2 — the daily agent</h3>
+  <p class="body">
+    Each morning it pulls last night's wearable, recomputes trends and anomalies, finds the same-day behavioural cause,
+    applies the member's genomic/biomarker modifiers, and emits <strong>one honest summary + one authorized action</strong>.
+    Its action space is enumerated by the protocol — it can move training intensity, caffeine timing, recovery emphasis,
+    meal timing; it <em>cannot</em> invent a supplement, diagnose, or change a medical target. That bound is what makes
+    it safe and cheap.
+  </p>
+  <div class="callout">
+    <span class="mono-tag">Example daily line</span>
+    <h3>Anomaly + personal reason + authorized patch.</h3>
+    <p>
+      <code>"HRV 34ms, −29% vs your baseline. Last night's 4pm espresso is still clearing — you're a CYP1A2 slow
+      metabolizer. Today: skip the AM espresso, 20-min Zone-2 walk in daylight, push the hard session to tomorrow."</code>
+    </p>
+    <p>No wearable app can write that line — it requires all four layers fused with provenance.</p>
+  </div>
+
+  <h3 class="sub">Clock 1 — retest &amp; next cycle</h3>
+  <ol class="steps">
+    <li><h4>Retest the targeted markers</h4><p>At the protocol's marker-specific interval, the member re-draws only the markers that were being moved (ApoB, HOMA-IR, hsCRP, homocysteine, Vit-D…) — same walk-in/concierge paths as §03.</p></li>
+    <li><h4>Delta &amp; attribution</h4><p>The engine diffs baseline vs follow-up, names what moved and what didn't, and attributes movement to the interventions and adherence.</p></li>
+    <li><h4>Refine</h4><p>Next-cycle protocol is authored from the delta. Each completed baseline→follow-up pair becomes a labeled (intervention → response) tuple, stratified by genotype × phenotype — the compounding outcome dataset.</p></li>
+  </ol>
+</div></section>
+
+<!-- 08 COST -->
+<section class="section" id="cost"><div class="narrow">
+  <span class="section-num">08 · The numbers</span>
+  <h2 class="section-title">Cost &amp; turnaround per tier.</h2>
+  <p class="section-lede">Mid-2026 estimates for internal modeling — verify at contract time; volume improves lab and API rates.</p>
+  <div class="optable-wrap"><table class="optable">
+    <thead><tr><th>Component</th><th>Essential</th><th>Deep</th><th>Comprehensive</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Blood panel (wholesale)</strong></td><td>~$100–250</td><td>~$100–250</td><td>~$100–250</td></tr>
+      <tr><td><strong>Draw</strong></td><td>Walk-in free / Getlabs ~$90–120</td><td>Concierge bundled ~$90–120</td><td>Concierge bundled</td></tr>
+      <tr><td><strong>Genome</strong></td><td>—</td><td>BYO $0 / kit ~$50–150 (array)</td><td>WGS ~$249–500</td></tr>
+      <tr><td><strong>Wearable API</strong></td><td>per-user fee</td><td>per-user fee</td><td>per-user fee</td></tr>
+      <tr><td><strong>Imaging</strong></td><td>—</td><td>—</td><td>DEXA / MRI at partner centers</td></tr>
+      <tr><td><strong>Turnaround to first protocol</strong></td><td>~1 week</td><td>~1 wk (Essential first) → Deep at 3–6 wk when genome lands</td><td>3–8 wk (imaging + sequencing)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="optable-wrap"><table class="optable">
+    <thead><tr><th>Market benchmark (annual)</th><th>Price</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td>Function Health</td><td>$365/yr</td><td>160+ labs 2×/yr, 200k+ members, walk-in Quest</td></tr>
+      <tr><td>Superpower</td><td>$199/yr ($399 NY/NJ)</td><td>100+ biomarkers, free Quest or $119 home draw</td></tr>
+      <tr><td>23andMe / TTAM</td><td>$99–499</td><td>Array kit; raw file still downloadable</td></tr>
+      <tr><td>AncestryDNA</td><td>$99 ($39–59 on sale)</td><td>Saliva, ~6 wk, raw file export</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Read the benchmarks as the price of the <em>panel</em>, which is commoditized. Our price is the reasoning layer on top — do not anchor membership pricing to these.</p>
+</div></section>
+
+<!-- 09 COMPLIANCE -->
+<section class="section" id="compliance"><div class="narrow">
+  <span class="section-num">09 · Guardrails</span>
+  <h2 class="section-title">Compliance &amp; safety, non-negotiable.</h2>
+  <div class="gate-grid">
+    <div class="gate"><h4>Physician order</h4><p>Most US states require a signed order for blood tests. Every panel routes through the telehealth clinician + Medical Director. Never a self-ordered draw.</p></div>
+    <div class="gate"><h4>Non-diagnostic framing</h4><p>This is health-optimization guidance, not diagnosis or disease management. Consumer genomics stays informational; clinical sequencing is the counseled exception.</p></div>
+    <div class="gate"><h4>HIPAA + BAAs</h4><p>Identifiable health data on HIPAA-compliant infra, a signed BAA with every rail (Rupa/Vital, Getlabs, genome lab, wearable API). Data never sold; consent scoped and revocable; deletion honored.</p></div>
+    <div class="gate"><h4>Hard safety gate</h4><p>Agent 07 vetoes any intervention conflicting with the member's meds, renal function, pregnancy, anticoagulation, or allergies before the protocol is authored.</p></div>
+    <div class="gate"><h4>Genetic counseling</h4><p>APOE ε4 and rare/actionable variants are disclosed with counseling context and a physician conversation — never surfaced casually in-app.</p></div>
+    <div class="gate"><h4>Mental-health routing</h4><p>Positive PHQ-2 / GAD-2 screens route the member to professional support, not to an algorithmic nudge.</p></div>
+  </div>
+  <div class="principle-grid">
+    <div class="principle"><h4>Asset-light</h4><p>We rent every physical rail and own only the record and the reasoning. No lab, no fleet, no sequencer.</p></div>
+    <div class="principle"><h4>Parallel, not serial</h4><p>The four data layers collect concurrently; the slow genome never blocks the first protocol.</p></div>
+    <div class="principle"><h4>Reasoning is the product</h4><p>The panel is commoditized table stakes. We price the fusion, the root-cause logic, the daily agent and the loop.</p></div>
+  </div>
+</div></section>
+
+<section class="cta-section"><div class="narrow">
+  <h2>The logistics are solved. The <em>reasoning</em> is the moat.</h2>
+  <p>Blood is a walk-in or a concierge draw; genome is a mailed spit or an upload; wearables and intake are software. Every physical step is rented — what we keep is the record and the engine.</p>
+  <div class="crosslinks">
+    <a href="/engine">The engine</a>
+    <a href="/genomics">Genomics</a>
+    <a href="/journey">Member journey</a>
+    <a href="/packages">Packages</a>
+  </div>
+</div></section>
+
+<footer><div class="container">
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/engine">Engine</a>
+    <a href="/genomics">Genomics</a>
+    <a href="/journey">Journey</a>
+    <a href="/research">Research</a>
+    <a href="/privacy">Privacy</a>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 ANTIAGING LABS PVT. LTD.</div>
+    <div>Internal operations · US market</div>
+  </div>
+</div></footer>
+
+</body>
+</html>
