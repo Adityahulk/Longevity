@@ -170,6 +170,7 @@ footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); pa
 
 <div class="toc"><div class="narrow"><div class="toc-list">
   <a href="#principle"><b>00</b> Operating principle</a>
+  <a href="#firstuser"><b>N1</b> Your first user, tomorrow</a>
   <a href="#stack"><b>01</b> One-time vendor stack</a>
   <a href="#flow"><b>02</b> Member flow end-to-end</a>
   <a href="#blood"><b>03</b> Blood logistics</a>
@@ -214,6 +215,78 @@ footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); pa
       member is comparing us on "biomarkers per dollar," the fit call has failed.
     </p>
   </div>
+</div></section>
+
+<!-- N1 FIRST USER -->
+<section class="section" id="firstuser"><div class="narrow">
+  <span class="section-num">N1 · Your first users, lean mode</span>
+  <h2 class="section-title">Getting your first US user done <em>tomorrow.</em></h2>
+  <p class="section-lede">
+    For the first handful of members, sign <strong>nothing</strong>. Every B2B rail below (§01) has minimums or MOQs
+    that make no sense for one person. Instead you use consumer / direct-access rails + manual uploads — all of which
+    the engine already parses. Your real out-of-pocket per user is roughly the cost of the LLM tokens; the member buys
+    their own panel. Switch to the scaled stack around 20–50 users.
+  </p>
+  <div class="pillrow">
+    <span class="pill">No vendor contracts</span>
+    <span class="pill">No own ordering physician</span>
+    <span class="pill">No kit MOQ</span>
+    <span class="pill warn">Your cost ≈ $1–5 / user</span>
+  </div>
+
+  <h3 class="sub">A · Blood — your custom 70+ panel, physician order included</h3>
+  <p class="body">
+    Direct-access lab marketplaces (<strong>Ulta Lab Tests</strong>, <strong>Walk-In Lab</strong>, Labcorp OnDemand)
+    include a network physician who signs the requisition — you never need your own doctor to order. Ulta also lets you
+    <strong>build and save a custom panel template</strong>, so you assemble your Tessera 70+ marker list once and
+    reorder it for every member.
+  </p>
+  <ol class="steps">
+    <li><h4>Set up once</h4><p>Create an Ulta Lab Tests (or Walk-In Lab) account. Build your <strong>Tessera 70+ custom panel</strong> — add each marker (CBC, CMP, lipids + ApoB + Lp(a), fasting insulin, HbA1c, hsCRP, homocysteine, thyroid, Vit D / B12 / folate, iron / ferritin, magnesium, testosterone, cortisol…) and save it as a reusable template.</p></li>
+    <li><h4>Check the member's state</h4><p>Direct-access works everywhere except a couple of restricted states (historically NY, NJ, RI). If the member is there, order through Labcorp OnDemand / Quest DTC instead.</p></li>
+    <li><h4>Order → get the requisition</h4><p>Place the order for the member. The marketplace's network physician signs it and you receive a <strong>printed requisition (PDF)</strong>. No own doctor required.</p></li>
+    <li><h4>Collect — walk-in or at-home</h4>
+      <p><strong>Walk-in (default):</strong> member takes the requisition to one of 2,100+ Quest / Labcorp centers, fasted 10–12 h, morning slot. Draw fee <strong>~$10</strong>, 15-minute visit.</p>
+      <p><strong>At-home (premium):</strong> at Ulta checkout pick "Getlabs at-home (~$95)", or book at getlabs.com by <strong>uploading the requisition</strong>. A phlebotomist comes to home/office and delivers to the lab.</p></li>
+    <li><h4>Results → parse</h4><p>Values return in 24–72 h as a downloadable PDF. Run <code>tessera-lab-parse</code> → <code>biomarkers.json</code>.</p></li>
+  </ol>
+  <div class="pillrow">
+    <span class="pill neutral">All 70+ longevity markers are on the standard Quest/Labcorp menu the included physician can sign</span>
+    <span class="pill warn">Only a truly exotic off-menu marker needs your own ordering physician (that's the §01 scaled path)</span>
+  </div>
+
+  <h3 class="sub">B · Genome — for that one user</h3>
+  <ol class="steps">
+    <li><h4>Path A · BYO upload (do this first — $0, instant)</h4><p>Ask if the member has 23andMe or AncestryDNA. If yes → Settings → <strong>Download Raw Data</strong> (a .txt) → they upload → <code>tessera-genetics-ingest</code> parses it immediately. ~30–50% of the ICP already has a file.</p></li>
+    <li><h4>Path B · Buy a consumer array kit ($99, no contract)</h4><p>If not, drop-ship an <strong>AncestryDNA or 23andMe</strong> kit to their address (~$99, often $39–59 on sale). A genotyping array is <em>exactly</em> what Deep needs. Member spits, mails prepaid → 3–6 wk → downloads raw file → uploads → ingest → imputation → PRS → <code>genetics.json</code>.</p></li>
+    <li><h4>Path C · WGS (only if the member wants max depth)</h4><p>Nucleus (~$300–400, 30x), Sequencing.com, or Dante Labs return a downloadable VCF you can ingest. Not needed for standard Deep.</p></li>
+  </ol>
+  <div class="callout">
+    <span class="mono-tag">Sequencing rule</span>
+    <h3>Never let the genome block onboarding.</h3>
+    <p>
+      The genome is the slow layer (3–6 wk). Deliver the <strong>Essential</strong> protocol from blood + wearables +
+      intake in ~a week, then fold the genome in when it lands to upgrade the member to <strong>Deep</strong>.
+    </p>
+  </div>
+
+  <h3 class="sub">C · The "user tomorrow" sequence</h3>
+  <div class="optable-wrap"><table class="optable">
+    <thead><tr><th>When</th><th>You do</th><th>Member does</th><th>Cost</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Day 0</strong></td><td>Send intake form; ask about existing DNA file; confirm the Ulta 70+ panel; order it → get requisition</td><td>Fills intake; connects OpenWearables / uploads a wearable export; uploads DNA raw file if they have one</td><td>~$150–300 panel</td></tr>
+      <tr><td><strong>Day 0</strong></td><td>Send requisition + "walk-in vs $95 home draw" choice + fasting guide; if no DNA file, drop-ship a $99 kit</td><td>Picks a draw path</td><td>+$10 walk-in / +$95 home · +$99 kit</td></tr>
+      <tr><td><strong>Day 1–2</strong></td><td>—</td><td>Fasted draw (walk-in Quest or Getlabs at home)</td><td>—</td></tr>
+      <tr><td><strong>Day 3–5</strong></td><td><code>tessera-lab-parse</code> → run the pipeline → Essential protocol; you + advisor review</td><td>Receives first report</td><td>~$1–5 LLM</td></tr>
+      <tr><td><strong>Week 3–6</strong></td><td>Ingest the genome when it returns → upgrade to Deep</td><td>Mails saliva kit, later uploads raw file</td><td>—</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">
+    Your out-of-pocket ≈ the LLM tokens. The member buys their own ~$150–300 panel through the direct-access lab,
+    walks into a $10 Quest draw (or $95 home draw), and either uploads an existing DNA file or a $99 kit you drop-ship.
+    No API contracts, no MOQ, no own physician — every step runs tomorrow. When volume justifies it, graduate to the
+    scaled stack below.
+  </p>
 </div></section>
 
 <!-- 01 STACK -->
