@@ -154,6 +154,11 @@
       "source": "/yc-application.html",
       "destination": "/yc-application",
       "permanent": true
+    },
+    {
+      "source": "/gtm.html",
+      "destination": "/gtm",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -280,6 +285,14 @@
     {
       "source": "/yc-application/",
       "destination": "/yc-application.html"
+    },
+    {
+      "source": "/gtm",
+      "destination": "/gtm.html"
+    },
+    {
+      "source": "/gtm/",
+      "destination": "/gtm.html"
     },
     {
       "source": "/strategy",
