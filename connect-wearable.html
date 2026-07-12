@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Connect your wearable | Antiaging Labs</title>
+<link rel="icon" type="image/svg+xml" href="/assets/logo/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/png/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/hli.css?v=20260703-cta">
+<style>
+  .dev-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:36px; }
+  .dev-card { background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:26px 24px; display:flex; flex-direction:column; gap:12px; }
+  .dev-card h3 { font-size:19px; margin:0; }
+  .dev-card p { font-size:14px; color:var(--ink-2); line-height:1.55; margin:0; flex:1; }
+  .dev-tag { font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; }
+  .dev-tag.live { color:var(--sage,#5E7E6B); }
+  .dev-tag.manual { color:var(--ink-3); }
+  .dev-card .pill { justify-content:center; }
+  .pill[aria-disabled="true"] { opacity:.4; pointer-events:none; }
+  .banner { border-radius:var(--radius); padding:14px 18px; margin-top:24px; font-size:14.5px; line-height:1.5; display:none; }
+  .banner.ok { background:#EAF3EC; border:1px solid #B9D6C0; color:#234a30; }
+  .banner.warn { background:#FBECE6; border:1px solid #E7C3B2; color:#7a3417; }
+  .note-link { font-family:var(--mono); font-size:11px; letter-spacing:.04em; color:var(--accent); text-decoration:none; }
+  @media(max-width:640px){ .dev-grid { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<nav class="nav light" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><span class="brand-mark"></span>Antiaging Labs</a>
+    <div class="nav-right">
+      <a class="pill nav-cta" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a consultation</a>
+    </div>
+  </div>
+</nav>
+
+<section class="sec" style="padding-top:64px;">
+  <div class="wrap" style="max-width:820px;">
+    <div class="sec-head" style="text-align:left;">
+      <p class="kicker">Your program</p>
+      <h2 class="sec-title">Connect your wearable.</h2>
+      <p class="sec-intro">Link your device once and your daily recovery, sleep and heart-rate data flows into your program automatically — so your protocol responds to how your body is actually doing. We read the data; we never post or change anything on your device.</p>
+    </div>
+
+    <div id="banner" class="banner"></div>
+    <div id="needlink" class="banner warn" style="display:none;">
+      This page needs your personal connect link. Please use the link we sent you (it ends with <code>?u=your-id</code>), or ask us to resend it.
+    </div>
+
+    <div class="dev-grid">
+      <div class="dev-card">
+        <span class="dev-tag live">One-click connect</span>
+        <h3>Oura</h3>
+        <p>Ring users: connect in seconds. We pull daily readiness, HRV, resting heart rate and sleep stages.</p>
+        <a id="btn-oura" class="pill pill-dark" aria-disabled="true" href="#">Connect Oura</a>
+      </div>
+
+      <div class="dev-card">
+        <span class="dev-tag live">One-click connect</span>
+        <h3>Whoop</h3>
+        <p>Strap users: connect in seconds. We pull recovery (HRV, RHR), sleep and strain.</p>
+        <a id="btn-whoop" class="pill pill-dark" aria-disabled="true" href="#">Connect Whoop</a>
+      </div>
+
+      <div class="dev-card">
+        <span class="dev-tag manual">Upload for now</span>
+        <h3>Apple Watch</h3>
+        <p>Apple has no automatic connect (a platform limit — true of every service). Export your Apple Health data and send it to us; we'll load it. A one-tap app is coming later.</p>
+        <a class="note-link" href="mailto:company@kalman-labs.com?subject=Apple%20Health%20export">Send your export →</a>
+      </div>
+
+      <div class="dev-card">
+        <span class="dev-tag manual">Upload for now</span>
+        <h3>Garmin</h3>
+        <p>Automatic connect is being set up with Garmin. For now, export from Garmin Connect and send it to us; we'll load it.</p>
+        <a class="note-link" href="mailto:company@kalman-labs.com?subject=Garmin%20export">Send your export →</a>
+      </div>
+    </div>
+
+    <p style="margin-top:28px;font-size:13.5px;color:var(--ink-3);line-height:1.6;">
+      You can disconnect any time from your device's account settings, and your data stops flowing. We store only what your protocol needs.
+    </p>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var q = new URLSearchParams(window.location.search);
+    var u = (q.get('u') || '').trim();
+
+    // Wire the one-click connect buttons to carry the user's ref.
+    if (u) {
+      var oura = document.getElementById('btn-oura');
+      var whoop = document.getElementById('btn-whoop');
+      oura.href = '/api/connect/oura?u=' + encodeURIComponent(u);
+      oura.setAttribute('aria-disabled', 'false');
+      whoop.href = '/api/connect/whoop?u=' + encodeURIComponent(u);
+      whoop.setAttribute('aria-disabled', 'false');
+    } else {
+      document.getElementById('needlink').style.display = 'block';
+    }
+
+    // Show the result banner after returning from a provider.
+    var connected = q.get('connected');
+    var status = q.get('status');
+    if (connected && status) {
+      var b = document.getElementById('banner');
+      var name = connected.charAt(0).toUpperCase() + connected.slice(1);
+      if (status === 'connected') {
+        b.className = 'banner ok'; b.textContent = name + ' connected. Your data will start syncing within a day.';
+      } else if (status === 'denied') {
+        b.className = 'banner warn'; b.textContent = name + ' connection was cancelled. You can try again any time.';
+      } else {
+        b.className = 'banner warn'; b.textContent = 'Something went wrong connecting ' + name + '. Please try again, or tell us and we’ll help.';
+      }
+      b.style.display = 'block';
+    }
+  })();
+</script>
+
+</body>
+</html>

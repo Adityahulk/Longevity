@@ -1,0 +1,10 @@
+{
+  "name": "antiaging-labs-wearables",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Serverless wearable-integration API (Oura/Whoop OAuth + daily sync) for the Antiaging Labs site.",
+  "dependencies": {
+    "@neondatabase/serverless": "^0.10.4"
+  }
+}

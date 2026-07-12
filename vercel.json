@@ -159,6 +159,11 @@
       "source": "/gtm.html",
       "destination": "/gtm",
       "permanent": true
+    },
+    {
+      "source": "/connect-wearable.html",
+      "destination": "/connect-wearable",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -293,6 +298,14 @@
     {
       "source": "/gtm/",
       "destination": "/gtm.html"
+    },
+    {
+      "source": "/connect-wearable",
+      "destination": "/connect-wearable.html"
+    },
+    {
+      "source": "/connect-wearable/",
+      "destination": "/connect-wearable.html"
     },
     {
       "source": "/strategy",
