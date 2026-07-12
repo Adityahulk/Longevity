@@ -111,6 +111,11 @@
       "permanent": true
     },
     {
+      "source": "/learn-aging-cancer-cycle.html",
+      "destination": "/learn/aging-cancer-cycle",
+      "permanent": true
+    },
+    {
       "source": "/masai-ppt.html",
       "destination": "/masai-ppt",
       "permanent": true
@@ -210,6 +215,14 @@
     {
       "source": "/learn/vo2-max/",
       "destination": "/learn-vo2-max.html"
+    },
+    {
+      "source": "/learn/aging-cancer-cycle",
+      "destination": "/learn-aging-cancer-cycle.html"
+    },
+    {
+      "source": "/learn/aging-cancer-cycle/",
+      "destination": "/learn-aging-cancer-cycle.html"
     },
     {
       "source": "/learn/longevity-escape-velocity",
