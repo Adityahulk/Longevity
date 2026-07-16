@@ -116,6 +116,11 @@
       "permanent": true
     },
     {
+      "source": "/learn-aging-root-cause.html",
+      "destination": "/learn/aging-root-cause",
+      "permanent": true
+    },
+    {
       "source": "/masai-ppt.html",
       "destination": "/masai-ppt",
       "permanent": true
@@ -223,6 +228,14 @@
     {
       "source": "/learn/aging-cancer-cycle/",
       "destination": "/learn-aging-cancer-cycle.html"
+    },
+    {
+      "source": "/learn/aging-root-cause",
+      "destination": "/learn-aging-root-cause.html"
+    },
+    {
+      "source": "/learn/aging-root-cause/",
+      "destination": "/learn-aging-root-cause.html"
     },
     {
       "source": "/learn/longevity-escape-velocity",
