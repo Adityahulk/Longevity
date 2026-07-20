@@ -121,6 +121,11 @@
       "permanent": true
     },
     {
+      "source": "/learn-early-onset-cancer.html",
+      "destination": "/learn/early-onset-cancer",
+      "permanent": true
+    },
+    {
       "source": "/masai-ppt.html",
       "destination": "/masai-ppt",
       "permanent": true
@@ -236,6 +241,14 @@
     {
       "source": "/learn/aging-root-cause/",
       "destination": "/learn-aging-root-cause.html"
+    },
+    {
+      "source": "/learn/early-onset-cancer",
+      "destination": "/learn-early-onset-cancer.html"
+    },
+    {
+      "source": "/learn/early-onset-cancer/",
+      "destination": "/learn-early-onset-cancer.html"
     },
     {
       "source": "/learn/longevity-escape-velocity",

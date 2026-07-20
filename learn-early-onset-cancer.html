@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Are Young People Getting Cancer? A Field Guide to Early-Onset Cancer | Antiaging Labs Field Notes</title>
+<meta name="description" content="Cancer in the under-50s is rising fast worldwide. It's not a smaller version of old-age cancer, it's a different biology entirely: inherited mutations, developmental accidents, hijacking viruses, and a gut that's aging faster than it should. A plain-English field guide.">
+<link rel="icon" type="image/svg+xml" href="/assets/logo/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/png/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/png/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:#F5F1E8; --cream-dark:#EDE7D9; --paper:#FBF8F1;
+  --ink:#0E1B2C; --ink-soft:#1F2D40; --ink-mute:#4A5668; --ink-fade:#7A8497;
+  --rule:#C8BFA8; --rule-soft:#DCD3BC; --accent:#B85426; --accent-warm:#D17244;
+  --leaf:#2F5D3C; --gold:#8B6914;
+  --serif:'Fraunces',Georgia,serif; --sans:'Inter',-apple-system,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:var(--sans); background:var(--cream); color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+.container { max-width:1100px; margin:0 auto; padding:0 32px; }
+.article { max-width:720px; margin:0 auto; padding:0 32px; }
+
+.art-head { padding:72px 0 36px; border-bottom:1px solid var(--rule-soft); }
+.breadcrumb { font-family:var(--mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); margin-bottom:24px; }
+.breadcrumb a { color:var(--accent); text-decoration:none; }
+.art-head h1 { font-family:var(--serif); font-size:clamp(28px,4.2vw,44px); font-weight:400; line-height:1.12; letter-spacing:-0.025em; margin-bottom:22px; }
+.art-head h1 em { font-style:italic; color:var(--accent); }
+.art-dek { font-size:19px; color:var(--ink-mute); line-height:1.6; margin-bottom:26px; }
+.art-meta { font-family:var(--mono); font-size:11.5px; letter-spacing:0.04em; color:var(--ink-fade); display:flex; gap:18px; flex-wrap:wrap; }
+
+.art-body { padding:44px 0 20px; }
+.art-body p { font-size:17px; color:var(--ink-soft); line-height:1.75; margin-bottom:22px; }
+.art-body h2 { font-family:var(--serif); font-size:28px; font-weight:500; letter-spacing:-0.015em; margin:52px 0 16px; line-height:1.2; }
+.art-body h3 { font-family:var(--serif); font-size:21px; font-weight:500; margin:34px 0 12px; }
+.art-body strong { color:var(--ink); font-weight:600; }
+.art-body a { color:var(--accent); text-decoration:underline; text-underline-offset:2px; }
+.art-body ul,.art-body ol { margin:0 0 22px 0; padding-left:24px; }
+.art-body li { font-size:17px; color:var(--ink-soft); line-height:1.7; margin-bottom:10px; }
+.art-body ol li { margin-bottom:14px; }
+
+.pullquote { font-family:var(--serif); font-size:24px; font-style:italic; font-weight:400; line-height:1.4; color:var(--ink); border-left:3px solid var(--accent); padding:6px 0 6px 26px; margin:36px 0; }
+
+.datatable { width:100%; border-collapse:collapse; margin:30px 0; background:var(--paper); border:1px solid var(--rule-soft); border-radius:6px; overflow:hidden; font-size:14px; }
+.datatable th, .datatable td { padding:13px 16px; text-align:left; border-bottom:1px solid var(--rule-soft); line-height:1.5; }
+.datatable th { background:var(--cream-dark); font-family:var(--mono); font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink); }
+.datatable td { color:var(--ink-soft); font-size:13.5px; }
+.datatable td strong { color:var(--ink); }
+.datatable tr:last-child td { border-bottom:none; }
+.datatable-wrap { overflow-x:auto; margin:30px 0; }
+
+.note { background:var(--paper); border:1px solid var(--rule-soft); border-left:3px solid var(--leaf); border-radius:6px; padding:20px 24px; margin:30px 0; font-size:15px; color:var(--ink-mute); line-height:1.65; }
+.note strong { color:var(--ink); }
+
+.callout { background:var(--cream-dark); border:1px solid var(--rule); border-radius:6px; padding:24px 28px; margin:34px 0; }
+.callout .callout-label { font-family:var(--mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; display:block; }
+.callout p { font-size:16px; color:var(--ink-soft); line-height:1.65; margin:0; }
+
+.metaphor { background:var(--paper); border:1px solid var(--rule-soft); border-radius:8px; padding:26px 28px; margin:22px 0; }
+.metaphor .m-label { font-family:var(--mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; display:block; }
+.metaphor h3 { font-family:var(--serif); font-size:20px; font-weight:500; margin:0 0 10px; }
+.metaphor p { font-size:15.5px; color:var(--ink-soft); line-height:1.68; margin:0; }
+
+.diagram { background:var(--paper); border:1px solid var(--rule-soft); border-radius:8px; padding:22px 26px; margin:26px 0; font-family:var(--mono); font-size:12.5px; color:var(--ink-mute); line-height:1.85; white-space:pre-wrap; overflow-x:auto; }
+
+.bridge { background:var(--ink); color:var(--cream); border-radius:8px; padding:40px 38px; margin:48px 0 0; }
+.bridge .mono-tag { font-family:var(--mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent-warm); margin-bottom:14px; display:block; }
+.bridge h3 { font-family:var(--serif); font-size:25px; font-weight:400; line-height:1.3; margin-bottom:14px; }
+.bridge p { color:rgba(245,241,232,0.78); font-size:15.5px; line-height:1.65; margin-bottom:22px; max-width:600px; }
+.bridge a.btn { display:inline-flex; align-items:center; gap:9px; background:var(--accent); color:var(--cream); padding:13px 26px; border-radius:2px; text-decoration:none; font-size:14.5px; font-weight:500; }
+.bridge a.btn:hover { background:var(--accent-warm); }
+
+.readmore { padding:44px 0 20px; border-top:1px solid var(--rule-soft); margin-top:48px; }
+.readmore .mono-tag { font-family:var(--mono); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin-bottom:18px; display:block; }
+.readmore-links { display:flex; gap:16px; flex-wrap:wrap; }
+.readmore-links a { flex:1; min-width:220px; background:var(--paper); border:1px solid var(--rule-soft); border-radius:6px; padding:20px 22px; text-decoration:none; transition:border-color 0.2s; }
+.readmore-links a:hover { border-color:var(--accent); }
+.readmore-links h4 { font-family:var(--serif); font-size:17px; font-weight:500; color:var(--ink); margin-bottom:6px; }
+.readmore-links p { font-size:13px; color:var(--ink-mute); line-height:1.5; margin:0; }
+
+footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); padding:48px 0 32px; margin-top:56px; }
+.footer-links { display:flex; gap:24px; margin-bottom:24px; flex-wrap:wrap; }
+.footer-links a { font-size:13px; color:var(--ink-soft); text-decoration:none; }
+.footer-bottom { display:flex; justify-content:space-between; font-family:var(--mono); font-size:11px; color:var(--ink-fade); flex-wrap:wrap; gap:12px; }
+
+@media(max-width:820px){
+  .art-body p,.art-body li{ font-size:16px; }
+}
+</style>
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body class="article-shell">
+
+<nav class="site-nav" aria-label="Primary navigation"><div class="container nav-inner">
+  <a class="brand" href="/"><span class="brand-mark"></span>Antiaging Labs</a>
+  <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+  <div class="nav-links" data-nav-links><a href="/program">Program</a><a href="/#how">How it works</a><a href="/#results">Results</a><a href="/research">Science</a><a href="/learn" aria-current="page">Field Notes</a><a class="btn nav-cta" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a fit call</a></div>
+</div></nav>
+
+<article>
+<div class="art-head"><div class="article">
+  <div class="breadcrumb"><a href="/learn">← Field Notes</a> · Longevity Science</div>
+  <h1>Why Are Young People Getting Cancer? A Field Guide to <em>Early-Onset Cancer</em></h1>
+  <p class="art-dek">For decades cancer was filed under "old person's disease," the slow result of cells wearing out over 70-plus years. So why is a healthy 28-year-old showing up with colon cancer? Turns out aging isn't the only road to cancer, it's just the slowest one. Here are the shortcuts, decoded.</p>
+  <div class="art-meta"><span>20 July 2026</span><span>· Antiaging Labs Field Notes</span><span>· 14 min read</span></div>
+</div></div>
+
+<div class="art-body"><div class="article">
+
+  <p>For decades, doctors have thought of cancer as an "old person's disease," the slow result of your cells wearing out over 60, 70, 80 years. DNA gets copied wrong a few too many times, your repair crews get tired, your immune system stops catching mistakes, and eventually a rogue cell slips through.</p>
+
+  <p>That story makes sense, until you meet a healthy 28-year-old with colon cancer.</p>
+
+  <p>If young bodies have fresh DNA-repair machinery and an immune system in its prime, why is cancer showing up earlier and earlier? It turns out aging isn't the only road to cancer, it's just the slowest one. There are shortcuts. And in the last few decades, more people seem to be finding them: powerful inherited mutations, developmental "typos" in fast-growing tissue, sneaky viruses that hack our defense systems, and modern lifestyles that age our gut and cells faster than they should.</p>
+
+  <p class="pullquote">Aging isn't the only door to cancer, it's just the one that takes the longest.</p>
+
+  <p>Let's walk through each shortcut.</p>
+
+  <h2>First, the scary-but-real numbers</h2>
+
+  <p>Cancer deaths overall are actually going down, thanks to less smoking, better screening, and better treatment. But zoom into people under 50, and the trend flips completely.</p>
+
+  <div class="datatable-wrap">
+    <table class="datatable">
+      <thead>
+        <tr><th>What's changing</th><th>The number</th><th>What it means</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Cancer cases in under-50s, worldwide</td><td><strong>Up 79.1%</strong> (1990–2019)</td><td>Not a local blip, a global shift toward younger patients</td></tr>
+        <tr><td>Deaths in under-50s, worldwide</td><td><strong>Up ~28%</strong> (1990–2019)</td><td>These cancers aren't just more common, they're hitting harder</td></tr>
+        <tr><td>Who's affected most</td><td>Young women get cancer <strong>82% more often</strong> than young men</td><td>Mostly driven by rising breast and thyroid cancer in young women</td></tr>
+        <tr><td>Fastest-growing type</td><td>Gut (GI) cancers, growing <strong>~2.16% a year</strong></td><td>Points squarely at diet, environment, and gut bacteria</td></tr>
+        <tr><td>Colon cancer in the young</td><td>Rising 1–2% a year, deaths up ~1% a year</td><td>Screening guidelines built for 50+ year-olds are missing people</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Something is compressing the cancer timeline for a chunk of the population. So what's actually going on inside the body?</p>
+
+  <h2>Kid cancer isn't just small adult cancer</h2>
+
+  <p>Here's something most people don't realize: cancer in a child isn't just "adult cancer, but younger." It's often a completely different biological animal.</p>
+
+  <p>Adult cancers (lung, breast, colon, prostate) are usually <strong>carcinomas</strong>, messy, mutation-heavy tumors that build up slowly from years of wear and tear and environmental exposure.</p>
+
+  <p>Kid and young-adult cancers are more often <strong>sarcomas, leukemias, lymphomas</strong>, cancers of bone, blood, and muscle-type tissue. Why? Because during childhood, your body is in full construction mode, stem cells are dividing like crazy to build bones, organs, and blood systems. Every one of those divisions is a tiny roll of the dice. Repair systems are excellent, but with that much cell division happening, a catastrophic wiring error occasionally slips through.</p>
+
+  <p>The wild part: these young tumors usually don't have thousands of mutations like adult tumors do. They often need just <strong>one bad genetic accident</strong>, like two genes getting fused together where they don't belong, to flip a cell into cancer mode.</p>
+
+  <div class="datatable-wrap">
+    <table class="datatable">
+      <thead>
+        <tr><th></th><th>Kid &amp; teen cancers</th><th>Adult cancers (50+)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Comes from</strong></td><td>Bone, muscle, blood-forming tissue</td><td>Skin/gland linings (lung, breast, colon)</td></tr>
+        <tr><td><strong>Mutation load</strong></td><td>Low, a "quiet" genome</td><td>High, thousands of accumulated mutations</td></tr>
+        <tr><td><strong>Main cause</strong></td><td>One genetic short-circuit (fused genes)</td><td>Slow pileup of damage + aging</td></tr>
+        <tr><td><strong>Cell flexibility</strong></td><td>High, cells are still "young" and adaptable</td><td>Low, cells are fully "set in their ways"</td></tr>
+        <tr><td><strong>Response to treatment</strong></td><td>Reacts strongly to therapy (cells divide fast)</td><td>More resistant, more defended</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>So a young cancer isn't a smaller version of an old-person cancer, it's cancer taking a completely different door in.</p>
+
+  <h2>When "growing up" overlaps with "getting cancer"</h2>
+
+  <p>Some genetic conditions sit right in the middle, they mess with normal development and raise cancer risk at the same time.</p>
+
+  <p><strong>Rasopathies</strong> are a great example, conditions like Noonan, Costello, and CFC syndrome, caused by inherited glitches in a growth-signaling pathway (RAS-RAF-MEK-ERK). These mutations are actually milder than the ones found in adult tumors (a stronger version wouldn't even survive pregnancy), but they're still enough to meaningfully raise cancer odds, from 4% (Noonan) up to 15% (Costello) by age 20.</p>
+
+  <h2>The "born with a head start on cancer" group</h2>
+
+  <p>Normally, a cell needs to accumulate a series of unlucky mutations, hit the DNA repair system, hit the cell-cycle brakes, hit the self-destruct button, before it goes rogue. That usually takes decades.</p>
+
+  <p>But about 8–10% of kids with cancer were basically born one step ahead, they inherited a broken gene in every single cell of their body, from day one.</p>
+
+  <p><strong>Li-Fraumeni Syndrome</strong> is the classic example. It knocks out the <em>TP53</em> gene, which makes the p53 protein, nicknamed "the guardian of the genome" because its job is to catch DNA damage and either pause the cell to fix it, or kill the cell if it's beyond repair. Without that guardian, cells need way fewer mutations to go bad, which is why Li-Fraumeni carries a shockingly high risk of early sarcomas, brain tumors, breast cancer, and more.</p>
+
+  <p><strong>Lynch Syndrome</strong> works differently, it disables the "spell-check" system that fixes typos during DNA copying (genes like MLH1, MSH2, MSH6). Without spell-check, errors pile up fast, and colon and endometrial cancers show up decades earlier than usual.</p>
+
+  <p>Think of it like two very different roads to the same destination:</p>
+
+  <div class="diagram">The slow road (most people):
+[Normal Stem Cell] → random mutations pile up → tissue wears down → cancer (decades)
+
+The fast lane (inherited mutation):
+[Born with a broken gene] → almost no defenses left → a couple more hits → cancer (years, not decades)</div>
+
+  <p>Because these mutations are so powerful, doctors can actually find people carrying them before they ever get cancer, these people are called "previvors," and there's a real, proactive playbook for keeping them safe.</p>
+
+  <div class="datatable-wrap">
+    <table class="datatable">
+      <thead>
+        <tr><th>Condition</th><th>Genes</th><th>Lifetime risk</th><th>What doctors actually do</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Li-Fraumeni Syndrome</strong></td><td>TP53</td><td>Up to 90% risk of multiple early cancers</td><td>Whole-body + brain MRI, ultrasounds, checkups every 3–6 months</td></tr>
+        <tr><td><strong>Lynch Syndrome</strong></td><td>MLH1, MSH2, MSH6, MSH3, PMS2</td><td>40–80% colon cancer risk, plus others</td><td>Colonoscopy every 1–2 years from age 20–25; sometimes preventive surgery</td></tr>
+        <tr><td><strong>HBOC</strong> (Hereditary Breast &amp; Ovarian Cancer)</td><td>BRCA1/2</td><td>45–72% breast, 11–44% ovarian</td><td>Annual MRI/mammogram from age 25; preventive surgery available</td></tr>
+        <tr><td><strong>Cowden / PTEN Syndrome</strong></td><td>PTEN</td><td>High risk: breast, thyroid, kidney, colon</td><td>Regular skin/thyroid checks, early screening</td></tr>
+        <tr><td><strong>Familial Adenomatous Polyposis</strong></td><td>APC</td><td>~100% colon cancer risk if untreated</td><td>Annual colonoscopy from adolescence; preventive colon removal</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>The virus shortcut: hacking the body's own off-switch</h2>
+
+  <p>Some viruses don't wait for mutations to happen naturally, they show up and manually disable your cancer-defense proteins.</p>
+
+  <p><strong>HPV (the human papillomavirus)</strong> is the best-studied example. High-risk strains like HPV-16 and 18 make two "hacker tool" proteins:</p>
+
+  <div class="diagram">High-risk HPV infection
+  |
+  |-- E6 protein -> grabs onto p53 -> tags it for destruction ->
+  |    your "should I self-destruct?" checkpoint is gone
+  |
+  '-- E7 protein -> jams the Rb "brake pedal" ->
+       cell divides nonstop, no brakes</div>
+
+  <p>E6 literally recruits the cell's own trash-disposal system to shred p53. E7 grabs onto the Rb protein (another major brake on cell division) and rips it off, so the cell just keeps dividing. Two proteins, two disabled safety systems, that's how HPV drives cervical, throat, and several other cancers.</p>
+
+  <p><strong>Epstein-Barr Virus (EBV)</strong>, the virus behind mono, plays a similar game but targets immune B-cells. It makes a protein called LMP1 that impersonates a normal "grow and survive" signal your immune cells listen to, except LMP1 never turns off. It also protects infected cells from a self-destruct pathway called ferroptosis by boosting the cell's antioxidant defenses, basically making infected cells immortal and hard to kill.</p>
+
+  <h2>The gut angle: how young colons are aging too fast</h2>
+
+  <p>This is maybe the most fascinating piece, and it's very connected to modern life, not genetics.</p>
+
+  <p>Early-onset colon cancer (in people under 50) isn't just "regular colon cancer that showed up early." Scientists looked at the actual DNA methylation patterns (a kind of molecular "age clock") in these tumors, and found something wild: <strong>tumors in young patients look about 12 years older than they should</strong>.</p>
+
+  <p>Why? Two things seem to be compounding.</p>
+
+  <h3>1. Diet is reshaping gut bacteria</h3>
+
+  <p>A Western diet (processed meat, low fiber) feeds "bad" bacteria that produce toxins damaging to the gut lining, while starving out the "good" bacteria that protect it.</p>
+
+  <div class="datatable-wrap">
+    <table class="datatable">
+      <thead>
+        <tr><th></th><th>Young-onset colon cancer</th><th>Older-onset colon cancer</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Bad bacteria showing up</strong></td><td>F. nucleatum, E. coli, B. fragilis and others</td><td>Milder pileup of bad bacteria</td></tr>
+        <tr><td><strong>Good bacteria missing</strong></td><td>Faecalibacterium prausnitzii, Roseburia</td><td>Gradual age-related decline</td></tr>
+        <tr><td><strong>What's happening</strong></td><td>Toxin production, gut lining damage, immune overreaction</td><td>Slow inflammation and DNA drift</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>2. Losing the "good" bacteria means losing butyrate</h3>
+
+  <p>Butyrate is a compound made from fiber that normally acts like a brake pedal on abnormal cell growth and helps DNA repair. No fiber leads to less butyrate, which means the gut lining loses one of its main protections.</p>
+
+  <p>On top of that, certain gut bacteria produce toxic byproducts (like hydrogen sulfide) that directly damage mitochondrial DNA repair, and gut bacteria that metabolize alcohol can create mutation-causing byproducts too. It's a "death by a thousand cuts" situation building up in the gut lining, years before it should.</p>
+
+  <div class="metaphor">
+    <span class="m-label">The picture, simply</span>
+    <h3>Soil versus seed, in the gut</h3>
+    <p>A healthy gut lining is like well-tended soil, resilient, protected, hard for trouble to take root in. Strip out the fiber and the good bacteria, and that soil erodes fast. Toxins from unfriendly bacteria seep in, the protective coating thins, and cells that would normally be kept in line start misbehaving, years or decades before that would happen naturally.</p>
+  </div>
+
+  <h2>So what can actually be done?</h2>
+
+  <p>The good news: unlike aging itself, a lot of these shortcuts are preventable or catchable early.</p>
+
+  <h3>1. Vaccinate against HPV</h3>
+
+  <p>This is genuinely one of medicine's biggest wins. The Gardasil-9 vaccine trains your immune system to wipe out high-risk HPV before it ever gets a foothold.</p>
+
+  <ul>
+    <li>High-risk HPV infections dropped <strong>88%</strong> in teen girls and <strong>81%</strong> in young women within 12 years of the vaccine rolling out</li>
+    <li>Precancerous cervical changes dropped <strong>79–80%</strong> in women 20–24</li>
+    <li>The WHO has a "90-70-90" target for 2030 (90% of girls vaccinated, 70% of women screened, 90% of patients treated) that could prevent 74 million cervical cancer cases by 2120</li>
+  </ul>
+
+  <h3>2. Feed your gut better</h3>
+
+  <p>Swapping processed food for a fiber-rich, Mediterranean-style diet helps the good bacteria bounce back, restores butyrate levels, and protects your DNA's "on/off switches" from getting stuck in the wrong position.</p>
+
+  <h3>3. Know your genes if cancer runs in your family</h3>
+
+  <p>A proper genetic panel or whole-genome sequencing (not the hobby DNA-test-kit kind) can catch high-risk mutations before symptoms ever show up. That knowledge changes what's possible:</p>
+
+  <ul>
+    <li>Preventive medication (like tamoxifen) can cut breast cancer risk by <strong>~38%</strong> in high-risk people</li>
+    <li>Lynch syndrome carriers get colonoscopies every 1–2 years starting at 20–25, early enough to remove problems before they become cancer</li>
+    <li>In very high-risk cases, preventive surgery can cut risk by <strong>90–95%</strong></li>
+  </ul>
+
+  <p class="pullquote">Vaccines close the viral door. Diet and gut health slow the accelerated-aging door. Genetic testing lets you see the inherited-mutation door coming before it opens.</p>
+
+  <h2>The bottom line</h2>
+
+  <p>Aging isn't the only door to cancer, it's just the one that takes the longest. Younger bodies can still get there through inherited mutations, developmental accidents, viral hijacking, or a gut environment that's aging too fast.</p>
+
+  <p>The upside is that each of these shortcuts has a countermeasure, and increasingly, that countermeasure is something you can act on today.</p>
+
+  <div class="note">
+    <strong>For informational purposes only.</strong> This is a synthesis of published oncology and epidemiology literature, not medical advice, a diagnosis, or a treatment recommendation. Talk to a qualified physician about your personal risk, screening schedule, and family history.
+  </div>
+
+  <div class="bridge">
+    <span class="mono-tag">Where Antiaging Labs fits in</span>
+    <h3>We don't diagnose cancer. We help you see your risk before it becomes a problem.</h3>
+    <p>Family history, inflammatory markers, gut-health signals, and biological age are all measurable today. We build your baseline across the levers that matter, nutrition, gut health, training, recovery, and targeted screening guidance, and re-test in 90 days to prove what changed. Catching a risk early is the part you can act on now.</p>
+    <a class="btn" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Measure your baseline →</a>
+  </div>
+
+  <div class="readmore">
+    <span class="mono-tag">Keep reading</span>
+    <div class="readmore-links">
+      <a href="/learn/aging-cancer-cycle"><h4>The aging–cancer cycle</h4><p>Why slowing how you age may be the best cancer prevention there is.</p></a>
+      <a href="/learn/aging-root-cause"><h4>Aging: the root cause</h4><p>Why cancer, diabetes, dementia, and frailty share one upstream driver.</p></a>
+      <a href="/learn/biological-age"><h4>Biological age, honestly</h4><p>What PhenoAge actually measures, what it doesn't, and how to read your number.</p></a>
+    </div>
+  </div>
+
+</div></div>
+</article>
+
+<footer class="site-footer"><div class="container">
+  <div class="footer-links">
+    <a href="/">Home</a><a href="/engine">Engine</a><a href="/learn">Learn</a><a href="/research">Research</a><a href="/privacy">Privacy</a>
+  </div>
+  <div class="footer-bottom"><div>© 2026 ANTIAGING LABS PVT. LTD.</div><div>Field notes · Hyderabad, India</div></div>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+
+</body>
+</html>
