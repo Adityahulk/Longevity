@@ -71,6 +71,11 @@
       "permanent": true
     },
     {
+      "source": "/client-7.html",
+      "destination": "/client-7",
+      "permanent": true
+    },
+    {
       "source": "/engine.html",
       "destination": "/engine",
       "permanent": true
@@ -462,6 +467,22 @@
     {
       "source": "/client-6/",
       "destination": "/client-6.html"
+    },
+    {
+      "source": "/client-7",
+      "destination": "/client-7.html"
+    },
+    {
+      "source": "/client-7/",
+      "destination": "/client-7.html"
+    },
+    {
+      "source": "/udit-report",
+      "destination": "/client-7.html"
+    },
+    {
+      "source": "/udit-report/",
+      "destination": "/client-7.html"
     },
     {
       "source": "/sample-report",
