@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Two Clocks Inside You: Why a 10 PM Dinner Ages You Faster | Antiaging Labs Field Notes</title>
+<meta name="description" content="The same 600-calorie meal fuels you at noon and stresses you at 10 PM. The reason is not the calories. It is a fight between the master clock in your brain and the peripheral clocks in your organs. A field guide to chronodisruption, late-night eating, and how to realign your body clocks.">
+<link rel="icon" type="image/svg+xml" href="/assets/logo/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/png/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/logo/png/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:#F5F1E8; --cream-dark:#EDE7D9; --paper:#FBF8F1;
+  --ink:#0E1B2C; --ink-soft:#1F2D40; --ink-mute:#4A5668; --ink-fade:#7A8497;
+  --rule:#C8BFA8; --rule-soft:#DCD3BC; --accent:#B85426; --accent-warm:#D17244;
+  --leaf:#2F5D3C; --gold:#8B6914;
+  --serif:'Fraunces',Georgia,serif; --sans:'Inter',-apple-system,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:var(--sans); background:var(--cream); color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+.container { max-width:1100px; margin:0 auto; padding:0 32px; }
+.article { max-width:720px; margin:0 auto; padding:0 32px; }
+
+.art-head { padding:72px 0 36px; border-bottom:1px solid var(--rule-soft); }
+.breadcrumb { font-family:var(--mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); margin-bottom:24px; }
+.breadcrumb a { color:var(--accent); text-decoration:none; }
+.art-head h1 { font-family:var(--serif); font-size:clamp(28px,4.2vw,44px); font-weight:400; line-height:1.12; letter-spacing:-0.025em; margin-bottom:22px; }
+.art-head h1 em { font-style:italic; color:var(--accent); }
+.art-dek { font-size:19px; color:var(--ink-mute); line-height:1.6; margin-bottom:26px; }
+.art-meta { font-family:var(--mono); font-size:11.5px; letter-spacing:0.04em; color:var(--ink-fade); display:flex; gap:18px; flex-wrap:wrap; }
+
+.art-body { padding:44px 0 20px; }
+.art-body p { font-size:17px; color:var(--ink-soft); line-height:1.75; margin-bottom:22px; }
+.art-body h2 { font-family:var(--serif); font-size:28px; font-weight:500; letter-spacing:-0.015em; margin:52px 0 16px; line-height:1.2; }
+.art-body h3 { font-family:var(--serif); font-size:21px; font-weight:500; margin:34px 0 12px; }
+.art-body strong { color:var(--ink); font-weight:600; }
+.art-body a { color:var(--accent); text-decoration:underline; text-underline-offset:2px; }
+.art-body ul,.art-body ol { margin:0 0 22px 0; padding-left:24px; }
+.art-body li { font-size:17px; color:var(--ink-soft); line-height:1.7; margin-bottom:10px; }
+.art-body ol li { margin-bottom:14px; }
+
+.pullquote { font-family:var(--serif); font-size:24px; font-style:italic; font-weight:400; line-height:1.4; color:var(--ink); border-left:3px solid var(--accent); padding:6px 0 6px 26px; margin:36px 0; }
+
+.datatable { width:100%; border-collapse:collapse; margin:30px 0; background:var(--paper); border:1px solid var(--rule-soft); border-radius:6px; overflow:hidden; font-size:14px; }
+.datatable th, .datatable td { padding:13px 16px; text-align:left; border-bottom:1px solid var(--rule-soft); line-height:1.5; }
+.datatable th { background:var(--cream-dark); font-family:var(--mono); font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink); }
+.datatable td { color:var(--ink-soft); font-size:13.5px; }
+.datatable td strong { color:var(--ink); }
+.datatable tr:last-child td { border-bottom:none; }
+.datatable-wrap { overflow-x:auto; margin:30px 0; }
+
+.note { background:var(--paper); border:1px solid var(--rule-soft); border-left:3px solid var(--leaf); border-radius:6px; padding:20px 24px; margin:30px 0; font-size:15px; color:var(--ink-mute); line-height:1.65; }
+.note strong { color:var(--ink); }
+
+.callout { background:var(--cream-dark); border:1px solid var(--rule); border-radius:6px; padding:24px 28px; margin:34px 0; }
+.callout .callout-label { font-family:var(--mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; display:block; }
+.callout p { font-size:16px; color:var(--ink-soft); line-height:1.65; margin:0; }
+.callout strong { color:var(--ink); }
+
+.metaphor { background:var(--paper); border:1px solid var(--rule-soft); border-radius:8px; padding:26px 28px; margin:22px 0; }
+.metaphor .m-label { font-family:var(--mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; display:block; }
+.metaphor h3 { font-family:var(--serif); font-size:20px; font-weight:500; margin:0 0 10px; }
+.metaphor p { font-size:15.5px; color:var(--ink-soft); line-height:1.68; margin:0; }
+
+.bridge { background:var(--ink); color:var(--cream); border-radius:8px; padding:40px 38px; margin:48px 0 0; }
+.bridge .mono-tag { font-family:var(--mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent-warm); margin-bottom:14px; display:block; }
+.bridge h3 { font-family:var(--serif); font-size:25px; font-weight:400; line-height:1.3; margin-bottom:14px; }
+.bridge p { color:rgba(245,241,232,0.78); font-size:15.5px; line-height:1.65; margin-bottom:22px; max-width:600px; }
+.bridge a.btn { display:inline-flex; align-items:center; gap:9px; background:var(--accent); color:var(--cream); padding:13px 26px; border-radius:2px; text-decoration:none; font-size:14.5px; font-weight:500; }
+.bridge a.btn:hover { background:var(--accent-warm); }
+
+.readmore { padding:44px 0 20px; border-top:1px solid var(--rule-soft); margin-top:48px; }
+.readmore .mono-tag { font-family:var(--mono); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin-bottom:18px; display:block; }
+.readmore-links { display:flex; gap:16px; flex-wrap:wrap; }
+.readmore-links a { flex:1; min-width:220px; background:var(--paper); border:1px solid var(--rule-soft); border-radius:6px; padding:20px 22px; text-decoration:none; transition:border-color 0.2s; }
+.readmore-links a:hover { border-color:var(--accent); }
+.readmore-links h4 { font-family:var(--serif); font-size:17px; font-weight:500; color:var(--ink); margin-bottom:6px; }
+.readmore-links p { font-size:13px; color:var(--ink-mute); line-height:1.5; margin:0; }
+
+footer { background:var(--cream-dark); border-top:1px solid var(--rule-soft); padding:48px 0 32px; margin-top:56px; }
+.footer-links { display:flex; gap:24px; margin-bottom:24px; flex-wrap:wrap; }
+.footer-links a { font-size:13px; color:var(--ink-soft); text-decoration:none; }
+.footer-bottom { display:flex; justify-content:space-between; font-family:var(--mono); font-size:11px; color:var(--ink-fade); flex-wrap:wrap; gap:12px; }
+
+@media(max-width:820px){
+  .art-body p,.art-body li{ font-size:16px; }
+}
+</style><style>
+.clock2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:26px 0;}
+.clock-card{background:var(--paper);border:1px solid var(--rule-soft);border-radius:8px;padding:24px 26px;}
+.clock-card.master{border-top:3px solid var(--gold);}
+.clock-card.periph{border-top:3px solid var(--leaf);}
+.clock-card .cc-k{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:6px;}
+.clock-card h3{font-family:var(--serif);font-size:20px;font-weight:500;margin:0 0 10px;}
+.clock-card .cc-z{font-size:13px;color:var(--ink-mute);margin:0 0 12px;}
+.clock-card .cc-z b{color:var(--ink);}
+.clock-card ul{margin:0;padding-left:20px;} .clock-card li{font-size:14px;color:var(--ink-soft);line-height:1.6;margin-bottom:6px;}
+.ctl-wrap{background:var(--paper);border:1px solid var(--rule-soft);border-radius:8px;padding:30px 30px 22px;margin:30px 0;}
+.ctl-lbl{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;}
+.ctl{position:relative;height:120px;margin:0 6px;}
+.ctl-track{position:absolute;left:0;right:0;top:70px;height:14px;border-radius:7px;background:linear-gradient(90deg,#E8C15A 0%,#E8C15A 42%,#8B6BA8 58%,#3B3168 100%);}
+.ctl-night{position:absolute;top:66px;height:22px;border-radius:11px;background:rgba(155,44,44,0.16);border:1px dashed rgba(155,44,44,0.4);}
+.ctl-dot{position:absolute;top:70.5px;width:13px;height:13px;border-radius:50%;border:2.5px solid #fff;transform:translateX(-50%);box-shadow:0 1px 3px rgba(0,0,0,.28);z-index:3;}
+.ctl-lab{position:absolute;transform:translateX(-50%);text-align:center;width:96px;}
+.ctl-lab .t{font-family:var(--mono);font-size:10px;color:var(--ink);font-weight:500;}
+.ctl-lab .d{font-size:10.5px;color:var(--ink-mute);line-height:1.25;margin-top:1px;}
+.ctl-end{position:absolute;top:92px;font-family:var(--mono);font-size:10px;color:var(--ink-fade);}
+.ctl-meal{position:absolute;top:24px;transform:translateX(-50%);text-align:center;width:110px;}
+.ctl-meal .pin{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--danger);background:var(--danger-soft);padding:3px 8px;border-radius:3px;display:inline-block;}
+.ctl-meal .arw{color:var(--danger);font-size:14px;line-height:1;}
+.dsync{background:var(--cream-dark);border:1px solid var(--rule);border-radius:8px;padding:26px 28px;margin:30px 0;}
+.dsync-row{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;}
+.dsync-side{text-align:center;}
+.dsync-side .dh{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;}
+.dsync-side .dq{font-family:var(--serif);font-style:italic;font-size:18px;line-height:1.3;}
+.dsync-side.brain .dh{color:var(--gold);} .dsync-side.brain .dq{color:var(--ink);}
+.dsync-side.organ .dh{color:var(--leaf);} .dsync-side.organ .dq{color:var(--ink);}
+.dsync-bolt{font-size:34px;color:var(--danger);line-height:1;}
+.dsync-cap{text-align:center;font-size:13px;color:var(--ink-mute);margin-top:16px;padding-top:14px;border-top:0.5px solid var(--rule);}
+@media(max-width:760px){.clock2{grid-template-columns:1fr;} .dsync-row{grid-template-columns:1fr;gap:10px;} .dsync-bolt{transform:rotate(90deg);}}
+</style>
+
+</head>
+<body class="article-shell">
+
+<nav class="site-nav" aria-label="Primary navigation"><div class="container nav-inner">
+  <a class="brand" href="/"><span class="brand-mark"></span>Antiaging Labs</a>
+  <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-nav-toggle><span></span><span></span><span></span></button>
+  <div class="nav-links" data-nav-links><a href="/program">Program</a><a href="/#how">How it works</a><a href="/#results">Results</a><a href="/research">Science</a><a href="/learn" aria-current="page">Field Notes</a><a class="btn nav-cta" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Book a fit call</a></div>
+</div></nav>
+
+<article>
+<div class="art-head"><div class="article">
+  <div class="breadcrumb"><a href="/learn">&larr; Field Notes</a> &middot; Longevity Science</div>
+  <h1>The Two Clocks Inside You: Why a 10 PM Dinner Ages You Faster Than the <em>Same Meal at Noon</em></h1>
+  <p class="art-dek">A 600-calorie meal at midday fuels you. The identical meal at 10 PM promotes fat storage, spikes your glucose for longer, and quietly ages your liver. The culprit is not the calories. It is a fight between the clock in your brain and the clocks in your organs.</p>
+  <div class="art-meta"><span>24 July 2026</span><span>&middot; Antiaging Labs Field Notes</span><span>&middot; 11 min read</span></div>
+</div></div>
+
+<div class="art-body"><div class="article">
+
+  <p>Here is a fact that should be more famous than it is. Eat 600 calories at noon and your body handles them beautifully. Eat the <em>exact same</em> 600 calories at 10 PM and the same food raises your blood sugar higher, holds it there longer, nudges more of it into fat storage, and puts measurable strain on your liver.</p>
+
+  <p>Same meal. Same person. Same calories. Very different biology. The reason has a name: <strong>chronodisruption</strong>, the desynchronisation between the master clock in your brain and the peripheral clocks in your organs. Understanding it is one of the highest-leverage, lowest-effort things you can do for how you age.</p>
+
+  <div class="metaphor">
+    <span class="m-label">A way to picture it</span>
+    <h3>The orchestra and the conductor</h3>
+    <p>Your brain's clock is the conductor. It keeps time by watching the light in the room. Your organs are the musicians, and each one keeps its own time too, mostly by watching when food arrives. When conductor and musicians agree, you get music. Eat at 10 PM and the conductor is signalling a slow, quiet nocturne while your liver and pancreas launch into an up-tempo march. The result is not music. It is noise, played night after night, and the wear shows up in your metabolism.</p>
+  </div>
+
+  <h2>You do not have one body clock. You have thousands.</h2>
+
+  <p>Almost every cell in your body carries its own molecular stopwatch: a roughly 24-hour feedback loop built from two pairs of proteins, CLOCK/BMAL1 and PER/CRY, that switch each other on and off in a daily cycle. These clocks are organised in two tiers, and the whole story of late-night eating lives in the gap between them.</p>
+
+  <h3>The master clock: your brain's timekeeper</h3>
+
+  <p>Deep in the hypothalamus sits the <strong>suprachiasmatic nucleus (SCN)</strong>, about 20,000 neurons that act as the body's central pacemaker. Its time-giver (the technical word is <em>zeitgeber</em>) is <strong>light</strong>. Special cells in your retina called ipRGCs, tuned to blue light around 460 to 480 nm by a pigment called melanopsin, send a direct wire to the SCN and reset it every morning. From there the master clock sets your baseline rhythm: sleep and wake, core body temperature, the evening rise of melatonin, and the morning surge of cortisol.</p>
+
+  <h3>The peripheral clocks: your organs' timekeepers</h3>
+
+  <p>Here is the part most people never hear. Your liver, gut, pancreas, fat and muscle each run their own autonomous clocks, and they largely ignore light. Their zeitgeber is <strong>food</strong>. When nutrients arrive, the surge of substrate, gut hormones like GLP-1 and PYY, and shifting energy ratios (NAD+/NADH, ATP/AMP) reset local timekeepers such as REV-ERBα and PPARα inside the organ tissue itself. Those clocks then decide organ-specific things: when the liver makes bile acids or burns fat, how sensitive the pancreas is to glucose, how the gut moves and repairs.</p>
+
+  <div class="clock2">
+    <div class="clock-card master">
+      <div class="cc-k" style="color:var(--gold);">Tier 1 &middot; the conductor</div>
+      <h3>Master clock (SCN)</h3>
+      <p class="cc-z">Time-giver: <b>light</b></p>
+      <ul>
+        <li>~20,000 neurons in the hypothalamus</li>
+        <li>Reset by blue light through the eye (ipRGCs, melanopsin)</li>
+        <li>Sets sleep and wake, body temperature, melatonin, cortisol</li>
+      </ul>
+    </div>
+    <div class="clock-card periph">
+      <div class="cc-k" style="color:var(--leaf);">Tier 2 &middot; the musicians</div>
+      <h3>Peripheral clocks (organs)</h3>
+      <p class="cc-z">Time-giver: <b>food</b></p>
+      <ul>
+        <li>Autonomous clocks in liver, gut, pancreas, fat, muscle</li>
+        <li>Reset by nutrients, gut hormones, energy ratios</li>
+        <li>Set local metabolism: fat burning, insulin sensitivity, gut motility</li>
+      </ul>
+    </div>
+  </div>
+
+  <p>When you eat during daylight, both tiers agree: it is daytime, so digest and use the fuel. The trouble begins when the two clocks disagree.</p>
+
+  <h2>What actually goes wrong at 10 PM</h2>
+
+  <p>Eat a late dinner under dim indoor light and you stage a direct conflict inside your own body.</p>
+
+  <div class="dsync">
+    <div class="dsync-row">
+      <div class="dsync-side brain">
+        <div class="dh">Master clock reads the dark</div>
+        <div class="dq">"It is night. Cool down, release melatonin, slow the metabolism, repair."</div>
+      </div>
+      <div class="dsync-bolt">&#9889;</div>
+      <div class="dsync-side organ">
+        <div class="dh">Liver &amp; pancreas read the food</div>
+        <div class="dq">"Fuel just arrived. Switch to daytime mode: digest, process, store."</div>
+      </div>
+    </div>
+    <div class="dsync-cap">This is internal circadian phase disruption. Both clocks are doing their job correctly. That is exactly why it is a problem: the meal forces your organs into a daytime state your brain has already closed for the night.</div>
+  </div>
+
+  <p class="pullquote">Your brain says sleep and repair. Your liver says digest and store. Both are right, and that is the problem.</p>
+
+  <p>Here is where that meal actually lands on the 24-hour cycle, and why the timing matters so much:</p>
+
+  <div class="ctl-wrap">
+    <div class="ctl-lbl">Your day, on one clock</div>
+    <div class="ctl">
+      <div class="ctl-track"></div>
+      <div class="ctl-night" style="left:60.4%;width:31.3%;"></div>
+      <div class="ctl-dot" style="left:12.5%;background:var(--gold);"></div>
+      <div class="ctl-lab" style="left:12.5%;top:34px;"><div class="t">9 AM</div><div class="d">Cortisol peaks</div></div>
+      <div class="ctl-dot" style="left:45.8%;background:var(--accent);"></div>
+      <div class="ctl-lab" style="left:45.8%;top:34px;"><div class="t">5 PM</div><div class="d">Peak strength</div></div>
+      <div class="ctl-dot" style="left:62.5%;background:#8B6BA8;"></div>
+      <div class="ctl-lab" style="left:62.5%;top:96px;"><div class="t">9 PM</div><div class="d">Melatonin starts</div></div>
+      <div class="ctl-dot" style="left:83.3%;background:#3B3168;"></div>
+      <div class="ctl-lab" style="left:83.3%;top:96px;"><div class="t">2 AM</div><div class="d">Deepest sleep</div></div>
+      <div class="ctl-meal" style="left:66.7%;">
+        <div class="pin">10 PM meal</div>
+        <div class="arw">&#8595;</div>
+      </div>
+      <div class="ctl-end" style="left:0;">6 AM</div>
+      <div class="ctl-end" style="left:50%;transform:translateX(-50%);">6 PM</div>
+      <div class="ctl-end" style="right:0;">6 AM</div>
+    </div>
+  </div>
+
+  <p>The dashed red band is your metabolic off-hours: melatonin is rising, temperature is falling, and your organs are meant to be winding down. Drop a meal into that window and every organ pays a different price.</p>
+
+  <h2>Organ by organ, the bill for a late dinner</h2>
+
+  <h3>The pancreas: melatonin quietly slams the insulin brakes</h3>
+
+  <p>At night your melatonin is high, and melatonin binds a receptor called <strong>MTNR1B</strong> on the insulin-producing beta-cells of the pancreas. That binding <em>suppresses</em> insulin release. It is an elegant design for a fasting night, and a disaster for a late meal: with the insulin brakes half-on, the same carbohydrate load you would clear easily at lunch leaves your <strong>blood sugar elevated for much longer</strong>. People with certain MTNR1B variants feel this even more strongly.</p>
+
+  <h3>The liver: it flips from fat-burning to fat-storing</h3>
+
+  <p>The liver's clock runs a daily schedule. During the day it favours burning fat for fuel. At night, its CLOCK/BMAL1 machinery dials <em>down</em> the enzymes for fat oxidation and dials <em>up</em> the machinery for making triglycerides. So late-arriving nutrients cannot be efficiently burned. Instead the liver converts the surplus glucose and fat into storage lipids through a process called <strong>de novo lipogenesis</strong>, feeding directly into fatty liver, hepatic steatosis, and whole-body insulin resistance. This is the mechanism behind "hepatic aging" in the headline.</p>
+
+  <h3>The gut: the night-shift cleaning crew gets interrupted</h3>
+
+  <p>Your small intestine has a brilliant overnight ritual called the <strong>migrating motor complex (MMC)</strong>, a slow cleansing wave that sweeps out leftover debris and keeps bacteria from overgrowing where they should not. It runs during the fasting hours of biological night. Eat late and you keep interrupting it. At the same time, your gut microbes, which run on their own strict daily cycles (a story we told in full in <a href="/learn/gut-microbiome">the gut microbiome piece</a>), get fed at the wrong time. That shifts the balance of beneficial short-chain-fatty-acid producers and loosens the tight junctions of the gut wall, letting bacterial fragments (LPS) leak into the blood and stoke the low-grade inflammation that drives ageing.</p>
+
+  <h2>The longevity cost: the repair you quietly skip</h2>
+
+  <p>The damage is not only about glucose and fat tonight. It is about the maintenance you miss.</p>
+
+  <p>Your cells do their deep cleaning during the long fasting stretch of night. <strong>Autophagy</strong> (recycling worn-out cell parts) and <strong>mitophagy</strong> (clearing damaged mitochondria) switch on when the nutrient-sensing pathway mTORC1 goes quiet and its counterpart AMPK rises, which is precisely what an empty, fasting night is for. Eat late and you keep mTORC1 switched on, which <strong>locks the cellular cleanup crew out</strong>. On top of that, forcing your mitochondria to process nutrients when they are scheduled to rest leaks reactive oxygen species, the molecular rust that pushes cells toward premature senescence.</p>
+
+  <p class="pullquote">Night is when the body runs its maintenance shift. A late dinner keeps the lights on and locks the cleaning crew out.</p>
+
+  <h2>Realigning your two clocks</h2>
+
+  <p>The fix is not a supplement or a gadget. It is timing, and it is close to free. Four evidence-based moves put the conductor and the musicians back in sync.</p>
+
+  <div class="datatable-wrap">
+    <table class="datatable">
+      <thead>
+        <tr><th>Protocol</th><th>What to do</th><th>Why it works</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Early time-restricted eating</strong></td><td>Keep all your food inside a 10 to 12 hour window, and finish 3 to 4 hours before bed (for example 8 AM to 6 PM, or 9 AM to 7 PM).</td><td>Gives your organs a true fasting night for repair, and keeps meals out of the high-melatonin window.</td></tr>
+        <tr><td><strong>Front-load your calories</strong></td><td>Eat 60% or more of your day's energy across breakfast and lunch. Make dinner the smallest meal.</td><td>Matches food to when insulin sensitivity and hepatic clearance are highest.</td></tr>
+        <tr><td><strong>Anchor the master clock early</strong></td><td>Get 10 to 15 minutes of direct morning sunlight within 30 minutes of waking.</td><td>Hard-resets the SCN through the retina, sharpening the whole day's rhythm and that night's sleep.</td></tr>
+        <tr><td><strong>Dim the lights after sunset</strong></td><td>Cut overhead and blue light after about 8 PM.</td><td>Lets melatonin rise on schedule, so sleep and the pancreas both work the way they should.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>You do not have to do all four perfectly. Even the single move of <strong>finishing dinner earlier</strong> resolves most of the conflict in the diagram above, because it is the one that stops dropping food into your biological night.</p>
+
+  <div class="note">
+    <strong>For informational purposes only.</strong> This is an educational overview of circadian biology, not medical advice. If you take medication on a fixed schedule, manage diabetes, are pregnant, or have a history of disordered eating, talk to a qualified physician before changing your meal timing or fasting window.
+  </div>
+
+  <div class="bridge">
+    <span class="mono-tag">Where Antiaging Labs fits in</span>
+    <h3>Meal timing is one of the cheapest levers we have, and it shows up directly in your blood.</h3>
+    <p>Late eating leaves fingerprints we can measure: higher triglycerides, a worse triglyceride-to-HDL ratio, rising liver enzymes, and creeping glucose. When we build your protocol, <em>when</em> you eat is a lever we set alongside what you eat, and we re-test in 90 days to prove the change is real. Small shift in the clock, compounding return in the biology.</p>
+    <a class="btn" href="https://calendly.com/company-kalman-labs/30min" target="_blank" rel="noopener noreferrer">Measure your baseline &rarr;</a>
+  </div>
+
+  <div class="readmore">
+    <span class="mono-tag">Keep reading</span>
+    <div class="readmore-links">
+      <a href="/learn/gut-microbiome"><h4>Your gut bugs</h4><p>The microbiome runs on its own clock too, and late eating throws it off.</p></a>
+      <a href="/learn/aging-root-cause"><h4>Aging: the root cause</h4><p>Why most chronic diseases share one upstream driver, the slow failure of maintenance.</p></a>
+      <a href="/learn/four-levers"><h4>The four levers</h4><p>What actually moves your biomarkers in 90 days, ranked by evidence.</p></a>
+    </div>
+  </div>
+
+</div></div>
+</article>
+
+<footer class="site-footer"><div class="container">
+  <div class="footer-links">
+    <a href="/">Home</a><a href="/engine">Engine</a><a href="/learn">Learn</a><a href="/research">Research</a><a href="/privacy">Privacy</a>
+  </div>
+  <div class="footer-bottom"><div>&copy; 2026 ANTIAGING LABS PVT. LTD.</div><div>Field notes &middot; Hyderabad, India</div></div>
+</div></footer>
+<script src="/assets/site.js" defer></script>
+
+</body>
+</html>

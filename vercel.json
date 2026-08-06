@@ -136,6 +136,11 @@
       "permanent": true
     },
     {
+      "source": "/learn-circadian-clocks.html",
+      "destination": "/learn/circadian-clocks",
+      "permanent": true
+    },
+    {
       "source": "/masai-ppt.html",
       "destination": "/masai-ppt",
       "permanent": true
@@ -267,6 +272,14 @@
     {
       "source": "/learn/gut-microbiome/",
       "destination": "/learn-gut-microbiome.html"
+    },
+    {
+      "source": "/learn/circadian-clocks",
+      "destination": "/learn-circadian-clocks.html"
+    },
+    {
+      "source": "/learn/circadian-clocks/",
+      "destination": "/learn-circadian-clocks.html"
     },
     {
       "source": "/learn/longevity-escape-velocity",
