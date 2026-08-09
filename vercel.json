@@ -146,6 +146,11 @@
       "permanent": true
     },
     {
+      "source": "/learn-vo2max-4x4.html",
+      "destination": "/learn/vo2max-4x4",
+      "permanent": true
+    },
+    {
       "source": "/masai-ppt.html",
       "destination": "/masai-ppt",
       "permanent": true
@@ -285,6 +290,14 @@
     {
       "source": "/learn/circadian-clocks/",
       "destination": "/learn-circadian-clocks.html"
+    },
+    {
+      "source": "/learn/vo2max-4x4",
+      "destination": "/learn-vo2max-4x4.html"
+    },
+    {
+      "source": "/learn/vo2max-4x4/",
+      "destination": "/learn-vo2max-4x4.html"
     },
     {
       "source": "/learn/longevity-escape-velocity",
