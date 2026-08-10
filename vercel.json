@@ -151,6 +151,11 @@
       "permanent": true
     },
     {
+      "source": "/learn-athletes-paradox.html",
+      "destination": "/learn/athletes-paradox",
+      "permanent": true
+    },
+    {
       "source": "/masai-ppt.html",
       "destination": "/masai-ppt",
       "permanent": true
@@ -298,6 +303,14 @@
     {
       "source": "/learn/vo2max-4x4/",
       "destination": "/learn-vo2max-4x4.html"
+    },
+    {
+      "source": "/learn/athletes-paradox",
+      "destination": "/learn-athletes-paradox.html"
+    },
+    {
+      "source": "/learn/athletes-paradox/",
+      "destination": "/learn-athletes-paradox.html"
     },
     {
       "source": "/learn/longevity-escape-velocity",
