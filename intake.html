@@ -122,6 +122,18 @@
         </div>
       </div>
       <div class="fld">
+        <label class="q">Are you currently breastfeeding, or did you give birth in the last 12 months?<span class="why">One of the most common reasons for a raised prolactin, and it changes how urgently we act on it.</span></label>
+        <div class="opts">
+          <label><input type="radio" name="breastfeeding_status" value="No">No</label>
+          <label><input type="radio" name="breastfeeding_status" value="Currently breastfeeding">Currently breastfeeding</label>
+          <label><input type="radio" name="breastfeeding_status" value="Gave birth recently, not breastfeeding">Gave birth recently, not breastfeeding</label>
+        </div>
+      </div>
+      <div class="fld">
+        <label class="q">If you selected hormonal contraception above, which type?<span class="why">The pill, an IUD and an injection affect your FSH, LH and estradiol differently.</span></label>
+        <input type="text" name="contraception_type" placeholder="e.g. combined pill, hormonal IUD, injection, none">
+      </div>
+      <div class="fld">
         <label class="q">Any of these? (tick all that apply)<span class="why">These help us read your prolactin, thyroid and insulin results.</span></label>
         <div class="opts">
           <label><input type="checkbox" name="symptoms" value="Nipple discharge">Nipple discharge</label>
@@ -167,9 +179,10 @@
       </div>
       <div class="fld"><label class="q">A typical day of eating (breakfast, lunch, dinner, snacks, and rough timings)</label><textarea name="typical_diet"></textarea></div>
       <div class="row2">
-        <div class="fld"><label class="q">Sugary drinks per day (tea/coffee with sugar, juice, soda)</label><input type="text" name="sugary_drinks" placeholder="e.g. 2 sweet teas"></div>
+        <div class="fld"><label class="q">What time do you usually eat your first meal, and your last?<span class="why">Sets your eating window, one of the more powerful, low-effort levers for insulin sensitivity.</span></label><input type="text" name="eating_window" placeholder="e.g. 8am to 9:30pm"></div>
         <div class="fld"><label class="q">Caffeine per day (cups)</label><input type="number" name="caffeine_cups" min="0" max="20"></div>
       </div>
+      <div class="fld"><label class="q">Sugary drinks per day (tea/coffee with sugar, juice, soda)</label><input type="text" name="sugary_drinks" placeholder="e.g. 2 sweet teas"></div>
       <div class="fld"><label class="q">Alcohol per week (drinks)</label><input type="text" name="alcohol" placeholder="e.g. none, or 2"></div>
       <div class="fld"><label class="q">Any supplements you already take?<span class="why">So we do not double up, especially iron, folate or vitamin D.</span></label><textarea name="supplements"></textarea></div>
     </div>
@@ -180,7 +193,7 @@
       <div class="sec-t">Movement, sleep &amp; stress</div>
       <div class="fld"><label class="q">What exercise do you currently do, and how often?</label><textarea name="exercise"></textarea></div>
       <div class="row2">
-        <div class="fld"><label class="q">Roughly how many hours do you sleep?</label><input type="text" name="sleep_hours" placeholder="e.g. 6.5"></div>
+        <div class="fld"><label class="q">Usual bedtime and wake time?<span class="why">The clock times, not just the hours, set your circadian and sleep-timing plan.</span></label><input type="text" name="sleep_schedule" placeholder="e.g. 11:30pm to 7am"></div>
         <div class="fld"><label class="q">Do you smoke or use tobacco?</label>
           <div class="opts">
             <label><input type="radio" name="smoking" value="No">No</label>
