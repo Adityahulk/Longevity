@@ -209,6 +209,11 @@
       "source": "/connect-wearable.html",
       "destination": "/connect-wearable",
       "permanent": true
+    },
+    {
+      "source": "/intake.html",
+      "destination": "/intake",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -407,6 +412,14 @@
     {
       "source": "/connect-wearable/",
       "destination": "/connect-wearable.html"
+    },
+    {
+      "source": "/intake",
+      "destination": "/intake.html"
+    },
+    {
+      "source": "/intake/",
+      "destination": "/intake.html"
     },
     {
       "source": "/strategy",

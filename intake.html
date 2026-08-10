@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Your health intake | Antiaging Labs</title>
+<link rel="icon" type="image/svg+xml" href="/assets/logo/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F5F1E8;--cream-dark:#EDE7D9;--paper:#FBF8F1;--ink:#0E1B2C;--ink-soft:#1F2D40;--ink-mute:#4A5668;--ink-fade:#7A8497;
+    --rule:#C8BFA8;--rule-soft:#DCD3BC;--accent:#B85426;--accent-warm:#D17244;--leaf:#2F5D3C;--danger:#9B2C2C;
+    --serif:'Fraunces',Georgia,serif;--sans:'Inter',-apple-system,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:680px;margin:0 auto;padding:40px 22px 90px;}
+  .brand{font-family:var(--serif);font-size:20px;color:var(--ink);margin-bottom:4px;}
+  .brand .dot{color:var(--accent);}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:26px 0 8px;}
+  h1{font-family:var(--serif);font-size:32px;font-weight:400;line-height:1.15;letter-spacing:-0.02em;margin-bottom:12px;}
+  .lede{font-size:16px;color:var(--ink-mute);margin-bottom:8px;}
+  .lede b{color:var(--ink);}
+  .sec{background:var(--paper);border:1px solid var(--rule-soft);border-radius:10px;padding:24px 22px;margin:22px 0;}
+  .sec-h{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:4px;}
+  .sec-t{font-family:var(--serif);font-size:20px;font-weight:500;margin-bottom:6px;}
+  .sec-note{font-size:13px;color:var(--ink-fade);margin-bottom:14px;}
+  .fld{margin:16px 0;}
+  label.q{display:block;font-size:14.5px;font-weight:500;color:var(--ink);margin-bottom:7px;}
+  label.q .req{color:var(--accent);}
+  label.q .why{display:block;font-weight:400;font-size:12.5px;color:var(--ink-fade);margin-top:2px;}
+  input[type=text],input[type=number],input[type=date],input[type=email],input[type=tel],textarea,select{
+    width:100%;font-family:var(--sans);font-size:15px;color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:7px;padding:11px 13px;}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);}
+  textarea{min-height:74px;resize:vertical;}
+  .opts{display:flex;flex-wrap:wrap;gap:8px;}
+  .opts label{font-size:14px;background:#fff;border:1px solid var(--rule);border-radius:999px;padding:8px 15px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;}
+  .opts input{accent-color:var(--accent);}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+  .submit{width:100%;font-family:var(--sans);font-size:16px;font-weight:600;background:var(--accent);color:#fff;border:none;padding:15px;border-radius:8px;cursor:pointer;margin-top:8px;}
+  .submit:hover{background:var(--accent-warm);}
+  .submit:disabled{opacity:.5;cursor:default;}
+  .consent{font-size:12.5px;color:var(--ink-mute);margin-top:14px;line-height:1.55;}
+  .msg{display:none;border-radius:10px;padding:20px 22px;margin:20px 0;font-size:15px;line-height:1.6;}
+  .msg.ok{display:block;background:#EAF3EC;border:1px solid #B9D6C0;color:#234a30;}
+  .msg.err{display:block;background:#FBECE6;border:1px solid #E7C3B2;color:#7a3417;}
+  .foot{font-family:var(--mono);font-size:11px;color:var(--ink-fade);text-align:center;margin-top:30px;}
+  @media(max-width:560px){.row2,.row3{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">Antiaging Labs<span class="dot">.</span></div>
+  <div class="eyebrow">Health intake</div>
+  <h1 id="hi">A few questions before we build your plan</h1>
+  <p class="lede">Your bloodwork tells us the <b>what</b>. These answers tell us the <b>why</b>, and what is safe and realistic for you. It takes about 10 minutes, and every answer is optional, though the more you share, the more personalised your protocol becomes.</p>
+
+  <div id="okMsg" class="msg ok"><b>Thank you.</b> Your answers are in. We will use them to prepare your personalised protocol and will be in touch.</div>
+  <div id="errMsg" class="msg err"></div>
+
+  <form id="intakeForm">
+    <input type="hidden" name="client_ref" id="client_ref" value="">
+
+    <!-- ABOUT YOU -->
+    <div class="sec">
+      <div class="sec-h">Section 1</div>
+      <div class="sec-t">About you</div>
+      <div class="fld"><label class="q">Your name <span class="req">*</span></label><input type="text" name="name" required></div>
+      <div class="row2">
+        <div class="fld"><label class="q">Age</label><input type="number" name="age" min="1" max="120"></div>
+        <div class="fld"><label class="q">Best contact (email or phone)</label><input type="text" name="contact"></div>
+      </div>
+    </div>
+
+    <!-- GOALS -->
+    <div class="sec">
+      <div class="sec-h">Section 2</div>
+      <div class="sec-t">Your main goal</div>
+      <div class="fld">
+        <label class="q">What matters most to you right now?</label>
+        <div class="opts">
+          <label><input type="radio" name="primary_goal" value="Energy">More energy</label>
+          <label><input type="radio" name="primary_goal" value="Fat loss">Fat loss</label>
+          <label><input type="radio" name="primary_goal" value="Cycle/fertility health">Cycle / fertility health</label>
+          <label><input type="radio" name="primary_goal" value="Disease-risk reduction">Lower disease risk</label>
+          <label><input type="radio" name="primary_goal" value="Longevity">Longevity</label>
+          <label><input type="radio" name="primary_goal" value="Other">Other</label>
+        </div>
+      </div>
+      <div class="fld"><label class="q">Roughly how many minutes a day can you commit to health habits?</label><input type="text" name="time_per_day" placeholder="e.g. 30 minutes"></div>
+    </div>
+
+    <!-- WOMEN'S HEALTH -->
+    <div class="sec">
+      <div class="sec-h">Section 3</div>
+      <div class="sec-t">Women's health</div>
+      <div class="sec-note">If this section does not apply to you, skip it. For you, this is the most important section: several of your hormone results can only be read against your cycle.</div>
+      <div class="fld">
+        <label class="q">Are your periods regular?</label>
+        <div class="opts">
+          <label><input type="radio" name="periods_regular" value="Regular">Regular</label>
+          <label><input type="radio" name="periods_regular" value="Irregular">Irregular</label>
+          <label><input type="radio" name="periods_regular" value="Absent">Absent</label>
+          <label><input type="radio" name="periods_regular" value="On contraception">On hormonal contraception</label>
+        </div>
+      </div>
+      <div class="row2">
+        <div class="fld"><label class="q">Date your last period started<span class="why">Lets us work out where you were in your cycle at the blood draw (06 Aug).</span></label><input type="date" name="last_period_date"></div>
+        <div class="fld"><label class="q">Typical cycle length (days)</label><input type="number" name="cycle_length_days" min="15" max="60" placeholder="e.g. 28"></div>
+      </div>
+      <div class="fld">
+        <label class="q">Could you currently be pregnant, or are you trying to conceive?<span class="why">This changes how we read your prolactin, and makes some steps (like folate) urgent.</span></label>
+        <div class="opts">
+          <label><input type="radio" name="pregnancy_status" value="Not pregnant, not trying">No, not trying</label>
+          <label><input type="radio" name="pregnancy_status" value="Trying to conceive">Trying now</label>
+          <label><input type="radio" name="pregnancy_status" value="Planning within a year">Planning within a year</label>
+          <label><input type="radio" name="pregnancy_status" value="Possibly pregnant">Possibly pregnant</label>
+        </div>
+      </div>
+      <div class="fld">
+        <label class="q">Any of these? (tick all that apply)<span class="why">These help us read your prolactin, thyroid and insulin results.</span></label>
+        <div class="opts">
+          <label><input type="checkbox" name="symptoms" value="Nipple discharge">Nipple discharge</label>
+          <label><input type="checkbox" name="symptoms" value="New headaches or vision changes">New headaches / vision changes</label>
+          <label><input type="checkbox" name="symptoms" value="Acne">Acne</label>
+          <label><input type="checkbox" name="symptoms" value="Excess facial or body hair">Excess facial/body hair</label>
+          <label><input type="checkbox" name="symptoms" value="Scalp hair thinning">Scalp hair thinning</label>
+          <label><input type="checkbox" name="symptoms" value="Dark skin patches (neck/underarms)">Dark skin patches</label>
+          <label><input type="checkbox" name="symptoms" value="Unusual fatigue">Unusual fatigue</label>
+          <label><input type="checkbox" name="symptoms" value="Feeling cold often">Feeling cold often</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- BODY & MEDICAL -->
+    <div class="sec">
+      <div class="sec-h">Section 4</div>
+      <div class="sec-t">Body &amp; medical</div>
+      <div class="row3">
+        <div class="fld"><label class="q">Height (cm)</label><input type="number" name="height_cm" min="100" max="230"></div>
+        <div class="fld"><label class="q">Weight (kg)</label><input type="number" name="weight_kg" min="25" max="250"></div>
+        <div class="fld"><label class="q">Waist (cm, if known)</label><input type="number" name="waist_cm" min="40" max="200"></div>
+      </div>
+      <div class="fld"><label class="q">Blood pressure, if you know a recent reading</label><input type="text" name="blood_pressure" placeholder="e.g. 118/76"></div>
+      <div class="fld"><label class="q">Any current medications?<span class="why">Please list all, including for mood, nausea, acidity or blood pressure. Some raise prolactin.</span></label><textarea name="medications"></textarea></div>
+      <div class="fld"><label class="q">Any existing health conditions or diagnoses?</label><textarea name="conditions"></textarea></div>
+      <div class="fld"><label class="q">Family history of diabetes, thyroid disease, PCOS, or early heart disease? (who, and roughly what age)</label><textarea name="family_history"></textarea></div>
+      <div class="fld"><label class="q">Any allergies, asthma, eczema or hay fever?<span class="why">Helps explain your raised IgE.</span></label><input type="text" name="allergies"></div>
+      <div class="fld"><label class="q">Any illness, infection or injury in the few weeks before the blood test?<span class="why">This can temporarily raise your inflammation markers.</span></label><input type="text" name="recent_illness"></div>
+    </div>
+
+    <!-- DIET -->
+    <div class="sec">
+      <div class="sec-h">Section 5</div>
+      <div class="sec-t">Diet</div>
+      <div class="fld"><label class="q">Are you vegetarian?</label>
+        <div class="opts">
+          <label><input type="radio" name="diet_type" value="Vegetarian">Vegetarian</label>
+          <label><input type="radio" name="diet_type" value="Eggetarian">Eggetarian</label>
+          <label><input type="radio" name="diet_type" value="Non-vegetarian">Non-vegetarian</label>
+          <label><input type="radio" name="diet_type" value="Vegan">Vegan</label>
+        </div>
+      </div>
+      <div class="fld"><label class="q">A typical day of eating (breakfast, lunch, dinner, snacks, and rough timings)</label><textarea name="typical_diet"></textarea></div>
+      <div class="row2">
+        <div class="fld"><label class="q">Sugary drinks per day (tea/coffee with sugar, juice, soda)</label><input type="text" name="sugary_drinks" placeholder="e.g. 2 sweet teas"></div>
+        <div class="fld"><label class="q">Caffeine per day (cups)</label><input type="number" name="caffeine_cups" min="0" max="20"></div>
+      </div>
+      <div class="fld"><label class="q">Alcohol per week (drinks)</label><input type="text" name="alcohol" placeholder="e.g. none, or 2"></div>
+      <div class="fld"><label class="q">Any supplements you already take?<span class="why">So we do not double up, especially iron, folate or vitamin D.</span></label><textarea name="supplements"></textarea></div>
+    </div>
+
+    <!-- MOVEMENT, SLEEP, STRESS -->
+    <div class="sec">
+      <div class="sec-h">Section 6</div>
+      <div class="sec-t">Movement, sleep &amp; stress</div>
+      <div class="fld"><label class="q">What exercise do you currently do, and how often?</label><textarea name="exercise"></textarea></div>
+      <div class="row2">
+        <div class="fld"><label class="q">Roughly how many hours do you sleep?</label><input type="text" name="sleep_hours" placeholder="e.g. 6.5"></div>
+        <div class="fld"><label class="q">Do you smoke or use tobacco?</label>
+          <div class="opts">
+            <label><input type="radio" name="smoking" value="No">No</label>
+            <label><input type="radio" name="smoking" value="Yes">Yes</label>
+            <label><input type="radio" name="smoking" value="Former">Used to</label>
+          </div>
+        </div>
+      </div>
+      <div class="row2">
+        <div class="fld"><label class="q">Sleep quality, 1 (poor) to 10 (great)</label><input type="number" name="sleep_quality" min="1" max="10"></div>
+        <div class="fld"><label class="q">Stress level, 1 (calm) to 10 (very high)</label><input type="number" name="stress_level" min="1" max="10"></div>
+      </div>
+    </div>
+
+    <!-- WEARABLE + OTHER -->
+    <div class="sec">
+      <div class="sec-h">Section 7</div>
+      <div class="sec-t">Wearable &amp; anything else</div>
+      <div class="fld"><label class="q">Do you wear a fitness tracker?</label>
+        <div class="opts">
+          <label><input type="radio" name="wearable" value="None">None</label>
+          <label><input type="radio" name="wearable" value="Apple Watch">Apple Watch</label>
+          <label><input type="radio" name="wearable" value="Oura">Oura</label>
+          <label><input type="radio" name="wearable" value="Whoop">Whoop</label>
+          <label><input type="radio" name="wearable" value="Fitbit">Fitbit</label>
+          <label><input type="radio" name="wearable" value="Other">Other</label>
+        </div>
+      </div>
+      <div class="fld"><label class="q">Anything else you would like us to know?</label><textarea name="anything_else"></textarea></div>
+    </div>
+
+    <button type="submit" class="submit" id="submitBtn">Submit my answers</button>
+    <p class="consent">By submitting, you agree that Antiaging Labs may use these answers, together with your blood results, to prepare your personalised health protocol. Your information is stored securely and never sold. This is not a medical diagnosis.</p>
+  </form>
+
+  <div class="foot">Antiaging Labs · Hyderabad, India</div>
+</div>
+
+<script>
+(function(){
+  var q = new URLSearchParams(location.search);
+  var client = (q.get('client')||'').trim();
+  if(client){
+    document.getElementById('client_ref').value = client;
+    document.getElementById('hi').textContent = 'A few questions before we build your plan, ' + client;
+    var nm = document.querySelector('input[name=name]'); if(nm) nm.value = client;
+  }
+  var form = document.getElementById('intakeForm');
+  var btn = document.getElementById('submitBtn');
+  var okMsg = document.getElementById('okMsg');
+  var errMsg = document.getElementById('errMsg');
+
+  function collect(){
+    var data = {};
+    var fd = new FormData(form);
+    fd.forEach(function(v,k){
+      if(data[k]!==undefined){ if(!Array.isArray(data[k])) data[k]=[data[k]]; data[k].push(v); }
+      else data[k]=v;
+    });
+    data.submitted_at = new Date().toISOString();
+    return data;
+  }
+
+  // Submissions are emailed to this address via FormSubmit (no signup, no API key).
+  var ENDPOINT = 'https://formsubmit.co/ajax/company@kalman-labs.com';
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    errMsg.style.display='none';
+    btn.disabled = true; btn.textContent = 'Sending...';
+    var data = collect();
+
+    // Build a flat payload FormSubmit can email cleanly (arrays joined to strings).
+    var payload = { _subject: 'New health intake' + (data.name?(' - '+data.name):''), _template: 'table', _captcha: 'false' };
+    Object.keys(data).forEach(function(k){
+      payload[k] = Array.isArray(data[k]) ? data[k].join(', ') : data[k];
+    });
+
+    fetch(ENDPOINT, {
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify(payload)
+    })
+      .then(function(r){ return r.json(); })
+      .then(function(j){
+        if(j && (j.success === 'true' || j.success === true)){
+          form.style.display='none'; okMsg.style.display='block';
+          window.scrollTo({top:0,behavior:'smooth'});
+        } else { throw new Error('submit failed'); }
+      })
+      .catch(function(){
+        // Fallback so no answer is ever lost: open an email pre-filled with the responses.
+        var lines = Object.keys(data).map(function(k){ return k + ': ' + (Array.isArray(data[k])?data[k].join(', '):data[k]); });
+        var subj = encodeURIComponent('Health intake' + (data.name?(' - '+data.name):''));
+        var bodyTxt = encodeURIComponent(lines.join('\n'));
+        errMsg.innerHTML = 'We could not submit automatically. Your answers are ready to send by email instead: <a href="mailto:company@kalman-labs.com?subject='+subj+'&body='+bodyTxt+'" style="color:#7a3417;font-weight:600;">tap here to send them</a>.';
+        errMsg.style.display='block';
+        btn.disabled=false; btn.textContent='Submit my answers';
+      });
+  });
+})();
+</script>
+</body>
+</html>
