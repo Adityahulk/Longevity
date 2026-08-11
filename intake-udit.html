@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Your health intake | Antiaging Labs</title>
+<link rel="icon" type="image/svg+xml" href="/assets/logo/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F5F1E8;--cream-dark:#EDE7D9;--paper:#FBF8F1;--ink:#0E1B2C;--ink-soft:#1F2D40;--ink-mute:#4A5668;--ink-fade:#7A8497;
+    --rule:#C8BFA8;--rule-soft:#DCD3BC;--accent:#B85426;--accent-warm:#D17244;--leaf:#2F5D3C;--danger:#9B2C2C;
+    --serif:'Fraunces',Georgia,serif;--sans:'Inter',-apple-system,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:680px;margin:0 auto;padding:40px 22px 90px;}
+  .brand{font-family:var(--serif);font-size:20px;color:var(--ink);margin-bottom:4px;}
+  .brand .dot{color:var(--accent);}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:26px 0 8px;}
+  h1{font-family:var(--serif);font-size:32px;font-weight:400;line-height:1.15;letter-spacing:-0.02em;margin-bottom:12px;}
+  .lede{font-size:16px;color:var(--ink-mute);margin-bottom:8px;}
+  .lede b{color:var(--ink);}
+  .sec{background:var(--paper);border:1px solid var(--rule-soft);border-radius:10px;padding:24px 22px;margin:22px 0;}
+  .sec-h{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:4px;}
+  .sec-t{font-family:var(--serif);font-size:20px;font-weight:500;margin-bottom:6px;}
+  .sec-note{font-size:13px;color:var(--ink-fade);margin-bottom:14px;}
+  .fld{margin:16px 0;}
+  label.q{display:block;font-size:14.5px;font-weight:500;color:var(--ink);margin-bottom:7px;}
+  label.q .req{color:var(--accent);}
+  label.q .why{display:block;font-weight:400;font-size:12.5px;color:var(--ink-fade);margin-top:2px;}
+  input[type=text],input[type=number],input[type=date],input[type=email],input[type=tel],textarea,select{
+    width:100%;font-family:var(--sans);font-size:15px;color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:7px;padding:11px 13px;}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);}
+  textarea{min-height:74px;resize:vertical;}
+  .opts{display:flex;flex-wrap:wrap;gap:8px;}
+  .opts label{font-size:14px;background:#fff;border:1px solid var(--rule);border-radius:999px;padding:8px 15px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;}
+  .opts input{accent-color:var(--accent);}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+  .submit{width:100%;font-family:var(--sans);font-size:16px;font-weight:600;background:var(--accent);color:#fff;border:none;padding:15px;border-radius:8px;cursor:pointer;margin-top:8px;}
+  .submit:hover{background:var(--accent-warm);}
+  .submit:disabled{opacity:.5;cursor:default;}
+  .consent{font-size:12.5px;color:var(--ink-mute);margin-top:14px;line-height:1.55;}
+  .msg{display:none;border-radius:10px;padding:20px 22px;margin:20px 0;font-size:15px;line-height:1.6;}
+  .msg.ok{display:block;background:#EAF3EC;border:1px solid #B9D6C0;color:#234a30;}
+  .msg.err{display:block;background:#FBECE6;border:1px solid #E7C3B2;color:#7a3417;}
+  .foot{font-family:var(--mono);font-size:11px;color:var(--ink-fade);text-align:center;margin-top:30px;}
+  @media(max-width:560px){.row2,.row3{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">Antiaging Labs<span class="dot">.</span></div>
+  <div class="eyebrow">Health intake</div>
+  <h1 id="hi">A few questions before we build your plan</h1>
+  <p class="lede">Your bloodwork tells us the <b>what</b>. These answers tell us the <b>why</b>, and what is safe and realistic for you. It takes about 10 minutes. A few questions here decide how we read specific results in your panel, so they matter more than they look.</p>
+
+  <div id="okMsg" class="msg ok"><b>Thank you.</b> Your answers are in. We will use them to prepare your personalised protocol and will be in touch.</div>
+  <div id="errMsg" class="msg err"></div>
+
+  <form id="intakeForm">
+    <input type="hidden" name="client_ref" id="client_ref" value="Udit">
+
+    <!-- 1 · ABOUT YOU -->
+    <div class="sec">
+      <div class="sec-h">Section 1</div>
+      <div class="sec-t">About you</div>
+      <div class="fld"><label class="q">Your name <span class="req">*</span></label><input type="text" name="name" required></div>
+      <div class="row2">
+        <div class="fld"><label class="q">Age</label><input type="number" name="age" min="1" max="120"></div>
+        <div class="fld"><label class="q">Best contact (email or phone)</label><input type="text" name="contact"></div>
+      </div>
+    </div>
+
+    <!-- 2 · GOALS -->
+    <div class="sec">
+      <div class="sec-h">Section 2</div>
+      <div class="sec-t">Your main goal</div>
+      <div class="fld">
+        <label class="q">What matters most to you right now?</label>
+        <div class="opts">
+          <label><input type="radio" name="primary_goal" value="Lower heart disease risk">Lower heart risk</label>
+          <label><input type="radio" name="primary_goal" value="More energy">More energy</label>
+          <label><input type="radio" name="primary_goal" value="Fat loss">Fat loss</label>
+          <label><input type="radio" name="primary_goal" value="Build muscle or performance">Muscle / performance</label>
+          <label><input type="radio" name="primary_goal" value="Longevity">Longevity</label>
+          <label><input type="radio" name="primary_goal" value="Other">Other</label>
+        </div>
+      </div>
+      <div class="fld"><label class="q">Roughly how many minutes a day can you commit to health habits?</label><input type="text" name="time_per_day" placeholder="e.g. 30 minutes"></div>
+    </div>
+
+    <!-- 3 · THE DAY OF YOUR BLOOD TEST -->
+    <div class="sec">
+      <div class="sec-h">Section 3</div>
+      <div class="sec-t">The days around your blood test</div>
+      <div class="sec-note">Please answer these carefully. Three separate results in your panel could be explained partly by what happened in the 48 to 72 hours before the draw, and your answers decide whether we treat them as real or repeat them.</div>
+      <div class="fld">
+        <label class="q">Did you do any hard, long or unusual exercise in the 2 to 3 days before the blood test?<span class="why">This is the single most useful question here. Heavy training releases muscle enzymes that look like a liver signal on a blood test.</span></label>
+        <div class="opts">
+          <label><input type="radio" name="exercise_before_draw" value="Yes, hard or unusual training">Yes, hard or unusual</label>
+          <label><input type="radio" name="exercise_before_draw" value="Normal routine">My normal routine</label>
+          <label><input type="radio" name="exercise_before_draw" value="No exercise">No exercise</label>
+          <label><input type="radio" name="exercise_before_draw" value="Not sure">Not sure</label>
+        </div>
+      </div>
+      <div class="fld"><label class="q">If yes, what was it and how many days before?</label><input type="text" name="exercise_before_detail" placeholder="e.g. heavy leg day, 2 days before"></div>
+      <div class="row2">
+        <div class="fld">
+          <label class="q">Were you fasting, and for how long?<span class="why">Affects how we read your triglycerides.</span></label>
+          <input type="text" name="fasting_hours" placeholder="e.g. 12 hours, or not fasting">
+        </div>
+        <div class="fld">
+          <label class="q">Had you been drinking enough water, or did you feel dehydrated?<span class="why">Mild dehydration concentrates several values.</span></label>
+          <div class="opts">
+            <label><input type="radio" name="hydration_before_draw" value="Well hydrated">Well hydrated</label>
+            <label><input type="radio" name="hydration_before_draw" value="Possibly dehydrated">Possibly dehydrated</label>
+            <label><input type="radio" name="hydration_before_draw" value="Not sure">Not sure</label>
+          </div>
+        </div>
+      </div>
+      <div class="fld"><label class="q">Any illness, infection, injury or dental problem in the few weeks before the test?<span class="why">These temporarily raise inflammation markers.</span></label><input type="text" name="recent_illness" placeholder="e.g. cold two weeks before, or none"></div>
+      <div class="fld"><label class="q">Around that time, were you taking creatine, protein powder, pre-workout, or any new supplement?<span class="why">Some of these change liver and kidney readings without anything being wrong.</span></label><input type="text" name="supplements_at_draw" placeholder="e.g. creatine and whey, or none"></div>
+    </div>
+
+    <!-- 4 · HEART RISK -->
+    <div class="sec">
+      <div class="sec-h">Section 4</div>
+      <div class="sec-t">Heart and family history</div>
+      <div class="sec-note">Your panel showed a cholesterol pattern plus an inherited marker, so this section changes how aggressively we act, and what we recommend you discuss with a doctor.</div>
+      <div class="fld">
+        <label class="q">Do you smoke or use any tobacco (cigarettes, vape, gutka, chewing tobacco)?<span class="why">This is the biggest single factor in your estimated heart age. It can shift the number by nearly a decade.</span></label>
+        <div class="opts">
+          <label><input type="radio" name="smoking" value="Never">Never</label>
+          <label><input type="radio" name="smoking" value="Currently">Currently</label>
+          <label><input type="radio" name="smoking" value="Former">Used to, quit</label>
+          <label><input type="radio" name="smoking" value="Occasionally">Occasionally</label>
+        </div>
+      </div>
+      <div class="fld"><label class="q">Do you know a recent blood pressure reading?<span class="why">The other missing input for your heart age, and needed to check for metabolic syndrome. Even a pharmacy or home reading helps.</span></label><input type="text" name="blood_pressure" placeholder="e.g. 124/80, or unknown"></div>
+      <div class="fld"><label class="q">Has any blood relative had a heart attack, stroke, bypass, stent, or sudden unexplained death? Who, and at what age?<span class="why">One of your markers is largely inherited, so family history strongly changes your risk picture, and may mean close relatives should be tested too.</span></label><textarea name="family_cardiac_history" placeholder="e.g. father, heart attack at 52; or none known"></textarea></div>
+      <div class="fld"><label class="q">Any family history of high cholesterol, diabetes, or high blood pressure?</label><textarea name="family_metabolic_history"></textarea></div>
+      <div class="fld"><label class="q">Have you ever been told your cholesterol was high, or been offered or prescribed a statin or other cholesterol medication?<span class="why">Tells us whether this pattern is new or long-standing.</span></label><input type="text" name="cholesterol_history" placeholder="e.g. never checked before, or told high in 2023"></div>
+      <div class="fld">
+        <label class="q">Do you ever get any of these? (tick all that apply)<span class="why">Important safety check before we recommend harder training.</span></label>
+        <div class="opts">
+          <label><input type="checkbox" name="cardiac_symptoms" value="Chest tightness or pressure on exertion">Chest tightness on exertion</label>
+          <label><input type="checkbox" name="cardiac_symptoms" value="Unusual breathlessness">Unusual breathlessness</label>
+          <label><input type="checkbox" name="cardiac_symptoms" value="Dizziness or near-fainting during exercise">Dizziness during exercise</label>
+          <label><input type="checkbox" name="cardiac_symptoms" value="Palpitations or irregular heartbeat">Palpitations</label>
+          <label><input type="checkbox" name="cardiac_symptoms" value="Unusual fatigue">Unusual fatigue</label>
+          <label><input type="checkbox" name="cardiac_symptoms" value="None of these">None of these</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 · BODY & MEDICAL -->
+    <div class="sec">
+      <div class="sec-h">Section 5</div>
+      <div class="sec-t">Body &amp; medical</div>
+      <div class="row3">
+        <div class="fld"><label class="q">Height (cm)</label><input type="number" name="height_cm" min="100" max="230"></div>
+        <div class="fld"><label class="q">Weight (kg)</label><input type="number" name="weight_kg" min="25" max="250"></div>
+        <div class="fld"><label class="q">Waist (cm, if known)<span class="why">A stronger risk signal than weight.</span></label><input type="number" name="waist_cm" min="40" max="200"></div>
+      </div>
+      <div class="fld"><label class="q">Any existing health conditions or diagnoses?</label><textarea name="conditions"></textarea></div>
+      <div class="fld"><label class="q">Any current medications?<span class="why">Needed before we suggest any supplement, to avoid interactions.</span></label><textarea name="medications"></textarea></div>
+      <div class="fld"><label class="q">All supplements you currently take, with doses if you know them<span class="why">Especially any vitamin D, B12, B-complex or omega-3, so we do not double up.</span></label><textarea name="supplements_current"></textarea></div>
+      <div class="fld"><label class="q">Any episodes of sudden severe joint pain or swelling, especially in the big toe, ankle or knee?<span class="why">One of your markers sits close to the level where this can happen.</span></label><input type="text" name="joint_pain" placeholder="e.g. never, or once last year"></div>
+      <div class="fld"><label class="q">Have you ever done a DNA or genetic test (23andMe, Ancestry, MyHeritage, or a clinical one)?<span class="why">If you have the raw file, it can tell us about how you process B vitamins and your inherited cholesterol risk, at no extra cost.</span></label>
+        <div class="opts">
+          <label><input type="radio" name="dna_test" value="Yes, and I have the file">Yes, I have the file</label>
+          <label><input type="radio" name="dna_test" value="Yes, but I do not have the file">Yes, no file</label>
+          <label><input type="radio" name="dna_test" value="No">No</label>
+        </div>
+      </div>
+      <div class="fld"><label class="q">Any food allergies or intolerances?</label><input type="text" name="allergies"></div>
+    </div>
+
+    <!-- 6 · DIET -->
+    <div class="sec">
+      <div class="sec-h">Section 6</div>
+      <div class="sec-t">Diet</div>
+      <div class="sec-note">This is your biggest lever. Several of your results respond strongly to food.</div>
+      <div class="fld"><label class="q">Which best describes how you eat?<span class="why">This matters a lot: one of your vitamin levels and a linked risk marker are strongly affected by whether you eat animal foods.</span></label>
+        <div class="opts">
+          <label><input type="radio" name="diet_type" value="Vegetarian">Vegetarian</label>
+          <label><input type="radio" name="diet_type" value="Eggetarian">Eggetarian</label>
+          <label><input type="radio" name="diet_type" value="Vegan">Vegan</label>
+          <label><input type="radio" name="diet_type" value="Non-vegetarian, occasionally">Non-veg, occasionally</label>
+          <label><input type="radio" name="diet_type" value="Non-vegetarian, regularly">Non-veg, regularly</label>
+        </div>
+      </div>
+      <div class="fld"><label class="q">A typical day of eating, with rough timings (breakfast, lunch, dinner, snacks)</label><textarea name="typical_diet"></textarea></div>
+      <div class="fld"><label class="q">What time do you usually eat your first meal, and your last?<span class="why">Meal timing affects triglycerides and glucose, independent of what you eat.</span></label><input type="text" name="eating_window" placeholder="e.g. 9am to 10:30pm"></div>
+      <div class="fld"><label class="q">Alcohol per week, and what kind?<span class="why">Directly relevant to three of your results: triglycerides, liver enzymes and uric acid.</span></label><input type="text" name="alcohol" placeholder="e.g. none, or 4 beers on weekends"></div>
+      <div class="row2">
+        <div class="fld"><label class="q">Sugary drinks or sweets per day<span class="why">Fructose raises both triglycerides and uric acid.</span></label><input type="text" name="sugary_intake" placeholder="e.g. 2 sweet teas, one dessert"></div>
+        <div class="fld"><label class="q">Caffeine per day (cups)</label><input type="number" name="caffeine_cups" min="0" max="20"></div>
+      </div>
+      <div class="fld"><label class="q">How often do you eat fried food, or food from outside or restaurants?<span class="why">The main dietary driver of your cholesterol particle count.</span></label><input type="text" name="fried_outside_food" placeholder="e.g. twice a week"></div>
+      <div class="fld"><label class="q">How often do you eat red meat, organ meat, or seafood or shellfish?<span class="why">These affect uric acid specifically.</span></label><input type="text" name="purine_foods" placeholder="e.g. mutton once a week, or never"></div>
+      <div class="fld"><label class="q">Roughly how much dairy, ghee, butter or coconut oil do you have in a day?<span class="why">The saturated fat sources most likely to be raising your cholesterol.</span></label><input type="text" name="saturated_fat" placeholder="e.g. 2 cups milk, 2 tsp ghee"></div>
+    </div>
+
+    <!-- 7 · MOVEMENT, SUN, SLEEP, STRESS -->
+    <div class="sec">
+      <div class="sec-h">Section 7</div>
+      <div class="sec-t">Movement, sunlight, sleep &amp; stress</div>
+      <div class="fld"><label class="q">What exercise do you currently do, how often, and how hard?</label><textarea name="exercise_routine" placeholder="e.g. gym 3x a week, weights, plus a 20 min walk most days"></textarea></div>
+      <div class="fld"><label class="q">Roughly how many steps or how much walking on a normal day?</label><input type="text" name="daily_steps" placeholder="e.g. 6000 steps"></div>
+      <div class="fld"><label class="q">On a normal day, how many minutes are you in direct sunlight, with arms or legs uncovered?<span class="why">One of your vitamin levels is very low, and this is the main reason it happens.</span></label><input type="text" name="sun_exposure" placeholder="e.g. 10 minutes, mostly indoors"></div>
+      <div class="fld">
+        <label class="q">Which of these apply to you? (tick all that apply)<span class="why">All of these reduce how much vitamin D your skin makes.</span></label>
+        <div class="opts">
+          <label><input type="checkbox" name="sun_factors" value="Work indoors all day">Indoors all day</label>
+          <label><input type="checkbox" name="sun_factors" value="Commute in a car or covered vehicle">Covered commute</label>
+          <label><input type="checkbox" name="sun_factors" value="Usually wear full sleeves outdoors">Full sleeves outdoors</label>
+          <label><input type="checkbox" name="sun_factors" value="Use sunscreen regularly">Use sunscreen</label>
+          <label><input type="checkbox" name="sun_factors" value="Rarely go outside during daylight">Rarely out in daylight</label>
+        </div>
+      </div>
+      <div class="fld"><label class="q">Have you ever taken a vitamin D supplement, and did you have it tested before?</label><input type="text" name="vitd_history" placeholder="e.g. never, or a weekly sachet two years ago"></div>
+      <div class="row2">
+        <div class="fld"><label class="q">Usual bedtime and wake time?<span class="why">Sleep timing affects testosterone and metabolic markers.</span></label><input type="text" name="sleep_schedule" placeholder="e.g. 1am to 8am"></div>
+        <div class="fld"><label class="q">Sleep quality, 1 (poor) to 10 (great)</label><input type="number" name="sleep_quality" min="1" max="10"></div>
+      </div>
+      <div class="row2">
+        <div class="fld"><label class="q">Stress level, 1 (calm) to 10 (very high)</label><input type="number" name="stress_level" min="1" max="10"></div>
+        <div class="fld"><label class="q">Typical working hours per week</label><input type="text" name="work_hours" placeholder="e.g. 50"></div>
+      </div>
+    </div>
+
+    <!-- 8 · WEARABLE & ANYTHING ELSE -->
+    <div class="sec">
+      <div class="sec-h">Section 8</div>
+      <div class="sec-t">Wearable &amp; anything else</div>
+      <div class="fld"><label class="q">Do you wear a fitness tracker?</label>
+        <div class="opts">
+          <label><input type="radio" name="wearable" value="None">None</label>
+          <label><input type="radio" name="wearable" value="Apple Watch">Apple Watch</label>
+          <label><input type="radio" name="wearable" value="Oura">Oura</label>
+          <label><input type="radio" name="wearable" value="Whoop">Whoop</label>
+          <label><input type="radio" name="wearable" value="Garmin">Garmin</label>
+          <label><input type="radio" name="wearable" value="Fitbit">Fitbit</label>
+          <label><input type="radio" name="wearable" value="Other">Other</label>
+        </div>
+      </div>
+      <div class="fld"><label class="q">Anything else you would like us to know, or any symptom that has been bothering you?</label><textarea name="anything_else"></textarea></div>
+    </div>
+
+    <button type="submit" class="submit" id="submitBtn">Submit my answers</button>
+    <p class="consent">By submitting, you agree that Antiaging Labs may use these answers, together with your blood results, to prepare your personalised health protocol. Your information is stored securely and never sold. This is not a medical diagnosis.</p>
+  </form>
+
+  <div class="foot">Antiaging Labs · Hyderabad, India</div>
+</div>
+
+<script>
+(function(){
+  var q = new URLSearchParams(location.search);
+  var client = (q.get('client')||'Udit').trim();
+  if(client){
+    document.getElementById('client_ref').value = client;
+    document.getElementById('hi').textContent = 'A few questions before we build your plan, ' + client;
+    var nm = document.querySelector('input[name=name]'); if(nm) nm.value = client;
+  }
+  var form = document.getElementById('intakeForm');
+  var btn = document.getElementById('submitBtn');
+  var okMsg = document.getElementById('okMsg');
+  var errMsg = document.getElementById('errMsg');
+
+  function collect(){
+    var data = {};
+    var fd = new FormData(form);
+    fd.forEach(function(v,k){
+      if(data[k]!==undefined){ if(!Array.isArray(data[k])) data[k]=[data[k]]; data[k].push(v); }
+      else data[k]=v;
+    });
+    data.submitted_at = new Date().toISOString();
+    return data;
+  }
+
+  // Submissions are emailed to this address via FormSubmit (no signup, no API key).
+  var ENDPOINT = 'https://formsubmit.co/ajax/company@kalman-labs.com';
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    errMsg.style.display='none';
+    btn.disabled = true; btn.textContent = 'Sending...';
+    var data = collect();
+
+    var payload = { _subject: 'New health intake' + (data.name?(' - '+data.name):''), _template: 'table', _captcha: 'false' };
+    Object.keys(data).forEach(function(k){
+      payload[k] = Array.isArray(data[k]) ? data[k].join(', ') : data[k];
+    });
+
+    fetch(ENDPOINT, {
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify(payload)
+    })
+      .then(function(r){ return r.json(); })
+      .then(function(j){
+        if(j && (j.success === 'true' || j.success === true)){
+          form.style.display='none'; okMsg.style.display='block';
+          window.scrollTo({top:0,behavior:'smooth'});
+        } else { throw new Error('submit failed'); }
+      })
+      .catch(function(){
+        var lines = Object.keys(data).map(function(k){ return k + ': ' + (Array.isArray(data[k])?data[k].join(', '):data[k]); });
+        var subj = encodeURIComponent('Health intake' + (data.name?(' - '+data.name):''));
+        var bodyTxt = encodeURIComponent(lines.join('\n'));
+        errMsg.innerHTML = 'We could not submit automatically. Your answers are ready to send by email instead: <a href="mailto:company@kalman-labs.com?subject='+subj+'&body='+bodyTxt+'" style="color:#7a3417;font-weight:600;">tap here to send them</a>.';
+        errMsg.style.display='block';
+        btn.disabled=false; btn.textContent='Submit my answers';
+      });
+  });
+})();
+</script>
+</body>
+</html>

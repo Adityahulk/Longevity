@@ -214,6 +214,11 @@
       "source": "/intake.html",
       "destination": "/intake",
       "permanent": true
+    },
+    {
+      "source": "/intake-udit.html",
+      "destination": "/intake-udit",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -420,6 +425,14 @@
     {
       "source": "/intake/",
       "destination": "/intake.html"
+    },
+    {
+      "source": "/intake-udit",
+      "destination": "/intake-udit.html"
+    },
+    {
+      "source": "/intake-udit/",
+      "destination": "/intake-udit.html"
     },
     {
       "source": "/strategy",
