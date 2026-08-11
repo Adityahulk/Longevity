@@ -81,6 +81,11 @@
       "permanent": true
     },
     {
+      "source": "/client-9.html",
+      "destination": "/client-9",
+      "permanent": true
+    },
+    {
       "source": "/engine.html",
       "destination": "/engine",
       "permanent": true
@@ -569,6 +574,22 @@
     {
       "source": "/shubhani-report/",
       "destination": "/client-8.html"
+    },
+    {
+      "source": "/client-9",
+      "destination": "/client-9.html"
+    },
+    {
+      "source": "/client-9/",
+      "destination": "/client-9.html"
+    },
+    {
+      "source": "/nikhil-report",
+      "destination": "/client-9.html"
+    },
+    {
+      "source": "/nikhil-report/",
+      "destination": "/client-9.html"
     },
     {
       "source": "/sample-report",
