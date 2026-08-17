@@ -166,6 +166,11 @@
       "permanent": true
     },
     {
+      "source": "/learn-fiber-protein-ratio.html",
+      "destination": "/learn/fiber-protein-ratio",
+      "permanent": true
+    },
+    {
       "source": "/masai-ppt.html",
       "destination": "/masai-ppt",
       "permanent": true
@@ -344,6 +349,14 @@
     {
       "source": "/learn/glymphatic-system/",
       "destination": "/learn-glymphatic-system.html"
+    },
+    {
+      "source": "/learn/fiber-protein-ratio",
+      "destination": "/learn-fiber-protein-ratio.html"
+    },
+    {
+      "source": "/learn/fiber-protein-ratio/",
+      "destination": "/learn-fiber-protein-ratio.html"
     },
     {
       "source": "/learn/longevity-escape-velocity",
