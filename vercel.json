@@ -171,6 +171,11 @@
       "permanent": true
     },
     {
+      "source": "/learn-protein-powder-bloating.html",
+      "destination": "/learn/protein-powder-bloating",
+      "permanent": true
+    },
+    {
       "source": "/masai-ppt.html",
       "destination": "/masai-ppt",
       "permanent": true
@@ -357,6 +362,14 @@
     {
       "source": "/learn/fiber-protein-ratio/",
       "destination": "/learn-fiber-protein-ratio.html"
+    },
+    {
+      "source": "/learn/protein-powder-bloating",
+      "destination": "/learn-protein-powder-bloating.html"
+    },
+    {
+      "source": "/learn/protein-powder-bloating/",
+      "destination": "/learn-protein-powder-bloating.html"
     },
     {
       "source": "/learn/longevity-escape-velocity",

@@ -6,12 +6,24 @@
   <atom:link href="https://antiaging-labs.com/feed.xml" rel="self" type="application/rss+xml"/>
   <description>The latest longevity and biomarker research, decoded in plain English. New posts from Antiaging Labs Field Notes.</description>
   <language>en-us</language>
-  <lastBuildDate>Fri, 06 Jun 2026 09:00:00 +0530</lastBuildDate>
+  <lastBuildDate>Tue, 18 Aug 2026 09:00:00 +0530</lastBuildDate>
   <image>
     <url>https://antiaging-labs.com/assets/logo/png/og-1200x630.png</url>
     <title>Antiaging Labs Field Notes</title>
     <link>https://antiaging-labs.com/learn</link>
   </image>
+  <item>
+    <title>Why Your Protein Shake Makes You Feel Like a Balloon</title>
+    <link>https://antiaging-labs.com/learn/protein-powder-bloating</link>
+    <guid isPermaLink="true">https://antiaging-labs.com/learn/protein-powder-bloating</guid>
+    <pubDate>Tue, 18 Aug 2026 09:00:00 +0530</pubDate>
+    <category>Nutrition Science</category>
+    <description><![CDATA[Lactose is only one suspect. Casein curds, sweeteners, gums, emulsifiers and a giant shake chugged in seconds can all make a very different gut experience.]]></description>
+    <content:encoded><![CDATA[
+      <p>Whey concentrate, isolate and casein are not interchangeable once they meet your digestive tract. Learn how lactose, additives, dose, speed and protein fermentation can contribute to bloating.</p>
+      <p><a href="https://antiaging-labs.com/learn/protein-powder-bloating">Read the full Field Note →</a></p>
+    ]]></content:encoded>
+  </item>
   <item>
     <title>Rethinking mitochondrial aging: what 750,000 genomes tell us about longevity</title>
     <link>https://antiaging-labs.com/learn/mitochondrial-aging</link>
