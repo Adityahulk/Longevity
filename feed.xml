@@ -6,12 +6,24 @@
   <atom:link href="https://antiaging-labs.com/feed.xml" rel="self" type="application/rss+xml"/>
   <description>The latest longevity and biomarker research, decoded in plain English. New posts from Antiaging Labs Field Notes.</description>
   <language>en-us</language>
-  <lastBuildDate>Tue, 18 Aug 2026 09:00:00 +0530</lastBuildDate>
+  <lastBuildDate>Fri, 21 Aug 2026 09:00:00 +0530</lastBuildDate>
   <image>
     <url>https://antiaging-labs.com/assets/logo/png/og-1200x630.png</url>
     <title>Antiaging Labs Field Notes</title>
     <link>https://antiaging-labs.com/learn</link>
   </image>
+  <item>
+    <title>Your Body Has Scaffolding. It Gets Older Too.</title>
+    <link>https://antiaging-labs.com/learn/ecm-stiffness</link>
+    <guid isPermaLink="true">https://antiaging-labs.com/learn/ecm-stiffness</guid>
+    <pubDate>Fri, 21 Aug 2026 09:00:00 +0530</pubDate>
+    <category>Longevity Science</category>
+    <description><![CDATA[The extracellular matrix is the collagen, elastin and molecular scaffolding around your cells. Why it stiffens with age, what that changes, and which interventions are real versus merely exciting.]]></description>
+    <content:encoded><![CDATA[
+      <p>ECM aging is real, but claims that we can reverse whole-body tissue stiffness are ahead of the evidence. We unpack glycation, arterial stiffness, mechanosignalling and the practical moves that have a human signal.</p>
+      <p><a href="https://antiaging-labs.com/learn/ecm-stiffness">Read the full Field Note →</a></p>
+    ]]></content:encoded>
+  </item>
   <item>
     <title>Why Your Protein Shake Makes You Feel Like a Balloon</title>
     <link>https://antiaging-labs.com/learn/protein-powder-bloating</link>

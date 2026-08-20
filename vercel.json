@@ -176,6 +176,11 @@
       "permanent": true
     },
     {
+      "source": "/learn-ecm-stiffness.html",
+      "destination": "/learn/ecm-stiffness",
+      "permanent": true
+    },
+    {
       "source": "/masai-ppt.html",
       "destination": "/masai-ppt",
       "permanent": true
@@ -370,6 +375,14 @@
     {
       "source": "/learn/protein-powder-bloating/",
       "destination": "/learn-protein-powder-bloating.html"
+    },
+    {
+      "source": "/learn/ecm-stiffness",
+      "destination": "/learn-ecm-stiffness.html"
+    },
+    {
+      "source": "/learn/ecm-stiffness/",
+      "destination": "/learn-ecm-stiffness.html"
     },
     {
       "source": "/learn/longevity-escape-velocity",
