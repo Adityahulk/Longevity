@@ -6,12 +6,24 @@
   <atom:link href="https://antiaging-labs.com/feed.xml" rel="self" type="application/rss+xml"/>
   <description>The latest longevity and biomarker research, decoded in plain English. New posts from Antiaging Labs Field Notes.</description>
   <language>en-us</language>
-  <lastBuildDate>Fri, 21 Aug 2026 09:00:00 +0530</lastBuildDate>
+  <lastBuildDate>Wed, 26 Aug 2026 09:00:00 +0530</lastBuildDate>
   <image>
     <url>https://antiaging-labs.com/assets/logo/png/og-1200x630.png</url>
     <title>Antiaging Labs Field Notes</title>
     <link>https://antiaging-labs.com/learn</link>
   </image>
+  <item>
+    <title>DNA Mending: Your 24/7 Repair Crew</title>
+    <link>https://antiaging-labs.com/learn/dna-repair</link>
+    <guid isPermaLink="true">https://antiaging-labs.com/learn/dna-repair</guid>
+    <pubDate>Wed, 26 Aug 2026 09:00:00 +0530</pubDate>
+    <category>Longevity Science</category>
+    <description><![CDATA[DNA damage is normal. A plain-English guide to the repair systems that deal with it, how aging changes the balance, what medicine can do today, and which habits actually reduce the avoidable workload.]]></description>
+    <content:encoded><![CDATA[
+      <p>DNA repair is central to healthy aging, but it is not a single master switch or a supplement protocol. Learn how BER, NER, mismatch repair, homologous recombination and end joining protect the genome.</p>
+      <p><a href="https://antiaging-labs.com/learn/dna-repair">Read the full Field Note →</a></p>
+    ]]></content:encoded>
+  </item>
   <item>
     <title>Your Body Has Scaffolding. It Gets Older Too.</title>
     <link>https://antiaging-labs.com/learn/ecm-stiffness</link>

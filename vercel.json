@@ -181,6 +181,11 @@
       "permanent": true
     },
     {
+      "source": "/learn-dna-repair.html",
+      "destination": "/learn/dna-repair",
+      "permanent": true
+    },
+    {
       "source": "/masai-ppt.html",
       "destination": "/masai-ppt",
       "permanent": true
@@ -383,6 +388,14 @@
     {
       "source": "/learn/ecm-stiffness/",
       "destination": "/learn-ecm-stiffness.html"
+    },
+    {
+      "source": "/learn/dna-repair",
+      "destination": "/learn-dna-repair.html"
+    },
+    {
+      "source": "/learn/dna-repair/",
+      "destination": "/learn-dna-repair.html"
     },
     {
       "source": "/learn/longevity-escape-velocity",
