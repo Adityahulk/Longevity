@@ -191,6 +191,11 @@
       "permanent": true
     },
     {
+      "source": "/learn-social-connection.html",
+      "destination": "/learn/social-connection",
+      "permanent": true
+    },
+    {
       "source": "/masai-ppt.html",
       "destination": "/masai-ppt",
       "permanent": true
@@ -409,6 +414,14 @@
     {
       "source": "/learn/marathon-4-30/",
       "destination": "/learn-marathon-4-30.html"
+    },
+    {
+      "source": "/learn/social-connection",
+      "destination": "/learn-social-connection.html"
+    },
+    {
+      "source": "/learn/social-connection/",
+      "destination": "/learn-social-connection.html"
     },
     {
       "source": "/learn/longevity-escape-velocity",
