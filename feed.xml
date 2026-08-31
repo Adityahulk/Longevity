@@ -6,12 +6,24 @@
   <atom:link href="https://antiaging-labs.com/feed.xml" rel="self" type="application/rss+xml"/>
   <description>The latest longevity and biomarker research, decoded in plain English. New posts from Antiaging Labs Field Notes.</description>
   <language>en-us</language>
-  <lastBuildDate>Wed, 26 Aug 2026 09:00:00 +0530</lastBuildDate>
+  <lastBuildDate>Mon, 31 Aug 2026 09:00:00 +0530</lastBuildDate>
   <image>
     <url>https://antiaging-labs.com/assets/logo/png/og-1200x630.png</url>
     <title>Antiaging Labs Field Notes</title>
     <link>https://antiaging-labs.com/learn</link>
   </image>
+  <item>
+    <title>I Ran 42.2 km in 4 Hours 30. Here Is What I Learned.</title>
+    <link>https://antiaging-labs.com/learn/marathon-4-30</link>
+    <guid isPermaLink="true">https://antiaging-labs.com/learn/marathon-4-30</guid>
+    <pubDate>Mon, 31 Aug 2026 09:00:00 +0530</pubDate>
+    <category>Training Notes</category>
+    <description><![CDATA[A 4:30 marathon is equal parts fitness, patience and a slightly unreasonable amount of stubbornness. What the race taught me about performance, recovery and the difference between a challenge and a complete longevity plan.]]></description>
+    <content:encoded><![CDATA[
+      <p>A first-person Field Note on finishing 42.2 km, the real recovery bill, transient troponin headlines, and the training habits worth keeping long after race day.</p>
+      <p><a href="https://antiaging-labs.com/learn/marathon-4-30">Read the full Field Note →</a></p>
+    ]]></content:encoded>
+  </item>
   <item>
     <title>DNA Mending: Your 24/7 Repair Crew</title>
     <link>https://antiaging-labs.com/learn/dna-repair</link>

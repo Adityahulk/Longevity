@@ -186,6 +186,11 @@
       "permanent": true
     },
     {
+      "source": "/learn-marathon-4-30.html",
+      "destination": "/learn/marathon-4-30",
+      "permanent": true
+    },
+    {
       "source": "/masai-ppt.html",
       "destination": "/masai-ppt",
       "permanent": true
@@ -396,6 +401,14 @@
     {
       "source": "/learn/dna-repair/",
       "destination": "/learn-dna-repair.html"
+    },
+    {
+      "source": "/learn/marathon-4-30",
+      "destination": "/learn-marathon-4-30.html"
+    },
+    {
+      "source": "/learn/marathon-4-30/",
+      "destination": "/learn-marathon-4-30.html"
     },
     {
       "source": "/learn/longevity-escape-velocity",
