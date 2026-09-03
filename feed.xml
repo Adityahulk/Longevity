@@ -6,12 +6,24 @@
   <atom:link href="https://antiaging-labs.com/feed.xml" rel="self" type="application/rss+xml"/>
   <description>The latest longevity and biomarker research, decoded in plain English. New posts from Antiaging Labs Field Notes.</description>
   <language>en-us</language>
-  <lastBuildDate>Mon, 31 Aug 2026 09:00:00 +0530</lastBuildDate>
+  <lastBuildDate>Fri, 04 Sep 2026 09:00:00 +0530</lastBuildDate>
   <image>
     <url>https://antiaging-labs.com/assets/logo/png/og-1200x630.png</url>
     <title>Antiaging Labs Field Notes</title>
     <link>https://antiaging-labs.com/learn</link>
   </image>
+  <item>
+    <title>Your Body Is Training for 100. Is Your Brain?</title>
+    <link>https://antiaging-labs.com/learn/cognitive-longevity</link>
+    <guid isPermaLink="true">https://antiaging-labs.com/learn/cognitive-longevity</guid>
+    <pubDate>Fri, 04 Sep 2026 09:00:00 +0530</pubDate>
+    <category>Cognitive Health</category>
+    <description><![CDATA[Attention, memory and deep thinking are healthspan skills too. A clear guide to doomscrolling, attention theft, AI offloading and the habits that protect cognitive longevity.]]></description>
+    <content:encoded><![CDATA[
+      <p>We train our bodies to live longer. This Field Note is about training the attention, memory and mental independence that make those years meaningful.</p>
+      <p><a href="https://antiaging-labs.com/learn/cognitive-longevity">Read the full Field Note →</a></p>
+    ]]></content:encoded>
+  </item>
   <item>
     <title>Loneliness Is Not Just a Feeling. It Is a Health Signal.</title>
     <link>https://antiaging-labs.com/learn/social-connection</link>
