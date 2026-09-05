@@ -201,6 +201,11 @@
       "permanent": true
     },
     {
+      "source": "/learn-cognitive-reset.html",
+      "destination": "/learn/cognitive-reset",
+      "permanent": true
+    },
+    {
       "source": "/masai-ppt.html",
       "destination": "/masai-ppt",
       "permanent": true
@@ -435,6 +440,14 @@
     {
       "source": "/learn/cognitive-longevity/",
       "destination": "/learn-cognitive-longevity.html"
+    },
+    {
+      "source": "/learn/cognitive-reset",
+      "destination": "/learn-cognitive-reset.html"
+    },
+    {
+      "source": "/learn/cognitive-reset/",
+      "destination": "/learn-cognitive-reset.html"
     },
     {
       "source": "/learn/longevity-escape-velocity",
