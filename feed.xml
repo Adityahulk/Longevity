@@ -6,12 +6,24 @@
   <atom:link href="https://antiaging-labs.com/feed.xml" rel="self" type="application/rss+xml"/>
   <description>The latest longevity and biomarker research, decoded in plain English. New posts from Antiaging Labs Field Notes.</description>
   <language>en-us</language>
-  <lastBuildDate>Sat, 05 Sep 2026 09:00:00 +0530</lastBuildDate>
+  <lastBuildDate>Thu, 10 Sep 2026 09:00:00 +0530</lastBuildDate>
   <image>
     <url>https://antiaging-labs.com/assets/logo/png/og-1200x630.png</url>
     <title>Antiaging Labs Field Notes</title>
     <link>https://antiaging-labs.com/learn</link>
   </image>
+  <item>
+    <title>Marathon Season Is Here. Should Everyone Run 42 km?</title>
+    <link>https://antiaging-labs.com/learn/marathon-season</link>
+    <guid isPermaLink="true">https://antiaging-labs.com/learn/marathon-season</guid>
+    <pubDate>Thu, 10 Sep 2026 09:00:00 +0530</pubDate>
+    <category>Training Notes</category>
+    <description><![CDATA[Medals are fun. But a marathon is a performance goal, not a default health prescription. A practical guide to running volume, Zone 2, intervals, strength and recovery for longevity.]]></description>
+    <content:encoded><![CDATA[
+      <p>Marathon season is full of social proof. This Field Note separates the joy of race day from the training that builds a capable body for decades.</p>
+      <p><a href="https://antiaging-labs.com/learn/marathon-season">Read the full Field Note →</a></p>
+    ]]></content:encoded>
+  </item>
   <item>
     <title>The Cognitive Reset: How to Protect Your Focus in a Digital World</title>
     <link>https://antiaging-labs.com/learn/cognitive-reset</link>

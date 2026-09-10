@@ -191,6 +191,11 @@
       "permanent": true
     },
     {
+      "source": "/learn-marathon-season.html",
+      "destination": "/learn/marathon-season",
+      "permanent": true
+    },
+    {
       "source": "/learn-social-connection.html",
       "destination": "/learn/social-connection",
       "permanent": true
@@ -424,6 +429,14 @@
     {
       "source": "/learn/marathon-4-30/",
       "destination": "/learn-marathon-4-30.html"
+    },
+    {
+      "source": "/learn/marathon-season",
+      "destination": "/learn-marathon-season.html"
+    },
+    {
+      "source": "/learn/marathon-season/",
+      "destination": "/learn-marathon-season.html"
     },
     {
       "source": "/learn/social-connection",
