@@ -6,12 +6,24 @@
   <atom:link href="https://antiaging-labs.com/feed.xml" rel="self" type="application/rss+xml"/>
   <description>The latest longevity and biomarker research, decoded in plain English. New posts from Antiaging Labs Field Notes.</description>
   <language>en-us</language>
-  <lastBuildDate>Thu, 10 Sep 2026 09:00:00 +0530</lastBuildDate>
+  <lastBuildDate>Sat, 12 Sep 2026 09:00:00 +0530</lastBuildDate>
   <image>
     <url>https://antiaging-labs.com/assets/logo/png/og-1200x630.png</url>
     <title>Antiaging Labs Field Notes</title>
     <link>https://antiaging-labs.com/learn</link>
   </image>
+  <item>
+    <title>Muscle Is Your Bio-Armor</title>
+    <link>https://antiaging-labs.com/learn/muscle-bio-armor</link>
+    <guid isPermaLink="true">https://antiaging-labs.com/learn/muscle-bio-armor</guid>
+    <pubDate>Sat, 12 Sep 2026 09:00:00 +0530</pubDate>
+    <category>Structural Longevity</category>
+    <description><![CDATA[Muscle, power and bone are structural longevity systems. A detailed guide to sarcopenia, fast force, bone loading and a practical resistance-training framework.]]></description>
+    <content:encoded><![CDATA[
+      <p>Cardio builds an engine. Muscle, power and bone build the structure that carries you through the decades. Learn what aging changes and how to train all three.</p>
+      <p><a href="https://antiaging-labs.com/learn/muscle-bio-armor">Read the full Field Note →</a></p>
+    ]]></content:encoded>
+  </item>
   <item>
     <title>Marathon Season Is Here. Should Everyone Run 42 km?</title>
     <link>https://antiaging-labs.com/learn/marathon-season</link>

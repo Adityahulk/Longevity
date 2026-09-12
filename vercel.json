@@ -196,6 +196,11 @@
       "permanent": true
     },
     {
+      "source": "/learn-muscle-bio-armor.html",
+      "destination": "/learn/muscle-bio-armor",
+      "permanent": true
+    },
+    {
       "source": "/learn-social-connection.html",
       "destination": "/learn/social-connection",
       "permanent": true
@@ -437,6 +442,14 @@
     {
       "source": "/learn/marathon-season/",
       "destination": "/learn-marathon-season.html"
+    },
+    {
+      "source": "/learn/muscle-bio-armor",
+      "destination": "/learn-muscle-bio-armor.html"
+    },
+    {
+      "source": "/learn/muscle-bio-armor/",
+      "destination": "/learn-muscle-bio-armor.html"
     },
     {
       "source": "/learn/social-connection",
