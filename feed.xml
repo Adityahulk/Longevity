@@ -6,12 +6,24 @@
   <atom:link href="https://antiaging-labs.com/feed.xml" rel="self" type="application/rss+xml"/>
   <description>The latest longevity and biomarker research, decoded in plain English. New posts from Antiaging Labs Field Notes.</description>
   <language>en-us</language>
-  <lastBuildDate>Sat, 12 Sep 2026 09:00:00 +0530</lastBuildDate>
+  <lastBuildDate>Mon, 21 Sep 2026 09:00:00 +0530</lastBuildDate>
   <image>
     <url>https://antiaging-labs.com/assets/logo/png/og-1200x630.png</url>
     <title>Antiaging Labs Field Notes</title>
     <link>https://antiaging-labs.com/learn</link>
   </image>
+  <item>
+    <title>The Zone 2 Glucose Paradox</title>
+    <link>https://antiaging-labs.com/learn/zone2-glucose-paradox</link>
+    <guid isPermaLink="true">https://antiaging-labs.com/learn/zone2-glucose-paradox</guid>
+    <pubDate>Mon, 21 Sep 2026 09:00:00 +0530</pubDate>
+    <category>Exercise Metabolism</category>
+    <description><![CDATA[Why high-volume endurance work can sometimes coincide with temporary glucose elevation, and how muscle contraction and muscle mass change glucose disposal.]]></description>
+    <content:encoded><![CDATA[
+      <p>A clear walkthrough of the exercise-stress response, GLUT4 pathways and skeletal muscle as the body’s glucose sink.</p>
+      <p><a href="https://antiaging-labs.com/learn/zone2-glucose-paradox">Read the full Field Note →</a></p>
+    ]]></content:encoded>
+  </item>
   <item>
     <title>Muscle Is Your Bio-Armor</title>
     <link>https://antiaging-labs.com/learn/muscle-bio-armor</link>

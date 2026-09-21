@@ -201,6 +201,11 @@
       "permanent": true
     },
     {
+      "source": "/learn-zone2-glucose-paradox.html",
+      "destination": "/learn/zone2-glucose-paradox",
+      "permanent": true
+    },
+    {
       "source": "/learn-social-connection.html",
       "destination": "/learn/social-connection",
       "permanent": true
@@ -450,6 +455,14 @@
     {
       "source": "/learn/muscle-bio-armor/",
       "destination": "/learn-muscle-bio-armor.html"
+    },
+    {
+      "source": "/learn/zone2-glucose-paradox",
+      "destination": "/learn-zone2-glucose-paradox.html"
+    },
+    {
+      "source": "/learn/zone2-glucose-paradox/",
+      "destination": "/learn-zone2-glucose-paradox.html"
     },
     {
       "source": "/learn/social-connection",
