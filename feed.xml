@@ -6,12 +6,24 @@
   <atom:link href="https://antiaging-labs.com/feed.xml" rel="self" type="application/rss+xml"/>
   <description>The latest longevity and biomarker research, decoded in plain English. New posts from Antiaging Labs Field Notes.</description>
   <language>en-us</language>
-  <lastBuildDate>Mon, 21 Sep 2026 09:00:00 +0530</lastBuildDate>
+  <lastBuildDate>Mon, 28 Sep 2026 09:00:00 +0530</lastBuildDate>
   <image>
     <url>https://antiaging-labs.com/assets/logo/png/og-1200x630.png</url>
     <title>Antiaging Labs Field Notes</title>
     <link>https://antiaging-labs.com/learn</link>
   </image>
+  <item>
+    <title>You Know What to Eat. Why Is It Still Hard?</title>
+    <link>https://antiaging-labs.com/learn/nutrition-adherence</link>
+    <guid isPermaLink="true">https://antiaging-labs.com/learn/nutrition-adherence</guid>
+    <pubDate>Mon, 28 Sep 2026 09:00:00 +0530</pubDate>
+    <category>Behavioral Nutrition</category>
+    <description><![CDATA[The dopamine, decision-fatigue and habit mechanisms that make nutrition adherence hard, plus the four-pillar system for making consistency easier.]]></description>
+    <content:encoded><![CDATA[
+      <p>Nutrition consistency is rarely an information problem. It is a mismatch between ancient biology and a hyper-engineered food environment.</p>
+      <p><a href="https://antiaging-labs.com/learn/nutrition-adherence">Read the full Field Note →</a></p>
+    ]]></content:encoded>
+  </item>
   <item>
     <title>The Zone 2 Glucose Paradox</title>
     <link>https://antiaging-labs.com/learn/zone2-glucose-paradox</link>

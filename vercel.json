@@ -206,6 +206,11 @@
       "permanent": true
     },
     {
+      "source": "/learn-nutrition-adherence.html",
+      "destination": "/learn/nutrition-adherence",
+      "permanent": true
+    },
+    {
       "source": "/learn-social-connection.html",
       "destination": "/learn/social-connection",
       "permanent": true
@@ -463,6 +468,14 @@
     {
       "source": "/learn/zone2-glucose-paradox/",
       "destination": "/learn-zone2-glucose-paradox.html"
+    },
+    {
+      "source": "/learn/nutrition-adherence",
+      "destination": "/learn-nutrition-adherence.html"
+    },
+    {
+      "source": "/learn/nutrition-adherence/",
+      "destination": "/learn-nutrition-adherence.html"
     },
     {
       "source": "/learn/social-connection",
