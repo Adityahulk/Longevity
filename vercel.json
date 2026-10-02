@@ -294,6 +294,11 @@
       "source": "/intake-nikhil.html",
       "destination": "/intake-nikhil",
       "permanent": true
+    },
+    {
+      "source": "/terms.html",
+      "destination": "/terms",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -788,6 +793,14 @@
     {
       "source": "/Ayush-report/",
       "destination": "/ayush.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
+    },
+    {
+      "source": "/terms/",
+      "destination": "/terms.html"
     }
   ]
 }
