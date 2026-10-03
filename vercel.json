@@ -211,6 +211,11 @@
       "permanent": true
     },
     {
+      "source": "/learn-protein-glycation.html",
+      "destination": "/learn/protein-glycation",
+      "permanent": true
+    },
+    {
       "source": "/learn-social-connection.html",
       "destination": "/learn/social-connection",
       "permanent": true
@@ -481,6 +486,14 @@
     {
       "source": "/learn/nutrition-adherence/",
       "destination": "/learn-nutrition-adherence.html"
+    },
+    {
+      "source": "/learn/protein-glycation",
+      "destination": "/learn-protein-glycation.html"
+    },
+    {
+      "source": "/learn/protein-glycation/",
+      "destination": "/learn-protein-glycation.html"
     },
     {
       "source": "/learn/social-connection",

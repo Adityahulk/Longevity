@@ -6,12 +6,24 @@
   <atom:link href="https://antiaging-labs.com/feed.xml" rel="self" type="application/rss+xml"/>
   <description>The latest longevity and biomarker research, decoded in plain English. New posts from Antiaging Labs Field Notes.</description>
   <language>en-us</language>
-  <lastBuildDate>Mon, 28 Sep 2026 09:00:00 +0530</lastBuildDate>
+  <lastBuildDate>Sun, 04 Oct 2026 09:00:00 +0530</lastBuildDate>
   <image>
     <url>https://antiaging-labs.com/assets/logo/png/og-1200x630.png</url>
     <title>Antiaging Labs Field Notes</title>
     <link>https://antiaging-labs.com/learn</link>
   </image>
+  <item>
+    <title>How Sugar Makes Your Body Stiff</title>
+    <link>https://antiaging-labs.com/learn/protein-glycation</link>
+    <guid isPermaLink="true">https://antiaging-labs.com/learn/protein-glycation</guid>
+    <pubDate>Sun, 04 Oct 2026 09:00:00 +0530</pubDate>
+    <category>Longevity Science</category>
+    <description><![CDATA[A simple guide to protein glycation, AGEs, stiffness, and three everyday ways to lower the load on flexible tissue.]]></description>
+    <content:encoded><![CDATA[
+      <p>How blood sugar and high-heat cooking can create stiff, sticky proteins, and what meal order, walking and cooking methods can do about it.</p>
+      <p><a href="https://antiaging-labs.com/learn/protein-glycation">Read the full Field Note →</a></p>
+    ]]></content:encoded>
+  </item>
   <item>
     <title>You Know What to Eat. Why Is It Still Hard?</title>
     <link>https://antiaging-labs.com/learn/nutrition-adherence</link>
